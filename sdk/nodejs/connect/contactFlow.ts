@@ -15,47 +15,6 @@ import * as utilities from "../utilities";
  * See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.ContactFlow("test", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     description: "Test Contact Flow Description",
- *     type: "CONTACT_FLOW",
- *     content: JSON.stringify({
- *         Version: "2019-10-30",
- *         StartAction: "12345678-1234-1234-1234-123456789012",
- *         Actions: [
- *             {
- *                 Identifier: "12345678-1234-1234-1234-123456789012",
- *                 Type: "MessageParticipant",
- *                 Transitions: {
- *                     NextAction: "abcdef-abcd-abcd-abcd-abcdefghijkl",
- *                     Errors: [],
- *                     Conditions: [],
- *                 },
- *                 Parameters: {
- *                     Text: "Thanks for calling the sample flow!",
- *                 },
- *             },
- *             {
- *                 Identifier: "abcdef-abcd-abcd-abcd-abcdefghijkl",
- *                 Type: "DisconnectParticipant",
- *                 Transitions: {},
- *                 Parameters: {},
- *             },
- *         ],
- *     }),
- *     tags: {
- *         Name: "Test Contact Flow",
- *         Application: "Example",
- *         Method: "Create",
- *     },
- * });
- * ```
  *
  * ## Import
  *

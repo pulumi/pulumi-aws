@@ -12,68 +12,6 @@ namespace Pulumi.Aws.Ecs
     /// <summary>
     /// Provides an ECS cluster.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Ecs.Cluster("foo", new()
-    ///     {
-    ///         Settings = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.ClusterSettingArgs
-    ///             {
-    ///                 Name = "containerInsights",
-    ///                 Value = "enabled",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Example with Log Configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
-    ///     {
-    ///         Description = "example",
-    ///         DeletionWindowInDays = 7,
-    ///     });
-    /// 
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
-    /// 
-    ///     var test = new Aws.Ecs.Cluster("test", new()
-    ///     {
-    ///         Configuration = new Aws.Ecs.Inputs.ClusterConfigurationArgs
-    ///         {
-    ///             ExecuteCommandConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationArgs
-    ///             {
-    ///                 KmsKeyId = exampleKey.Arn,
-    ///                 Logging = "OVERRIDE",
-    ///                 LogConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs
-    ///                 {
-    ///                     CloudWatchEncryptionEnabled = true,
-    ///                     CloudWatchLogGroupName = exampleLogGroup.Name,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECS clusters using the `name`. For example:

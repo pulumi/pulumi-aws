@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Vpc
     {
         /// <summary>
         /// `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Vpc.GetSecurityGroupRule.Invoke(new()
-        ///     {
-        ///         SecurityGroupRuleId = @var.Security_group_rule_id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecurityGroupRuleResult> InvokeAsync(GetSecurityGroupRuleArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupRuleResult>("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", args ?? new GetSecurityGroupRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Vpc.GetSecurityGroupRule.Invoke(new()
-        ///     {
-        ///         SecurityGroupRuleId = @var.Security_group_rule_id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecurityGroupRuleResult> Invoke(GetSecurityGroupRuleInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupRuleResult>("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", args ?? new GetSecurityGroupRuleInvokeArgs(), options.WithDefaults());

@@ -13,28 +13,6 @@ namespace Pulumi.Aws.VpcLattice
     /// Provides the ability to register a target with an AWS VPC Lattice Target Group.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VpcLattice.TargetGroupAttachment("example", new()
-    ///     {
-    ///         TargetGroupIdentifier = aws_vpclattice_target_group.Example.Id,
-    ///         Target = new Aws.VpcLattice.Inputs.TargetGroupAttachmentTargetArgs
-    ///         {
-    ///             Id = aws_lb.Example.Arn,
-    ///             Port = 80,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/targetGroupAttachment:TargetGroupAttachment")]
     public partial class TargetGroupAttachment : global::Pulumi.CustomResource

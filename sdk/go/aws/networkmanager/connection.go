@@ -16,34 +16,6 @@ import (
 // Creates a connection between two devices.
 // The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewConnection(ctx, "example", &networkmanager.ConnectionArgs{
-//				GlobalNetworkId:   pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				DeviceId:          pulumi.Any(aws_networkmanager_device.Example1.Id),
-//				ConnectedDeviceId: pulumi.Any(aws_networkmanager_device.Example2.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_connection` using the connection ARN. For example:

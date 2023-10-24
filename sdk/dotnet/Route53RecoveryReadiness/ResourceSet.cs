@@ -12,32 +12,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// <summary>
     /// Provides an AWS Route 53 Recovery Readiness Resource Set.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryReadiness.ResourceSet("example", new()
-    ///     {
-    ///         ResourceSetName = my_cw_alarm_set,
-    ///         ResourceSetType = "AWS::CloudWatch::Alarm",
-    ///         Resources = new[]
-    ///         {
-    ///             new Aws.Route53RecoveryReadiness.Inputs.ResourceSetResourceArgs
-    ///             {
-    ///                 ResourceArn = aws_cloudwatch_metric_alarm.Example.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For example:

@@ -10,19 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing a Verified Access Trust Provider.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedaccess.TrustProvider("example", {
- *     policyReferenceName: "example",
- *     trustProviderType: "user",
- *     userTrustProviderType: "iam-identity-center",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Transfer Workflows using the

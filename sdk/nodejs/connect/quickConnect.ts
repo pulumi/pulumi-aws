@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Connect Quick Connect resource. For more information see
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.QuickConnect("test", {
- *     description: "quick connect phone number",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     quickConnectConfig: {
- *         phoneConfigs: [{
- *             phoneNumber: "+12345678912",
- *         }],
- *         quickConnectType: "PHONE_NUMBER",
- *     },
- *     tags: {
- *         Name: "Example Quick Connect",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Quick Connects using the `instance_id` and `quick_connect_id` separated by a colon (`:`). For example:

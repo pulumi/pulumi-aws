@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Amazon Lex Intent.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const orderFlowers = aws.lex.getIntent({
- *     name: "OrderFlowers",
- *     version: "$LATEST",
- * });
- * ```
  */
 export function getIntent(args: GetIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetIntentResult> {
 
@@ -89,18 +77,6 @@ export interface GetIntentResult {
 }
 /**
  * Provides details about a specific Amazon Lex Intent.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const orderFlowers = aws.lex.getIntent({
- *     name: "OrderFlowers",
- *     version: "$LATEST",
- * });
- * ```
  */
 export function getIntentOutput(args: GetIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntentResult> {
     return pulumi.output(args).apply((a: any) => getIntent(a, opts))

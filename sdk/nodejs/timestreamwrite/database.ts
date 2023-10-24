@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Timestream database resource.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.timestreamwrite.Database("example", {databaseName: "database-example"});
- * ```
- * ### Full usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.timestreamwrite.Database("example", {
- *     databaseName: "database-example",
- *     kmsKeyId: aws_kms_key.example.arn,
- *     tags: {
- *         Name: "value",
- *     },
- * });
- * ```
  *
  * ## Import
  *

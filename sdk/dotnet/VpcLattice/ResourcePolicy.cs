@@ -13,59 +13,6 @@ namespace Pulumi.Aws.VpcLattice
     /// Resource for managing an AWS VPC Lattice Resource Policy.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var exampleServiceNetwork = new Aws.VpcLattice.ServiceNetwork("exampleServiceNetwork");
-    /// 
-    ///     var exampleResourcePolicy = new Aws.VpcLattice.ResourcePolicy("exampleResourcePolicy", new()
-    ///     {
-    ///         ResourceArn = exampleServiceNetwork.Arn,
-    ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity, exampleServiceNetwork.Arn).Apply(values =&gt;
-    ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             var arn = values.Item3;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["Version"] = "2012-10-17",
-    ///                 ["Statement"] = new[]
-    ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Sid"] = "test-pol-principals-6",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["AWS"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                         },
-    ///                         ["Action"] = new[]
-    ///                         {
-    ///                             "vpc-lattice:CreateServiceNetworkVpcAssociation",
-    ///                             "vpc-lattice:CreateServiceNetworkServiceAssociation",
-    ///                             "vpc-lattice:GetServiceNetwork",
-    ///                         },
-    ///                         ["Resource"] = arn,
-    ///                     },
-    ///                 },
-    ///             });
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

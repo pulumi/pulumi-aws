@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ModelArgs', 'Model']
@@ -27,13 +27,42 @@ class ModelArgs:
         :param pulumi.Input[str] description: Description of the model. Must be between 1 and 128 characters in length.
         :param pulumi.Input[str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "schema", schema)
+        ModelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            content_type=content_type,
+            schema=schema,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+
+        _setter("api_id", api_id)
+        _setter("content_type", content_type)
+        _setter("schema", schema)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="apiId")
@@ -112,16 +141,39 @@ class _ModelState:
         :param pulumi.Input[str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
         :param pulumi.Input[str] schema: Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
         """
+        _ModelState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            content_type=content_type,
+            description=description,
+            name=name,
+            schema=schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
 
     @property
     @pulumi.getter(name="apiId")
@@ -199,27 +251,6 @@ class Model(pulumi.CustomResource):
         Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Model("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            content_type="application/json",
-            schema=json.dumps({
-                "$schema": "http://json-schema.org/draft-04/schema#",
-                "title": "ExampleModel",
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string",
-                    },
-                },
-            }))
-        ```
 
         ## Import
 
@@ -247,27 +278,6 @@ class Model(pulumi.CustomResource):
         Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Model("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            content_type="application/json",
-            schema=json.dumps({
-                "$schema": "http://json-schema.org/draft-04/schema#",
-                "title": "ExampleModel",
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string",
-                    },
-                },
-            }))
-        ```
 
         ## Import
 
@@ -287,6 +297,10 @@ class Model(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ModelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

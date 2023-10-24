@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DeploymentArgs', 'Deployment']
@@ -31,15 +31,58 @@ class DeploymentArgs:
         :param pulumi.Input[str] description: Description of the deployment. Can be at most 1024 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
-        pulumi.set(__self__, "configuration_version", configuration_version)
-        pulumi.set(__self__, "deployment_strategy_id", deployment_strategy_id)
-        pulumi.set(__self__, "environment_id", environment_id)
+        DeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            configuration_profile_id=configuration_profile_id,
+            configuration_version=configuration_version,
+            deployment_strategy_id=deployment_strategy_id,
+            environment_id=environment_id,
+            description=description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             configuration_profile_id: Optional[pulumi.Input[str]] = None,
+             configuration_version: Optional[pulumi.Input[str]] = None,
+             deployment_strategy_id: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if configuration_profile_id is None and 'configurationProfileId' in kwargs:
+            configuration_profile_id = kwargs['configurationProfileId']
+        if configuration_profile_id is None:
+            raise TypeError("Missing 'configuration_profile_id' argument")
+        if configuration_version is None and 'configurationVersion' in kwargs:
+            configuration_version = kwargs['configurationVersion']
+        if configuration_version is None:
+            raise TypeError("Missing 'configuration_version' argument")
+        if deployment_strategy_id is None and 'deploymentStrategyId' in kwargs:
+            deployment_strategy_id = kwargs['deploymentStrategyId']
+        if deployment_strategy_id is None:
+            raise TypeError("Missing 'deployment_strategy_id' argument")
+        if environment_id is None and 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if environment_id is None:
+            raise TypeError("Missing 'environment_id' argument")
+
+        _setter("application_id", application_id)
+        _setter("configuration_profile_id", configuration_profile_id)
+        _setter("configuration_version", configuration_version)
+        _setter("deployment_strategy_id", deployment_strategy_id)
+        _setter("environment_id", environment_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -154,31 +197,76 @@ class _DeploymentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _DeploymentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            arn=arn,
+            configuration_profile_id=configuration_profile_id,
+            configuration_version=configuration_version,
+            deployment_number=deployment_number,
+            deployment_strategy_id=deployment_strategy_id,
+            description=description,
+            environment_id=environment_id,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             configuration_profile_id: Optional[pulumi.Input[str]] = None,
+             configuration_version: Optional[pulumi.Input[str]] = None,
+             deployment_number: Optional[pulumi.Input[int]] = None,
+             deployment_strategy_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if configuration_profile_id is None and 'configurationProfileId' in kwargs:
+            configuration_profile_id = kwargs['configurationProfileId']
+        if configuration_version is None and 'configurationVersion' in kwargs:
+            configuration_version = kwargs['configurationVersion']
+        if deployment_number is None and 'deploymentNumber' in kwargs:
+            deployment_number = kwargs['deploymentNumber']
+        if deployment_strategy_id is None and 'deploymentStrategyId' in kwargs:
+            deployment_strategy_id = kwargs['deploymentStrategyId']
+        if environment_id is None and 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if configuration_profile_id is not None:
-            pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
+            _setter("configuration_profile_id", configuration_profile_id)
         if configuration_version is not None:
-            pulumi.set(__self__, "configuration_version", configuration_version)
+            _setter("configuration_version", configuration_version)
         if deployment_number is not None:
-            pulumi.set(__self__, "deployment_number", deployment_number)
+            _setter("deployment_number", deployment_number)
         if deployment_strategy_id is not None:
-            pulumi.set(__self__, "deployment_strategy_id", deployment_strategy_id)
+            _setter("deployment_strategy_id", deployment_strategy_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -332,24 +420,6 @@ class Deployment(pulumi.CustomResource):
         """
         Provides an AppConfig Deployment resource for an `appconfig.Application` resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appconfig.Deployment("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            configuration_version=aws_appconfig_hosted_configuration_version["example"]["version_number"],
-            deployment_strategy_id=aws_appconfig_deployment_strategy["example"]["id"],
-            description="My example deployment",
-            environment_id=aws_appconfig_environment["example"]["environment_id"],
-            tags={
-                "Type": "AppConfig Deployment",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
@@ -377,24 +447,6 @@ class Deployment(pulumi.CustomResource):
         """
         Provides an AppConfig Deployment resource for an `appconfig.Application` resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appconfig.Deployment("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            configuration_version=aws_appconfig_hosted_configuration_version["example"]["version_number"],
-            deployment_strategy_id=aws_appconfig_deployment_strategy["example"]["id"],
-            description="My example deployment",
-            environment_id=aws_appconfig_environment["example"]["environment_id"],
-            tags={
-                "Type": "AppConfig Deployment",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
@@ -413,6 +465,10 @@ class Deployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

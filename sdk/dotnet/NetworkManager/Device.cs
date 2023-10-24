@@ -13,25 +13,6 @@ namespace Pulumi.Aws.NetworkManager
     /// Creates a device in a global network. If you specify both a site ID and a location,
     /// the location of the site is used for visualization in the Network Manager console.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.Device("example", new()
-    ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///         SiteId = aws_networkmanager_site.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_device` using the device ARN. For example:

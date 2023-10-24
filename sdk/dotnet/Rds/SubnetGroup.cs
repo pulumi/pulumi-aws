@@ -12,32 +12,6 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// Provides an RDS DB subnet group resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Rds.SubnetGroup("default", new()
-    ///     {
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Frontend.Id,
-    ///             aws_subnet.Backend.Id,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "My DB subnet group" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB Subnet groups using the `name`. For example:

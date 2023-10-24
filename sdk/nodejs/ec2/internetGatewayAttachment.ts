@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to create a VPC Internet Gateway Attachment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.1.0.0/16"});
- * const exampleInternetGateway = new aws.ec2.InternetGateway("exampleInternetGateway", {});
- * const exampleInternetGatewayAttachment = new aws.ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment", {
- *     internetGatewayId: exampleInternetGateway.id,
- *     vpcId: exampleVpc.id,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Internet Gateway Attachments using the `id`. For example:

@@ -13,106 +13,12 @@ namespace Pulumi.Aws.Ssm
     {
         /// <summary>
         /// Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// To retrieve a baseline provided by AWS:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var centos = Aws.Ssm.GetPatchBaseline.Invoke(new()
-        ///     {
-        ///         NamePrefix = "AWS-",
-        ///         OperatingSystem = "CENTOS",
-        ///         Owner = "AWS",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// To retrieve a baseline on your account:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var defaultCustom = Aws.Ssm.GetPatchBaseline.Invoke(new()
-        ///     {
-        ///         DefaultBaseline = true,
-        ///         NamePrefix = "MyCustomBaseline",
-        ///         OperatingSystem = "WINDOWS",
-        ///         Owner = "Self",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPatchBaselineResult> InvokeAsync(GetPatchBaselineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? new GetPatchBaselineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// To retrieve a baseline provided by AWS:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var centos = Aws.Ssm.GetPatchBaseline.Invoke(new()
-        ///     {
-        ///         NamePrefix = "AWS-",
-        ///         OperatingSystem = "CENTOS",
-        ///         Owner = "AWS",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// To retrieve a baseline on your account:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var defaultCustom = Aws.Ssm.GetPatchBaseline.Invoke(new()
-        ///     {
-        ///         DefaultBaseline = true,
-        ///         NamePrefix = "MyCustomBaseline",
-        ///         OperatingSystem = "WINDOWS",
-        ///         Owner = "Self",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPatchBaselineResult> Invoke(GetPatchBaselineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? new GetPatchBaselineInvokeArgs(), options.WithDefaults());

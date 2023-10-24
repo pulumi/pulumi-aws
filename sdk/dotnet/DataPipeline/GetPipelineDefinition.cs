@@ -13,56 +13,12 @@ namespace Pulumi.Aws.DataPipeline
     {
         /// <summary>
         /// Provides details about a specific DataPipeline Pipeline Definition.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DataPipeline.GetPipelineDefinition.Invoke(new()
-        ///     {
-        ///         PipelineId = "pipelineID",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPipelineDefinitionResult> InvokeAsync(GetPipelineDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPipelineDefinitionResult>("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args ?? new GetPipelineDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific DataPipeline Pipeline Definition.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.DataPipeline.GetPipelineDefinition.Invoke(new()
-        ///     {
-        ///         PipelineId = "pipelineID",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPipelineDefinitionResult> Invoke(GetPipelineDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineDefinitionResult>("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args ?? new GetPipelineDefinitionInvokeArgs(), options.WithDefaults());

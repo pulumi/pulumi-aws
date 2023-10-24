@@ -12,25 +12,6 @@ namespace Pulumi.Aws.Neptune
     /// <summary>
     /// Manages a Neptune database cluster snapshot.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Neptune.ClusterSnapshot("example", new()
-    ///     {
-    ///         DbClusterIdentifier = aws_neptune_cluster.Example.Id,
-    ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For example:

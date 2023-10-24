@@ -7,17 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
  *
- * ## Example Usage
- *
- * Usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.ServicecatalogPortfolioStatus("example", {status: "Enabled"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import models using the `id`. For example:

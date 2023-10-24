@@ -12,25 +12,6 @@ namespace Pulumi.Aws.MediaPackage
     /// <summary>
     /// Provides an AWS Elemental MediaPackage Channel.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var kittens = new Aws.MediaPackage.Channel("kittens", new()
-    ///     {
-    ///         ChannelId = "kitten-channel",
-    ///         Description = "A channel dedicated to amusing videos of kittens.",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Media Package Channels using the channel ID. For example:

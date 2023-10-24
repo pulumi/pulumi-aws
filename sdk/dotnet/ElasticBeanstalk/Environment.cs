@@ -17,29 +17,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// Environments are often things such as `development`, `integration`, or
     /// `production`.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
-    ///     {
-    ///         Description = "tf-test-desc",
-    ///     });
-    /// 
-    ///     var tfenvtest = new Aws.ElasticBeanstalk.Environment("tfenvtest", new()
-    ///     {
-    ///         Application = tftest.Name,
-    ///         SolutionStackName = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Option Settings
     /// 
     /// Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
@@ -51,45 +28,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// * `name` - name of the configuration option
     /// * `value` - value for the configuration option
     /// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
-    /// 
-    /// ### Example With Options
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
-    ///     {
-    ///         Description = "tf-test-desc",
-    ///     });
-    /// 
-    ///     var tfenvtest = new Aws.ElasticBeanstalk.Environment("tfenvtest", new()
-    ///     {
-    ///         Application = tftest.Name,
-    ///         SolutionStackName = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
-    ///         Settings = new[]
-    ///         {
-    ///             new Aws.ElasticBeanstalk.Inputs.EnvironmentSettingArgs
-    ///             {
-    ///                 Namespace = "aws:ec2:vpc",
-    ///                 Name = "VPCId",
-    ///                 Value = "vpc-xxxxxxxx",
-    ///             },
-    ///             new Aws.ElasticBeanstalk.Inputs.EnvironmentSettingArgs
-    ///             {
-    ///                 Namespace = "aws:ec2:vpc",
-    ///                 Name = "Subnets",
-    ///                 Value = "subnet-xxxxxxxx",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

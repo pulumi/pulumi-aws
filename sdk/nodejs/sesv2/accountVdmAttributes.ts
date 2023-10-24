@@ -11,22 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.AccountVdmAttributes("example", {
- *     dashboardAttributes: {
- *         engagementMetrics: "ENABLED",
- *     },
- *     guardianAttributes: {
- *         optimizedSharedDelivery: "ENABLED",
- *     },
- *     vdmEnabled: "ENABLED",
- * });
- * ```
  *
  * ## Import
  *

@@ -11,53 +11,6 @@ import * as utilities from "../utilities";
  * Manages an EMR Serverless Application.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emrserverless.Application("example", {
- *     releaseLabel: "emr-6.6.0",
- *     type: "hive",
- * });
- * ```
- * ### Initial Capacity Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emrserverless.Application("example", {
- *     initialCapacities: [{
- *         initialCapacityConfig: {
- *             workerConfiguration: {
- *                 cpu: "2 vCPU",
- *                 memory: "10 GB",
- *             },
- *             workerCount: 1,
- *         },
- *         initialCapacityType: "HiveDriver",
- *     }],
- *     releaseLabel: "emr-6.6.0",
- *     type: "hive",
- * });
- * ```
- * ### Maximum Capacity Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emrserverless.Application("example", {
- *     maximumCapacity: {
- *         cpu: "2 vCPU",
- *         memory: "10 GB",
- *     },
- *     releaseLabel: "emr-6.6.0",
- *     type: "hive",
- * });
- * ```
  *
  * ## Import
  *

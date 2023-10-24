@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IdentityPolicyArgs', 'IdentityPolicy']
@@ -23,10 +23,29 @@ class IdentityPolicyArgs:
         :param pulumi.Input[str] policy: JSON string of the policy.
         :param pulumi.Input[str] name: Name of the policy.
         """
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "policy", policy)
+        IdentityPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity=identity,
+            policy=policy,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+
+        _setter("identity", identity)
+        _setter("policy", policy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -77,12 +96,27 @@ class _IdentityPolicyState:
         :param pulumi.Input[str] name: Name of the policy.
         :param pulumi.Input[str] policy: JSON string of the policy.
         """
+        _IdentityPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity=identity,
+            name=name,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -133,29 +167,6 @@ class IdentityPolicy(pulumi.CustomResource):
         """
         Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "SES:SendEmail",
-                "SES:SendRawEmail",
-            ],
-            resources=[example_domain_identity.arn],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["*"],
-                type="AWS",
-            )],
-        )])
-        example_identity_policy = aws.ses.IdentityPolicy("exampleIdentityPolicy",
-            identity=example_domain_identity.arn,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
@@ -179,29 +190,6 @@ class IdentityPolicy(pulumi.CustomResource):
         """
         Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "SES:SendEmail",
-                "SES:SendRawEmail",
-            ],
-            resources=[example_domain_identity.arn],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["*"],
-                type="AWS",
-            )],
-        )])
-        example_identity_policy = aws.ses.IdentityPolicy("exampleIdentityPolicy",
-            identity=example_domain_identity.arn,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
@@ -220,6 +208,10 @@ class IdentityPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

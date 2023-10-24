@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InstanceArgs', 'Instance']
@@ -23,9 +23,34 @@ class InstanceArgs:
         :param pulumi.Input[str] instance_id: The ID of the service instance.
         :param pulumi.Input[str] service_id: The ID of the service that you want to use to create the instance.
         """
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "service_id", service_id)
+        InstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            instance_id=instance_id,
+            service_id=service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             service_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if instance_id is None:
+            raise TypeError("Missing 'instance_id' argument")
+        if service_id is None and 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if service_id is None:
+            raise TypeError("Missing 'service_id' argument")
+
+        _setter("attributes", attributes)
+        _setter("instance_id", instance_id)
+        _setter("service_id", service_id)
 
     @property
     @pulumi.getter
@@ -76,12 +101,31 @@ class _InstanceState:
         :param pulumi.Input[str] instance_id: The ID of the service instance.
         :param pulumi.Input[str] service_id: The ID of the service that you want to use to create the instance.
         """
+        _InstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            instance_id=instance_id,
+            service_id=service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             service_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if service_id is None and 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if service_id is not None:
-            pulumi.set(__self__, "service_id", service_id)
+            _setter("service_id", service_id)
 
     @property
     @pulumi.getter
@@ -132,54 +176,6 @@ class Instance(pulumi.CustomResource):
         """
         Provides a Service Discovery Instance resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vpc = aws.ec2.Vpc("exampleVpc",
-            cidr_block="10.0.0.0/16",
-            enable_dns_support=True,
-            enable_dns_hostnames=True)
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
-            description="example",
-            vpc=example_vpc.id)
-        example_service = aws.servicediscovery.Service("exampleService",
-            dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
-                namespace_id=example_private_dns_namespace.id,
-                dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
-                    ttl=10,
-                    type="A",
-                )],
-                routing_policy="MULTIVALUE",
-            ),
-            health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
-                failure_threshold=1,
-            ))
-        example_instance = aws.servicediscovery.Instance("exampleInstance",
-            instance_id="example-instance-id",
-            service_id=example_service.id,
-            attributes={
-                "AWS_INSTANCE_IPV4": "172.18.0.1",
-                "custom_attribute": "custom",
-            })
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_http_namespace = aws.servicediscovery.HttpNamespace("exampleHttpNamespace", description="example")
-        example_service = aws.servicediscovery.Service("exampleService", namespace_id=example_http_namespace.id)
-        example_instance = aws.servicediscovery.Instance("exampleInstance",
-            instance_id="example-instance-id",
-            service_id=example_service.id,
-            attributes={
-                "AWS_EC2_INSTANCE_ID": "i-0abdg374kd892cj6dl",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
@@ -203,54 +199,6 @@ class Instance(pulumi.CustomResource):
         """
         Provides a Service Discovery Instance resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vpc = aws.ec2.Vpc("exampleVpc",
-            cidr_block="10.0.0.0/16",
-            enable_dns_support=True,
-            enable_dns_hostnames=True)
-        example_private_dns_namespace = aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace",
-            description="example",
-            vpc=example_vpc.id)
-        example_service = aws.servicediscovery.Service("exampleService",
-            dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
-                namespace_id=example_private_dns_namespace.id,
-                dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
-                    ttl=10,
-                    type="A",
-                )],
-                routing_policy="MULTIVALUE",
-            ),
-            health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
-                failure_threshold=1,
-            ))
-        example_instance = aws.servicediscovery.Instance("exampleInstance",
-            instance_id="example-instance-id",
-            service_id=example_service.id,
-            attributes={
-                "AWS_INSTANCE_IPV4": "172.18.0.1",
-                "custom_attribute": "custom",
-            })
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_http_namespace = aws.servicediscovery.HttpNamespace("exampleHttpNamespace", description="example")
-        example_service = aws.servicediscovery.Service("exampleService", namespace_id=example_http_namespace.id)
-        example_instance = aws.servicediscovery.Instance("exampleInstance",
-            instance_id="example-instance-id",
-            service_id=example_service.id,
-            attributes={
-                "AWS_EC2_INSTANCE_ID": "i-0abdg374kd892cj6dl",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
@@ -269,6 +217,10 @@ class Instance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

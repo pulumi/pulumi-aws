@@ -10,37 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// The following example below creates a CloudFront key group.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var examplePublicKey = new Aws.CloudFront.PublicKey("examplePublicKey", new()
-    ///     {
-    ///         Comment = "example public key",
-    ///         EncodedKey = File.ReadAllText("public_key.pem"),
-    ///     });
-    /// 
-    ///     var exampleKeyGroup = new Aws.CloudFront.KeyGroup("exampleKeyGroup", new()
-    ///     {
-    ///         Comment = "example key group",
-    ///         Items = new[]
-    ///         {
-    ///             examplePublicKey.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront Key Group using the `id`. For example:

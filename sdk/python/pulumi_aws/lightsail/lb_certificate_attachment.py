@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LbCertificateAttachmentArgs', 'LbCertificateAttachment']
@@ -21,8 +21,29 @@ class LbCertificateAttachmentArgs:
         :param pulumi.Input[str] certificate_name: The name of your SSL/TLS certificate.
         :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to associate the SSL/TLS certificate.
         """
-        pulumi.set(__self__, "certificate_name", certificate_name)
-        pulumi.set(__self__, "lb_name", lb_name)
+        LbCertificateAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_name=certificate_name,
+            lb_name=lb_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             lb_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_name is None and 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if certificate_name is None:
+            raise TypeError("Missing 'certificate_name' argument")
+        if lb_name is None and 'lbName' in kwargs:
+            lb_name = kwargs['lbName']
+        if lb_name is None:
+            raise TypeError("Missing 'lb_name' argument")
+
+        _setter("certificate_name", certificate_name)
+        _setter("lb_name", lb_name)
 
     @property
     @pulumi.getter(name="certificateName")
@@ -59,10 +80,27 @@ class _LbCertificateAttachmentState:
         :param pulumi.Input[str] certificate_name: The name of your SSL/TLS certificate.
         :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to associate the SSL/TLS certificate.
         """
+        _LbCertificateAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_name=certificate_name,
+            lb_name=lb_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             lb_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_name is None and 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if lb_name is None and 'lbName' in kwargs:
+            lb_name = kwargs['lbName']
+
         if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
+            _setter("certificate_name", certificate_name)
         if lb_name is not None:
-            pulumi.set(__self__, "lb_name", lb_name)
+            _setter("lb_name", lb_name)
 
     @property
     @pulumi.getter(name="certificateName")
@@ -100,26 +138,6 @@ class LbCertificateAttachment(pulumi.CustomResource):
         """
         Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        test_lb_certificate = aws.lightsail.LbCertificate("testLbCertificate",
-            lb_name=test_lb.id,
-            domain_name="test.com")
-        test_lb_certificate_attachment = aws.lightsail.LbCertificateAttachment("testLbCertificateAttachment",
-            lb_name=test_lb.name,
-            certificate_name=test_lb_certificate.name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
@@ -142,26 +160,6 @@ class LbCertificateAttachment(pulumi.CustomResource):
         """
         Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        test_lb_certificate = aws.lightsail.LbCertificate("testLbCertificate",
-            lb_name=test_lb.id,
-            domain_name="test.com")
-        test_lb_certificate_attachment = aws.lightsail.LbCertificateAttachment("testLbCertificateAttachment",
-            lb_name=test_lb.name,
-            certificate_name=test_lb_certificate.name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
@@ -180,6 +178,10 @@ class LbCertificateAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LbCertificateAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

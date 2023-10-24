@@ -12,58 +12,6 @@ namespace Pulumi.Aws.DataSync
     /// <summary>
     /// Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
     /// 
-    /// ## Example Usage
-    /// ### With Scheduling
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataSync.Task("example", new()
-    ///     {
-    ///         DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
-    ///         SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
-    ///         Schedule = new Aws.DataSync.Inputs.TaskScheduleArgs
-    ///         {
-    ///             ScheduleExpression = "cron(0 12 ? * SUN,WED *)",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With Filtering
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataSync.Task("example", new()
-    ///     {
-    ///         DestinationLocationArn = aws_datasync_location_s3.Destination.Arn,
-    ///         SourceLocationArn = aws_datasync_location_nfs.Source.Arn,
-    ///         Excludes = new Aws.DataSync.Inputs.TaskExcludesArgs
-    ///         {
-    ///             FilterType = "SIMPLE_PATTERN",
-    ///             Value = "/folder1|/folder2",
-    ///         },
-    ///         Includes = new Aws.DataSync.Inputs.TaskIncludesArgs
-    ///         {
-    ///             FilterType = "SIMPLE_PATTERN",
-    ///             Value = "/folder1|/folder2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:

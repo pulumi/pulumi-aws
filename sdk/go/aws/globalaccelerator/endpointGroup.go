@@ -15,38 +15,6 @@ import (
 
 // Provides a Global Accelerator endpoint group.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/globalaccelerator"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := globalaccelerator.NewEndpointGroup(ctx, "example", &globalaccelerator.EndpointGroupArgs{
-//				ListenerArn: pulumi.Any(aws_globalaccelerator_listener.Example.Id),
-//				EndpointConfigurations: globalaccelerator.EndpointGroupEndpointConfigurationArray{
-//					&globalaccelerator.EndpointGroupEndpointConfigurationArgs{
-//						EndpointId: pulumi.Any(aws_lb.Example.Arn),
-//						Weight:     pulumi.Int(100),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:

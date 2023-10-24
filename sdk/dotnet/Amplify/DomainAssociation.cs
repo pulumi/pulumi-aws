@@ -12,57 +12,6 @@ namespace Pulumi.Aws.Amplify
     /// <summary>
     /// Provides an Amplify Domain Association resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleApp = new Aws.Amplify.App("exampleApp", new()
-    ///     {
-    ///         CustomRules = new[]
-    ///         {
-    ///             new Aws.Amplify.Inputs.AppCustomRuleArgs
-    ///             {
-    ///                 Source = "https://example.com",
-    ///                 Status = "302",
-    ///                 Target = "https://www.example.com",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var master = new Aws.Amplify.Branch("master", new()
-    ///     {
-    ///         AppId = exampleApp.Id,
-    ///         BranchName = "master",
-    ///     });
-    /// 
-    ///     var exampleDomainAssociation = new Aws.Amplify.DomainAssociation("exampleDomainAssociation", new()
-    ///     {
-    ///         AppId = exampleApp.Id,
-    ///         DomainName = "example.com",
-    ///         SubDomains = new[]
-    ///         {
-    ///             new Aws.Amplify.Inputs.DomainAssociationSubDomainArgs
-    ///             {
-    ///                 BranchName = master.BranchName,
-    ///                 Prefix = "",
-    ///             },
-    ///             new Aws.Amplify.Inputs.DomainAssociationSubDomainArgs
-    ///             {
-    ///                 BranchName = master.BranchName,
-    ///                 Prefix = "www",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:

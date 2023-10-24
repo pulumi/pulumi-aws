@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a DynamoDB contributor insights resource
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.dynamodb.ContributorInsights("test", {tableName: "ExampleTableName"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_dynamodb_contributor_insights` using the format `name:table_name/index:index_name`, followed by the account number. For example:

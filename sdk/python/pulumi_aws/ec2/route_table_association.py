@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteTableAssociationArgs', 'RouteTableAssociation']
@@ -23,11 +23,34 @@ class RouteTableAssociationArgs:
         :param pulumi.Input[str] gateway_id: The gateway ID to create an association. Conflicts with `subnet_id`.
         :param pulumi.Input[str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
         """
-        pulumi.set(__self__, "route_table_id", route_table_id)
+        RouteTableAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            route_table_id=route_table_id,
+            gateway_id=gateway_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             route_table_id: Optional[pulumi.Input[str]] = None,
+             gateway_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if route_table_id is None and 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if route_table_id is None:
+            raise TypeError("Missing 'route_table_id' argument")
+        if gateway_id is None and 'gatewayId' in kwargs:
+            gateway_id = kwargs['gatewayId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
+        _setter("route_table_id", route_table_id)
         if gateway_id is not None:
-            pulumi.set(__self__, "gateway_id", gateway_id)
+            _setter("gateway_id", gateway_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="routeTableId")
@@ -78,12 +101,33 @@ class _RouteTableAssociationState:
         :param pulumi.Input[str] route_table_id: The ID of the routing table to associate with.
         :param pulumi.Input[str] subnet_id: The subnet ID to create an association. Conflicts with `gateway_id`.
         """
+        _RouteTableAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_id=gateway_id,
+            route_table_id=route_table_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_id: Optional[pulumi.Input[str]] = None,
+             route_table_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_id is None and 'gatewayId' in kwargs:
+            gateway_id = kwargs['gatewayId']
+        if route_table_id is None and 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if gateway_id is not None:
-            pulumi.set(__self__, "gateway_id", gateway_id)
+            _setter("gateway_id", gateway_id)
         if route_table_id is not None:
-            pulumi.set(__self__, "route_table_id", route_table_id)
+            _setter("route_table_id", route_table_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="gatewayId")
@@ -135,26 +179,6 @@ class RouteTableAssociation(pulumi.CustomResource):
         Provides a resource to create an association between a route table and a subnet or a route table and an
         internet gateway or virtual private gateway.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        route_table_association = aws.ec2.RouteTableAssociation("routeTableAssociation",
-            subnet_id=aws_subnet["foo"]["id"],
-            route_table_id=aws_route_table["bar"]["id"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        route_table_association = aws.ec2.RouteTableAssociation("routeTableAssociation",
-            gateway_id=aws_internet_gateway["foo"]["id"],
-            route_table_id=aws_route_table["bar"]["id"])
-        ```
-
         ## Import
 
         With EC2 Internet Gateways:
@@ -188,26 +212,6 @@ class RouteTableAssociation(pulumi.CustomResource):
         Provides a resource to create an association between a route table and a subnet or a route table and an
         internet gateway or virtual private gateway.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        route_table_association = aws.ec2.RouteTableAssociation("routeTableAssociation",
-            subnet_id=aws_subnet["foo"]["id"],
-            route_table_id=aws_route_table["bar"]["id"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        route_table_association = aws.ec2.RouteTableAssociation("routeTableAssociation",
-            gateway_id=aws_internet_gateway["foo"]["id"],
-            route_table_id=aws_route_table["bar"]["id"])
-        ```
-
         ## Import
 
         With EC2 Internet Gateways:
@@ -235,6 +239,10 @@ class RouteTableAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteTableAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

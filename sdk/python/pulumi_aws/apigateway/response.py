@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResponseArgs', 'Response']
@@ -27,14 +27,47 @@ class ResponseArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Map of templates used to transform the response body.
         :param pulumi.Input[str] status_code: HTTP status code of the Gateway Response.
         """
-        pulumi.set(__self__, "response_type", response_type)
-        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        ResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            response_type=response_type,
+            rest_api_id=rest_api_id,
+            response_parameters=response_parameters,
+            response_templates=response_templates,
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             response_type: Optional[pulumi.Input[str]] = None,
+             rest_api_id: Optional[pulumi.Input[str]] = None,
+             response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             status_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if response_type is None and 'responseType' in kwargs:
+            response_type = kwargs['responseType']
+        if response_type is None:
+            raise TypeError("Missing 'response_type' argument")
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if rest_api_id is None:
+            raise TypeError("Missing 'rest_api_id' argument")
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if response_templates is None and 'responseTemplates' in kwargs:
+            response_templates = kwargs['responseTemplates']
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
+        _setter("response_type", response_type)
+        _setter("rest_api_id", rest_api_id)
         if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
+            _setter("response_parameters", response_parameters)
         if response_templates is not None:
-            pulumi.set(__self__, "response_templates", response_templates)
+            _setter("response_templates", response_templates)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
 
     @property
     @pulumi.getter(name="responseType")
@@ -113,16 +146,45 @@ class _ResponseState:
         :param pulumi.Input[str] rest_api_id: String identifier of the associated REST API.
         :param pulumi.Input[str] status_code: HTTP status code of the Gateway Response.
         """
+        _ResponseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            response_parameters=response_parameters,
+            response_templates=response_templates,
+            response_type=response_type,
+            rest_api_id=rest_api_id,
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             response_type: Optional[pulumi.Input[str]] = None,
+             rest_api_id: Optional[pulumi.Input[str]] = None,
+             status_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if response_templates is None and 'responseTemplates' in kwargs:
+            response_templates = kwargs['responseTemplates']
+        if response_type is None and 'responseType' in kwargs:
+            response_type = kwargs['responseType']
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
+            _setter("response_parameters", response_parameters)
         if response_templates is not None:
-            pulumi.set(__self__, "response_templates", response_templates)
+            _setter("response_templates", response_templates)
         if response_type is not None:
-            pulumi.set(__self__, "response_type", response_type)
+            _setter("response_type", response_type)
         if rest_api_id is not None:
-            pulumi.set(__self__, "rest_api_id", rest_api_id)
+            _setter("rest_api_id", rest_api_id)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
 
     @property
     @pulumi.getter(name="responseParameters")
@@ -199,25 +261,6 @@ class Response(pulumi.CustomResource):
         """
         Provides an API Gateway Gateway Response for a REST API Gateway.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.apigateway.RestApi("main")
-        test = aws.apigateway.Response("test",
-            rest_api_id=main.id,
-            status_code="401",
-            response_type="UNAUTHORIZED",
-            response_templates={
-                "application/json": "{\\"message\\":$context.error.messageString}",
-            },
-            response_parameters={
-                "gatewayresponse.header.Authorization": "'Basic'",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
@@ -243,25 +286,6 @@ class Response(pulumi.CustomResource):
         """
         Provides an API Gateway Gateway Response for a REST API Gateway.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.apigateway.RestApi("main")
-        test = aws.apigateway.Response("test",
-            rest_api_id=main.id,
-            status_code="401",
-            response_type="UNAUTHORIZED",
-            response_templates={
-                "application/json": "{\\"message\\":$context.error.messageString}",
-            },
-            response_parameters={
-                "gatewayresponse.header.Authorization": "'Basic'",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
@@ -280,6 +304,10 @@ class Response(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResponseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

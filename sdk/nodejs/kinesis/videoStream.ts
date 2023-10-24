@@ -9,22 +9,6 @@ import * as utilities from "../utilities";
  *
  * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.kinesis.VideoStream("default", {
- *     dataRetentionInHours: 1,
- *     deviceName: "kinesis-video-device-name",
- *     mediaType: "video/h264",
- *     tags: {
- *         Name: "kinesis-video-stream",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Kinesis Streams using the `arn`. For example:

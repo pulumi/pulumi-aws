@@ -14,67 +14,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// The `aws.rds.ProxyDefaultTargetGroup` behaves differently from normal resources, in that the provider does not _create_ or _destroy_ this resource, since it implicitly exists as part of an RDS DB Proxy. On the provider resource creation it is automatically imported and on resource destruction, the provider performs no actions in RDS.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProxy = new Aws.Rds.Proxy("exampleProxy", new()
-    ///     {
-    ///         DebugLogging = false,
-    ///         EngineFamily = "MYSQL",
-    ///         IdleClientTimeout = 1800,
-    ///         RequireTls = true,
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         VpcSecurityGroupIds = new[]
-    ///         {
-    ///             aws_security_group.Example.Id,
-    ///         },
-    ///         VpcSubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
-    ///         Auths = new[]
-    ///         {
-    ///             new Aws.Rds.Inputs.ProxyAuthArgs
-    ///             {
-    ///                 AuthScheme = "SECRETS",
-    ///                 Description = "example",
-    ///                 IamAuth = "DISABLED",
-    ///                 SecretArn = aws_secretsmanager_secret.Example.Arn,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example" },
-    ///             { "Key", "value" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleProxyDefaultTargetGroup = new Aws.Rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup", new()
-    ///     {
-    ///         DbProxyName = exampleProxy.Name,
-    ///         ConnectionPoolConfig = new Aws.Rds.Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs
-    ///         {
-    ///             ConnectionBorrowTimeout = 120,
-    ///             InitQuery = "SET x=1, y=2",
-    ///             MaxConnectionsPercent = 100,
-    ///             MaxIdleConnectionsPercent = 50,
-    ///             SessionPinningFilters = new[]
-    ///             {
-    ///                 "EXCLUDE_VARIABLE_SETS",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:

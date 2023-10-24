@@ -10,33 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Route 53 Resolver endpoint resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.route53.ResolverEndpoint("foo", {
- *     direction: "INBOUND",
- *     securityGroupIds: [
- *         aws_security_group.sg1.id,
- *         aws_security_group.sg2.id,
- *     ],
- *     ipAddresses: [
- *         {
- *             subnetId: aws_subnet.sn1.id,
- *         },
- *         {
- *             subnetId: aws_subnet.sn2.id,
- *             ip: "10.0.64.4",
- *         },
- *     ],
- *     tags: {
- *         Environment: "Prod",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import

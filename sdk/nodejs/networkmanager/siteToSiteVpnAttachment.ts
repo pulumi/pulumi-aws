@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS NetworkManager SiteToSiteAttachment.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.SiteToSiteVpnAttachment("example", {
- *     coreNetworkId: awscc_networkmanager_core_network.example.id,
- *     vpnConnectionArn: aws_vpn_connection.example.arn,
- * });
- * ```
  *
  * ## Import
  *

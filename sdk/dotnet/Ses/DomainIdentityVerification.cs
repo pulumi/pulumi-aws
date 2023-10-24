@@ -17,47 +17,6 @@ namespace Pulumi.Aws.Ses
     /// deploy the required DNS verification records, and wait for verification to complete.
     /// 
     /// &gt; **WARNING:** This resource implements a part of the verification workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ses.DomainIdentity("example", new()
-    ///     {
-    ///         Domain = "example.com",
-    ///     });
-    /// 
-    ///     var exampleAmazonsesVerificationRecord = new Aws.Route53.Record("exampleAmazonsesVerificationRecord", new()
-    ///     {
-    ///         ZoneId = aws_route53_zone.Example.Zone_id,
-    ///         Name = example.Id.Apply(id =&gt; $"_amazonses.{id}"),
-    ///         Type = "TXT",
-    ///         Ttl = 600,
-    ///         Records = new[]
-    ///         {
-    ///             example.VerificationToken,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVerification = new Aws.Ses.DomainIdentityVerification("exampleVerification", new()
-    ///     {
-    ///         Domain = example.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAmazonsesVerificationRecord,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ses/domainIdentityVerification:DomainIdentityVerification")]
     public partial class DomainIdentityVerification : global::Pulumi.CustomResource

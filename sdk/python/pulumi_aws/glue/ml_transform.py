@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,27 +43,80 @@ class MLTransformArgs:
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         """
-        pulumi.set(__self__, "input_record_tables", input_record_tables)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "role_arn", role_arn)
+        MLTransformArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_record_tables=input_record_tables,
+            parameters=parameters,
+            role_arn=role_arn,
+            description=description,
+            glue_version=glue_version,
+            max_capacity=max_capacity,
+            max_retries=max_retries,
+            name=name,
+            number_of_workers=number_of_workers,
+            tags=tags,
+            timeout=timeout,
+            worker_type=worker_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_record_tables: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]]] = None,
+             parameters: Optional[pulumi.Input['MLTransformParametersArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             glue_version: Optional[pulumi.Input[str]] = None,
+             max_capacity: Optional[pulumi.Input[float]] = None,
+             max_retries: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             number_of_workers: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             worker_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_record_tables is None and 'inputRecordTables' in kwargs:
+            input_record_tables = kwargs['inputRecordTables']
+        if input_record_tables is None:
+            raise TypeError("Missing 'input_record_tables' argument")
+        if parameters is None:
+            raise TypeError("Missing 'parameters' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if glue_version is None and 'glueVersion' in kwargs:
+            glue_version = kwargs['glueVersion']
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if max_retries is None and 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if number_of_workers is None and 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if worker_type is None and 'workerType' in kwargs:
+            worker_type = kwargs['workerType']
+
+        _setter("input_record_tables", input_record_tables)
+        _setter("parameters", parameters)
+        _setter("role_arn", role_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if glue_version is not None:
-            pulumi.set(__self__, "glue_version", glue_version)
+            _setter("glue_version", glue_version)
         if max_capacity is not None:
-            pulumi.set(__self__, "max_capacity", max_capacity)
+            _setter("max_capacity", max_capacity)
         if max_retries is not None:
-            pulumi.set(__self__, "max_retries", max_retries)
+            _setter("max_retries", max_retries)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if number_of_workers is not None:
-            pulumi.set(__self__, "number_of_workers", number_of_workers)
+            _setter("number_of_workers", number_of_workers)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if worker_type is not None:
-            pulumi.set(__self__, "worker_type", worker_type)
+            _setter("worker_type", worker_type)
 
     @property
     @pulumi.getter(name="inputRecordTables")
@@ -248,41 +301,100 @@ class _MLTransformState:
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         """
+        _MLTransformState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            glue_version=glue_version,
+            input_record_tables=input_record_tables,
+            label_count=label_count,
+            max_capacity=max_capacity,
+            max_retries=max_retries,
+            name=name,
+            number_of_workers=number_of_workers,
+            parameters=parameters,
+            role_arn=role_arn,
+            schemas=schemas,
+            tags=tags,
+            tags_all=tags_all,
+            timeout=timeout,
+            worker_type=worker_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             glue_version: Optional[pulumi.Input[str]] = None,
+             input_record_tables: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]]] = None,
+             label_count: Optional[pulumi.Input[int]] = None,
+             max_capacity: Optional[pulumi.Input[float]] = None,
+             max_retries: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             number_of_workers: Optional[pulumi.Input[int]] = None,
+             parameters: Optional[pulumi.Input['MLTransformParametersArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             schemas: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             worker_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if glue_version is None and 'glueVersion' in kwargs:
+            glue_version = kwargs['glueVersion']
+        if input_record_tables is None and 'inputRecordTables' in kwargs:
+            input_record_tables = kwargs['inputRecordTables']
+        if label_count is None and 'labelCount' in kwargs:
+            label_count = kwargs['labelCount']
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if max_retries is None and 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if number_of_workers is None and 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if worker_type is None and 'workerType' in kwargs:
+            worker_type = kwargs['workerType']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if glue_version is not None:
-            pulumi.set(__self__, "glue_version", glue_version)
+            _setter("glue_version", glue_version)
         if input_record_tables is not None:
-            pulumi.set(__self__, "input_record_tables", input_record_tables)
+            _setter("input_record_tables", input_record_tables)
         if label_count is not None:
-            pulumi.set(__self__, "label_count", label_count)
+            _setter("label_count", label_count)
         if max_capacity is not None:
-            pulumi.set(__self__, "max_capacity", max_capacity)
+            _setter("max_capacity", max_capacity)
         if max_retries is not None:
-            pulumi.set(__self__, "max_retries", max_retries)
+            _setter("max_retries", max_retries)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if number_of_workers is not None:
-            pulumi.set(__self__, "number_of_workers", number_of_workers)
+            _setter("number_of_workers", number_of_workers)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if schemas is not None:
-            pulumi.set(__self__, "schemas", schemas)
+            _setter("schemas", schemas)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if worker_type is not None:
-            pulumi.set(__self__, "worker_type", worker_type)
+            _setter("worker_type", worker_type)
 
     @property
     @pulumi.getter
@@ -501,93 +613,6 @@ class MLTransform(pulumi.CustomResource):
         """
         Provides a Glue ML Transform resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_catalog_database = aws.glue.CatalogDatabase("testCatalogDatabase", name="example")
-        test_catalog_table = aws.glue.CatalogTable("testCatalogTable",
-            name="example",
-            database_name=test_catalog_database.name,
-            owner="my_owner",
-            retention=1,
-            table_type="VIRTUAL_VIEW",
-            view_expanded_text="view_expanded_text_1",
-            view_original_text="view_original_text_1",
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
-                bucket_columns=["bucket_column_1"],
-                compressed=False,
-                input_format="SequenceFileInputFormat",
-                location="my_location",
-                number_of_buckets=1,
-                output_format="SequenceFileInputFormat",
-                stored_as_sub_directories=False,
-                parameters={
-                    "param1": "param1_val",
-                },
-                columns=[
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_1",
-                        type="int",
-                        comment="my_column1_comment",
-                    ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_2",
-                        type="string",
-                        comment="my_column2_comment",
-                    ),
-                ],
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
-                    name="ser_de_name",
-                    parameters={
-                        "param1": "param_val_1",
-                    },
-                    serialization_library="org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                ),
-                sort_columns=[aws.glue.CatalogTableStorageDescriptorSortColumnArgs(
-                    column="my_column_1",
-                    sort_order=1,
-                )],
-                skewed_info=aws.glue.CatalogTableStorageDescriptorSkewedInfoArgs(
-                    skewed_column_names=["my_column_1"],
-                    skewed_column_value_location_maps={
-                        "my_column_1": "my_column_1_val_loc_map",
-                    },
-                    skewed_column_values=["skewed_val_1"],
-                ),
-            ),
-            partition_keys=[
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_1",
-                    type="int",
-                    comment="my_column_1_comment",
-                ),
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_2",
-                    type="string",
-                    comment="my_column_2_comment",
-                ),
-            ],
-            parameters={
-                "param1": "param1_val",
-            })
-        test_ml_transform = aws.glue.MLTransform("testMLTransform",
-            role_arn=aws_iam_role["test"]["arn"],
-            input_record_tables=[aws.glue.MLTransformInputRecordTableArgs(
-                database_name=test_catalog_table.database_name,
-                table_name=test_catalog_table.name,
-            )],
-            parameters=aws.glue.MLTransformParametersArgs(
-                transform_type="FIND_MATCHES",
-                find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArgs(
-                    primary_key_column_name="my_column_1",
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["test"]]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Glue ML Transforms using `id`. For example:
@@ -620,93 +645,6 @@ class MLTransform(pulumi.CustomResource):
         """
         Provides a Glue ML Transform resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_catalog_database = aws.glue.CatalogDatabase("testCatalogDatabase", name="example")
-        test_catalog_table = aws.glue.CatalogTable("testCatalogTable",
-            name="example",
-            database_name=test_catalog_database.name,
-            owner="my_owner",
-            retention=1,
-            table_type="VIRTUAL_VIEW",
-            view_expanded_text="view_expanded_text_1",
-            view_original_text="view_original_text_1",
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
-                bucket_columns=["bucket_column_1"],
-                compressed=False,
-                input_format="SequenceFileInputFormat",
-                location="my_location",
-                number_of_buckets=1,
-                output_format="SequenceFileInputFormat",
-                stored_as_sub_directories=False,
-                parameters={
-                    "param1": "param1_val",
-                },
-                columns=[
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_1",
-                        type="int",
-                        comment="my_column1_comment",
-                    ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_2",
-                        type="string",
-                        comment="my_column2_comment",
-                    ),
-                ],
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
-                    name="ser_de_name",
-                    parameters={
-                        "param1": "param_val_1",
-                    },
-                    serialization_library="org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                ),
-                sort_columns=[aws.glue.CatalogTableStorageDescriptorSortColumnArgs(
-                    column="my_column_1",
-                    sort_order=1,
-                )],
-                skewed_info=aws.glue.CatalogTableStorageDescriptorSkewedInfoArgs(
-                    skewed_column_names=["my_column_1"],
-                    skewed_column_value_location_maps={
-                        "my_column_1": "my_column_1_val_loc_map",
-                    },
-                    skewed_column_values=["skewed_val_1"],
-                ),
-            ),
-            partition_keys=[
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_1",
-                    type="int",
-                    comment="my_column_1_comment",
-                ),
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_2",
-                    type="string",
-                    comment="my_column_2_comment",
-                ),
-            ],
-            parameters={
-                "param1": "param1_val",
-            })
-        test_ml_transform = aws.glue.MLTransform("testMLTransform",
-            role_arn=aws_iam_role["test"]["arn"],
-            input_record_tables=[aws.glue.MLTransformInputRecordTableArgs(
-                database_name=test_catalog_table.database_name,
-                table_name=test_catalog_table.name,
-            )],
-            parameters=aws.glue.MLTransformParametersArgs(
-                transform_type="FIND_MATCHES",
-                find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArgs(
-                    primary_key_column_name="my_column_1",
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["test"]]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Glue ML Transforms using `id`. For example:
@@ -725,6 +663,10 @@ class MLTransform(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MLTransformArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -760,6 +702,7 @@ class MLTransform(pulumi.CustomResource):
             __props__.__dict__["max_retries"] = max_retries
             __props__.__dict__["name"] = name
             __props__.__dict__["number_of_workers"] = number_of_workers
+            parameters = _utilities.configure(parameters, MLTransformParametersArgs, True)
             if parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'parameters'")
             __props__.__dict__["parameters"] = parameters

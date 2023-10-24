@@ -14,53 +14,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @this = new Aws.CloudWatch.EventEndpoint("this", new()
-    ///     {
-    ///         RoleArn = aws_iam_role.Replication.Arn,
-    ///         EventBuses = new[]
-    ///         {
-    ///             new Aws.CloudWatch.Inputs.EventEndpointEventBusArgs
-    ///             {
-    ///                 EventBusArn = aws_cloudwatch_event_bus.Primary.Arn,
-    ///             },
-    ///             new Aws.CloudWatch.Inputs.EventEndpointEventBusArgs
-    ///             {
-    ///                 EventBusArn = aws_cloudwatch_event_bus.Secondary.Arn,
-    ///             },
-    ///         },
-    ///         ReplicationConfig = new Aws.CloudWatch.Inputs.EventEndpointReplicationConfigArgs
-    ///         {
-    ///             State = "DISABLED",
-    ///         },
-    ///         RoutingConfig = new Aws.CloudWatch.Inputs.EventEndpointRoutingConfigArgs
-    ///         {
-    ///             FailoverConfig = new Aws.CloudWatch.Inputs.EventEndpointRoutingConfigFailoverConfigArgs
-    ///             {
-    ///                 Primary = new Aws.CloudWatch.Inputs.EventEndpointRoutingConfigFailoverConfigPrimaryArgs
-    ///                 {
-    ///                     HealthCheck = aws_route53_health_check.Primary.Arn,
-    ///                 },
-    ///                 Secondary = new Aws.CloudWatch.Inputs.EventEndpointRoutingConfigFailoverConfigSecondaryArgs
-    ///                 {
-    ///                     Route = "us-east-2",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:

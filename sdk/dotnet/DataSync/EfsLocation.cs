@@ -14,32 +14,6 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// &gt; **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataSync.EfsLocation("example", new()
-    ///     {
-    ///         EfsFileSystemArn = aws_efs_mount_target.Example.File_system_arn,
-    ///         Ec2Config = new Aws.DataSync.Inputs.EfsLocationEc2ConfigArgs
-    ///         {
-    ///             SecurityGroupArns = new[]
-    ///             {
-    ///                 aws_security_group.Example.Arn,
-    ///             },
-    ///             SubnetArn = aws_subnet.Example.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For example:

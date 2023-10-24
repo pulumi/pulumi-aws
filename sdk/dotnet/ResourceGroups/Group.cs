@@ -12,39 +12,6 @@ namespace Pulumi.Aws.ResourceGroups
     /// <summary>
     /// Provides a Resource Group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.ResourceGroups.Group("test", new()
-    ///     {
-    ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
-    ///         {
-    ///             Query = @"{
-    ///   ""ResourceTypeFilters"": [
-    ///     ""AWS::EC2::Instance""
-    ///   ],
-    ///   ""TagFilters"": [
-    ///     {
-    ///       ""Key"": ""Stage"",
-    ///       ""Values"": [""Test""]
-    ///     }
-    ///   ]
-    /// }
-    /// 
-    /// ",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import resource groups using the `name`. For example:

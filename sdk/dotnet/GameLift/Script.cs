@@ -12,29 +12,6 @@ namespace Pulumi.Aws.GameLift
     /// <summary>
     /// Provides an GameLift Script resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GameLift.Script("example", new()
-    ///     {
-    ///         StorageLocation = new Aws.GameLift.Inputs.ScriptStorageLocationArgs
-    ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Key = aws_s3_object.Example.Key,
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GameLift Scripts using the ID. For example:

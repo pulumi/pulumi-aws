@@ -12,55 +12,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// <summary>
     /// Manages an Image Builder Container Recipe.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ImageBuilder.ContainerRecipe("example", new()
-    ///     {
-    ///         Version = "1.0.0",
-    ///         ContainerType = "DOCKER",
-    ///         ParentImage = "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
-    ///         TargetRepository = new Aws.ImageBuilder.Inputs.ContainerRecipeTargetRepositoryArgs
-    ///         {
-    ///             RepositoryName = aws_ecr_repository.Example.Name,
-    ///             Service = "ECR",
-    ///         },
-    ///         Components = new[]
-    ///         {
-    ///             new Aws.ImageBuilder.Inputs.ContainerRecipeComponentArgs
-    ///             {
-    ///                 ComponentArn = aws_imagebuilder_component.Example.Arn,
-    ///                 Parameters = new[]
-    ///                 {
-    ///                     new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs
-    ///                     {
-    ///                         Name = "Parameter1",
-    ///                         Value = "Value1",
-    ///                     },
-    ///                     new Aws.ImageBuilder.Inputs.ContainerRecipeComponentParameterArgs
-    ///                     {
-    ///                         Name = "Parameter2",
-    ///                         Value = "Value2",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         DockerfileTemplateData = @"FROM {{{ imagebuilder:parentImage }}}
-    /// {{{ imagebuilder:environments }}}
-    /// {{{ imagebuilder:components }}}
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:

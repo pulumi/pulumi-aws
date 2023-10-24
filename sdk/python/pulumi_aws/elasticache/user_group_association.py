@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserGroupAssociationArgs', 'UserGroupAssociation']
@@ -21,8 +21,29 @@ class UserGroupAssociationArgs:
         :param pulumi.Input[str] user_group_id: ID of the user group.
         :param pulumi.Input[str] user_id: ID of the user to associated with the user group.
         """
-        pulumi.set(__self__, "user_group_id", user_group_id)
-        pulumi.set(__self__, "user_id", user_id)
+        UserGroupAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_group_id=user_group_id,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_group_id: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_group_id is None and 'userGroupId' in kwargs:
+            user_group_id = kwargs['userGroupId']
+        if user_group_id is None:
+            raise TypeError("Missing 'user_group_id' argument")
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+
+        _setter("user_group_id", user_group_id)
+        _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="userGroupId")
@@ -59,10 +80,27 @@ class _UserGroupAssociationState:
         :param pulumi.Input[str] user_group_id: ID of the user group.
         :param pulumi.Input[str] user_id: ID of the user to associated with the user group.
         """
+        _UserGroupAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_group_id=user_group_id,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_group_id: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_group_id is None and 'userGroupId' in kwargs:
+            user_group_id = kwargs['userGroupId']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if user_group_id is not None:
-            pulumi.set(__self__, "user_group_id", user_group_id)
+            _setter("user_group_id", user_group_id)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="userGroupId")
@@ -102,33 +140,6 @@ class UserGroupAssociation(pulumi.CustomResource):
 
         > **NOTE:** The provider will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.elasticache.User("default",
-            user_id="defaultUserID",
-            user_name="default",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        example_user_group = aws.elasticache.UserGroup("exampleUserGroup",
-            engine="REDIS",
-            user_group_id="userGroupId",
-            user_ids=[default.user_id])
-        example_user = aws.elasticache.User("exampleUser",
-            user_id="exampleUserID",
-            user_name="exampleuser",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        example_user_group_association = aws.elasticache.UserGroupAssociation("exampleUserGroupAssociation",
-            user_group_id=example_user_group.user_group_id,
-            user_id=example_user.user_id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
@@ -153,33 +164,6 @@ class UserGroupAssociation(pulumi.CustomResource):
 
         > **NOTE:** The provider will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.elasticache.User("default",
-            user_id="defaultUserID",
-            user_name="default",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        example_user_group = aws.elasticache.UserGroup("exampleUserGroup",
-            engine="REDIS",
-            user_group_id="userGroupId",
-            user_ids=[default.user_id])
-        example_user = aws.elasticache.User("exampleUser",
-            user_id="exampleUserID",
-            user_name="exampleuser",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        example_user_group_association = aws.elasticache.UserGroupAssociation("exampleUserGroupAssociation",
-            user_group_id=example_user_group.user_group_id,
-            user_id=example_user.user_id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
@@ -198,6 +182,10 @@ class UserGroupAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserGroupAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

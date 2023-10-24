@@ -9,23 +9,6 @@ import {RestApi} from "./index";
 /**
  * Provides a Model for a REST API Gateway.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
- * const myDemoModel = new aws.apigateway.Model("myDemoModel", {
- *     restApi: myDemoAPI.id,
- *     description: "a JSON schema",
- *     contentType: "application/json",
- *     schema: JSON.stringify({
- *         type: "object",
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:

@@ -12,26 +12,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// <summary>
     /// Registers members (network interfaces) with the transit gateway multicast group.
     /// A member is a network interface associated with a supported EC2 instance that receives multicast traffic.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.MulticastGroupMember("example", new()
-    ///     {
-    ///         GroupIpAddress = "224.0.0.1",
-    ///         NetworkInterfaceId = aws_network_interface.Example.Id,
-    ///         TransitGatewayMulticastDomainId = aws_ec2_transit_gateway_multicast_domain.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember")]
     public partial class MulticastGroupMember : global::Pulumi.CustomResource

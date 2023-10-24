@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,28 @@ class DataCatalogEncryptionSettingsArgs:
         :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs'] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         """
-        pulumi.set(__self__, "data_catalog_encryption_settings", data_catalog_encryption_settings)
+        DataCatalogEncryptionSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_catalog_encryption_settings=data_catalog_encryption_settings,
+            catalog_id=catalog_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_catalog_encryption_settings: Optional[pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']] = None,
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_catalog_encryption_settings is None and 'dataCatalogEncryptionSettings' in kwargs:
+            data_catalog_encryption_settings = kwargs['dataCatalogEncryptionSettings']
+        if data_catalog_encryption_settings is None:
+            raise TypeError("Missing 'data_catalog_encryption_settings' argument")
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("data_catalog_encryption_settings", data_catalog_encryption_settings)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
 
     @property
     @pulumi.getter(name="dataCatalogEncryptionSettings")
@@ -62,10 +81,27 @@ class _DataCatalogEncryptionSettingsState:
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs'] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
         """
+        _DataCatalogEncryptionSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            data_catalog_encryption_settings=data_catalog_encryption_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             data_catalog_encryption_settings: Optional[pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if data_catalog_encryption_settings is None and 'dataCatalogEncryptionSettings' in kwargs:
+            data_catalog_encryption_settings = kwargs['dataCatalogEncryptionSettings']
+
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if data_catalog_encryption_settings is not None:
-            pulumi.set(__self__, "data_catalog_encryption_settings", data_catalog_encryption_settings)
+            _setter("data_catalog_encryption_settings", data_catalog_encryption_settings)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -103,24 +139,6 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         """
         Provides a Glue Data Catalog Encryption Settings resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs(
-            connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(
-                aws_kms_key_id=aws_kms_key["test"]["arn"],
-                return_connection_password_encrypted=True,
-            ),
-            encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
-                catalog_encryption_mode="SSE-KMS",
-                sse_aws_kms_key_id=aws_kms_key["test"]["arn"],
-            ),
-        ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For example:
@@ -143,24 +161,6 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         """
         Provides a Glue Data Catalog Encryption Settings resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs(
-            connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(
-                aws_kms_key_id=aws_kms_key["test"]["arn"],
-                return_connection_password_encrypted=True,
-            ),
-            encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
-                catalog_encryption_mode="SSE-KMS",
-                sse_aws_kms_key_id=aws_kms_key["test"]["arn"],
-            ),
-        ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For example:
@@ -179,6 +179,10 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataCatalogEncryptionSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -196,6 +200,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
             __props__ = DataCatalogEncryptionSettingsArgs.__new__(DataCatalogEncryptionSettingsArgs)
 
             __props__.__dict__["catalog_id"] = catalog_id
+            data_catalog_encryption_settings = _utilities.configure(data_catalog_encryption_settings, DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs, True)
             if data_catalog_encryption_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'data_catalog_encryption_settings'")
             __props__.__dict__["data_catalog_encryption_settings"] = data_catalog_encryption_settings

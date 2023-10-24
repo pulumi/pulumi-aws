@@ -13,58 +13,12 @@ namespace Pulumi.Aws.CloudFormation
     {
         /// <summary>
         /// Provides details about a CloudFormation Type.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFormation.GetCloudFormationType.Invoke(new()
-        ///     {
-        ///         Type = "RESOURCE",
-        ///         TypeName = "AWS::Athena::WorkGroup",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCloudFormationTypeResult> InvokeAsync(GetCloudFormationTypeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationTypeResult>("aws:cloudformation/getCloudFormationType:getCloudFormationType", args ?? new GetCloudFormationTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a CloudFormation Type.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFormation.GetCloudFormationType.Invoke(new()
-        ///     {
-        ///         Type = "RESOURCE",
-        ///         TypeName = "AWS::Athena::WorkGroup",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCloudFormationTypeResult> Invoke(GetCloudFormationTypeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationTypeResult>("aws:cloudformation/getCloudFormationType:getCloudFormationType", args ?? new GetCloudFormationTypeInvokeArgs(), options.WithDefaults());

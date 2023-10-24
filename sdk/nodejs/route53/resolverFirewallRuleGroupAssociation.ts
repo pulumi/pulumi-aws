@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Route 53 Resolver DNS Firewall rule group association resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleResolverFirewallRuleGroup = new aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", {});
- * const exampleResolverFirewallRuleGroupAssociation = new aws.route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation", {
- *     firewallRuleGroupId: exampleResolverFirewallRuleGroup.id,
- *     priority: 100,
- *     vpcId: aws_vpc.example.id,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:

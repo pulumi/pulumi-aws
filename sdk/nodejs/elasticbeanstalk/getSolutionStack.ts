@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the name of a elastic beanstalk solution stack.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const multiDocker = aws.elasticbeanstalk.getSolutionStack({
- *     mostRecent: true,
- *     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
- * });
- * ```
  */
 export function getSolutionStack(args: GetSolutionStackArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionStackResult> {
 
@@ -66,18 +54,6 @@ export interface GetSolutionStackResult {
 }
 /**
  * Use this data source to get the name of a elastic beanstalk solution stack.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const multiDocker = aws.elasticbeanstalk.getSolutionStack({
- *     mostRecent: true,
- *     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
- * });
- * ```
  */
 export function getSolutionStackOutput(args: GetSolutionStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionStackResult> {
     return pulumi.output(args).apply((a: any) => getSolutionStack(a, opts))

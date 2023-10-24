@@ -18,38 +18,6 @@ namespace Pulumi.Aws.Ec2
     /// in conjunction with any Network ACL Rule resources. Doing so will cause
     /// a conflict of rule settings and will overwrite rules.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var barNetworkAcl = new Aws.Ec2.NetworkAcl("barNetworkAcl", new()
-    ///     {
-    ///         VpcId = aws_vpc.Foo.Id,
-    ///     });
-    /// 
-    ///     var barNetworkAclRule = new Aws.Ec2.NetworkAclRule("barNetworkAclRule", new()
-    ///     {
-    ///         NetworkAclId = barNetworkAcl.Id,
-    ///         RuleNumber = 200,
-    ///         Egress = false,
-    ///         Protocol = "tcp",
-    ///         RuleAction = "allow",
-    ///         CidrBlock = aws_vpc.Foo.Cidr_block,
-    ///         FromPort = 22,
-    ///         ToPort = 22,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
-    /// 
     /// ## Import
     /// 
     /// Using the procotol's decimal value:

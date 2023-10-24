@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,31 @@ class VoiceConnectorOrganizationArgs:
         :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
         :param pulumi.Input[bool] disabled: When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
         """
-        pulumi.set(__self__, "routes", routes)
-        pulumi.set(__self__, "voice_connector_id", voice_connector_id)
+        VoiceConnectorOrganizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            routes=routes,
+            voice_connector_id=voice_connector_id,
+            disabled=disabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorOrganizationRouteArgs']]]] = None,
+             voice_connector_id: Optional[pulumi.Input[str]] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if routes is None:
+            raise TypeError("Missing 'routes' argument")
+        if voice_connector_id is None and 'voiceConnectorId' in kwargs:
+            voice_connector_id = kwargs['voiceConnectorId']
+        if voice_connector_id is None:
+            raise TypeError("Missing 'voice_connector_id' argument")
+
+        _setter("routes", routes)
+        _setter("voice_connector_id", voice_connector_id)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
 
     @property
     @pulumi.getter
@@ -79,12 +100,29 @@ class _VoiceConnectorOrganizationState:
         :param pulumi.Input[Sequence[pulumi.Input['VoiceConnectorOrganizationRouteArgs']]] routes: Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
         :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
+        _VoiceConnectorOrganizationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disabled=disabled,
+            routes=routes,
+            voice_connector_id=voice_connector_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disabled: Optional[pulumi.Input[bool]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorOrganizationRouteArgs']]]] = None,
+             voice_connector_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if voice_connector_id is None and 'voiceConnectorId' in kwargs:
+            voice_connector_id = kwargs['voiceConnectorId']
+
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if voice_connector_id is not None:
-            pulumi.set(__self__, "voice_connector_id", voice_connector_id)
+            _setter("voice_connector_id", voice_connector_id)
 
     @property
     @pulumi.getter
@@ -135,34 +173,6 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
         """
         Enable origination settings to control inbound calling to your SIP infrastructure.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_organization = aws.chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization",
-            disabled=False,
-            voice_connector_id=default_voice_connector.id,
-            routes=[
-                aws.chime.VoiceConnectorOrganizationRouteArgs(
-                    host="127.0.0.1",
-                    port=8081,
-                    protocol="TCP",
-                    priority=1,
-                    weight=1,
-                ),
-                aws.chime.VoiceConnectorOrganizationRouteArgs(
-                    host="127.0.0.2",
-                    port=8082,
-                    protocol="TCP",
-                    priority=2,
-                    weight=10,
-                ),
-            ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For example:
@@ -186,34 +196,6 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
         """
         Enable origination settings to control inbound calling to your SIP infrastructure.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_organization = aws.chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization",
-            disabled=False,
-            voice_connector_id=default_voice_connector.id,
-            routes=[
-                aws.chime.VoiceConnectorOrganizationRouteArgs(
-                    host="127.0.0.1",
-                    port=8081,
-                    protocol="TCP",
-                    priority=1,
-                    weight=1,
-                ),
-                aws.chime.VoiceConnectorOrganizationRouteArgs(
-                    host="127.0.0.2",
-                    port=8082,
-                    protocol="TCP",
-                    priority=2,
-                    weight=10,
-                ),
-            ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For example:
@@ -232,6 +214,10 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VoiceConnectorOrganizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

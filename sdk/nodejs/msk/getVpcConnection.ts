@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an Amazon MSK VPC Connection.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.msk.getVpcConnection({
- *     arn: aws_msk_vpc_connection.example.arn,
- * });
- * ```
  */
 export function getVpcConnection(args: GetVpcConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcConnectionResult> {
 
@@ -77,17 +66,6 @@ export interface GetVpcConnectionResult {
 }
 /**
  * Get information on an Amazon MSK VPC Connection.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.msk.getVpcConnection({
- *     arn: aws_msk_vpc_connection.example.arn,
- * });
- * ```
  */
 export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVpcConnection(a, opts))

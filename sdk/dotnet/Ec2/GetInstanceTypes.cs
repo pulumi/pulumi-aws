@@ -13,126 +13,12 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Information about EC2 Instance Types.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2.GetInstanceTypes.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetInstanceTypesFilterInputArgs
-        ///             {
-        ///                 Name = "auto-recovery-supported",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "true",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetInstanceTypesFilterInputArgs
-        ///             {
-        ///                 Name = "network-info.encryption-in-transit-supported",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "true",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetInstanceTypesFilterInputArgs
-        ///             {
-        ///                 Name = "instance-storage-supported",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "true",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetInstanceTypesFilterInputArgs
-        ///             {
-        ///                 Name = "instance-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "g5.2xlarge",
-        ///                     "g5.4xlarge",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstanceTypesResult> InvokeAsync(GetInstanceTypesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceTypesResult>("aws:ec2/getInstanceTypes:getInstanceTypes", args ?? new GetInstanceTypesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about EC2 Instance Types.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Ec2.GetInstanceTypes.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetInstanceTypesFilterInputArgs
-        ///             {
-        ///                 Name = "auto-recovery-supported",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "true",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetInstanceTypesFilterInputArgs
-        ///             {
-        ///                 Name = "network-info.encryption-in-transit-supported",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "true",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetInstanceTypesFilterInputArgs
-        ///             {
-        ///                 Name = "instance-storage-supported",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "true",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetInstanceTypesFilterInputArgs
-        ///             {
-        ///                 Name = "instance-type",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "g5.2xlarge",
-        ///                     "g5.4xlarge",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetInstanceTypesResult> Invoke(GetInstanceTypesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceTypesResult>("aws:ec2/getInstanceTypes:getInstanceTypes", args ?? new GetInstanceTypesInvokeArgs(), options.WithDefaults());

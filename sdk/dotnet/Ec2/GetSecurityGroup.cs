@@ -17,39 +17,6 @@ namespace Pulumi.Aws.Ec2
         /// This resource can prove useful when a module accepts a Security Group id as
         /// an input variable and needs to, for example, determine the id of the
         /// VPC that the security group belongs to.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example shows how one might accept a Security Group id as a variable
-        /// and use this data source to obtain the data necessary to create a subnet.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var securityGroupId = config.RequireObject&lt;dynamic&gt;("securityGroupId");
-        ///     var selected = Aws.Ec2.GetSecurityGroup.Invoke(new()
-        ///     {
-        ///         Id = securityGroupId,
-        ///     });
-        /// 
-        ///     var subnet = new Aws.Ec2.Subnet("subnet", new()
-        ///     {
-        ///         VpcId = selected.Apply(getSecurityGroupResult =&gt; getSecurityGroupResult.VpcId),
-        ///         CidrBlock = "10.0.1.0/24",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSecurityGroupResult> InvokeAsync(GetSecurityGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupResult>("aws:ec2/getSecurityGroup:getSecurityGroup", args ?? new GetSecurityGroupArgs(), options.WithDefaults());
@@ -60,39 +27,6 @@ namespace Pulumi.Aws.Ec2
         /// This resource can prove useful when a module accepts a Security Group id as
         /// an input variable and needs to, for example, determine the id of the
         /// VPC that the security group belongs to.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example shows how one might accept a Security Group id as a variable
-        /// and use this data source to obtain the data necessary to create a subnet.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var securityGroupId = config.RequireObject&lt;dynamic&gt;("securityGroupId");
-        ///     var selected = Aws.Ec2.GetSecurityGroup.Invoke(new()
-        ///     {
-        ///         Id = securityGroupId,
-        ///     });
-        /// 
-        ///     var subnet = new Aws.Ec2.Subnet("subnet", new()
-        ///     {
-        ///         VpcId = selected.Apply(getSecurityGroupResult =&gt; getSecurityGroupResult.VpcId),
-        ///         CidrBlock = "10.0.1.0/24",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSecurityGroupResult> Invoke(GetSecurityGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupResult>("aws:ec2/getSecurityGroup:getSecurityGroup", args ?? new GetSecurityGroupInvokeArgs(), options.WithDefaults());

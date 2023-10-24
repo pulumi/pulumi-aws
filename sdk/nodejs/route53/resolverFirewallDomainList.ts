@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Route 53 Resolver DNS Firewall domain list resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53.ResolverFirewallDomainList("example", {});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import

@@ -12,26 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ec2.NetworkInsightsPath("test", new()
-    ///     {
-    ///         Source = aws_network_interface.Source.Id,
-    ///         Destination = aws_network_interface.Destination.Id,
-    ///         Protocol = "tcp",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network Insights Paths using the `id`. For example:

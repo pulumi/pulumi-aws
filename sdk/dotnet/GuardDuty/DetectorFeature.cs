@@ -13,38 +13,6 @@ namespace Pulumi.Aws.GuardDuty
     /// Provides a resource to manage a single Amazon GuardDuty [detector feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
     /// 
     /// &gt; **NOTE:** Deleting this resource does not disable the detector feature, the resource in simply removed from state instead.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GuardDuty.Detector("example", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.DetectorFeature("eksRuntimeMonitoring", new()
-    ///     {
-    ///         DetectorId = example.Id,
-    ///         Status = "ENABLED",
-    ///         AdditionalConfigurations = new[]
-    ///         {
-    ///             new Aws.GuardDuty.Inputs.DetectorFeatureAdditionalConfigurationArgs
-    ///             {
-    ///                 Name = "EKS_ADDON_MANAGEMENT",
-    ///                 Status = "ENABLED",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/detectorFeature:DetectorFeature")]
     public partial class DetectorFeature : global::Pulumi.CustomResource

@@ -7,17 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Backup Global Settings resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.backup.GlobalSettings("test", {globalSettings: {
- *     isCrossAccountBackupEnabled: "true",
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Backup Global Settings using the `id`. For example:

@@ -11,64 +11,6 @@ import * as utilities from "../utilities";
  * Provides an AWS Network Firewall Logging Configuration Resource
  *
  * ## Example Usage
- * ### Logging to S3
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.LoggingConfiguration("example", {
- *     firewallArn: aws_networkfirewall_firewall.example.arn,
- *     loggingConfiguration: {
- *         logDestinationConfigs: [{
- *             logDestination: {
- *                 bucketName: aws_s3_bucket.example.bucket,
- *                 prefix: "/example",
- *             },
- *             logDestinationType: "S3",
- *             logType: "FLOW",
- *         }],
- *     },
- * });
- * ```
- * ### Logging to CloudWatch
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.LoggingConfiguration("example", {
- *     firewallArn: aws_networkfirewall_firewall.example.arn,
- *     loggingConfiguration: {
- *         logDestinationConfigs: [{
- *             logDestination: {
- *                 logGroup: aws_cloudwatch_log_group.example.name,
- *             },
- *             logDestinationType: "CloudWatchLogs",
- *             logType: "ALERT",
- *         }],
- *     },
- * });
- * ```
- * ### Logging to Kinesis Data Firehose
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.LoggingConfiguration("example", {
- *     firewallArn: aws_networkfirewall_firewall.example.arn,
- *     loggingConfiguration: {
- *         logDestinationConfigs: [{
- *             logDestination: {
- *                 deliveryStream: aws_kinesis_firehose_delivery_stream.example.name,
- *             },
- *             logDestinationType: "KinesisDataFirehose",
- *             logType: "ALERT",
- *         }],
- *     },
- * });
- * ```
  *
  * ## Import
  *

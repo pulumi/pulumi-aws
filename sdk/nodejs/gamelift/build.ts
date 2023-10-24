@@ -10,22 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an GameLift Build resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.gamelift.Build("test", {
- *     operatingSystem: "WINDOWS_2012",
- *     storageLocation: {
- *         bucket: aws_s3_bucket.test.id,
- *         key: aws_s3_object.test.key,
- *         roleArn: aws_iam_role.test.arn,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import GameLift Builds using the ID. For example:

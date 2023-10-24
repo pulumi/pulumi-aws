@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a GuardDuty detector.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.guardduty.getDetector({});
- * ```
  */
 export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorResult> {
     args = args || {};
@@ -62,15 +53,6 @@ export interface GetDetectorResult {
 }
 /**
  * Retrieve information about a GuardDuty detector.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.guardduty.getDetector({});
- * ```
  */
 export function getDetectorOutput(args?: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {
     return pulumi.output(args).apply((a: any) => getDetector(a, opts))

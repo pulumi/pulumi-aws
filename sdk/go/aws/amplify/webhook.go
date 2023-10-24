@@ -15,45 +15,6 @@ import (
 
 // Provides an Amplify Webhook resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := amplify.NewApp(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			masterBranch, err := amplify.NewBranch(ctx, "masterBranch", &amplify.BranchArgs{
-//				AppId:      example.ID(),
-//				BranchName: pulumi.String("master"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amplify.NewWebhook(ctx, "masterWebhook", &amplify.WebhookArgs{
-//				AppId:       example.ID(),
-//				BranchName:  masterBranch.BranchName,
-//				Description: pulumi.String("triggermaster"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Amplify webhook using a webhook ID. For example:

@@ -16,34 +16,6 @@ namespace Pulumi.Aws.Alb
     /// 
     /// &gt; **Note:** `aws.alb.ListenerCertificate` is known as `aws.lb.ListenerCertificate`. The functionality is identical.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCertificate = new Aws.Acm.Certificate("exampleCertificate");
-    /// 
-    ///     // ...
-    ///     var frontEndLoadBalancer = new Aws.LB.LoadBalancer("frontEndLoadBalancer");
-    /// 
-    ///     // ...
-    ///     var frontEndListener = new Aws.LB.Listener("frontEndListener");
-    /// 
-    ///     // ...
-    ///     var exampleListenerCertificate = new Aws.LB.ListenerCertificate("exampleListenerCertificate", new()
-    ///     {
-    ///         ListenerArn = frontEndListener.Arn,
-    ///         CertificateArn = exampleCertificate.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Listener Certificates using the listener arn and certificate arn, separated by an underscore (`_`). For example:

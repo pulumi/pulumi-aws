@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkInterfaceSecurityGroupAttachmentArgs', 'NetworkInterfaceSecurityGroupAttachment']
@@ -21,8 +21,29 @@ class NetworkInterfaceSecurityGroupAttachmentArgs:
         :param pulumi.Input[str] network_interface_id: The ID of the network interface to attach to.
         :param pulumi.Input[str] security_group_id: The ID of the security group.
         """
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
-        pulumi.set(__self__, "security_group_id", security_group_id)
+        NetworkInterfaceSecurityGroupAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interface_id=network_interface_id,
+            security_group_id=security_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if network_interface_id is None:
+            raise TypeError("Missing 'network_interface_id' argument")
+        if security_group_id is None and 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+        if security_group_id is None:
+            raise TypeError("Missing 'security_group_id' argument")
+
+        _setter("network_interface_id", network_interface_id)
+        _setter("security_group_id", security_group_id)
 
     @property
     @pulumi.getter(name="networkInterfaceId")
@@ -59,10 +80,27 @@ class _NetworkInterfaceSecurityGroupAttachmentState:
         :param pulumi.Input[str] network_interface_id: The ID of the network interface to attach to.
         :param pulumi.Input[str] security_group_id: The ID of the security group.
         """
+        _NetworkInterfaceSecurityGroupAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interface_id=network_interface_id,
+            security_group_id=security_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if security_group_id is None and 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if security_group_id is not None:
-            pulumi.set(__self__, "security_group_id", security_group_id)
+            _setter("security_group_id", security_group_id)
 
     @property
     @pulumi.getter(name="networkInterfaceId")
@@ -109,55 +147,6 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         conflicts, and will lead to spurious diffs and undefined behavior - please use
         one or the other.
 
-        ## Example Usage
-
-        The following provides a very basic example of setting up an instance (provided
-        by `instance`) in the default security group, creating a security group
-        (provided by `sg`) and then attaching the security group to the instance's
-        primary network interface via the `ec2.NetworkInterfaceSecurityGroupAttachment` resource,
-        named `sg_attachment`:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ami = aws.ec2.get_ami(most_recent=True,
-            filters=[aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["amzn-ami-hvm-*"],
-            )],
-            owners=["amazon"])
-        instance = aws.ec2.Instance("instance",
-            instance_type="t2.micro",
-            ami=ami.id,
-            tags={
-                "type": "test-instance",
-            })
-        sg = aws.ec2.SecurityGroup("sg", tags={
-            "type": "test-security-group",
-        })
-        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment",
-            security_group_id=sg.id,
-            network_interface_id=instance.primary_network_interface_id)
-        ```
-
-        In this example, `instance` is provided by the `ec2.Instance` data source,
-        fetching an external instance, possibly not managed by this provider.
-        `sg_attachment` then attaches to the output instance's `network_interface_id`:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        instance = aws.ec2.get_instance(instance_id="i-1234567890abcdef0")
-        sg = aws.ec2.SecurityGroup("sg", tags={
-            "type": "test-security-group",
-        })
-        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment",
-            security_group_id=sg.id,
-            network_interface_id=instance.network_interface_id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Network Interface Security Group attachments using the associated network interface ID and security group ID, separated by an underscore (`_`). For example:
@@ -189,55 +178,6 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         conflicts, and will lead to spurious diffs and undefined behavior - please use
         one or the other.
 
-        ## Example Usage
-
-        The following provides a very basic example of setting up an instance (provided
-        by `instance`) in the default security group, creating a security group
-        (provided by `sg`) and then attaching the security group to the instance's
-        primary network interface via the `ec2.NetworkInterfaceSecurityGroupAttachment` resource,
-        named `sg_attachment`:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ami = aws.ec2.get_ami(most_recent=True,
-            filters=[aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["amzn-ami-hvm-*"],
-            )],
-            owners=["amazon"])
-        instance = aws.ec2.Instance("instance",
-            instance_type="t2.micro",
-            ami=ami.id,
-            tags={
-                "type": "test-instance",
-            })
-        sg = aws.ec2.SecurityGroup("sg", tags={
-            "type": "test-security-group",
-        })
-        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment",
-            security_group_id=sg.id,
-            network_interface_id=instance.primary_network_interface_id)
-        ```
-
-        In this example, `instance` is provided by the `ec2.Instance` data source,
-        fetching an external instance, possibly not managed by this provider.
-        `sg_attachment` then attaches to the output instance's `network_interface_id`:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        instance = aws.ec2.get_instance(instance_id="i-1234567890abcdef0")
-        sg = aws.ec2.SecurityGroup("sg", tags={
-            "type": "test-security-group",
-        })
-        sg_attachment = aws.ec2.NetworkInterfaceSecurityGroupAttachment("sgAttachment",
-            security_group_id=sg.id,
-            network_interface_id=instance.network_interface_id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Network Interface Security Group attachments using the associated network interface ID and security group ID, separated by an underscore (`_`). For example:
@@ -256,6 +196,10 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfaceSecurityGroupAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

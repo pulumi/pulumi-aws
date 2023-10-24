@@ -11,20 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Lex V2 Models Bot.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lex.V2modelsBot("example", {
- *     dataPrivacies: [{
- *         childDirected: "boolean",
- *     }],
- *     idleSessionTtlInSeconds: 10,
- *     roleArn: "bot_example_arn",
- * });
- * ```
  *
  * ## Import
  *

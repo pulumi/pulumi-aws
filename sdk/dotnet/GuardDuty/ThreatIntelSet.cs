@@ -14,55 +14,6 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// &gt; **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage ThreatIntelSets. ThreatIntelSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-threat-intel-set.html)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = new Aws.GuardDuty.Detector("primary", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
-    /// 
-    ///     // ... other configuration ...
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
-    ///     {
-    ///         Bucket = bucket.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    ///     var myThreatIntelSetBucketObjectv2 = new Aws.S3.BucketObjectv2("myThreatIntelSetBucketObjectv2", new()
-    ///     {
-    ///         Acl = "public-read",
-    ///         Content = @"10.0.0.0/8
-    /// ",
-    ///         Bucket = bucket.Id,
-    ///         Key = "MyThreatIntelSet",
-    ///     });
-    /// 
-    ///     var myThreatIntelSetThreatIntelSet = new Aws.GuardDuty.ThreatIntelSet("myThreatIntelSetThreatIntelSet", new()
-    ///     {
-    ///         Activate = true,
-    ///         DetectorId = primary.Id,
-    ///         Format = "TXT",
-    ///         Location = Output.Tuple(myThreatIntelSetBucketObjectv2.Bucket, myThreatIntelSetBucketObjectv2.Key).Apply(values =&gt;
-    ///         {
-    ///             var bucket = values.Item1;
-    ///             var key = values.Item2;
-    ///             return $"https://s3.amazonaws.com/{bucket}/{key}";
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For example:

@@ -10,49 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CE Cost Category.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.costexplorer.CostCategory("test", {
- *     rules: [
- *         {
- *             rule: {
- *                 dimension: {
- *                     key: "LINKED_ACCOUNT_NAME",
- *                     matchOptions: ["ENDS_WITH"],
- *                     values: ["-prod"],
- *                 },
- *             },
- *             value: "production",
- *         },
- *         {
- *             rule: {
- *                 dimension: {
- *                     key: "LINKED_ACCOUNT_NAME",
- *                     matchOptions: ["ENDS_WITH"],
- *                     values: ["-stg"],
- *                 },
- *             },
- *             value: "staging",
- *         },
- *         {
- *             rule: {
- *                 dimension: {
- *                     key: "LINKED_ACCOUNT_NAME",
- *                     matchOptions: ["ENDS_WITH"],
- *                     values: ["-dev"],
- *                 },
- *             },
- *             value: "testing",
- *         },
- *     ],
- *     ruleVersion: "CostCategoryExpression.v1",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:

@@ -17,53 +17,6 @@ import (
 // join the collaboration and can create memberships.
 //
 // ## Example Usage
-// ### Collaboration with tags
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cleanrooms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cleanrooms.NewCollaboration(ctx, "testCollaboration", &cleanrooms.CollaborationArgs{
-//				CreatorDisplayName: pulumi.String("Creator "),
-//				CreatorMemberAbilities: pulumi.StringArray{
-//					pulumi.String("CAN_QUERY"),
-//					pulumi.String("CAN_RECEIVE_RESULTS"),
-//				},
-//				DataEncryptionMetadata: &cleanrooms.CollaborationDataEncryptionMetadataArgs{
-//					AllowClearText:                        pulumi.Bool(true),
-//					AllowDuplicates:                       pulumi.Bool(true),
-//					AllowJoinsOnColumnsWithDifferentNames: pulumi.Bool(true),
-//					PreserveNulls:                         pulumi.Bool(false),
-//				},
-//				Description: pulumi.String("I made this collaboration with Pulumi!"),
-//				Members: cleanrooms.CollaborationMemberArray{
-//					&cleanrooms.CollaborationMemberArgs{
-//						AccountId:       pulumi.String("123456789012"),
-//						DisplayName:     pulumi.String("Other member"),
-//						MemberAbilities: pulumi.StringArray{},
-//					},
-//				},
-//				QueryLogStatus: pulumi.String("DISABLED"),
-//				Tags: pulumi.StringMap{
-//					"Project": pulumi.String("Pulumi"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

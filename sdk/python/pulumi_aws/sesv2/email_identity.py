@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,38 @@ class EmailIdentityArgs:
         :param pulumi.Input['EmailIdentityDkimSigningAttributesArgs'] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "email_identity", email_identity)
+        EmailIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_identity=email_identity,
+            configuration_set_name=configuration_set_name,
+            dkim_signing_attributes=dkim_signing_attributes,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_identity: Optional[pulumi.Input[str]] = None,
+             configuration_set_name: Optional[pulumi.Input[str]] = None,
+             dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_identity is None and 'emailIdentity' in kwargs:
+            email_identity = kwargs['emailIdentity']
+        if email_identity is None:
+            raise TypeError("Missing 'email_identity' argument")
+        if configuration_set_name is None and 'configurationSetName' in kwargs:
+            configuration_set_name = kwargs['configurationSetName']
+        if dkim_signing_attributes is None and 'dkimSigningAttributes' in kwargs:
+            dkim_signing_attributes = kwargs['dkimSigningAttributes']
+
+        _setter("email_identity", email_identity)
         if configuration_set_name is not None:
-            pulumi.set(__self__, "configuration_set_name", configuration_set_name)
+            _setter("configuration_set_name", configuration_set_name)
         if dkim_signing_attributes is not None:
-            pulumi.set(__self__, "dkim_signing_attributes", dkim_signing_attributes)
+            _setter("dkim_signing_attributes", dkim_signing_attributes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="emailIdentity")
@@ -112,25 +137,62 @@ class _EmailIdentityState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] verified_for_sending_status: Specifies whether or not the identity is verified.
         """
+        _EmailIdentityState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            configuration_set_name=configuration_set_name,
+            dkim_signing_attributes=dkim_signing_attributes,
+            email_identity=email_identity,
+            identity_type=identity_type,
+            tags=tags,
+            tags_all=tags_all,
+            verified_for_sending_status=verified_for_sending_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             configuration_set_name: Optional[pulumi.Input[str]] = None,
+             dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']] = None,
+             email_identity: Optional[pulumi.Input[str]] = None,
+             identity_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             verified_for_sending_status: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_set_name is None and 'configurationSetName' in kwargs:
+            configuration_set_name = kwargs['configurationSetName']
+        if dkim_signing_attributes is None and 'dkimSigningAttributes' in kwargs:
+            dkim_signing_attributes = kwargs['dkimSigningAttributes']
+        if email_identity is None and 'emailIdentity' in kwargs:
+            email_identity = kwargs['emailIdentity']
+        if identity_type is None and 'identityType' in kwargs:
+            identity_type = kwargs['identityType']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if verified_for_sending_status is None and 'verifiedForSendingStatus' in kwargs:
+            verified_for_sending_status = kwargs['verifiedForSendingStatus']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if configuration_set_name is not None:
-            pulumi.set(__self__, "configuration_set_name", configuration_set_name)
+            _setter("configuration_set_name", configuration_set_name)
         if dkim_signing_attributes is not None:
-            pulumi.set(__self__, "dkim_signing_attributes", dkim_signing_attributes)
+            _setter("dkim_signing_attributes", dkim_signing_attributes)
         if email_identity is not None:
-            pulumi.set(__self__, "email_identity", email_identity)
+            _setter("email_identity", email_identity)
         if identity_type is not None:
-            pulumi.set(__self__, "identity_type", identity_type)
+            _setter("identity_type", identity_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if verified_for_sending_status is not None:
-            pulumi.set(__self__, "verified_for_sending_status", verified_for_sending_status)
+            _setter("verified_for_sending_status", verified_for_sending_status)
 
     @property
     @pulumi.getter
@@ -250,46 +312,6 @@ class EmailIdentity(pulumi.CustomResource):
         ## Example Usage
 
         ### Basic Usage
-        ### Email Address Identity
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.EmailIdentity("example", email_identity="testing@example.com")
-        ```
-        ### Domain Identity
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
-        ```
-        ### Configuration Set
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity",
-            email_identity="example.com",
-            configuration_set_name=example_configuration_set.configuration_set_name)
-        ```
-        ### DKIM Signing Attributes (BYODKIM)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.EmailIdentity("example",
-            dkim_signing_attributes=aws.sesv2.EmailIdentityDkimSigningAttributesArgs(
-                domain_signing_private_key="MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
-                domain_signing_selector="example",
-            ),
-            email_identity="example.com")
-        ```
 
         ## Import
 
@@ -320,46 +342,6 @@ class EmailIdentity(pulumi.CustomResource):
         ## Example Usage
 
         ### Basic Usage
-        ### Email Address Identity
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.EmailIdentity("example", email_identity="testing@example.com")
-        ```
-        ### Domain Identity
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
-        ```
-        ### Configuration Set
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_configuration_set = aws.sesv2.ConfigurationSet("exampleConfigurationSet", configuration_set_name="example")
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity",
-            email_identity="example.com",
-            configuration_set_name=example_configuration_set.configuration_set_name)
-        ```
-        ### DKIM Signing Attributes (BYODKIM)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.EmailIdentity("example",
-            dkim_signing_attributes=aws.sesv2.EmailIdentityDkimSigningAttributesArgs(
-                domain_signing_private_key="MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
-                domain_signing_selector="example",
-            ),
-            email_identity="example.com")
-        ```
 
         ## Import
 
@@ -379,6 +361,10 @@ class EmailIdentity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EmailIdentityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -398,6 +384,7 @@ class EmailIdentity(pulumi.CustomResource):
             __props__ = EmailIdentityArgs.__new__(EmailIdentityArgs)
 
             __props__.__dict__["configuration_set_name"] = configuration_set_name
+            dkim_signing_attributes = _utilities.configure(dkim_signing_attributes, EmailIdentityDkimSigningAttributesArgs, True)
             __props__.__dict__["dkim_signing_attributes"] = dkim_signing_attributes
             if email_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'email_identity'")

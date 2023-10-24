@@ -10,30 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS WAFv2 Regex Pattern Set Resource
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.RegexPatternSet("example", {
- *     description: "Example regex pattern set",
- *     regularExpressions: [
- *         {
- *             regexString: "one",
- *         },
- *         {
- *             regexString: "two",
- *         },
- *     ],
- *     scope: "REGIONAL",
- *     tags: {
- *         Tag1: "Value1",
- *         Tag2: "Value2",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For example:

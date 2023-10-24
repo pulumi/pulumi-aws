@@ -16,28 +16,6 @@ namespace Pulumi.Aws.ApiGateway
         /// API Gateway. To fetch the VPC Link you must provide a name to match against.
         /// As there is no unique name constraint on API Gateway VPC Links this data source will
         /// error if there is more than one match.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var myApiGatewayVpcLink = Aws.ApiGateway.GetVpcLink.Invoke(new()
-        ///     {
-        ///         Name = "my-vpc-link",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcLinkResult> InvokeAsync(GetVpcLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcLinkResult>("aws:apigateway/getVpcLink:getVpcLink", args ?? new GetVpcLinkArgs(), options.WithDefaults());
@@ -47,28 +25,6 @@ namespace Pulumi.Aws.ApiGateway
         /// API Gateway. To fetch the VPC Link you must provide a name to match against.
         /// As there is no unique name constraint on API Gateway VPC Links this data source will
         /// error if there is more than one match.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var myApiGatewayVpcLink = Aws.ApiGateway.GetVpcLink.Invoke(new()
-        ///     {
-        ///         Name = "my-vpc-link",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws:apigateway/getVpcLink:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithDefaults());

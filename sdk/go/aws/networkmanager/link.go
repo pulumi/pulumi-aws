@@ -15,38 +15,6 @@ import (
 
 // Creates a link for a site.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewLink(ctx, "example", &networkmanager.LinkArgs{
-//				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				SiteId:          pulumi.Any(aws_networkmanager_site.Example.Id),
-//				Bandwidth: &networkmanager.LinkBandwidthArgs{
-//					UploadSpeed:   pulumi.Int(10),
-//					DownloadSpeed: pulumi.Int(50),
-//				},
-//				ProviderName: pulumi.String("MegaCorp"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For example:

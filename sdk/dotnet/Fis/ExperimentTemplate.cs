@@ -16,62 +16,6 @@ namespace Pulumi.Aws.Fis
     /// See [Amazon Fault Injection Simulator](https://docs.aws.amazon.com/fis/index.html)
     /// for more information.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Fis.ExperimentTemplate("example", new()
-    ///     {
-    ///         Description = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         StopConditions = new[]
-    ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateStopConditionArgs
-    ///             {
-    ///                 Source = "none",
-    ///             },
-    ///         },
-    ///         Actions = new[]
-    ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateActionArgs
-    ///             {
-    ///                 Name = "example-action",
-    ///                 ActionId = "aws:ec2:terminate-instances",
-    ///                 Target = new Aws.Fis.Inputs.ExperimentTemplateActionTargetArgs
-    ///                 {
-    ///                     Key = "Instances",
-    ///                     Value = "example-target",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Targets = new[]
-    ///         {
-    ///             new Aws.Fis.Inputs.ExperimentTemplateTargetArgs
-    ///             {
-    ///                 Name = "example-target",
-    ///                 ResourceType = "aws:ec2:instance",
-    ///                 SelectionMode = "COUNT(1)",
-    ///                 ResourceTags = new[]
-    ///                 {
-    ///                     new Aws.Fis.Inputs.ExperimentTemplateTargetResourceTagArgs
-    ///                     {
-    ///                         Key = "env",
-    ///                         Value = "example",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:

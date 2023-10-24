@@ -10,31 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("awsGlueCatalogDatabase", {name: "MyCatalogDatabase"});
- * ```
- * ### Create Table Default Permissions
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("awsGlueCatalogDatabase", {
- *     createTableDefaultPermissions: [{
- *         permissions: ["SELECT"],
- *         principal: {
- *             dataLakePrincipalIdentifier: "IAM_ALLOWED_PRINCIPALS",
- *         },
- *     }],
- *     name: "MyCatalogDatabase",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:

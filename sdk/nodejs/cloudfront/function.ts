@@ -12,20 +12,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
  *
  * ## Example Usage
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const test = new aws.cloudfront.Function("test", {
- *     runtime: "cloudfront-js-1.0",
- *     comment: "my function",
- *     publish: true,
- *     code: fs.readFileSync(`${path.module}/function.js`),
- * });
- * ```
  *
  * ## Import
  *

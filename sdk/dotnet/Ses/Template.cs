@@ -12,28 +12,6 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides a resource to create a SES template.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myTemplate = new Aws.Ses.Template("myTemplate", new()
-    ///     {
-    ///         Html = "&lt;h1&gt;Hello {{name}},&lt;/h1&gt;&lt;p&gt;Your favorite animal is {{favoriteanimal}}.&lt;/p&gt;",
-    ///         Subject = "Greetings, {{name}}!",
-    ///         Text = @"Hello {{name}},
-    /// Your favorite animal is {{favoriteanimal}}.
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES templates using the template name. For example:

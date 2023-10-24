@@ -11,31 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.ContactList("example", {contactListName: "example"});
- * ```
- * ### Extended Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.ContactList("example", {
- *     contactListName: "example",
- *     description: "description",
- *     topics: [{
- *         defaultSubscriptionStatus: "OPT_IN",
- *         description: "topic description",
- *         displayName: "Example Topic",
- *         topicName: "example-topic",
- *     }],
- * });
- * ```
  *
  * ## Import
  *

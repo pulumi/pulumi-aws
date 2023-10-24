@@ -11,21 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS MediaLive InputSecurityGroup.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.medialive.InputSecurityGroup("example", {
- *     tags: {
- *         ENVIRONMENT: "prod",
- *     },
- *     whitelistRules: [{
- *         cidr: "10.0.0.8/32",
- *     }],
- * });
- * ```
  *
  * ## Import
  *

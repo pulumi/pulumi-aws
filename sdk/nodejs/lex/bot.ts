@@ -11,41 +11,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Lex Bot resource. For more information see
  * [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const orderFlowersBot = new aws.lex.Bot("orderFlowersBot", {
- *     abortStatement: {
- *         messages: [{
- *             content: "Sorry, I am not able to assist at this time",
- *             contentType: "PlainText",
- *         }],
- *     },
- *     childDirected: false,
- *     clarificationPrompt: {
- *         maxAttempts: 2,
- *         messages: [{
- *             content: "I didn't understand you, what would you like to do?",
- *             contentType: "PlainText",
- *         }],
- *     },
- *     createVersion: false,
- *     description: "Bot to order flowers on the behalf of a user",
- *     idleSessionTtlInSeconds: 600,
- *     intents: [{
- *         intentName: "OrderFlowers",
- *         intentVersion: "1",
- *     }],
- *     locale: "en-US",
- *     name: "OrderFlowers",
- *     processBehavior: "BUILD",
- *     voiceId: "Salli",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import bots using their name. For example:

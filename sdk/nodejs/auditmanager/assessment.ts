@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Audit Manager Assessment.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.auditmanager.Assessment("test", {
- *     assessmentReportsDestination: {
- *         destination: `s3://${aws_s3_bucket.test.id}`,
- *         destinationType: "S3",
- *     },
- *     frameworkId: aws_auditmanager_framework.test.id,
- *     roles: [{
- *         roleArn: aws_iam_role.test.arn,
- *         roleType: "PROCESS_OWNER",
- *     }],
- *     scope: {
- *         awsAccounts: [{
- *             id: data.aws_caller_identity.current.account_id,
- *         }],
- *         awsServices: [{
- *             serviceName: "S3",
- *         }],
- *     },
- * });
- * ```
  *
  * ## Import
  *

@@ -16,35 +16,6 @@ import (
 // Provides the ability to register a target with an AWS VPC Lattice Target Group.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewTargetGroupAttachment(ctx, "example", &vpclattice.TargetGroupAttachmentArgs{
-//				TargetGroupIdentifier: pulumi.Any(aws_vpclattice_target_group.Example.Id),
-//				Target: &vpclattice.TargetGroupAttachmentTargetArgs{
-//					Id:   pulumi.Any(aws_lb.Example.Arn),
-//					Port: pulumi.Int(80),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 

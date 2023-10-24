@@ -12,36 +12,6 @@ namespace Pulumi.Aws.CodePipeline
     /// <summary>
     /// Provides a CodeDeploy CustomActionType
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodePipeline.CustomActionType("example", new()
-    ///     {
-    ///         Category = "Build",
-    ///         InputArtifactDetails = new Aws.CodePipeline.Inputs.CustomActionTypeInputArtifactDetailsArgs
-    ///         {
-    ///             MaximumCount = 1,
-    ///             MinimumCount = 0,
-    ///         },
-    ///         OutputArtifactDetails = new Aws.CodePipeline.Inputs.CustomActionTypeOutputArtifactDetailsArgs
-    ///         {
-    ///             MaximumCount = 1,
-    ///             MinimumCount = 0,
-    ///         },
-    ///         ProviderName = "example",
-    ///         Version = "1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:

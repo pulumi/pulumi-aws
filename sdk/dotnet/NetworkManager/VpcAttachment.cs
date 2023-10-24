@@ -13,28 +13,6 @@ namespace Pulumi.Aws.NetworkManager
     /// Resource for managing an AWS NetworkManager VpcAttachment.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.VpcAttachment("example", new()
-    ///     {
-    ///         SubnetArns = new[]
-    ///         {
-    ///             aws_subnet.Example.Arn,
-    ///         },
-    ///         CoreNetworkId = awscc_networkmanager_core_network.Example.Id,
-    ///         VpcArn = aws_vpc.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -9,23 +9,6 @@ import * as utilities from "../utilities";
  *
  * > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleUser = new aws.iam.User("exampleUser", {
- *     path: "/",
- *     forceDestroy: true,
- * });
- * const exampleUserLoginProfile = new aws.iam.UserLoginProfile("exampleUserLoginProfile", {
- *     user: exampleUser.name,
- *     pgpKey: "keybase:some_person_that_exists",
- * });
- * export const password = exampleUserLoginProfile.encryptedPassword;
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:

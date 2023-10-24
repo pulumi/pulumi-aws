@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,13 +28,36 @@ class RouteTableArgs:
                This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        RouteTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_id=vpc_id,
+            propagating_vgws=propagating_vgws,
+            routes=routes,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if propagating_vgws is None and 'propagatingVgws' in kwargs:
+            propagating_vgws = kwargs['propagatingVgws']
+
+        _setter("vpc_id", vpc_id)
         if propagating_vgws is not None:
-            pulumi.set(__self__, "propagating_vgws", propagating_vgws)
+            _setter("propagating_vgws", propagating_vgws)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -107,23 +130,54 @@ class _RouteTableState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC ID.
         """
+        _RouteTableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            owner_id=owner_id,
+            propagating_vgws=propagating_vgws,
+            routes=routes,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if propagating_vgws is None and 'propagatingVgws' in kwargs:
+            propagating_vgws = kwargs['propagatingVgws']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if propagating_vgws is not None:
-            pulumi.set(__self__, "propagating_vgws", propagating_vgws)
+            _setter("propagating_vgws", propagating_vgws)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -247,81 +301,6 @@ class RouteTable(pulumi.CustomResource):
         the separate resource.
 
         ## Example Usage
-        ### Basic example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.RouteTable("example",
-            vpc_id=aws_vpc["example"]["id"],
-            routes=[
-                aws.ec2.RouteTableRouteArgs(
-                    cidr_block="10.0.1.0/24",
-                    gateway_id=aws_internet_gateway["example"]["id"],
-                ),
-                aws.ec2.RouteTableRouteArgs(
-                    ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=aws_egress_only_internet_gateway["example"]["id"],
-                ),
-            ],
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        To subsequently remove all managed routes:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.RouteTable("example",
-            vpc_id=aws_vpc["example"]["id"],
-            routes=[],
-            tags={
-                "Name": "example",
-            })
-        ```
-        ### Adopting an existing local route
-
-        AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
-
-        First, adopt an existing AWS-created route:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
-        test_route_table = aws.ec2.RouteTable("testRouteTable",
-            vpc_id=test_vpc.id,
-            routes=[aws.ec2.RouteTableRouteArgs(
-                cidr_block="10.1.0.0/16",
-                gateway_id="local",
-            )])
-        ```
-
-        Next, update the target of the route:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
-        test_subnet = aws.ec2.Subnet("testSubnet",
-            cidr_block="10.1.1.0/24",
-            vpc_id=test_vpc.id)
-        test_network_interface = aws.ec2.NetworkInterface("testNetworkInterface", subnet_id=test_subnet.id)
-        test_route_table = aws.ec2.RouteTable("testRouteTable",
-            vpc_id=test_vpc.id,
-            routes=[aws.ec2.RouteTableRouteArgs(
-                cidr_block=test_vpc.cidr_block,
-                network_interface_id=test_network_interface.id,
-            )])
-        ```
-
-        The target could then be updated again back to `local`.
 
         ## Import
 
@@ -368,81 +347,6 @@ class RouteTable(pulumi.CustomResource):
         the separate resource.
 
         ## Example Usage
-        ### Basic example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.RouteTable("example",
-            vpc_id=aws_vpc["example"]["id"],
-            routes=[
-                aws.ec2.RouteTableRouteArgs(
-                    cidr_block="10.0.1.0/24",
-                    gateway_id=aws_internet_gateway["example"]["id"],
-                ),
-                aws.ec2.RouteTableRouteArgs(
-                    ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=aws_egress_only_internet_gateway["example"]["id"],
-                ),
-            ],
-            tags={
-                "Name": "example",
-            })
-        ```
-
-        To subsequently remove all managed routes:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.RouteTable("example",
-            vpc_id=aws_vpc["example"]["id"],
-            routes=[],
-            tags={
-                "Name": "example",
-            })
-        ```
-        ### Adopting an existing local route
-
-        AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
-
-        First, adopt an existing AWS-created route:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
-        test_route_table = aws.ec2.RouteTable("testRouteTable",
-            vpc_id=test_vpc.id,
-            routes=[aws.ec2.RouteTableRouteArgs(
-                cidr_block="10.1.0.0/16",
-                gateway_id="local",
-            )])
-        ```
-
-        Next, update the target of the route:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
-        test_subnet = aws.ec2.Subnet("testSubnet",
-            cidr_block="10.1.1.0/24",
-            vpc_id=test_vpc.id)
-        test_network_interface = aws.ec2.NetworkInterface("testNetworkInterface", subnet_id=test_subnet.id)
-        test_route_table = aws.ec2.RouteTable("testRouteTable",
-            vpc_id=test_vpc.id,
-            routes=[aws.ec2.RouteTableRouteArgs(
-                cidr_block=test_vpc.cidr_block,
-                network_interface_id=test_network_interface.id,
-            )])
-        ```
-
-        The target could then be updated again back to `local`.
 
         ## Import
 
@@ -462,6 +366,10 @@ class RouteTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

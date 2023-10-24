@@ -15,29 +15,6 @@ namespace Pulumi.Aws.Kinesis
         /// Provides details about a Kinesis Stream Consumer.
         /// 
         /// For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kinesis.GetStreamConsumer.Invoke(new()
-        ///     {
-        ///         Name = "example-consumer",
-        ///         StreamArn = aws_kinesis_stream.Example.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetStreamConsumerResult> InvokeAsync(GetStreamConsumerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamConsumerResult>("aws:kinesis/getStreamConsumer:getStreamConsumer", args ?? new GetStreamConsumerArgs(), options.WithDefaults());
@@ -46,29 +23,6 @@ namespace Pulumi.Aws.Kinesis
         /// Provides details about a Kinesis Stream Consumer.
         /// 
         /// For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kinesis.GetStreamConsumer.Invoke(new()
-        ///     {
-        ///         Name = "example-consumer",
-        ///         StreamArn = aws_kinesis_stream.Example.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetStreamConsumerResult> Invoke(GetStreamConsumerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamConsumerResult>("aws:kinesis/getStreamConsumer:getStreamConsumer", args ?? new GetStreamConsumerInvokeArgs(), options.WithDefaults());

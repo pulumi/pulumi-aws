@@ -12,18 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** After creation, you must use the information in the `certificationValidationRecords` attribute to add CNAME records to your Domain Name System (DNS). For each mapped domain name, add a mapping to the target App Runner subdomain (found in the `dnsTarget` attribute) and one or more certificate validation records. App Runner then performs DNS validation to verify that you own or control the domain name you associated. App Runner tracks domain validity in a certificate stored in AWS Certificate Manager (ACM).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apprunner.CustomDomainAssociation("example", {
- *     domainName: "example.com",
- *     serviceArn: aws_apprunner_service.example.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import App Runner Custom Domain Associations using the `domain_name` and `service_arn` separated by a comma (`,`). For example:

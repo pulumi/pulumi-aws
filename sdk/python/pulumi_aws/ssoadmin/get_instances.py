@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetInstancesResult',
     'AwaitableGetInstancesResult',
     'get_instances',
+    'get_instances_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,11 @@ def get_instances(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIn
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'),
         identity_store_ids=pulumi.get(__ret__, 'identity_store_ids'))
+
+
+@_utilities.lift_output_func(get_instances)
+def get_instances_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
+    """
+    Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
+    """
+    ...

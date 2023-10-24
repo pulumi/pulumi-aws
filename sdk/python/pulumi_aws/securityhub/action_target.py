@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ActionTargetArgs', 'ActionTarget']
@@ -23,10 +23,29 @@ class ActionTargetArgs:
         :param pulumi.Input[str] identifier: The ID for the custom action target.
         :param pulumi.Input[str] name: The description for the custom action target.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "identifier", identifier)
+        ActionTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            identifier=identifier,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
+
+        _setter("description", description)
+        _setter("identifier", identifier)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -79,14 +98,31 @@ class _ActionTargetState:
         :param pulumi.Input[str] identifier: The ID for the custom action target.
         :param pulumi.Input[str] name: The description for the custom action target.
         """
+        _ActionTargetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            identifier=identifier,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -149,19 +185,6 @@ class ActionTarget(pulumi.CustomResource):
         """
         Creates Security Hub custom action.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_action_target = aws.securityhub.ActionTarget("exampleActionTarget",
-            identifier="SendToChat",
-            description="This is custom action sends selected findings to chat",
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
@@ -185,19 +208,6 @@ class ActionTarget(pulumi.CustomResource):
         """
         Creates Security Hub custom action.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_action_target = aws.securityhub.ActionTarget("exampleActionTarget",
-            identifier="SendToChat",
-            description="This is custom action sends selected findings to chat",
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
@@ -216,6 +226,10 @@ class ActionTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActionTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

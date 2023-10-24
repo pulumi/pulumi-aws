@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Audit Manager Framework Share.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.auditmanager.FrameworkShare("example", {
- *     destinationAccount: "012345678901",
- *     destinationRegion: "us-east-1",
- *     frameworkId: aws_auditmanager_framework.example.id,
- * });
- * ```
  *
  * ## Import
  *

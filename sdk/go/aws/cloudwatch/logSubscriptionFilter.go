@@ -15,36 +15,6 @@ import (
 
 // Provides a CloudWatch Logs subscription filter resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogSubscriptionFilter(ctx, "testLambdafunctionLogfilter", &cloudwatch.LogSubscriptionFilterArgs{
-//				RoleArn:        pulumi.Any(aws_iam_role.Iam_for_lambda.Arn),
-//				LogGroup:       pulumi.Any("/aws/lambda/example_lambda_name"),
-//				FilterPattern:  pulumi.String("logtype test"),
-//				DestinationArn: pulumi.Any(aws_kinesis_stream.Test_logstream.Arn),
-//				Distribution:   pulumi.String("Random"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For example:

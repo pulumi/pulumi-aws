@@ -15,48 +15,6 @@ namespace Pulumi.Aws.DynamoDB
     /// &gt; **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
     ///   You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
-    ///     {
-    ///         ReadCapacity = 10,
-    ///         WriteCapacity = 10,
-    ///         HashKey = "exampleHashKey",
-    ///         Attributes = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///             {
-    ///                 Name = "exampleHashKey",
-    ///                 Type = "S",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleTableItem = new Aws.DynamoDB.TableItem("exampleTableItem", new()
-    ///     {
-    ///         TableName = exampleTable.Name,
-    ///         HashKey = exampleTable.HashKey,
-    ///         Item = @"{
-    ///   ""exampleHashKey"": {""S"": ""something""},
-    ///   ""one"": {""N"": ""11111""},
-    ///   ""two"": {""N"": ""22222""},
-    ///   ""three"": {""N"": ""33333""},
-    ///   ""four"": {""N"": ""44444""}
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// You cannot import DynamoDB table items.

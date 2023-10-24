@@ -12,36 +12,6 @@ namespace Pulumi.Aws.AppIntegrations
     /// <summary>
     /// Provides an Amazon AppIntegrations Data Integration resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppIntegrations.DataIntegration("example", new()
-    ///     {
-    ///         Description = "example",
-    ///         KmsKey = aws_kms_key.Test.Arn,
-    ///         SourceUri = "Salesforce://AppFlow/example",
-    ///         ScheduleConfig = new Aws.AppIntegrations.Inputs.DataIntegrationScheduleConfigArgs
-    ///         {
-    ///             FirstExecutionFrom = "1439788442681",
-    ///             Object = "Account",
-    ///             ScheduleExpression = "rate(1 hour)",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Key1", "Value1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:

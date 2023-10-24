@@ -16,50 +16,6 @@ import (
 // Resource for managing an AWS Comprehend Document Classifier.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/comprehend"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			documents, err := s3.NewBucketObjectv2(ctx, "documents", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = comprehend.NewDocumentClassifier(ctx, "example", &comprehend.DocumentClassifierArgs{
-//				DataAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				LanguageCode:      pulumi.String("en"),
-//				InputDataConfig: &comprehend.DocumentClassifierInputDataConfigArgs{
-//					S3Uri: documents.ID().ApplyT(func(id string) (string, error) {
-//						return fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Test.Bucket, id), nil
-//					}).(pulumi.StringOutput),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectv2(ctx, "entities", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

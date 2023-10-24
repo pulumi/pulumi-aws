@@ -12,35 +12,6 @@ namespace Pulumi.Aws.Location
     /// <summary>
     /// Resource for managing an AWS Location Tracker Association.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGeofenceCollection = new Aws.Location.GeofenceCollection("exampleGeofenceCollection", new()
-    ///     {
-    ///         CollectionName = "example",
-    ///     });
-    /// 
-    ///     var exampleTracker = new Aws.Location.Tracker("exampleTracker", new()
-    ///     {
-    ///         TrackerName = "example",
-    ///     });
-    /// 
-    ///     var exampleTrackerAssociation = new Aws.Location.TrackerAssociation("exampleTrackerAssociation", new()
-    ///     {
-    ///         ConsumerArn = exampleGeofenceCollection.CollectionArn,
-    ///         TrackerName = exampleTracker.TrackerName,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:

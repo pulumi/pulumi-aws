@@ -10,19 +10,6 @@ import * as utilities from "../utilities";
  * * [Creating an IAM Role to Allow Amazon Aurora to Access AWS Services](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.CreateRole.html)
  * * [Importing Amazon S3 Data into an RDS PostgreSQL DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.ClusterRoleAssociation("example", {
- *     dbClusterIdentifier: aws_rds_cluster.example.id,
- *     featureName: "S3_INTEGRATION",
- *     roleArn: aws_iam_role.example.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For example:

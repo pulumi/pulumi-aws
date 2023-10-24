@@ -14,33 +14,6 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// &gt; **NOTE:** The DataSync Agents must be available before creating this resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataSync.LocationAzureBlob("example", new()
-    ///     {
-    ///         AgentArns = new[]
-    ///         {
-    ///             aws_datasync_agent.Example.Arn,
-    ///         },
-    ///         AuthenticationType = "SAS",
-    ///         ContainerUrl = "https://example.com/path",
-    ///         SasConfiguration = new Aws.DataSync.Inputs.LocationAzureBlobSasConfigurationArgs
-    ///         {
-    ///             Token = "sp=r&amp;st=2023-12-20T14:54:52Z&amp;se=2023-12-20T22:54:52Z&amp;spr=https&amp;sv=2021-06-08&amp;sr=c&amp;sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:

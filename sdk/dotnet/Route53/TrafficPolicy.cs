@@ -12,37 +12,6 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Manages a Route53 Traffic Policy.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53.TrafficPolicy("example", new()
-    ///     {
-    ///         Comment = "example comment",
-    ///         Document = @"{
-    ///   ""AWSPolicyFormatVersion"": ""2015-10-01"",
-    ///   ""RecordType"": ""A"",
-    ///   ""Endpoints"": {
-    ///     ""endpoint-start-NkPh"": {
-    ///       ""Type"": ""value"",
-    ///       ""Value"": ""10.0.0.2""
-    ///     }
-    ///   },
-    ///   ""StartEndpoint"": ""endpoint-start-NkPh""
-    /// }
-    /// 
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For example:

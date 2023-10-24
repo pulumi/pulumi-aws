@@ -12,32 +12,6 @@ namespace Pulumi.Aws.RedshiftServerless
     /// <summary>
     /// Creates a new Amazon Redshift Serverless Usage Limit.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleWorkgroup = new Aws.RedshiftServerless.Workgroup("exampleWorkgroup", new()
-    ///     {
-    ///         NamespaceName = aws_redshiftserverless_namespace.Example.Namespace_name,
-    ///         WorkgroupName = "example",
-    ///     });
-    /// 
-    ///     var exampleUsageLimit = new Aws.RedshiftServerless.UsageLimit("exampleUsageLimit", new()
-    ///     {
-    ///         ResourceArn = exampleWorkgroup.Arn,
-    ///         UsageType = "serverless-compute",
-    ///         Amount = 60,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:

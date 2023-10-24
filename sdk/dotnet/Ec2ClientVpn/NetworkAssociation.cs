@@ -13,25 +13,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
     /// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2ClientVpn.NetworkAssociation("example", new()
-    ///     {
-    ///         ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
-    ///         SubnetId = aws_subnet.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS Client VPN network associations using the endpoint ID and the association ID. Values are separated by a `,`. For example:

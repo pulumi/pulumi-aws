@@ -8,44 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Connection of Direct Connect.
  *
  * ## Example Usage
- * ### Create a connection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const hoge = new aws.directconnect.Connection("hoge", {
- *     bandwidth: "1Gbps",
- *     location: "EqDC2",
- * });
- * ```
- * ### Request a MACsec-capable connection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.directconnect.Connection("example", {
- *     bandwidth: "10Gbps",
- *     location: "EqDA2",
- *     requestMacsec: true,
- * });
- * ```
- * ### Configure encryption mode for MACsec-capable connections
- *
- * > **NOTE:** You can only specify the `encryptionMode` argument once the connection is in an `Available` state.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.directconnect.Connection("example", {
- *     bandwidth: "10Gbps",
- *     encryptionMode: "must_encrypt",
- *     location: "EqDC2",
- *     requestMacsec: true,
- * });
- * ```
  *
  * ## Import
  *

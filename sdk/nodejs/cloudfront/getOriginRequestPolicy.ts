@@ -9,28 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudfront.getOriginRequestPolicy({
- *     name: "example-policy",
- * });
- * ```
- * ### AWS-Managed Policies
- *
- * AWS managed origin request policy names are prefixed with `Managed-`:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const uaReferer = aws.cloudfront.getOriginRequestPolicy({
- *     name: "Managed-UserAgentRefererHeaders",
- * });
- * ```
  */
 export function getOriginRequestPolicy(args?: GetOriginRequestPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginRequestPolicyResult> {
     args = args || {};
@@ -85,28 +63,6 @@ export interface GetOriginRequestPolicyResult {
 }
 /**
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudfront.getOriginRequestPolicy({
- *     name: "example-policy",
- * });
- * ```
- * ### AWS-Managed Policies
- *
- * AWS managed origin request policy names are prefixed with `Managed-`:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const uaReferer = aws.cloudfront.getOriginRequestPolicy({
- *     name: "Managed-UserAgentRefererHeaders",
- * });
- * ```
  */
 export function getOriginRequestPolicyOutput(args?: GetOriginRequestPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginRequestPolicyResult> {
     return pulumi.output(args).apply((a: any) => getOriginRequestPolicy(a, opts))

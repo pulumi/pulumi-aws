@@ -14,24 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE:** Removing this resource disables serial console access.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.SerialConsoleAccess("example", new()
-    ///     {
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import serial console access state. For example:

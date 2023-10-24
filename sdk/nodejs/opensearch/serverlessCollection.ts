@@ -15,26 +15,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleServerlessSecurityPolicy = new aws.opensearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy", {
- *     type: "encryption",
- *     policy: JSON.stringify({
- *         Rules: [{
- *             Resource: ["collection/example"],
- *             ResourceType: "collection",
- *         }],
- *         AWSOwnedKey: true,
- *     }),
- * });
- * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("exampleServerlessCollection", {}, {
- *     dependsOn: [exampleServerlessSecurityPolicy],
- * });
- * ```
  *
  * ## Import
  *

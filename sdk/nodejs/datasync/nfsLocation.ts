@@ -12,21 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The DataSync Agents must be available before creating this resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.NfsLocation("example", {
- *     serverHostname: "nfs.example.com",
- *     subdirectory: "/exported/path",
- *     onPremConfig: {
- *         agentArns: [aws_datasync_agent.example.arn],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_location_nfs` using the DataSync Task Amazon Resource Name (ARN). For example:

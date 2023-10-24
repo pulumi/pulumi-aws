@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AuthPolicyArgs', 'AuthPolicy']
@@ -23,10 +23,31 @@ class AuthPolicyArgs:
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         :param pulumi.Input[str] state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "resource_identifier", resource_identifier)
+        AuthPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            resource_identifier=resource_identifier,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             resource_identifier: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if resource_identifier is None and 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if resource_identifier is None:
+            raise TypeError("Missing 'resource_identifier' argument")
+
+        _setter("policy", policy)
+        _setter("resource_identifier", resource_identifier)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -77,12 +98,29 @@ class _AuthPolicyState:
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         :param pulumi.Input[str] state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
         """
+        _AuthPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            resource_identifier=resource_identifier,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             resource_identifier: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_identifier is None and 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if resource_identifier is not None:
-            pulumi.set(__self__, "resource_identifier", resource_identifier)
+            _setter("resource_identifier", resource_identifier)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -134,33 +172,6 @@ class AuthPolicy(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Auth Policy.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_service = aws.vpclattice.Service("exampleService",
-            auth_type="AWS_IAM",
-            custom_domain_name="example.com")
-        example_auth_policy = aws.vpclattice.AuthPolicy("exampleAuthPolicy",
-            resource_identifier=example_service.arn,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "*",
-                    "Effect": "Allow",
-                    "Principal": "*",
-                    "Resource": "*",
-                    "Condition": {
-                        "StringNotEqualsIgnoreCase": {
-                            "aws:PrincipalType": "anonymous",
-                        },
-                    },
-                }],
-            }))
-        ```
 
         ## Import
 
@@ -186,33 +197,6 @@ class AuthPolicy(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Auth Policy.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_service = aws.vpclattice.Service("exampleService",
-            auth_type="AWS_IAM",
-            custom_domain_name="example.com")
-        example_auth_policy = aws.vpclattice.AuthPolicy("exampleAuthPolicy",
-            resource_identifier=example_service.arn,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "*",
-                    "Effect": "Allow",
-                    "Principal": "*",
-                    "Resource": "*",
-                    "Condition": {
-                        "StringNotEqualsIgnoreCase": {
-                            "aws:PrincipalType": "anonymous",
-                        },
-                    },
-                }],
-            }))
-        ```
 
         ## Import
 
@@ -232,6 +216,10 @@ class AuthPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a global network resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.GlobalNetwork("example", {description: "example"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_global_network` using the global network ID. For example:

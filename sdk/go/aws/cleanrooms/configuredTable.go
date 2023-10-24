@@ -16,44 +16,6 @@ import (
 // Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
 //
 // ## Example Usage
-// ### Configured table with tags
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cleanrooms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cleanrooms.NewConfiguredTable(ctx, "testConfiguredTable", &cleanrooms.ConfiguredTableArgs{
-//				AllowedColumns: pulumi.StringArray{
-//					pulumi.String("column1"),
-//					pulumi.String("column2"),
-//					pulumi.String("column3"),
-//				},
-//				AnalysisMethod: pulumi.String("DIRECT_QUERY"),
-//				Description:    pulumi.String("I made this table with Pulumi!"),
-//				TableReference: &cleanrooms.ConfiguredTableTableReferenceArgs{
-//					DatabaseName: pulumi.String("example_database"),
-//					TableName:    pulumi.String("example_table"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Project": pulumi.String("Pulumi"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

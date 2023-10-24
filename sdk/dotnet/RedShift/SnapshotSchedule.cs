@@ -10,28 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedShift
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.RedShift.SnapshotSchedule("default", new()
-    ///     {
-    ///         Definitions = new[]
-    ///         {
-    ///             "rate(12 hours)",
-    ///         },
-    ///         Identifier = "tf-redshift-snapshot-schedule",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:

@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an ElastiCache Cluster
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myCluster = aws.elasticache.getCluster({
- *     clusterId: "my-cluster-id",
- * });
- * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -151,17 +140,6 @@ export interface GetClusterResult {
 }
 /**
  * Use this data source to get information about an ElastiCache Cluster
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myCluster = aws.elasticache.getCluster({
- *     clusterId: "my-cluster-id",
- * });
- * ```
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

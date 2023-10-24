@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DashboardArgs', 'Dashboard']
@@ -21,8 +21,29 @@ class DashboardArgs:
         :param pulumi.Input[str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         :param pulumi.Input[str] dashboard_name: The name of the dashboard.
         """
-        pulumi.set(__self__, "dashboard_body", dashboard_body)
-        pulumi.set(__self__, "dashboard_name", dashboard_name)
+        DashboardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dashboard_body=dashboard_body,
+            dashboard_name=dashboard_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dashboard_body: Optional[pulumi.Input[str]] = None,
+             dashboard_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dashboard_body is None and 'dashboardBody' in kwargs:
+            dashboard_body = kwargs['dashboardBody']
+        if dashboard_body is None:
+            raise TypeError("Missing 'dashboard_body' argument")
+        if dashboard_name is None and 'dashboardName' in kwargs:
+            dashboard_name = kwargs['dashboardName']
+        if dashboard_name is None:
+            raise TypeError("Missing 'dashboard_name' argument")
+
+        _setter("dashboard_body", dashboard_body)
+        _setter("dashboard_name", dashboard_name)
 
     @property
     @pulumi.getter(name="dashboardBody")
@@ -61,12 +82,33 @@ class _DashboardState:
         :param pulumi.Input[str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         :param pulumi.Input[str] dashboard_name: The name of the dashboard.
         """
+        _DashboardState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dashboard_arn=dashboard_arn,
+            dashboard_body=dashboard_body,
+            dashboard_name=dashboard_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dashboard_arn: Optional[pulumi.Input[str]] = None,
+             dashboard_body: Optional[pulumi.Input[str]] = None,
+             dashboard_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dashboard_arn is None and 'dashboardArn' in kwargs:
+            dashboard_arn = kwargs['dashboardArn']
+        if dashboard_body is None and 'dashboardBody' in kwargs:
+            dashboard_body = kwargs['dashboardBody']
+        if dashboard_name is None and 'dashboardName' in kwargs:
+            dashboard_name = kwargs['dashboardName']
+
         if dashboard_arn is not None:
-            pulumi.set(__self__, "dashboard_arn", dashboard_arn)
+            _setter("dashboard_arn", dashboard_arn)
         if dashboard_body is not None:
-            pulumi.set(__self__, "dashboard_body", dashboard_body)
+            _setter("dashboard_body", dashboard_body)
         if dashboard_name is not None:
-            pulumi.set(__self__, "dashboard_name", dashboard_name)
+            _setter("dashboard_name", dashboard_name)
 
     @property
     @pulumi.getter(name="dashboardArn")
@@ -116,50 +158,6 @@ class Dashboard(pulumi.CustomResource):
         """
         Provides a CloudWatch Dashboard resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        main = aws.cloudwatch.Dashboard("main",
-            dashboard_name="my-dashboard",
-            dashboard_body=json.dumps({
-                "widgets": [
-                    {
-                        "type": "metric",
-                        "x": 0,
-                        "y": 0,
-                        "width": 12,
-                        "height": 6,
-                        "properties": {
-                            "metrics": [[
-                                "AWS/EC2",
-                                "CPUUtilization",
-                                "InstanceId",
-                                "i-012345",
-                            ]],
-                            "period": 300,
-                            "stat": "Average",
-                            "region": "us-east-1",
-                            "title": "EC2 Instance CPU",
-                        },
-                    },
-                    {
-                        "type": "text",
-                        "x": 0,
-                        "y": 7,
-                        "width": 3,
-                        "height": 3,
-                        "properties": {
-                            "markdown": "Hello world",
-                        },
-                    },
-                ],
-            }))
-        ```
-
         ## Import
 
         Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:
@@ -182,50 +180,6 @@ class Dashboard(pulumi.CustomResource):
         """
         Provides a CloudWatch Dashboard resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        main = aws.cloudwatch.Dashboard("main",
-            dashboard_name="my-dashboard",
-            dashboard_body=json.dumps({
-                "widgets": [
-                    {
-                        "type": "metric",
-                        "x": 0,
-                        "y": 0,
-                        "width": 12,
-                        "height": 6,
-                        "properties": {
-                            "metrics": [[
-                                "AWS/EC2",
-                                "CPUUtilization",
-                                "InstanceId",
-                                "i-012345",
-                            ]],
-                            "period": 300,
-                            "stat": "Average",
-                            "region": "us-east-1",
-                            "title": "EC2 Instance CPU",
-                        },
-                    },
-                    {
-                        "type": "text",
-                        "x": 0,
-                        "y": 7,
-                        "width": 3,
-                        "height": 3,
-                        "properties": {
-                            "markdown": "Hello world",
-                        },
-                    },
-                ],
-            }))
-        ```
-
         ## Import
 
         Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:
@@ -244,6 +198,10 @@ class Dashboard(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DashboardArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

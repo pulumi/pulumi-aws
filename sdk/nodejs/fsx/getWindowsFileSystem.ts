@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Retrieve information on FSx Windows File System.
  *
  * ## Example Usage
- * ### Root volume Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.fsx.getWindowsFileSystem({
- *     id: "fs-12345678",
- * });
- * ```
  */
 export function getWindowsFileSystem(args: GetWindowsFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetWindowsFileSystemResult> {
 
@@ -146,16 +136,6 @@ export interface GetWindowsFileSystemResult {
  * Retrieve information on FSx Windows File System.
  *
  * ## Example Usage
- * ### Root volume Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.fsx.getWindowsFileSystem({
- *     id: "fs-12345678",
- * });
- * ```
  */
 export function getWindowsFileSystemOutput(args: GetWindowsFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWindowsFileSystemResult> {
     return pulumi.output(args).apply((a: any) => getWindowsFileSystem(a, opts))

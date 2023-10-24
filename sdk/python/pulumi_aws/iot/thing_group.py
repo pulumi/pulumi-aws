@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,14 +27,33 @@ class ThingGroupArgs:
         :param pulumi.Input['ThingGroupPropertiesArgs'] properties: The Thing Group properties. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         """
+        ThingGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parent_group_name=parent_group_name,
+            properties=properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             parent_group_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ThingGroupPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parent_group_name is None and 'parentGroupName' in kwargs:
+            parent_group_name = kwargs['parentGroupName']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent_group_name is not None:
-            pulumi.set(__self__, "parent_group_name", parent_group_name)
+            _setter("parent_group_name", parent_group_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -105,25 +124,54 @@ class _ThingGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[int] version: The current version of the Thing Group record in the registry.
         """
+        _ThingGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            metadatas=metadatas,
+            name=name,
+            parent_group_name=parent_group_name,
+            properties=properties,
+            tags=tags,
+            tags_all=tags_all,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['ThingGroupMetadataArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parent_group_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ThingGroupPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parent_group_name is None and 'parentGroupName' in kwargs:
+            parent_group_name = kwargs['parentGroupName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if metadatas is not None:
-            pulumi.set(__self__, "metadatas", metadatas)
+            _setter("metadatas", metadatas)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent_group_name is not None:
-            pulumi.set(__self__, "parent_group_name", parent_group_name)
+            _setter("parent_group_name", parent_group_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -232,29 +280,6 @@ class ThingGroup(pulumi.CustomResource):
         """
         Manages an AWS IoT Thing Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        parent = aws.iot.ThingGroup("parent")
-        example = aws.iot.ThingGroup("example",
-            parent_group_name=parent.name,
-            properties=aws.iot.ThingGroupPropertiesArgs(
-                attribute_payload=aws.iot.ThingGroupPropertiesAttributePayloadArgs(
-                    attributes={
-                        "One": "11111",
-                        "Two": "TwoTwo",
-                    },
-                ),
-                description="This is my thing group",
-            ),
-            tags={
-                "managed": "true",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import IoT Things Groups using the name. For example:
@@ -279,29 +304,6 @@ class ThingGroup(pulumi.CustomResource):
         """
         Manages an AWS IoT Thing Group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        parent = aws.iot.ThingGroup("parent")
-        example = aws.iot.ThingGroup("example",
-            parent_group_name=parent.name,
-            properties=aws.iot.ThingGroupPropertiesArgs(
-                attribute_payload=aws.iot.ThingGroupPropertiesAttributePayloadArgs(
-                    attributes={
-                        "One": "11111",
-                        "Two": "TwoTwo",
-                    },
-                ),
-                description="This is my thing group",
-            ),
-            tags={
-                "managed": "true",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import IoT Things Groups using the name. For example:
@@ -320,6 +322,10 @@ class ThingGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ThingGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -340,6 +346,7 @@ class ThingGroup(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["parent_group_name"] = parent_group_name
+            properties = _utilities.configure(properties, ThingGroupPropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -14,39 +14,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** The User Hierarchy Structure must be created before creating a User Hierarchy Group.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.UserHierarchyGroup("example", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     tags: {
- *         Name: "Example User Hierarchy Group",
- *     },
- * });
- * ```
- * ### With a parent group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const parent = new aws.connect.UserHierarchyGroup("parent", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     tags: {
- *         Name: "Example User Hierarchy Group Parent",
- *     },
- * });
- * const child = new aws.connect.UserHierarchyGroup("child", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     parentGroupId: parent.hierarchyGroupId,
- *     tags: {
- *         Name: "Example User Hierarchy Group Child",
- *     },
- * });
- * ```
  *
  * ## Import
  *

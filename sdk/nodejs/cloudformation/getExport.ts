@@ -9,22 +9,6 @@ import * as utilities from "../utilities";
  * exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
  *
  *  > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const subnetId = aws.cloudformation.getExport({
- *     name: "mySubnetIdExportName",
- * });
- * const web = new aws.ec2.Instance("web", {
- *     ami: "ami-abb07bcb",
- *     instanceType: "t2.micro",
- *     subnetId: subnetId.then(subnetId => subnetId.value),
- * });
- * ```
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
 
@@ -67,22 +51,6 @@ export interface GetExportResult {
  * exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
  *
  *  > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const subnetId = aws.cloudformation.getExport({
- *     name: "mySubnetIdExportName",
- * });
- * const web = new aws.ec2.Instance("web", {
- *     ami: "ami-abb07bcb",
- *     instanceType: "t2.micro",
- *     subnetId: subnetId.then(subnetId => subnetId.value),
- * });
- * ```
  */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
     return pulumi.output(args).apply((a: any) => getExport(a, opts))

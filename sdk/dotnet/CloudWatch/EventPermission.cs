@@ -17,48 +17,6 @@ namespace Pulumi.Aws.CloudWatch
     /// &gt; **Note:** The EventBridge bus policy resource  (`aws.cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`aws.cloudwatch.EventPermission`) and will overwrite permissions.
     /// 
     /// ## Example Usage
-    /// ### Account Access
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var devAccountAccess = new Aws.CloudWatch.EventPermission("devAccountAccess", new()
-    ///     {
-    ///         Principal = "123456789012",
-    ///         StatementId = "DevAccountAccess",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Organization Access
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var organizationAccess = new Aws.CloudWatch.EventPermission("organizationAccess", new()
-    ///     {
-    ///         Principal = "*",
-    ///         StatementId = "OrganizationAccess",
-    ///         Condition = new Aws.CloudWatch.Inputs.EventPermissionConditionArgs
-    ///         {
-    ///             Key = "aws:PrincipalOrgID",
-    ///             Type = "StringEquals",
-    ///             Value = aws_organizations_organization.Example.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

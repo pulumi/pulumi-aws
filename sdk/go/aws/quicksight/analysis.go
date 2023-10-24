@@ -16,42 +16,6 @@ import (
 // Resource for managing a QuickSight Analysis.
 //
 // ## Example Usage
-// ### From Source Template
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewAnalysis(ctx, "example", &quicksight.AnalysisArgs{
-//				AnalysisId: pulumi.String("example-id"),
-//				SourceEntity: &quicksight.AnalysisSourceEntityArgs{
-//					SourceTemplate: &quicksight.AnalysisSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(aws_quicksight_template.Source.Arn),
-//						DataSetReferences: quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArray{
-//							&quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs{
-//								DataSetArn:         pulumi.Any(aws_quicksight_data_set.Dataset.Arn),
-//								DataSetPlaceholder: pulumi.String("1"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

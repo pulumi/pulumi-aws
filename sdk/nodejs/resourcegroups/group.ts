@@ -10,29 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Resource Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.resourcegroups.Group("test", {resourceQuery: {
- *     query: `{
- *   "ResourceTypeFilters": [
- *     "AWS::EC2::Instance"
- *   ],
- *   "TagFilters": [
- *     {
- *       "Key": "Stage",
- *       "Values": ["Test"]
- *     }
- *   ]
- * }
- *
- * `,
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import resource groups using the `name`. For example:

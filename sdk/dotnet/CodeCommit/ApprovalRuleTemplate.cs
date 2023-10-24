@@ -12,45 +12,6 @@ namespace Pulumi.Aws.CodeCommit
     /// <summary>
     /// Provides a CodeCommit Approval Rule Template Resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeCommit.ApprovalRuleTemplate("example", new()
-    ///     {
-    ///         Description = "This is an example approval rule template",
-    ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2018-11-08",
-    ///             ["DestinationReferences"] = new[]
-    ///             {
-    ///                 "refs/heads/master",
-    ///             },
-    ///             ["Statements"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Type"] = "Approvers",
-    ///                     ["NumberOfApprovalsNeeded"] = 2,
-    ///                     ["ApprovalPoolMembers"] = new[]
-    ///                     {
-    ///                         "arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:

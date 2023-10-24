@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpclattice.AccessLogSubscription("example", {
- *     resourceIdentifier: aws_vpclattice_service_network.example.id,
- *     destinationArn: aws_s3.bucket.arn,
- * });
- * ```
  *
  * ## Import
  *

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -95,27 +95,6 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     Data source for listing RDS Database Instances.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_instances(filters=[aws.rds.GetInstancesFilterArgs(
-        name="db-instance-id",
-        values=["my-database-id"],
-    )])
-    ```
-    ### Using tags
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_instances(tags={
-        "Env": "test",
-    })
-    ```
 
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
@@ -143,27 +122,6 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     Data source for listing RDS Database Instances.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_instances(filters=[aws.rds.GetInstancesFilterArgs(
-        name="db-instance-id",
-        values=["my-database-id"],
-    )])
-    ```
-    ### Using tags
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_instances(tags={
-        "Env": "test",
-    })
-    ```
 
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.

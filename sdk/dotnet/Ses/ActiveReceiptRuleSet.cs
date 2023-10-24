@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides a resource to designate the active SES receipt rule set
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.Ses.ActiveReceiptRuleSet("main", new()
-    ///     {
-    ///         RuleSetName = "primary-rules",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import active SES receipt rule sets using the rule set name. For example:

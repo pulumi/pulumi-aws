@@ -12,55 +12,6 @@ namespace Pulumi.Aws.RolesAnywhere
     /// <summary>
     /// Resource for managing a Roles Anywhere Profile.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
-    ///     {
-    ///         Path = "/",
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "sts:AssumeRole",
-    ///                         "sts:TagSession",
-    ///                         "sts:SetSourceIdentity",
-    ///                     },
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "rolesanywhere.amazonaws.com",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var testProfile = new Aws.RolesAnywhere.Profile("testProfile", new()
-    ///     {
-    ///         RoleArns = new[]
-    ///         {
-    ///             testRole.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:

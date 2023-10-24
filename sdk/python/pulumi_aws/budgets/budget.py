@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,32 +47,97 @@ class BudgetArgs:
         :param pulumi.Input[str] time_period_end: The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[str] time_period_start: The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         """
-        pulumi.set(__self__, "budget_type", budget_type)
-        pulumi.set(__self__, "time_unit", time_unit)
+        BudgetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            budget_type=budget_type,
+            time_unit=time_unit,
+            account_id=account_id,
+            auto_adjust_data=auto_adjust_data,
+            cost_filters=cost_filters,
+            cost_types=cost_types,
+            limit_amount=limit_amount,
+            limit_unit=limit_unit,
+            name=name,
+            name_prefix=name_prefix,
+            notifications=notifications,
+            planned_limits=planned_limits,
+            time_period_end=time_period_end,
+            time_period_start=time_period_start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             budget_type: Optional[pulumi.Input[str]] = None,
+             time_unit: Optional[pulumi.Input[str]] = None,
+             account_id: Optional[pulumi.Input[str]] = None,
+             auto_adjust_data: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']] = None,
+             cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]] = None,
+             cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
+             limit_amount: Optional[pulumi.Input[str]] = None,
+             limit_unit: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]] = None,
+             planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]] = None,
+             time_period_end: Optional[pulumi.Input[str]] = None,
+             time_period_start: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if budget_type is None and 'budgetType' in kwargs:
+            budget_type = kwargs['budgetType']
+        if budget_type is None:
+            raise TypeError("Missing 'budget_type' argument")
+        if time_unit is None and 'timeUnit' in kwargs:
+            time_unit = kwargs['timeUnit']
+        if time_unit is None:
+            raise TypeError("Missing 'time_unit' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if auto_adjust_data is None and 'autoAdjustData' in kwargs:
+            auto_adjust_data = kwargs['autoAdjustData']
+        if cost_filters is None and 'costFilters' in kwargs:
+            cost_filters = kwargs['costFilters']
+        if cost_types is None and 'costTypes' in kwargs:
+            cost_types = kwargs['costTypes']
+        if limit_amount is None and 'limitAmount' in kwargs:
+            limit_amount = kwargs['limitAmount']
+        if limit_unit is None and 'limitUnit' in kwargs:
+            limit_unit = kwargs['limitUnit']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if planned_limits is None and 'plannedLimits' in kwargs:
+            planned_limits = kwargs['plannedLimits']
+        if time_period_end is None and 'timePeriodEnd' in kwargs:
+            time_period_end = kwargs['timePeriodEnd']
+        if time_period_start is None and 'timePeriodStart' in kwargs:
+            time_period_start = kwargs['timePeriodStart']
+
+        _setter("budget_type", budget_type)
+        _setter("time_unit", time_unit)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if auto_adjust_data is not None:
-            pulumi.set(__self__, "auto_adjust_data", auto_adjust_data)
+            _setter("auto_adjust_data", auto_adjust_data)
         if cost_filters is not None:
-            pulumi.set(__self__, "cost_filters", cost_filters)
+            _setter("cost_filters", cost_filters)
         if cost_types is not None:
-            pulumi.set(__self__, "cost_types", cost_types)
+            _setter("cost_types", cost_types)
         if limit_amount is not None:
-            pulumi.set(__self__, "limit_amount", limit_amount)
+            _setter("limit_amount", limit_amount)
         if limit_unit is not None:
-            pulumi.set(__self__, "limit_unit", limit_unit)
+            _setter("limit_unit", limit_unit)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
         if planned_limits is not None:
-            pulumi.set(__self__, "planned_limits", planned_limits)
+            _setter("planned_limits", planned_limits)
         if time_period_end is not None:
-            pulumi.set(__self__, "time_period_end", time_period_end)
+            _setter("time_period_end", time_period_end)
         if time_period_start is not None:
-            pulumi.set(__self__, "time_period_start", time_period_start)
+            _setter("time_period_start", time_period_start)
 
     @property
     @pulumi.getter(name="budgetType")
@@ -279,36 +344,99 @@ class _BudgetState:
         :param pulumi.Input[str] time_period_start: The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         :param pulumi.Input[str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         """
+        _BudgetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            arn=arn,
+            auto_adjust_data=auto_adjust_data,
+            budget_type=budget_type,
+            cost_filters=cost_filters,
+            cost_types=cost_types,
+            limit_amount=limit_amount,
+            limit_unit=limit_unit,
+            name=name,
+            name_prefix=name_prefix,
+            notifications=notifications,
+            planned_limits=planned_limits,
+            time_period_end=time_period_end,
+            time_period_start=time_period_start,
+            time_unit=time_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_adjust_data: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']] = None,
+             budget_type: Optional[pulumi.Input[str]] = None,
+             cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]] = None,
+             cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
+             limit_amount: Optional[pulumi.Input[str]] = None,
+             limit_unit: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationArgs']]]] = None,
+             planned_limits: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetPlannedLimitArgs']]]] = None,
+             time_period_end: Optional[pulumi.Input[str]] = None,
+             time_period_start: Optional[pulumi.Input[str]] = None,
+             time_unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if auto_adjust_data is None and 'autoAdjustData' in kwargs:
+            auto_adjust_data = kwargs['autoAdjustData']
+        if budget_type is None and 'budgetType' in kwargs:
+            budget_type = kwargs['budgetType']
+        if cost_filters is None and 'costFilters' in kwargs:
+            cost_filters = kwargs['costFilters']
+        if cost_types is None and 'costTypes' in kwargs:
+            cost_types = kwargs['costTypes']
+        if limit_amount is None and 'limitAmount' in kwargs:
+            limit_amount = kwargs['limitAmount']
+        if limit_unit is None and 'limitUnit' in kwargs:
+            limit_unit = kwargs['limitUnit']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if planned_limits is None and 'plannedLimits' in kwargs:
+            planned_limits = kwargs['plannedLimits']
+        if time_period_end is None and 'timePeriodEnd' in kwargs:
+            time_period_end = kwargs['timePeriodEnd']
+        if time_period_start is None and 'timePeriodStart' in kwargs:
+            time_period_start = kwargs['timePeriodStart']
+        if time_unit is None and 'timeUnit' in kwargs:
+            time_unit = kwargs['timeUnit']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_adjust_data is not None:
-            pulumi.set(__self__, "auto_adjust_data", auto_adjust_data)
+            _setter("auto_adjust_data", auto_adjust_data)
         if budget_type is not None:
-            pulumi.set(__self__, "budget_type", budget_type)
+            _setter("budget_type", budget_type)
         if cost_filters is not None:
-            pulumi.set(__self__, "cost_filters", cost_filters)
+            _setter("cost_filters", cost_filters)
         if cost_types is not None:
-            pulumi.set(__self__, "cost_types", cost_types)
+            _setter("cost_types", cost_types)
         if limit_amount is not None:
-            pulumi.set(__self__, "limit_amount", limit_amount)
+            _setter("limit_amount", limit_amount)
         if limit_unit is not None:
-            pulumi.set(__self__, "limit_unit", limit_unit)
+            _setter("limit_unit", limit_unit)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
         if planned_limits is not None:
-            pulumi.set(__self__, "planned_limits", planned_limits)
+            _setter("planned_limits", planned_limits)
         if time_period_end is not None:
-            pulumi.set(__self__, "time_period_end", time_period_end)
+            _setter("time_period_end", time_period_end)
         if time_period_start is not None:
-            pulumi.set(__self__, "time_period_start", time_period_start)
+            _setter("time_period_start", time_period_start)
         if time_unit is not None:
-            pulumi.set(__self__, "time_unit", time_unit)
+            _setter("time_unit", time_unit)
 
     @property
     @pulumi.getter(name="accountId")
@@ -514,152 +642,6 @@ class Budget(pulumi.CustomResource):
         """
         Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ec2 = aws.budgets.Budget("ec2",
-            budget_type="COST",
-            cost_filters=[aws.budgets.BudgetCostFilterArgs(
-                name="Service",
-                values=["Amazon Elastic Compute Cloud - Compute"],
-            )],
-            limit_amount="1200",
-            limit_unit="USD",
-            notifications=[aws.budgets.BudgetNotificationArgs(
-                comparison_operator="GREATER_THAN",
-                notification_type="FORECASTED",
-                subscriber_email_addresses=["test@example.com"],
-                threshold=100,
-                threshold_type="PERCENTAGE",
-            )],
-            time_period_end="2087-06-15_00:00",
-            time_period_start="2017-07-01_00:00",
-            time_unit="MONTHLY")
-        ```
-
-        Create a budget for *$100*.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost",
-            budget_type="COST",
-            limit_amount="100",
-            limit_unit="USD")
-        ```
-
-        Create a budget with planned budget limits.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost", planned_limits=[
-            aws.budgets.BudgetPlannedLimitArgs(
-                amount="100",
-                start_time="2017-07-01_00:00",
-                unit="USD",
-            ),
-            aws.budgets.BudgetPlannedLimitArgs(
-                amount="200",
-                start_time="2017-08-01_00:00",
-                unit="USD",
-            ),
-        ])
-        ```
-
-        Create a budget for s3 with a limit of *3 GB* of storage.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        s3 = aws.budgets.Budget("s3",
-            budget_type="USAGE",
-            limit_amount="3",
-            limit_unit="GB")
-        ```
-
-        Create a Savings Plan Utilization Budget
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        savings_plan_utilization = aws.budgets.Budget("savingsPlanUtilization",
-            budget_type="SAVINGS_PLANS_UTILIZATION",
-            cost_types=aws.budgets.BudgetCostTypesArgs(
-                include_credit=False,
-                include_discount=False,
-                include_other_subscription=False,
-                include_recurring=False,
-                include_refund=False,
-                include_subscription=True,
-                include_support=False,
-                include_tax=False,
-                include_upfront=False,
-                use_blended=False,
-            ),
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE")
-        ```
-
-        Create a RI Utilization Budget
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ri_utilization = aws.budgets.Budget("riUtilization",
-            budget_type="RI_UTILIZATION",
-            cost_filters=[aws.budgets.BudgetCostFilterArgs(
-                name="Service",
-                values=["Amazon Relational Database Service"],
-            )],
-            cost_types=aws.budgets.BudgetCostTypesArgs(
-                include_credit=False,
-                include_discount=False,
-                include_other_subscription=False,
-                include_recurring=False,
-                include_refund=False,
-                include_subscription=True,
-                include_support=False,
-                include_tax=False,
-                include_upfront=False,
-                use_blended=False,
-            ),
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE")
-        ```
-
-        Create a Cost Filter using Resource Tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost", cost_filters=[aws.budgets.BudgetCostFilterArgs(
-            name="TagKeyValue",
-            values=["TagKey$TagValue"],
-        )])
-        ```
-
-        Create a cost_filter using resource tags, obtaining the tag value from a variable
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost", cost_filters=[aws.budgets.BudgetCostFilterArgs(
-            name="TagKeyValue",
-            values=["TagKey${var.TagValue}"],
-        )])
-        ```
-
         ## Import
 
         Using `pulumi import`, import budgets using `AccountID:ActionID:BudgetName`. For example:
@@ -694,152 +676,6 @@ class Budget(pulumi.CustomResource):
         """
         Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ec2 = aws.budgets.Budget("ec2",
-            budget_type="COST",
-            cost_filters=[aws.budgets.BudgetCostFilterArgs(
-                name="Service",
-                values=["Amazon Elastic Compute Cloud - Compute"],
-            )],
-            limit_amount="1200",
-            limit_unit="USD",
-            notifications=[aws.budgets.BudgetNotificationArgs(
-                comparison_operator="GREATER_THAN",
-                notification_type="FORECASTED",
-                subscriber_email_addresses=["test@example.com"],
-                threshold=100,
-                threshold_type="PERCENTAGE",
-            )],
-            time_period_end="2087-06-15_00:00",
-            time_period_start="2017-07-01_00:00",
-            time_unit="MONTHLY")
-        ```
-
-        Create a budget for *$100*.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost",
-            budget_type="COST",
-            limit_amount="100",
-            limit_unit="USD")
-        ```
-
-        Create a budget with planned budget limits.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost", planned_limits=[
-            aws.budgets.BudgetPlannedLimitArgs(
-                amount="100",
-                start_time="2017-07-01_00:00",
-                unit="USD",
-            ),
-            aws.budgets.BudgetPlannedLimitArgs(
-                amount="200",
-                start_time="2017-08-01_00:00",
-                unit="USD",
-            ),
-        ])
-        ```
-
-        Create a budget for s3 with a limit of *3 GB* of storage.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        s3 = aws.budgets.Budget("s3",
-            budget_type="USAGE",
-            limit_amount="3",
-            limit_unit="GB")
-        ```
-
-        Create a Savings Plan Utilization Budget
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        savings_plan_utilization = aws.budgets.Budget("savingsPlanUtilization",
-            budget_type="SAVINGS_PLANS_UTILIZATION",
-            cost_types=aws.budgets.BudgetCostTypesArgs(
-                include_credit=False,
-                include_discount=False,
-                include_other_subscription=False,
-                include_recurring=False,
-                include_refund=False,
-                include_subscription=True,
-                include_support=False,
-                include_tax=False,
-                include_upfront=False,
-                use_blended=False,
-            ),
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE")
-        ```
-
-        Create a RI Utilization Budget
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ri_utilization = aws.budgets.Budget("riUtilization",
-            budget_type="RI_UTILIZATION",
-            cost_filters=[aws.budgets.BudgetCostFilterArgs(
-                name="Service",
-                values=["Amazon Relational Database Service"],
-            )],
-            cost_types=aws.budgets.BudgetCostTypesArgs(
-                include_credit=False,
-                include_discount=False,
-                include_other_subscription=False,
-                include_recurring=False,
-                include_refund=False,
-                include_subscription=True,
-                include_support=False,
-                include_tax=False,
-                include_upfront=False,
-                use_blended=False,
-            ),
-            limit_amount="100.0",
-            limit_unit="PERCENTAGE")
-        ```
-
-        Create a Cost Filter using Resource Tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost", cost_filters=[aws.budgets.BudgetCostFilterArgs(
-            name="TagKeyValue",
-            values=["TagKey$TagValue"],
-        )])
-        ```
-
-        Create a cost_filter using resource tags, obtaining the tag value from a variable
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cost = aws.budgets.Budget("cost", cost_filters=[aws.budgets.BudgetCostFilterArgs(
-            name="TagKeyValue",
-            values=["TagKey${var.TagValue}"],
-        )])
-        ```
-
         ## Import
 
         Using `pulumi import`, import budgets using `AccountID:ActionID:BudgetName`. For example:
@@ -858,6 +694,10 @@ class Budget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BudgetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -887,11 +727,13 @@ class Budget(pulumi.CustomResource):
             __props__ = BudgetArgs.__new__(BudgetArgs)
 
             __props__.__dict__["account_id"] = account_id
+            auto_adjust_data = _utilities.configure(auto_adjust_data, BudgetAutoAdjustDataArgs, True)
             __props__.__dict__["auto_adjust_data"] = auto_adjust_data
             if budget_type is None and not opts.urn:
                 raise TypeError("Missing required property 'budget_type'")
             __props__.__dict__["budget_type"] = budget_type
             __props__.__dict__["cost_filters"] = cost_filters
+            cost_types = _utilities.configure(cost_types, BudgetCostTypesArgs, True)
             __props__.__dict__["cost_types"] = cost_types
             __props__.__dict__["limit_amount"] = limit_amount
             __props__.__dict__["limit_unit"] = limit_unit

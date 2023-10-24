@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -203,14 +203,6 @@ def get_listener(listener_identifier: Optional[str] = None,
     Data source for managing an AWS VPC Lattice Listener.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_listener()
-    ```
 
 
     :param str listener_identifier: ID or Amazon Resource Name (ARN) of the listener
@@ -250,14 +242,6 @@ def get_listener_output(listener_identifier: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS VPC Lattice Listener.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_listener()
-    ```
 
 
     :param str listener_identifier: ID or Amazon Resource Name (ARN) of the listener

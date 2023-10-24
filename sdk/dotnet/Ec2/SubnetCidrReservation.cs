@@ -12,26 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a subnet CIDR reservation resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.SubnetCidrReservation("example", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.16/28",
-    ///         ReservationType = "prefix",
-    ///         SubnetId = aws_subnet.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For example:

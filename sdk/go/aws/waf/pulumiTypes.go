@@ -931,7 +931,7 @@ type RuleGroupActivatedRule struct {
 	Priority int `pulumi:"priority"`
 	// The ID of a rule
 	RuleId string `pulumi:"ruleId"`
-	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type *string `pulumi:"type"`
 }
 
@@ -953,7 +953,7 @@ type RuleGroupActivatedRuleArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// The ID of a rule
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
-	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1041,7 +1041,7 @@ func (o RuleGroupActivatedRuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) string { return v.RuleId }).(pulumi.StringOutput)
 }
 
-// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 func (o RuleGroupActivatedRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1073,7 +1073,7 @@ func (o RuleGroupActivatedRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupAct
 }
 
 type RuleGroupActivatedRuleAction struct {
-	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type string `pulumi:"type"`
 }
 
@@ -1089,7 +1089,7 @@ type RuleGroupActivatedRuleActionInput interface {
 }
 
 type RuleGroupActivatedRuleActionArgs struct {
-	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1131,7 +1131,7 @@ func (o RuleGroupActivatedRuleActionOutput) ToOutput(ctx context.Context) pulumi
 	}
 }
 
-// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 func (o RuleGroupActivatedRuleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRuleAction) string { return v.Type }).(pulumi.StringOutput)
 }

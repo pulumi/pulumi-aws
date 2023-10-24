@@ -17,67 +17,6 @@ namespace Pulumi.Aws.Scheduler
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Scheduler.Schedule("example", new()
-    ///     {
-    ///         GroupName = "default",
-    ///         FlexibleTimeWindow = new Aws.Scheduler.Inputs.ScheduleFlexibleTimeWindowArgs
-    ///         {
-    ///             Mode = "OFF",
-    ///         },
-    ///         ScheduleExpression = "rate(1 hours)",
-    ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
-    ///         {
-    ///             Arn = aws_sqs_queue.Example.Arn,
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Universal Target
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleQueue = new Aws.Sqs.Queue("exampleQueue");
-    /// 
-    ///     var exampleSchedule = new Aws.Scheduler.Schedule("exampleSchedule", new()
-    ///     {
-    ///         FlexibleTimeWindow = new Aws.Scheduler.Inputs.ScheduleFlexibleTimeWindowArgs
-    ///         {
-    ///             Mode = "OFF",
-    ///         },
-    ///         ScheduleExpression = "rate(1 hours)",
-    ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
-    ///         {
-    ///             Arn = "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-    ///             RoleArn = aws_iam_role.Example.Arn,
-    ///             Input = exampleQueue.Url.Apply(url =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["MessageBody"] = "Greetings, programs!",
-    ///                 ["QueueUrl"] = url,
-    ///             })),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
@@ -91,7 +30,7 @@ namespace Pulumi.Aws.Scheduler
     public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+        /// ARN of the SQS queue specified as the destination for the dead-letter queue.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -299,7 +238,7 @@ namespace Pulumi.Aws.Scheduler
     public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+        /// ARN of the SQS queue specified as the destination for the dead-letter queue.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

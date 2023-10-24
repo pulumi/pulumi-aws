@@ -11,25 +11,6 @@ namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
     /// Provides an OpsWorks ECS Cluster layer resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.OpsWorks.EcsClusterLayer("example", new()
-    ///     {
-    ///         StackId = aws_opsworks_stack.Example.Id,
-    ///         EcsClusterArn = aws_ecs_cluster.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/ecsClusterLayer:EcsClusterLayer")]
     public partial class EcsClusterLayer : global::Pulumi.CustomResource

@@ -13,48 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
     /// 
     /// ## Example Usage
-    /// ### Accept cross-account request
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVpcEndpointService = new Aws.Ec2.VpcEndpointService("exampleVpcEndpointService", new()
-    ///     {
-    ///         AcceptanceRequired = false,
-    ///         NetworkLoadBalancerArns = new[]
-    ///         {
-    ///             aws_lb.Example.Arn,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
-    ///     {
-    ///         VpcId = aws_vpc.Test_alternate.Id,
-    ///         ServiceName = aws_vpc_endpoint_service.Test.Service_name,
-    ///         VpcEndpointType = "Interface",
-    ///         PrivateDnsEnabled = false,
-    ///         SecurityGroupIds = new[]
-    ///         {
-    ///             aws_security_group.Test.Id,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Alternate,
-    ///     });
-    /// 
-    ///     var exampleVpcEndpointConnectionAccepter = new Aws.Ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", new()
-    ///     {
-    ///         VpcEndpointServiceId = exampleVpcEndpointService.Id,
-    ///         VpcEndpointId = exampleVpcEndpoint.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

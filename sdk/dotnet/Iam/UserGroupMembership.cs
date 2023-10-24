@@ -17,46 +17,6 @@ namespace Pulumi.Aws.Iam
     /// To exclusively manage the users in a group, see the
     /// `aws.iam.GroupMembership` resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var user1 = new Aws.Iam.User("user1");
-    /// 
-    ///     var group1 = new Aws.Iam.Group("group1");
-    /// 
-    ///     var group2 = new Aws.Iam.Group("group2");
-    /// 
-    ///     var example1 = new Aws.Iam.UserGroupMembership("example1", new()
-    ///     {
-    ///         User = user1.Name,
-    ///         Groups = new[]
-    ///         {
-    ///             group1.Name,
-    ///             group2.Name,
-    ///         },
-    ///     });
-    /// 
-    ///     var group3 = new Aws.Iam.Group("group3");
-    /// 
-    ///     var example2 = new Aws.Iam.UserGroupMembership("example2", new()
-    ///     {
-    ///         User = user1.Name,
-    ///         Groups = new[]
-    ///         {
-    ///             group3.Name,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:

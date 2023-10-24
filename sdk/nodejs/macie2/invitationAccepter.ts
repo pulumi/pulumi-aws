@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primaryAccount = new aws.macie2.Account("primaryAccount", {}, {
- *     provider: "awsalternate",
- * });
- * const memberAccount = new aws.macie2.Account("memberAccount", {});
- * const primaryMember = new aws.macie2.Member("primaryMember", {
- *     accountId: "ACCOUNT ID",
- *     email: "EMAIL",
- *     invite: true,
- *     invitationMessage: "Message of the invite",
- * }, {
- *     provider: "awsalternate",
- *     dependsOn: [primaryAccount],
- * });
- * const memberInvitationAccepter = new aws.macie2.InvitationAccepter("memberInvitationAccepter", {administratorAccountId: "ADMINISTRATOR ACCOUNT ID"}, {
- *     dependsOn: [primaryMember],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:

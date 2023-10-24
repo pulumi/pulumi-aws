@@ -11,18 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ivs.RecordingConfiguration("example", {destinationConfiguration: {
- *     s3: {
- *         bucketName: "ivs-stream-archive",
- *     },
- * }});
- * ```
  *
  * ## Import
  *

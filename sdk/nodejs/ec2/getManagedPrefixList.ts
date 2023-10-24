@@ -12,30 +12,6 @@ import * as utilities from "../utilities";
  * customer-managed prefix list in the current region.
  *
  * ## Example Usage
- * ### Find the regional DynamoDB prefix list
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const example = current.then(current => aws.ec2.getManagedPrefixList({
- *     name: `com.amazonaws.${current.name}.dynamodb`,
- * }));
- * ```
- * ### Find a managed prefix list using filters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getManagedPrefixList({
- *     filters: [{
- *         name: "prefix-list-name",
- *         values: ["my-prefix-list"],
- *     }],
- * });
- * ```
  */
 export function getManagedPrefixList(args?: GetManagedPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrefixListResult> {
     args = args || {};
@@ -115,30 +91,6 @@ export interface GetManagedPrefixListResult {
  * customer-managed prefix list in the current region.
  *
  * ## Example Usage
- * ### Find the regional DynamoDB prefix list
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const example = current.then(current => aws.ec2.getManagedPrefixList({
- *     name: `com.amazonaws.${current.name}.dynamodb`,
- * }));
- * ```
- * ### Find a managed prefix list using filters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getManagedPrefixList({
- *     filters: [{
- *         name: "prefix-list-name",
- *         values: ["my-prefix-list"],
- *     }],
- * });
- * ```
  */
 export function getManagedPrefixListOutput(args?: GetManagedPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrefixListResult> {
     return pulumi.output(args).apply((a: any) => getManagedPrefixList(a, opts))

@@ -12,27 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in this provider due to an ElastiCache API limitation. Leave that parameter configured with any value to workaround the issue.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.elasticache.ParameterGroup("default", {
- *     family: "redis2.8",
- *     parameters: [
- *         {
- *             name: "activerehashing",
- *             value: "yes",
- *         },
- *         {
- *             name: "min-slaves-to-write",
- *             value: "2",
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For example:

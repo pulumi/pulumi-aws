@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
  * Profile IDs to another resource.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleConfigurationProfiles = aws.appconfig.getConfigurationProfiles({
- *     applicationId: "a1d3rpe",
- * });
- * const exampleConfigurationProfile = exampleConfigurationProfiles.then(exampleConfigurationProfiles => .map(([, ]) => (aws.appconfig.getConfigurationProfile({
- *     configurationProfileId: __value,
- *     applicationId: aws_appconfig_application.example.id,
- * }))));
- * ```
  */
 export function getConfigurationProfiles(args: GetConfigurationProfilesArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfilesResult> {
 
@@ -61,20 +47,6 @@ export interface GetConfigurationProfilesResult {
  * Profile IDs to another resource.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleConfigurationProfiles = aws.appconfig.getConfigurationProfiles({
- *     applicationId: "a1d3rpe",
- * });
- * const exampleConfigurationProfile = exampleConfigurationProfiles.then(exampleConfigurationProfiles => .map(([, ]) => (aws.appconfig.getConfigurationProfile({
- *     configurationProfileId: __value,
- *     applicationId: aws_appconfig_application.example.id,
- * }))));
- * ```
  */
 export function getConfigurationProfilesOutput(args: GetConfigurationProfilesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilesResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfiles(a, opts))

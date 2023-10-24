@@ -12,29 +12,6 @@ namespace Pulumi.Aws.Quicksight
     /// <summary>
     /// Resource for managing QuickSight User
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.User("example", new()
-    ///     {
-    ///         Email = "author@example.com",
-    ///         IamArn = "arn:aws:iam::123456789012:user/Example",
-    ///         IdentityType = "IAM",
-    ///         Namespace = "foo",
-    ///         SessionName = "an-author",
-    ///         UserRole = "AUTHOR",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// You cannot import this resource.

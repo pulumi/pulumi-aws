@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -40,22 +40,73 @@ class UserArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the user. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "phone_config", phone_config)
-        pulumi.set(__self__, "routing_profile_id", routing_profile_id)
-        pulumi.set(__self__, "security_profile_ids", security_profile_ids)
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_id=instance_id,
+            phone_config=phone_config,
+            routing_profile_id=routing_profile_id,
+            security_profile_ids=security_profile_ids,
+            directory_user_id=directory_user_id,
+            hierarchy_group_id=hierarchy_group_id,
+            identity_info=identity_info,
+            name=name,
+            password=password,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_id: Optional[pulumi.Input[str]] = None,
+             phone_config: Optional[pulumi.Input['UserPhoneConfigArgs']] = None,
+             routing_profile_id: Optional[pulumi.Input[str]] = None,
+             security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             directory_user_id: Optional[pulumi.Input[str]] = None,
+             hierarchy_group_id: Optional[pulumi.Input[str]] = None,
+             identity_info: Optional[pulumi.Input['UserIdentityInfoArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if instance_id is None:
+            raise TypeError("Missing 'instance_id' argument")
+        if phone_config is None and 'phoneConfig' in kwargs:
+            phone_config = kwargs['phoneConfig']
+        if phone_config is None:
+            raise TypeError("Missing 'phone_config' argument")
+        if routing_profile_id is None and 'routingProfileId' in kwargs:
+            routing_profile_id = kwargs['routingProfileId']
+        if routing_profile_id is None:
+            raise TypeError("Missing 'routing_profile_id' argument")
+        if security_profile_ids is None and 'securityProfileIds' in kwargs:
+            security_profile_ids = kwargs['securityProfileIds']
+        if security_profile_ids is None:
+            raise TypeError("Missing 'security_profile_ids' argument")
+        if directory_user_id is None and 'directoryUserId' in kwargs:
+            directory_user_id = kwargs['directoryUserId']
+        if hierarchy_group_id is None and 'hierarchyGroupId' in kwargs:
+            hierarchy_group_id = kwargs['hierarchyGroupId']
+        if identity_info is None and 'identityInfo' in kwargs:
+            identity_info = kwargs['identityInfo']
+
+        _setter("instance_id", instance_id)
+        _setter("phone_config", phone_config)
+        _setter("routing_profile_id", routing_profile_id)
+        _setter("security_profile_ids", security_profile_ids)
         if directory_user_id is not None:
-            pulumi.set(__self__, "directory_user_id", directory_user_id)
+            _setter("directory_user_id", directory_user_id)
         if hierarchy_group_id is not None:
-            pulumi.set(__self__, "hierarchy_group_id", hierarchy_group_id)
+            _setter("hierarchy_group_id", hierarchy_group_id)
         if identity_info is not None:
-            pulumi.set(__self__, "identity_info", identity_info)
+            _setter("identity_info", identity_info)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -212,35 +263,88 @@ class _UserState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_id: The identifier for the user.
         """
+        _UserState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            directory_user_id=directory_user_id,
+            hierarchy_group_id=hierarchy_group_id,
+            identity_info=identity_info,
+            instance_id=instance_id,
+            name=name,
+            password=password,
+            phone_config=phone_config,
+            routing_profile_id=routing_profile_id,
+            security_profile_ids=security_profile_ids,
+            tags=tags,
+            tags_all=tags_all,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             directory_user_id: Optional[pulumi.Input[str]] = None,
+             hierarchy_group_id: Optional[pulumi.Input[str]] = None,
+             identity_info: Optional[pulumi.Input['UserIdentityInfoArgs']] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             phone_config: Optional[pulumi.Input['UserPhoneConfigArgs']] = None,
+             routing_profile_id: Optional[pulumi.Input[str]] = None,
+             security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if directory_user_id is None and 'directoryUserId' in kwargs:
+            directory_user_id = kwargs['directoryUserId']
+        if hierarchy_group_id is None and 'hierarchyGroupId' in kwargs:
+            hierarchy_group_id = kwargs['hierarchyGroupId']
+        if identity_info is None and 'identityInfo' in kwargs:
+            identity_info = kwargs['identityInfo']
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if phone_config is None and 'phoneConfig' in kwargs:
+            phone_config = kwargs['phoneConfig']
+        if routing_profile_id is None and 'routingProfileId' in kwargs:
+            routing_profile_id = kwargs['routingProfileId']
+        if security_profile_ids is None and 'securityProfileIds' in kwargs:
+            security_profile_ids = kwargs['securityProfileIds']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if directory_user_id is not None:
-            pulumi.set(__self__, "directory_user_id", directory_user_id)
+            _setter("directory_user_id", directory_user_id)
         if hierarchy_group_id is not None:
-            pulumi.set(__self__, "hierarchy_group_id", hierarchy_group_id)
+            _setter("hierarchy_group_id", hierarchy_group_id)
         if identity_info is not None:
-            pulumi.set(__self__, "identity_info", identity_info)
+            _setter("identity_info", identity_info)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if phone_config is not None:
-            pulumi.set(__self__, "phone_config", phone_config)
+            _setter("phone_config", phone_config)
         if routing_profile_id is not None:
-            pulumi.set(__self__, "routing_profile_id", routing_profile_id)
+            _setter("routing_profile_id", routing_profile_id)
         if security_profile_ids is not None:
-            pulumi.set(__self__, "security_profile_ids", security_profile_ids)
+            _setter("security_profile_ids", security_profile_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter
@@ -424,105 +528,6 @@ class User(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With hierarchy_group_id
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            hierarchy_group_id=aws_connect_user_hierarchy_group["example"]["hierarchy_group_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With identity_info filled
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                email="example@example.com",
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With phone_config phone type as desk phone
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With multiple Security profile ids specified in security_profile_ids
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[
-                aws_connect_security_profile["example"]["security_profile_id"],
-                aws_connect_security_profile["example2"]["security_profile_id"],
-            ],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                auto_accept=False,
-                desk_phone_number="+112345678912",
-                phone_type="DESK_PHONE",
-            ))
-        ```
 
         ## Import
 
@@ -557,105 +562,6 @@ class User(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With hierarchy_group_id
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            hierarchy_group_id=aws_connect_user_hierarchy_group["example"]["hierarchy_group_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With identity_info filled
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                email="example@example.com",
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With phone_config phone type as desk phone
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With multiple Security profile ids specified in security_profile_ids
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[
-                aws_connect_security_profile["example"]["security_profile_id"],
-                aws_connect_security_profile["example2"]["security_profile_id"],
-            ],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                auto_accept=False,
-                desk_phone_number="+112345678912",
-                phone_type="DESK_PHONE",
-            ))
-        ```
 
         ## Import
 
@@ -675,6 +581,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -701,12 +611,14 @@ class User(pulumi.CustomResource):
 
             __props__.__dict__["directory_user_id"] = directory_user_id
             __props__.__dict__["hierarchy_group_id"] = hierarchy_group_id
+            identity_info = _utilities.configure(identity_info, UserIdentityInfoArgs, True)
             __props__.__dict__["identity_info"] = identity_info
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["name"] = name
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            phone_config = _utilities.configure(phone_config, UserPhoneConfigArgs, True)
             if phone_config is None and not opts.urn:
                 raise TypeError("Missing required property 'phone_config'")
             __props__.__dict__["phone_config"] = phone_config

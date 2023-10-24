@@ -12,33 +12,6 @@ namespace Pulumi.Aws.Cloud9
     /// <summary>
     /// Provides an environment member to an AWS Cloud9 development environment.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testEnvironmentEC2 = new Aws.Cloud9.EnvironmentEC2("testEnvironmentEC2", new()
-    ///     {
-    ///         InstanceType = "t2.micro",
-    ///     });
-    /// 
-    ///     var testUser = new Aws.Iam.User("testUser");
-    /// 
-    ///     var testEnvironmentMembership = new Aws.Cloud9.EnvironmentMembership("testEnvironmentMembership", new()
-    ///     {
-    ///         EnvironmentId = testEnvironmentEC2.Id,
-    ///         Permissions = "read-only",
-    ///         UserArn = testUser.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:

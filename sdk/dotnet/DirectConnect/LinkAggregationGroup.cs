@@ -14,26 +14,6 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// &gt; *NOTE:* When creating a LAG, if no existing connection is specified, Direct Connect will create a connection and this provider will remove this unmanaged connection during resource creation.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var hoge = new Aws.DirectConnect.LinkAggregationGroup("hoge", new()
-    ///     {
-    ///         ConnectionsBandwidth = "1Gbps",
-    ///         ForceDestroy = true,
-    ///         Location = "EqDC2",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For example:

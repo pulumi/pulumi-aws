@@ -13,60 +13,6 @@ namespace Pulumi.Aws.Organizations
     /// Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
     /// 
     /// ## Example Usage
-    /// ### Organization Account
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var account = new Aws.Organizations.PolicyAttachment("account", new()
-    ///     {
-    ///         PolicyId = aws_organizations_policy.Example.Id,
-    ///         TargetId = "123456789012",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Organization Root
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var root = new Aws.Organizations.PolicyAttachment("root", new()
-    ///     {
-    ///         PolicyId = aws_organizations_policy.Example.Id,
-    ///         TargetId = aws_organizations_organization.Example.Roots[0].Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Organization Unit
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var unit = new Aws.Organizations.PolicyAttachment("unit", new()
-    ///     {
-    ///         PolicyId = aws_organizations_policy.Example.Id,
-    ///         TargetId = aws_organizations_organizational_unit.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
  *
  * ## Example Usage
- * ### By Transit Gateway Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getRouteTablePropagations({
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.example.id,
- * });
- * ```
  */
 export function getRouteTablePropagations(args: GetRouteTablePropagationsArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablePropagationsResult> {
 
@@ -69,16 +59,6 @@ export interface GetRouteTablePropagationsResult {
  * Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
  *
  * ## Example Usage
- * ### By Transit Gateway Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getRouteTablePropagations({
- *     transitGatewayRouteTableId: aws_ec2_transit_gateway_route_table.example.id,
- * });
- * ```
  */
 export function getRouteTablePropagationsOutput(args: GetRouteTablePropagationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTablePropagationsResult> {
     return pulumi.output(args).apply((a: any) => getRouteTablePropagations(a, opts))

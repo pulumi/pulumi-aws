@@ -11,31 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS AccessAnalyzer Archive Rule.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.accessanalyzer.ArchiveRule("example", {
- *     analyzerName: "example-analyzer",
- *     filters: [
- *         {
- *             criteria: "condition.aws:UserId",
- *             eqs: ["userid"],
- *         },
- *         {
- *             criteria: "error",
- *             exists: "true",
- *         },
- *         {
- *             criteria: "isPublic",
- *             eqs: ["false"],
- *         },
- *     ],
- *     ruleName: "example-rule",
- * });
- * ```
  *
  * ## Import
  *

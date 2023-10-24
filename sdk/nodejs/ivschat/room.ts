@@ -11,31 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IVS (Interactive Video) Chat Room.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ivschat.Room("example", {});
- * ```
- * ## Usage with Logging Configuration to S3 Bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {
- *     bucketPrefix: "tf-ivschat-logging-bucket-",
- *     forceDestroy: true,
- * });
- * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", {destinationConfiguration: {
- *     s3: {
- *         bucketName: exampleBucketV2.id,
- *     },
- * }});
- * const exampleRoom = new aws.ivschat.Room("exampleRoom", {loggingConfigurationIdentifiers: [exampleLoggingConfiguration.arn]});
- * ```
  *
  * ## Import
  *

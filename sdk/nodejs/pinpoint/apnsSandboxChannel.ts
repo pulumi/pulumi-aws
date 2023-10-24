@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Pinpoint APNs Sandbox Channel resource.
  *
  * > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const apnsSandbox = new aws.pinpoint.ApnsSandboxChannel("apnsSandbox", {
- *     applicationId: app.applicationId,
- *     certificate: fs.readFileSync("./certificate.pem"),
- *     privateKey: fs.readFileSync("./private_key.key"),
- * });
- * ```
  *
  * ## Import
  *

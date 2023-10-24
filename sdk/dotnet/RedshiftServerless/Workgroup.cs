@@ -12,25 +12,6 @@ namespace Pulumi.Aws.RedshiftServerless
     /// <summary>
     /// Creates a new Amazon Redshift Serverless Workgroup.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedshiftServerless.Workgroup("example", new()
-    ///     {
-    ///         NamespaceName = "concurrency-scaling",
-    ///         WorkgroupName = "concurrency-scaling",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:

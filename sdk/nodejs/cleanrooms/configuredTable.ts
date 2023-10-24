@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
  *
  * ## Example Usage
- * ### Configured table with tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testConfiguredTable = new aws.cleanrooms.ConfiguredTable("testConfiguredTable", {
- *     allowedColumns: [
- *         "column1",
- *         "column2",
- *         "column3",
- *     ],
- *     analysisMethod: "DIRECT_QUERY",
- *     description: "I made this table with Pulumi!",
- *     tableReference: {
- *         databaseName: "example_database",
- *         tableName: "example_table",
- *     },
- *     tags: {
- *         Project: "Pulumi",
- *     },
- * });
- * ```
  *
  * ## Import
  *

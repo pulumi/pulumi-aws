@@ -12,49 +12,6 @@ namespace Pulumi.Aws.AppMesh
     /// <summary>
     /// Provides an AWS App Mesh gateway route resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppMesh.GatewayRoute("example", new()
-    ///     {
-    ///         MeshName = "example-service-mesh",
-    ///         VirtualGatewayName = aws_appmesh_virtual_gateway.Example.Name,
-    ///         Spec = new Aws.AppMesh.Inputs.GatewayRouteSpecArgs
-    ///         {
-    ///             HttpRoute = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteArgs
-    ///             {
-    ///                 Action = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionArgs
-    ///                 {
-    ///                     Target = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionTargetArgs
-    ///                     {
-    ///                         VirtualService = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs
-    ///                         {
-    ///                             VirtualServiceName = aws_appmesh_virtual_service.Example.Name,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Match = new Aws.AppMesh.Inputs.GatewayRouteSpecHttpRouteMatchArgs
-    ///                 {
-    ///                     Prefix = "/",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Mesh gateway routes using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`. For example:

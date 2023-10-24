@@ -12,25 +12,6 @@ namespace Pulumi.Aws.Location
     /// <summary>
     /// Provides a Location Service Place Index.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Location.PlaceIndex("example", new()
-    ///     {
-    ///         DataSource = "Here",
-    ///         IndexName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:

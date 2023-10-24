@@ -13,61 +13,6 @@ namespace Pulumi.Aws.Connect
     /// Provides an Amazon Connect Hours of Operation resource. For more information see
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Connect.HoursOfOperation("test", new()
-    ///     {
-    ///         Configs = new[]
-    ///         {
-    ///             new Aws.Connect.Inputs.HoursOfOperationConfigArgs
-    ///             {
-    ///                 Day = "MONDAY",
-    ///                 EndTime = new Aws.Connect.Inputs.HoursOfOperationConfigEndTimeArgs
-    ///                 {
-    ///                     Hours = 23,
-    ///                     Minutes = 8,
-    ///                 },
-    ///                 StartTime = new Aws.Connect.Inputs.HoursOfOperationConfigStartTimeArgs
-    ///                 {
-    ///                     Hours = 8,
-    ///                     Minutes = 0,
-    ///                 },
-    ///             },
-    ///             new Aws.Connect.Inputs.HoursOfOperationConfigArgs
-    ///             {
-    ///                 Day = "TUESDAY",
-    ///                 EndTime = new Aws.Connect.Inputs.HoursOfOperationConfigEndTimeArgs
-    ///                 {
-    ///                     Hours = 21,
-    ///                     Minutes = 0,
-    ///                 },
-    ///                 StartTime = new Aws.Connect.Inputs.HoursOfOperationConfigStartTimeArgs
-    ///                 {
-    ///                     Hours = 9,
-    ///                     Minutes = 0,
-    ///                 },
-    ///             },
-    ///         },
-    ///         Description = "Monday office hours",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Hours of Operation" },
-    ///         },
-    ///         TimeZone = "EST",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For example:

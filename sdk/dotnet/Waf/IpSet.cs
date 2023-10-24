@@ -12,36 +12,6 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF IPSet Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ipset = new Aws.Waf.IpSet("ipset", new()
-    ///     {
-    ///         IpSetDescriptors = new[]
-    ///         {
-    ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
-    ///             {
-    ///                 Type = "IPV4",
-    ///                 Value = "192.0.7.0/24",
-    ///             },
-    ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
-    ///             {
-    ///                 Type = "IPV4",
-    ///                 Value = "10.16.16.0/16",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF IPSets using their ID. For example:

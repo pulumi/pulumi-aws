@@ -8,15 +8,6 @@ import * as utilities from "../utilities";
  * Allocates a static IP address.
  *
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lightsail.StaticIp("test", {});
- * ```
  */
 export class StaticIp extends pulumi.CustomResource {
     /**

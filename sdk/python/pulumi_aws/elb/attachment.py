@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AttachmentArgs', 'Attachment']
@@ -21,8 +21,25 @@ class AttachmentArgs:
         :param pulumi.Input[str] elb: The name of the ELB.
         :param pulumi.Input[str] instance: Instance ID to place in the ELB pool.
         """
-        pulumi.set(__self__, "elb", elb)
-        pulumi.set(__self__, "instance", instance)
+        AttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elb=elb,
+            instance=instance,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elb: Optional[pulumi.Input[str]] = None,
+             instance: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if elb is None:
+            raise TypeError("Missing 'elb' argument")
+        if instance is None:
+            raise TypeError("Missing 'instance' argument")
+
+        _setter("elb", elb)
+        _setter("instance", instance)
 
     @property
     @pulumi.getter
@@ -59,10 +76,23 @@ class _AttachmentState:
         :param pulumi.Input[str] elb: The name of the ELB.
         :param pulumi.Input[str] instance: Instance ID to place in the ELB pool.
         """
+        _AttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elb=elb,
+            instance=instance,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elb: Optional[pulumi.Input[str]] = None,
+             instance: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if elb is not None:
-            pulumi.set(__self__, "elb", elb)
+            _setter("elb", elb)
         if instance is not None:
-            pulumi.set(__self__, "instance", instance)
+            _setter("instance", instance)
 
     @property
     @pulumi.getter
@@ -107,18 +137,6 @@ class Attachment(pulumi.CustomResource):
         instances in conjunction with an ELB Attachment resource. Doing so will cause a
         conflict and will overwrite attachments.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new load balancer attachment
-        baz = aws.elb.Attachment("baz",
-            elb=aws_elb["bar"]["id"],
-            instance=aws_instance["foo"]["id"])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elb: The name of the ELB.
@@ -140,18 +158,6 @@ class Attachment(pulumi.CustomResource):
         instances in conjunction with an ELB Attachment resource. Doing so will cause a
         conflict and will overwrite attachments.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new load balancer attachment
-        baz = aws.elb.Attachment("baz",
-            elb=aws_elb["bar"]["id"],
-            instance=aws_instance["foo"]["id"])
-        ```
-
         :param str resource_name: The name of the resource.
         :param AttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,6 +168,10 @@ class Attachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

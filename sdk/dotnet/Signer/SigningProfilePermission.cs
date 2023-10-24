@@ -12,59 +12,6 @@ namespace Pulumi.Aws.Signer
     /// <summary>
     /// Creates a Signer Signing Profile Permission. That is, a cross-account permission for a signing profile.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var prodSp = new Aws.Signer.SigningProfile("prodSp", new()
-    ///     {
-    ///         PlatformId = "AWSLambda-SHA384-ECDSA",
-    ///         NamePrefix = "prod_sp_",
-    ///         SignatureValidityPeriod = new Aws.Signer.Inputs.SigningProfileSignatureValidityPeriodArgs
-    ///         {
-    ///             Value = 5,
-    ///             Type = "YEARS",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "tag1", "value1" },
-    ///             { "tag2", "value2" },
-    ///         },
-    ///     });
-    /// 
-    ///     var spPermission1 = new Aws.Signer.SigningProfilePermission("spPermission1", new()
-    ///     {
-    ///         ProfileName = prodSp.Name,
-    ///         Action = "signer:StartSigningJob",
-    ///         Principal = @var.Aws_account,
-    ///     });
-    /// 
-    ///     var spPermission2 = new Aws.Signer.SigningProfilePermission("spPermission2", new()
-    ///     {
-    ///         ProfileName = prodSp.Name,
-    ///         Action = "signer:GetSigningProfile",
-    ///         Principal = @var.Aws_team_role_arn,
-    ///         StatementId = "ProdAccountStartSigningJob_StatementId",
-    ///     });
-    /// 
-    ///     var spPermission3 = new Aws.Signer.SigningProfilePermission("spPermission3", new()
-    ///     {
-    ///         ProfileName = prodSp.Name,
-    ///         Action = "signer:RevokeSignature",
-    ///         Principal = "123456789012",
-    ///         ProfileVersion = prodSp.Version,
-    ///         StatementIdPrefix = "version-permission-",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Signer signing profile permission statements using profile_name/statement_id. For example:

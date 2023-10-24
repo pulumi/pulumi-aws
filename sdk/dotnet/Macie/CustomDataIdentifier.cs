@@ -12,42 +12,6 @@ namespace Pulumi.Aws.Macie
     /// <summary>
     /// Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
-    /// 
-    ///     var exampleCustomDataIdentifier = new Aws.Macie.CustomDataIdentifier("exampleCustomDataIdentifier", new()
-    ///     {
-    ///         Regex = "[0-9]{3}-[0-9]{2}-[0-9]{4}",
-    ///         Description = "DESCRIPTION",
-    ///         MaximumMatchDistance = 10,
-    ///         Keywords = new[]
-    ///         {
-    ///             "keyword",
-    ///         },
-    ///         IgnoreWords = new[]
-    ///         {
-    ///             "ignore",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_macie2_account.Test,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:

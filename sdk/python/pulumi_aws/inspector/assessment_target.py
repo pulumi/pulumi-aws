@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AssessmentTargetArgs', 'AssessmentTarget']
@@ -21,10 +21,25 @@ class AssessmentTargetArgs:
         :param pulumi.Input[str] name: The name of the assessment target.
         :param pulumi.Input[str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
+        AssessmentTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_arn=resource_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_arn is None and 'resourceGroupArn' in kwargs:
+            resource_group_arn = kwargs['resourceGroupArn']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_arn is not None:
-            pulumi.set(__self__, "resource_group_arn", resource_group_arn)
+            _setter("resource_group_arn", resource_group_arn)
 
     @property
     @pulumi.getter
@@ -63,12 +78,29 @@ class _AssessmentTargetState:
         :param pulumi.Input[str] name: The name of the assessment target.
         :param pulumi.Input[str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
+        _AssessmentTargetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            name=name,
+            resource_group_arn=resource_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_arn is None and 'resourceGroupArn' in kwargs:
+            resource_group_arn = kwargs['resourceGroupArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_arn is not None:
-            pulumi.set(__self__, "resource_group_arn", resource_group_arn)
+            _setter("resource_group_arn", resource_group_arn)
 
     @property
     @pulumi.getter
@@ -118,19 +150,6 @@ class AssessmentTarget(pulumi.CustomResource):
         """
         Provides an Inspector Classic Assessment Target
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bar = aws.inspector.ResourceGroup("bar", tags={
-            "Name": "foo",
-            "Env": "bar",
-        })
-        foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
@@ -153,19 +172,6 @@ class AssessmentTarget(pulumi.CustomResource):
         """
         Provides an Inspector Classic Assessment Target
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bar = aws.inspector.ResourceGroup("bar", tags={
-            "Name": "foo",
-            "Env": "bar",
-        })
-        foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
@@ -184,6 +190,10 @@ class AssessmentTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssessmentTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

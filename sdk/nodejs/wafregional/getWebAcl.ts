@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafregional.getWebAcl({
- *     name: "tfWAFRegionalWebACL",
- * });
- * ```
  */
 export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> {
 
@@ -48,17 +37,6 @@ export interface GetWebAclResult {
 }
 /**
  * `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafregional.getWebAcl({
- *     name: "tfWAFRegionalWebACL",
- * });
- * ```
  */
 export function getWebAclOutput(args: GetWebAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAclResult> {
     return pulumi.output(args).apply((a: any) => getWebAcl(a, opts))

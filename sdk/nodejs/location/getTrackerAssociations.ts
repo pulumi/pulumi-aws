@@ -8,16 +8,6 @@ import * as utilities from "../utilities";
  * Retrieve information about Location Service Tracker Associations.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getTrackerAssociations({
- *     trackerName: "example",
- * });
- * ```
  */
 export function getTrackerAssociations(args: GetTrackerAssociationsArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerAssociationsResult> {
 
@@ -55,16 +45,6 @@ export interface GetTrackerAssociationsResult {
  * Retrieve information about Location Service Tracker Associations.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getTrackerAssociations({
- *     trackerName: "example",
- * });
- * ```
  */
 export function getTrackerAssociationsOutput(args: GetTrackerAssociationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerAssociationsResult> {
     return pulumi.output(args).apply((a: any) => getTrackerAssociations(a, opts))

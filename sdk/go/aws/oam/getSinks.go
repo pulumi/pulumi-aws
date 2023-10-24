@@ -4,36 +4,17 @@
 package oam
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.GetSinks(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSinks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSinksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSinksResult
@@ -50,4 +31,50 @@ type GetSinksResult struct {
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetSinksOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSinksResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetSinksResult, error) {
+		r, err := GetSinks(ctx, opts...)
+		var s GetSinksResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetSinksResultOutput)
+}
+
+// A collection of values returned by getSinks.
+type GetSinksResultOutput struct{ *pulumi.OutputState }
+
+func (GetSinksResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSinksResult)(nil)).Elem()
+}
+
+func (o GetSinksResultOutput) ToGetSinksResultOutput() GetSinksResultOutput {
+	return o
+}
+
+func (o GetSinksResultOutput) ToGetSinksResultOutputWithContext(ctx context.Context) GetSinksResultOutput {
+	return o
+}
+
+func (o GetSinksResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSinksResult] {
+	return pulumix.Output[GetSinksResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Set of ARN of the Sinks.
+func (o GetSinksResultOutput) Arns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSinksResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSinksResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSinksResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSinksResultOutput{})
 }

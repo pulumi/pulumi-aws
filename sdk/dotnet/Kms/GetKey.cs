@@ -16,43 +16,6 @@ namespace Pulumi.Aws.Kms
         /// the specified KMS Key with flexible key id input.
         /// This can be useful to reference key alias
         /// without having to hard code the ARN as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var byAlias = Aws.Kms.GetKey.Invoke(new()
-        ///     {
-        ///         KeyId = "alias/my-key",
-        ///     });
-        /// 
-        ///     var byId = Aws.Kms.GetKey.Invoke(new()
-        ///     {
-        ///         KeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///     });
-        /// 
-        ///     var byAliasArn = Aws.Kms.GetKey.Invoke(new()
-        ///     {
-        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:alias/my-key",
-        ///     });
-        /// 
-        ///     var byKeyArn = Aws.Kms.GetKey.Invoke(new()
-        ///     {
-        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws:kms/getKey:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
@@ -62,43 +25,6 @@ namespace Pulumi.Aws.Kms
         /// the specified KMS Key with flexible key id input.
         /// This can be useful to reference key alias
         /// without having to hard code the ARN as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var byAlias = Aws.Kms.GetKey.Invoke(new()
-        ///     {
-        ///         KeyId = "alias/my-key",
-        ///     });
-        /// 
-        ///     var byId = Aws.Kms.GetKey.Invoke(new()
-        ///     {
-        ///         KeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///     });
-        /// 
-        ///     var byAliasArn = Aws.Kms.GetKey.Invoke(new()
-        ///     {
-        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:alias/my-key",
-        ///     });
-        /// 
-        ///     var byKeyArn = Aws.Kms.GetKey.Invoke(new()
-        ///     {
-        ///         KeyId = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("aws:kms/getKey:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());

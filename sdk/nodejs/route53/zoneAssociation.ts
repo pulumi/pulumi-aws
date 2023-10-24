@@ -11,31 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This provider provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the `aws.route53.Zone` resource via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) in the `aws.route53.Zone` resource to manage additional associations via this resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primary = new aws.ec2.Vpc("primary", {
- *     cidrBlock: "10.6.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * });
- * const secondaryVpc = new aws.ec2.Vpc("secondaryVpc", {
- *     cidrBlock: "10.7.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * });
- * const example = new aws.route53.Zone("example", {vpcs: [{
- *     vpcId: primary.id,
- * }]});
- * const secondaryZoneAssociation = new aws.route53.ZoneAssociation("secondaryZoneAssociation", {
- *     zoneId: example.zoneId,
- *     vpcId: secondaryVpc.id,
- * });
- * ```
- *
  * ## Import
  *
  * The VPC is _not_ in the same region where you have configured the AWS Provider:

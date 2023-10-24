@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetSinksResult',
     'AwaitableGetSinksResult',
     'get_sinks',
+    'get_sinks_output',
 ]
 
 @pulumi.output_type
@@ -60,14 +61,6 @@ def get_sinks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSinksR
     Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.oam.get_sinks()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -76,3 +69,13 @@ def get_sinks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSinksR
     return AwaitableGetSinksResult(
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_sinks)
+def get_sinks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSinksResult]:
+    """
+    Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
+
+    ## Example Usage
+    """
+    ...

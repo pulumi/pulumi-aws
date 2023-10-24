@@ -10,64 +10,6 @@ import * as utilities from "../utilities";
  * > **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new replication subnet group
- * const example = new aws.dms.ReplicationSubnetGroup("example", {
- *     replicationSubnetGroupDescription: "Example replication subnet group",
- *     replicationSubnetGroupId: "example-dms-replication-subnet-group-tf",
- *     subnetIds: [
- *         "subnet-12345678",
- *         "subnet-12345679",
- *     ],
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- * ### Creating special IAM role
- *
- * If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const dms_vpc_role = new aws.iam.Role("dms-vpc-role", {
- *     description: "Allows DMS to manage VPC",
- *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Principal: {
- *                 Service: "dms.amazonaws.com",
- *             },
- *             Action: "sts:AssumeRole",
- *         }],
- *     }),
- * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     role: dms_vpc_role.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
- * });
- * const exampleReplicationSubnetGroup = new aws.dms.ReplicationSubnetGroup("exampleReplicationSubnetGroup", {
- *     replicationSubnetGroupDescription: "Example",
- *     replicationSubnetGroupId: "example-id",
- *     subnetIds: [
- *         "subnet-12345678",
- *         "subnet-12345679",
- *     ],
- *     tags: {
- *         Name: "example-id",
- *     },
- * }, {
- *     dependsOn: [exampleRolePolicyAttachment],
- * });
- * ```
  *
  * ## Import
  *

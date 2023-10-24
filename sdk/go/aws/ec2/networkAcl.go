@@ -26,55 +26,6 @@ import (
 // resource and a network ACL resource with a `subnetIds` attribute. Do not use the same subnet ID in both a network ACL
 // resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNetworkAcl(ctx, "main", &ec2.NetworkAclArgs{
-//				VpcId: pulumi.Any(aws_vpc.Main.Id),
-//				Egress: ec2.NetworkAclEgressArray{
-//					&ec2.NetworkAclEgressArgs{
-//						Protocol:  pulumi.String("tcp"),
-//						RuleNo:    pulumi.Int(200),
-//						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.String("10.3.0.0/18"),
-//						FromPort:  pulumi.Int(443),
-//						ToPort:    pulumi.Int(443),
-//					},
-//				},
-//				Ingress: ec2.NetworkAclIngressArray{
-//					&ec2.NetworkAclIngressArgs{
-//						Protocol:  pulumi.String("tcp"),
-//						RuleNo:    pulumi.Int(100),
-//						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.String("10.3.0.0/18"),
-//						FromPort:  pulumi.Int(80),
-//						ToPort:    pulumi.Int(80),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("main"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Network ACLs using the `id`. For example:

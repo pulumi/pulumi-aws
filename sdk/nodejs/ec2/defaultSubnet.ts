@@ -14,20 +14,6 @@ import * as utilities from "../utilities";
  * By default, `pulumi destroy` does not delete the default subnet but does remove the resource from the state.
  * Set the `forceDestroy` argument to `true` to delete the default subnet.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultAz1 = new aws.ec2.DefaultSubnet("defaultAz1", {
- *     availabilityZone: "us-west-2a",
- *     tags: {
- *         Name: "Default subnet for us-west-2a",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import subnets using the subnet `id`. For example:

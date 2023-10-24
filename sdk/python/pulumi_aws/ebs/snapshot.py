@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SnapshotArgs', 'Snapshot']
@@ -31,19 +31,54 @@ class SnapshotArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         """
-        pulumi.set(__self__, "volume_id", volume_id)
+        SnapshotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            volume_id=volume_id,
+            description=description,
+            outpost_arn=outpost_arn,
+            permanent_restore=permanent_restore,
+            storage_tier=storage_tier,
+            tags=tags,
+            temporary_restore_days=temporary_restore_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             volume_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             outpost_arn: Optional[pulumi.Input[str]] = None,
+             permanent_restore: Optional[pulumi.Input[bool]] = None,
+             storage_tier: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             temporary_restore_days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if volume_id is None and 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+        if volume_id is None:
+            raise TypeError("Missing 'volume_id' argument")
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if permanent_restore is None and 'permanentRestore' in kwargs:
+            permanent_restore = kwargs['permanentRestore']
+        if storage_tier is None and 'storageTier' in kwargs:
+            storage_tier = kwargs['storageTier']
+        if temporary_restore_days is None and 'temporaryRestoreDays' in kwargs:
+            temporary_restore_days = kwargs['temporaryRestoreDays']
+
+        _setter("volume_id", volume_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if outpost_arn is not None:
-            pulumi.set(__self__, "outpost_arn", outpost_arn)
+            _setter("outpost_arn", outpost_arn)
         if permanent_restore is not None:
-            pulumi.set(__self__, "permanent_restore", permanent_restore)
+            _setter("permanent_restore", permanent_restore)
         if storage_tier is not None:
-            pulumi.set(__self__, "storage_tier", storage_tier)
+            _setter("storage_tier", storage_tier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if temporary_restore_days is not None:
-            pulumi.set(__self__, "temporary_restore_days", temporary_restore_days)
+            _setter("temporary_restore_days", temporary_restore_days)
 
     @property
     @pulumi.getter(name="volumeId")
@@ -166,39 +201,100 @@ class _SnapshotState:
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
+        _SnapshotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            data_encryption_key_id=data_encryption_key_id,
+            description=description,
+            encrypted=encrypted,
+            kms_key_id=kms_key_id,
+            outpost_arn=outpost_arn,
+            owner_alias=owner_alias,
+            owner_id=owner_id,
+            permanent_restore=permanent_restore,
+            storage_tier=storage_tier,
+            tags=tags,
+            tags_all=tags_all,
+            temporary_restore_days=temporary_restore_days,
+            volume_id=volume_id,
+            volume_size=volume_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             data_encryption_key_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encrypted: Optional[pulumi.Input[bool]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             outpost_arn: Optional[pulumi.Input[str]] = None,
+             owner_alias: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             permanent_restore: Optional[pulumi.Input[bool]] = None,
+             storage_tier: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             temporary_restore_days: Optional[pulumi.Input[int]] = None,
+             volume_id: Optional[pulumi.Input[str]] = None,
+             volume_size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_encryption_key_id is None and 'dataEncryptionKeyId' in kwargs:
+            data_encryption_key_id = kwargs['dataEncryptionKeyId']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if owner_alias is None and 'ownerAlias' in kwargs:
+            owner_alias = kwargs['ownerAlias']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if permanent_restore is None and 'permanentRestore' in kwargs:
+            permanent_restore = kwargs['permanentRestore']
+        if storage_tier is None and 'storageTier' in kwargs:
+            storage_tier = kwargs['storageTier']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if temporary_restore_days is None and 'temporaryRestoreDays' in kwargs:
+            temporary_restore_days = kwargs['temporaryRestoreDays']
+        if volume_id is None and 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if data_encryption_key_id is not None:
-            pulumi.set(__self__, "data_encryption_key_id", data_encryption_key_id)
+            _setter("data_encryption_key_id", data_encryption_key_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if outpost_arn is not None:
-            pulumi.set(__self__, "outpost_arn", outpost_arn)
+            _setter("outpost_arn", outpost_arn)
         if owner_alias is not None:
-            pulumi.set(__self__, "owner_alias", owner_alias)
+            _setter("owner_alias", owner_alias)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if permanent_restore is not None:
-            pulumi.set(__self__, "permanent_restore", permanent_restore)
+            _setter("permanent_restore", permanent_restore)
         if storage_tier is not None:
-            pulumi.set(__self__, "storage_tier", storage_tier)
+            _setter("storage_tier", storage_tier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if temporary_restore_days is not None:
-            pulumi.set(__self__, "temporary_restore_days", temporary_restore_days)
+            _setter("temporary_restore_days", temporary_restore_days)
         if volume_id is not None:
-            pulumi.set(__self__, "volume_id", volume_id)
+            _setter("volume_id", volume_id)
         if volume_size is not None:
-            pulumi.set(__self__, "volume_size", volume_size)
+            _setter("volume_size", volume_size)
 
     @property
     @pulumi.getter
@@ -400,25 +496,6 @@ class Snapshot(pulumi.CustomResource):
         """
         Creates a Snapshot of an EBS Volume.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.Volume("example",
-            availability_zone="us-west-2a",
-            size=40,
-            tags={
-                "Name": "HelloWorld",
-            })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
-            volume_id=example.id,
-            tags={
-                "Name": "HelloWorld_snap",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import EBS Snapshot using the `id`. For example:
@@ -446,25 +523,6 @@ class Snapshot(pulumi.CustomResource):
         """
         Creates a Snapshot of an EBS Volume.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.Volume("example",
-            availability_zone="us-west-2a",
-            size=40,
-            tags={
-                "Name": "HelloWorld",
-            })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
-            volume_id=example.id,
-            tags={
-                "Name": "HelloWorld_snap",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import EBS Snapshot using the `id`. For example:
@@ -483,6 +541,10 @@ class Snapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

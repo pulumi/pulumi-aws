@@ -13,60 +13,12 @@ namespace Pulumi.Aws.AppMesh
     {
         /// <summary>
         /// The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.AppMesh.GetGatewayRoute.Invoke(new()
-        ///     {
-        ///         MeshName = "test-mesh",
-        ///         Name = "test-route",
-        ///         VirtualGatewayName = "test-gateway",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetGatewayRouteResult> InvokeAsync(GetGatewayRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayRouteResult>("aws:appmesh/getGatewayRoute:getGatewayRoute", args ?? new GetGatewayRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.AppMesh.GetGatewayRoute.Invoke(new()
-        ///     {
-        ///         MeshName = "test-mesh",
-        ///         Name = "test-route",
-        ///         VirtualGatewayName = "test-gateway",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetGatewayRouteResult> Invoke(GetGatewayRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayRouteResult>("aws:appmesh/getGatewayRoute:getGatewayRoute", args ?? new GetGatewayRouteInvokeArgs(), options.WithDefaults());

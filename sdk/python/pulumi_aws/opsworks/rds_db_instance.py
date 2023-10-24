@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RdsDbInstanceArgs', 'RdsDbInstance']
@@ -25,10 +25,43 @@ class RdsDbInstanceArgs:
         :param pulumi.Input[str] rds_db_instance_arn: The db instance to register for this stack. Changing this will force a new resource.
         :param pulumi.Input[str] stack_id: The stack to register a db instance for. Changing this will force a new resource.
         """
-        pulumi.set(__self__, "db_password", db_password)
-        pulumi.set(__self__, "db_user", db_user)
-        pulumi.set(__self__, "rds_db_instance_arn", rds_db_instance_arn)
-        pulumi.set(__self__, "stack_id", stack_id)
+        RdsDbInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_password=db_password,
+            db_user=db_user,
+            rds_db_instance_arn=rds_db_instance_arn,
+            stack_id=stack_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_password: Optional[pulumi.Input[str]] = None,
+             db_user: Optional[pulumi.Input[str]] = None,
+             rds_db_instance_arn: Optional[pulumi.Input[str]] = None,
+             stack_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_password is None and 'dbPassword' in kwargs:
+            db_password = kwargs['dbPassword']
+        if db_password is None:
+            raise TypeError("Missing 'db_password' argument")
+        if db_user is None and 'dbUser' in kwargs:
+            db_user = kwargs['dbUser']
+        if db_user is None:
+            raise TypeError("Missing 'db_user' argument")
+        if rds_db_instance_arn is None and 'rdsDbInstanceArn' in kwargs:
+            rds_db_instance_arn = kwargs['rdsDbInstanceArn']
+        if rds_db_instance_arn is None:
+            raise TypeError("Missing 'rds_db_instance_arn' argument")
+        if stack_id is None and 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if stack_id is None:
+            raise TypeError("Missing 'stack_id' argument")
+
+        _setter("db_password", db_password)
+        _setter("db_user", db_user)
+        _setter("rds_db_instance_arn", rds_db_instance_arn)
+        _setter("stack_id", stack_id)
 
     @property
     @pulumi.getter(name="dbPassword")
@@ -93,14 +126,39 @@ class _RdsDbInstanceState:
         :param pulumi.Input[str] rds_db_instance_arn: The db instance to register for this stack. Changing this will force a new resource.
         :param pulumi.Input[str] stack_id: The stack to register a db instance for. Changing this will force a new resource.
         """
+        _RdsDbInstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_password=db_password,
+            db_user=db_user,
+            rds_db_instance_arn=rds_db_instance_arn,
+            stack_id=stack_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_password: Optional[pulumi.Input[str]] = None,
+             db_user: Optional[pulumi.Input[str]] = None,
+             rds_db_instance_arn: Optional[pulumi.Input[str]] = None,
+             stack_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_password is None and 'dbPassword' in kwargs:
+            db_password = kwargs['dbPassword']
+        if db_user is None and 'dbUser' in kwargs:
+            db_user = kwargs['dbUser']
+        if rds_db_instance_arn is None and 'rdsDbInstanceArn' in kwargs:
+            rds_db_instance_arn = kwargs['rdsDbInstanceArn']
+        if stack_id is None and 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+
         if db_password is not None:
-            pulumi.set(__self__, "db_password", db_password)
+            _setter("db_password", db_password)
         if db_user is not None:
-            pulumi.set(__self__, "db_user", db_user)
+            _setter("db_user", db_user)
         if rds_db_instance_arn is not None:
-            pulumi.set(__self__, "rds_db_instance_arn", rds_db_instance_arn)
+            _setter("rds_db_instance_arn", rds_db_instance_arn)
         if stack_id is not None:
-            pulumi.set(__self__, "stack_id", stack_id)
+            _setter("stack_id", stack_id)
 
     @property
     @pulumi.getter(name="dbPassword")
@@ -164,19 +222,6 @@ class RdsDbInstance(pulumi.CustomResource):
         """
         Provides an OpsWorks RDS DB Instance resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_instance = aws.opsworks.RdsDbInstance("myInstance",
-            stack_id=aws_opsworks_stack["my_stack"]["id"],
-            rds_db_instance_arn=aws_db_instance["my_instance"]["arn"],
-            db_user="someUser",
-            db_password="somePass")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_password: A db password
@@ -193,19 +238,6 @@ class RdsDbInstance(pulumi.CustomResource):
         """
         Provides an OpsWorks RDS DB Instance resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_instance = aws.opsworks.RdsDbInstance("myInstance",
-            stack_id=aws_opsworks_stack["my_stack"]["id"],
-            rds_db_instance_arn=aws_db_instance["my_instance"]["arn"],
-            db_user="someUser",
-            db_password="somePass")
-        ```
-
         :param str resource_name: The name of the resource.
         :param RdsDbInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,6 +248,10 @@ class RdsDbInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RdsDbInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

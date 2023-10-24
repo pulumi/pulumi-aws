@@ -13,24 +13,6 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker User Profile resource.
     /// 
     /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.UserProfile("example", new()
-    ///     {
-    ///         DomainId = aws_sagemaker_domain.Test.Id,
-    ///         UserProfileName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

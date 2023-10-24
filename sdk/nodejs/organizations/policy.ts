@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [AWS Organizations policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["*"],
- *         resources: ["*"],
- *     }],
- * });
- * const examplePolicy = new aws.organizations.Policy("examplePolicy", {content: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For example:

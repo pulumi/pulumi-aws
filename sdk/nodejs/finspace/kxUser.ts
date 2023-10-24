@@ -8,33 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS FinSpace Kx User.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {
- *     description: "Example KMS Key",
- *     deletionWindowInDays: 7,
- * });
- * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {kmsKeyId: exampleKey.arn});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "ec2.amazonaws.com",
- *         },
- *     }],
- * })});
- * const exampleKxUser = new aws.finspace.KxUser("exampleKxUser", {
- *     environmentId: exampleKxEnvironment.id,
- *     iamRole: exampleRole.arn,
- * });
- * ```
  *
  * ## Import
  *

@@ -13,60 +13,12 @@ namespace Pulumi.Aws.Efs
     {
         /// <summary>
         /// Provides information about an Elastic File System Mount Target (EFS).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var mountTargetId = config.Get("mountTargetId") ?? "";
-        ///     var byId = Aws.Efs.GetMountTarget.Invoke(new()
-        ///     {
-        ///         MountTargetId = mountTargetId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMountTargetResult> InvokeAsync(GetMountTargetArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? new GetMountTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about an Elastic File System Mount Target (EFS).
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var mountTargetId = config.Get("mountTargetId") ?? "";
-        ///     var byId = Aws.Efs.GetMountTarget.Invoke(new()
-        ///     {
-        ///         MountTargetId = mountTargetId,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetMountTargetResult> Invoke(GetMountTargetInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? new GetMountTargetInvokeArgs(), options.WithDefaults());

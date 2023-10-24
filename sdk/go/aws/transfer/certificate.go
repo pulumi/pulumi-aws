@@ -16,46 +16,6 @@ import (
 // Provides a AWS Transfer AS2 Certificate resource.
 //
 // ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//	"os"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewCertificate(ctx, "example", &transfer.CertificateArgs{
-//				Certificate:      readFileOrPanic(fmt.Sprintf("%v/example.com/example.crt", path.Module)),
-//				CertificateChain: readFileOrPanic(fmt.Sprintf("%v/example.com/ca.crt", path.Module)),
-//				PrivateKey:       readFileOrPanic(fmt.Sprintf("%v/example.com/example.key", path.Module)),
-//				Description:      pulumi.String("example"),
-//				Usage:            pulumi.String("SIGNING"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

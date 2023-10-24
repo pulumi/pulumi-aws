@@ -8,32 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS EventBridge Schemas Registry Policy.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "example",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["109876543210"],
- *         }],
- *         actions: ["schemas:*"],
- *         resources: [
- *             "arn:aws:schemas:us-east-1:012345678901:registry/example",
- *             "arn:aws:schemas:us-east-1:012345678901:schema/example*",
- *         ],
- *     }],
- * });
- * const exampleRegistryPolicy = new aws.schemas.RegistryPolicy("exampleRegistryPolicy", {
- *     registryName: "example",
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * ```
  *
  * ## Import
  *

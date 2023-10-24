@@ -10,27 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Amazon AppIntegrations Data Integration resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appintegrations.DataIntegration("example", {
- *     description: "example",
- *     kmsKey: aws_kms_key.test.arn,
- *     sourceUri: "Salesforce://AppFlow/example",
- *     scheduleConfig: {
- *         firstExecutionFrom: "1439788442681",
- *         object: "Account",
- *         scheduleExpression: "rate(1 hour)",
- *     },
- *     tags: {
- *         Key1: "Value1",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:

@@ -13,32 +13,6 @@ namespace Pulumi.Aws.Oam
     /// Resource for managing an AWS CloudWatch Observability Access Manager Link.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Oam.Link("example", new()
-    ///     {
-    ///         LabelTemplate = "$AccountName",
-    ///         ResourceTypes = new[]
-    ///         {
-    ///             "AWS::CloudWatch::Metric",
-    ///         },
-    ///         SinkIdentifier = aws_oam_sink.Test.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Env", "prod" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

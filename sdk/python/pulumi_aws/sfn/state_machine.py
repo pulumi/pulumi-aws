@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,61 @@ class StateMachineArgs:
         :param pulumi.Input['StateMachineTracingConfigurationArgs'] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
         :param pulumi.Input[str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
-        pulumi.set(__self__, "definition", definition)
-        pulumi.set(__self__, "role_arn", role_arn)
+        StateMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definition=definition,
+            role_arn=role_arn,
+            logging_configuration=logging_configuration,
+            name=name,
+            name_prefix=name_prefix,
+            publish=publish,
+            tags=tags,
+            tracing_configuration=tracing_configuration,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definition: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             publish: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if definition is None:
+            raise TypeError("Missing 'definition' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if logging_configuration is None and 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if tracing_configuration is None and 'tracingConfiguration' in kwargs:
+            tracing_configuration = kwargs['tracingConfiguration']
+
+        _setter("definition", definition)
+        _setter("role_arn", role_arn)
         if logging_configuration is not None:
-            pulumi.set(__self__, "logging_configuration", logging_configuration)
+            _setter("logging_configuration", logging_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if publish is not None:
-            pulumi.set(__self__, "publish", publish)
+            _setter("publish", publish)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tracing_configuration is not None:
-            pulumi.set(__self__, "tracing_configuration", tracing_configuration)
+            _setter("tracing_configuration", tracing_configuration)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -199,43 +238,104 @@ class _StateMachineState:
         :param pulumi.Input['StateMachineTracingConfigurationArgs'] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
         :param pulumi.Input[str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
+        _StateMachineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            creation_date=creation_date,
+            definition=definition,
+            description=description,
+            logging_configuration=logging_configuration,
+            name=name,
+            name_prefix=name_prefix,
+            publish=publish,
+            revision_id=revision_id,
+            role_arn=role_arn,
+            state_machine_version_arn=state_machine_version_arn,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            tracing_configuration=tracing_configuration,
+            type=type,
+            version_description=version_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             creation_date: Optional[pulumi.Input[str]] = None,
+             definition: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             publish: Optional[pulumi.Input[bool]] = None,
+             revision_id: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             state_machine_version_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             version_description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if creation_date is None and 'creationDate' in kwargs:
+            creation_date = kwargs['creationDate']
+        if logging_configuration is None and 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if revision_id is None and 'revisionId' in kwargs:
+            revision_id = kwargs['revisionId']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if state_machine_version_arn is None and 'stateMachineVersionArn' in kwargs:
+            state_machine_version_arn = kwargs['stateMachineVersionArn']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if tracing_configuration is None and 'tracingConfiguration' in kwargs:
+            tracing_configuration = kwargs['tracingConfiguration']
+        if version_description is None and 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
+            _setter("creation_date", creation_date)
         if definition is not None:
-            pulumi.set(__self__, "definition", definition)
+            _setter("definition", definition)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if logging_configuration is not None:
-            pulumi.set(__self__, "logging_configuration", logging_configuration)
+            _setter("logging_configuration", logging_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if publish is not None:
-            pulumi.set(__self__, "publish", publish)
+            _setter("publish", publish)
         if revision_id is not None:
-            pulumi.set(__self__, "revision_id", revision_id)
+            _setter("revision_id", revision_id)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if state_machine_version_arn is not None:
-            pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
+            _setter("state_machine_version_arn", state_machine_version_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tracing_configuration is not None:
-            pulumi.set(__self__, "tracing_configuration", tracing_configuration)
+            _setter("tracing_configuration", tracing_configuration)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if version_description is not None:
-            pulumi.set(__self__, "version_description", version_description)
+            _setter("version_description", version_description)
 
     @property
     @pulumi.getter
@@ -452,104 +552,6 @@ class StateMachine(pulumi.CustomResource):
         Provides a Step Function State Machine resource
 
         ## Example Usage
-        ### Basic (Standard Workflow)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
-              "End": true
-            }}
-          }}
-        }}
-        \"\"\")
-        ```
-        ### Basic (Express Workflow)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            type="EXPRESS",
-            definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
-              "End": true
-            }}
-          }}
-        }}
-        \"\"\")
-        ```
-        ### Publish (Publish SFN version)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            publish=True,
-            type="EXPRESS",
-            definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
-              "End": true
-            }}
-          }}
-        }}
-        \"\"\")
-        ```
-        ### Logging
-
-        > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
-              "End": true
-            }}
-          }}
-        }}
-        \"\"\",
-            logging_configuration=aws.sfn.StateMachineLoggingConfigurationArgs(
-                log_destination=f"{aws_cloudwatch_log_group['log_group_for_sfn']['arn']}:*",
-                include_execution_data=True,
-                level="ERROR",
-            ))
-        ```
 
         ## Import
 
@@ -581,104 +583,6 @@ class StateMachine(pulumi.CustomResource):
         Provides a Step Function State Machine resource
 
         ## Example Usage
-        ### Basic (Standard Workflow)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
-              "End": true
-            }}
-          }}
-        }}
-        \"\"\")
-        ```
-        ### Basic (Express Workflow)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            type="EXPRESS",
-            definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
-              "End": true
-            }}
-          }}
-        }}
-        \"\"\")
-        ```
-        ### Publish (Publish SFN version)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            publish=True,
-            type="EXPRESS",
-            definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
-              "End": true
-            }}
-          }}
-        }}
-        \"\"\")
-        ```
-        ### Logging
-
-        > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
-            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
-            definition=f\"\"\"{{
-          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
-          "StartAt": "HelloWorld",
-          "States": {{
-            "HelloWorld": {{
-              "Type": "Task",
-              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
-              "End": true
-            }}
-          }}
-        }}
-        \"\"\",
-            logging_configuration=aws.sfn.StateMachineLoggingConfigurationArgs(
-                log_destination=f"{aws_cloudwatch_log_group['log_group_for_sfn']['arn']}:*",
-                include_execution_data=True,
-                level="ERROR",
-            ))
-        ```
 
         ## Import
 
@@ -698,6 +602,10 @@ class StateMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StateMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -724,6 +632,7 @@ class StateMachine(pulumi.CustomResource):
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition
+            logging_configuration = _utilities.configure(logging_configuration, StateMachineLoggingConfigurationArgs, True)
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
@@ -732,6 +641,7 @@ class StateMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
+            tracing_configuration = _utilities.configure(tracing_configuration, StateMachineTracingConfigurationArgs, True)
             __props__.__dict__["tracing_configuration"] = tracing_configuration
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None

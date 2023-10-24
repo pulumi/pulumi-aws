@@ -10,19 +10,6 @@ import * as utilities from "../utilities";
  * Read more about Origin Access Control in the [CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html).
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.OriginAccessControl("example", {
- *     description: "Example Policy",
- *     originAccessControlOriginType: "s3",
- *     signingBehavior: "always",
- *     signingProtocol: "sigv4",
- * });
- * ```
  *
  * ## Import
  *

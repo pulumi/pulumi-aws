@@ -12,48 +12,6 @@ namespace Pulumi.Aws.RedshiftServerless
     /// <summary>
     /// Creates a new Amazon Redshift Serverless Resource Policy.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedshiftServerless.ResourcePolicy("example", new()
-    ///     {
-    ///         ResourceArn = aws_redshiftserverless_snapshot.Example.Arn,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = new[]
-    ///                         {
-    ///                             "12345678901",
-    ///                         },
-    ///                     },
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "redshift-serverless:RestoreFromSnapshot",
-    ///                     },
-    ///                     ["Sid"] = "",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For example:

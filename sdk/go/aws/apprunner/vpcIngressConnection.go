@@ -15,39 +15,6 @@ import (
 
 // Manages an App Runner VPC Ingress Connection.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apprunner.NewVpcIngressConnection(ctx, "example", &apprunner.VpcIngressConnectionArgs{
-//				ServiceArn: pulumi.Any(aws_apprunner_service.Example.Arn),
-//				IngressVpcConfiguration: &apprunner.VpcIngressConnectionIngressVpcConfigurationArgs{
-//					VpcId:         pulumi.Any(aws_default_vpc.Default.Id),
-//					VpcEndpointId: pulumi.Any(aws_vpc_endpoint.Apprunner.Id),
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:

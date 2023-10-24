@@ -12,45 +12,6 @@ namespace Pulumi.Aws.Batch
     /// <summary>
     /// Provides a Batch Scheduling Policy resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Batch.SchedulingPolicy("example", new()
-    ///     {
-    ///         FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
-    ///         {
-    ///             ComputeReservation = 1,
-    ///             ShareDecaySeconds = 3600,
-    ///             ShareDistributions = new[]
-    ///             {
-    ///                 new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
-    ///                 {
-    ///                     ShareIdentifier = "A1*",
-    ///                     WeightFactor = 0.1,
-    ///                 },
-    ///                 new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
-    ///                 {
-    ///                     ShareIdentifier = "A2",
-    ///                     WeightFactor = 0.2,
-    ///                 },
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Batch Scheduling Policy" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For example:

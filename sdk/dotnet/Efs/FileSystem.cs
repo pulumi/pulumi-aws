@@ -13,49 +13,6 @@ namespace Pulumi.Aws.Efs
     /// Provides an Elastic File System (EFS) File System resource.
     /// 
     /// ## Example Usage
-    /// ### EFS File System w/ tags
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Efs.FileSystem("foo", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "MyProduct" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Using lifecycle policy
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooWithLifecylePolicy = new Aws.Efs.FileSystem("fooWithLifecylePolicy", new()
-    ///     {
-    ///         LifecyclePolicies = new[]
-    ///         {
-    ///             new Aws.Efs.Inputs.FileSystemLifecyclePolicyArgs
-    ///             {
-    ///                 TransitionToIa = "AFTER_30_DAYS",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

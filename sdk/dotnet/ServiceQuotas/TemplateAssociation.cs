@@ -15,20 +15,6 @@ namespace Pulumi.Aws.ServiceQuotas
     /// &gt; Only the management account of an organization can associate Service Quota templates, and this must be done from the `us-east-1` region.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceQuotas.TemplateAssociation("example");
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

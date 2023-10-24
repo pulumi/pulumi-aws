@@ -14,32 +14,6 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.MemoryDb.Cluster("example", new()
-    ///     {
-    ///         AclName = "open-access",
-    ///         NodeType = "db.t4g.small",
-    ///         NumShards = 2,
-    ///         SecurityGroupIds = new[]
-    ///         {
-    ///             aws_security_group.Example.Id,
-    ///         },
-    ///         SnapshotRetentionLimit = 7,
-    ///         SubnetGroupName = aws_memorydb_subnet_group.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a cluster using the `name`. For example:

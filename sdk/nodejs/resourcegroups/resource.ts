@@ -8,24 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Resource Groups Resource.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleDedicatedHost = new aws.ec2.DedicatedHost("exampleDedicatedHost", {
- *     instanceFamily: "t3",
- *     availabilityZone: "us-east-1a",
- *     hostRecovery: "off",
- *     autoPlacement: "on",
- * });
- * const exampleGroup = new aws.resourcegroups.Group("exampleGroup", {});
- * const exampleResource = new aws.resourcegroups.Resource("exampleResource", {
- *     groupArn: exampleGroup.arn,
- *     resourceArn: exampleDedicatedHost.arn,
- * });
- * ```
  */
 export class Resource extends pulumi.CustomResource {
     /**

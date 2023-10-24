@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing Amazon Chime SDK Voice Global Settings.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.chime.SdkvoiceGlobalSettings("example", {voiceConnector: {
- *     cdrBucket: "example-bucket-name",
- * }});
- * ```
  *
  * ## Import
  *

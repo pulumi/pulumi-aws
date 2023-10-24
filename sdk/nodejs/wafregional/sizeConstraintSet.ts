@@ -10,22 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a WAF Regional Size Constraint Set Resource for use with Application Load Balancer.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sizeConstraintSet = new aws.wafregional.SizeConstraintSet("sizeConstraintSet", {sizeConstraints: [{
- *     comparisonOperator: "EQ",
- *     fieldToMatch: {
- *         type: "BODY",
- *     },
- *     size: 4096,
- *     textTransformation: "NONE",
- * }]});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import WAF Size Constraint Set using the id. For example:

@@ -11,23 +11,6 @@ import * as utilities from "../utilities";
  * Provides a resource to manage a single Amazon GuardDuty [detector feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
  *
  * > **NOTE:** Deleting this resource does not disable the detector feature, the resource in simply removed from state instead.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.guardduty.Detector("example", {enable: true});
- * const eksRuntimeMonitoring = new aws.guardduty.DetectorFeature("eksRuntimeMonitoring", {
- *     detectorId: example.id,
- *     status: "ENABLED",
- *     additionalConfigurations: [{
- *         name: "EKS_ADDON_MANAGEMENT",
- *         status: "ENABLED",
- *     }],
- * });
- * ```
  */
 export class DetectorFeature extends pulumi.CustomResource {
     /**

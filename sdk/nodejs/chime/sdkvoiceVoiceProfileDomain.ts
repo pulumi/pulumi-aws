@@ -11,26 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Chime SDK Voice Profile Domain.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {
- *     description: "KMS Key for Voice Profile Domain",
- *     deletionWindowInDays: 7,
- * });
- * const exampleSdkvoiceVoiceProfileDomain = new aws.chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain", {
- *     serverSideEncryptionConfiguration: {
- *         kmsKeyArn: exampleKey.arn,
- *     },
- *     description: "My Voice Profile Domain",
- *     tags: {
- *         key1: "value1",
- *     },
- * });
- * ```
  *
  * ## Import
  *

@@ -7,39 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Backup vault policy resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleVault = new aws.backup.Vault("exampleVault", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["*"],
- *         }],
- *         actions: [
- *             "backup:DescribeBackupVault",
- *             "backup:DeleteBackupVault",
- *             "backup:PutBackupVaultAccessPolicy",
- *             "backup:DeleteBackupVaultAccessPolicy",
- *             "backup:GetBackupVaultAccessPolicy",
- *             "backup:StartBackupJob",
- *             "backup:GetBackupVaultNotifications",
- *             "backup:PutBackupVaultNotifications",
- *         ],
- *         resources: [exampleVault.arn],
- *     }],
- * });
- * const exampleVaultPolicy = new aws.backup.VaultPolicy("exampleVaultPolicy", {
- *     backupVaultName: exampleVault.name,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Backup vault policy using the `name`. For example:

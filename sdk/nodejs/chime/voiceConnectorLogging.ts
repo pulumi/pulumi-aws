@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorLogging = new aws.chime.VoiceConnectorLogging("defaultVoiceConnectorLogging", {
- *     enableSipLogs: true,
- *     enableMediaMetricLogs: true,
- *     voiceConnectorId: defaultVoiceConnector.id,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:

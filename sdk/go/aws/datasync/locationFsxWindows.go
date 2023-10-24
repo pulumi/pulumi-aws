@@ -15,37 +15,6 @@ import (
 
 // Manages an AWS DataSync FSx Windows Location.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewLocationFsxWindows(ctx, "example", &datasync.LocationFsxWindowsArgs{
-//				FsxFilesystemArn: pulumi.Any(aws_fsx_windows_file_system.Example.Arn),
-//				User:             pulumi.String("SomeUser"),
-//				Password:         pulumi.String("SuperSecretPassw0rd"),
-//				SecurityGroupArns: pulumi.StringArray{
-//					aws_security_group.Example.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_fsx_windows_file_system` using the `DataSync-ARN#FSx-Windows-ARN`. For example:

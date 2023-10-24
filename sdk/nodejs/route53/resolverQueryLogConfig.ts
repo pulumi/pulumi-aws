@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Route 53 Resolver query logging configuration resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53.ResolverQueryLogConfig("example", {
- *     destinationArn: aws_s3_bucket.example.arn,
- *     tags: {
- *         Environment: "Prod",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import

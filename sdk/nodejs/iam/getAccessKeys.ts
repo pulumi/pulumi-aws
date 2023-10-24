@@ -10,17 +10,6 @@ import * as utilities from "../utilities";
 /**
  * This data source can be used to fetch information about IAM access keys of a
  * specific IAM user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getAccessKeys({
- *     user: "an_example_user_name",
- * });
- * ```
  */
 export function getAccessKeys(args: GetAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessKeysResult> {
 
@@ -57,17 +46,6 @@ export interface GetAccessKeysResult {
 /**
  * This data source can be used to fetch information about IAM access keys of a
  * specific IAM user.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getAccessKeys({
- *     user: "an_example_user_name",
- * });
- * ```
  */
 export function getAccessKeysOutput(args: GetAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessKeysResult> {
     return pulumi.output(args).apply((a: any) => getAccessKeys(a, opts))

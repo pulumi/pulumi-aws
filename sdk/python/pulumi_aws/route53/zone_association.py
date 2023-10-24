@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ZoneAssociationArgs', 'ZoneAssociation']
@@ -23,10 +23,35 @@ class ZoneAssociationArgs:
         :param pulumi.Input[str] zone_id: The private hosted zone to associate.
         :param pulumi.Input[str] vpc_region: The VPC's region. Defaults to the region of the AWS provider.
         """
-        pulumi.set(__self__, "vpc_id", vpc_id)
-        pulumi.set(__self__, "zone_id", zone_id)
+        ZoneAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_id=vpc_id,
+            zone_id=zone_id,
+            vpc_region=vpc_region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             zone_id: Optional[pulumi.Input[str]] = None,
+             vpc_region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if zone_id is None and 'zoneId' in kwargs:
+            zone_id = kwargs['zoneId']
+        if zone_id is None:
+            raise TypeError("Missing 'zone_id' argument")
+        if vpc_region is None and 'vpcRegion' in kwargs:
+            vpc_region = kwargs['vpcRegion']
+
+        _setter("vpc_id", vpc_id)
+        _setter("zone_id", zone_id)
         if vpc_region is not None:
-            pulumi.set(__self__, "vpc_region", vpc_region)
+            _setter("vpc_region", vpc_region)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -79,14 +104,39 @@ class _ZoneAssociationState:
         :param pulumi.Input[str] vpc_region: The VPC's region. Defaults to the region of the AWS provider.
         :param pulumi.Input[str] zone_id: The private hosted zone to associate.
         """
+        _ZoneAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            owning_account=owning_account,
+            vpc_id=vpc_id,
+            vpc_region=vpc_region,
+            zone_id=zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             owning_account: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             vpc_region: Optional[pulumi.Input[str]] = None,
+             zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if owning_account is None and 'owningAccount' in kwargs:
+            owning_account = kwargs['owningAccount']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_region is None and 'vpcRegion' in kwargs:
+            vpc_region = kwargs['vpcRegion']
+        if zone_id is None and 'zoneId' in kwargs:
+            zone_id = kwargs['zoneId']
+
         if owning_account is not None:
-            pulumi.set(__self__, "owning_account", owning_account)
+            _setter("owning_account", owning_account)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
         if vpc_region is not None:
-            pulumi.set(__self__, "vpc_region", vpc_region)
+            _setter("vpc_region", vpc_region)
         if zone_id is not None:
-            pulumi.set(__self__, "zone_id", zone_id)
+            _setter("zone_id", zone_id)
 
     @property
     @pulumi.getter(name="owningAccount")
@@ -153,28 +203,6 @@ class ZoneAssociation(pulumi.CustomResource):
 
         > **NOTE:** This provider provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the `route53.Zone` resource via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) in the `route53.Zone` resource to manage additional associations via this resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.ec2.Vpc("primary",
-            cidr_block="10.6.0.0/16",
-            enable_dns_hostnames=True,
-            enable_dns_support=True)
-        secondary_vpc = aws.ec2.Vpc("secondaryVpc",
-            cidr_block="10.7.0.0/16",
-            enable_dns_hostnames=True,
-            enable_dns_support=True)
-        example = aws.route53.Zone("example", vpcs=[aws.route53.ZoneVpcArgs(
-            vpc_id=primary.id,
-        )])
-        secondary_zone_association = aws.route53.ZoneAssociation("secondaryZoneAssociation",
-            zone_id=example.zone_id,
-            vpc_id=secondary_vpc.id)
-        ```
-
         ## Import
 
         The VPC is _not_ in the same region where you have configured the AWS Provider:
@@ -211,28 +239,6 @@ class ZoneAssociation(pulumi.CustomResource):
 
         > **NOTE:** This provider provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the `route53.Zone` resource via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) in the `route53.Zone` resource to manage additional associations via this resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.ec2.Vpc("primary",
-            cidr_block="10.6.0.0/16",
-            enable_dns_hostnames=True,
-            enable_dns_support=True)
-        secondary_vpc = aws.ec2.Vpc("secondaryVpc",
-            cidr_block="10.7.0.0/16",
-            enable_dns_hostnames=True,
-            enable_dns_support=True)
-        example = aws.route53.Zone("example", vpcs=[aws.route53.ZoneVpcArgs(
-            vpc_id=primary.id,
-        )])
-        secondary_zone_association = aws.route53.ZoneAssociation("secondaryZoneAssociation",
-            zone_id=example.zone_id,
-            vpc_id=secondary_vpc.id)
-        ```
-
         ## Import
 
         The VPC is _not_ in the same region where you have configured the AWS Provider:
@@ -260,6 +266,10 @@ class ZoneAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ZoneAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

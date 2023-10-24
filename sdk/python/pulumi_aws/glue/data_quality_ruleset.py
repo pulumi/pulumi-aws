@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,15 +29,38 @@ class DataQualityRulesetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['DataQualityRulesetTargetTableArgs'] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
         """
-        pulumi.set(__self__, "ruleset", ruleset)
+        DataQualityRulesetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ruleset=ruleset,
+            description=description,
+            name=name,
+            tags=tags,
+            target_table=target_table,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ruleset: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_table: Optional[pulumi.Input['DataQualityRulesetTargetTableArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ruleset is None:
+            raise TypeError("Missing 'ruleset' argument")
+        if target_table is None and 'targetTable' in kwargs:
+            target_table = kwargs['targetTable']
+
+        _setter("ruleset", ruleset)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_table is not None:
-            pulumi.set(__self__, "target_table", target_table)
+            _setter("target_table", target_table)
 
     @property
     @pulumi.getter
@@ -126,29 +149,68 @@ class _DataQualityRulesetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['DataQualityRulesetTargetTableArgs'] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
         """
+        _DataQualityRulesetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            created_on=created_on,
+            description=description,
+            last_modified_on=last_modified_on,
+            name=name,
+            recommendation_run_id=recommendation_run_id,
+            ruleset=ruleset,
+            tags=tags,
+            tags_all=tags_all,
+            target_table=target_table,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             created_on: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             last_modified_on: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             recommendation_run_id: Optional[pulumi.Input[str]] = None,
+             ruleset: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_table: Optional[pulumi.Input['DataQualityRulesetTargetTableArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_on is None and 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if last_modified_on is None and 'lastModifiedOn' in kwargs:
+            last_modified_on = kwargs['lastModifiedOn']
+        if recommendation_run_id is None and 'recommendationRunId' in kwargs:
+            recommendation_run_id = kwargs['recommendationRunId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if target_table is None and 'targetTable' in kwargs:
+            target_table = kwargs['targetTable']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if last_modified_on is not None:
-            pulumi.set(__self__, "last_modified_on", last_modified_on)
+            _setter("last_modified_on", last_modified_on)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recommendation_run_id is not None:
-            pulumi.set(__self__, "recommendation_run_id", recommendation_run_id)
+            _setter("recommendation_run_id", recommendation_run_id)
         if ruleset is not None:
-            pulumi.set(__self__, "ruleset", ruleset)
+            _setter("ruleset", ruleset)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target_table is not None:
-            pulumi.set(__self__, "target_table", target_table)
+            _setter("target_table", target_table)
 
     @property
     @pulumi.getter
@@ -289,49 +351,6 @@ class DataQualityRuleset(pulumi.CustomResource):
         Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.DataQualityRuleset("example", ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
-        ```
-        ### With description
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.DataQualityRuleset("example",
-            description="example",
-            ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
-        ```
-        ### With tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.DataQualityRuleset("example",
-            ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
-            tags={
-                "hello": "world",
-            })
-        ```
-        ### With target_table
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.DataQualityRuleset("example",
-            ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
-            target_table=aws.glue.DataQualityRulesetTargetTableArgs(
-                database_name=aws_glue_catalog_database["example"]["name"],
-                table_name=aws_glue_catalog_table["example"]["name"],
-            ))
-        ```
 
         ## Import
 
@@ -359,49 +378,6 @@ class DataQualityRuleset(pulumi.CustomResource):
         Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.DataQualityRuleset("example", ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
-        ```
-        ### With description
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.DataQualityRuleset("example",
-            description="example",
-            ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
-        ```
-        ### With tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.DataQualityRuleset("example",
-            ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
-            tags={
-                "hello": "world",
-            })
-        ```
-        ### With target_table
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.DataQualityRuleset("example",
-            ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
-            target_table=aws.glue.DataQualityRulesetTargetTableArgs(
-                database_name=aws_glue_catalog_database["example"]["name"],
-                table_name=aws_glue_catalog_table["example"]["name"],
-            ))
-        ```
 
         ## Import
 
@@ -421,6 +397,10 @@ class DataQualityRuleset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataQualityRulesetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -446,6 +426,7 @@ class DataQualityRuleset(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ruleset'")
             __props__.__dict__["ruleset"] = ruleset
             __props__.__dict__["tags"] = tags
+            target_table = _utilities.configure(target_table, DataQualityRulesetTargetTableArgs, True)
             __props__.__dict__["target_table"] = target_table
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_on"] = None

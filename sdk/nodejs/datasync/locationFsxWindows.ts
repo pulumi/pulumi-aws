@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an AWS DataSync FSx Windows Location.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.LocationFsxWindows("example", {
- *     fsxFilesystemArn: aws_fsx_windows_file_system.example.arn,
- *     user: "SomeUser",
- *     password: "SuperSecretPassw0rd",
- *     securityGroupArns: [aws_security_group.example.arn],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_location_fsx_windows_file_system` using the `DataSync-ARN#FSx-Windows-ARN`. For example:

@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a GuardDuty Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
- *     awsServiceAccessPrincipals: ["guardduty.amazonaws.com"],
- *     featureSet: "ALL",
- * });
- * const exampleDetector = new aws.guardduty.Detector("exampleDetector", {});
- * const exampleOrganizationAdminAccount = new aws.guardduty.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "123456789012"}, {
- *     dependsOn: [exampleOrganization],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import GuardDuty Organization Admin Account using the AWS account ID. For example:

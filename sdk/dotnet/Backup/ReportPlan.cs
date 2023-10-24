@@ -12,41 +12,6 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Provides an AWS Backup Report Plan resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Backup.ReportPlan("example", new()
-    ///     {
-    ///         Description = "example description",
-    ///         ReportDeliveryChannel = new Aws.Backup.Inputs.ReportPlanReportDeliveryChannelArgs
-    ///         {
-    ///             Formats = new[]
-    ///             {
-    ///                 "CSV",
-    ///                 "JSON",
-    ///             },
-    ///             S3BucketName = "example-bucket-name",
-    ///         },
-    ///         ReportSetting = new Aws.Backup.Inputs.ReportPlanReportSettingArgs
-    ///         {
-    ///             ReportTemplate = "RESTORE_JOB_REPORT",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Report Plan" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:

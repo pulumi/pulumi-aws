@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
  * Manages an AWS Opensearch Package Association.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myDomain = new aws.opensearch.Domain("myDomain", {
- *     engineVersion: "Elasticsearch_7.10",
- *     clusterConfig: {
- *         instanceType: "r4.large.search",
- *     },
- * });
- * const examplePackage = new aws.opensearch.Package("examplePackage", {
- *     packageName: "example-txt",
- *     packageSource: {
- *         s3BucketName: aws_s3_bucket.my_opensearch_packages.bucket,
- *         s3Key: aws_s3_object.example.key,
- *     },
- *     packageType: "TXT-DICTIONARY",
- * });
- * const examplePackageAssociation = new aws.opensearch.PackageAssociation("examplePackageAssociation", {
- *     packageId: examplePackage.id,
- *     domainName: myDomain.domainName,
- * });
- * ```
  */
 export class PackageAssociation extends pulumi.CustomResource {
     /**

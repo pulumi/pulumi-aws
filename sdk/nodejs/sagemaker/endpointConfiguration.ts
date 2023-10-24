@@ -10,27 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a SageMaker endpoint configuration resource.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ec = new aws.sagemaker.EndpointConfiguration("ec", {
- *     productionVariants: [{
- *         variantName: "variant-1",
- *         modelName: aws_sagemaker_model.m.name,
- *         initialInstanceCount: 1,
- *         instanceType: "ml.t2.medium",
- *     }],
- *     tags: {
- *         Name: "foo",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import endpoint configurations using the `name`. For example:

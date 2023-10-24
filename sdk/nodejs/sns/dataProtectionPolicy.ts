@@ -7,32 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an SNS data protection topic policy resource
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleTopic = new aws.sns.Topic("exampleTopic", {});
- * const exampleDataProtectionPolicy = new aws.sns.DataProtectionPolicy("exampleDataProtectionPolicy", {
- *     arn: exampleTopic.arn,
- *     policy: JSON.stringify({
- *         Description: "Example data protection policy",
- *         Name: "__example_data_protection_policy",
- *         Statement: [{
- *             DataDirection: "Inbound",
- *             DataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
- *             Operation: {
- *                 Deny: {},
- *             },
- *             Principal: ["*"],
- *             Sid: "__deny_statement_11ba9d96",
- *         }],
- *         Version: "2021-06-01",
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:

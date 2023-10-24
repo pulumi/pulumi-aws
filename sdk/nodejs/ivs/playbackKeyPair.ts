@@ -8,15 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const example = new aws.ivs.PlaybackKeyPair("example", {publicKey: fs.readFileSync("./public-key.pem")});
- * ```
  *
  * ## Import
  *

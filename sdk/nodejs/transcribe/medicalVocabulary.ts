@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Transcribe MedicalVocabulary.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const object = new aws.s3.BucketObjectv2("object", {
- *     bucket: exampleBucketV2.id,
- *     key: "transcribe/test1.txt",
- *     source: new pulumi.asset.FileAsset("test.txt"),
- * });
- * const exampleMedicalVocabulary = new aws.transcribe.MedicalVocabulary("exampleMedicalVocabulary", {
- *     vocabularyName: "example",
- *     languageCode: "en-US",
- *     vocabularyFileUri: pulumi.interpolate`s3://${exampleBucketV2.id}/${object.key}`,
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value3",
- *     },
- * }, {
- *     dependsOn: [object],
- * });
- * ```
  *
  * ## Import
  *

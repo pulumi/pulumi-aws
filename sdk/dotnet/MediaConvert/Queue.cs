@@ -12,21 +12,6 @@ namespace Pulumi.Aws.MediaConvert
     /// <summary>
     /// Provides an AWS Elemental MediaConvert Queue.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.MediaConvert.Queue("test");
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Media Convert Queue using the queue name. For example:

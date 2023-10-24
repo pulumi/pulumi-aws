@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
  * API Gateway. To fetch the VPC Link you must provide a name to match against.
  * As there is no unique name constraint on API Gateway VPC Links this data source will
  * error if there is more than one match.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myApiGatewayVpcLink = aws.apigateway.getVpcLink({
- *     name: "my-vpc-link",
- * });
- * ```
  */
 export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
 
@@ -80,17 +69,6 @@ export interface GetVpcLinkResult {
  * API Gateway. To fetch the VPC Link you must provide a name to match against.
  * As there is no unique name constraint on API Gateway VPC Links this data source will
  * error if there is more than one match.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myApiGatewayVpcLink = aws.apigateway.getVpcLink({
- *     name: "my-vpc-link",
- * });
- * ```
  */
 export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
     return pulumi.output(args).apply((a: any) => getVpcLink(a, opts))

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RolePolicyAttachmentArgs', 'RolePolicyAttachment']
@@ -21,8 +21,27 @@ class RolePolicyAttachmentArgs:
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
         :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
         """
-        pulumi.set(__self__, "policy_arn", policy_arn)
-        pulumi.set(__self__, "role", role)
+        RolePolicyAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_arn=policy_arn,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_arn: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_arn is None and 'policyArn' in kwargs:
+            policy_arn = kwargs['policyArn']
+        if policy_arn is None:
+            raise TypeError("Missing 'policy_arn' argument")
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+
+        _setter("policy_arn", policy_arn)
+        _setter("role", role)
 
     @property
     @pulumi.getter(name="policyArn")
@@ -59,10 +78,25 @@ class _RolePolicyAttachmentState:
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
         :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
         """
+        _RolePolicyAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_arn=policy_arn,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_arn: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_arn is None and 'policyArn' in kwargs:
+            policy_arn = kwargs['policyArn']
+
         if policy_arn is not None:
-            pulumi.set(__self__, "policy_arn", policy_arn)
+            _setter("policy_arn", policy_arn)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter(name="policyArn")
@@ -104,34 +138,6 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and Pulumi will show a permanent difference.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
-        policy_policy = aws.iam.Policy("policyPolicy",
-            description="A test policy",
-            policy=policy_policy_document.json)
-        test_attach = aws.iam.RolePolicyAttachment("test-attach",
-            role=role.name,
-            policy_arn=policy_policy.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
@@ -158,34 +164,6 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         > **NOTE:** For a given role, this resource is incompatible with using the `iam.Role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and Pulumi will show a permanent difference.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        role = aws.iam.Role("role", assume_role_policy=assume_role.json)
-        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
-        policy_policy = aws.iam.Policy("policyPolicy",
-            description="A test policy",
-            policy=policy_policy_document.json)
-        test_attach = aws.iam.RolePolicyAttachment("test-attach",
-            role=role.name,
-            policy_arn=policy_policy.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
@@ -204,6 +182,10 @@ class RolePolicyAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RolePolicyAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

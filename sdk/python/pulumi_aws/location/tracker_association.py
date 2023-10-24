@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TrackerAssociationArgs', 'TrackerAssociation']
@@ -21,8 +21,29 @@ class TrackerAssociationArgs:
         :param pulumi.Input[str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[str] tracker_name: The name of the tracker resource to be associated with a geofence collection.
         """
-        pulumi.set(__self__, "consumer_arn", consumer_arn)
-        pulumi.set(__self__, "tracker_name", tracker_name)
+        TrackerAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumer_arn=consumer_arn,
+            tracker_name=tracker_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumer_arn: Optional[pulumi.Input[str]] = None,
+             tracker_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consumer_arn is None and 'consumerArn' in kwargs:
+            consumer_arn = kwargs['consumerArn']
+        if consumer_arn is None:
+            raise TypeError("Missing 'consumer_arn' argument")
+        if tracker_name is None and 'trackerName' in kwargs:
+            tracker_name = kwargs['trackerName']
+        if tracker_name is None:
+            raise TypeError("Missing 'tracker_name' argument")
+
+        _setter("consumer_arn", consumer_arn)
+        _setter("tracker_name", tracker_name)
 
     @property
     @pulumi.getter(name="consumerArn")
@@ -59,10 +80,27 @@ class _TrackerAssociationState:
         :param pulumi.Input[str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[str] tracker_name: The name of the tracker resource to be associated with a geofence collection.
         """
+        _TrackerAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumer_arn=consumer_arn,
+            tracker_name=tracker_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumer_arn: Optional[pulumi.Input[str]] = None,
+             tracker_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consumer_arn is None and 'consumerArn' in kwargs:
+            consumer_arn = kwargs['consumerArn']
+        if tracker_name is None and 'trackerName' in kwargs:
+            tracker_name = kwargs['trackerName']
+
         if consumer_arn is not None:
-            pulumi.set(__self__, "consumer_arn", consumer_arn)
+            _setter("consumer_arn", consumer_arn)
         if tracker_name is not None:
-            pulumi.set(__self__, "tracker_name", tracker_name)
+            _setter("tracker_name", tracker_name)
 
     @property
     @pulumi.getter(name="consumerArn")
@@ -100,19 +138,6 @@ class TrackerAssociation(pulumi.CustomResource):
         """
         Resource for managing an AWS Location Tracker Association.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_geofence_collection = aws.location.GeofenceCollection("exampleGeofenceCollection", collection_name="example")
-        example_tracker = aws.location.Tracker("exampleTracker", tracker_name="example")
-        example_tracker_association = aws.location.TrackerAssociation("exampleTrackerAssociation",
-            consumer_arn=example_geofence_collection.collection_arn,
-            tracker_name=example_tracker.tracker_name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
@@ -135,19 +160,6 @@ class TrackerAssociation(pulumi.CustomResource):
         """
         Resource for managing an AWS Location Tracker Association.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_geofence_collection = aws.location.GeofenceCollection("exampleGeofenceCollection", collection_name="example")
-        example_tracker = aws.location.Tracker("exampleTracker", tracker_name="example")
-        example_tracker_association = aws.location.TrackerAssociation("exampleTrackerAssociation",
-            consumer_arn=example_geofence_collection.collection_arn,
-            tracker_name=example_tracker.tracker_name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
@@ -166,6 +178,10 @@ class TrackerAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrackerAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

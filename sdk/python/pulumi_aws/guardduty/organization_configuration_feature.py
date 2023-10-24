@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,39 @@ class OrganizationConfigurationFeatureArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]] additional_configurations: The additional information that will be configured for the organization See below.
         :param pulumi.Input[str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         """
-        pulumi.set(__self__, "auto_enable", auto_enable)
-        pulumi.set(__self__, "detector_id", detector_id)
+        OrganizationConfigurationFeatureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_enable=auto_enable,
+            detector_id=detector_id,
+            additional_configurations=additional_configurations,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_enable: Optional[pulumi.Input[str]] = None,
+             detector_id: Optional[pulumi.Input[str]] = None,
+             additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_enable is None and 'autoEnable' in kwargs:
+            auto_enable = kwargs['autoEnable']
+        if auto_enable is None:
+            raise TypeError("Missing 'auto_enable' argument")
+        if detector_id is None and 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if detector_id is None:
+            raise TypeError("Missing 'detector_id' argument")
+        if additional_configurations is None and 'additionalConfigurations' in kwargs:
+            additional_configurations = kwargs['additionalConfigurations']
+
+        _setter("auto_enable", auto_enable)
+        _setter("detector_id", detector_id)
         if additional_configurations is not None:
-            pulumi.set(__self__, "additional_configurations", additional_configurations)
+            _setter("additional_configurations", additional_configurations)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -97,14 +124,37 @@ class _OrganizationConfigurationFeatureState:
         :param pulumi.Input[str] detector_id: The ID of the detector that configures the delegated administrator.
         :param pulumi.Input[str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         """
+        _OrganizationConfigurationFeatureState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_configurations=additional_configurations,
+            auto_enable=auto_enable,
+            detector_id=detector_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] = None,
+             auto_enable: Optional[pulumi.Input[str]] = None,
+             detector_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_configurations is None and 'additionalConfigurations' in kwargs:
+            additional_configurations = kwargs['additionalConfigurations']
+        if auto_enable is None and 'autoEnable' in kwargs:
+            auto_enable = kwargs['autoEnable']
+        if detector_id is None and 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+
         if additional_configurations is not None:
-            pulumi.set(__self__, "additional_configurations", additional_configurations)
+            _setter("additional_configurations", additional_configurations)
         if auto_enable is not None:
-            pulumi.set(__self__, "auto_enable", auto_enable)
+            _setter("auto_enable", auto_enable)
         if detector_id is not None:
-            pulumi.set(__self__, "detector_id", detector_id)
+            _setter("detector_id", detector_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="additionalConfigurations")
@@ -170,22 +220,6 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
 
         > **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource in simply removed from state instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.guardduty.Detector("example", enable=True)
-        eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eksRuntimeMonitoring",
-            detector_id=example.id,
-            auto_enable="ALL",
-            additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs(
-                name="EKS_ADDON_MANAGEMENT",
-                auto_enable="NEW",
-            )])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] additional_configurations: The additional information that will be configured for the organization See below.
@@ -204,22 +238,6 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
 
         > **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource in simply removed from state instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.guardduty.Detector("example", enable=True)
-        eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eksRuntimeMonitoring",
-            detector_id=example.id,
-            auto_enable="ALL",
-            additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs(
-                name="EKS_ADDON_MANAGEMENT",
-                auto_enable="NEW",
-            )])
-        ```
-
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationFeatureArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,6 +248,10 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationConfigurationFeatureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

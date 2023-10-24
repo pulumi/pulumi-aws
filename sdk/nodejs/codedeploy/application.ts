@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
  * Provides a CodeDeploy application to be used as a basis for deployments
  *
  * ## Example Usage
- * ### ECS Application
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codedeploy.Application("example", {computePlatform: "ECS"});
- * ```
- * ### Lambda Application
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codedeploy.Application("example", {computePlatform: "Lambda"});
- * ```
- * ### Server Application
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codedeploy.Application("example", {computePlatform: "Server"});
- * ```
  *
  * ## Import
  *

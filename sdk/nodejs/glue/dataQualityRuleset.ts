@@ -11,52 +11,6 @@ import * as utilities from "../utilities";
  * Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.DataQualityRuleset("example", {ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]"});
- * ```
- * ### With description
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.DataQualityRuleset("example", {
- *     description: "example",
- *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
- * });
- * ```
- * ### With tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.DataQualityRuleset("example", {
- *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
- *     tags: {
- *         hello: "world",
- *     },
- * });
- * ```
- * ### With targetTable
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.DataQualityRuleset("example", {
- *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
- *     targetTable: {
- *         databaseName: aws_glue_catalog_database.example.name,
- *         tableName: aws_glue_catalog_table.example.name,
- *     },
- * });
- * ```
  *
  * ## Import
  *

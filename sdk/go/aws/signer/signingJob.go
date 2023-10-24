@@ -15,52 +15,6 @@ import (
 
 // Creates a Signer Signing Job.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/signer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testSp, err := signer.NewSigningProfile(ctx, "testSp", &signer.SigningProfileArgs{
-//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = signer.NewSigningJob(ctx, "buildSigningJob", &signer.SigningJobArgs{
-//				ProfileName: testSp.Name,
-//				Source: &signer.SigningJobSourceArgs{
-//					S3: &signer.SigningJobSourceS3Args{
-//						Bucket:  pulumi.String("s3-bucket-name"),
-//						Key:     pulumi.String("object-to-be-signed.zip"),
-//						Version: pulumi.String("jADjFYYYEXAMPLETszPjOmCMFDzd9dN1"),
-//					},
-//				},
-//				Destination: &signer.SigningJobDestinationArgs{
-//					S3: &signer.SigningJobDestinationS3Args{
-//						Bucket: pulumi.String("s3-bucket-name"),
-//						Prefix: pulumi.String("signed/"),
-//					},
-//				},
-//				IgnoreSigningJobFailure: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:

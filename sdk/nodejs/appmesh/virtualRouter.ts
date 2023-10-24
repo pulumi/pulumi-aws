@@ -20,25 +20,6 @@ import * as utilities from "../utilities";
  *
  * The state associated with existing resources will automatically be migrated.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const serviceb = new aws.appmesh.VirtualRouter("serviceb", {
- *     meshName: aws_appmesh_mesh.simple.id,
- *     spec: {
- *         listeners: [{
- *             portMapping: {
- *                 port: 8080,
- *                 protocol: "http",
- *             },
- *         }],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:

@@ -10,40 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an ECS cluster.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ecs.Cluster("foo", {settings: [{
- *     name: "containerInsights",
- *     value: "enabled",
- * }]});
- * ```
- * ### Example with Log Configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {
- *     description: "example",
- *     deletionWindowInDays: 7,
- * });
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const test = new aws.ecs.Cluster("test", {configuration: {
- *     executeCommandConfiguration: {
- *         kmsKeyId: exampleKey.arn,
- *         logging: "OVERRIDE",
- *         logConfiguration: {
- *             cloudWatchEncryptionEnabled: true,
- *             cloudWatchLogGroupName: exampleLogGroup.name,
- *         },
- *     },
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ECS clusters using the `name`. For example:

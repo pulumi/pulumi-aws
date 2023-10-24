@@ -13,24 +13,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// Manages a Service Catalog Principal Portfolio Association.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.PrincipalPortfolioAssociation("example", new()
-    ///     {
-    ///         PortfolioId = "port-68656c6c6f",
-    ///         PrincipalArn = "arn:aws:iam::123456789012:user/Eleanor",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

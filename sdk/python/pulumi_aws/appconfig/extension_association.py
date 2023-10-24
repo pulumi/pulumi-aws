@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ExtensionAssociationArgs', 'ExtensionAssociation']
@@ -23,10 +23,33 @@ class ExtensionAssociationArgs:
         :param pulumi.Input[str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The parameter names and values defined for the association.
         """
-        pulumi.set(__self__, "extension_arn", extension_arn)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        ExtensionAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extension_arn=extension_arn,
+            resource_arn=resource_arn,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extension_arn: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extension_arn is None and 'extensionArn' in kwargs:
+            extension_arn = kwargs['extensionArn']
+        if extension_arn is None:
+            raise TypeError("Missing 'extension_arn' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+
+        _setter("extension_arn", extension_arn)
+        _setter("resource_arn", resource_arn)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="extensionArn")
@@ -81,16 +104,41 @@ class _ExtensionAssociationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The parameter names and values defined for the association.
         :param pulumi.Input[str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
         """
+        _ExtensionAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            extension_arn=extension_arn,
+            extension_version=extension_version,
+            parameters=parameters,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             extension_arn: Optional[pulumi.Input[str]] = None,
+             extension_version: Optional[pulumi.Input[int]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extension_arn is None and 'extensionArn' in kwargs:
+            extension_arn = kwargs['extensionArn']
+        if extension_version is None and 'extensionVersion' in kwargs:
+            extension_version = kwargs['extensionVersion']
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if extension_arn is not None:
-            pulumi.set(__self__, "extension_arn", extension_arn)
+            _setter("extension_arn", extension_arn)
         if extension_version is not None:
-            pulumi.set(__self__, "extension_version", extension_version)
+            _setter("extension_version", extension_version)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter
@@ -165,40 +213,6 @@ class ExtensionAssociation(pulumi.CustomResource):
         """
         Associates an AppConfig Extension with a Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appconfig.amazonaws.com"],
-            )],
-        )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
-        test_extension = aws.appconfig.Extension("testExtension",
-            description="test description",
-            action_points=[aws.appconfig.ExtensionActionPointArgs(
-                point="ON_DEPLOYMENT_COMPLETE",
-                actions=[aws.appconfig.ExtensionActionPointActionArgs(
-                    name="test",
-                    role_arn=test_role.arn,
-                    uri=test_topic.arn,
-                )],
-            )],
-            tags={
-                "Type": "AppConfig Extension",
-            })
-        test_application = aws.appconfig.Application("testApplication")
-        test_extension_association = aws.appconfig.ExtensionAssociation("testExtensionAssociation",
-            extension_arn=test_extension.arn,
-            resource_arn=test_application.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
@@ -222,40 +236,6 @@ class ExtensionAssociation(pulumi.CustomResource):
         """
         Associates an AppConfig Extension with a Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appconfig.amazonaws.com"],
-            )],
-        )])
-        test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
-        test_extension = aws.appconfig.Extension("testExtension",
-            description="test description",
-            action_points=[aws.appconfig.ExtensionActionPointArgs(
-                point="ON_DEPLOYMENT_COMPLETE",
-                actions=[aws.appconfig.ExtensionActionPointActionArgs(
-                    name="test",
-                    role_arn=test_role.arn,
-                    uri=test_topic.arn,
-                )],
-            )],
-            tags={
-                "Type": "AppConfig Extension",
-            })
-        test_application = aws.appconfig.Application("testApplication")
-        test_extension_association = aws.appconfig.ExtensionAssociation("testExtensionAssociation",
-            extension_arn=test_extension.arn,
-            resource_arn=test_application.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
@@ -274,6 +254,10 @@ class ExtensionAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExtensionAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

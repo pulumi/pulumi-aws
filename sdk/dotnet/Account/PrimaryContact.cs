@@ -12,33 +12,6 @@ namespace Pulumi.Aws.Account
     /// <summary>
     /// Manages the specified primary contact information associated with an AWS Account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Account.PrimaryContact("test", new()
-    ///     {
-    ///         AddressLine1 = "123 Any Street",
-    ///         City = "Seattle",
-    ///         CompanyName = "Example Corp, Inc.",
-    ///         CountryCode = "US",
-    ///         DistrictOrCounty = "King",
-    ///         FullName = "My Name",
-    ///         PhoneNumber = "+64211111111",
-    ///         PostalCode = "98101",
-    ///         StateOrRegion = "WA",
-    ///         WebsiteUrl = "https://www.examplecorp.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the Primary Contact using the `account_id`. For example:

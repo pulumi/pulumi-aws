@@ -9,33 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ram.getResourceShare({
- *     name: "example",
- *     resourceOwner: "SELF",
- * });
- * ```
- * ## Search by filters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const tagFilter = aws.ram.getResourceShare({
- *     filters: [{
- *         name: "NameOfTag",
- *         values: ["exampleNameTagValue"],
- *     }],
- *     name: "MyResourceName",
- *     resourceOwner: "SELF",
- * });
- * ```
  */
 export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceShareResult> {
 
@@ -110,33 +83,6 @@ export interface GetResourceShareResult {
 }
 /**
  * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ram.getResourceShare({
- *     name: "example",
- *     resourceOwner: "SELF",
- * });
- * ```
- * ## Search by filters
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const tagFilter = aws.ram.getResourceShare({
- *     filters: [{
- *         name: "NameOfTag",
- *         values: ["exampleNameTagValue"],
- *     }],
- *     name: "MyResourceName",
- *     resourceOwner: "SELF",
- * });
- * ```
  */
 export function getResourceShareOutput(args: GetResourceShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceShareResult> {
     return pulumi.output(args).apply((a: any) => getResourceShare(a, opts))

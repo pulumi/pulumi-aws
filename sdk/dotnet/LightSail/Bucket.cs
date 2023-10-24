@@ -12,24 +12,6 @@ namespace Pulumi.Aws.LightSail
     /// <summary>
     /// Provides a lightsail bucket.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.LightSail.Bucket("test", new()
-    ///     {
-    ///         BundleId = "small_1_0",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:

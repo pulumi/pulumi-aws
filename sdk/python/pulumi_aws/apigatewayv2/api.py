@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -54,33 +54,88 @@ class ApiArgs:
                The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
         :param pulumi.Input[str] version: Version identifier for the API. Must be between 1 and 64 characters in length.
         """
-        pulumi.set(__self__, "protocol_type", protocol_type)
+        ApiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol_type=protocol_type,
+            api_key_selection_expression=api_key_selection_expression,
+            body=body,
+            cors_configuration=cors_configuration,
+            credentials_arn=credentials_arn,
+            description=description,
+            disable_execute_api_endpoint=disable_execute_api_endpoint,
+            fail_on_warnings=fail_on_warnings,
+            name=name,
+            route_key=route_key,
+            route_selection_expression=route_selection_expression,
+            tags=tags,
+            target=target,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol_type: Optional[pulumi.Input[str]] = None,
+             api_key_selection_expression: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             cors_configuration: Optional[pulumi.Input['ApiCorsConfigurationArgs']] = None,
+             credentials_arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
+             fail_on_warnings: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             route_key: Optional[pulumi.Input[str]] = None,
+             route_selection_expression: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if protocol_type is None and 'protocolType' in kwargs:
+            protocol_type = kwargs['protocolType']
+        if protocol_type is None:
+            raise TypeError("Missing 'protocol_type' argument")
+        if api_key_selection_expression is None and 'apiKeySelectionExpression' in kwargs:
+            api_key_selection_expression = kwargs['apiKeySelectionExpression']
+        if cors_configuration is None and 'corsConfiguration' in kwargs:
+            cors_configuration = kwargs['corsConfiguration']
+        if credentials_arn is None and 'credentialsArn' in kwargs:
+            credentials_arn = kwargs['credentialsArn']
+        if disable_execute_api_endpoint is None and 'disableExecuteApiEndpoint' in kwargs:
+            disable_execute_api_endpoint = kwargs['disableExecuteApiEndpoint']
+        if fail_on_warnings is None and 'failOnWarnings' in kwargs:
+            fail_on_warnings = kwargs['failOnWarnings']
+        if route_key is None and 'routeKey' in kwargs:
+            route_key = kwargs['routeKey']
+        if route_selection_expression is None and 'routeSelectionExpression' in kwargs:
+            route_selection_expression = kwargs['routeSelectionExpression']
+
+        _setter("protocol_type", protocol_type)
         if api_key_selection_expression is not None:
-            pulumi.set(__self__, "api_key_selection_expression", api_key_selection_expression)
+            _setter("api_key_selection_expression", api_key_selection_expression)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cors_configuration is not None:
-            pulumi.set(__self__, "cors_configuration", cors_configuration)
+            _setter("cors_configuration", cors_configuration)
         if credentials_arn is not None:
-            pulumi.set(__self__, "credentials_arn", credentials_arn)
+            _setter("credentials_arn", credentials_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_execute_api_endpoint is not None:
-            pulumi.set(__self__, "disable_execute_api_endpoint", disable_execute_api_endpoint)
+            _setter("disable_execute_api_endpoint", disable_execute_api_endpoint)
         if fail_on_warnings is not None:
-            pulumi.set(__self__, "fail_on_warnings", fail_on_warnings)
+            _setter("fail_on_warnings", fail_on_warnings)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if route_key is not None:
-            pulumi.set(__self__, "route_key", route_key)
+            _setter("route_key", route_key)
         if route_selection_expression is not None:
-            pulumi.set(__self__, "route_selection_expression", route_selection_expression)
+            _setter("route_selection_expression", route_selection_expression)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="protocolType")
@@ -309,45 +364,112 @@ class _ApiState:
                The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
         :param pulumi.Input[str] version: Version identifier for the API. Must be between 1 and 64 characters in length.
         """
+        _ApiState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_endpoint=api_endpoint,
+            api_key_selection_expression=api_key_selection_expression,
+            arn=arn,
+            body=body,
+            cors_configuration=cors_configuration,
+            credentials_arn=credentials_arn,
+            description=description,
+            disable_execute_api_endpoint=disable_execute_api_endpoint,
+            execution_arn=execution_arn,
+            fail_on_warnings=fail_on_warnings,
+            name=name,
+            protocol_type=protocol_type,
+            route_key=route_key,
+            route_selection_expression=route_selection_expression,
+            tags=tags,
+            tags_all=tags_all,
+            target=target,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_endpoint: Optional[pulumi.Input[str]] = None,
+             api_key_selection_expression: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             cors_configuration: Optional[pulumi.Input['ApiCorsConfigurationArgs']] = None,
+             credentials_arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
+             execution_arn: Optional[pulumi.Input[str]] = None,
+             fail_on_warnings: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocol_type: Optional[pulumi.Input[str]] = None,
+             route_key: Optional[pulumi.Input[str]] = None,
+             route_selection_expression: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_endpoint is None and 'apiEndpoint' in kwargs:
+            api_endpoint = kwargs['apiEndpoint']
+        if api_key_selection_expression is None and 'apiKeySelectionExpression' in kwargs:
+            api_key_selection_expression = kwargs['apiKeySelectionExpression']
+        if cors_configuration is None and 'corsConfiguration' in kwargs:
+            cors_configuration = kwargs['corsConfiguration']
+        if credentials_arn is None and 'credentialsArn' in kwargs:
+            credentials_arn = kwargs['credentialsArn']
+        if disable_execute_api_endpoint is None and 'disableExecuteApiEndpoint' in kwargs:
+            disable_execute_api_endpoint = kwargs['disableExecuteApiEndpoint']
+        if execution_arn is None and 'executionArn' in kwargs:
+            execution_arn = kwargs['executionArn']
+        if fail_on_warnings is None and 'failOnWarnings' in kwargs:
+            fail_on_warnings = kwargs['failOnWarnings']
+        if protocol_type is None and 'protocolType' in kwargs:
+            protocol_type = kwargs['protocolType']
+        if route_key is None and 'routeKey' in kwargs:
+            route_key = kwargs['routeKey']
+        if route_selection_expression is None and 'routeSelectionExpression' in kwargs:
+            route_selection_expression = kwargs['routeSelectionExpression']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if api_endpoint is not None:
-            pulumi.set(__self__, "api_endpoint", api_endpoint)
+            _setter("api_endpoint", api_endpoint)
         if api_key_selection_expression is not None:
-            pulumi.set(__self__, "api_key_selection_expression", api_key_selection_expression)
+            _setter("api_key_selection_expression", api_key_selection_expression)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cors_configuration is not None:
-            pulumi.set(__self__, "cors_configuration", cors_configuration)
+            _setter("cors_configuration", cors_configuration)
         if credentials_arn is not None:
-            pulumi.set(__self__, "credentials_arn", credentials_arn)
+            _setter("credentials_arn", credentials_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_execute_api_endpoint is not None:
-            pulumi.set(__self__, "disable_execute_api_endpoint", disable_execute_api_endpoint)
+            _setter("disable_execute_api_endpoint", disable_execute_api_endpoint)
         if execution_arn is not None:
-            pulumi.set(__self__, "execution_arn", execution_arn)
+            _setter("execution_arn", execution_arn)
         if fail_on_warnings is not None:
-            pulumi.set(__self__, "fail_on_warnings", fail_on_warnings)
+            _setter("fail_on_warnings", fail_on_warnings)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocol_type is not None:
-            pulumi.set(__self__, "protocol_type", protocol_type)
+            _setter("protocol_type", protocol_type)
         if route_key is not None:
-            pulumi.set(__self__, "route_key", route_key)
+            _setter("route_key", route_key)
         if route_selection_expression is not None:
-            pulumi.set(__self__, "route_selection_expression", route_selection_expression)
+            _setter("route_selection_expression", route_selection_expression)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="apiEndpoint")
@@ -604,24 +726,6 @@ class Api(pulumi.CustomResource):
         > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1 resources.
 
         ## Example Usage
-        ### Basic WebSocket API
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Api("example",
-            protocol_type="WEBSOCKET",
-            route_selection_expression="$request.body.action")
-        ```
-        ### Basic HTTP API
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Api("example", protocol_type="HTTP")
-        ```
 
         ## Import
 
@@ -667,24 +771,6 @@ class Api(pulumi.CustomResource):
         > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1 resources.
 
         ## Example Usage
-        ### Basic WebSocket API
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Api("example",
-            protocol_type="WEBSOCKET",
-            route_selection_expression="$request.body.action")
-        ```
-        ### Basic HTTP API
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Api("example", protocol_type="HTTP")
-        ```
 
         ## Import
 
@@ -704,6 +790,10 @@ class Api(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -734,6 +824,7 @@ class Api(pulumi.CustomResource):
 
             __props__.__dict__["api_key_selection_expression"] = api_key_selection_expression
             __props__.__dict__["body"] = body
+            cors_configuration = _utilities.configure(cors_configuration, ApiCorsConfigurationArgs, True)
             __props__.__dict__["cors_configuration"] = cors_configuration
             __props__.__dict__["credentials_arn"] = credentials_arn
             __props__.__dict__["description"] = description

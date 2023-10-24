@@ -12,39 +12,6 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// Manages an RDS database instance snapshot. For managing RDS database cluster snapshots, see the `aws.rds.ClusterSnapshot` resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bar = new Aws.Rds.Instance("bar", new()
-    ///     {
-    ///         AllocatedStorage = 10,
-    ///         Engine = "mysql",
-    ///         EngineVersion = "5.6.21",
-    ///         InstanceClass = "db.t2.micro",
-    ///         DbName = "baz",
-    ///         Password = "barbarbarbar",
-    ///         Username = "foo",
-    ///         MaintenanceWindow = "Fri:09:00-Fri:09:30",
-    ///         BackupRetentionPeriod = 0,
-    ///         ParameterGroupName = "default.mysql5.6",
-    ///     });
-    /// 
-    ///     var test = new Aws.Rds.Snapshot("test", new()
-    ///     {
-    ///         DbInstanceIdentifier = bar.Identifier,
-    ///         DbSnapshotIdentifier = "testsnapshot1234",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For example:

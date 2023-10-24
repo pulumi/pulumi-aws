@@ -11,47 +11,6 @@ import * as utilities from "../utilities";
  * Provides an Traffic mirror filter rule.\
  * Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
  *
- * ## Example Usage
- *
- * To create a basic traffic mirror session
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const filter = new aws.ec2.TrafficMirrorFilter("filter", {
- *     description: "traffic mirror filter - example",
- *     networkServices: ["amazon-dns"],
- * });
- * const ruleout = new aws.ec2.TrafficMirrorFilterRule("ruleout", {
- *     description: "test rule",
- *     trafficMirrorFilterId: filter.id,
- *     destinationCidrBlock: "10.0.0.0/8",
- *     sourceCidrBlock: "10.0.0.0/8",
- *     ruleNumber: 1,
- *     ruleAction: "accept",
- *     trafficDirection: "egress",
- * });
- * const rulein = new aws.ec2.TrafficMirrorFilterRule("rulein", {
- *     description: "test rule",
- *     trafficMirrorFilterId: filter.id,
- *     destinationCidrBlock: "10.0.0.0/8",
- *     sourceCidrBlock: "10.0.0.0/8",
- *     ruleNumber: 1,
- *     ruleAction: "accept",
- *     trafficDirection: "ingress",
- *     protocol: 6,
- *     destinationPortRange: {
- *         fromPort: 22,
- *         toPort: 53,
- *     },
- *     sourcePortRange: {
- *         fromPort: 0,
- *         toPort: 10,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For example:

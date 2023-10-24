@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EventSubscriptionArgs', 'EventSubscription']
@@ -33,21 +33,58 @@ class EventSubscriptionArgs:
         :param pulumi.Input[str] source_type: The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        EventSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sns_topic_arn=sns_topic_arn,
+            enabled=enabled,
+            event_categories=event_categories,
+            name=name,
+            name_prefix=name_prefix,
+            source_ids=source_ids,
+            source_type=source_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if sns_topic_arn is None:
+            raise TypeError("Missing 'sns_topic_arn' argument")
+        if event_categories is None and 'eventCategories' in kwargs:
+            event_categories = kwargs['eventCategories']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if source_ids is None and 'sourceIds' in kwargs:
+            source_ids = kwargs['sourceIds']
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+
+        _setter("sns_topic_arn", sns_topic_arn)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if event_categories is not None:
-            pulumi.set(__self__, "event_categories", event_categories)
+            _setter("event_categories", event_categories)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if source_ids is not None:
-            pulumi.set(__self__, "source_ids", source_ids)
+            _setter("source_ids", source_ids)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="snsTopicArn")
@@ -174,31 +211,76 @@ class _EventSubscriptionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _EventSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            customer_aws_id=customer_aws_id,
+            enabled=enabled,
+            event_categories=event_categories,
+            name=name,
+            name_prefix=name_prefix,
+            sns_topic_arn=sns_topic_arn,
+            source_ids=source_ids,
+            source_type=source_type,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             customer_aws_id: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_aws_id is None and 'customerAwsId' in kwargs:
+            customer_aws_id = kwargs['customerAwsId']
+        if event_categories is None and 'eventCategories' in kwargs:
+            event_categories = kwargs['eventCategories']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if source_ids is None and 'sourceIds' in kwargs:
+            source_ids = kwargs['sourceIds']
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if customer_aws_id is not None:
-            pulumi.set(__self__, "customer_aws_id", customer_aws_id)
+            _setter("customer_aws_id", customer_aws_id)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if event_categories is not None:
-            pulumi.set(__self__, "event_categories", event_categories)
+            _setter("event_categories", event_categories)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if sns_topic_arn is not None:
-            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+            _setter("sns_topic_arn", sns_topic_arn)
         if source_ids is not None:
-            pulumi.set(__self__, "source_ids", source_ids)
+            _setter("source_ids", source_ids)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -351,49 +433,6 @@ class EventSubscription(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default_cluster = aws.neptune.Cluster("defaultCluster",
-            cluster_identifier="neptune-cluster-demo",
-            engine="neptune",
-            backup_retention_period=5,
-            preferred_backup_window="07:00-09:00",
-            skip_final_snapshot=True,
-            iam_database_authentication_enabled=True,
-            apply_immediately=True)
-        example = aws.neptune.ClusterInstance("example",
-            cluster_identifier=default_cluster.id,
-            engine="neptune",
-            instance_class="db.r4.large",
-            apply_immediately=True)
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.neptune.EventSubscription("defaultEventSubscription",
-            sns_topic_arn=default_topic.arn,
-            source_type="db-instance",
-            source_ids=[example.id],
-            event_categories=[
-                "maintenance",
-                "availability",
-                "creation",
-                "backup",
-                "restoration",
-                "recovery",
-                "deletion",
-                "failover",
-                "failure",
-                "notification",
-                "configuration change",
-                "read replica",
-            ],
-            tags={
-                "env": "test",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
@@ -420,49 +459,6 @@ class EventSubscription(pulumi.CustomResource):
                  args: EventSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default_cluster = aws.neptune.Cluster("defaultCluster",
-            cluster_identifier="neptune-cluster-demo",
-            engine="neptune",
-            backup_retention_period=5,
-            preferred_backup_window="07:00-09:00",
-            skip_final_snapshot=True,
-            iam_database_authentication_enabled=True,
-            apply_immediately=True)
-        example = aws.neptune.ClusterInstance("example",
-            cluster_identifier=default_cluster.id,
-            engine="neptune",
-            instance_class="db.r4.large",
-            apply_immediately=True)
-        default_topic = aws.sns.Topic("defaultTopic")
-        default_event_subscription = aws.neptune.EventSubscription("defaultEventSubscription",
-            sns_topic_arn=default_topic.arn,
-            source_type="db-instance",
-            source_ids=[example.id],
-            event_categories=[
-                "maintenance",
-                "availability",
-                "creation",
-                "backup",
-                "restoration",
-                "recovery",
-                "deletion",
-                "failover",
-                "failure",
-                "notification",
-                "configuration change",
-                "read replica",
-            ],
-            tags={
-                "env": "test",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
@@ -481,6 +477,10 @@ class EventSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

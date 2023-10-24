@@ -16,40 +16,6 @@ import (
 // Resource for managing an AWS Shield DRT Access Log Bucket Association. Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testDrtAccessRoleArnAssociation, err := shield.NewDrtAccessRoleArnAssociation(ctx, "testDrtAccessRoleArnAssociation", &shield.DrtAccessRoleArnAssociationArgs{
-//				RoleArn: pulumi.String(fmt.Sprintf("arn:aws:iam:%v:%v:%v", data.Aws_region.Current.Name, data.Aws_caller_identity.Current.Account_id, _var.Shield_drt_access_role_name)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = shield.NewDrtAccessLogBucketAssociation(ctx, "testDrtAccessLogBucketAssociation", &shield.DrtAccessLogBucketAssociationArgs{
-//				LogBucket:            pulumi.Any(_var.Shield_drt_access_log_bucket),
-//				RoleArnAssociationId: testDrtAccessRoleArnAssociation.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type DrtAccessLogBucketAssociation struct {
 	pulumi.CustomResourceState
 

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -37,37 +37,44 @@ class PolicyStepScalingPolicyConfigurationArgs:
         :param pulumi.Input[str] metric_aggregation_type: Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs']]] step_adjustments: Set of adjustments that manage scaling. These have the following structure:
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
-                   step_adjustments=[
-                       aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                           metric_interval_lower_bound="1",
-                           metric_interval_upper_bound="2",
-                           scaling_adjustment=-1,
-                       ),
-                       aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                           metric_interval_lower_bound="2",
-                           metric_interval_upper_bound="3",
-                           scaling_adjustment=1,
-                       ),
-                   ],
-               ))
-               ```
         """
+        PolicyStepScalingPolicyConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adjustment_type=adjustment_type,
+            cooldown=cooldown,
+            metric_aggregation_type=metric_aggregation_type,
+            min_adjustment_magnitude=min_adjustment_magnitude,
+            step_adjustments=step_adjustments,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adjustment_type: Optional[pulumi.Input[str]] = None,
+             cooldown: Optional[pulumi.Input[int]] = None,
+             metric_aggregation_type: Optional[pulumi.Input[str]] = None,
+             min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
+             step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if adjustment_type is None and 'adjustmentType' in kwargs:
+            adjustment_type = kwargs['adjustmentType']
+        if metric_aggregation_type is None and 'metricAggregationType' in kwargs:
+            metric_aggregation_type = kwargs['metricAggregationType']
+        if min_adjustment_magnitude is None and 'minAdjustmentMagnitude' in kwargs:
+            min_adjustment_magnitude = kwargs['minAdjustmentMagnitude']
+        if step_adjustments is None and 'stepAdjustments' in kwargs:
+            step_adjustments = kwargs['stepAdjustments']
+
         if adjustment_type is not None:
-            pulumi.set(__self__, "adjustment_type", adjustment_type)
+            _setter("adjustment_type", adjustment_type)
         if cooldown is not None:
-            pulumi.set(__self__, "cooldown", cooldown)
+            _setter("cooldown", cooldown)
         if metric_aggregation_type is not None:
-            pulumi.set(__self__, "metric_aggregation_type", metric_aggregation_type)
+            _setter("metric_aggregation_type", metric_aggregation_type)
         if min_adjustment_magnitude is not None:
-            pulumi.set(__self__, "min_adjustment_magnitude", min_adjustment_magnitude)
+            _setter("min_adjustment_magnitude", min_adjustment_magnitude)
         if step_adjustments is not None:
-            pulumi.set(__self__, "step_adjustments", step_adjustments)
+            _setter("step_adjustments", step_adjustments)
 
     @property
     @pulumi.getter(name="adjustmentType")
@@ -122,26 +129,6 @@ class PolicyStepScalingPolicyConfigurationArgs:
     def step_adjustments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs']]]]:
         """
         Set of adjustments that manage scaling. These have the following structure:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
-            step_adjustments=[
-                aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                    metric_interval_lower_bound="1",
-                    metric_interval_upper_bound="2",
-                    scaling_adjustment=-1,
-                ),
-                aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                    metric_interval_lower_bound="2",
-                    metric_interval_upper_bound="3",
-                    scaling_adjustment=1,
-                ),
-            ],
-        ))
-        ```
         """
         return pulumi.get(self, "step_adjustments")
 
@@ -161,11 +148,34 @@ class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs:
         :param pulumi.Input[str] metric_interval_lower_bound: Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
         :param pulumi.Input[str] metric_interval_upper_bound: Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
         """
-        pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
+        PolicyStepScalingPolicyConfigurationStepAdjustmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scaling_adjustment=scaling_adjustment,
+            metric_interval_lower_bound=metric_interval_lower_bound,
+            metric_interval_upper_bound=metric_interval_upper_bound,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scaling_adjustment: Optional[pulumi.Input[int]] = None,
+             metric_interval_lower_bound: Optional[pulumi.Input[str]] = None,
+             metric_interval_upper_bound: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scaling_adjustment is None and 'scalingAdjustment' in kwargs:
+            scaling_adjustment = kwargs['scalingAdjustment']
+        if scaling_adjustment is None:
+            raise TypeError("Missing 'scaling_adjustment' argument")
+        if metric_interval_lower_bound is None and 'metricIntervalLowerBound' in kwargs:
+            metric_interval_lower_bound = kwargs['metricIntervalLowerBound']
+        if metric_interval_upper_bound is None and 'metricIntervalUpperBound' in kwargs:
+            metric_interval_upper_bound = kwargs['metricIntervalUpperBound']
+
+        _setter("scaling_adjustment", scaling_adjustment)
         if metric_interval_lower_bound is not None:
-            pulumi.set(__self__, "metric_interval_lower_bound", metric_interval_lower_bound)
+            _setter("metric_interval_lower_bound", metric_interval_lower_bound)
         if metric_interval_upper_bound is not None:
-            pulumi.set(__self__, "metric_interval_upper_bound", metric_interval_upper_bound)
+            _setter("metric_interval_upper_bound", metric_interval_upper_bound)
 
     @property
     @pulumi.getter(name="scalingAdjustment")
@@ -221,17 +231,52 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgs:
         :param pulumi.Input[int] scale_in_cooldown: Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
         :param pulumi.Input[int] scale_out_cooldown: Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
         """
-        pulumi.set(__self__, "target_value", target_value)
+        PolicyTargetTrackingScalingPolicyConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_value=target_value,
+            customized_metric_specification=customized_metric_specification,
+            disable_scale_in=disable_scale_in,
+            predefined_metric_specification=predefined_metric_specification,
+            scale_in_cooldown=scale_in_cooldown,
+            scale_out_cooldown=scale_out_cooldown,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_value: Optional[pulumi.Input[float]] = None,
+             customized_metric_specification: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs']] = None,
+             disable_scale_in: Optional[pulumi.Input[bool]] = None,
+             predefined_metric_specification: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs']] = None,
+             scale_in_cooldown: Optional[pulumi.Input[int]] = None,
+             scale_out_cooldown: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_value is None and 'targetValue' in kwargs:
+            target_value = kwargs['targetValue']
+        if target_value is None:
+            raise TypeError("Missing 'target_value' argument")
+        if customized_metric_specification is None and 'customizedMetricSpecification' in kwargs:
+            customized_metric_specification = kwargs['customizedMetricSpecification']
+        if disable_scale_in is None and 'disableScaleIn' in kwargs:
+            disable_scale_in = kwargs['disableScaleIn']
+        if predefined_metric_specification is None and 'predefinedMetricSpecification' in kwargs:
+            predefined_metric_specification = kwargs['predefinedMetricSpecification']
+        if scale_in_cooldown is None and 'scaleInCooldown' in kwargs:
+            scale_in_cooldown = kwargs['scaleInCooldown']
+        if scale_out_cooldown is None and 'scaleOutCooldown' in kwargs:
+            scale_out_cooldown = kwargs['scaleOutCooldown']
+
+        _setter("target_value", target_value)
         if customized_metric_specification is not None:
-            pulumi.set(__self__, "customized_metric_specification", customized_metric_specification)
+            _setter("customized_metric_specification", customized_metric_specification)
         if disable_scale_in is not None:
-            pulumi.set(__self__, "disable_scale_in", disable_scale_in)
+            _setter("disable_scale_in", disable_scale_in)
         if predefined_metric_specification is not None:
-            pulumi.set(__self__, "predefined_metric_specification", predefined_metric_specification)
+            _setter("predefined_metric_specification", predefined_metric_specification)
         if scale_in_cooldown is not None:
-            pulumi.set(__self__, "scale_in_cooldown", scale_in_cooldown)
+            _setter("scale_in_cooldown", scale_in_cooldown)
         if scale_out_cooldown is not None:
-            pulumi.set(__self__, "scale_out_cooldown", scale_out_cooldown)
+            _setter("scale_out_cooldown", scale_out_cooldown)
 
     @property
     @pulumi.getter(name="targetValue")
@@ -316,31 +361,54 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  statistic: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs']]] dimensions: Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs']]] dimensions: Dimensions of the metric.
         :param pulumi.Input[str] metric_name: Name of the metric.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs']]] metrics: Metrics to include, as a metric data query.
         :param pulumi.Input[str] namespace: Namespace of the metric.
         :param pulumi.Input[str] statistic: Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-        :param pulumi.Input[str] unit: Unit of the metric.
+        :param pulumi.Input[str] unit: Unit of the metrics to return.
         """
+        PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+            metric_name=metric_name,
+            metrics=metrics,
+            namespace=namespace,
+            statistic=statistic,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs']]]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             metrics: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs']]]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             statistic: Optional[pulumi.Input[str]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
+            _setter("metrics", metrics)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if statistic is not None:
-            pulumi.set(__self__, "statistic", statistic)
+            _setter("statistic", statistic)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs']]]]:
         """
-        Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+        Dimensions of the metric.
         """
         return pulumi.get(self, "dimensions")
 
@@ -400,7 +468,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[str]]:
         """
-        Unit of the metric.
+        Unit of the metrics to return.
         """
         return pulumi.get(self, "unit")
 
@@ -418,8 +486,25 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         :param pulumi.Input[str] name: Name of the policy. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] value: Value of the dimension.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -461,15 +546,40 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs'] metric_stat: Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
         :param pulumi.Input[bool] return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         """
-        pulumi.set(__self__, "id", id)
+        PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            expression=expression,
+            label=label,
+            metric_stat=metric_stat,
+            return_data=return_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             expression: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             metric_stat: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs']] = None,
+             return_data: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if metric_stat is None and 'metricStat' in kwargs:
+            metric_stat = kwargs['metricStat']
+        if return_data is None and 'returnData' in kwargs:
+            return_data = kwargs['returnData']
+
+        _setter("id", id)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if metric_stat is not None:
-            pulumi.set(__self__, "metric_stat", metric_stat)
+            _setter("metric_stat", metric_stat)
         if return_data is not None:
-            pulumi.set(__self__, "return_data", return_data)
+            _setter("return_data", return_data)
 
     @property
     @pulumi.getter
@@ -541,12 +651,31 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         """
         :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs'] metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
         :param pulumi.Input[str] stat: Statistic of the metrics to return.
-        :param pulumi.Input[str] unit: Unit of the metric.
+        :param pulumi.Input[str] unit: Unit of the metrics to return.
         """
-        pulumi.set(__self__, "metric", metric)
-        pulumi.set(__self__, "stat", stat)
+        PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric=metric,
+            stat=stat,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs']] = None,
+             stat: Optional[pulumi.Input[str]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric is None:
+            raise TypeError("Missing 'metric' argument")
+        if stat is None:
+            raise TypeError("Missing 'stat' argument")
+
+        _setter("metric", metric)
+        _setter("stat", stat)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -576,7 +705,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[str]]:
         """
-        Unit of the metric.
+        Unit of the metrics to return.
         """
         return pulumi.get(self, "unit")
 
@@ -594,12 +723,33 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         """
         :param pulumi.Input[str] metric_name: Name of the metric.
         :param pulumi.Input[str] namespace: Namespace of the metric.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs']]] dimensions: Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs']]] dimensions: Dimensions of the metric.
         """
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "namespace", namespace)
+        PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            namespace=namespace,
+            dimensions=dimensions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+
+        _setter("metric_name", metric_name)
+        _setter("namespace", namespace)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
 
     @property
     @pulumi.getter(name="metricName")
@@ -629,7 +779,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs']]]]:
         """
-        Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+        Dimensions of the metric.
         """
         return pulumi.get(self, "dimensions")
 
@@ -647,8 +797,25 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         :param pulumi.Input[str] name: Name of the policy. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] value: Value of the dimension.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -684,9 +851,28 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
         :param pulumi.Input[str] predefined_metric_type: Metric type.
         :param pulumi.Input[str] resource_label: Reserved for future use if the `predefined_metric_type` is not `ALBRequestCountPerTarget`. If the `predefined_metric_type` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
         """
-        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            predefined_metric_type=predefined_metric_type,
+            resource_label=resource_label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             predefined_metric_type: Optional[pulumi.Input[str]] = None,
+             resource_label: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if predefined_metric_type is None and 'predefinedMetricType' in kwargs:
+            predefined_metric_type = kwargs['predefinedMetricType']
+        if predefined_metric_type is None:
+            raise TypeError("Missing 'predefined_metric_type' argument")
+        if resource_label is None and 'resourceLabel' in kwargs:
+            resource_label = kwargs['resourceLabel']
+
+        _setter("predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
-            pulumi.set(__self__, "resource_label", resource_label)
+            _setter("resource_label", resource_label)
 
     @property
     @pulumi.getter(name="predefinedMetricType")
@@ -722,10 +908,27 @@ class ScheduledActionScalableTargetActionArgs:
         :param pulumi.Input[int] max_capacity: Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
         :param pulumi.Input[int] min_capacity: Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
         """
+        ScheduledActionScalableTargetActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_capacity=max_capacity,
+            min_capacity=min_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_capacity: Optional[pulumi.Input[int]] = None,
+             min_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+
         if max_capacity is not None:
-            pulumi.set(__self__, "max_capacity", max_capacity)
+            _setter("max_capacity", max_capacity)
         if min_capacity is not None:
-            pulumi.set(__self__, "min_capacity", min_capacity)
+            _setter("min_capacity", min_capacity)
 
     @property
     @pulumi.getter(name="maxCapacity")

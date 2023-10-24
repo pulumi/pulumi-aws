@@ -11,18 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS NetworkManager VpcAttachment.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.VpcAttachment("example", {
- *     subnetArns: [aws_subnet.example.arn],
- *     coreNetworkId: awscc_networkmanager_core_network.example.id,
- *     vpcArn: aws_vpc.example.arn,
- * });
- * ```
  *
  * ## Import
  *

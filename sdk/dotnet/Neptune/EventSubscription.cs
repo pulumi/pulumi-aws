@@ -10,69 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Neptune
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultCluster = new Aws.Neptune.Cluster("defaultCluster", new()
-    ///     {
-    ///         ClusterIdentifier = "neptune-cluster-demo",
-    ///         Engine = "neptune",
-    ///         BackupRetentionPeriod = 5,
-    ///         PreferredBackupWindow = "07:00-09:00",
-    ///         SkipFinalSnapshot = true,
-    ///         IamDatabaseAuthenticationEnabled = true,
-    ///         ApplyImmediately = true,
-    ///     });
-    /// 
-    ///     var example = new Aws.Neptune.ClusterInstance("example", new()
-    ///     {
-    ///         ClusterIdentifier = defaultCluster.Id,
-    ///         Engine = "neptune",
-    ///         InstanceClass = "db.r4.large",
-    ///         ApplyImmediately = true,
-    ///     });
-    /// 
-    ///     var defaultTopic = new Aws.Sns.Topic("defaultTopic");
-    /// 
-    ///     var defaultEventSubscription = new Aws.Neptune.EventSubscription("defaultEventSubscription", new()
-    ///     {
-    ///         SnsTopicArn = defaultTopic.Arn,
-    ///         SourceType = "db-instance",
-    ///         SourceIds = new[]
-    ///         {
-    ///             example.Id,
-    ///         },
-    ///         EventCategories = new[]
-    ///         {
-    ///             "maintenance",
-    ///             "availability",
-    ///             "creation",
-    ///             "backup",
-    ///             "restoration",
-    ///             "recovery",
-    ///             "deletion",
-    ///             "failover",
-    ///             "failure",
-    ///             "notification",
-    ///             "configuration change",
-    ///             "read replica",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "env", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:

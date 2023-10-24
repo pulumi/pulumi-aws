@@ -13,27 +13,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// Manages a Service Catalog self-service action.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.ServiceAction("example", new()
-    ///     {
-    ///         Definition = new Aws.ServiceCatalog.Inputs.ServiceActionDefinitionArgs
-    ///         {
-    ///             Name = "AWS-RestartEC2Instance",
-    ///         },
-    ///         Description = "Motor generator unit",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

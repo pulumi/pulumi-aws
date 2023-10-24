@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a DataPipeline Pipeline resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.datapipeline.Pipeline("default", {});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For example:

@@ -7,24 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const demoWorkspace = new aws.amp.Workspace("demoWorkspace", {});
- * const demoAlertManagerDefinition = new aws.amp.AlertManagerDefinition("demoAlertManagerDefinition", {
- *     workspaceId: demoWorkspace.id,
- *     definition: `alertmanager_config: |
- *   route:
- *     receiver: 'default'
- *   receivers:
- *     - name: 'default'
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import the prometheus alert manager definition using the workspace identifier. For example:

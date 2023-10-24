@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Direct Connect hosted private virtual interface resource. This resource represents the allocator's side of the hosted virtual interface.
  * A hosted virtual interface is a virtual interface that is owned by another AWS account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.directconnect.HostedPrivateVirtualInterface("foo", {
- *     addressFamily: "ipv4",
- *     bgpAsn: 65352,
- *     connectionId: "dxcon-zzzzzzzz",
- *     vlan: 4094,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:

@@ -12,61 +12,6 @@ namespace Pulumi.Aws.GuardDuty
     /// <summary>
     /// Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = new Aws.Provider("primary");
-    /// 
-    ///     var member = new Aws.Provider("member");
-    /// 
-    ///     var primaryDetector = new Aws.GuardDuty.Detector("primaryDetector", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
-    ///     });
-    /// 
-    ///     var memberDetector = new Aws.GuardDuty.Detector("memberDetector", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Member,
-    ///     });
-    /// 
-    ///     var memberMember = new Aws.GuardDuty.Member("memberMember", new()
-    ///     {
-    ///         AccountId = memberDetector.AccountId,
-    ///         DetectorId = primaryDetector.Id,
-    ///         Email = "required@example.com",
-    ///         Invite = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
-    ///     });
-    /// 
-    ///     var memberInviteAccepter = new Aws.GuardDuty.InviteAccepter("memberInviteAccepter", new()
-    ///     {
-    ///         DetectorId = memberDetector.Id,
-    ///         MasterAccountId = primaryDetector.AccountId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Member,
-    ///         DependsOn = new[]
-    ///         {
-    ///             memberMember,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For example:

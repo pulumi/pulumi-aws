@@ -14,29 +14,6 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// &gt; **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `aws.redshift.ClusterIamRoles` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.Cluster("example", new()
-    ///     {
-    ///         ClusterIdentifier = "tf-redshift-cluster",
-    ///         ClusterType = "single-node",
-    ///         DatabaseName = "mydb",
-    ///         MasterPassword = "Mustbe8characters",
-    ///         MasterUsername = "exampleuser",
-    ///         NodeType = "dc1.large",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:

@@ -14,67 +14,6 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// Note that currently only one policy may be applied to a repository.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Ecr.Repository("foo");
-    /// 
-    ///     var foopolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Sid = "new policy",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "123456789012",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "ecr:GetDownloadUrlForLayer",
-    ///                     "ecr:BatchGetImage",
-    ///                     "ecr:BatchCheckLayerAvailability",
-    ///                     "ecr:PutImage",
-    ///                     "ecr:InitiateLayerUpload",
-    ///                     "ecr:UploadLayerPart",
-    ///                     "ecr:CompleteLayerUpload",
-    ///                     "ecr:DescribeRepositories",
-    ///                     "ecr:GetRepositoryPolicy",
-    ///                     "ecr:ListImages",
-    ///                     "ecr:DeleteRepository",
-    ///                     "ecr:BatchDeleteImage",
-    ///                     "ecr:SetRepositoryPolicy",
-    ///                     "ecr:DeleteRepositoryPolicy",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var foopolicyRepositoryPolicy = new Aws.Ecr.RepositoryPolicy("foopolicyRepositoryPolicy", new()
-    ///     {
-    ///         Repository = foo.Name,
-    ///         Policy = foopolicyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECR Repository Policy using the repository name. For example:

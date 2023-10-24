@@ -13,53 +13,6 @@ namespace Pulumi.Aws.Transcribe
     /// Resource for managing an AWS Transcribe Vocabulary.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
-    ///     {
-    ///         ForceDestroy = true,
-    ///     });
-    /// 
-    ///     var @object = new Aws.S3.BucketObjectv2("object", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Key = "transcribe/test1.txt",
-    ///         Source = new FileAsset("test.txt"),
-    ///     });
-    /// 
-    ///     var exampleVocabulary = new Aws.Transcribe.Vocabulary("exampleVocabulary", new()
-    ///     {
-    ///         VocabularyName = "example",
-    ///         LanguageCode = "en-US",
-    ///         VocabularyFileUri = Output.Tuple(exampleBucketV2.Id, @object.Key).Apply(values =&gt;
-    ///         {
-    ///             var id = values.Item1;
-    ///             var key = values.Item2;
-    ///             return $"s3://{id}/{key}";
-    ///         }),
-    ///         Tags = 
-    ///         {
-    ///             { "tag1", "value1" },
-    ///             { "tag2", "value3" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             @object,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

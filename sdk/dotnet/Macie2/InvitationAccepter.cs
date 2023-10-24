@@ -12,54 +12,6 @@ namespace Pulumi.Aws.Macie2
     /// <summary>
     /// Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primaryAccount = new Aws.Macie2.Account("primaryAccount", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///     });
-    /// 
-    ///     var memberAccount = new Aws.Macie2.Account("memberAccount");
-    /// 
-    ///     var primaryMember = new Aws.Macie2.Member("primaryMember", new()
-    ///     {
-    ///         AccountId = "ACCOUNT ID",
-    ///         Email = "EMAIL",
-    ///         Invite = true,
-    ///         InvitationMessage = "Message of the invite",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryAccount,
-    ///         },
-    ///     });
-    /// 
-    ///     var memberInvitationAccepter = new Aws.Macie2.InvitationAccepter("memberInvitationAccepter", new()
-    ///     {
-    ///         AdministratorAccountId = "ADMINISTRATOR ACCOUNT ID",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryMember,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:

@@ -15,49 +15,6 @@ namespace Pulumi.Aws.StorageGateway
     /// &gt; **NOTE:** The gateway must have a working storage added (e.g., via the `aws.storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
     /// 
     /// ## Example Usage
-    /// ### Create Empty Stored iSCSI Volume
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.StorageGateway.StoredIscsiVolume("example", new()
-    ///     {
-    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///         TargetName = "example",
-    ///         PreserveExistingData = false,
-    ///         DiskId = data.Aws_storagegateway_local_disk.Test.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Create Stored iSCSI Volume From Snapshot
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.StorageGateway.StoredIscsiVolume("example", new()
-    ///     {
-    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///         SnapshotId = aws_ebs_snapshot.Example.Id,
-    ///         TargetName = "example",
-    ///         PreserveExistingData = false,
-    ///         DiskId = data.Aws_storagegateway_local_disk.Test.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

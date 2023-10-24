@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.docdb.ClusterSnapshot("example", {
- *     dbClusterIdentifier: aws_docdb_cluster.example.id,
- *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:

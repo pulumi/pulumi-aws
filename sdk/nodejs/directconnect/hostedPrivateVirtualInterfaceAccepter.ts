@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
  * Provides a resource to manage the accepter's side of a Direct Connect hosted private virtual interface.
  * This resource accepts ownership of a private virtual interface created by another AWS account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const accepter = new aws.Provider("accepter", {});
- * // Accepter's credentials.
- * const accepterCallerIdentity = aws.getCallerIdentity({});
- * // Accepter's side of the VIF.
- * const vpnGw = new aws.ec2.VpnGateway("vpnGw", {}, {
- *     provider: aws.accepter,
- * });
- * // Creator's side of the VIF
- * const creator = new aws.directconnect.HostedPrivateVirtualInterface("creator", {
- *     connectionId: "dxcon-zzzzzzzz",
- *     ownerAccountId: accepterCallerIdentity.then(accepterCallerIdentity => accepterCallerIdentity.accountId),
- *     vlan: 4094,
- *     addressFamily: "ipv4",
- *     bgpAsn: 65352,
- * }, {
- *     dependsOn: [vpnGw],
- * });
- * const accepterHostedPrivateVirtualInterfaceAccepter = new aws.directconnect.HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter", {
- *     virtualInterfaceId: creator.id,
- *     vpnGatewayId: vpnGw.id,
- *     tags: {
- *         Side: "Accepter",
- *     },
- * }, {
- *     provider: aws.accepter,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:

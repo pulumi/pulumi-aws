@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,21 +35,58 @@ class ComputeEnvironmentArgs:
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "type", type)
+        ComputeEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            compute_environment_name=compute_environment_name,
+            compute_environment_name_prefix=compute_environment_name_prefix,
+            compute_resources=compute_resources,
+            eks_configuration=eks_configuration,
+            service_role=service_role,
+            state=state,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             compute_environment_name: Optional[pulumi.Input[str]] = None,
+             compute_environment_name_prefix: Optional[pulumi.Input[str]] = None,
+             compute_resources: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']] = None,
+             eks_configuration: Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']] = None,
+             service_role: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if compute_environment_name is None and 'computeEnvironmentName' in kwargs:
+            compute_environment_name = kwargs['computeEnvironmentName']
+        if compute_environment_name_prefix is None and 'computeEnvironmentNamePrefix' in kwargs:
+            compute_environment_name_prefix = kwargs['computeEnvironmentNamePrefix']
+        if compute_resources is None and 'computeResources' in kwargs:
+            compute_resources = kwargs['computeResources']
+        if eks_configuration is None and 'eksConfiguration' in kwargs:
+            eks_configuration = kwargs['eksConfiguration']
+        if service_role is None and 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+
+        _setter("type", type)
         if compute_environment_name is not None:
-            pulumi.set(__self__, "compute_environment_name", compute_environment_name)
+            _setter("compute_environment_name", compute_environment_name)
         if compute_environment_name_prefix is not None:
-            pulumi.set(__self__, "compute_environment_name_prefix", compute_environment_name_prefix)
+            _setter("compute_environment_name_prefix", compute_environment_name_prefix)
         if compute_resources is not None:
-            pulumi.set(__self__, "compute_resources", compute_resources)
+            _setter("compute_resources", compute_resources)
         if eks_configuration is not None:
-            pulumi.set(__self__, "eks_configuration", eks_configuration)
+            _setter("eks_configuration", eks_configuration)
         if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
+            _setter("service_role", service_role)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -180,35 +217,86 @@ class _ComputeEnvironmentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         """
+        _ComputeEnvironmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            compute_environment_name=compute_environment_name,
+            compute_environment_name_prefix=compute_environment_name_prefix,
+            compute_resources=compute_resources,
+            ecs_cluster_arn=ecs_cluster_arn,
+            eks_configuration=eks_configuration,
+            service_role=service_role,
+            state=state,
+            status=status,
+            status_reason=status_reason,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             compute_environment_name: Optional[pulumi.Input[str]] = None,
+             compute_environment_name_prefix: Optional[pulumi.Input[str]] = None,
+             compute_resources: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']] = None,
+             ecs_cluster_arn: Optional[pulumi.Input[str]] = None,
+             eks_configuration: Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']] = None,
+             service_role: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             status_reason: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_environment_name is None and 'computeEnvironmentName' in kwargs:
+            compute_environment_name = kwargs['computeEnvironmentName']
+        if compute_environment_name_prefix is None and 'computeEnvironmentNamePrefix' in kwargs:
+            compute_environment_name_prefix = kwargs['computeEnvironmentNamePrefix']
+        if compute_resources is None and 'computeResources' in kwargs:
+            compute_resources = kwargs['computeResources']
+        if ecs_cluster_arn is None and 'ecsClusterArn' in kwargs:
+            ecs_cluster_arn = kwargs['ecsClusterArn']
+        if eks_configuration is None and 'eksConfiguration' in kwargs:
+            eks_configuration = kwargs['eksConfiguration']
+        if service_role is None and 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if status_reason is None and 'statusReason' in kwargs:
+            status_reason = kwargs['statusReason']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if compute_environment_name is not None:
-            pulumi.set(__self__, "compute_environment_name", compute_environment_name)
+            _setter("compute_environment_name", compute_environment_name)
         if compute_environment_name_prefix is not None:
-            pulumi.set(__self__, "compute_environment_name_prefix", compute_environment_name_prefix)
+            _setter("compute_environment_name_prefix", compute_environment_name_prefix)
         if compute_resources is not None:
-            pulumi.set(__self__, "compute_resources", compute_resources)
+            _setter("compute_resources", compute_resources)
         if ecs_cluster_arn is not None:
-            pulumi.set(__self__, "ecs_cluster_arn", ecs_cluster_arn)
+            _setter("ecs_cluster_arn", ecs_cluster_arn)
         if eks_configuration is not None:
-            pulumi.set(__self__, "eks_configuration", eks_configuration)
+            _setter("eks_configuration", eks_configuration)
         if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
+            _setter("service_role", service_role)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if status_reason is not None:
-            pulumi.set(__self__, "status_reason", status_reason)
+            _setter("status_reason", status_reason)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -394,82 +482,6 @@ class ComputeEnvironment(pulumi.CustomResource):
         otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
 
         ## Example Usage
-        ### EC2 Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ec2_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        ecs_instance_role_role = aws.iam.Role("ecsInstanceRoleRole", assume_role_policy=ec2_assume_role.json)
-        ecs_instance_role_role_policy_attachment = aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment",
-            role=ecs_instance_role_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role")
-        ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", role=ecs_instance_role_role.name)
-        batch_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["batch.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy=batch_assume_role.json)
-        aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
-            role=aws_batch_service_role_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
-        sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            cidr_blocks=["0.0.0.0/0"],
-        )])
-        sample_vpc = aws.ec2.Vpc("sampleVpc", cidr_block="10.1.0.0/16")
-        sample_subnet = aws.ec2.Subnet("sampleSubnet",
-            vpc_id=sample_vpc.id,
-            cidr_block="10.1.1.0/24")
-        sample_placement_group = aws.ec2.PlacementGroup("samplePlacementGroup", strategy="cluster")
-        sample_compute_environment = aws.batch.ComputeEnvironment("sampleComputeEnvironment",
-            compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                instance_role=ecs_instance_role_instance_profile.arn,
-                instance_types=["c4.large"],
-                max_vcpus=16,
-                min_vcpus=0,
-                placement_group=sample_placement_group.name,
-                security_group_ids=[sample_security_group.id],
-                subnets=[sample_subnet.id],
-                type="EC2",
-            ),
-            service_role=aws_batch_service_role_role.arn,
-            type="MANAGED",
-            opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
-        ```
-        ### Fargate Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sample = aws.batch.ComputeEnvironment("sample",
-            compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                max_vcpus=16,
-                security_group_ids=[aws_security_group["sample"]["id"]],
-                subnets=[aws_subnet["sample"]["id"]],
-                type="FARGATE",
-            ),
-            service_role=aws_iam_role["aws_batch_service_role"]["arn"],
-            type="MANAGED",
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["aws_batch_service_role"]]))
-        ```
 
         ## Import
 
@@ -506,82 +518,6 @@ class ComputeEnvironment(pulumi.CustomResource):
         otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
 
         ## Example Usage
-        ### EC2 Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ec2_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        ecs_instance_role_role = aws.iam.Role("ecsInstanceRoleRole", assume_role_policy=ec2_assume_role.json)
-        ecs_instance_role_role_policy_attachment = aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment",
-            role=ecs_instance_role_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role")
-        ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", role=ecs_instance_role_role.name)
-        batch_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["batch.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy=batch_assume_role.json)
-        aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
-            role=aws_batch_service_role_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
-        sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            cidr_blocks=["0.0.0.0/0"],
-        )])
-        sample_vpc = aws.ec2.Vpc("sampleVpc", cidr_block="10.1.0.0/16")
-        sample_subnet = aws.ec2.Subnet("sampleSubnet",
-            vpc_id=sample_vpc.id,
-            cidr_block="10.1.1.0/24")
-        sample_placement_group = aws.ec2.PlacementGroup("samplePlacementGroup", strategy="cluster")
-        sample_compute_environment = aws.batch.ComputeEnvironment("sampleComputeEnvironment",
-            compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                instance_role=ecs_instance_role_instance_profile.arn,
-                instance_types=["c4.large"],
-                max_vcpus=16,
-                min_vcpus=0,
-                placement_group=sample_placement_group.name,
-                security_group_ids=[sample_security_group.id],
-                subnets=[sample_subnet.id],
-                type="EC2",
-            ),
-            service_role=aws_batch_service_role_role.arn,
-            type="MANAGED",
-            opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
-        ```
-        ### Fargate Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sample = aws.batch.ComputeEnvironment("sample",
-            compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                max_vcpus=16,
-                security_group_ids=[aws_security_group["sample"]["id"]],
-                subnets=[aws_subnet["sample"]["id"]],
-                type="FARGATE",
-            ),
-            service_role=aws_iam_role["aws_batch_service_role"]["arn"],
-            type="MANAGED",
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["aws_batch_service_role"]]))
-        ```
 
         ## Import
 
@@ -601,6 +537,10 @@ class ComputeEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ComputeEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -625,7 +565,9 @@ class ComputeEnvironment(pulumi.CustomResource):
 
             __props__.__dict__["compute_environment_name"] = compute_environment_name
             __props__.__dict__["compute_environment_name_prefix"] = compute_environment_name_prefix
+            compute_resources = _utilities.configure(compute_resources, ComputeEnvironmentComputeResourcesArgs, True)
             __props__.__dict__["compute_resources"] = compute_resources
+            eks_configuration = _utilities.configure(eks_configuration, ComputeEnvironmentEksConfigurationArgs, True)
             __props__.__dict__["eks_configuration"] = eks_configuration
             __props__.__dict__["service_role"] = service_role
             __props__.__dict__["state"] = state

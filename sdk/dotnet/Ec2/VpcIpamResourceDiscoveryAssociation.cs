@@ -14,31 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Once an association is created between two organizations via IPAM &amp; a IPAM Resource Discovery, IPAM Pools can be shared via Resource Access Manager (RAM) to accounts in the subordinate organization; these RAM shares must be accepted by the end user account. Pools can then also discover and monitor IPAM resources in the subordinate organization.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ec2.VpcIpamResourceDiscoveryAssociation("test", new()
-    ///     {
-    ///         IpamId = aws_vpc_ipam.Test.Id,
-    ///         IpamResourceDiscoveryId = aws_vpc_ipam_resource_discovery.Test.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For example:

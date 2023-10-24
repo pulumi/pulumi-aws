@@ -10,33 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Batch Scheduling Policy resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.batch.SchedulingPolicy("example", {
- *     fairSharePolicy: {
- *         computeReservation: 1,
- *         shareDecaySeconds: 3600,
- *         shareDistributions: [
- *             {
- *                 shareIdentifier: "A1*",
- *                 weightFactor: 0.1,
- *             },
- *             {
- *                 shareIdentifier: "A2",
- *                 weightFactor: 0.2,
- *             },
- *         ],
- *     },
- *     tags: {
- *         Name: "Example Batch Scheduling Policy",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For example:

@@ -17,41 +17,6 @@ import (
 //
 // > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := iam.NewUser(ctx, "exampleUser", &iam.UserArgs{
-//				Path:         pulumi.String("/"),
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserLoginProfile, err := iam.NewUserLoginProfile(ctx, "exampleUserLoginProfile", &iam.UserLoginProfileArgs{
-//				User:   exampleUser.Name,
-//				PgpKey: pulumi.String("keybase:some_person_that_exists"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("password", exampleUserLoginProfile.EncryptedPassword)
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:

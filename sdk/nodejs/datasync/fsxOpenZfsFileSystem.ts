@@ -10,25 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an AWS DataSync FSx OpenZfs Location.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.FsxOpenZfsFileSystem("example", {
- *     fsxFilesystemArn: aws_fsx_openzfs_file_system.example.arn,
- *     securityGroupArns: [aws_security_group.example.arn],
- *     protocol: {
- *         nfs: {
- *             mountOptions: {
- *                 version: "AUTOMATIC",
- *             },
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_location_fsx_openzfs_file_system` using the `DataSync-ARN#FSx-openzfs-ARN`. For example:

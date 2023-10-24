@@ -12,32 +12,6 @@ namespace Pulumi.Aws.AppRunner
     /// <summary>
     /// Manages an App Runner Observability Configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppRunner.ObservabilityConfiguration("example", new()
-    ///     {
-    ///         ObservabilityConfigurationName = "example",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-apprunner-observability-configuration" },
-    ///         },
-    ///         TraceConfiguration = new Aws.AppRunner.Inputs.ObservabilityConfigurationTraceConfigurationArgs
-    ///         {
-    ///             Vendor = "AWSXRAY",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:

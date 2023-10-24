@@ -15,50 +15,6 @@ import (
 
 // Provides a resource to manage an AWS Certificate Manager Private Certificate Authorities Permission.
 // Currently, this is only required in order to allow the ACM service to automatically renew certificates issued by a PCA.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "exampleCertificateAuthority", &acmpca.CertificateAuthorityArgs{
-//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
-//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
-//						CommonName: pulumi.String("example.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = acmpca.NewPermission(ctx, "examplePermission", &acmpca.PermissionArgs{
-//				CertificateAuthorityArn: exampleCertificateAuthority.Arn,
-//				Actions: pulumi.StringArray{
-//					pulumi.String("IssueCertificate"),
-//					pulumi.String("GetCertificate"),
-//					pulumi.String("ListPermissions"),
-//				},
-//				Principal: pulumi.String("acm.amazonaws.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Permission struct {
 	pulumi.CustomResourceState
 

@@ -13,47 +13,6 @@ namespace Pulumi.Aws.AutoScaling
     /// Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
     /// the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
     /// Services, and are applied to each AutoScaling Group you supply.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sns.Topic("example");
-    /// 
-    ///     // arn is an exported attribute
-    ///     var bar = new Aws.AutoScaling.Group("bar");
-    /// 
-    ///     // ...
-    ///     var foo = new Aws.AutoScaling.Group("foo");
-    /// 
-    ///     // ...
-    ///     var exampleNotifications = new Aws.AutoScaling.Notification("exampleNotifications", new()
-    ///     {
-    ///         GroupNames = new[]
-    ///         {
-    ///             bar.Name,
-    ///             foo.Name,
-    ///         },
-    ///         Notifications = new[]
-    ///         {
-    ///             "autoscaling:EC2_INSTANCE_LAUNCH",
-    ///             "autoscaling:EC2_INSTANCE_TERMINATE",
-    ///             "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-    ///             "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
-    ///         },
-    ///         TopicArn = example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/notification:Notification")]
     public partial class Notification : global::Pulumi.CustomResource

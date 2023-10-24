@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -111,35 +111,6 @@ def get_resolver_rules(name_regex: Optional[str] = None,
     `route53_get_resolver_rules` provides details about a set of Route53 Resolver rules.
 
     ## Example Usage
-    ### Retrieving the default resolver rule
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_rules(owner_id="Route 53 Resolver",
-        rule_type="RECURSIVE",
-        share_status="NOT_SHARED")
-    ```
-    ### Retrieving forward rules shared with me
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_rules(rule_type="FORWARD",
-        share_status="SHARED_WITH_ME")
-    ```
-    ### Retrieving rules by name regex
-
-    Resolver rules whose name contains `abc`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_rules(name_regex=".*abc.*")
-    ```
 
 
     :param str name_regex: Regex string to filter resolver rule names.
@@ -180,35 +151,6 @@ def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[str]]] 
     `route53_get_resolver_rules` provides details about a set of Route53 Resolver rules.
 
     ## Example Usage
-    ### Retrieving the default resolver rule
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_rules(owner_id="Route 53 Resolver",
-        rule_type="RECURSIVE",
-        share_status="NOT_SHARED")
-    ```
-    ### Retrieving forward rules shared with me
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_rules(rule_type="FORWARD",
-        share_status="SHARED_WITH_ME")
-    ```
-    ### Retrieving rules by name regex
-
-    Resolver rules whose name contains `abc`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_rules(name_regex=".*abc.*")
-    ```
 
 
     :param str name_regex: Regex string to filter resolver rule names.

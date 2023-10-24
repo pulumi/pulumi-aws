@@ -23,16 +23,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// List of accelerator manufacturer names. Default is any manufacturer.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public InputList<string> AcceleratorManufacturers
         {
@@ -45,16 +35,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// List of accelerator names. Default is any acclerator.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public InputList<string> AcceleratorNames
         {
@@ -73,16 +53,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// List of accelerator types. Default is any accelerator type.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public InputList<string> AcceleratorTypes
         {
@@ -129,16 +99,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         /// List of CPU manufacturer names. Default is any manufacturer.
         /// 
         /// &gt; **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public InputList<string> CpuManufacturers
         {
@@ -165,16 +125,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// List of instance generation names. Default is any generation.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public InputList<string> InstanceGenerations
         {
@@ -193,16 +143,6 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// List of local storage type names. Default any storage type.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public InputList<string> LocalStorageTypes
         {

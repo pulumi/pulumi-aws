@@ -12,33 +12,6 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides a settings of an API Gateway Documentation Part.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi");
-    /// 
-    ///     var exampleDocumentationPart = new Aws.ApiGateway.DocumentationPart("exampleDocumentationPart", new()
-    ///     {
-    ///         Location = new Aws.ApiGateway.Inputs.DocumentationPartLocationArgs
-    ///         {
-    ///             Type = "METHOD",
-    ///             Method = "GET",
-    ///             Path = "/example",
-    ///         },
-    ///         Properties = "{\"description\":\"Example description\"}",
-    ///         RestApiId = exampleRestApi.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import API Gateway documentation_parts using `REST-API-ID/DOC-PART-ID`. For example:

@@ -8,36 +8,6 @@ import * as utilities from "../utilities";
  * Manages an EC2 Transit Gateway Peering Attachment.
  * For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const local = new aws.Provider("local", {region: "us-east-1"});
- * const peer = new aws.Provider("peer", {region: "us-west-2"});
- * const peerRegion = aws.getRegion({});
- * const localTransitGateway = new aws.ec2transitgateway.TransitGateway("localTransitGateway", {tags: {
- *     Name: "Local TGW",
- * }}, {
- *     provider: aws.local,
- * });
- * const peerTransitGateway = new aws.ec2transitgateway.TransitGateway("peerTransitGateway", {tags: {
- *     Name: "Peer TGW",
- * }}, {
- *     provider: aws.peer,
- * });
- * const example = new aws.ec2transitgateway.PeeringAttachment("example", {
- *     peerAccountId: peerTransitGateway.ownerId,
- *     peerRegion: peerRegion.then(peerRegion => peerRegion.name),
- *     peerTransitGatewayId: peerTransitGateway.id,
- *     transitGatewayId: localTransitGateway.id,
- *     tags: {
- *         Name: "TGW Peering Requestor",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:

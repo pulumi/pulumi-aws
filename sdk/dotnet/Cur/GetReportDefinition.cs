@@ -17,28 +17,6 @@ namespace Pulumi.Aws.Cur
         /// &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
         /// 
         /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var reportDefinition = Aws.Cur.GetReportDefinition.Invoke(new()
-        ///     {
-        ///         ReportName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetReportDefinitionResult> InvokeAsync(GetReportDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? new GetReportDefinitionArgs(), options.WithDefaults());
@@ -49,28 +27,6 @@ namespace Pulumi.Aws.Cur
         /// &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
         /// 
         /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var reportDefinition = Aws.Cur.GetReportDefinition.Invoke(new()
-        ///     {
-        ///         ReportName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetReportDefinitionResult> Invoke(GetReportDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? new GetReportDefinitionInvokeArgs(), options.WithDefaults());

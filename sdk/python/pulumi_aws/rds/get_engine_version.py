@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -289,32 +289,6 @@ def get_engine_version(default_only: Optional[bool] = None,
     Information about an RDS engine version.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_engine_version(engine="mysql",
-        preferred_versions=[
-            "8.0.27",
-            "8.0.26",
-        ])
-    ```
-    ### With `filter`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_engine_version(engine="aurora-postgresql",
-        filters=[aws.rds.GetEngineVersionFilterArgs(
-            name="engine-mode",
-            values=["serverless"],
-        )],
-        include_all=True,
-        version="10.14")
-    ```
 
 
     :param bool default_only: When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
@@ -374,32 +348,6 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
     Information about an RDS engine version.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_engine_version(engine="mysql",
-        preferred_versions=[
-            "8.0.27",
-            "8.0.26",
-        ])
-    ```
-    ### With `filter`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_engine_version(engine="aurora-postgresql",
-        filters=[aws.rds.GetEngineVersionFilterArgs(
-            name="engine-mode",
-            values=["serverless"],
-        )],
-        include_all=True,
-        version="10.14")
-    ```
 
 
     :param bool default_only: When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.

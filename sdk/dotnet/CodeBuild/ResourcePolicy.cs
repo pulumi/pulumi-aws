@@ -12,69 +12,6 @@ namespace Pulumi.Aws.CodeBuild
     /// <summary>
     /// Provides a CodeBuild Resource Policy Resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleReportGroup = new Aws.CodeBuild.ReportGroup("exampleReportGroup", new()
-    ///     {
-    ///         Type = "TEST",
-    ///         ExportConfig = new Aws.CodeBuild.Inputs.ReportGroupExportConfigArgs
-    ///         {
-    ///             Type = "NO_EXPORT",
-    ///         },
-    ///     });
-    /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var exampleResourcePolicy = new Aws.CodeBuild.ResourcePolicy("exampleResourcePolicy", new()
-    ///     {
-    ///         ResourceArn = exampleReportGroup.Arn,
-    ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity, exampleReportGroup.Arn).Apply(values =&gt;
-    ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             var arn = values.Item3;
-    ///             return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["Version"] = "2012-10-17",
-    ///                 ["Id"] = "default",
-    ///                 ["Statement"] = new[]
-    ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Sid"] = "default",
-    ///                         ["Effect"] = "Allow",
-    ///                         ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["AWS"] = $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-    ///                         },
-    ///                         ["Action"] = new[]
-    ///                         {
-    ///                             "codebuild:BatchGetReportGroups",
-    ///                             "codebuild:BatchGetReports",
-    ///                             "codebuild:ListReportsForReportGroup",
-    ///                             "codebuild:DescribeTestCases",
-    ///                         },
-    ///                         ["Resource"] = arn,
-    ///                     },
-    ///                 },
-    ///             });
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:

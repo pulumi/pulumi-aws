@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -191,15 +191,6 @@ def get_proxy(name: Optional[str] = None,
     """
     Use this data source to get information about a DB Proxy.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    proxy = aws.rds.get_proxy(name="my-test-db-proxy")
-    ```
-
 
     :param str name: Name of the DB proxy.
     """
@@ -229,15 +220,6 @@ def get_proxy_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProxyResult]:
     """
     Use this data source to get information about a DB Proxy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    proxy = aws.rds.get_proxy(name="my-test-db-proxy")
-    ```
 
 
     :param str name: Name of the DB proxy.

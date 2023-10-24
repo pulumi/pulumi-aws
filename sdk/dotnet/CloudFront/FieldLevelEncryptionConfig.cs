@@ -12,54 +12,6 @@ namespace Pulumi.Aws.CloudFront
     /// <summary>
     /// Provides a CloudFront Field-level Encryption Config resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CloudFront.FieldLevelEncryptionConfig("test", new()
-    ///     {
-    ///         Comment = "test comment",
-    ///         ContentTypeProfileConfig = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigArgs
-    ///         {
-    ///             ForwardWhenContentTypeIsUnknown = true,
-    ///             ContentTypeProfiles = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs
-    ///             {
-    ///                 Items = new[]
-    ///                 {
-    ///                     new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs
-    ///                     {
-    ///                         ContentType = "application/x-www-form-urlencoded",
-    ///                         Format = "URLEncoded",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         QueryArgProfileConfig = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigArgs
-    ///         {
-    ///             ForwardWhenQueryArgProfileIsUnknown = true,
-    ///             QueryArgProfiles = new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs
-    ///             {
-    ///                 Items = new[]
-    ///                 {
-    ///                     new Aws.CloudFront.Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs
-    ///                     {
-    ///                         ProfileId = aws_cloudfront_field_level_encryption_profile.Test.Id,
-    ///                         QueryArg = "Arg1",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:

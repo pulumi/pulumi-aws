@@ -14,50 +14,6 @@ namespace Pulumi.Aws.CloudSearch
     /// 
     /// The provider waits for the domain to become `Active` when applying a configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudSearch.Domain("example", new()
-    ///     {
-    ///         IndexFields = new[]
-    ///         {
-    ///             new Aws.CloudSearch.Inputs.DomainIndexFieldArgs
-    ///             {
-    ///                 AnalysisScheme = "_en_default_",
-    ///                 Highlight = false,
-    ///                 Name = "headline",
-    ///                 Return = true,
-    ///                 Search = true,
-    ///                 Sort = true,
-    ///                 Type = "text",
-    ///             },
-    ///             new Aws.CloudSearch.Inputs.DomainIndexFieldArgs
-    ///             {
-    ///                 Facet = true,
-    ///                 Name = "price",
-    ///                 Return = true,
-    ///                 Search = true,
-    ///                 Sort = true,
-    ///                 SourceFields = "headline",
-    ///                 Type = "double",
-    ///             },
-    ///         },
-    ///         ScalingParameters = new Aws.CloudSearch.Inputs.DomainScalingParametersArgs
-    ///         {
-    ///             DesiredInstanceType = "search.medium",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudSearch Domains using the `name`. For example:

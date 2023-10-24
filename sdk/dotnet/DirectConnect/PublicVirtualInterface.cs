@@ -12,34 +12,6 @@ namespace Pulumi.Aws.DirectConnect
     /// <summary>
     /// Provides a Direct Connect public virtual interface resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.DirectConnect.PublicVirtualInterface("foo", new()
-    ///     {
-    ///         AddressFamily = "ipv4",
-    ///         AmazonAddress = "175.45.176.2/30",
-    ///         BgpAsn = 65352,
-    ///         ConnectionId = "dxcon-zzzzzzzz",
-    ///         CustomerAddress = "175.45.176.1/30",
-    ///         RouteFilterPrefixes = new[]
-    ///         {
-    ///             "210.52.109.0/24",
-    ///             "175.45.176.0/22",
-    ///         },
-    ///         Vlan = 4094,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Direct Connect public virtual interfaces using the VIF `id`. For example:

@@ -10,43 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an EKS Fargate Profile.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.eks.FargateProfile("example", {
- *     clusterName: aws_eks_cluster.example.name,
- *     podExecutionRoleArn: aws_iam_role.example.arn,
- *     subnetIds: aws_subnet.example.map(__item => __item.id),
- *     selectors: [{
- *         namespace: "example",
- *     }],
- * });
- * ```
- * ### Example IAM Role for EKS Fargate Profile
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Principal: {
- *             Service: "eks-fargate-pods.amazonaws.com",
- *         },
- *     }],
- *     Version: "2012-10-17",
- * })});
- * const example_AmazonEKSFargatePodExecutionRolePolicy = new aws.iam.RolePolicyAttachment("example-AmazonEKSFargatePodExecutionRolePolicy", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
- *     role: example.name,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:

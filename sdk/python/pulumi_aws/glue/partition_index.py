@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,42 @@ class PartitionIndexArgs:
         :param pulumi.Input[str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input[str] catalog_id: The catalog ID where the table resides.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "partition_index", partition_index)
-        pulumi.set(__self__, "table_name", table_name)
+        PartitionIndexArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            partition_index=partition_index,
+            table_name=table_name,
+            catalog_id=catalog_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[pulumi.Input[str]] = None,
+             partition_index: Optional[pulumi.Input['PartitionIndexPartitionIndexArgs']] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if partition_index is None and 'partitionIndex' in kwargs:
+            partition_index = kwargs['partitionIndex']
+        if partition_index is None:
+            raise TypeError("Missing 'partition_index' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("database_name", database_name)
+        _setter("partition_index", partition_index)
+        _setter("table_name", table_name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -96,14 +127,39 @@ class _PartitionIndexState:
         :param pulumi.Input['PartitionIndexPartitionIndexArgs'] partition_index: Configuration block for a partition index. See `partition_index` below.
         :param pulumi.Input[str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
+        _PartitionIndexState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            partition_index=partition_index,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             partition_index: Optional[pulumi.Input['PartitionIndexPartitionIndexArgs']] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if partition_index is None and 'partitionIndex' in kwargs:
+            partition_index = kwargs['partitionIndex']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if partition_index is not None:
-            pulumi.set(__self__, "partition_index", partition_index)
+            _setter("partition_index", partition_index)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -165,90 +221,6 @@ class PartitionIndex(pulumi.CustomResource):
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="example")
-        example_catalog_table = aws.glue.CatalogTable("exampleCatalogTable",
-            name="example",
-            database_name=example_catalog_database.name,
-            owner="my_owner",
-            retention=1,
-            table_type="VIRTUAL_VIEW",
-            view_expanded_text="view_expanded_text_1",
-            view_original_text="view_original_text_1",
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
-                bucket_columns=["bucket_column_1"],
-                compressed=False,
-                input_format="SequenceFileInputFormat",
-                location="my_location",
-                number_of_buckets=1,
-                output_format="SequenceFileInputFormat",
-                stored_as_sub_directories=False,
-                parameters={
-                    "param1": "param1_val",
-                },
-                columns=[
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_1",
-                        type="int",
-                        comment="my_column1_comment",
-                    ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_2",
-                        type="string",
-                        comment="my_column2_comment",
-                    ),
-                ],
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
-                    name="ser_de_name",
-                    parameters={
-                        "param1": "param_val_1",
-                    },
-                    serialization_library="org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                ),
-                sort_columns=[aws.glue.CatalogTableStorageDescriptorSortColumnArgs(
-                    column="my_column_1",
-                    sort_order=1,
-                )],
-                skewed_info=aws.glue.CatalogTableStorageDescriptorSkewedInfoArgs(
-                    skewed_column_names=["my_column_1"],
-                    skewed_column_value_location_maps={
-                        "my_column_1": "my_column_1_val_loc_map",
-                    },
-                    skewed_column_values=["skewed_val_1"],
-                ),
-            ),
-            partition_keys=[
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_1",
-                    type="int",
-                    comment="my_column_1_comment",
-                ),
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_2",
-                    type="string",
-                    comment="my_column_2_comment",
-                ),
-            ],
-            parameters={
-                "param1": "param1_val",
-            })
-        example_partition_index = aws.glue.PartitionIndex("examplePartitionIndex",
-            database_name=example_catalog_database.name,
-            table_name=example_catalog_table.name,
-            partition_index=aws.glue.PartitionIndexPartitionIndexArgs(
-                index_name="example",
-                keys=[
-                    "my_column_1",
-                    "my_column_2",
-                ],
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
@@ -271,90 +243,6 @@ class PartitionIndex(pulumi.CustomResource):
                  args: PartitionIndexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="example")
-        example_catalog_table = aws.glue.CatalogTable("exampleCatalogTable",
-            name="example",
-            database_name=example_catalog_database.name,
-            owner="my_owner",
-            retention=1,
-            table_type="VIRTUAL_VIEW",
-            view_expanded_text="view_expanded_text_1",
-            view_original_text="view_original_text_1",
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
-                bucket_columns=["bucket_column_1"],
-                compressed=False,
-                input_format="SequenceFileInputFormat",
-                location="my_location",
-                number_of_buckets=1,
-                output_format="SequenceFileInputFormat",
-                stored_as_sub_directories=False,
-                parameters={
-                    "param1": "param1_val",
-                },
-                columns=[
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_1",
-                        type="int",
-                        comment="my_column1_comment",
-                    ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_2",
-                        type="string",
-                        comment="my_column2_comment",
-                    ),
-                ],
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
-                    name="ser_de_name",
-                    parameters={
-                        "param1": "param_val_1",
-                    },
-                    serialization_library="org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                ),
-                sort_columns=[aws.glue.CatalogTableStorageDescriptorSortColumnArgs(
-                    column="my_column_1",
-                    sort_order=1,
-                )],
-                skewed_info=aws.glue.CatalogTableStorageDescriptorSkewedInfoArgs(
-                    skewed_column_names=["my_column_1"],
-                    skewed_column_value_location_maps={
-                        "my_column_1": "my_column_1_val_loc_map",
-                    },
-                    skewed_column_values=["skewed_val_1"],
-                ),
-            ),
-            partition_keys=[
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_1",
-                    type="int",
-                    comment="my_column_1_comment",
-                ),
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_2",
-                    type="string",
-                    comment="my_column_2_comment",
-                ),
-            ],
-            parameters={
-                "param1": "param1_val",
-            })
-        example_partition_index = aws.glue.PartitionIndex("examplePartitionIndex",
-            database_name=example_catalog_database.name,
-            table_name=example_catalog_table.name,
-            partition_index=aws.glue.PartitionIndexPartitionIndexArgs(
-                index_name="example",
-                keys=[
-                    "my_column_1",
-                    "my_column_2",
-                ],
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
@@ -373,6 +261,10 @@ class PartitionIndex(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PartitionIndexArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -395,6 +287,7 @@ class PartitionIndex(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            partition_index = _utilities.configure(partition_index, PartitionIndexPartitionIndexArgs, True)
             if partition_index is None and not opts.urn:
                 raise TypeError("Missing required property 'partition_index'")
             __props__.__dict__["partition_index"] = partition_index

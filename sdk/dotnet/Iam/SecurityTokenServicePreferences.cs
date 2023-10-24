@@ -11,24 +11,6 @@ namespace Pulumi.Aws.Iam
 {
     /// <summary>
     /// Provides an IAM Security Token Service Preferences resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iam.SecurityTokenServicePreferences("example", new()
-    ///     {
-    ///         GlobalEndpointTokenVersion = "v2Token",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences")]
     public partial class SecurityTokenServicePreferences : global::Pulumi.CustomResource

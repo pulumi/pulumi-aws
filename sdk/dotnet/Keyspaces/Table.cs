@@ -14,43 +14,6 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// More information about Keyspaces tables can be found in the [Keyspaces Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Keyspaces.Table("example", new()
-    ///     {
-    ///         KeyspaceName = aws_keyspaces_keyspace.Example.Name,
-    ///         TableName = "my_table",
-    ///         SchemaDefinition = new Aws.Keyspaces.Inputs.TableSchemaDefinitionArgs
-    ///         {
-    ///             Columns = new[]
-    ///             {
-    ///                 new Aws.Keyspaces.Inputs.TableSchemaDefinitionColumnArgs
-    ///                 {
-    ///                     Name = "Message",
-    ///                     Type = "ASCII",
-    ///                 },
-    ///             },
-    ///             PartitionKeys = new[]
-    ///             {
-    ///                 new Aws.Keyspaces.Inputs.TableSchemaDefinitionPartitionKeyArgs
-    ///                 {
-    ///                     Name = "Message",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:

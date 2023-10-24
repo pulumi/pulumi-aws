@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SnapshotCopyGrantArgs', 'SnapshotCopyGrant']
@@ -23,11 +23,32 @@ class SnapshotCopyGrantArgs:
         :param pulumi.Input[str] kms_key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "snapshot_copy_grant_name", snapshot_copy_grant_name)
+        SnapshotCopyGrantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            snapshot_copy_grant_name=snapshot_copy_grant_name,
+            kms_key_id=kms_key_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             snapshot_copy_grant_name: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if snapshot_copy_grant_name is None and 'snapshotCopyGrantName' in kwargs:
+            snapshot_copy_grant_name = kwargs['snapshotCopyGrantName']
+        if snapshot_copy_grant_name is None:
+            raise TypeError("Missing 'snapshot_copy_grant_name' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
+        _setter("snapshot_copy_grant_name", snapshot_copy_grant_name)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="snapshotCopyGrantName")
@@ -82,19 +103,44 @@ class _SnapshotCopyGrantState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _SnapshotCopyGrantState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            kms_key_id=kms_key_id,
+            snapshot_copy_grant_name=snapshot_copy_grant_name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             snapshot_copy_grant_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if snapshot_copy_grant_name is None and 'snapshotCopyGrantName' in kwargs:
+            snapshot_copy_grant_name = kwargs['snapshotCopyGrantName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if snapshot_copy_grant_name is not None:
-            pulumi.set(__self__, "snapshot_copy_grant_name", snapshot_copy_grant_name)
+            _setter("snapshot_copy_grant_name", snapshot_copy_grant_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -174,19 +220,6 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         Note that the grant must exist in the destination region, and not in the region of the cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_snapshot_copy_grant = aws.redshift.SnapshotCopyGrant("testSnapshotCopyGrant", snapshot_copy_grant_name="my-grant")
-        test_cluster = aws.redshift.Cluster("testCluster", snapshot_copy=aws.redshift.ClusterSnapshotCopyArgs(
-            destination_region="us-east-2",
-            grant_name=test_snapshot_copy_grant.snapshot_copy_grant_name,
-        ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
@@ -212,19 +245,6 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         Note that the grant must exist in the destination region, and not in the region of the cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_snapshot_copy_grant = aws.redshift.SnapshotCopyGrant("testSnapshotCopyGrant", snapshot_copy_grant_name="my-grant")
-        test_cluster = aws.redshift.Cluster("testCluster", snapshot_copy=aws.redshift.ClusterSnapshotCopyArgs(
-            destination_region="us-east-2",
-            grant_name=test_snapshot_copy_grant.snapshot_copy_grant_name,
-        ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
@@ -243,6 +263,10 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnapshotCopyGrantArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

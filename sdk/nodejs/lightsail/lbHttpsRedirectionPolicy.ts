@@ -7,33 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testLb = new aws.lightsail.Lb("testLb", {
- *     healthCheckPath: "/",
- *     instancePort: 80,
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * const testLbCertificate = new aws.lightsail.LbCertificate("testLbCertificate", {
- *     lbName: testLb.id,
- *     domainName: "test.com",
- * });
- * const testLbCertificateAttachment = new aws.lightsail.LbCertificateAttachment("testLbCertificateAttachment", {
- *     lbName: testLb.name,
- *     certificateName: testLbCertificate.name,
- * });
- * const testLbHttpsRedirectionPolicy = new aws.lightsail.LbHttpsRedirectionPolicy("testLbHttpsRedirectionPolicy", {
- *     lbName: testLb.name,
- *     enabled: true,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:

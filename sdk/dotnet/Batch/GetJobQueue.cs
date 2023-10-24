@@ -14,28 +14,6 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// The Batch Job Queue data source allows access to details of a specific
         /// job queue within AWS Batch.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test_queue = Aws.Batch.GetJobQueue.Invoke(new()
-        ///     {
-        ///         Name = "tf-test-batch-job-queue",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetJobQueueResult> InvokeAsync(GetJobQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? new GetJobQueueArgs(), options.WithDefaults());
@@ -43,28 +21,6 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// The Batch Job Queue data source allows access to details of a specific
         /// job queue within AWS Batch.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test_queue = Aws.Batch.GetJobQueue.Invoke(new()
-        ///     {
-        ///         Name = "tf-test-batch-job-queue",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetJobQueueResult> Invoke(GetJobQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? new GetJobQueueInvokeArgs(), options.WithDefaults());

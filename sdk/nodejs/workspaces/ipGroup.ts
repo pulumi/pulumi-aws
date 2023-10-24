@@ -10,31 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an IP access control group in AWS WorkSpaces Service
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const contractors = new aws.workspaces.IpGroup("contractors", {
- *     description: "Contractors IP access control group",
- *     rules: [
- *         {
- *             description: "NY",
- *             source: "150.24.14.0/24",
- *         },
- *         {
- *             description: "LA",
- *             source: "125.191.14.85/32",
- *         },
- *         {
- *             description: "STL",
- *             source: "44.98.100.0/24",
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:

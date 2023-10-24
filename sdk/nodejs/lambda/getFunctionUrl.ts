@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Lambda function URL.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const functionName = config.require("functionName");
- * const existing = aws.lambda.getFunctionUrl({
- *     functionName: functionName,
- * });
- * ```
  */
 export function getFunctionUrl(args: GetFunctionUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionUrlResult> {
 
@@ -91,19 +78,6 @@ export interface GetFunctionUrlResult {
 }
 /**
  * Provides information about a Lambda function URL.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const functionName = config.require("functionName");
- * const existing = aws.lambda.getFunctionUrl({
- *     functionName: functionName,
- * });
- * ```
  */
 export function getFunctionUrlOutput(args: GetFunctionUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionUrlResult> {
     return pulumi.output(args).apply((a: any) => getFunctionUrl(a, opts))

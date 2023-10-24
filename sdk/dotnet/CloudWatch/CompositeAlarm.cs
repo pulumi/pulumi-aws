@@ -14,36 +14,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// &gt; **NOTE:** An alarm (composite or metric) cannot be destroyed when there are other composite alarms depending on it. This can lead to a cyclical dependency on update, as the provider will unsuccessfully attempt to destroy alarms before updating the rule. Consider using `depends_on`, references to alarm names, and two-stage updates.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudWatch.CompositeAlarm("example", new()
-    ///     {
-    ///         AlarmDescription = "This is a composite alarm!",
-    ///         AlarmName = "example-composite-alarm",
-    ///         AlarmActions = aws_sns_topic.Example.Arn,
-    ///         OkActions = aws_sns_topic.Example.Arn,
-    ///         AlarmRule = @$"ALARM({aws_cloudwatch_metric_alarm.Alpha.Alarm_name}) OR
-    /// ALARM({aws_cloudwatch_metric_alarm.Bravo.Alarm_name})
-    /// ",
-    ///         ActionsSuppressor = new Aws.CloudWatch.Inputs.CompositeAlarmActionsSuppressorArgs
-    ///         {
-    ///             Alarm = "suppressor-alarm",
-    ///             ExtensionPeriod = 10,
-    ///             WaitPeriod = 20,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:

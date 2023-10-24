@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Provides an AWS Backup vault resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Backup.Vault("example", new()
-    ///     {
-    ///         KmsKeyArn = aws_kms_key.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup vault using the `name`. For example:

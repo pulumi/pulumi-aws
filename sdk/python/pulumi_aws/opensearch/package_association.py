@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PackageAssociationArgs', 'PackageAssociation']
@@ -21,8 +21,29 @@ class PackageAssociationArgs:
         :param pulumi.Input[str] domain_name: Name of the domain to associate the package with.
         :param pulumi.Input[str] package_id: Internal ID of the package to associate with a domain.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "package_id", package_id)
+        PackageAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            package_id=package_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             package_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if package_id is None and 'packageId' in kwargs:
+            package_id = kwargs['packageId']
+        if package_id is None:
+            raise TypeError("Missing 'package_id' argument")
+
+        _setter("domain_name", domain_name)
+        _setter("package_id", package_id)
 
     @property
     @pulumi.getter(name="domainName")
@@ -60,12 +81,33 @@ class _PackageAssociationState:
         :param pulumi.Input[str] domain_name: Name of the domain to associate the package with.
         :param pulumi.Input[str] package_id: Internal ID of the package to associate with a domain.
         """
+        _PackageAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            package_id=package_id,
+            reference_path=reference_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             package_id: Optional[pulumi.Input[str]] = None,
+             reference_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if package_id is None and 'packageId' in kwargs:
+            package_id = kwargs['packageId']
+        if reference_path is None and 'referencePath' in kwargs:
+            reference_path = kwargs['referencePath']
+
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if package_id is not None:
-            pulumi.set(__self__, "package_id", package_id)
+            _setter("package_id", package_id)
         if reference_path is not None:
-            pulumi.set(__self__, "reference_path", reference_path)
+            _setter("reference_path", reference_path)
 
     @property
     @pulumi.getter(name="domainName")
@@ -113,28 +155,6 @@ class PackageAssociation(pulumi.CustomResource):
         Manages an AWS Opensearch Package Association.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_domain = aws.opensearch.Domain("myDomain",
-            engine_version="Elasticsearch_7.10",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r4.large.search",
-            ))
-        example_package = aws.opensearch.Package("examplePackage",
-            package_name="example-txt",
-            package_source=aws.opensearch.PackagePackageSourceArgs(
-                s3_bucket_name=aws_s3_bucket["my_opensearch_packages"]["bucket"],
-                s3_key=aws_s3_object["example"]["key"],
-            ),
-            package_type="TXT-DICTIONARY")
-        example_package_association = aws.opensearch.PackageAssociation("examplePackageAssociation",
-            package_id=example_package.id,
-            domain_name=my_domain.domain_name)
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,28 +171,6 @@ class PackageAssociation(pulumi.CustomResource):
         Manages an AWS Opensearch Package Association.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_domain = aws.opensearch.Domain("myDomain",
-            engine_version="Elasticsearch_7.10",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r4.large.search",
-            ))
-        example_package = aws.opensearch.Package("examplePackage",
-            package_name="example-txt",
-            package_source=aws.opensearch.PackagePackageSourceArgs(
-                s3_bucket_name=aws_s3_bucket["my_opensearch_packages"]["bucket"],
-                s3_key=aws_s3_object["example"]["key"],
-            ),
-            package_type="TXT-DICTIONARY")
-        example_package_association = aws.opensearch.PackageAssociation("examplePackageAssociation",
-            package_id=example_package.id,
-            domain_name=my_domain.domain_name)
-        ```
 
         :param str resource_name: The name of the resource.
         :param PackageAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -184,6 +182,10 @@ class PackageAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PackageAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

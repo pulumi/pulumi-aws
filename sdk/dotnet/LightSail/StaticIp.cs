@@ -13,21 +13,6 @@ namespace Pulumi.Aws.LightSail
     /// Allocates a static IP address.
     /// 
     /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.LightSail.StaticIp("test");
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/staticIp:StaticIp")]
     public partial class StaticIp : global::Pulumi.CustomResource

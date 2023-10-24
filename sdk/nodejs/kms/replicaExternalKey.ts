@@ -8,31 +8,6 @@ import * as utilities from "../utilities";
  * Manages a KMS multi-Region replica key that uses external key material.
  * See the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html) for more information on importing key material into multi-Region keys.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primary = new aws.Provider("primary", {region: "us-east-1"});
- * const primaryExternalKey = new aws.kms.ExternalKey("primaryExternalKey", {
- *     description: "Multi-Region primary key",
- *     deletionWindowInDays: 30,
- *     multiRegion: true,
- *     enabled: true,
- *     keyMaterialBase64: "...",
- * }, {
- *     provider: aws.primary,
- * });
- * const replica = new aws.kms.ReplicaExternalKey("replica", {
- *     description: "Multi-Region replica key",
- *     deletionWindowInDays: 7,
- *     primaryKeyArn: aws_kms_external.primary.arn,
- *     keyMaterialBase64: "...",
- * });
- * // Must be the same key material as the primary's.
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:

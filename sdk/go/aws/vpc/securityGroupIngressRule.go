@@ -22,36 +22,6 @@ import (
 // The `vpc.SecurityGroupIngressRule` resource has been added to address these limitations and should be used for all new security group rules.
 // You should not use the `vpc.SecurityGroupIngressRule` resource in conjunction with an `ec2.SecurityGroup` resource with in-line rules or with `ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpc.NewSecurityGroupIngressRule(ctx, "example", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: pulumi.Any(aws_security_group.Example.Id),
-//				CidrIpv4:        pulumi.String("10.0.0.0/8"),
-//				FromPort:        pulumi.Int(80),
-//				IpProtocol:      pulumi.String("tcp"),
-//				ToPort:          pulumi.Int(80),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For example:

@@ -11,18 +11,6 @@ import * as utilities from "../utilities";
  * or with the parameter `policy` in this resource.
  * Configuring with both will cause inconsistencies and may overwrite configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const key = new aws.kms.Key("key", {
- *     deletionWindowInDays: 10,
- *     description: "KMS key 1",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import KMS Keys using the `id`. For example:

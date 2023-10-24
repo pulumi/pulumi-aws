@@ -13,23 +13,6 @@ namespace Pulumi.Aws.Inspector2
     /// Resource for associating accounts to existing Inspector instances.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Inspector2.MemberAssociation("example", new()
-    ///     {
-    ///         AccountId = "123456789012",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

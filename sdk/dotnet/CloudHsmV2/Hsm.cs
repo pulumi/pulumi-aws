@@ -12,32 +12,6 @@ namespace Pulumi.Aws.CloudHsmV2
     /// <summary>
     /// Creates an HSM module in Amazon CloudHSM v2 cluster.
     /// 
-    /// ## Example Usage
-    /// 
-    /// The following example below creates an HSM module in CloudHSM cluster.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cluster = Aws.CloudHsmV2.GetCluster.Invoke(new()
-    ///     {
-    ///         ClusterId = @var.Cloudhsm_cluster_id,
-    ///     });
-    /// 
-    ///     var cloudhsmV2Hsm = new Aws.CloudHsmV2.Hsm("cloudhsmV2Hsm", new()
-    ///     {
-    ///         SubnetId = cluster.Apply(getClusterResult =&gt; getClusterResult.SubnetIds[0]),
-    ///         ClusterId = cluster.Apply(getClusterResult =&gt; getClusterResult.ClusterId),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import HSM modules using their HSM ID. For example:

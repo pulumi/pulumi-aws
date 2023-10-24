@@ -15,57 +15,6 @@ namespace Pulumi.Aws.Inspector2
     /// This resource must be created in the Organization's Administrator Account.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Inspector2.Enabler("example", new()
-    ///     {
-    ///         AccountIds = new[]
-    ///         {
-    ///             "123456789012",
-    ///         },
-    ///         ResourceTypes = new[]
-    ///         {
-    ///             "EC2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### For the Calling Account
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var test = new Aws.Inspector2.Enabler("test", new()
-    ///     {
-    ///         AccountIds = new[]
-    ///         {
-    ///             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///         },
-    ///         ResourceTypes = new[]
-    ///         {
-    ///             "ECR",
-    ///             "EC2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:inspector2/enabler:Enabler")]
     public partial class Enabler : global::Pulumi.CustomResource

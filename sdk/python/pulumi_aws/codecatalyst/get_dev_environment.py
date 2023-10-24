@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -214,16 +214,6 @@ def get_dev_environment(alias: Optional[str] = None,
     Data source for managing an AWS CodeCatalyst Dev Environment.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codecatalyst.get_dev_environment(space_name="myspace",
-        project_name="myproject",
-        env_id=aws_codecatalyst_dev_environment["example"]["id"])
-    ```
 
 
     :param str alias: The user-specified alias for the Dev Environment.
@@ -275,16 +265,6 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[str]]] = No
     Data source for managing an AWS CodeCatalyst Dev Environment.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codecatalyst.get_dev_environment(space_name="myspace",
-        project_name="myproject",
-        env_id=aws_codecatalyst_dev_environment["example"]["id"])
-    ```
 
 
     :param str alias: The user-specified alias for the Dev Environment.

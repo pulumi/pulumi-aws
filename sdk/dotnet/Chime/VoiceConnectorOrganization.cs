@@ -12,49 +12,6 @@ namespace Pulumi.Aws.Chime
     /// <summary>
     /// Enable origination settings to control inbound calling to your SIP infrastructure.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
-    ///     {
-    ///         RequireEncryption = true,
-    ///     });
-    /// 
-    ///     var defaultVoiceConnectorOrganization = new Aws.Chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization", new()
-    ///     {
-    ///         Disabled = false,
-    ///         VoiceConnectorId = defaultVoiceConnector.Id,
-    ///         Routes = new[]
-    ///         {
-    ///             new Aws.Chime.Inputs.VoiceConnectorOrganizationRouteArgs
-    ///             {
-    ///                 Host = "127.0.0.1",
-    ///                 Port = 8081,
-    ///                 Protocol = "TCP",
-    ///                 Priority = 1,
-    ///                 Weight = 1,
-    ///             },
-    ///             new Aws.Chime.Inputs.VoiceConnectorOrganizationRouteArgs
-    ///             {
-    ///                 Host = "127.0.0.2",
-    ///                 Port = 8082,
-    ///                 Protocol = "TCP",
-    ///                 Priority = 2,
-    ///                 Weight = 10,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For example:

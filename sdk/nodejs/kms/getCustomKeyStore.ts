@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Use this data source to get the metadata KMS custom key store.
  * By using this data source, you can reference KMS custom key store
  * without having to hard code the ID as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const keystore = aws.kms.getCustomKeyStore({
- *     customKeyStoreName: "my_cloudhsm",
- * });
- * ```
  */
 export function getCustomKeyStore(args?: GetCustomKeyStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomKeyStoreResult> {
     args = args || {};
@@ -72,17 +61,6 @@ export interface GetCustomKeyStoreResult {
  * Use this data source to get the metadata KMS custom key store.
  * By using this data source, you can reference KMS custom key store
  * without having to hard code the ID as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const keystore = aws.kms.getCustomKeyStore({
- *     customKeyStoreName: "my_cloudhsm",
- * });
- * ```
  */
 export function getCustomKeyStoreOutput(args?: GetCustomKeyStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomKeyStoreResult> {
     return pulumi.output(args).apply((a: any) => getCustomKeyStore(a, opts))

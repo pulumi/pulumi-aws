@@ -13,40 +13,6 @@ namespace Pulumi.Aws.MskConnect
     /// Provides an Amazon MSK Connect Custom Plugin Resource.
     /// 
     /// ## Example Usage
-    /// ### Basic configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("exampleBucketObjectv2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Key = "debezium.zip",
-    ///         Source = new FileAsset("debezium.zip"),
-    ///     });
-    /// 
-    ///     var exampleCustomPlugin = new Aws.MskConnect.CustomPlugin("exampleCustomPlugin", new()
-    ///     {
-    ///         ContentType = "ZIP",
-    ///         Location = new Aws.MskConnect.Inputs.CustomPluginLocationArgs
-    ///         {
-    ///             S3 = new Aws.MskConnect.Inputs.CustomPluginLocationS3Args
-    ///             {
-    ///                 BucketArn = exampleBucketV2.Arn,
-    ///                 FileKey = exampleBucketObjectv2.Key,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

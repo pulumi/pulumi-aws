@@ -9,38 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iot.IndexingConfiguration("example", {thingIndexingConfiguration: {
- *     customFields: [
- *         {
- *             name: "shadow.desired.power",
- *             type: "Boolean",
- *         },
- *         {
- *             name: "attributes.version",
- *             type: "Number",
- *         },
- *         {
- *             name: "shadow.name.thing1shadow.desired.DefaultDesired",
- *             type: "String",
- *         },
- *         {
- *             name: "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
- *             type: "Number",
- *         },
- *     ],
- *     deviceDefenderIndexingMode: "VIOLATIONS",
- *     namedShadowIndexingMode: "ON",
- *     thingConnectivityIndexingMode: "STATUS",
- *     thingIndexingMode: "REGISTRY_AND_SHADOW",
- * }});
- * ```
  */
 export class IndexingConfiguration extends pulumi.CustomResource {
     /**

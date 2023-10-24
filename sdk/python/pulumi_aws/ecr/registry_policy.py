@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RegistryPolicyArgs', 'RegistryPolicy']
@@ -19,7 +19,20 @@ class RegistryPolicyArgs:
         The set of arguments for constructing a RegistryPolicy resource.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         """
-        pulumi.set(__self__, "policy", policy)
+        RegistryPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+
+        _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -44,10 +57,25 @@ class _RegistryPolicyState:
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] registry_id: The registry ID where the registry was created.
         """
+        _RegistryPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            registry_id=registry_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             registry_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_id is None and 'registryId' in kwargs:
+            registry_id = kwargs['registryId']
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if registry_id is not None:
-            pulumi.set(__self__, "registry_id", registry_id)
+            _setter("registry_id", registry_id)
 
     @property
     @pulumi.getter
@@ -84,30 +112,6 @@ class RegistryPolicy(pulumi.CustomResource):
         """
         Provides an Elastic Container Registry Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        current_partition = aws.get_partition()
-        example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Sid": "testpolicy",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
-                },
-                "Action": ["ecr:ReplicateImage"],
-                "Resource": [f"arn:{current_partition.partition}:ecr:{current_region.name}:{current_caller_identity.account_id}:repository/*"],
-            }],
-        }))
-        ```
-
         ## Import
 
         Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
@@ -129,30 +133,6 @@ class RegistryPolicy(pulumi.CustomResource):
         """
         Provides an Elastic Container Registry Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_region = aws.get_region()
-        current_partition = aws.get_partition()
-        example = aws.ecr.RegistryPolicy("example", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Sid": "testpolicy",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
-                },
-                "Action": ["ecr:ReplicateImage"],
-                "Resource": [f"arn:{current_partition.partition}:ecr:{current_region.name}:{current_caller_identity.account_id}:repository/*"],
-            }],
-        }))
-        ```
-
         ## Import
 
         Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
@@ -171,6 +151,10 @@ class RegistryPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

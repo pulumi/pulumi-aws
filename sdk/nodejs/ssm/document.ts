@@ -14,57 +14,6 @@ import * as utilities from "../utilities";
  * or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older schema version you must recreate the resource. Not all document types support a schema version of 2.0 or greater. Refer to [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) for information about which schema versions are supported for the respective `documentType`.
  *
  * ## Example Usage
- * ### Create an ssm document in JSON format
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ssm.Document("foo", {
- *     content: `  {
- *     "schemaVersion": "1.2",
- *     "description": "Check ip configuration of a Linux instance.",
- *     "parameters": {
- *
- *     },
- *     "runtimeConfig": {
- *       "aws:runShellScript": {
- *         "properties": [
- *           {
- *             "id": "0.aws:runShellScript",
- *             "runCommand": ["ifconfig"]
- *           }
- *         ]
- *       }
- *     }
- *   }
- *
- * `,
- *     documentType: "Command",
- * });
- * ```
- * ### Create an ssm document in YAML format
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ssm.Document("foo", {
- *     content: `schemaVersion: '1.2'
- * description: Check ip configuration of a Linux instance.
- * parameters: {}
- * runtimeConfig:
- *   'aws:runShellScript':
- *     properties:
- *       - id: '0.aws:runShellScript'
- *         runCommand:
- *           - ifconfig
- *
- * `,
- *     documentFormat: "YAML",
- *     documentType: "Command",
- * });
- * ```
  * ## Permissions
  *
  * The permissions attribute specifies how you want to share the document. If you share a document privately,

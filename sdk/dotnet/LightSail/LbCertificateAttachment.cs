@@ -12,41 +12,6 @@ namespace Pulumi.Aws.LightSail
     /// <summary>
     /// Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testLb = new Aws.LightSail.Lb("testLb", new()
-    ///     {
-    ///         HealthCheckPath = "/",
-    ///         InstancePort = 80,
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testLbCertificate = new Aws.LightSail.LbCertificate("testLbCertificate", new()
-    ///     {
-    ///         LbName = testLb.Id,
-    ///         DomainName = "test.com",
-    ///     });
-    /// 
-    ///     var testLbCertificateAttachment = new Aws.LightSail.LbCertificateAttachment("testLbCertificateAttachment", new()
-    ///     {
-    ///         LbName = testLb.Name,
-    ///         CertificateName = testLbCertificate.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:

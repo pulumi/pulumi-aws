@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS QuickSight Template Alias.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.TemplateAlias("example", {
- *     aliasName: "example-alias",
- *     templateId: aws_quicksight_template.test.template_id,
- *     templateVersionNumber: aws_quicksight_template.test.version_number,
- * });
- * ```
  *
  * ## Import
  *

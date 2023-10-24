@@ -11,21 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS QuickSight IAM Policy Assignment.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.IamPolicyAssignment("example", {
- *     assignmentName: "example",
- *     assignmentStatus: "ENABLED",
- *     policyArn: aws_iam_policy.example.arn,
- *     identities: {
- *         users: [aws_quicksight_user.example.user_name],
- *     },
- * });
- * ```
  *
  * ## Import
  *

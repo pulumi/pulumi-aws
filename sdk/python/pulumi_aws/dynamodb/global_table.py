@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,24 @@ class GlobalTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         :param pulumi.Input[str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         """
-        pulumi.set(__self__, "replicas", replicas)
+        GlobalTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            replicas=replicas,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if replicas is None:
+            raise TypeError("Missing 'replicas' argument")
+
+        _setter("replicas", replicas)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -64,12 +79,27 @@ class _GlobalTableState:
         :param pulumi.Input[str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """
+        _GlobalTableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            name=name,
+            replicas=replicas,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
+            _setter("replicas", replicas)
 
     @property
     @pulumi.getter
@@ -123,51 +153,6 @@ class GlobalTable(pulumi.CustomResource):
 
         > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        us_east_1 = aws.Provider("us-east-1", region="us-east-1")
-        us_west_2 = aws.Provider("us-west-2", region="us-west-2")
-        us_east_1_table = aws.dynamodb.Table("us-east-1Table",
-            hash_key="myAttribute",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
-            read_capacity=1,
-            write_capacity=1,
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="myAttribute",
-                type="S",
-            )],
-            opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
-        us_west_2_table = aws.dynamodb.Table("us-west-2Table",
-            hash_key="myAttribute",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
-            read_capacity=1,
-            write_capacity=1,
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="myAttribute",
-                type="S",
-            )],
-            opts=pulumi.ResourceOptions(provider=aws["us-west-2"]))
-        my_table = aws.dynamodb.GlobalTable("myTable", replicas=[
-            aws.dynamodb.GlobalTableReplicaArgs(
-                region_name="us-east-1",
-            ),
-            aws.dynamodb.GlobalTableReplicaArgs(
-                region_name="us-west-2",
-            ),
-        ],
-        opts=pulumi.ResourceOptions(provider=aws["us-east-1"],
-            depends_on=[
-                us_east_1_table,
-                us_west_2_table,
-            ]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
@@ -194,51 +179,6 @@ class GlobalTable(pulumi.CustomResource):
 
         > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        us_east_1 = aws.Provider("us-east-1", region="us-east-1")
-        us_west_2 = aws.Provider("us-west-2", region="us-west-2")
-        us_east_1_table = aws.dynamodb.Table("us-east-1Table",
-            hash_key="myAttribute",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
-            read_capacity=1,
-            write_capacity=1,
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="myAttribute",
-                type="S",
-            )],
-            opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
-        us_west_2_table = aws.dynamodb.Table("us-west-2Table",
-            hash_key="myAttribute",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
-            read_capacity=1,
-            write_capacity=1,
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="myAttribute",
-                type="S",
-            )],
-            opts=pulumi.ResourceOptions(provider=aws["us-west-2"]))
-        my_table = aws.dynamodb.GlobalTable("myTable", replicas=[
-            aws.dynamodb.GlobalTableReplicaArgs(
-                region_name="us-east-1",
-            ),
-            aws.dynamodb.GlobalTableReplicaArgs(
-                region_name="us-west-2",
-            ),
-        ],
-        opts=pulumi.ResourceOptions(provider=aws["us-east-1"],
-            depends_on=[
-                us_east_1_table,
-                us_west_2_table,
-            ]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
@@ -257,6 +197,10 @@ class GlobalTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GlobalTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

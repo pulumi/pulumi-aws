@@ -16,25 +16,6 @@ namespace Pulumi.Aws.Kms
     /// or with the parameter `policy` in this resource.
     /// Configuring with both will cause inconsistencies and may overwrite configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var key = new Aws.Kms.Key("key", new()
-    ///     {
-    ///         DeletionWindowInDays = 10,
-    ///         Description = "KMS key 1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS Keys using the `id`. For example:

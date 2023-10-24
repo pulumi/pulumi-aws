@@ -11,24 +11,6 @@ import * as utilities from "../utilities";
  * Use the `awsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kendra.QuerySuggestionsBlockList("example", {
- *     indexId: aws_kendra_index.example.id,
- *     roleArn: aws_iam_role.example.arn,
- *     sourceS3Path: {
- *         bucket: aws_s3_bucket.example.id,
- *         key: "example/suggestions.txt",
- *     },
- *     tags: {
- *         Name: "Example Kendra Index",
- *     },
- * });
- * ```
  *
  * ## Import
  *

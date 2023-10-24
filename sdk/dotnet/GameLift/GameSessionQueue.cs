@@ -12,42 +12,6 @@ namespace Pulumi.Aws.GameLift
     /// <summary>
     /// Provides an GameLift Game Session Queue resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.GameLift.GameSessionQueue("test", new()
-    ///     {
-    ///         Destinations = new[]
-    ///         {
-    ///             aws_gamelift_fleet.Us_west_2_fleet.Arn,
-    ///             aws_gamelift_fleet.Eu_central_1_fleet.Arn,
-    ///         },
-    ///         NotificationTarget = aws_sns_topic.Game_session_queue_notifications.Arn,
-    ///         PlayerLatencyPolicies = new[]
-    ///         {
-    ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
-    ///             {
-    ///                 MaximumIndividualPlayerLatencyMilliseconds = 100,
-    ///                 PolicyDurationSeconds = 5,
-    ///             },
-    ///             new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
-    ///             {
-    ///                 MaximumIndividualPlayerLatencyMilliseconds = 200,
-    ///             },
-    ///         },
-    ///         TimeoutInSeconds = 60,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:

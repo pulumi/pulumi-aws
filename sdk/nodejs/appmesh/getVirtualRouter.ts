@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.appmesh.getVirtualRouter({
- *     meshName: "example-mesh-name",
- *     name: "example-router-name",
- * });
- * ```
  */
 export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterResult> {
 
@@ -90,18 +78,6 @@ export interface GetVirtualRouterResult {
 }
 /**
  * The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.appmesh.getVirtualRouter({
- *     meshName: "example-mesh-name",
- *     name: "example-router-name",
- * });
- * ```
  */
 export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterResult> {
     return pulumi.output(args).apply((a: any) => getVirtualRouter(a, opts))

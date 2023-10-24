@@ -11,57 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
  *
  * ## Example Usage
- * ### Basic Usage - Logging to CloudWatch
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", {destinationConfiguration: {
- *     cloudwatchLogs: {
- *         logGroupName: exampleLogGroup.name,
- *     },
- * }});
- * ```
- * ### Basic Usage - Logging to Kinesis Firehose with Extended S3
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucketPrefix: "tf-ivschat-logging-bucket"});
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["firehose.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", {
- *     destination: "extended_s3",
- *     extendedS3Configuration: {
- *         roleArn: exampleRole.arn,
- *         bucketArn: exampleBucketV2.arn,
- *     },
- *     tags: {
- *         LogDeliveryEnabled: "true",
- *     },
- * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     acl: "private",
- * });
- * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", {destinationConfiguration: {
- *     firehose: {
- *         deliveryStreamName: exampleFirehoseDeliveryStream.name,
- *     },
- * }});
- * ```
  *
  * ## Import
  *

@@ -14,68 +14,6 @@ import * as utilities from "../utilities";
  * Once the second Trust is created, the first will update to the correct state.
  *
  * ## Example Usage
- * ### Two-Way Trust
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const oneDirectory = new aws.directoryservice.Directory("oneDirectory", {
- *     name: "one.example.com",
- *     type: "MicrosoftAD",
- * });
- * // ...
- * const twoDirectory = new aws.directoryservice.Directory("twoDirectory", {
- *     name: "two.example.com",
- *     type: "MicrosoftAD",
- * });
- * // ...
- * const oneTrust = new aws.directoryservice.Trust("oneTrust", {
- *     directoryId: oneDirectory.id,
- *     remoteDomainName: twoDirectory.name,
- *     trustDirection: "Two-Way",
- *     trustPassword: "Some0therPassword",
- *     conditionalForwarderIpAddrs: twoDirectory.dnsIpAddresses,
- * });
- * const twoTrust = new aws.directoryservice.Trust("twoTrust", {
- *     directoryId: twoDirectory.id,
- *     remoteDomainName: oneDirectory.name,
- *     trustDirection: "Two-Way",
- *     trustPassword: "Some0therPassword",
- *     conditionalForwarderIpAddrs: oneDirectory.dnsIpAddresses,
- * });
- * ```
- * ### One-Way Trust
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const oneDirectory = new aws.directoryservice.Directory("oneDirectory", {
- *     name: "one.example.com",
- *     type: "MicrosoftAD",
- * });
- * // ...
- * const twoDirectory = new aws.directoryservice.Directory("twoDirectory", {
- *     name: "two.example.com",
- *     type: "MicrosoftAD",
- * });
- * // ...
- * const oneTrust = new aws.directoryservice.Trust("oneTrust", {
- *     directoryId: oneDirectory.id,
- *     remoteDomainName: twoDirectory.name,
- *     trustDirection: "One-Way: Incoming",
- *     trustPassword: "Some0therPassword",
- *     conditionalForwarderIpAddrs: twoDirectory.dnsIpAddresses,
- * });
- * const twoTrust = new aws.directoryservice.Trust("twoTrust", {
- *     directoryId: twoDirectory.id,
- *     remoteDomainName: oneDirectory.name,
- *     trustDirection: "One-Way: Outgoing",
- *     trustPassword: "Some0therPassword",
- *     conditionalForwarderIpAddrs: oneDirectory.dnsIpAddresses,
- * });
- * ```
  *
  * ## Import
  *

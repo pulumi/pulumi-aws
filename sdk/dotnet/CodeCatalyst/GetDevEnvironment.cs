@@ -16,27 +16,6 @@ namespace Pulumi.Aws.CodeCatalyst
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeCatalyst.GetDevEnvironment.Invoke(new()
-        ///     {
-        ///         SpaceName = "myspace",
-        ///         ProjectName = "myproject",
-        ///         EnvId = aws_codecatalyst_dev_environment.Example.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDevEnvironmentResult> InvokeAsync(GetDevEnvironmentArgs args, InvokeOptions? options = null)
@@ -47,27 +26,6 @@ namespace Pulumi.Aws.CodeCatalyst
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeCatalyst.GetDevEnvironment.Invoke(new()
-        ///     {
-        ///         SpaceName = "myspace",
-        ///         ProjectName = "myproject",
-        ///         EnvId = aws_codecatalyst_dev_environment.Example.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDevEnvironmentResult> Invoke(GetDevEnvironmentInvokeArgs args, InvokeOptions? options = null)

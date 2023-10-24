@@ -10,25 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a GameLift Fleet resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.gamelift.Fleet("example", {
- *     buildId: aws_gamelift_build.example.id,
- *     ec2InstanceType: "t2.micro",
- *     fleetType: "ON_DEMAND",
- *     runtimeConfiguration: {
- *         serverProcesses: [{
- *             concurrentExecutions: 1,
- *             launchPath: "C:\\game\\GomokuServer.exe",
- *         }],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import GameLift Fleets using the ID. For example:

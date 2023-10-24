@@ -16,45 +16,6 @@ import (
 // Resource for managing an AWS RBin Rule.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rbin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rbin.NewRule(ctx, "example", &rbin.RuleArgs{
-//				Description: pulumi.String("example_rule"),
-//				ResourceTags: rbin.RuleResourceTagArray{
-//					&rbin.RuleResourceTagArgs{
-//						ResourceTagKey:   pulumi.String("tag_key"),
-//						ResourceTagValue: pulumi.String("tag_value"),
-//					},
-//				},
-//				ResourceType: pulumi.String("EBS_SNAPSHOT"),
-//				RetentionPeriod: &rbin.RuleRetentionPeriodArgs{
-//					RetentionPeriodUnit:  pulumi.String("DAYS"),
-//					RetentionPeriodValue: pulumi.Int(10),
-//				},
-//				Tags: pulumi.StringMap{
-//					"test_tag_key": pulumi.String("test_tag_value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

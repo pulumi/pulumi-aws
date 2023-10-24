@@ -19,43 +19,6 @@ namespace Pulumi.Aws.DocDB
     /// Cluster, or you may specify different Cluster Instance resources with various
     /// `instance_class` sizes.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.DocDB.Cluster("default", new()
-    ///     {
-    ///         ClusterIdentifier = "docdb-cluster-demo",
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-west-2a",
-    ///             "us-west-2b",
-    ///             "us-west-2c",
-    ///         },
-    ///         MasterUsername = "foo",
-    ///         MasterPassword = "barbut8chars",
-    ///     });
-    /// 
-    ///     var clusterInstances = new List&lt;Aws.DocDB.ClusterInstance&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
-    ///     {
-    ///         var range = new { Value = rangeIndex };
-    ///         clusterInstances.Add(new Aws.DocDB.ClusterInstance($"clusterInstances-{range.Value}", new()
-    ///         {
-    ///             Identifier = $"docdb-cluster-demo-{range.Value}",
-    ///             ClusterIdentifier = @default.Id,
-    ///             InstanceClass = "db.r5.large",
-    ///         }));
-    ///     }
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For example:

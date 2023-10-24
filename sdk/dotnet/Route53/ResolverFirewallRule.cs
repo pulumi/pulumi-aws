@@ -12,45 +12,6 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Provides a Route 53 Resolver DNS Firewall rule resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResolverFirewallDomainList = new Aws.Route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList", new()
-    ///     {
-    ///         Domains = new[]
-    ///         {
-    ///             "example.com",
-    ///         },
-    ///         Tags = null,
-    ///     });
-    /// 
-    ///     var exampleResolverFirewallRuleGroup = new Aws.Route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", new()
-    ///     {
-    ///         Tags = null,
-    ///     });
-    /// 
-    ///     var exampleResolverFirewallRule = new Aws.Route53.ResolverFirewallRule("exampleResolverFirewallRule", new()
-    ///     {
-    ///         Action = "BLOCK",
-    ///         BlockOverrideDnsType = "CNAME",
-    ///         BlockOverrideDomain = "example.com",
-    ///         BlockOverrideTtl = 1,
-    ///         BlockResponse = "OVERRIDE",
-    ///         FirewallDomainListId = exampleResolverFirewallDomainList.Id,
-    ///         FirewallRuleGroupId = exampleResolverFirewallRuleGroup.Id,
-    ///         Priority = 100,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import

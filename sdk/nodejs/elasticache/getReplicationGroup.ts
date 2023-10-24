@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an ElastiCache Replication Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bar = aws.elasticache.getReplicationGroup({
- *     replicationGroupId: "example",
- * });
- * ```
  */
 export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
 
@@ -119,17 +108,6 @@ export interface GetReplicationGroupResult {
 }
 /**
  * Use this data source to get information about an ElastiCache Replication Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bar = aws.elasticache.getReplicationGroup({
- *     replicationGroupId: "example",
- * });
- * ```
  */
 export function getReplicationGroupOutput(args: GetReplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationGroupResult> {
     return pulumi.output(args).apply((a: any) => getReplicationGroup(a, opts))

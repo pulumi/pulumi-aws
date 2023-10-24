@@ -16,49 +16,6 @@ import (
 // Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
 //
 // ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"$schema": "http://json-schema.org/draft-04/schema#",
-//				"title":   "ExampleModel",
-//				"type":    "object",
-//				"properties": map[string]interface{}{
-//					"id": map[string]interface{}{
-//						"type": "string",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = apigatewayv2.NewModel(ctx, "example", &apigatewayv2.ModelArgs{
-//				ApiId:       pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				ContentType: pulumi.String("application/json"),
-//				Schema:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

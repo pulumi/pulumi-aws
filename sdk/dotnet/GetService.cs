@@ -16,66 +16,6 @@ namespace Pulumi.Aws
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Get Service DNS Name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetRegion.Invoke();
-        /// 
-        ///     var test = Aws.GetService.Invoke(new()
-        ///     {
-        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
-        ///         ServiceId = "ec2",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Use Service Reverse DNS Name to Get Components
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var s3 = Aws.GetService.Invoke(new()
-        ///     {
-        ///         ReverseDnsName = "cn.com.amazonaws.cn-north-1.s3",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Determine Regional Support for a Service
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var s3 = Aws.GetService.Invoke(new()
-        ///     {
-        ///         ReverseDnsName = "com.amazonaws.us-gov-west-1.waf",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs? args = null, InvokeOptions? options = null)
@@ -86,66 +26,6 @@ namespace Pulumi.Aws
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Get Service DNS Name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetRegion.Invoke();
-        /// 
-        ///     var test = Aws.GetService.Invoke(new()
-        ///     {
-        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
-        ///         ServiceId = "ec2",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Use Service Reverse DNS Name to Get Components
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var s3 = Aws.GetService.Invoke(new()
-        ///     {
-        ///         ReverseDnsName = "cn.com.amazonaws.cn-north-1.s3",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Determine Regional Support for a Service
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var s3 = Aws.GetService.Invoke(new()
-        ///     {
-        ///         ReverseDnsName = "com.amazonaws.us-gov-west-1.waf",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs? args = null, InvokeOptions? options = null)

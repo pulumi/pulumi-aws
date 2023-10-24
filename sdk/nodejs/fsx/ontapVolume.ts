@@ -12,38 +12,6 @@ import * as utilities from "../utilities";
  * See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.fsx.OntapVolume("test", {
- *     junctionPath: "/test",
- *     sizeInMegabytes: 1024,
- *     storageEfficiencyEnabled: true,
- *     storageVirtualMachineId: aws_fsx_ontap_storage_virtual_machine.test.id,
- * });
- * ```
- * ### Using Tiering Policy
- *
- * Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.fsx.OntapVolume("test", {
- *     junctionPath: "/test",
- *     sizeInMegabytes: 1024,
- *     storageEfficiencyEnabled: true,
- *     storageVirtualMachineId: aws_fsx_ontap_storage_virtual_machine.test.id,
- *     tieringPolicy: {
- *         name: "AUTO",
- *         coolingPeriod: 31,
- *     },
- * });
- * ```
  *
  * ## Import
  *

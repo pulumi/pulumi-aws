@@ -8,14 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing a Verified Access Group.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedaccess.Group("example", {verifiedaccessInstanceId: aws_verifiedaccess_instance.example.id});
- * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

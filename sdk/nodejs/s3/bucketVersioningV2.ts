@@ -17,67 +17,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** If you are enabling versioning on the bucket for the first time, AWS recommends that you wait for 15 minutes after enabling versioning before issuing write operations (PUT or DELETE) on objects in the bucket.
  *
  * ## Example Usage
- * ### With Versioning Enabled
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     acl: "private",
- * });
- * const versioningExample = new aws.s3.BucketVersioningV2("versioningExample", {
- *     bucket: exampleBucketV2.id,
- *     versioningConfiguration: {
- *         status: "Enabled",
- *     },
- * });
- * ```
- * ### With Versioning Disabled
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     acl: "private",
- * });
- * const versioningExample = new aws.s3.BucketVersioningV2("versioningExample", {
- *     bucket: exampleBucketV2.id,
- *     versioningConfiguration: {
- *         status: "Disabled",
- *     },
- * });
- * ```
- * ### Object Dependency On Versioning
- *
- * When you create an object whose `versionId` you need and an `aws.s3.BucketVersioningV2` resource in the same configuration, you are more likely to have success by ensuring the `s3Object` depends either implicitly (see below) or explicitly (i.e., using `dependsOn = [aws_s3_bucket_versioning.example]`) on the `aws.s3.BucketVersioningV2` resource.
- *
- * > **NOTE:** For critical and/or production S3 objects, do not create a bucket, enable versioning, and create an object in the bucket within the same configuration. Doing so will not allow the AWS-recommended 15 minutes between enabling versioning and writing to the bucket.
- *
- * This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("exampleBucketVersioningV2", {
- *     bucket: exampleBucketV2.id,
- *     versioningConfiguration: {
- *         status: "Enabled",
- *     },
- * });
- * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
- *     bucket: exampleBucketVersioningV2.id,
- *     key: "droeloe",
- *     source: new pulumi.asset.FileAsset("example.txt"),
- * });
- * ```
  *
  * ## Import
  *

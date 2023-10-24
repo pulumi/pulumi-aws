@@ -12,35 +12,6 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// <summary>
     /// Provides an Elastic Transcoder pipeline resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bar = new Aws.ElasticTranscoder.Pipeline("bar", new()
-    ///     {
-    ///         InputBucket = aws_s3_bucket.Input_bucket.Id,
-    ///         Role = aws_iam_role.Test_role.Arn,
-    ///         ContentConfig = new Aws.ElasticTranscoder.Inputs.PipelineContentConfigArgs
-    ///         {
-    ///             Bucket = aws_s3_bucket.Content_bucket.Id,
-    ///             StorageClass = "Standard",
-    ///         },
-    ///         ThumbnailConfig = new Aws.ElasticTranscoder.Inputs.PipelineThumbnailConfigArgs
-    ///         {
-    ///             Bucket = aws_s3_bucket.Thumb_bucket.Id,
-    ///             StorageClass = "Standard",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:

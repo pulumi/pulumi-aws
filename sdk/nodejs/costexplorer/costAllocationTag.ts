@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CE Cost Allocation Tag.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.costexplorer.CostAllocationTag("example", {
- *     status: "Active",
- *     tagKey: "example",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For example:

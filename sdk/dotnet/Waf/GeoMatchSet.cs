@@ -12,36 +12,6 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF Geo Match Set Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var geoMatchSet = new Aws.Waf.GeoMatchSet("geoMatchSet", new()
-    ///     {
-    ///         GeoMatchConstraints = new[]
-    ///         {
-    ///             new Aws.Waf.Inputs.GeoMatchSetGeoMatchConstraintArgs
-    ///             {
-    ///                 Type = "Country",
-    ///                 Value = "US",
-    ///             },
-    ///             new Aws.Waf.Inputs.GeoMatchSetGeoMatchConstraintArgs
-    ///             {
-    ///                 Type = "Country",
-    ///                 Value = "CA",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Geo Match Set using their ID. For example:

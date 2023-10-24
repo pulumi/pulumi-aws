@@ -10,24 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ServiceDiscovery
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceDiscovery.HttpNamespace("example", new()
-    ///     {
-    ///         Description = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -33,8 +33,29 @@ class BudgetActionActionThresholdArgs:
         :param pulumi.Input[str] action_threshold_type: The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
         :param pulumi.Input[float] action_threshold_value: The threshold of a notification.
         """
-        pulumi.set(__self__, "action_threshold_type", action_threshold_type)
-        pulumi.set(__self__, "action_threshold_value", action_threshold_value)
+        BudgetActionActionThresholdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_threshold_type=action_threshold_type,
+            action_threshold_value=action_threshold_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_threshold_type: Optional[pulumi.Input[str]] = None,
+             action_threshold_value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_threshold_type is None and 'actionThresholdType' in kwargs:
+            action_threshold_type = kwargs['actionThresholdType']
+        if action_threshold_type is None:
+            raise TypeError("Missing 'action_threshold_type' argument")
+        if action_threshold_value is None and 'actionThresholdValue' in kwargs:
+            action_threshold_value = kwargs['actionThresholdValue']
+        if action_threshold_value is None:
+            raise TypeError("Missing 'action_threshold_value' argument")
+
+        _setter("action_threshold_type", action_threshold_type)
+        _setter("action_threshold_value", action_threshold_value)
 
     @property
     @pulumi.getter(name="actionThresholdType")
@@ -72,12 +93,33 @@ class BudgetActionDefinitionArgs:
         :param pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgs'] scp_action_definition: The service control policies (SCPs) action definition details. See SCP Action Definition.
         :param pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArgs'] ssm_action_definition: The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
         """
+        BudgetActionDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iam_action_definition=iam_action_definition,
+            scp_action_definition=scp_action_definition,
+            ssm_action_definition=ssm_action_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iam_action_definition: Optional[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArgs']] = None,
+             scp_action_definition: Optional[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgs']] = None,
+             ssm_action_definition: Optional[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iam_action_definition is None and 'iamActionDefinition' in kwargs:
+            iam_action_definition = kwargs['iamActionDefinition']
+        if scp_action_definition is None and 'scpActionDefinition' in kwargs:
+            scp_action_definition = kwargs['scpActionDefinition']
+        if ssm_action_definition is None and 'ssmActionDefinition' in kwargs:
+            ssm_action_definition = kwargs['ssmActionDefinition']
+
         if iam_action_definition is not None:
-            pulumi.set(__self__, "iam_action_definition", iam_action_definition)
+            _setter("iam_action_definition", iam_action_definition)
         if scp_action_definition is not None:
-            pulumi.set(__self__, "scp_action_definition", scp_action_definition)
+            _setter("scp_action_definition", scp_action_definition)
         if ssm_action_definition is not None:
-            pulumi.set(__self__, "ssm_action_definition", ssm_action_definition)
+            _setter("ssm_action_definition", ssm_action_definition)
 
     @property
     @pulumi.getter(name="iamActionDefinition")
@@ -129,13 +171,34 @@ class BudgetActionDefinitionIamActionDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to be attached. There must be at least one role.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: A list of users to be attached. There must be at least one user.
         """
-        pulumi.set(__self__, "policy_arn", policy_arn)
+        BudgetActionDefinitionIamActionDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_arn=policy_arn,
+            groups=groups,
+            roles=roles,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_arn: Optional[pulumi.Input[str]] = None,
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_arn is None and 'policyArn' in kwargs:
+            policy_arn = kwargs['policyArn']
+        if policy_arn is None:
+            raise TypeError("Missing 'policy_arn' argument")
+
+        _setter("policy_arn", policy_arn)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter(name="policyArn")
@@ -195,8 +258,29 @@ class BudgetActionDefinitionScpActionDefinitionArgs:
         :param pulumi.Input[str] policy_id: The policy ID attached.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_ids: A list of target IDs.
         """
-        pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "target_ids", target_ids)
+        BudgetActionDefinitionScpActionDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_id=policy_id,
+            target_ids=target_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_id: Optional[pulumi.Input[str]] = None,
+             target_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if target_ids is None and 'targetIds' in kwargs:
+            target_ids = kwargs['targetIds']
+        if target_ids is None:
+            raise TypeError("Missing 'target_ids' argument")
+
+        _setter("policy_id", policy_id)
+        _setter("target_ids", target_ids)
 
     @property
     @pulumi.getter(name="policyId")
@@ -234,9 +318,34 @@ class BudgetActionDefinitionSsmActionDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_ids: The EC2 and RDS instance IDs.
         :param pulumi.Input[str] region: The Region to run the SSM document.
         """
-        pulumi.set(__self__, "action_sub_type", action_sub_type)
-        pulumi.set(__self__, "instance_ids", instance_ids)
-        pulumi.set(__self__, "region", region)
+        BudgetActionDefinitionSsmActionDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_sub_type=action_sub_type,
+            instance_ids=instance_ids,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_sub_type: Optional[pulumi.Input[str]] = None,
+             instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_sub_type is None and 'actionSubType' in kwargs:
+            action_sub_type = kwargs['actionSubType']
+        if action_sub_type is None:
+            raise TypeError("Missing 'action_sub_type' argument")
+        if instance_ids is None and 'instanceIds' in kwargs:
+            instance_ids = kwargs['instanceIds']
+        if instance_ids is None:
+            raise TypeError("Missing 'instance_ids' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+
+        _setter("action_sub_type", action_sub_type)
+        _setter("instance_ids", instance_ids)
+        _setter("region", region)
 
     @property
     @pulumi.getter(name="actionSubType")
@@ -284,8 +393,27 @@ class BudgetActionSubscriberArgs:
         :param pulumi.Input[str] address: The address that AWS sends budget notifications to, either an SNS topic or an email.
         :param pulumi.Input[str] subscription_type: The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
         """
-        pulumi.set(__self__, "address", address)
-        pulumi.set(__self__, "subscription_type", subscription_type)
+        BudgetActionSubscriberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            subscription_type=subscription_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             subscription_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address is None:
+            raise TypeError("Missing 'address' argument")
+        if subscription_type is None and 'subscriptionType' in kwargs:
+            subscription_type = kwargs['subscriptionType']
+        if subscription_type is None:
+            raise TypeError("Missing 'subscription_type' argument")
+
+        _setter("address", address)
+        _setter("subscription_type", subscription_type)
 
     @property
     @pulumi.getter
@@ -318,11 +446,34 @@ class BudgetAutoAdjustDataArgs:
                  auto_adjust_type: pulumi.Input[str],
                  historical_options: Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgs']] = None,
                  last_auto_adjust_time: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
+        BudgetAutoAdjustDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_adjust_type=auto_adjust_type,
+            historical_options=historical_options,
+            last_auto_adjust_time=last_auto_adjust_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_adjust_type: Optional[pulumi.Input[str]] = None,
+             historical_options: Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgs']] = None,
+             last_auto_adjust_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_adjust_type is None and 'autoAdjustType' in kwargs:
+            auto_adjust_type = kwargs['autoAdjustType']
+        if auto_adjust_type is None:
+            raise TypeError("Missing 'auto_adjust_type' argument")
+        if historical_options is None and 'historicalOptions' in kwargs:
+            historical_options = kwargs['historicalOptions']
+        if last_auto_adjust_time is None and 'lastAutoAdjustTime' in kwargs:
+            last_auto_adjust_time = kwargs['lastAutoAdjustTime']
+
+        _setter("auto_adjust_type", auto_adjust_type)
         if historical_options is not None:
-            pulumi.set(__self__, "historical_options", historical_options)
+            _setter("historical_options", historical_options)
         if last_auto_adjust_time is not None:
-            pulumi.set(__self__, "last_auto_adjust_time", last_auto_adjust_time)
+            _setter("last_auto_adjust_time", last_auto_adjust_time)
 
     @property
     @pulumi.getter(name="autoAdjustType")
@@ -357,9 +508,28 @@ class BudgetAutoAdjustDataHistoricalOptionsArgs:
     def __init__(__self__, *,
                  budget_adjustment_period: pulumi.Input[int],
                  lookback_available_periods: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "budget_adjustment_period", budget_adjustment_period)
+        BudgetAutoAdjustDataHistoricalOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            budget_adjustment_period=budget_adjustment_period,
+            lookback_available_periods=lookback_available_periods,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             budget_adjustment_period: Optional[pulumi.Input[int]] = None,
+             lookback_available_periods: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if budget_adjustment_period is None and 'budgetAdjustmentPeriod' in kwargs:
+            budget_adjustment_period = kwargs['budgetAdjustmentPeriod']
+        if budget_adjustment_period is None:
+            raise TypeError("Missing 'budget_adjustment_period' argument")
+        if lookback_available_periods is None and 'lookbackAvailablePeriods' in kwargs:
+            lookback_available_periods = kwargs['lookbackAvailablePeriods']
+
+        _setter("budget_adjustment_period", budget_adjustment_period)
         if lookback_available_periods is not None:
-            pulumi.set(__self__, "lookback_available_periods", lookback_available_periods)
+            _setter("lookback_available_periods", lookback_available_periods)
 
     @property
     @pulumi.getter(name="budgetAdjustmentPeriod")
@@ -388,8 +558,25 @@ class BudgetCostFilterArgs:
         """
         :param pulumi.Input[str] name: The name of a budget. Unique within accounts.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        BudgetCostFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -440,28 +627,81 @@ class BudgetCostTypesArgs:
         :param pulumi.Input[bool] use_amortized: Whether a budget uses the amortized rate. Defaults to `false`
         :param pulumi.Input[bool] use_blended: A boolean value whether to use blended costs in the cost budget. Defaults to `false`
         """
+        BudgetCostTypesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include_credit=include_credit,
+            include_discount=include_discount,
+            include_other_subscription=include_other_subscription,
+            include_recurring=include_recurring,
+            include_refund=include_refund,
+            include_subscription=include_subscription,
+            include_support=include_support,
+            include_tax=include_tax,
+            include_upfront=include_upfront,
+            use_amortized=use_amortized,
+            use_blended=use_blended,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include_credit: Optional[pulumi.Input[bool]] = None,
+             include_discount: Optional[pulumi.Input[bool]] = None,
+             include_other_subscription: Optional[pulumi.Input[bool]] = None,
+             include_recurring: Optional[pulumi.Input[bool]] = None,
+             include_refund: Optional[pulumi.Input[bool]] = None,
+             include_subscription: Optional[pulumi.Input[bool]] = None,
+             include_support: Optional[pulumi.Input[bool]] = None,
+             include_tax: Optional[pulumi.Input[bool]] = None,
+             include_upfront: Optional[pulumi.Input[bool]] = None,
+             use_amortized: Optional[pulumi.Input[bool]] = None,
+             use_blended: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if include_credit is None and 'includeCredit' in kwargs:
+            include_credit = kwargs['includeCredit']
+        if include_discount is None and 'includeDiscount' in kwargs:
+            include_discount = kwargs['includeDiscount']
+        if include_other_subscription is None and 'includeOtherSubscription' in kwargs:
+            include_other_subscription = kwargs['includeOtherSubscription']
+        if include_recurring is None and 'includeRecurring' in kwargs:
+            include_recurring = kwargs['includeRecurring']
+        if include_refund is None and 'includeRefund' in kwargs:
+            include_refund = kwargs['includeRefund']
+        if include_subscription is None and 'includeSubscription' in kwargs:
+            include_subscription = kwargs['includeSubscription']
+        if include_support is None and 'includeSupport' in kwargs:
+            include_support = kwargs['includeSupport']
+        if include_tax is None and 'includeTax' in kwargs:
+            include_tax = kwargs['includeTax']
+        if include_upfront is None and 'includeUpfront' in kwargs:
+            include_upfront = kwargs['includeUpfront']
+        if use_amortized is None and 'useAmortized' in kwargs:
+            use_amortized = kwargs['useAmortized']
+        if use_blended is None and 'useBlended' in kwargs:
+            use_blended = kwargs['useBlended']
+
         if include_credit is not None:
-            pulumi.set(__self__, "include_credit", include_credit)
+            _setter("include_credit", include_credit)
         if include_discount is not None:
-            pulumi.set(__self__, "include_discount", include_discount)
+            _setter("include_discount", include_discount)
         if include_other_subscription is not None:
-            pulumi.set(__self__, "include_other_subscription", include_other_subscription)
+            _setter("include_other_subscription", include_other_subscription)
         if include_recurring is not None:
-            pulumi.set(__self__, "include_recurring", include_recurring)
+            _setter("include_recurring", include_recurring)
         if include_refund is not None:
-            pulumi.set(__self__, "include_refund", include_refund)
+            _setter("include_refund", include_refund)
         if include_subscription is not None:
-            pulumi.set(__self__, "include_subscription", include_subscription)
+            _setter("include_subscription", include_subscription)
         if include_support is not None:
-            pulumi.set(__self__, "include_support", include_support)
+            _setter("include_support", include_support)
         if include_tax is not None:
-            pulumi.set(__self__, "include_tax", include_tax)
+            _setter("include_tax", include_tax)
         if include_upfront is not None:
-            pulumi.set(__self__, "include_upfront", include_upfront)
+            _setter("include_upfront", include_upfront)
         if use_amortized is not None:
-            pulumi.set(__self__, "use_amortized", use_amortized)
+            _setter("use_amortized", use_amortized)
         if use_blended is not None:
-            pulumi.set(__self__, "use_blended", use_blended)
+            _setter("use_blended", use_blended)
 
     @property
     @pulumi.getter(name="includeCredit")
@@ -613,14 +853,53 @@ class BudgetNotificationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscriber_email_addresses: (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscriber_sns_topic_arns: (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "notification_type", notification_type)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "threshold_type", threshold_type)
+        BudgetNotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            notification_type=notification_type,
+            threshold=threshold,
+            threshold_type=threshold_type,
+            subscriber_email_addresses=subscriber_email_addresses,
+            subscriber_sns_topic_arns=subscriber_sns_topic_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: Optional[pulumi.Input[str]] = None,
+             notification_type: Optional[pulumi.Input[str]] = None,
+             threshold: Optional[pulumi.Input[float]] = None,
+             threshold_type: Optional[pulumi.Input[str]] = None,
+             subscriber_email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subscriber_sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if notification_type is None and 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if notification_type is None:
+            raise TypeError("Missing 'notification_type' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if threshold_type is None and 'thresholdType' in kwargs:
+            threshold_type = kwargs['thresholdType']
+        if threshold_type is None:
+            raise TypeError("Missing 'threshold_type' argument")
+        if subscriber_email_addresses is None and 'subscriberEmailAddresses' in kwargs:
+            subscriber_email_addresses = kwargs['subscriberEmailAddresses']
+        if subscriber_sns_topic_arns is None and 'subscriberSnsTopicArns' in kwargs:
+            subscriber_sns_topic_arns = kwargs['subscriberSnsTopicArns']
+
+        _setter("comparison_operator", comparison_operator)
+        _setter("notification_type", notification_type)
+        _setter("threshold", threshold)
+        _setter("threshold_type", threshold_type)
         if subscriber_email_addresses is not None:
-            pulumi.set(__self__, "subscriber_email_addresses", subscriber_email_addresses)
+            _setter("subscriber_email_addresses", subscriber_email_addresses)
         if subscriber_sns_topic_arns is not None:
-            pulumi.set(__self__, "subscriber_sns_topic_arns", subscriber_sns_topic_arns)
+            _setter("subscriber_sns_topic_arns", subscriber_sns_topic_arns)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -706,9 +985,32 @@ class BudgetPlannedLimitArgs:
         :param pulumi.Input[str] start_time: (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         :param pulumi.Input[str] unit: (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "unit", unit)
+        BudgetPlannedLimitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            start_time=start_time,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if amount is None:
+            raise TypeError("Missing 'amount' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if unit is None:
+            raise TypeError("Missing 'unit' argument")
+
+        _setter("amount", amount)
+        _setter("start_time", start_time)
+        _setter("unit", unit)
 
     @property
     @pulumi.getter

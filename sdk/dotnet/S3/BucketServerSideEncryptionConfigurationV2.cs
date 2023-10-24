@@ -14,43 +14,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfigurationV2` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mykey = new Aws.Kms.Key("mykey", new()
-    ///     {
-    ///         Description = "This key is used to encrypt bucket objects",
-    ///         DeletionWindowInDays = 10,
-    ///     });
-    /// 
-    ///     var mybucket = new Aws.S3.BucketV2("mybucket");
-    /// 
-    ///     var example = new Aws.S3.BucketServerSideEncryptionConfigurationV2("example", new()
-    ///     {
-    ///         Bucket = mybucket.Id,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs
-    ///             {
-    ///                 ApplyServerSideEncryptionByDefault = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs
-    ///                 {
-    ///                     KmsMasterKeyId = mykey.Arn,
-    ///                     SseAlgorithm = "aws:kms",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):

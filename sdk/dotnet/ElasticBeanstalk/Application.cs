@@ -17,30 +17,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// This resource creates an application that has one configuration template named
     /// `default`, and no application versions
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
-    ///     {
-    ///         Description = "tf-test-desc",
-    ///         AppversionLifecycle = new Aws.ElasticBeanstalk.Inputs.ApplicationAppversionLifecycleArgs
-    ///         {
-    ///             ServiceRole = aws_iam_role.Beanstalk_service.Arn,
-    ///             MaxCount = 128,
-    ///             DeleteSourceFromS3 = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:

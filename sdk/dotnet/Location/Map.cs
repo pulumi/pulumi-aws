@@ -12,28 +12,6 @@ namespace Pulumi.Aws.Location
     /// <summary>
     /// Provides a Location Service Map.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Location.Map("example", new()
-    ///     {
-    ///         Configuration = new Aws.Location.Inputs.MapConfigurationArgs
-    ///         {
-    ///             Style = "VectorHereBerlin",
-    ///         },
-    ///         MapName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_location_map` resources using the map name. For example:

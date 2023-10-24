@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * This data source can be used to fetch information about a specific Glue Connection.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.glue.getConnection({
- *     id: "123456789123:connection",
- * });
- * ```
  */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
 
@@ -86,17 +75,6 @@ export interface GetConnectionResult {
 }
 /**
  * This data source can be used to fetch information about a specific Glue Connection.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.glue.getConnection({
- *     id: "123456789123:connection",
- * });
- * ```
  */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply((a: any) => getConnection(a, opts))

@@ -10,26 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Glue Security Configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.SecurityConfiguration("example", {encryptionConfiguration: {
- *     cloudwatchEncryption: {
- *         cloudwatchEncryptionMode: "DISABLED",
- *     },
- *     jobBookmarksEncryption: {
- *         jobBookmarksEncryptionMode: "DISABLED",
- *     },
- *     s3Encryption: {
- *         kmsKeyArn: data.aws_kms_key.example.arn,
- *         s3EncryptionMode: "SSE-KMS",
- *     },
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Glue Security Configurations using `name`. For example:

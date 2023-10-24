@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ContainerPolicyArgs', 'ContainerPolicy']
@@ -21,8 +21,27 @@ class ContainerPolicyArgs:
         :param pulumi.Input[str] container_name: The name of the container.
         :param pulumi.Input[str] policy: The contents of the policy.
         """
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "policy", policy)
+        ContainerPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+
+        _setter("container_name", container_name)
+        _setter("policy", policy)
 
     @property
     @pulumi.getter(name="containerName")
@@ -59,10 +78,25 @@ class _ContainerPolicyState:
         :param pulumi.Input[str] container_name: The name of the container.
         :param pulumi.Input[str] policy: The contents of the policy.
         """
+        _ContainerPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter(name="containerName")
@@ -100,35 +134,6 @@ class ContainerPolicy(pulumi.CustomResource):
         """
         Provides a MediaStore Container Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_container = aws.mediastore.Container("exampleContainer")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="MediaStoreFullAccess",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
-            )],
-            actions=["mediastore:*"],
-            resources=[example_container.name.apply(lambda name: f"arn:aws:mediastore:{current_region.name}:{current_caller_identity.account_id}:container/{name}/*")],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="Bool",
-                variable="aws:SecureTransport",
-                values=["true"],
-            )],
-        )])
-        example_container_policy = aws.mediastore.ContainerPolicy("exampleContainerPolicy",
-            container_name=example_container.name,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
@@ -151,35 +156,6 @@ class ContainerPolicy(pulumi.CustomResource):
         """
         Provides a MediaStore Container Policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        example_container = aws.mediastore.Container("exampleContainer")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="MediaStoreFullAccess",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
-            )],
-            actions=["mediastore:*"],
-            resources=[example_container.name.apply(lambda name: f"arn:aws:mediastore:{current_region.name}:{current_caller_identity.account_id}:container/{name}/*")],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="Bool",
-                variable="aws:SecureTransport",
-                values=["true"],
-            )],
-        )])
-        example_container_policy = aws.mediastore.ContainerPolicy("exampleContainerPolicy",
-            container_name=example_container.name,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
@@ -198,6 +174,10 @@ class ContainerPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,24 +35,55 @@ class SecurityGroupArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: VPC ID. Defaults to the region's default VPC.
         """
+        SecurityGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            egress=egress,
+            ingress=ingress,
+            name=name,
+            name_prefix=name_prefix,
+            revoke_rules_on_delete=revoke_rules_on_delete,
+            tags=tags,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             egress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]] = None,
+             ingress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if revoke_rules_on_delete is None and 'revokeRulesOnDelete' in kwargs:
+            revoke_rules_on_delete = kwargs['revokeRulesOnDelete']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if egress is not None:
-            pulumi.set(__self__, "egress", egress)
+            _setter("egress", egress)
         if ingress is not None:
-            pulumi.set(__self__, "ingress", ingress)
+            _setter("ingress", ingress)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if revoke_rules_on_delete is not None:
-            pulumi.set(__self__, "revoke_rules_on_delete", revoke_rules_on_delete)
+            _setter("revoke_rules_on_delete", revoke_rules_on_delete)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -179,33 +210,74 @@ class _SecurityGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: VPC ID. Defaults to the region's default VPC.
         """
+        _SecurityGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            egress=egress,
+            ingress=ingress,
+            name=name,
+            name_prefix=name_prefix,
+            owner_id=owner_id,
+            revoke_rules_on_delete=revoke_rules_on_delete,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             egress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]] = None,
+             ingress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if revoke_rules_on_delete is None and 'revokeRulesOnDelete' in kwargs:
+            revoke_rules_on_delete = kwargs['revokeRulesOnDelete']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if egress is not None:
-            pulumi.set(__self__, "egress", egress)
+            _setter("egress", egress)
         if ingress is not None:
-            pulumi.set(__self__, "ingress", ingress)
+            _setter("ingress", ingress)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if revoke_rules_on_delete is not None:
-            pulumi.set(__self__, "revoke_rules_on_delete", revoke_rules_on_delete)
+            _setter("revoke_rules_on_delete", revoke_rules_on_delete)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -369,85 +441,7 @@ class SecurityGroup(pulumi.CustomResource):
         > **NOTE:** The `cidr_blocks` and `ipv6_cidr_blocks` parameters are optional in the `ingress` and `egress` blocks. If nothing is specified, traffic will be blocked as described in _NOTE on Egress rules_ later.
 
         ## Example Usage
-        ### Basic Usage
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        allow_tls = aws.ec2.SecurityGroup("allowTls",
-            description="Allow TLS inbound traffic",
-            vpc_id=aws_vpc["main"]["id"],
-            ingress=[aws.ec2.SecurityGroupIngressArgs(
-                description="TLS from VPC",
-                from_port=443,
-                to_port=443,
-                protocol="tcp",
-                cidr_blocks=[aws_vpc["main"]["cidr_block"]],
-                ipv6_cidr_blocks=[aws_vpc["main"]["ipv6_cidr_block"]],
-            )],
-            egress=[aws.ec2.SecurityGroupEgressArgs(
-                from_port=0,
-                to_port=0,
-                protocol="-1",
-                cidr_blocks=["0.0.0.0/0"],
-                ipv6_cidr_blocks=["::/0"],
-            )],
-            tags={
-                "Name": "allow_tls",
-            })
-        ```
-
-        > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
-            cidr_blocks=["0.0.0.0/0"],
-            from_port=0,
-            ipv6_cidr_blocks=["::/0"],
-            protocol="-1",
-            to_port=0,
-        )])
-        ```
-        ### Usage With Prefix List IDs
-
-        Prefix Lists are either managed by AWS internally, or created by the customer using a
-        Prefix List resource. Prefix Lists provided by
-        AWS are associated with a prefix list name, or service name, that is linked to a specific region.
-        Prefix list IDs are exported on VPC Endpoints, so you can use this format:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
-        # ... other configuration ...
-        # ... other configuration ...
-        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            prefix_list_ids=[my_endpoint.prefix_list_id],
-        )])
-        ```
-
-        You can also find a specific Prefix List using the `ec2_get_prefix_list` data source.
-        ### Removing All Ingress and Egress Rules
-
-        The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroup("example",
-            vpc_id=aws_vpc["example"]["id"],
-            ingress=[],
-            egress=[])
-        ```
         ### Recreating a Security Group
 
         A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `name_prefix`, or `vpc_id` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.
@@ -459,46 +453,6 @@ class SecurityGroup(pulumi.CustomResource):
         The provider does not model bi-directional dependencies like this, but, even if it did, simply knowing the dependency situation would not be enough to solve it. For example, some resources must always have an associated security group while others don't need to. In addition, when the `ec2.SecurityGroup` resource attempts to recreate, it receives a dependent object error, which does not provide information on whether the dependent object is a security group rule or, for example, an associated EC2 instance. Within the provider, the associated resource (_e.g._, `ec2.Instance`) does not receive an error when the `ec2.SecurityGroup` is trying to recreate even though that is where changes to the associated resource would need to take place (_e.g._, removing the security group association).
 
         Despite these sticky problems, below are some ways to improve your experience when you find it necessary to recreate a security group.
-        ### `create_before_destroy`
-
-        (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
-
-        Normally, the provider first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won't succeed. You can invert the default behavior using the `create_before_destroy` meta argument:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroup("example")
-        ```
-        ### `replace_triggered_by`
-
-        (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
-
-        To replace a resource when a security group changes, use the `replace_triggered_by` meta argument. Note that in this example, the `ec2.Instance` will be destroyed and created again when the `ec2.SecurityGroup` changes.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup")
-        # ... other configuration ...
-        example_instance = aws.ec2.Instance("exampleInstance",
-            instance_type="t3.small",
-            vpc_security_group_ids=[aws_security_group["test"]["id"]])
-        ```
-        ### Shorter timeout
-
-        (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
-
-        If destroying a security group takes a long time, it may be because the provider cannot distinguish between a dependent object (_e.g._, a security group rule or EC2 instance) that is _in the process of being deleted_ and one that is not. In other words, it may be waiting for a train that isn't scheduled to arrive. To fail faster, shorten the `delete` timeout from the default timeout:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroup("example")
-        ```
 
         ## Import
 
@@ -537,85 +491,7 @@ class SecurityGroup(pulumi.CustomResource):
         > **NOTE:** The `cidr_blocks` and `ipv6_cidr_blocks` parameters are optional in the `ingress` and `egress` blocks. If nothing is specified, traffic will be blocked as described in _NOTE on Egress rules_ later.
 
         ## Example Usage
-        ### Basic Usage
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        allow_tls = aws.ec2.SecurityGroup("allowTls",
-            description="Allow TLS inbound traffic",
-            vpc_id=aws_vpc["main"]["id"],
-            ingress=[aws.ec2.SecurityGroupIngressArgs(
-                description="TLS from VPC",
-                from_port=443,
-                to_port=443,
-                protocol="tcp",
-                cidr_blocks=[aws_vpc["main"]["cidr_block"]],
-                ipv6_cidr_blocks=[aws_vpc["main"]["ipv6_cidr_block"]],
-            )],
-            egress=[aws.ec2.SecurityGroupEgressArgs(
-                from_port=0,
-                to_port=0,
-                protocol="-1",
-                cidr_blocks=["0.0.0.0/0"],
-                ipv6_cidr_blocks=["::/0"],
-            )],
-            tags={
-                "Name": "allow_tls",
-            })
-        ```
-
-        > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
-            cidr_blocks=["0.0.0.0/0"],
-            from_port=0,
-            ipv6_cidr_blocks=["::/0"],
-            protocol="-1",
-            to_port=0,
-        )])
-        ```
-        ### Usage With Prefix List IDs
-
-        Prefix Lists are either managed by AWS internally, or created by the customer using a
-        Prefix List resource. Prefix Lists provided by
-        AWS are associated with a prefix list name, or service name, that is linked to a specific region.
-        Prefix list IDs are exported on VPC Endpoints, so you can use this format:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
-        # ... other configuration ...
-        # ... other configuration ...
-        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            prefix_list_ids=[my_endpoint.prefix_list_id],
-        )])
-        ```
-
-        You can also find a specific Prefix List using the `ec2_get_prefix_list` data source.
-        ### Removing All Ingress and Egress Rules
-
-        The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroup("example",
-            vpc_id=aws_vpc["example"]["id"],
-            ingress=[],
-            egress=[])
-        ```
         ### Recreating a Security Group
 
         A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `name_prefix`, or `vpc_id` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.
@@ -627,46 +503,6 @@ class SecurityGroup(pulumi.CustomResource):
         The provider does not model bi-directional dependencies like this, but, even if it did, simply knowing the dependency situation would not be enough to solve it. For example, some resources must always have an associated security group while others don't need to. In addition, when the `ec2.SecurityGroup` resource attempts to recreate, it receives a dependent object error, which does not provide information on whether the dependent object is a security group rule or, for example, an associated EC2 instance. Within the provider, the associated resource (_e.g._, `ec2.Instance`) does not receive an error when the `ec2.SecurityGroup` is trying to recreate even though that is where changes to the associated resource would need to take place (_e.g._, removing the security group association).
 
         Despite these sticky problems, below are some ways to improve your experience when you find it necessary to recreate a security group.
-        ### `create_before_destroy`
-
-        (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
-
-        Normally, the provider first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won't succeed. You can invert the default behavior using the `create_before_destroy` meta argument:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroup("example")
-        ```
-        ### `replace_triggered_by`
-
-        (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
-
-        To replace a resource when a security group changes, use the `replace_triggered_by` meta argument. Note that in this example, the `ec2.Instance` will be destroyed and created again when the `ec2.SecurityGroup` changes.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_security_group = aws.ec2.SecurityGroup("exampleSecurityGroup")
-        # ... other configuration ...
-        example_instance = aws.ec2.Instance("exampleInstance",
-            instance_type="t3.small",
-            vpc_security_group_ids=[aws_security_group["test"]["id"]])
-        ```
-        ### Shorter timeout
-
-        (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
-
-        If destroying a security group takes a long time, it may be because the provider cannot distinguish between a dependent object (_e.g._, a security group rule or EC2 instance) that is _in the process of being deleted_ and one that is not. In other words, it may be waiting for a train that isn't scheduled to arrive. To fail faster, shorten the `delete` timeout from the default timeout:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroup("example")
-        ```
 
         ## Import
 
@@ -686,6 +522,10 @@ class SecurityGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

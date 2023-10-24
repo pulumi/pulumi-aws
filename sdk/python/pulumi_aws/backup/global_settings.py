@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GlobalSettingsArgs', 'GlobalSettings']
@@ -19,7 +19,22 @@ class GlobalSettingsArgs:
         The set of arguments for constructing a GlobalSettings resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] global_settings: A list of resources along with the opt-in preferences for the account.
         """
-        pulumi.set(__self__, "global_settings", global_settings)
+        GlobalSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_settings=global_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_settings is None and 'globalSettings' in kwargs:
+            global_settings = kwargs['globalSettings']
+        if global_settings is None:
+            raise TypeError("Missing 'global_settings' argument")
+
+        _setter("global_settings", global_settings)
 
     @property
     @pulumi.getter(name="globalSettings")
@@ -42,8 +57,21 @@ class _GlobalSettingsState:
         Input properties used for looking up and filtering GlobalSettings resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] global_settings: A list of resources along with the opt-in preferences for the account.
         """
+        _GlobalSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_settings=global_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_settings is None and 'globalSettings' in kwargs:
+            global_settings = kwargs['globalSettings']
+
         if global_settings is not None:
-            pulumi.set(__self__, "global_settings", global_settings)
+            _setter("global_settings", global_settings)
 
     @property
     @pulumi.getter(name="globalSettings")
@@ -68,17 +96,6 @@ class GlobalSettings(pulumi.CustomResource):
         """
         Provides an AWS Backup Global Settings resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.backup.GlobalSettings("test", global_settings={
-            "isCrossAccountBackupEnabled": "true",
-        })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Backup Global Settings using the `id`. For example:
@@ -100,17 +117,6 @@ class GlobalSettings(pulumi.CustomResource):
         """
         Provides an AWS Backup Global Settings resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.backup.GlobalSettings("test", global_settings={
-            "isCrossAccountBackupEnabled": "true",
-        })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Backup Global Settings using the `id`. For example:
@@ -129,6 +135,10 @@ class GlobalSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GlobalSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

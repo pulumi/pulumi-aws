@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TopicSubscriptionArgs', 'TopicSubscription']
@@ -41,25 +41,78 @@ class TopicSubscriptionArgs:
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "topic", topic)
+        TopicSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            protocol=protocol,
+            topic=topic,
+            confirmation_timeout_in_minutes=confirmation_timeout_in_minutes,
+            delivery_policy=delivery_policy,
+            endpoint_auto_confirms=endpoint_auto_confirms,
+            filter_policy=filter_policy,
+            filter_policy_scope=filter_policy_scope,
+            raw_message_delivery=raw_message_delivery,
+            redrive_policy=redrive_policy,
+            subscription_role_arn=subscription_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             topic: Optional[pulumi.Input[str]] = None,
+             confirmation_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             delivery_policy: Optional[pulumi.Input[str]] = None,
+             endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
+             filter_policy: Optional[pulumi.Input[str]] = None,
+             filter_policy_scope: Optional[pulumi.Input[str]] = None,
+             raw_message_delivery: Optional[pulumi.Input[bool]] = None,
+             redrive_policy: Optional[pulumi.Input[str]] = None,
+             subscription_role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if topic is None:
+            raise TypeError("Missing 'topic' argument")
+        if confirmation_timeout_in_minutes is None and 'confirmationTimeoutInMinutes' in kwargs:
+            confirmation_timeout_in_minutes = kwargs['confirmationTimeoutInMinutes']
+        if delivery_policy is None and 'deliveryPolicy' in kwargs:
+            delivery_policy = kwargs['deliveryPolicy']
+        if endpoint_auto_confirms is None and 'endpointAutoConfirms' in kwargs:
+            endpoint_auto_confirms = kwargs['endpointAutoConfirms']
+        if filter_policy is None and 'filterPolicy' in kwargs:
+            filter_policy = kwargs['filterPolicy']
+        if filter_policy_scope is None and 'filterPolicyScope' in kwargs:
+            filter_policy_scope = kwargs['filterPolicyScope']
+        if raw_message_delivery is None and 'rawMessageDelivery' in kwargs:
+            raw_message_delivery = kwargs['rawMessageDelivery']
+        if redrive_policy is None and 'redrivePolicy' in kwargs:
+            redrive_policy = kwargs['redrivePolicy']
+        if subscription_role_arn is None and 'subscriptionRoleArn' in kwargs:
+            subscription_role_arn = kwargs['subscriptionRoleArn']
+
+        _setter("endpoint", endpoint)
+        _setter("protocol", protocol)
+        _setter("topic", topic)
         if confirmation_timeout_in_minutes is not None:
-            pulumi.set(__self__, "confirmation_timeout_in_minutes", confirmation_timeout_in_minutes)
+            _setter("confirmation_timeout_in_minutes", confirmation_timeout_in_minutes)
         if delivery_policy is not None:
-            pulumi.set(__self__, "delivery_policy", delivery_policy)
+            _setter("delivery_policy", delivery_policy)
         if endpoint_auto_confirms is not None:
-            pulumi.set(__self__, "endpoint_auto_confirms", endpoint_auto_confirms)
+            _setter("endpoint_auto_confirms", endpoint_auto_confirms)
         if filter_policy is not None:
-            pulumi.set(__self__, "filter_policy", filter_policy)
+            _setter("filter_policy", filter_policy)
         if filter_policy_scope is not None:
-            pulumi.set(__self__, "filter_policy_scope", filter_policy_scope)
+            _setter("filter_policy_scope", filter_policy_scope)
         if raw_message_delivery is not None:
-            pulumi.set(__self__, "raw_message_delivery", raw_message_delivery)
+            _setter("raw_message_delivery", raw_message_delivery)
         if redrive_policy is not None:
-            pulumi.set(__self__, "redrive_policy", redrive_policy)
+            _setter("redrive_policy", redrive_policy)
         if subscription_role_arn is not None:
-            pulumi.set(__self__, "subscription_role_arn", subscription_role_arn)
+            _setter("subscription_role_arn", subscription_role_arn)
 
     @property
     @pulumi.getter
@@ -234,36 +287,97 @@ class _TopicSubscriptionState:
                
                The following arguments are optional:
         """
+        _TopicSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            confirmation_timeout_in_minutes=confirmation_timeout_in_minutes,
+            confirmation_was_authenticated=confirmation_was_authenticated,
+            delivery_policy=delivery_policy,
+            endpoint=endpoint,
+            endpoint_auto_confirms=endpoint_auto_confirms,
+            filter_policy=filter_policy,
+            filter_policy_scope=filter_policy_scope,
+            owner_id=owner_id,
+            pending_confirmation=pending_confirmation,
+            protocol=protocol,
+            raw_message_delivery=raw_message_delivery,
+            redrive_policy=redrive_policy,
+            subscription_role_arn=subscription_role_arn,
+            topic=topic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             confirmation_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             confirmation_was_authenticated: Optional[pulumi.Input[bool]] = None,
+             delivery_policy: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
+             filter_policy: Optional[pulumi.Input[str]] = None,
+             filter_policy_scope: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             pending_confirmation: Optional[pulumi.Input[bool]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             raw_message_delivery: Optional[pulumi.Input[bool]] = None,
+             redrive_policy: Optional[pulumi.Input[str]] = None,
+             subscription_role_arn: Optional[pulumi.Input[str]] = None,
+             topic: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if confirmation_timeout_in_minutes is None and 'confirmationTimeoutInMinutes' in kwargs:
+            confirmation_timeout_in_minutes = kwargs['confirmationTimeoutInMinutes']
+        if confirmation_was_authenticated is None and 'confirmationWasAuthenticated' in kwargs:
+            confirmation_was_authenticated = kwargs['confirmationWasAuthenticated']
+        if delivery_policy is None and 'deliveryPolicy' in kwargs:
+            delivery_policy = kwargs['deliveryPolicy']
+        if endpoint_auto_confirms is None and 'endpointAutoConfirms' in kwargs:
+            endpoint_auto_confirms = kwargs['endpointAutoConfirms']
+        if filter_policy is None and 'filterPolicy' in kwargs:
+            filter_policy = kwargs['filterPolicy']
+        if filter_policy_scope is None and 'filterPolicyScope' in kwargs:
+            filter_policy_scope = kwargs['filterPolicyScope']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if pending_confirmation is None and 'pendingConfirmation' in kwargs:
+            pending_confirmation = kwargs['pendingConfirmation']
+        if raw_message_delivery is None and 'rawMessageDelivery' in kwargs:
+            raw_message_delivery = kwargs['rawMessageDelivery']
+        if redrive_policy is None and 'redrivePolicy' in kwargs:
+            redrive_policy = kwargs['redrivePolicy']
+        if subscription_role_arn is None and 'subscriptionRoleArn' in kwargs:
+            subscription_role_arn = kwargs['subscriptionRoleArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if confirmation_timeout_in_minutes is not None:
-            pulumi.set(__self__, "confirmation_timeout_in_minutes", confirmation_timeout_in_minutes)
+            _setter("confirmation_timeout_in_minutes", confirmation_timeout_in_minutes)
         if confirmation_was_authenticated is not None:
-            pulumi.set(__self__, "confirmation_was_authenticated", confirmation_was_authenticated)
+            _setter("confirmation_was_authenticated", confirmation_was_authenticated)
         if delivery_policy is not None:
-            pulumi.set(__self__, "delivery_policy", delivery_policy)
+            _setter("delivery_policy", delivery_policy)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if endpoint_auto_confirms is not None:
-            pulumi.set(__self__, "endpoint_auto_confirms", endpoint_auto_confirms)
+            _setter("endpoint_auto_confirms", endpoint_auto_confirms)
         if filter_policy is not None:
-            pulumi.set(__self__, "filter_policy", filter_policy)
+            _setter("filter_policy", filter_policy)
         if filter_policy_scope is not None:
-            pulumi.set(__self__, "filter_policy_scope", filter_policy_scope)
+            _setter("filter_policy_scope", filter_policy_scope)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if pending_confirmation is not None:
-            pulumi.set(__self__, "pending_confirmation", pending_confirmation)
+            _setter("pending_confirmation", pending_confirmation)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if raw_message_delivery is not None:
-            pulumi.set(__self__, "raw_message_delivery", raw_message_delivery)
+            _setter("raw_message_delivery", raw_message_delivery)
         if redrive_policy is not None:
-            pulumi.set(__self__, "redrive_policy", redrive_policy)
+            _setter("redrive_policy", redrive_policy)
         if subscription_role_arn is not None:
-            pulumi.set(__self__, "subscription_role_arn", subscription_role_arn)
+            _setter("subscription_role_arn", subscription_role_arn)
         if topic is not None:
-            pulumi.set(__self__, "topic", topic)
+            _setter("topic", topic)
 
     @property
     @pulumi.getter
@@ -478,153 +592,6 @@ class TopicSubscription(pulumi.CustomResource):
 
         > **NOTE:** You cannot unsubscribe to a subscription that is pending confirmation. If you use `email`, `email-json`, or `http`/`https` (without auto-confirmation enabled), until the subscription is confirmed (e.g., outside of this provider), AWS does not allow this provider to delete / unsubscribe the subscription. If you `destroy` an unconfirmed subscription, this provider will remove the subscription from its state but the subscription will still exist in AWS. However, if you delete an SNS topic, SNS [deletes all the subscriptions](https://docs.aws.amazon.com/sns/latest/dg/sns-delete-subscription-topic.html) associated with the topic. Also, you can import a subscription after confirmation and then have the capability to delete it.
 
-        ## Example Usage
-
-        You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates_sqs_target = aws.sns.TopicSubscription("userUpdatesSqsTarget",
-            endpoint="arn:aws:sqs:us-west-2:432981146916:queue-too",
-            protocol="sqs",
-            topic="arn:aws:sns:us-west-2:432981146916:user-updates-topic")
-        ```
-
-        Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates = aws.sns.Topic("userUpdates")
-        user_updates_queue = aws.sqs.Queue("userUpdatesQueue")
-        user_updates_sqs_target = aws.sns.TopicSubscription("userUpdatesSqsTarget",
-            topic=user_updates.arn,
-            protocol="sqs",
-            endpoint=user_updates_queue.arn)
-        ```
-
-        You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        sns = config.get_object("sns")
-        if sns is None:
-            sns = {
-                "account-id": "111111111111",
-                "role-name": "service/service",
-                "name": "example-sns-topic",
-                "display_name": "example",
-                "region": "us-west-1",
-            }
-        sqs = config.get_object("sqs")
-        if sqs is None:
-            sqs = {
-                "account-id": "222222222222",
-                "role-name": "service/service",
-                "name": "example-sqs-queue",
-                "region": "us-east-1",
-            }
-        sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
-            statements=[
-                aws.iam.GetPolicyDocumentStatementArgs(
-                    actions=[
-                        "SNS:Subscribe",
-                        "SNS:SetTopicAttributes",
-                        "SNS:RemovePermission",
-                        "SNS:Publish",
-                        "SNS:ListSubscriptionsByTopic",
-                        "SNS:GetTopicAttributes",
-                        "SNS:DeleteTopic",
-                        "SNS:AddPermission",
-                    ],
-                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        variable="AWS:SourceOwner",
-                        values=[sns["account-id"]],
-                    )],
-                    effect="Allow",
-                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                        type="AWS",
-                        identifiers=["*"],
-                    )],
-                    resources=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
-                    sid="__default_statement_ID",
-                ),
-                aws.iam.GetPolicyDocumentStatementArgs(
-                    actions=[
-                        "SNS:Subscribe",
-                        "SNS:Receive",
-                    ],
-                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringLike",
-                        variable="SNS:Endpoint",
-                        values=[f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
-                    )],
-                    effect="Allow",
-                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                        type="AWS",
-                        identifiers=["*"],
-                    )],
-                    resources=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
-                    sid="__console_sub_0",
-                ),
-            ])
-        sqs_queue_policy = aws.iam.get_policy_document(policy_id=f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}/SQSDefaultPolicy",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
-                sid="example-sns-topic",
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=["*"],
-                )],
-                actions=["SQS:SendMessage"],
-                resources=[f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="ArnEquals",
-                    variable="aws:SourceArn",
-                    values=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
-                )],
-            )])
-        # provider to manage SNS topics
-        aws_sns = aws.Provider("awsSns",
-            region=sns["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
-                role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
-                session_name=f"sns-{sns['region']}",
-            ))
-        # provider to manage SQS queues
-        aws_sqs = aws.Provider("awsSqs",
-            region=sqs["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
-                role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
-                session_name=f"sqs-{sqs['region']}",
-            ))
-        # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
-        sns2sqs = aws.Provider("sns2sqs",
-            region=sns["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
-                role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
-                session_name=f"sns2sqs-{sns['region']}",
-            ))
-        sns_topic_topic = aws.sns.Topic("sns-topicTopic",
-            display_name=sns["display_name"],
-            policy=sns_topic_policy.json,
-            opts=pulumi.ResourceOptions(provider=aws["sns"]))
-        sqs_queue = aws.sqs.Queue("sqs-queue", policy=sqs_queue_policy.json,
-        opts=pulumi.ResourceOptions(provider=aws["sqs"]))
-        sns_topic_topic_subscription = aws.sns.TopicSubscription("sns-topicTopicSubscription",
-            topic=sns_topic_topic.arn,
-            protocol="sqs",
-            endpoint=sqs_queue.arn,
-            opts=pulumi.ResourceOptions(provider=aws["sns2sqs"]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
@@ -668,153 +635,6 @@ class TopicSubscription(pulumi.CustomResource):
 
         > **NOTE:** You cannot unsubscribe to a subscription that is pending confirmation. If you use `email`, `email-json`, or `http`/`https` (without auto-confirmation enabled), until the subscription is confirmed (e.g., outside of this provider), AWS does not allow this provider to delete / unsubscribe the subscription. If you `destroy` an unconfirmed subscription, this provider will remove the subscription from its state but the subscription will still exist in AWS. However, if you delete an SNS topic, SNS [deletes all the subscriptions](https://docs.aws.amazon.com/sns/latest/dg/sns-delete-subscription-topic.html) associated with the topic. Also, you can import a subscription after confirmation and then have the capability to delete it.
 
-        ## Example Usage
-
-        You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates_sqs_target = aws.sns.TopicSubscription("userUpdatesSqsTarget",
-            endpoint="arn:aws:sqs:us-west-2:432981146916:queue-too",
-            protocol="sqs",
-            topic="arn:aws:sns:us-west-2:432981146916:user-updates-topic")
-        ```
-
-        Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates = aws.sns.Topic("userUpdates")
-        user_updates_queue = aws.sqs.Queue("userUpdatesQueue")
-        user_updates_sqs_target = aws.sns.TopicSubscription("userUpdatesSqsTarget",
-            topic=user_updates.arn,
-            protocol="sqs",
-            endpoint=user_updates_queue.arn)
-        ```
-
-        You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        sns = config.get_object("sns")
-        if sns is None:
-            sns = {
-                "account-id": "111111111111",
-                "role-name": "service/service",
-                "name": "example-sns-topic",
-                "display_name": "example",
-                "region": "us-west-1",
-            }
-        sqs = config.get_object("sqs")
-        if sqs is None:
-            sqs = {
-                "account-id": "222222222222",
-                "role-name": "service/service",
-                "name": "example-sqs-queue",
-                "region": "us-east-1",
-            }
-        sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
-            statements=[
-                aws.iam.GetPolicyDocumentStatementArgs(
-                    actions=[
-                        "SNS:Subscribe",
-                        "SNS:SetTopicAttributes",
-                        "SNS:RemovePermission",
-                        "SNS:Publish",
-                        "SNS:ListSubscriptionsByTopic",
-                        "SNS:GetTopicAttributes",
-                        "SNS:DeleteTopic",
-                        "SNS:AddPermission",
-                    ],
-                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        variable="AWS:SourceOwner",
-                        values=[sns["account-id"]],
-                    )],
-                    effect="Allow",
-                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                        type="AWS",
-                        identifiers=["*"],
-                    )],
-                    resources=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
-                    sid="__default_statement_ID",
-                ),
-                aws.iam.GetPolicyDocumentStatementArgs(
-                    actions=[
-                        "SNS:Subscribe",
-                        "SNS:Receive",
-                    ],
-                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringLike",
-                        variable="SNS:Endpoint",
-                        values=[f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
-                    )],
-                    effect="Allow",
-                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                        type="AWS",
-                        identifiers=["*"],
-                    )],
-                    resources=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
-                    sid="__console_sub_0",
-                ),
-            ])
-        sqs_queue_policy = aws.iam.get_policy_document(policy_id=f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}/SQSDefaultPolicy",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
-                sid="example-sns-topic",
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=["*"],
-                )],
-                actions=["SQS:SendMessage"],
-                resources=[f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="ArnEquals",
-                    variable="aws:SourceArn",
-                    values=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
-                )],
-            )])
-        # provider to manage SNS topics
-        aws_sns = aws.Provider("awsSns",
-            region=sns["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
-                role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
-                session_name=f"sns-{sns['region']}",
-            ))
-        # provider to manage SQS queues
-        aws_sqs = aws.Provider("awsSqs",
-            region=sqs["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
-                role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
-                session_name=f"sqs-{sqs['region']}",
-            ))
-        # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
-        sns2sqs = aws.Provider("sns2sqs",
-            region=sns["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
-                role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
-                session_name=f"sns2sqs-{sns['region']}",
-            ))
-        sns_topic_topic = aws.sns.Topic("sns-topicTopic",
-            display_name=sns["display_name"],
-            policy=sns_topic_policy.json,
-            opts=pulumi.ResourceOptions(provider=aws["sns"]))
-        sqs_queue = aws.sqs.Queue("sqs-queue", policy=sqs_queue_policy.json,
-        opts=pulumi.ResourceOptions(provider=aws["sqs"]))
-        sns_topic_topic_subscription = aws.sns.TopicSubscription("sns-topicTopicSubscription",
-            topic=sns_topic_topic.arn,
-            protocol="sqs",
-            endpoint=sqs_queue.arn,
-            opts=pulumi.ResourceOptions(provider=aws["sns2sqs"]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
@@ -833,6 +653,10 @@ class TopicSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TopicSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

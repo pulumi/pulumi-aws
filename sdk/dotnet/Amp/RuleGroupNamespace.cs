@@ -12,32 +12,6 @@ namespace Pulumi.Aws.Amp
     /// <summary>
     /// Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var demoWorkspace = new Aws.Amp.Workspace("demoWorkspace");
-    /// 
-    ///     var demoRuleGroupNamespace = new Aws.Amp.RuleGroupNamespace("demoRuleGroupNamespace", new()
-    ///     {
-    ///         WorkspaceId = demoWorkspace.Id,
-    ///         Data = @"groups:
-    ///   - name: test
-    ///     rules:
-    ///     - record: metric:recording_rule
-    ///       expr: avg(rate(container_cpu_usage_seconds_total[5m]))
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:

@@ -13,25 +13,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// Manages an Image Builder Component.
     /// 
     /// ## Example Usage
-    /// ### URI Document
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ImageBuilder.Component("example", new()
-    ///     {
-    ///         Platform = "Linux",
-    ///         Uri = $"s3://{aws_s3_object.Example.Bucket}/{aws_s3_object.Example.Key}",
-    ///         Version = "1.0.0",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

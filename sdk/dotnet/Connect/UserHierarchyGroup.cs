@@ -16,58 +16,6 @@ namespace Pulumi.Aws.Connect
     /// &gt; **NOTE:** The User Hierarchy Structure must be created before creating a User Hierarchy Group.
     /// 
     /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.UserHierarchyGroup("example", new()
-    ///     {
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example User Hierarchy Group" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With a parent group
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var parent = new Aws.Connect.UserHierarchyGroup("parent", new()
-    ///     {
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example User Hierarchy Group Parent" },
-    ///         },
-    ///     });
-    /// 
-    ///     var child = new Aws.Connect.UserHierarchyGroup("child", new()
-    ///     {
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         ParentGroupId = parent.HierarchyGroupId,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example User Hierarchy Group Child" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

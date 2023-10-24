@@ -10,20 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Cognito Risk Configuration resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cognito.RiskConfiguration("example", {
- *     userPoolId: aws_cognito_user_pool.example.id,
- *     riskExceptionConfiguration: {
- *         blockedIpRangeLists: ["10.10.10.10/32"],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Import using the user pool ID and Client ID separated by a `:`:

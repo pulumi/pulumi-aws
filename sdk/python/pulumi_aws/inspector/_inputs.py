@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -22,8 +22,27 @@ class AssessmentTemplateEventSubscriptionArgs:
         :param pulumi.Input[str] event: The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
         :param pulumi.Input[str] topic_arn: The ARN of the SNS topic to which notifications are sent.
         """
-        pulumi.set(__self__, "event", event)
-        pulumi.set(__self__, "topic_arn", topic_arn)
+        AssessmentTemplateEventSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event=event,
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event: Optional[pulumi.Input[str]] = None,
+             topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event is None:
+            raise TypeError("Missing 'event' argument")
+        if topic_arn is None and 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+        if topic_arn is None:
+            raise TypeError("Missing 'topic_arn' argument")
+
+        _setter("event", event)
+        _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter

@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.codeartifact.getRepositoryEndpoint({
- *     domain: aws_codeartifact_domain.test.domain,
- *     repository: aws_codeartifact_repository.test.repository,
- *     format: "npm",
- * });
- * ```
  */
 export function getRepositoryEndpoint(args: GetRepositoryEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryEndpointResult> {
 
@@ -72,19 +59,6 @@ export interface GetRepositoryEndpointResult {
 }
 /**
  * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.codeartifact.getRepositoryEndpoint({
- *     domain: aws_codeartifact_domain.test.domain,
- *     repository: aws_codeartifact_repository.test.repository,
- *     format: "npm",
- * });
- * ```
  */
 export function getRepositoryEndpointOutput(args: GetRepositoryEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryEndpointResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryEndpoint(a, opts))

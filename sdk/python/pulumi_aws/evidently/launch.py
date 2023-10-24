@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,55 @@ class LaunchArgs:
         :param pulumi.Input['LaunchScheduledSplitsConfigArgs'] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "groups", groups)
-        pulumi.set(__self__, "project", project)
+        LaunchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            project=project,
+            description=description,
+            metric_monitors=metric_monitors,
+            name=name,
+            randomization_salt=randomization_salt,
+            scheduled_splits_config=scheduled_splits_config,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchGroupArgs']]]] = None,
+             project: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             randomization_salt: Optional[pulumi.Input[str]] = None,
+             scheduled_splits_config: Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if groups is None:
+            raise TypeError("Missing 'groups' argument")
+        if project is None:
+            raise TypeError("Missing 'project' argument")
+        if metric_monitors is None and 'metricMonitors' in kwargs:
+            metric_monitors = kwargs['metricMonitors']
+        if randomization_salt is None and 'randomizationSalt' in kwargs:
+            randomization_salt = kwargs['randomizationSalt']
+        if scheduled_splits_config is None and 'scheduledSplitsConfig' in kwargs:
+            scheduled_splits_config = kwargs['scheduledSplitsConfig']
+
+        _setter("groups", groups)
+        _setter("project", project)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if metric_monitors is not None:
-            pulumi.set(__self__, "metric_monitors", metric_monitors)
+            _setter("metric_monitors", metric_monitors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if randomization_salt is not None:
-            pulumi.set(__self__, "randomization_salt", randomization_salt)
+            _setter("randomization_salt", randomization_salt)
         if scheduled_splits_config is not None:
-            pulumi.set(__self__, "scheduled_splits_config", scheduled_splits_config)
+            _setter("scheduled_splits_config", scheduled_splits_config)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -185,41 +220,96 @@ class _LaunchState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of launch.
         """
+        _LaunchState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            created_time=created_time,
+            description=description,
+            executions=executions,
+            groups=groups,
+            last_updated_time=last_updated_time,
+            metric_monitors=metric_monitors,
+            name=name,
+            project=project,
+            randomization_salt=randomization_salt,
+            scheduled_splits_config=scheduled_splits_config,
+            status=status,
+            status_reason=status_reason,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             executions: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchExecutionArgs']]]] = None,
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchGroupArgs']]]] = None,
+             last_updated_time: Optional[pulumi.Input[str]] = None,
+             metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             project: Optional[pulumi.Input[str]] = None,
+             randomization_salt: Optional[pulumi.Input[str]] = None,
+             scheduled_splits_config: Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             status_reason: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if metric_monitors is None and 'metricMonitors' in kwargs:
+            metric_monitors = kwargs['metricMonitors']
+        if randomization_salt is None and 'randomizationSalt' in kwargs:
+            randomization_salt = kwargs['randomizationSalt']
+        if scheduled_splits_config is None and 'scheduledSplitsConfig' in kwargs:
+            scheduled_splits_config = kwargs['scheduledSplitsConfig']
+        if status_reason is None and 'statusReason' in kwargs:
+            status_reason = kwargs['statusReason']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if executions is not None:
-            pulumi.set(__self__, "executions", executions)
+            _setter("executions", executions)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if last_updated_time is not None:
-            pulumi.set(__self__, "last_updated_time", last_updated_time)
+            _setter("last_updated_time", last_updated_time)
         if metric_monitors is not None:
-            pulumi.set(__self__, "metric_monitors", metric_monitors)
+            _setter("metric_monitors", metric_monitors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if project is not None:
-            pulumi.set(__self__, "project", project)
+            _setter("project", project)
         if randomization_salt is not None:
-            pulumi.set(__self__, "randomization_salt", randomization_salt)
+            _setter("randomization_salt", randomization_salt)
         if scheduled_splits_config is not None:
-            pulumi.set(__self__, "scheduled_splits_config", scheduled_splits_config)
+            _setter("scheduled_splits_config", scheduled_splits_config)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if status_reason is not None:
-            pulumi.set(__self__, "status_reason", status_reason)
+            _setter("status_reason", status_reason)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -435,234 +525,6 @@ class Launch(pulumi.CustomResource):
         Provides a CloudWatch Evidently Launch resource.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
-                        "Variation1": 0,
-                    },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
-        ```
-        ### With description
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            description="example description",
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
-                        "Variation1": 0,
-                    },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
-        ```
-        ### With multiple groups
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            groups=[
-                aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
-                    name="Variation1",
-                    variation="Variation1",
-                    description="first-group",
-                ),
-                aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
-                    name="Variation2",
-                    variation="Variation2",
-                    description="second-group",
-                ),
-            ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
-                        "Variation1": 0,
-                        "Variation2": 0,
-                    },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
-        ```
-        ### With metric_monitors
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            metric_monitors=[
-                aws.evidently.LaunchMetricMonitorArgs(
-                    metric_definition=aws.evidently.LaunchMetricMonitorMetricDefinitionArgs(
-                        entity_id_key="entity_id_key1",
-                        event_pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",11,\\"<=\\",22]}]}",
-                        name="name1",
-                        unit_label="unit_label1",
-                        value_key="value_key1",
-                    ),
-                ),
-                aws.evidently.LaunchMetricMonitorArgs(
-                    metric_definition=aws.evidently.LaunchMetricMonitorMetricDefinitionArgs(
-                        entity_id_key="entity_id_key2",
-                        event_pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",9,\\"<=\\",19]}]}",
-                        name="name2",
-                        unit_label="unit_label2",
-                        value_key="value_key2",
-                    ),
-                ),
-            ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
-                        "Variation1": 0,
-                    },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
-        ```
-        ### With randomization_salt
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            randomization_salt="example randomization salt",
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
-                        "Variation1": 0,
-                    },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
-        ```
-        ### With multiple steps
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            groups=[
-                aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
-                    name="Variation1",
-                    variation="Variation1",
-                ),
-                aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
-                    name="Variation2",
-                    variation="Variation2",
-                ),
-            ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[
-                    aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                        group_weights={
-                            "Variation1": 15,
-                            "Variation2": 10,
-                        },
-                        start_time="2024-01-07 01:43:59+00:00",
-                    ),
-                    aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                        group_weights={
-                            "Variation1": 20,
-                            "Variation2": 25,
-                        },
-                        start_time="2024-01-08 01:43:59+00:00",
-                    ),
-                ],
-            ))
-        ```
-        ### With segment overrides
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            groups=[
-                aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
-                    name="Variation1",
-                    variation="Variation1",
-                ),
-                aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
-                    name="Variation2",
-                    variation="Variation2",
-                ),
-            ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
-                        "Variation1": 0,
-                        "Variation2": 0,
-                    },
-                    segment_overrides=[
-                        aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
-                            evaluation_order=1,
-                            segment=aws_evidently_segment["example"]["name"],
-                            weights={
-                                "Variation2": 10000,
-                            },
-                        ),
-                        aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
-                            evaluation_order=2,
-                            segment=aws_evidently_segment["example"]["name"],
-                            weights={
-                                "Variation1": 40000,
-                                "Variation2": 30000,
-                            },
-                        ),
-                    ],
-                    start_time="2024-01-08 01:43:59+00:00",
-                )],
-            ))
-        ```
 
         ## Import
 
@@ -702,234 +564,6 @@ class Launch(pulumi.CustomResource):
         Provides a CloudWatch Evidently Launch resource.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
-                        "Variation1": 0,
-                    },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
-        ```
-        ### With description
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            description="example description",
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
-                        "Variation1": 0,
-                    },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
-        ```
-        ### With multiple groups
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            groups=[
-                aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
-                    name="Variation1",
-                    variation="Variation1",
-                    description="first-group",
-                ),
-                aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
-                    name="Variation2",
-                    variation="Variation2",
-                    description="second-group",
-                ),
-            ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
-                        "Variation1": 0,
-                        "Variation2": 0,
-                    },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
-        ```
-        ### With metric_monitors
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            metric_monitors=[
-                aws.evidently.LaunchMetricMonitorArgs(
-                    metric_definition=aws.evidently.LaunchMetricMonitorMetricDefinitionArgs(
-                        entity_id_key="entity_id_key1",
-                        event_pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",11,\\"<=\\",22]}]}",
-                        name="name1",
-                        unit_label="unit_label1",
-                        value_key="value_key1",
-                    ),
-                ),
-                aws.evidently.LaunchMetricMonitorArgs(
-                    metric_definition=aws.evidently.LaunchMetricMonitorMetricDefinitionArgs(
-                        entity_id_key="entity_id_key2",
-                        event_pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",9,\\"<=\\",19]}]}",
-                        name="name2",
-                        unit_label="unit_label2",
-                        value_key="value_key2",
-                    ),
-                ),
-            ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
-                        "Variation1": 0,
-                    },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
-        ```
-        ### With randomization_salt
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            randomization_salt="example randomization salt",
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
-                        "Variation1": 0,
-                    },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
-        ```
-        ### With multiple steps
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            groups=[
-                aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
-                    name="Variation1",
-                    variation="Variation1",
-                ),
-                aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
-                    name="Variation2",
-                    variation="Variation2",
-                ),
-            ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[
-                    aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                        group_weights={
-                            "Variation1": 15,
-                            "Variation2": 10,
-                        },
-                        start_time="2024-01-07 01:43:59+00:00",
-                    ),
-                    aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                        group_weights={
-                            "Variation1": 20,
-                            "Variation2": 25,
-                        },
-                        start_time="2024-01-08 01:43:59+00:00",
-                    ),
-                ],
-            ))
-        ```
-        ### With segment overrides
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.evidently.Launch("example",
-            project=aws_evidently_project["example"]["name"],
-            groups=[
-                aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
-                    name="Variation1",
-                    variation="Variation1",
-                ),
-                aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
-                    name="Variation2",
-                    variation="Variation2",
-                ),
-            ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
-                        "Variation1": 0,
-                        "Variation2": 0,
-                    },
-                    segment_overrides=[
-                        aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
-                            evaluation_order=1,
-                            segment=aws_evidently_segment["example"]["name"],
-                            weights={
-                                "Variation2": 10000,
-                            },
-                        ),
-                        aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
-                            evaluation_order=2,
-                            segment=aws_evidently_segment["example"]["name"],
-                            weights={
-                                "Variation1": 40000,
-                                "Variation2": 30000,
-                            },
-                        ),
-                    ],
-                    start_time="2024-01-08 01:43:59+00:00",
-                )],
-            ))
-        ```
 
         ## Import
 
@@ -958,6 +592,10 @@ class Launch(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LaunchArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -990,6 +628,7 @@ class Launch(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
             __props__.__dict__["randomization_salt"] = randomization_salt
+            scheduled_splits_config = _utilities.configure(scheduled_splits_config, LaunchScheduledSplitsConfigArgs, True)
             __props__.__dict__["scheduled_splits_config"] = scheduled_splits_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

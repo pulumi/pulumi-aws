@@ -9,27 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = aws.ec2.getInstance({
- *     filters: [
- *         {
- *             name: "image-id",
- *             values: ["ami-xxxxxxxx"],
- *         },
- *         {
- *             name: "tag:Name",
- *             values: ["instance-name-tag"],
- *         },
- *     ],
- *     instanceId: "i-instanceid",
- * });
- * ```
  */
 export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     args = args || {};
@@ -264,27 +243,6 @@ export interface GetInstanceResult {
 }
 /**
  * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = aws.ec2.getInstance({
- *     filters: [
- *         {
- *             name: "image-id",
- *             values: ["ami-xxxxxxxx"],
- *         },
- *         {
- *             name: "tag:Name",
- *             values: ["instance-name-tag"],
- *         },
- *     ],
- *     instanceId: "i-instanceid",
- * });
- * ```
  */
 export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
     return pulumi.output(args).apply((a: any) => getInstance(a, opts))

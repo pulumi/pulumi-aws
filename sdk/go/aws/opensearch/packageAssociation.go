@@ -16,52 +16,6 @@ import (
 // Manages an AWS Opensearch Package Association.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDomain, err := opensearch.NewDomain(ctx, "myDomain", &opensearch.DomainArgs{
-//				EngineVersion: pulumi.String("Elasticsearch_7.10"),
-//				ClusterConfig: &opensearch.DomainClusterConfigArgs{
-//					InstanceType: pulumi.String("r4.large.search"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			examplePackage, err := opensearch.NewPackage(ctx, "examplePackage", &opensearch.PackageArgs{
-//				PackageName: pulumi.String("example-txt"),
-//				PackageSource: &opensearch.PackagePackageSourceArgs{
-//					S3BucketName: pulumi.Any(aws_s3_bucket.My_opensearch_packages.Bucket),
-//					S3Key:        pulumi.Any(aws_s3_object.Example.Key),
-//				},
-//				PackageType: pulumi.String("TXT-DICTIONARY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewPackageAssociation(ctx, "examplePackageAssociation", &opensearch.PackageAssociationArgs{
-//				PackageId:  examplePackage.ID(),
-//				DomainName: myDomain.DomainName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type PackageAssociation struct {
 	pulumi.CustomResourceState
 

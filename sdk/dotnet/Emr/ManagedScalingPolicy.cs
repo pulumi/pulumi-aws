@@ -12,49 +12,6 @@ namespace Pulumi.Aws.Emr
     /// <summary>
     /// Provides a Managed Scaling policy for EMR Cluster. With Amazon EMR versions 5.30.0 and later (except for Amazon EMR 6.0.0), you can enable EMR managed scaling to automatically increase or decrease the number of instances or units in your cluster based on workload. See [Using EMR Managed Scaling in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html) for more information.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sample = new Aws.Emr.Cluster("sample", new()
-    ///     {
-    ///         ReleaseLabel = "emr-5.30.0",
-    ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
-    ///         {
-    ///             InstanceType = "m4.large",
-    ///         },
-    ///         CoreInstanceGroup = new Aws.Emr.Inputs.ClusterCoreInstanceGroupArgs
-    ///         {
-    ///             InstanceType = "c4.large",
-    ///         },
-    ///     });
-    /// 
-    ///     // skip ...
-    ///     var samplepolicy = new Aws.Emr.ManagedScalingPolicy("samplepolicy", new()
-    ///     {
-    ///         ClusterId = sample.Id,
-    ///         ComputeLimits = new[]
-    ///         {
-    ///             new Aws.Emr.Inputs.ManagedScalingPolicyComputeLimitArgs
-    ///             {
-    ///                 UnitType = "Instances",
-    ///                 MinimumCapacityUnits = 2,
-    ///                 MaximumCapacityUnits = 10,
-    ///                 MaximumOndemandCapacityUnits = 2,
-    ///                 MaximumCoreCapacityUnits = 10,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For example:

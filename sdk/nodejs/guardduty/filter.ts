@@ -10,43 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage a GuardDuty filter.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myFilter = new aws.guardduty.Filter("myFilter", {
- *     action: "ARCHIVE",
- *     detectorId: aws_guardduty_detector.example.id,
- *     rank: 1,
- *     findingCriteria: {
- *         criterions: [
- *             {
- *                 field: "region",
- *                 equals: ["eu-west-1"],
- *             },
- *             {
- *                 field: "service.additionalInfo.threatListName",
- *                 notEquals: [
- *                     "some-threat",
- *                     "another-threat",
- *                 ],
- *             },
- *             {
- *                 field: "updatedAt",
- *                 greaterThan: "2020-01-01T00:00:00Z",
- *                 lessThan: "2020-02-01T00:00:00Z",
- *             },
- *             {
- *                 field: "severity",
- *                 greaterThanOrEqual: "4",
- *             },
- *         ],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For example:

@@ -28,7 +28,7 @@ public final class ProjectLogsConfigS3Logs {
      */
     private @Nullable String location;
     /**
-     * @return Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+     * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
      * 
      */
     private @Nullable String status;
@@ -56,7 +56,7 @@ public final class ProjectLogsConfigS3Logs {
         return Optional.ofNullable(this.location);
     }
     /**
-     * @return Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+     * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
      * 
      */
     public Optional<String> status() {

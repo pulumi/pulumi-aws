@@ -17,50 +17,6 @@ import (
 //
 // Accepts a Security Hub invitation.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := securityhub.NewAccount(ctx, "exampleAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleMember, err := securityhub.NewMember(ctx, "exampleMember", &securityhub.MemberArgs{
-//				AccountId: pulumi.String("123456789012"),
-//				Email:     pulumi.String("example@example.com"),
-//				Invite:    pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			inviteeAccount, err := securityhub.NewAccount(ctx, "inviteeAccount", nil, pulumi.Provider("aws.invitee"))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = securityhub.NewInviteAccepter(ctx, "inviteeInviteAccepter", &securityhub.InviteAccepterArgs{
-//				MasterId: exampleMember.MasterId,
-//			}, pulumi.Provider("aws.invitee"), pulumi.DependsOn([]pulumi.Resource{
-//				inviteeAccount,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:

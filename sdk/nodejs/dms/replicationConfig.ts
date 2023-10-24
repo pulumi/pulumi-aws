@@ -12,32 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Changing most arguments will stop the replication if it is running. You can set `startReplication` to resume the replication afterwards.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const name = new aws.dms.ReplicationConfig("name", {
- *     replicationConfigIdentifier: "test-dms-serverless-replication-tf",
- *     resourceIdentifier: "test-dms-serverless-replication-tf",
- *     replicationType: "cdc",
- *     sourceEndpointArn: aws_dms_endpoint.source.endpoint_arn,
- *     targetEndpointArn: aws_dms_endpoint.target.endpoint_arn,
- *     tableMappings: `  {
- *     "rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","object-locator":{"schema-name":"%%","table-name":"%%", "rule-action":"include"}]
- *   }
- * `,
- *     startReplication: true,
- *     computeConfig: {
- *         replicationSubnetGroupId: aws_dms_replication_subnet_group["default"].replication_subnet_group_id,
- *         maxCapacityUnits: 64,
- *         minCapacityUnits: 2,
- *         preferredMaintenanceWindow: "sun:23:45-mon:00:30",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import a replication config using the `arn`. For example:

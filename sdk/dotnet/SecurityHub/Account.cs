@@ -14,21 +14,6 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// &gt; **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityHub.Account("example");
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:

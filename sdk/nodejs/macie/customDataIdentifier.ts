@@ -7,24 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
- * const exampleCustomDataIdentifier = new aws.macie.CustomDataIdentifier("exampleCustomDataIdentifier", {
- *     regex: "[0-9]{3}-[0-9]{2}-[0-9]{4}",
- *     description: "DESCRIPTION",
- *     maximumMatchDistance: 10,
- *     keywords: ["keyword"],
- *     ignoreWords: ["ignore"],
- * }, {
- *     dependsOn: [aws_macie2_account.test],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:

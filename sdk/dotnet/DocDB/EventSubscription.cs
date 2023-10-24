@@ -12,51 +12,6 @@ namespace Pulumi.Aws.DocDB
     /// <summary>
     /// Provides a DocumentDB event subscription resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCluster = new Aws.DocDB.Cluster("exampleCluster", new()
-    ///     {
-    ///         ClusterIdentifier = "example",
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             data.Aws_availability_zones.Available.Names[0],
-    ///             data.Aws_availability_zones.Available.Names[1],
-    ///             data.Aws_availability_zones.Available.Names[2],
-    ///         },
-    ///         MasterUsername = "foo",
-    ///         MasterPassword = "mustbeeightcharaters",
-    ///         SkipFinalSnapshot = true,
-    ///     });
-    /// 
-    ///     var exampleTopic = new Aws.Sns.Topic("exampleTopic");
-    /// 
-    ///     var exampleEventSubscription = new Aws.DocDB.EventSubscription("exampleEventSubscription", new()
-    ///     {
-    ///         Enabled = true,
-    ///         EventCategories = new[]
-    ///         {
-    ///             "creation",
-    ///             "failure",
-    ///         },
-    ///         SourceType = "db-cluster",
-    ///         SourceIds = new[]
-    ///         {
-    ///             exampleCluster.Id,
-    ///         },
-    ///         SnsTopicArn = exampleTopic.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:

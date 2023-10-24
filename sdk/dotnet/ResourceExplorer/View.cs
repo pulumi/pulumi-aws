@@ -12,45 +12,6 @@ namespace Pulumi.Aws.ResourceExplorer
     /// <summary>
     /// Provides a resource to manage a Resource Explorer view.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleIndex = new Aws.ResourceExplorer.Index("exampleIndex", new()
-    ///     {
-    ///         Type = "LOCAL",
-    ///     });
-    /// 
-    ///     var exampleView = new Aws.ResourceExplorer.View("exampleView", new()
-    ///     {
-    ///         Filters = new Aws.ResourceExplorer.Inputs.ViewFiltersArgs
-    ///         {
-    ///             FilterString = "resourcetype:ec2:instance",
-    ///         },
-    ///         IncludedProperties = new[]
-    ///         {
-    ///             new Aws.ResourceExplorer.Inputs.ViewIncludedPropertyArgs
-    ///             {
-    ///                 Name = "tags",
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleIndex,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Resource Explorer views using the `arn`. For example:

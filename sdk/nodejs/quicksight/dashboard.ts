@@ -11,26 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing a QuickSight Dashboard.
  *
  * ## Example Usage
- * ### From Source Template
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.Dashboard("example", {
- *     dashboardId: "example-id",
- *     versionDescription: "version",
- *     sourceEntity: {
- *         sourceTemplate: {
- *             arn: aws_quicksight_template.source.arn,
- *             dataSetReferences: [{
- *                 dataSetArn: aws_quicksight_data_set.dataset.arn,
- *                 dataSetPlaceholder: "1",
- *             }],
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HostedTransitVirtualInterfaceAcceptorArgs', 'HostedTransitVirtualInterfaceAcceptor']
@@ -23,10 +23,33 @@ class HostedTransitVirtualInterfaceAcceptorArgs:
         :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
-        pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
+        HostedTransitVirtualInterfaceAcceptorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dx_gateway_id=dx_gateway_id,
+            virtual_interface_id=virtual_interface_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dx_gateway_id: Optional[pulumi.Input[str]] = None,
+             virtual_interface_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dx_gateway_id is None and 'dxGatewayId' in kwargs:
+            dx_gateway_id = kwargs['dxGatewayId']
+        if dx_gateway_id is None:
+            raise TypeError("Missing 'dx_gateway_id' argument")
+        if virtual_interface_id is None and 'virtualInterfaceId' in kwargs:
+            virtual_interface_id = kwargs['virtualInterfaceId']
+        if virtual_interface_id is None:
+            raise TypeError("Missing 'virtual_interface_id' argument")
+
+        _setter("dx_gateway_id", dx_gateway_id)
+        _setter("virtual_interface_id", virtual_interface_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dxGatewayId")
@@ -81,19 +104,44 @@ class _HostedTransitVirtualInterfaceAcceptorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
         """
+        _HostedTransitVirtualInterfaceAcceptorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            dx_gateway_id=dx_gateway_id,
+            tags=tags,
+            tags_all=tags_all,
+            virtual_interface_id=virtual_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             dx_gateway_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_interface_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dx_gateway_id is None and 'dxGatewayId' in kwargs:
+            dx_gateway_id = kwargs['dxGatewayId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if virtual_interface_id is None and 'virtualInterfaceId' in kwargs:
+            virtual_interface_id = kwargs['virtualInterfaceId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if dx_gateway_id is not None:
-            pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
+            _setter("dx_gateway_id", dx_gateway_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if virtual_interface_id is not None:
-            pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
+            _setter("virtual_interface_id", virtual_interface_id)
 
     @property
     @pulumi.getter
@@ -174,35 +222,6 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
 
         > **NOTE:** AWS allows a Direct Connect hosted transit virtual interface to be deleted from either the allocator's or accepter's side. However, this provider only allows the Direct Connect hosted transit virtual interface to be deleted from the allocator's side by removing the corresponding `directconnect.HostedTransitVirtualInterface` resource from your configuration. Removing a `directconnect.HostedTransitVirtualInterfaceAcceptor` resource from your configuration will remove it from your statefile and management, **but will not delete the Direct Connect virtual interface.**
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
-        # Accepter's side of the VIF.
-        example = aws.directconnect.Gateway("example", amazon_side_asn="64512",
-        opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        # Creator's side of the VIF
-        creator = aws.directconnect.HostedTransitVirtualInterface("creator",
-            connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
-            vlan=4094,
-            address_family="ipv4",
-            bgp_asn=65352,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
-        accepter_hosted_transit_virtual_interface_acceptor = aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor",
-            virtual_interface_id=creator.id,
-            dx_gateway_id=example.id,
-            tags={
-                "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
@@ -229,35 +248,6 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
 
         > **NOTE:** AWS allows a Direct Connect hosted transit virtual interface to be deleted from either the allocator's or accepter's side. However, this provider only allows the Direct Connect hosted transit virtual interface to be deleted from the allocator's side by removing the corresponding `directconnect.HostedTransitVirtualInterface` resource from your configuration. Removing a `directconnect.HostedTransitVirtualInterfaceAcceptor` resource from your configuration will remove it from your statefile and management, **but will not delete the Direct Connect virtual interface.**
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
-        # Accepter's side of the VIF.
-        example = aws.directconnect.Gateway("example", amazon_side_asn="64512",
-        opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        # Creator's side of the VIF
-        creator = aws.directconnect.HostedTransitVirtualInterface("creator",
-            connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
-            vlan=4094,
-            address_family="ipv4",
-            bgp_asn=65352,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
-        accepter_hosted_transit_virtual_interface_acceptor = aws.directconnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor",
-            virtual_interface_id=creator.id,
-            dx_gateway_id=example.id,
-            tags={
-                "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
@@ -276,6 +266,10 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HostedTransitVirtualInterfaceAcceptorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

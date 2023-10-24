@@ -11,54 +11,6 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lb = new Aws.Elb.LoadBalancer("lb", new()
-    ///     {
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-east-1a",
-    ///         },
-    ///         Listeners = new[]
-    ///         {
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///             {
-    ///                 InstancePort = 25,
-    ///                 InstanceProtocol = "tcp",
-    ///                 LbPort = 25,
-    ///                 LbProtocol = "tcp",
-    ///             },
-    ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
-    ///             {
-    ///                 InstancePort = 587,
-    ///                 InstanceProtocol = "tcp",
-    ///                 LbPort = 587,
-    ///                 LbProtocol = "tcp",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var smtp = new Aws.Ec2.ProxyProtocolPolicy("smtp", new()
-    ///     {
-    ///         LoadBalancer = lb.Name,
-    ///         InstancePorts = new[]
-    ///         {
-    ///             "25",
-    ///             "587",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")]
     public partial class ProxyProtocolPolicy : global::Pulumi.CustomResource

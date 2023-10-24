@@ -10,19 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an GameLift Script resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.gamelift.Script("example", {storageLocation: {
- *     bucket: aws_s3_bucket.example.id,
- *     key: aws_s3_object.example.key,
- *     roleArn: aws_iam_role.example.arn,
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import GameLift Scripts using the ID. For example:

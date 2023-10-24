@@ -11,32 +11,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Connect Routing Profile resource. For more information see
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.RoutingProfile("example", {
- *     defaultOutboundQueueId: "12345678-1234-1234-1234-123456789012",
- *     description: "example description",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     mediaConcurrencies: [{
- *         channel: "VOICE",
- *         concurrency: 1,
- *     }],
- *     queueConfigs: [{
- *         channel: "VOICE",
- *         delay: 2,
- *         priority: 1,
- *         queueId: "12345678-1234-1234-1234-123456789012",
- *     }],
- *     tags: {
- *         Name: "Example Routing Profile",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:

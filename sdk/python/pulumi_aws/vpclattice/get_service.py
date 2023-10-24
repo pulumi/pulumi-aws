@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -155,14 +155,6 @@ def get_service(name: Optional[str] = None,
     Data source for managing an AWS VPC Lattice Service.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_service(name="example")
-    ```
 
 
     :param str name: Service name.
@@ -198,14 +190,6 @@ def get_service_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     Data source for managing an AWS VPC Lattice Service.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpclattice.get_service(name="example")
-    ```
 
 
     :param str name: Service name.

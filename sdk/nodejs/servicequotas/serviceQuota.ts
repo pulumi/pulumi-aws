@@ -12,19 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicequotas.ServiceQuota("example", {
- *     quotaCode: "L-F678F1CE",
- *     serviceCode: "vpc",
- *     value: 75,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_servicequotas_service_quota` using the service code and quota code, separated by a front slash (`/`). For example:

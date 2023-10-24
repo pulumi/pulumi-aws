@@ -10,26 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing QuickSight Data Source
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.quicksight.DataSource("default", {
- *     dataSourceId: "example-id",
- *     parameters: {
- *         s3: {
- *             manifestFileLocation: {
- *                 bucket: "my-bucket",
- *                 key: "path/to/manifest.json",
- *             },
- *         },
- *     },
- *     type: "S3",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:

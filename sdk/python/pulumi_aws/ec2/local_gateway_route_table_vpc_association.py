@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LocalGatewayRouteTableVpcAssociationArgs', 'LocalGatewayRouteTableVpcAssociation']
@@ -25,10 +25,33 @@ class LocalGatewayRouteTableVpcAssociationArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        LocalGatewayRouteTableVpcAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            local_gateway_route_table_id=local_gateway_route_table_id,
+            vpc_id=vpc_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if local_gateway_route_table_id is None and 'localGatewayRouteTableId' in kwargs:
+            local_gateway_route_table_id = kwargs['localGatewayRouteTableId']
+        if local_gateway_route_table_id is None:
+            raise TypeError("Missing 'local_gateway_route_table_id' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
+        _setter("local_gateway_route_table_id", local_gateway_route_table_id)
+        _setter("vpc_id", vpc_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="localGatewayRouteTableId")
@@ -86,19 +109,46 @@ class _LocalGatewayRouteTableVpcAssociationState:
                
                The following arguments are optional:
         """
+        _LocalGatewayRouteTableVpcAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            local_gateway_id=local_gateway_id,
+            local_gateway_route_table_id=local_gateway_route_table_id,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             local_gateway_id: Optional[pulumi.Input[str]] = None,
+             local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if local_gateway_id is None and 'localGatewayId' in kwargs:
+            local_gateway_id = kwargs['localGatewayId']
+        if local_gateway_route_table_id is None and 'localGatewayRouteTableId' in kwargs:
+            local_gateway_route_table_id = kwargs['localGatewayRouteTableId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if local_gateway_id is not None:
-            pulumi.set(__self__, "local_gateway_id", local_gateway_id)
+            _setter("local_gateway_id", local_gateway_id)
         if local_gateway_route_table_id is not None:
-            pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
+            _setter("local_gateway_route_table_id", local_gateway_route_table_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="localGatewayId")
@@ -175,19 +225,6 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         """
         Manages an EC2 Local Gateway Route Table VPC Association. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#vpc-associations).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_local_gateway_route_table = aws.ec2.get_local_gateway_route_table(outpost_arn="arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_local_gateway_route_table_vpc_association = aws.ec2.LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation",
-            local_gateway_route_table_id=example_local_gateway_route_table.id,
-            vpc_id=example_vpc.id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For example:
@@ -213,19 +250,6 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         """
         Manages an EC2 Local Gateway Route Table VPC Association. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#vpc-associations).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_local_gateway_route_table = aws.ec2.get_local_gateway_route_table(outpost_arn="arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_local_gateway_route_table_vpc_association = aws.ec2.LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation",
-            local_gateway_route_table_id=example_local_gateway_route_table.id,
-            vpc_id=example_vpc.id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For example:
@@ -244,6 +268,10 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocalGatewayRouteTableVpcAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

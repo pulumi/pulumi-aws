@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Route 53 Recovery Readiness Cell.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoveryreadiness.Cell("example", {cellName: "us-west-2-failover-cell"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:

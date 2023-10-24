@@ -11,27 +11,6 @@ namespace Pulumi.Aws.DirectConnect
 {
     /// <summary>
     /// Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var hosted = new Aws.DirectConnect.HostedConnection("hosted", new()
-    ///     {
-    ///         Bandwidth = "100Mbps",
-    ///         ConnectionId = "dxcon-ffabc123",
-    ///         OwnerAccountId = "123456789012",
-    ///         Vlan = 1,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/hostedConnection:HostedConnection")]
     public partial class HostedConnection : global::Pulumi.CustomResource

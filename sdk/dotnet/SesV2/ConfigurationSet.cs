@@ -13,47 +13,6 @@ namespace Pulumi.Aws.SesV2
     /// Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.ConfigurationSet("example", new()
-    ///     {
-    ///         ConfigurationSetName = "example",
-    ///         DeliveryOptions = new Aws.SesV2.Inputs.ConfigurationSetDeliveryOptionsArgs
-    ///         {
-    ///             TlsPolicy = "REQUIRE",
-    ///         },
-    ///         ReputationOptions = new Aws.SesV2.Inputs.ConfigurationSetReputationOptionsArgs
-    ///         {
-    ///             ReputationMetricsEnabled = false,
-    ///         },
-    ///         SendingOptions = new Aws.SesV2.Inputs.ConfigurationSetSendingOptionsArgs
-    ///         {
-    ///             SendingEnabled = true,
-    ///         },
-    ///         SuppressionOptions = new Aws.SesV2.Inputs.ConfigurationSetSuppressionOptionsArgs
-    ///         {
-    ///             SuppressedReasons = new[]
-    ///             {
-    ///                 "BOUNCE",
-    ///                 "COMPLAINT",
-    ///             },
-    ///         },
-    ///         TrackingOptions = new Aws.SesV2.Inputs.ConfigurationSetTrackingOptionsArgs
-    ///         {
-    ///             CustomRedirectDomain = "example.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

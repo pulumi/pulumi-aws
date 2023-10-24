@@ -16,37 +16,6 @@ import (
 // Resource for managing a QuickSight Template.
 //
 // ## Example Usage
-// ### From Source Template
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewTemplate(ctx, "example", &quicksight.TemplateArgs{
-//				TemplateId:         pulumi.String("example-id"),
-//				VersionDescription: pulumi.String("version"),
-//				SourceEntity: &quicksight.TemplateSourceEntityArgs{
-//					SourceTemplate: &quicksight.TemplateSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(aws_quicksight_template.Source.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

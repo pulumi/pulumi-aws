@@ -13,40 +13,6 @@ namespace Pulumi.Aws.Kendra
     /// Resource for managing an AWS Kendra Experience.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kendra.Experience("example", new()
-    ///     {
-    ///         IndexId = aws_kendra_index.Example.Id,
-    ///         Description = "My Kendra Experience",
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         Configuration = new Aws.Kendra.Inputs.ExperienceConfigurationArgs
-    ///         {
-    ///             ContentSourceConfiguration = new Aws.Kendra.Inputs.ExperienceConfigurationContentSourceConfigurationArgs
-    ///             {
-    ///                 DirectPutContent = true,
-    ///                 FaqIds = new[]
-    ///                 {
-    ///                     aws_kendra_faq.Example.Faq_id,
-    ///                 },
-    ///             },
-    ///             UserIdentityConfiguration = new Aws.Kendra.Inputs.ExperienceConfigurationUserIdentityConfigurationArgs
-    ///             {
-    ///                 IdentityAttributeName = "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

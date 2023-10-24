@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage AWS Data Exchange Revisions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.dataexchange.Revision("example", {dataSetId: aws_dataexchange_data_set.example.id});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import DataExchange Revisions using their `data-set-id:revision-id`. For example:

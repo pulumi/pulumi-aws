@@ -11,24 +11,6 @@ namespace Pulumi.Aws.DirectConnect
 {
     /// <summary>
     /// Provides a confirmation of the creation of the specified hosted connection on an interconnect.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var confirmation = new Aws.DirectConnect.ConnectionConfirmation("confirmation", new()
-    ///     {
-    ///         ConnectionId = "dxcon-ffabc123",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/connectionConfirmation:ConnectionConfirmation")]
     public partial class ConnectionConfirmation : global::Pulumi.CustomResource

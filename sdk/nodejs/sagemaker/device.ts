@@ -11,19 +11,6 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Device resource.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.Device("example", {
- *     deviceFleetName: aws_sagemaker_device_fleet.example.device_fleet_name,
- *     device: {
- *         deviceName: "example",
- *     },
- * });
- * ```
  *
  * ## Import
  *

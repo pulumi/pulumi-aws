@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpnConnectionRouteInitArgs', 'VpnConnectionRoute']
@@ -21,8 +21,29 @@ class VpnConnectionRouteInitArgs:
         :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[str] vpn_connection_id: The ID of the VPN connection.
         """
-        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
-        pulumi.set(__self__, "vpn_connection_id", vpn_connection_id)
+        VpnConnectionRouteInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_cidr_block=destination_cidr_block,
+            vpn_connection_id=vpn_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_cidr_block: Optional[pulumi.Input[str]] = None,
+             vpn_connection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_cidr_block is None and 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if destination_cidr_block is None:
+            raise TypeError("Missing 'destination_cidr_block' argument")
+        if vpn_connection_id is None and 'vpnConnectionId' in kwargs:
+            vpn_connection_id = kwargs['vpnConnectionId']
+        if vpn_connection_id is None:
+            raise TypeError("Missing 'vpn_connection_id' argument")
+
+        _setter("destination_cidr_block", destination_cidr_block)
+        _setter("vpn_connection_id", vpn_connection_id)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -59,10 +80,27 @@ class _VpnConnectionRouteState:
         :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[str] vpn_connection_id: The ID of the VPN connection.
         """
+        _VpnConnectionRouteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_cidr_block=destination_cidr_block,
+            vpn_connection_id=vpn_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_cidr_block: Optional[pulumi.Input[str]] = None,
+             vpn_connection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_cidr_block is None and 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if vpn_connection_id is None and 'vpnConnectionId' in kwargs:
+            vpn_connection_id = kwargs['vpnConnectionId']
+
         if destination_cidr_block is not None:
-            pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+            _setter("destination_cidr_block", destination_cidr_block)
         if vpn_connection_id is not None:
-            pulumi.set(__self__, "vpn_connection_id", vpn_connection_id)
+            _setter("vpn_connection_id", vpn_connection_id)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -100,28 +138,6 @@ class VpnConnectionRoute(pulumi.CustomResource):
         """
         Provides a static route between a VPN connection and a customer gateway.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        vpc = aws.ec2.Vpc("vpc", cidr_block="10.0.0.0/16")
-        vpn_gateway = aws.ec2.VpnGateway("vpnGateway", vpc_id=vpc.id)
-        customer_gateway = aws.ec2.CustomerGateway("customerGateway",
-            bgp_asn="65000",
-            ip_address="172.0.0.1",
-            type="ipsec.1")
-        main = aws.ec2.VpnConnection("main",
-            vpn_gateway_id=vpn_gateway.id,
-            customer_gateway_id=customer_gateway.id,
-            type="ipsec.1",
-            static_routes_only=True)
-        office = aws.ec2.VpnConnectionRoute("office",
-            destination_cidr_block="192.168.10.0/24",
-            vpn_connection_id=main.id)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
@@ -136,28 +152,6 @@ class VpnConnectionRoute(pulumi.CustomResource):
         """
         Provides a static route between a VPN connection and a customer gateway.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        vpc = aws.ec2.Vpc("vpc", cidr_block="10.0.0.0/16")
-        vpn_gateway = aws.ec2.VpnGateway("vpnGateway", vpc_id=vpc.id)
-        customer_gateway = aws.ec2.CustomerGateway("customerGateway",
-            bgp_asn="65000",
-            ip_address="172.0.0.1",
-            type="ipsec.1")
-        main = aws.ec2.VpnConnection("main",
-            vpn_gateway_id=vpn_gateway.id,
-            customer_gateway_id=customer_gateway.id,
-            type="ipsec.1",
-            static_routes_only=True)
-        office = aws.ec2.VpnConnectionRoute("office",
-            destination_cidr_block="192.168.10.0/24",
-            vpn_connection_id=main.id)
-        ```
-
         :param str resource_name: The name of the resource.
         :param VpnConnectionRouteInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,6 +162,10 @@ class VpnConnectionRoute(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnConnectionRouteInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

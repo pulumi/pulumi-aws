@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a MediaStore Container.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.mediastore.Container("example", {});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For example:

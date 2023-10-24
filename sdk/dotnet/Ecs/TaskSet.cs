@@ -14,35 +14,6 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ecs.TaskSet("example", new()
-    ///     {
-    ///         Service = aws_ecs_service.Example.Id,
-    ///         Cluster = aws_ecs_cluster.Example.Id,
-    ///         TaskDefinition = aws_ecs_task_definition.Example.Arn,
-    ///         LoadBalancers = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.TaskSetLoadBalancerArgs
-    ///             {
-    ///                 TargetGroupArn = aws_lb_target_group.Example.Arn,
-    ///                 ContainerName = "mongo",
-    ///                 ContainerPort = 8080,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECS Task Sets using the `task_set_id`, `service`, and `cluster` separated by commas (`,`). For example:

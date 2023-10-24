@@ -19,32 +19,6 @@ namespace Pulumi.Aws.Alb
         /// This data source can prove useful when a module accepts an LB Target Group as an
         /// input variable and needs to know its attributes. It can also be used to get the ARN of
         /// an LB Target Group for use in other resources, given LB Target Group name.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var lbTgArn = config.Get("lbTgArn") ?? "";
-        ///     var lbTgName = config.Get("lbTgName") ?? "";
-        ///     var test = Aws.LB.GetTargetGroup.Invoke(new()
-        ///     {
-        ///         Arn = lbTgArn,
-        ///         Name = lbTgName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTargetGroupResult> InvokeAsync(GetTargetGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTargetGroupResult>("aws:alb/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupArgs(), options.WithDefaults());
@@ -57,32 +31,6 @@ namespace Pulumi.Aws.Alb
         /// This data source can prove useful when a module accepts an LB Target Group as an
         /// input variable and needs to know its attributes. It can also be used to get the ARN of
         /// an LB Target Group for use in other resources, given LB Target Group name.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var lbTgArn = config.Get("lbTgArn") ?? "";
-        ///     var lbTgName = config.Get("lbTgName") ?? "";
-        ///     var test = Aws.LB.GetTargetGroup.Invoke(new()
-        ///     {
-        ///         Arn = lbTgArn,
-        ///         Name = lbTgName,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetTargetGroupResult> Invoke(GetTargetGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetGroupResult>("aws:alb/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupInvokeArgs(), options.WithDefaults());

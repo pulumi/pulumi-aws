@@ -7,31 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Attaches a policy to a KMS Key.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "example"});
- * const exampleKeyPolicy = new aws.kms.KeyPolicy("exampleKeyPolicy", {
- *     keyId: exampleKey.id,
- *     policy: JSON.stringify({
- *         Id: "example",
- *         Statement: [{
- *             Action: "kms:*",
- *             Effect: "Allow",
- *             Principal: {
- *                 AWS: "*",
- *             },
- *             Resource: "*",
- *             Sid: "Enable IAM User Permissions",
- *         }],
- *         Version: "2012-10-17",
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import KMS Key Policies using the `key_id`. For example:

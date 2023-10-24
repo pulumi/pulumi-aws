@@ -12,24 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a Internet Monitor Monitor resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudWatch.InternetMonitor("example", new()
-    ///     {
-    ///         MonitorName = "exmple",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:

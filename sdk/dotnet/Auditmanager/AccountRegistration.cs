@@ -13,37 +13,6 @@ namespace Pulumi.Aws.Auditmanager
     /// Resource for managing AWS Audit Manager Account Registration.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Auditmanager.AccountRegistration("example");
-    /// 
-    /// });
-    /// ```
-    /// ### Deregister On Destroy
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Auditmanager.AccountRegistration("example", new()
-    ///     {
-    ///         DeregisterOnDestroy = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

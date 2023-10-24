@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
  *
  * ## Example Usage
- * ### Filter By Workspace ID
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.workspaces.getWorkspace({
- *     workspaceId: "ws-cj5xcxsz5",
- * });
- * ```
- * ### Filter By Directory ID & User Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.workspaces.getWorkspace({
- *     directoryId: "d-9967252f57",
- *     userName: "Example",
- * });
- * ```
  */
 export function getWorkspace(args?: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     args = args || {};
@@ -101,27 +80,6 @@ export interface GetWorkspaceResult {
  * Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
  *
  * ## Example Usage
- * ### Filter By Workspace ID
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.workspaces.getWorkspace({
- *     workspaceId: "ws-cj5xcxsz5",
- * });
- * ```
- * ### Filter By Directory ID & User Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.workspaces.getWorkspace({
- *     directoryId: "d-9967252f57",
- *     userName: "Example",
- * });
- * ```
  */
 export function getWorkspaceOutput(args?: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

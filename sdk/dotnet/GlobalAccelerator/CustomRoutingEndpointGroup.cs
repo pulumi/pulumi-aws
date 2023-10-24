@@ -12,43 +12,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// <summary>
     /// Provides a Global Accelerator custom routing endpoint group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GlobalAccelerator.CustomRoutingEndpointGroup("example", new()
-    ///     {
-    ///         ListenerArn = aws_globalaccelerator_custom_routing_listener.Example.Id,
-    ///         DestinationConfigurations = new[]
-    ///         {
-    ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingEndpointGroupDestinationConfigurationArgs
-    ///             {
-    ///                 FromPort = 80,
-    ///                 ToPort = 8080,
-    ///                 Protocols = new[]
-    ///                 {
-    ///                     "TCP",
-    ///                 },
-    ///             },
-    ///         },
-    ///         EndpointConfigurations = new[]
-    ///         {
-    ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingEndpointGroupEndpointConfigurationArgs
-    ///             {
-    ///                 EndpointId = aws_subnet.Example.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:

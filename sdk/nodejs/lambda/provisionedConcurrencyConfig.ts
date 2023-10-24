@@ -10,30 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
  *
  * ## Example Usage
- * ### Alias Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.ProvisionedConcurrencyConfig("example", {
- *     functionName: aws_lambda_alias.example.function_name,
- *     provisionedConcurrentExecutions: 1,
- *     qualifier: aws_lambda_alias.example.name,
- * });
- * ```
- * ### Function Version
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.ProvisionedConcurrencyConfig("example", {
- *     functionName: aws_lambda_function.example.function_name,
- *     provisionedConcurrentExecutions: 1,
- *     qualifier: aws_lambda_function.example.version,
- * });
- * ```
  *
  * ## Import
  *

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -58,15 +58,6 @@ def get_ipset(name: Optional[str] = None,
     """
     `waf.IpSet` Retrieves a WAF IP Set Resource Id.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.waf.get_ipset(name="tfWAFIPSet")
-    ```
-
 
     :param str name: Name of the WAF IP set.
     """
@@ -85,15 +76,6 @@ def get_ipset_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpsetResult]:
     """
     `waf.IpSet` Retrieves a WAF IP Set Resource Id.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.waf.get_ipset(name="tfWAFIPSet")
-    ```
 
 
     :param str name: Name of the WAF IP set.

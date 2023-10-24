@@ -7,29 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Cognito User Identity Provider resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cognito.UserPool("example", {autoVerifiedAttributes: ["email"]});
- * const exampleProvider = new aws.cognito.IdentityProvider("exampleProvider", {
- *     userPoolId: example.id,
- *     providerName: "Google",
- *     providerType: "Google",
- *     providerDetails: {
- *         authorize_scopes: "email",
- *         client_id: "your client_id",
- *         client_secret: "your client_secret",
- *     },
- *     attributeMapping: {
- *         email: "email",
- *         username: "sub",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:

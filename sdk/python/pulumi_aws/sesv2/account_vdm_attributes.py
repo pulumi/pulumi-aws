@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,34 @@ class AccountVdmAttributesArgs:
         :param pulumi.Input['AccountVdmAttributesDashboardAttributesArgs'] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param pulumi.Input['AccountVdmAttributesGuardianAttributesArgs'] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
-        pulumi.set(__self__, "vdm_enabled", vdm_enabled)
+        AccountVdmAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vdm_enabled=vdm_enabled,
+            dashboard_attributes=dashboard_attributes,
+            guardian_attributes=guardian_attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vdm_enabled: Optional[pulumi.Input[str]] = None,
+             dashboard_attributes: Optional[pulumi.Input['AccountVdmAttributesDashboardAttributesArgs']] = None,
+             guardian_attributes: Optional[pulumi.Input['AccountVdmAttributesGuardianAttributesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vdm_enabled is None and 'vdmEnabled' in kwargs:
+            vdm_enabled = kwargs['vdmEnabled']
+        if vdm_enabled is None:
+            raise TypeError("Missing 'vdm_enabled' argument")
+        if dashboard_attributes is None and 'dashboardAttributes' in kwargs:
+            dashboard_attributes = kwargs['dashboardAttributes']
+        if guardian_attributes is None and 'guardianAttributes' in kwargs:
+            guardian_attributes = kwargs['guardianAttributes']
+
+        _setter("vdm_enabled", vdm_enabled)
         if dashboard_attributes is not None:
-            pulumi.set(__self__, "dashboard_attributes", dashboard_attributes)
+            _setter("dashboard_attributes", dashboard_attributes)
         if guardian_attributes is not None:
-            pulumi.set(__self__, "guardian_attributes", guardian_attributes)
+            _setter("guardian_attributes", guardian_attributes)
 
     @property
     @pulumi.getter(name="vdmEnabled")
@@ -86,12 +109,33 @@ class _AccountVdmAttributesState:
                
                The following arguments are optional:
         """
+        _AccountVdmAttributesState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dashboard_attributes=dashboard_attributes,
+            guardian_attributes=guardian_attributes,
+            vdm_enabled=vdm_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dashboard_attributes: Optional[pulumi.Input['AccountVdmAttributesDashboardAttributesArgs']] = None,
+             guardian_attributes: Optional[pulumi.Input['AccountVdmAttributesGuardianAttributesArgs']] = None,
+             vdm_enabled: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dashboard_attributes is None and 'dashboardAttributes' in kwargs:
+            dashboard_attributes = kwargs['dashboardAttributes']
+        if guardian_attributes is None and 'guardianAttributes' in kwargs:
+            guardian_attributes = kwargs['guardianAttributes']
+        if vdm_enabled is None and 'vdmEnabled' in kwargs:
+            vdm_enabled = kwargs['vdmEnabled']
+
         if dashboard_attributes is not None:
-            pulumi.set(__self__, "dashboard_attributes", dashboard_attributes)
+            _setter("dashboard_attributes", dashboard_attributes)
         if guardian_attributes is not None:
-            pulumi.set(__self__, "guardian_attributes", guardian_attributes)
+            _setter("guardian_attributes", guardian_attributes)
         if vdm_enabled is not None:
-            pulumi.set(__self__, "vdm_enabled", vdm_enabled)
+            _setter("vdm_enabled", vdm_enabled)
 
     @property
     @pulumi.getter(name="dashboardAttributes")
@@ -145,21 +189,6 @@ class AccountVdmAttributes(pulumi.CustomResource):
         Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.AccountVdmAttributes("example",
-            dashboard_attributes=aws.sesv2.AccountVdmAttributesDashboardAttributesArgs(
-                engagement_metrics="ENABLED",
-            ),
-            guardian_attributes=aws.sesv2.AccountVdmAttributesGuardianAttributesArgs(
-                optimized_shared_delivery="ENABLED",
-            ),
-            vdm_enabled="ENABLED")
-        ```
 
         ## Import
 
@@ -187,21 +216,6 @@ class AccountVdmAttributes(pulumi.CustomResource):
         Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.AccountVdmAttributes("example",
-            dashboard_attributes=aws.sesv2.AccountVdmAttributesDashboardAttributesArgs(
-                engagement_metrics="ENABLED",
-            ),
-            guardian_attributes=aws.sesv2.AccountVdmAttributesGuardianAttributesArgs(
-                optimized_shared_delivery="ENABLED",
-            ),
-            vdm_enabled="ENABLED")
-        ```
 
         ## Import
 
@@ -221,6 +235,10 @@ class AccountVdmAttributes(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountVdmAttributesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -238,7 +256,9 @@ class AccountVdmAttributes(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountVdmAttributesArgs.__new__(AccountVdmAttributesArgs)
 
+            dashboard_attributes = _utilities.configure(dashboard_attributes, AccountVdmAttributesDashboardAttributesArgs, True)
             __props__.__dict__["dashboard_attributes"] = dashboard_attributes
+            guardian_attributes = _utilities.configure(guardian_attributes, AccountVdmAttributesGuardianAttributesArgs, True)
             __props__.__dict__["guardian_attributes"] = guardian_attributes
             if vdm_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'vdm_enabled'")

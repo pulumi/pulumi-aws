@@ -13,30 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides an Traffic mirror filter.\
     /// Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
     /// 
-    /// ## Example Usage
-    /// 
-    /// To create a basic traffic mirror filter
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Ec2.TrafficMirrorFilter("foo", new()
-    ///     {
-    ///         Description = "traffic mirror filter - example",
-    ///         NetworkServices = new[]
-    ///         {
-    ///             "amazon-dns",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import traffic mirror filter using the `id`. For example:

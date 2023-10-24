@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,21 +35,58 @@ class CertificateAuthorityArgs:
         :param pulumi.Input[str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         :param pulumi.Input[str] usage_mode: Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         """
-        pulumi.set(__self__, "certificate_authority_configuration", certificate_authority_configuration)
+        CertificateAuthorityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_authority_configuration=certificate_authority_configuration,
+            enabled=enabled,
+            key_storage_security_standard=key_storage_security_standard,
+            permanent_deletion_time_in_days=permanent_deletion_time_in_days,
+            revocation_configuration=revocation_configuration,
+            tags=tags,
+            type=type,
+            usage_mode=usage_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_authority_configuration: Optional[pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             key_storage_security_standard: Optional[pulumi.Input[str]] = None,
+             permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
+             revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             usage_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_authority_configuration is None and 'certificateAuthorityConfiguration' in kwargs:
+            certificate_authority_configuration = kwargs['certificateAuthorityConfiguration']
+        if certificate_authority_configuration is None:
+            raise TypeError("Missing 'certificate_authority_configuration' argument")
+        if key_storage_security_standard is None and 'keyStorageSecurityStandard' in kwargs:
+            key_storage_security_standard = kwargs['keyStorageSecurityStandard']
+        if permanent_deletion_time_in_days is None and 'permanentDeletionTimeInDays' in kwargs:
+            permanent_deletion_time_in_days = kwargs['permanentDeletionTimeInDays']
+        if revocation_configuration is None and 'revocationConfiguration' in kwargs:
+            revocation_configuration = kwargs['revocationConfiguration']
+        if usage_mode is None and 'usageMode' in kwargs:
+            usage_mode = kwargs['usageMode']
+
+        _setter("certificate_authority_configuration", certificate_authority_configuration)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if key_storage_security_standard is not None:
-            pulumi.set(__self__, "key_storage_security_standard", key_storage_security_standard)
+            _setter("key_storage_security_standard", key_storage_security_standard)
         if permanent_deletion_time_in_days is not None:
-            pulumi.set(__self__, "permanent_deletion_time_in_days", permanent_deletion_time_in_days)
+            _setter("permanent_deletion_time_in_days", permanent_deletion_time_in_days)
         if revocation_configuration is not None:
-            pulumi.set(__self__, "revocation_configuration", revocation_configuration)
+            _setter("revocation_configuration", revocation_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if usage_mode is not None:
-            pulumi.set(__self__, "usage_mode", usage_mode)
+            _setter("usage_mode", usage_mode)
 
     @property
     @pulumi.getter(name="certificateAuthorityConfiguration")
@@ -186,41 +223,102 @@ class _CertificateAuthorityState:
         :param pulumi.Input[str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         :param pulumi.Input[str] usage_mode: Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         """
+        _CertificateAuthorityState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            certificate=certificate,
+            certificate_authority_configuration=certificate_authority_configuration,
+            certificate_chain=certificate_chain,
+            certificate_signing_request=certificate_signing_request,
+            enabled=enabled,
+            key_storage_security_standard=key_storage_security_standard,
+            not_after=not_after,
+            not_before=not_before,
+            permanent_deletion_time_in_days=permanent_deletion_time_in_days,
+            revocation_configuration=revocation_configuration,
+            serial=serial,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+            usage_mode=usage_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             certificate: Optional[pulumi.Input[str]] = None,
+             certificate_authority_configuration: Optional[pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs']] = None,
+             certificate_chain: Optional[pulumi.Input[str]] = None,
+             certificate_signing_request: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             key_storage_security_standard: Optional[pulumi.Input[str]] = None,
+             not_after: Optional[pulumi.Input[str]] = None,
+             not_before: Optional[pulumi.Input[str]] = None,
+             permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
+             revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
+             serial: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             usage_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_authority_configuration is None and 'certificateAuthorityConfiguration' in kwargs:
+            certificate_authority_configuration = kwargs['certificateAuthorityConfiguration']
+        if certificate_chain is None and 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+        if certificate_signing_request is None and 'certificateSigningRequest' in kwargs:
+            certificate_signing_request = kwargs['certificateSigningRequest']
+        if key_storage_security_standard is None and 'keyStorageSecurityStandard' in kwargs:
+            key_storage_security_standard = kwargs['keyStorageSecurityStandard']
+        if not_after is None and 'notAfter' in kwargs:
+            not_after = kwargs['notAfter']
+        if not_before is None and 'notBefore' in kwargs:
+            not_before = kwargs['notBefore']
+        if permanent_deletion_time_in_days is None and 'permanentDeletionTimeInDays' in kwargs:
+            permanent_deletion_time_in_days = kwargs['permanentDeletionTimeInDays']
+        if revocation_configuration is None and 'revocationConfiguration' in kwargs:
+            revocation_configuration = kwargs['revocationConfiguration']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if usage_mode is None and 'usageMode' in kwargs:
+            usage_mode = kwargs['usageMode']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_authority_configuration is not None:
-            pulumi.set(__self__, "certificate_authority_configuration", certificate_authority_configuration)
+            _setter("certificate_authority_configuration", certificate_authority_configuration)
         if certificate_chain is not None:
-            pulumi.set(__self__, "certificate_chain", certificate_chain)
+            _setter("certificate_chain", certificate_chain)
         if certificate_signing_request is not None:
-            pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
+            _setter("certificate_signing_request", certificate_signing_request)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if key_storage_security_standard is not None:
-            pulumi.set(__self__, "key_storage_security_standard", key_storage_security_standard)
+            _setter("key_storage_security_standard", key_storage_security_standard)
         if not_after is not None:
-            pulumi.set(__self__, "not_after", not_after)
+            _setter("not_after", not_after)
         if not_before is not None:
-            pulumi.set(__self__, "not_before", not_before)
+            _setter("not_before", not_before)
         if permanent_deletion_time_in_days is not None:
-            pulumi.set(__self__, "permanent_deletion_time_in_days", permanent_deletion_time_in_days)
+            _setter("permanent_deletion_time_in_days", permanent_deletion_time_in_days)
         if revocation_configuration is not None:
-            pulumi.set(__self__, "revocation_configuration", revocation_configuration)
+            _setter("revocation_configuration", revocation_configuration)
         if serial is not None:
-            pulumi.set(__self__, "serial", serial)
+            _setter("serial", serial)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if usage_mode is not None:
-            pulumi.set(__self__, "usage_mode", usage_mode)
+            _setter("usage_mode", usage_mode)
 
     @property
     @pulumi.getter
@@ -438,83 +536,6 @@ class CertificateAuthority(pulumi.CustomResource):
         > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute. The `acmpca.CertificateAuthorityCertificate` resource can be used for this purpose.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
-            permanent_deletion_time_in_days=7)
-        ```
-        ### Short-lived certificate
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
-            usage_mode="SHORT_LIVED_CERTIFICATE")
-        ```
-        ### Enable Certificate Revocation List
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "s3:GetBucketAcl",
-                "s3:GetBucketLocation",
-                "s3:PutObject",
-                "s3:PutObjectAcl",
-            ],
-            resources=[
-                example_bucket_v2.arn,
-                example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["acm-pca.amazonaws.com"],
-                type="Service",
-            )],
-        )])
-        example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
-            bucket=example_bucket_v2.id,
-            policy=acmpca_bucket_access.json)
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
-            revocation_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationArgs(
-                crl_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs(
-                    custom_cname="crl.example.com",
-                    enabled=True,
-                    expiration_in_days=7,
-                    s3_bucket_name=example_bucket_v2.id,
-                    s3_object_acl="BUCKET_OWNER_FULL_CONTROL",
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
-        ```
 
         ## Import
 
@@ -547,83 +568,6 @@ class CertificateAuthority(pulumi.CustomResource):
         > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute. The `acmpca.CertificateAuthorityCertificate` resource can be used for this purpose.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
-            permanent_deletion_time_in_days=7)
-        ```
-        ### Short-lived certificate
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
-            usage_mode="SHORT_LIVED_CERTIFICATE")
-        ```
-        ### Enable Certificate Revocation List
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "s3:GetBucketAcl",
-                "s3:GetBucketLocation",
-                "s3:PutObject",
-                "s3:PutObjectAcl",
-            ],
-            resources=[
-                example_bucket_v2.arn,
-                example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["acm-pca.amazonaws.com"],
-                type="Service",
-            )],
-        )])
-        example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
-            bucket=example_bucket_v2.id,
-            policy=acmpca_bucket_access.json)
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
-            revocation_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationArgs(
-                crl_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs(
-                    custom_cname="crl.example.com",
-                    enabled=True,
-                    expiration_in_days=7,
-                    s3_bucket_name=example_bucket_v2.id,
-                    s3_object_acl="BUCKET_OWNER_FULL_CONTROL",
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
-        ```
 
         ## Import
 
@@ -643,6 +587,10 @@ class CertificateAuthority(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateAuthorityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -665,12 +613,14 @@ class CertificateAuthority(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateAuthorityArgs.__new__(CertificateAuthorityArgs)
 
+            certificate_authority_configuration = _utilities.configure(certificate_authority_configuration, CertificateAuthorityCertificateAuthorityConfigurationArgs, True)
             if certificate_authority_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_authority_configuration'")
             __props__.__dict__["certificate_authority_configuration"] = certificate_authority_configuration
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["key_storage_security_standard"] = key_storage_security_standard
             __props__.__dict__["permanent_deletion_time_in_days"] = permanent_deletion_time_in_days
+            revocation_configuration = _utilities.configure(revocation_configuration, CertificateAuthorityRevocationConfigurationArgs, True)
             __props__.__dict__["revocation_configuration"] = revocation_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type

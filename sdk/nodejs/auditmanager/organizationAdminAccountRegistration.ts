@@ -8,14 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing AWS Audit Manager Organization Admin Account Registration.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.auditmanager.OrganizationAdminAccountRegistration("example", {adminAccountId: "012345678901"});
- * ```
  *
  * ## Import
  *

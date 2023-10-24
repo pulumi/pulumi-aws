@@ -12,36 +12,6 @@ namespace Pulumi.Aws.WafRegional
     /// <summary>
     /// Provides a WAF Regional Size Constraint Set Resource for use with Application Load Balancer.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sizeConstraintSet = new Aws.WafRegional.SizeConstraintSet("sizeConstraintSet", new()
-    ///     {
-    ///         SizeConstraints = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.SizeConstraintSetSizeConstraintArgs
-    ///             {
-    ///                 ComparisonOperator = "EQ",
-    ///                 FieldToMatch = new Aws.WafRegional.Inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs
-    ///                 {
-    ///                     Type = "BODY",
-    ///                 },
-    ///                 Size = 4096,
-    ///                 TextTransformation = "NONE",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Size Constraint Set using the id. For example:

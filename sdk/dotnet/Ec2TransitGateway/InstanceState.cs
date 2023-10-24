@@ -14,63 +14,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// &gt; **NOTE on Instance State Management:** AWS does not currently have an EC2 API operation to determine an instance has finished processing user data. As a result, this resource can interfere with user data processing. For example, this resource may stop an instance while the user data script is in mid run.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ubuntu = Aws.Ec2.GetAmi.Invoke(new()
-    ///     {
-    ///         MostRecent = true,
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "name",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
-    ///                 },
-    ///             },
-    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
-    ///             {
-    ///                 Name = "virtualization-type",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "hvm",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Owners = new[]
-    ///         {
-    ///             "099720109477",
-    ///         },
-    ///     });
-    /// 
-    ///     var testInstance = new Aws.Ec2.Instance("testInstance", new()
-    ///     {
-    ///         Ami = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t3.micro",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testInstanceState = new Aws.Ec2TransitGateway.InstanceState("testInstanceState", new()
-    ///     {
-    ///         InstanceId = testInstance.Id,
-    ///         State = "stopped",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:

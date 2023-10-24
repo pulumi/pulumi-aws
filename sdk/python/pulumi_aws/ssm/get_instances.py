@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -72,18 +72,6 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     """
     Use this data source to get the instance IDs of SSM managed instances.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssm.get_instances(filters=[aws.ssm.GetInstancesFilterArgs(
-        name="PlatformTypes",
-        values=["Linux"],
-    )])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
@@ -103,18 +91,6 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
     """
     Use this data source to get the instance IDs of SSM managed instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssm.get_instances(filters=[aws.ssm.GetInstancesFilterArgs(
-        name="PlatformTypes",
-        values=["Linux"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

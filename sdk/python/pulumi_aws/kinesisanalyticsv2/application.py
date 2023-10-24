@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,65 @@ class ApplicationArgs:
         :param pulumi.Input[bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
-        pulumi.set(__self__, "runtime_environment", runtime_environment)
-        pulumi.set(__self__, "service_execution_role", service_execution_role)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            runtime_environment=runtime_environment,
+            service_execution_role=service_execution_role,
+            application_configuration=application_configuration,
+            cloudwatch_logging_options=cloudwatch_logging_options,
+            description=description,
+            force_stop=force_stop,
+            name=name,
+            start_application=start_application,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             runtime_environment: Optional[pulumi.Input[str]] = None,
+             service_execution_role: Optional[pulumi.Input[str]] = None,
+             application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']] = None,
+             cloudwatch_logging_options: Optional[pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             force_stop: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             start_application: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if runtime_environment is None and 'runtimeEnvironment' in kwargs:
+            runtime_environment = kwargs['runtimeEnvironment']
+        if runtime_environment is None:
+            raise TypeError("Missing 'runtime_environment' argument")
+        if service_execution_role is None and 'serviceExecutionRole' in kwargs:
+            service_execution_role = kwargs['serviceExecutionRole']
+        if service_execution_role is None:
+            raise TypeError("Missing 'service_execution_role' argument")
+        if application_configuration is None and 'applicationConfiguration' in kwargs:
+            application_configuration = kwargs['applicationConfiguration']
+        if cloudwatch_logging_options is None and 'cloudwatchLoggingOptions' in kwargs:
+            cloudwatch_logging_options = kwargs['cloudwatchLoggingOptions']
+        if force_stop is None and 'forceStop' in kwargs:
+            force_stop = kwargs['forceStop']
+        if start_application is None and 'startApplication' in kwargs:
+            start_application = kwargs['startApplication']
+
+        _setter("runtime_environment", runtime_environment)
+        _setter("service_execution_role", service_execution_role)
         if application_configuration is not None:
-            pulumi.set(__self__, "application_configuration", application_configuration)
+            _setter("application_configuration", application_configuration)
         if cloudwatch_logging_options is not None:
-            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+            _setter("cloudwatch_logging_options", cloudwatch_logging_options)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if force_stop is not None:
-            pulumi.set(__self__, "force_stop", force_stop)
+            _setter("force_stop", force_stop)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if start_application is not None:
-            pulumi.set(__self__, "start_application", start_application)
+            _setter("start_application", start_application)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="runtimeEnvironment")
@@ -199,39 +242,98 @@ class _ApplicationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] version_id: The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
+        _ApplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_configuration=application_configuration,
+            arn=arn,
+            cloudwatch_logging_options=cloudwatch_logging_options,
+            create_timestamp=create_timestamp,
+            description=description,
+            force_stop=force_stop,
+            last_update_timestamp=last_update_timestamp,
+            name=name,
+            runtime_environment=runtime_environment,
+            service_execution_role=service_execution_role,
+            start_application=start_application,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            version_id=version_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             cloudwatch_logging_options: Optional[pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs']] = None,
+             create_timestamp: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             force_stop: Optional[pulumi.Input[bool]] = None,
+             last_update_timestamp: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             runtime_environment: Optional[pulumi.Input[str]] = None,
+             service_execution_role: Optional[pulumi.Input[str]] = None,
+             start_application: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_configuration is None and 'applicationConfiguration' in kwargs:
+            application_configuration = kwargs['applicationConfiguration']
+        if cloudwatch_logging_options is None and 'cloudwatchLoggingOptions' in kwargs:
+            cloudwatch_logging_options = kwargs['cloudwatchLoggingOptions']
+        if create_timestamp is None and 'createTimestamp' in kwargs:
+            create_timestamp = kwargs['createTimestamp']
+        if force_stop is None and 'forceStop' in kwargs:
+            force_stop = kwargs['forceStop']
+        if last_update_timestamp is None and 'lastUpdateTimestamp' in kwargs:
+            last_update_timestamp = kwargs['lastUpdateTimestamp']
+        if runtime_environment is None and 'runtimeEnvironment' in kwargs:
+            runtime_environment = kwargs['runtimeEnvironment']
+        if service_execution_role is None and 'serviceExecutionRole' in kwargs:
+            service_execution_role = kwargs['serviceExecutionRole']
+        if start_application is None and 'startApplication' in kwargs:
+            start_application = kwargs['startApplication']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if version_id is None and 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+
         if application_configuration is not None:
-            pulumi.set(__self__, "application_configuration", application_configuration)
+            _setter("application_configuration", application_configuration)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cloudwatch_logging_options is not None:
-            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+            _setter("cloudwatch_logging_options", cloudwatch_logging_options)
         if create_timestamp is not None:
-            pulumi.set(__self__, "create_timestamp", create_timestamp)
+            _setter("create_timestamp", create_timestamp)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if force_stop is not None:
-            pulumi.set(__self__, "force_stop", force_stop)
+            _setter("force_stop", force_stop)
         if last_update_timestamp is not None:
-            pulumi.set(__self__, "last_update_timestamp", last_update_timestamp)
+            _setter("last_update_timestamp", last_update_timestamp)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if runtime_environment is not None:
-            pulumi.set(__self__, "runtime_environment", runtime_environment)
+            _setter("runtime_environment", runtime_environment)
         if service_execution_role is not None:
-            pulumi.set(__self__, "service_execution_role", service_execution_role)
+            _setter("service_execution_role", service_execution_role)
         if start_application is not None:
-            pulumi.set(__self__, "start_application", start_application)
+            _setter("start_application", start_application)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if version_id is not None:
-            pulumi.set(__self__, "version_id", version_id)
+            _setter("version_id", version_id)
 
     @property
     @pulumi.getter(name="applicationConfiguration")
@@ -439,199 +541,6 @@ class Application(pulumi.CustomResource):
         > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `kinesis.AnalyticsApplication` resource.
 
         ## Example Usage
-        ### Apache Flink Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_v2.id,
-            key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=aws_iam_role["example"]["arn"],
-            application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
-                application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
-                    code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
-                        s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket_v2.arn,
-                            file_key=example_bucket_objectv2.key,
-                        ),
-                    ),
-                    code_content_type="ZIPFILE",
-                ),
-                environment_properties=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesArgs(
-                    property_groups=[
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs(
-                            property_group_id="PROPERTY-GROUP-1",
-                            property_map={
-                                "Key1": "Value1",
-                            },
-                        ),
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs(
-                            property_group_id="PROPERTY-GROUP-2",
-                            property_map={
-                                "KeyA": "ValueA",
-                                "KeyB": "ValueB",
-                            },
-                        ),
-                    ],
-                ),
-                flink_application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs(
-                    checkpoint_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs(
-                        configuration_type="DEFAULT",
-                    ),
-                    monitoring_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs(
-                        configuration_type="CUSTOM",
-                        log_level="DEBUG",
-                        metrics_level="TASK",
-                    ),
-                    parallelism_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs(
-                        auto_scaling_enabled=True,
-                        configuration_type="CUSTOM",
-                        parallelism=10,
-                        parallelism_per_kpu=4,
-                    ),
-                ),
-            ),
-            tags={
-                "Environment": "test",
-            })
-        ```
-        ### SQL Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_log_stream = aws.cloudwatch.LogStream("exampleLogStream", log_group_name=example_log_group.name)
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="SQL-1_0",
-            service_execution_role=aws_iam_role["example"]["arn"],
-            application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
-                application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
-                    code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
-                        text_content="SELECT 1;\\n",
-                    ),
-                    code_content_type="PLAINTEXT",
-                ),
-                sql_application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs(
-                    input=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs(
-                        name_prefix="PREFIX_1",
-                        input_parallelism=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs(
-                            count=3,
-                        ),
-                        input_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs(
-                            record_columns=[
-                                aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs(
-                                    name="COLUMN_1",
-                                    sql_type="VARCHAR(8)",
-                                    mapping="MAPPING-1",
-                                ),
-                                aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs(
-                                    name="COLUMN_2",
-                                    sql_type="DOUBLE",
-                                ),
-                            ],
-                            record_encoding="UTF-8",
-                            record_format=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs(
-                                record_format_type="CSV",
-                                mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs(
-                                    csv_mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs(
-                                        record_column_delimiter=",",
-                                        record_row_delimiter="\\n",
-                                    ),
-                                ),
-                            ),
-                        ),
-                        kinesis_streams_input=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs(
-                            resource_arn=aws_kinesis_stream["example"]["arn"],
-                        ),
-                    ),
-                    outputs=[
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs(
-                            name="OUTPUT_1",
-                            destination_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs(
-                                record_format_type="JSON",
-                            ),
-                            lambda_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs(
-                                resource_arn=aws_lambda_function["example"]["arn"],
-                            ),
-                        ),
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs(
-                            name="OUTPUT_2",
-                            destination_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs(
-                                record_format_type="CSV",
-                            ),
-                            kinesis_firehose_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs(
-                                resource_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                            ),
-                        ),
-                    ],
-                    reference_data_source=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs(
-                        table_name="TABLE-1",
-                        reference_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs(
-                            record_columns=[aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs(
-                                name="COLUMN_1",
-                                sql_type="INTEGER",
-                            )],
-                            record_format=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs(
-                                record_format_type="JSON",
-                                mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs(
-                                    json_mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs(
-                                        record_row_path="$",
-                                    ),
-                                ),
-                            ),
-                        ),
-                        s3_reference_data_source=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs(
-                            bucket_arn=aws_s3_bucket["example"]["arn"],
-                            file_key="KEY-1",
-                        ),
-                    ),
-                ),
-            ),
-            cloudwatch_logging_options=aws.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptionsArgs(
-                log_stream_arn=example_log_stream.arn,
-            ))
-        ```
-        ### VPC Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_v2.id,
-            key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=aws_iam_role["example"]["arn"],
-            application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
-                application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
-                    code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
-                        s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket_v2.arn,
-                            file_key=example_bucket_objectv2.key,
-                        ),
-                    ),
-                    code_content_type="ZIPFILE",
-                ),
-                vpc_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfigurationArgs(
-                    security_group_ids=[
-                        aws_security_group["example"][0]["id"],
-                        aws_security_group["example"][1]["id"],
-                    ],
-                    subnet_ids=[aws_subnet["example"]["id"]],
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -666,199 +575,6 @@ class Application(pulumi.CustomResource):
         > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `kinesis.AnalyticsApplication` resource.
 
         ## Example Usage
-        ### Apache Flink Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_v2.id,
-            key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=aws_iam_role["example"]["arn"],
-            application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
-                application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
-                    code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
-                        s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket_v2.arn,
-                            file_key=example_bucket_objectv2.key,
-                        ),
-                    ),
-                    code_content_type="ZIPFILE",
-                ),
-                environment_properties=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesArgs(
-                    property_groups=[
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs(
-                            property_group_id="PROPERTY-GROUP-1",
-                            property_map={
-                                "Key1": "Value1",
-                            },
-                        ),
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs(
-                            property_group_id="PROPERTY-GROUP-2",
-                            property_map={
-                                "KeyA": "ValueA",
-                                "KeyB": "ValueB",
-                            },
-                        ),
-                    ],
-                ),
-                flink_application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs(
-                    checkpoint_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs(
-                        configuration_type="DEFAULT",
-                    ),
-                    monitoring_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs(
-                        configuration_type="CUSTOM",
-                        log_level="DEBUG",
-                        metrics_level="TASK",
-                    ),
-                    parallelism_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs(
-                        auto_scaling_enabled=True,
-                        configuration_type="CUSTOM",
-                        parallelism=10,
-                        parallelism_per_kpu=4,
-                    ),
-                ),
-            ),
-            tags={
-                "Environment": "test",
-            })
-        ```
-        ### SQL Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_log_stream = aws.cloudwatch.LogStream("exampleLogStream", log_group_name=example_log_group.name)
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="SQL-1_0",
-            service_execution_role=aws_iam_role["example"]["arn"],
-            application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
-                application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
-                    code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
-                        text_content="SELECT 1;\\n",
-                    ),
-                    code_content_type="PLAINTEXT",
-                ),
-                sql_application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs(
-                    input=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs(
-                        name_prefix="PREFIX_1",
-                        input_parallelism=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs(
-                            count=3,
-                        ),
-                        input_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs(
-                            record_columns=[
-                                aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs(
-                                    name="COLUMN_1",
-                                    sql_type="VARCHAR(8)",
-                                    mapping="MAPPING-1",
-                                ),
-                                aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs(
-                                    name="COLUMN_2",
-                                    sql_type="DOUBLE",
-                                ),
-                            ],
-                            record_encoding="UTF-8",
-                            record_format=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs(
-                                record_format_type="CSV",
-                                mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs(
-                                    csv_mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs(
-                                        record_column_delimiter=",",
-                                        record_row_delimiter="\\n",
-                                    ),
-                                ),
-                            ),
-                        ),
-                        kinesis_streams_input=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs(
-                            resource_arn=aws_kinesis_stream["example"]["arn"],
-                        ),
-                    ),
-                    outputs=[
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs(
-                            name="OUTPUT_1",
-                            destination_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs(
-                                record_format_type="JSON",
-                            ),
-                            lambda_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs(
-                                resource_arn=aws_lambda_function["example"]["arn"],
-                            ),
-                        ),
-                        aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs(
-                            name="OUTPUT_2",
-                            destination_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs(
-                                record_format_type="CSV",
-                            ),
-                            kinesis_firehose_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs(
-                                resource_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                            ),
-                        ),
-                    ],
-                    reference_data_source=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs(
-                        table_name="TABLE-1",
-                        reference_schema=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs(
-                            record_columns=[aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs(
-                                name="COLUMN_1",
-                                sql_type="INTEGER",
-                            )],
-                            record_format=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs(
-                                record_format_type="JSON",
-                                mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs(
-                                    json_mapping_parameters=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs(
-                                        record_row_path="$",
-                                    ),
-                                ),
-                            ),
-                        ),
-                        s3_reference_data_source=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs(
-                            bucket_arn=aws_s3_bucket["example"]["arn"],
-                            file_key="KEY-1",
-                        ),
-                    ),
-                ),
-            ),
-            cloudwatch_logging_options=aws.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptionsArgs(
-                log_stream_arn=example_log_stream.arn,
-            ))
-        ```
-        ### VPC Configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_v2.id,
-            key="example-flink-application",
-            source=pulumi.FileAsset("flink-app.jar"))
-        example_application = aws.kinesisanalyticsv2.Application("exampleApplication",
-            runtime_environment="FLINK-1_8",
-            service_execution_role=aws_iam_role["example"]["arn"],
-            application_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs(
-                application_code_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs(
-                    code_content=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs(
-                        s3_content_location=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs(
-                            bucket_arn=example_bucket_v2.arn,
-                            file_key=example_bucket_objectv2.key,
-                        ),
-                    ),
-                    code_content_type="ZIPFILE",
-                ),
-                vpc_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfigurationArgs(
-                    security_group_ids=[
-                        aws_security_group["example"][0]["id"],
-                        aws_security_group["example"][1]["id"],
-                    ],
-                    subnet_ids=[aws_subnet["example"]["id"]],
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -878,6 +594,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -901,7 +621,9 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
+            application_configuration = _utilities.configure(application_configuration, ApplicationApplicationConfigurationArgs, True)
             __props__.__dict__["application_configuration"] = application_configuration
+            cloudwatch_logging_options = _utilities.configure(cloudwatch_logging_options, ApplicationCloudwatchLoggingOptionsArgs, True)
             __props__.__dict__["cloudwatch_logging_options"] = cloudwatch_logging_options
             __props__.__dict__["description"] = description
             __props__.__dict__["force_stop"] = force_stop

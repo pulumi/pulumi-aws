@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -261,15 +261,6 @@ def get_image_pipeline(arn: Optional[str] = None,
     """
     Provides details about an Image Builder Image Pipeline.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_pipeline(arn="arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
-    ```
-
 
     :param str arn: ARN of the image pipeline.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image pipeline.
@@ -308,15 +299,6 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagePipelineResult]:
     """
     Provides details about an Image Builder Image Pipeline.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_pipeline(arn="arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
-    ```
 
 
     :param str arn: ARN of the image pipeline.

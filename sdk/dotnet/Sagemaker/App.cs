@@ -13,26 +13,6 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker App resource.
     /// 
     /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.App("example", new()
-    ///     {
-    ///         DomainId = aws_sagemaker_domain.Example.Id,
-    ///         UserProfileName = aws_sagemaker_user_profile.Example.User_profile_name,
-    ///         AppName = "example",
-    ///         AppType = "JupyterServer",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

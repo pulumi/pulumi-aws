@@ -12,44 +12,6 @@ namespace Pulumi.Aws.Sqs
     /// <summary>
     /// Provides a SQS Queue Redrive Allow Policy resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleQueue = new Aws.Sqs.Queue("exampleQueue");
-    /// 
-    ///     var src = new Aws.Sqs.Queue("src", new()
-    ///     {
-    ///         RedrivePolicy = exampleQueue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["deadLetterTargetArn"] = arn,
-    ///             ["maxReceiveCount"] = 4,
-    ///         })),
-    ///     });
-    /// 
-    ///     var exampleRedriveAllowPolicy = new Aws.Sqs.RedriveAllowPolicy("exampleRedriveAllowPolicy", new()
-    ///     {
-    ///         QueueUrl = exampleQueue.Id,
-    ///         RedriveAllowPolicyName = src.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["redrivePermission"] = "byQueue",
-    ///             ["sourceQueueArns"] = new[]
-    ///             {
-    ///                 arn,
-    ///             },
-    ///         })),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SQS Queue Redrive Allow Policies using the queue URL. For example:

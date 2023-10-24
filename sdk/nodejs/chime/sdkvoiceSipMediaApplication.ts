@@ -11,19 +11,6 @@ import * as utilities from "../utilities";
  * A ChimeSDKVoice SIP Media Application is a managed object that passes values from a SIP rule to a target AWS Lambda function.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.chime.SdkvoiceSipMediaApplication("example", {
- *     awsRegion: "us-east-1",
- *     endpoints: {
- *         lambdaArn: aws_lambda_function.test.arn,
- *     },
- * });
- * ```
  *
  * ## Import
  *

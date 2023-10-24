@@ -16,62 +16,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE on `gateway_id` attribute:** The AWS API is very forgiving with the resource ID passed in the `gateway_id` attribute. For example an `aws.ec2.Route` resource can be created with an `aws.ec2.NatGateway` or `aws.ec2.EgressOnlyInternetGateway` ID specified for the `gateway_id` attribute. Specifying anything other than an `aws.ec2.InternetGateway` or `aws.ec2.VpnGateway` ID will lead to this provider reporting a permanent diff between your configuration and recorded state, as the AWS API returns the more-specific attribute. If you are experiencing constant diffs with an `aws.ec2.Route` resource, the first thing to check is that the correct attribute is being specified.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var route = new Aws.Ec2.Route("route", new()
-    ///     {
-    ///         RouteTableId = "rtb-4fbb3ac4",
-    ///         DestinationCidrBlock = "10.0.1.0/22",
-    ///         VpcPeeringConnectionId = "pcx-45ff3dc1",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_route_table.Testing,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ## Example IPv6 Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var vpc = new Aws.Ec2.Vpc("vpc", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///         AssignGeneratedIpv6CidrBlock = true,
-    ///     });
-    /// 
-    ///     var egress = new Aws.Ec2.EgressOnlyInternetGateway("egress", new()
-    ///     {
-    ///         VpcId = vpc.Id,
-    ///     });
-    /// 
-    ///     var route = new Aws.Ec2.Route("route", new()
-    ///     {
-    ///         RouteTableId = "rtb-4fbb3ac4",
-    ///         DestinationIpv6CidrBlock = "::/0",
-    ///         EgressOnlyGatewayId = egress.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:

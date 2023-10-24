@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -180,25 +180,6 @@ def get_connect_peer(filters: Optional[Sequence[pulumi.InputType['GetConnectPeer
     Get information on an EC2 Transit Gateway Connect Peer.
 
     ## Example Usage
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_connect_peer(filters=[aws.ec2transitgateway.GetConnectPeerFilterArgs(
-        name="transit-gateway-attachment-id",
-        values=["tgw-attach-12345678"],
-    )])
-    ```
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_connect_peer(transit_gateway_connect_peer_id="tgw-connect-peer-12345678")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetConnectPeerFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
@@ -236,25 +217,6 @@ def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     Get information on an EC2 Transit Gateway Connect Peer.
 
     ## Example Usage
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_connect_peer(filters=[aws.ec2transitgateway.GetConnectPeerFilterArgs(
-        name="transit-gateway-attachment-id",
-        values=["tgw-attach-12345678"],
-    )])
-    ```
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_connect_peer(transit_gateway_connect_peer_id="tgw-connect-peer-12345678")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetConnectPeerFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.

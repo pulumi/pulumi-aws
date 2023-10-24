@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric {
     /**
-     * @return Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+     * @return Dimensions of the metric.
      * 
      */
     private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension> dimensions;
@@ -30,7 +30,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
 
     private PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric() {}
     /**
-     * @return Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+     * @return Dimensions of the metric.
      * 
      */
     public List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension> dimensions() {

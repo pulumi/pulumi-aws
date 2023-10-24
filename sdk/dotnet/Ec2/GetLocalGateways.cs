@@ -13,74 +13,12 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Provides information for multiple EC2 Local Gateways, such as their identifiers.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var fooLocalGateways = Aws.Ec2.GetLocalGateways.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "service", "production" },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["foo"] = fooLocalGateways.Apply(getLocalGatewaysResult =&gt; getLocalGatewaysResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLocalGatewaysResult> InvokeAsync(GetLocalGatewaysArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewaysResult>("aws:ec2/getLocalGateways:getLocalGateways", args ?? new GetLocalGatewaysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information for multiple EC2 Local Gateways, such as their identifiers.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var fooLocalGateways = Aws.Ec2.GetLocalGateways.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "service", "production" },
-        ///         },
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["foo"] = fooLocalGateways.Apply(getLocalGatewaysResult =&gt; getLocalGatewaysResult.Ids),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetLocalGatewaysResult> Invoke(GetLocalGatewaysInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewaysResult>("aws:ec2/getLocalGateways:getLocalGateways", args ?? new GetLocalGatewaysInvokeArgs(), options.WithDefaults());

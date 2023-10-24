@@ -16,35 +16,6 @@ import (
 // Provides an Amazon Lex Bot Alias resource. For more information see
 // [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewBotAlias(ctx, "orderFlowersProd", &lex.BotAliasArgs{
-//				BotName:     pulumi.String("OrderFlowers"),
-//				BotVersion:  pulumi.String("1"),
-//				Description: pulumi.String("Production Version of the OrderFlowers Bot."),
-//				Name:        pulumi.String("OrderFlowersProd"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:

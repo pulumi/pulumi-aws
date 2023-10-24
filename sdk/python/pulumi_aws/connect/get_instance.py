@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -209,26 +209,6 @@ def get_instance(instance_alias: Optional[str] = None,
     """
     Provides details about a specific Amazon Connect Instance.
 
-    ## Example Usage
-
-    By instance_alias
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.connect.get_instance(instance_alias="foo")
-    ```
-
-    By instance_id
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.connect.get_instance(instance_id="97afc98d-101a-ba98-ab97-ae114fc115ec")
-    ```
-
 
     :param str instance_alias: Returns information on a specific connect instance by alias
     :param str instance_id: Returns information on a specific connect instance by id
@@ -263,26 +243,6 @@ def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[str]]] = 
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Provides details about a specific Amazon Connect Instance.
-
-    ## Example Usage
-
-    By instance_alias
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.connect.get_instance(instance_alias="foo")
-    ```
-
-    By instance_id
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.connect.get_instance(instance_id="97afc98d-101a-ba98-ab97-ae114fc115ec")
-    ```
 
 
     :param str instance_alias: Returns information on a specific connect instance by alias

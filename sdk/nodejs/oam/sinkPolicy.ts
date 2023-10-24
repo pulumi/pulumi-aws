@@ -8,42 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleSink = new aws.oam.Sink("exampleSink", {});
- * const exampleSinkPolicy = new aws.oam.SinkPolicy("exampleSinkPolicy", {
- *     sinkIdentifier: exampleSink.id,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: [
- *                 "oam:CreateLink",
- *                 "oam:UpdateLink",
- *             ],
- *             Effect: "Allow",
- *             Resource: "*",
- *             Principal: {
- *                 AWS: [
- *                     "1111111111111",
- *                     "222222222222",
- *                 ],
- *             },
- *             Condition: {
- *                 "ForAllValues:StringEquals": {
- *                     "oam:ResourceTypes": [
- *                         "AWS::CloudWatch::Metric",
- *                         "AWS::Logs::LogGroup",
- *                     ],
- *                 },
- *             },
- *         }],
- *     }),
- * });
- * ```
  *
  * ## Import
  *

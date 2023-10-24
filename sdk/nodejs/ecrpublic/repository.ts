@@ -12,32 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This resource can only be used in the `us-east-1` region.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const usEast1 = new aws.Provider("usEast1", {region: "us-east-1"});
- * const foo = new aws.ecrpublic.Repository("foo", {
- *     repositoryName: "bar",
- *     catalogData: {
- *         aboutText: "About Text",
- *         architectures: ["ARM"],
- *         description: "Description",
- *         logoImageBlob: Buffer.from(fs.readFileSync(image.png), 'binary').toString('base64'),
- *         operatingSystems: ["Linux"],
- *         usageText: "Usage Text",
- *     },
- *     tags: {
- *         env: "production",
- *     },
- * }, {
- *     provider: aws.us_east_1,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:

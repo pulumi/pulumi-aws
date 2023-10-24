@@ -14,27 +14,6 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// &gt; **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new Aws.DeviceFarm.Project("exampleProject");
-    /// 
-    ///     var exampleUpload = new Aws.DeviceFarm.Upload("exampleUpload", new()
-    ///     {
-    ///         ProjectArn = exampleProject.Arn,
-    ///         Type = "APPIUM_JAVA_TESTNG_TEST_SPEC",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:

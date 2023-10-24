@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an AWS Storage Gateway Tape Pool.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.storagegateway.TapePool("example", {
- *     poolName: "example",
- *     storageClass: "GLACIER",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_storagegateway_tape_pool` using the volume Amazon Resource Name (ARN). For example:

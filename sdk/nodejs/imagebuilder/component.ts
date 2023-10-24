@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
  * Manages an Image Builder Component.
  *
  * ## Example Usage
- * ### URI Document
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.imagebuilder.Component("example", {
- *     platform: "Linux",
- *     uri: `s3://${aws_s3_object.example.bucket}/${aws_s3_object.example.key}`,
- *     version: "1.0.0",
- * });
- * ```
  *
  * ## Import
  *

@@ -12,38 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _this = new aws.cloudwatch.EventEndpoint("this", {
- *     roleArn: aws_iam_role.replication.arn,
- *     eventBuses: [
- *         {
- *             eventBusArn: aws_cloudwatch_event_bus.primary.arn,
- *         },
- *         {
- *             eventBusArn: aws_cloudwatch_event_bus.secondary.arn,
- *         },
- *     ],
- *     replicationConfig: {
- *         state: "DISABLED",
- *     },
- *     routingConfig: {
- *         failoverConfig: {
- *             primary: {
- *                 healthCheck: aws_route53_health_check.primary.arn,
- *             },
- *             secondary: {
- *                 route: "us-east-2",
- *             },
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -114,18 +114,6 @@ def get_parameters_by_path(path: Optional[str] = None,
     """
     Provides SSM Parameters by path.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ssm.get_parameters_by_path(path="/foo")
-    ```
-
-    > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-    **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
-
 
     :param str path: Prefix path of the parameter.
     :param bool recursive: Whether to recursively return parameters under `path`. Defaults to `false`.
@@ -158,18 +146,6 @@ def get_parameters_by_path_output(path: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParametersByPathResult]:
     """
     Provides SSM Parameters by path.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ssm.get_parameters_by_path(path="/foo")
-    ```
-
-    > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-    **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
 
 
     :param str path: Prefix path of the parameter.

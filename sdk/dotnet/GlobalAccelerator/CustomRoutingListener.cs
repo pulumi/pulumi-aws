@@ -12,44 +12,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// <summary>
     /// Provides a Global Accelerator custom routing listener.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCustomRoutingAccelerator = new Aws.GlobalAccelerator.CustomRoutingAccelerator("exampleCustomRoutingAccelerator", new()
-    ///     {
-    ///         IpAddressType = "IPV4",
-    ///         Enabled = true,
-    ///         Attributes = new Aws.GlobalAccelerator.Inputs.CustomRoutingAcceleratorAttributesArgs
-    ///         {
-    ///             FlowLogsEnabled = true,
-    ///             FlowLogsS3Bucket = "example-bucket",
-    ///             FlowLogsS3Prefix = "flow-logs/",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleCustomRoutingListener = new Aws.GlobalAccelerator.CustomRoutingListener("exampleCustomRoutingListener", new()
-    ///     {
-    ///         AcceleratorArn = exampleCustomRoutingAccelerator.Id,
-    ///         PortRanges = new[]
-    ///         {
-    ///             new Aws.GlobalAccelerator.Inputs.CustomRoutingListenerPortRangeArgs
-    ///             {
-    ///                 FromPort = 80,
-    ///                 ToPort = 80,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:

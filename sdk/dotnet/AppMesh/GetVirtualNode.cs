@@ -13,58 +13,12 @@ namespace Pulumi.Aws.AppMesh
     {
         /// <summary>
         /// Data source for managing an AWS App Mesh Virtual Node.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.AppMesh.GetVirtualNode.Invoke(new()
-        ///     {
-        ///         MeshName = "example-mesh",
-        ///         Name = "serviceBv1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualNodeResult> InvokeAsync(GetVirtualNodeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNodeResult>("aws:appmesh/getVirtualNode:getVirtualNode", args ?? new GetVirtualNodeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data source for managing an AWS App Mesh Virtual Node.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.AppMesh.GetVirtualNode.Invoke(new()
-        ///     {
-        ///         MeshName = "example-mesh",
-        ///         Name = "serviceBv1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualNodeResult> Invoke(GetVirtualNodeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNodeResult>("aws:appmesh/getVirtualNode:getVirtualNode", args ?? new GetVirtualNodeInvokeArgs(), options.WithDefaults());

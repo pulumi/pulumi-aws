@@ -14,24 +14,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// Manages the account alias for the AWS Account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @alias = new Aws.Iam.AccountAlias("alias", new()
-    ///     {
-    ///         Alias = "my-account-alias",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:

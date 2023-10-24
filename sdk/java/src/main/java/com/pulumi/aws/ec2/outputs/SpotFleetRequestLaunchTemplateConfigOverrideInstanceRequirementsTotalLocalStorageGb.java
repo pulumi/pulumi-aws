@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
     /**
-     * @return Maximum. Set to `0` to exclude instance types with accelerators.
+     * @return Maximum.
      * 
      */
     private @Nullable Double max;
@@ -24,7 +24,7 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
 
     private SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb() {}
     /**
-     * @return Maximum. Set to `0` to exclude instance types with accelerators.
+     * @return Maximum.
      * 
      */
     public Optional<Double> max() {

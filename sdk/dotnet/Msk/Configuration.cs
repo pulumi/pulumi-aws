@@ -12,31 +12,6 @@ namespace Pulumi.Aws.Msk
     /// <summary>
     /// Manages an Amazon Managed Streaming for Kafka configuration. More information can be found on the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Msk.Configuration("example", new()
-    ///     {
-    ///         KafkaVersions = new[]
-    ///         {
-    ///             "2.1.0",
-    ///         },
-    ///         ServerProperties = @"auto.create.topics.enable = true
-    /// delete.topic.enable = true
-    /// 
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MSK configurations using the configuration ARN. For example:

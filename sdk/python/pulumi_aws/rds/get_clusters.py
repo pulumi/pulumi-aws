@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -85,17 +85,6 @@ def get_clusters(filters: Optional[Sequence[pulumi.InputType['GetClustersFilterA
     Data source for managing an AWS RDS (Relational Database) Clusters.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_clusters(filters=[aws.rds.GetClustersFilterArgs(
-        name="engine",
-        values=["aurora-postgresql"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetClustersFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -119,17 +108,6 @@ def get_clusters_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
     Data source for managing an AWS RDS (Relational Database) Clusters.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_clusters(filters=[aws.rds.GetClustersFilterArgs(
-        name="engine",
-        values=["aurora-postgresql"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetClustersFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

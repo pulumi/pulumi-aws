@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,49 +32,74 @@ class InstanceGroupArgs:
         :param pulumi.Input[str] autoscaling_policy: The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
-               
-               \"\"\")
-               ```
         :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "instance_type", instance_type)
+        InstanceGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_id=cluster_id,
+            instance_type=instance_type,
+            autoscaling_policy=autoscaling_policy,
+            bid_price=bid_price,
+            configurations_json=configurations_json,
+            ebs_configs=ebs_configs,
+            ebs_optimized=ebs_optimized,
+            instance_count=instance_count,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             autoscaling_policy: Optional[pulumi.Input[str]] = None,
+             bid_price: Optional[pulumi.Input[str]] = None,
+             configurations_json: Optional[pulumi.Input[str]] = None,
+             ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_id is None and 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if cluster_id is None:
+            raise TypeError("Missing 'cluster_id' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if autoscaling_policy is None and 'autoscalingPolicy' in kwargs:
+            autoscaling_policy = kwargs['autoscalingPolicy']
+        if bid_price is None and 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if configurations_json is None and 'configurationsJson' in kwargs:
+            configurations_json = kwargs['configurationsJson']
+        if ebs_configs is None and 'ebsConfigs' in kwargs:
+            ebs_configs = kwargs['ebsConfigs']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+
+        _setter("cluster_id", cluster_id)
+        _setter("instance_type", instance_type)
         if autoscaling_policy is not None:
-            pulumi.set(__self__, "autoscaling_policy", autoscaling_policy)
+            _setter("autoscaling_policy", autoscaling_policy)
         if bid_price is not None:
-            pulumi.set(__self__, "bid_price", bid_price)
+            _setter("bid_price", bid_price)
         if configurations_json is not None:
-            pulumi.set(__self__, "configurations_json", configurations_json)
+            _setter("configurations_json", configurations_json)
         if ebs_configs is not None:
-            pulumi.set(__self__, "ebs_configs", ebs_configs)
+            _setter("ebs_configs", ebs_configs)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -129,28 +154,6 @@ class InstanceGroupArgs:
     def configurations_json(self) -> Optional[pulumi.Input[str]]:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
-        {
-        "Classification": "hadoop-env",
-        "Configurations": [
-        {
-        "Classification": "export",
-        "Properties": {
-        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        }
-        }
-        ],
-        "Properties": {}
-        }
-        ]
-
-        \"\"\")
-        ```
         """
         return pulumi.get(self, "configurations_json")
 
@@ -227,28 +230,6 @@ class _InstanceGroupState:
         :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
-               
-               \"\"\")
-               ```
         :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
@@ -257,28 +238,77 @@ class _InstanceGroupState:
         :param pulumi.Input[int] running_instance_count: The number of instances currently running in this instance group.
         :param pulumi.Input[str] status: The current status of the instance group.
         """
+        _InstanceGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscaling_policy=autoscaling_policy,
+            bid_price=bid_price,
+            cluster_id=cluster_id,
+            configurations_json=configurations_json,
+            ebs_configs=ebs_configs,
+            ebs_optimized=ebs_optimized,
+            instance_count=instance_count,
+            instance_type=instance_type,
+            name=name,
+            running_instance_count=running_instance_count,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscaling_policy: Optional[pulumi.Input[str]] = None,
+             bid_price: Optional[pulumi.Input[str]] = None,
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             configurations_json: Optional[pulumi.Input[str]] = None,
+             ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             running_instance_count: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if autoscaling_policy is None and 'autoscalingPolicy' in kwargs:
+            autoscaling_policy = kwargs['autoscalingPolicy']
+        if bid_price is None and 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if cluster_id is None and 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if configurations_json is None and 'configurationsJson' in kwargs:
+            configurations_json = kwargs['configurationsJson']
+        if ebs_configs is None and 'ebsConfigs' in kwargs:
+            ebs_configs = kwargs['ebsConfigs']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if running_instance_count is None and 'runningInstanceCount' in kwargs:
+            running_instance_count = kwargs['runningInstanceCount']
+
         if autoscaling_policy is not None:
-            pulumi.set(__self__, "autoscaling_policy", autoscaling_policy)
+            _setter("autoscaling_policy", autoscaling_policy)
         if bid_price is not None:
-            pulumi.set(__self__, "bid_price", bid_price)
+            _setter("bid_price", bid_price)
         if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+            _setter("cluster_id", cluster_id)
         if configurations_json is not None:
-            pulumi.set(__self__, "configurations_json", configurations_json)
+            _setter("configurations_json", configurations_json)
         if ebs_configs is not None:
-            pulumi.set(__self__, "ebs_configs", ebs_configs)
+            _setter("ebs_configs", ebs_configs)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if running_instance_count is not None:
-            pulumi.set(__self__, "running_instance_count", running_instance_count)
+            _setter("running_instance_count", running_instance_count)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="autoscalingPolicy")
@@ -321,28 +351,6 @@ class _InstanceGroupState:
     def configurations_json(self) -> Optional[pulumi.Input[str]]:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
-        {
-        "Classification": "hadoop-env",
-        "Configurations": [
-        {
-        "Classification": "export",
-        "Properties": {
-        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        }
-        }
-        ],
-        "Properties": {}
-        }
-        ]
-
-        \"\"\")
-        ```
         """
         return pulumi.get(self, "configurations_json")
 
@@ -458,18 +466,6 @@ class InstanceGroup(pulumi.CustomResource):
         web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
         this provider will resize any Instance Group to zero when destroying the resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        task = aws.emr.InstanceGroup("task",
-            cluster_id=aws_emr_cluster["tf-test-cluster"]["id"],
-            instance_count=1,
-            instance_type="m5.xlarge")
-        ```
-
         ## Import
 
         Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
@@ -484,28 +480,6 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
-               
-               \"\"\")
-               ```
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
@@ -526,18 +500,6 @@ class InstanceGroup(pulumi.CustomResource):
         web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
         this provider will resize any Instance Group to zero when destroying the resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        task = aws.emr.InstanceGroup("task",
-            cluster_id=aws_emr_cluster["tf-test-cluster"]["id"],
-            instance_count=1,
-            instance_type="m5.xlarge")
-        ```
-
         ## Import
 
         Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
@@ -556,6 +518,10 @@ class InstanceGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -626,28 +592,6 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
-               
-               \"\"\")
-               ```
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
@@ -702,28 +646,6 @@ class InstanceGroup(pulumi.CustomResource):
     def configurations_json(self) -> pulumi.Output[Optional[str]]:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        task = aws.emr.InstanceGroup("task", configurations_json=\"\"\"[
-        {
-        "Classification": "hadoop-env",
-        "Configurations": [
-        {
-        "Classification": "export",
-        "Properties": {
-        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        }
-        }
-        ],
-        "Properties": {}
-        }
-        ]
-
-        \"\"\")
-        ```
         """
         return pulumi.get(self, "configurations_json")
 

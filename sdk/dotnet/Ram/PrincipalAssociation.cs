@@ -23,47 +23,6 @@ namespace Pulumi.Aws.Ram
     /// - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `aws.ram.ResourceShareAccepter` resource to accept these invitations.
     /// 
     /// ## Example Usage
-    /// ### AWS Account ID
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceShare = new Aws.Ram.ResourceShare("exampleResourceShare", new()
-    ///     {
-    ///         AllowExternalPrincipals = true,
-    ///     });
-    /// 
-    ///     var examplePrincipalAssociation = new Aws.Ram.PrincipalAssociation("examplePrincipalAssociation", new()
-    ///     {
-    ///         Principal = "111111111111",
-    ///         ResourceShareArn = exampleResourceShare.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### AWS Organization
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ram.PrincipalAssociation("example", new()
-    ///     {
-    ///         Principal = aws_organizations_organization.Example.Arn,
-    ///         ResourceShareArn = aws_ram_resource_share.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

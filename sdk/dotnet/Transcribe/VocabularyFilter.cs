@@ -13,34 +13,6 @@ namespace Pulumi.Aws.Transcribe
     /// Resource for managing an AWS Transcribe VocabularyFilter.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Transcribe.VocabularyFilter("example", new()
-    ///     {
-    ///         LanguageCode = "en-US",
-    ///         Tags = 
-    ///         {
-    ///             { "tag1", "value1" },
-    ///             { "tag2", "value3" },
-    ///         },
-    ///         VocabularyFilterName = "example",
-    ///         Words = new[]
-    ///         {
-    ///             "cars",
-    ///             "bucket",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

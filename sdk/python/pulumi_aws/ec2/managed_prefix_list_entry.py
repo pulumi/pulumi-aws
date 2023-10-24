@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedPrefixListEntryInitArgs', 'ManagedPrefixListEntry']
@@ -23,10 +23,31 @@ class ManagedPrefixListEntryInitArgs:
         :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
         :param pulumi.Input[str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
         """
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        ManagedPrefixListEntryInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr=cidr,
+            prefix_list_id=prefix_list_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr: Optional[pulumi.Input[str]] = None,
+             prefix_list_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cidr is None:
+            raise TypeError("Missing 'cidr' argument")
+        if prefix_list_id is None and 'prefixListId' in kwargs:
+            prefix_list_id = kwargs['prefixListId']
+        if prefix_list_id is None:
+            raise TypeError("Missing 'prefix_list_id' argument")
+
+        _setter("cidr", cidr)
+        _setter("prefix_list_id", prefix_list_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -77,12 +98,29 @@ class _ManagedPrefixListEntryState:
         :param pulumi.Input[str] description: Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
         :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
         """
+        _ManagedPrefixListEntryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr=cidr,
+            description=description,
+            prefix_list_id=prefix_list_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             prefix_list_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if prefix_list_id is None and 'prefixListId' in kwargs:
+            prefix_list_id = kwargs['prefixListId']
+
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if prefix_list_id is not None:
-            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+            _setter("prefix_list_id", prefix_list_id)
 
     @property
     @pulumi.getter
@@ -137,26 +175,6 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
 
         > **NOTE:** To improve execution times on larger updates, it is recommended to use the inline `entry` block as part of the Managed Prefix List resource when creating a prefix list with more than 100 entries. You can find more information about the resource here.
 
-        ## Example Usage
-
-        Basic usage.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.ManagedPrefixList("example",
-            address_family="IPv4",
-            max_entries=5,
-            tags={
-                "Env": "live",
-            })
-        entry1 = aws.ec2.ManagedPrefixListEntry("entry1",
-            cidr=aws_vpc["example"]["cidr_block"],
-            description="Primary",
-            prefix_list_id=example.id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
@@ -184,26 +202,6 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
 
         > **NOTE:** To improve execution times on larger updates, it is recommended to use the inline `entry` block as part of the Managed Prefix List resource when creating a prefix list with more than 100 entries. You can find more information about the resource here.
 
-        ## Example Usage
-
-        Basic usage.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.ManagedPrefixList("example",
-            address_family="IPv4",
-            max_entries=5,
-            tags={
-                "Env": "live",
-            })
-        entry1 = aws.ec2.ManagedPrefixListEntry("entry1",
-            cidr=aws_vpc["example"]["cidr_block"],
-            description="Primary",
-            prefix_list_id=example.id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
@@ -222,6 +220,10 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedPrefixListEntryInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

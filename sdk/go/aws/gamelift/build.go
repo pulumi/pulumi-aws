@@ -15,37 +15,6 @@ import (
 
 // Provides an GameLift Build resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := gamelift.NewBuild(ctx, "test", &gamelift.BuildArgs{
-//				OperatingSystem: pulumi.String("WINDOWS_2012"),
-//				StorageLocation: &gamelift.BuildStorageLocationArgs{
-//					Bucket:  pulumi.Any(aws_s3_bucket.Test.Id),
-//					Key:     pulumi.Any(aws_s3_object.Test.Key),
-//					RoleArn: pulumi.Any(aws_iam_role.Test.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import GameLift Builds using the ID. For example:

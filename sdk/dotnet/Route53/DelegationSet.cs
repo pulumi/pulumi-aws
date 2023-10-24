@@ -12,34 +12,6 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.Route53.DelegationSet("main", new()
-    ///     {
-    ///         ReferenceName = "DynDNS",
-    ///     });
-    /// 
-    ///     var primary = new Aws.Route53.Zone("primary", new()
-    ///     {
-    ///         DelegationSetId = main.Id,
-    ///     });
-    /// 
-    ///     var secondary = new Aws.Route53.Zone("secondary", new()
-    ///     {
-    ///         DelegationSetId = main.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:

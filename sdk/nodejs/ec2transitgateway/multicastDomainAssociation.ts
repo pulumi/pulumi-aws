@@ -6,26 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {multicastSupport: "enable"});
- * const exampleVpcAttachment = new aws.ec2transitgateway.VpcAttachment("exampleVpcAttachment", {
- *     subnetIds: [aws_subnet.example.id],
- *     transitGatewayId: exampleTransitGateway.id,
- *     vpcId: aws_vpc.example.id,
- * });
- * const exampleMulticastDomain = new aws.ec2transitgateway.MulticastDomain("exampleMulticastDomain", {transitGatewayId: exampleTransitGateway.id});
- * const exampleMulticastDomainAssociation = new aws.ec2transitgateway.MulticastDomainAssociation("exampleMulticastDomainAssociation", {
- *     subnetId: aws_subnet.example.id,
- *     transitGatewayAttachmentId: exampleVpcAttachment.id,
- *     transitGatewayMulticastDomainId: exampleMulticastDomain.id,
- * });
- * ```
  */
 export class MulticastDomainAssociation extends pulumi.CustomResource {
     /**

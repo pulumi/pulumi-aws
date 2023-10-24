@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['QueryLogArgs', 'QueryLog']
@@ -21,8 +21,29 @@ class QueryLogArgs:
         :param pulumi.Input[str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.
         :param pulumi.Input[str] zone_id: Route53 hosted zone ID to enable query logs.
         """
-        pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
-        pulumi.set(__self__, "zone_id", zone_id)
+        QueryLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_log_group_arn=cloudwatch_log_group_arn,
+            zone_id=zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
+             zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloudwatch_log_group_arn is None and 'cloudwatchLogGroupArn' in kwargs:
+            cloudwatch_log_group_arn = kwargs['cloudwatchLogGroupArn']
+        if cloudwatch_log_group_arn is None:
+            raise TypeError("Missing 'cloudwatch_log_group_arn' argument")
+        if zone_id is None and 'zoneId' in kwargs:
+            zone_id = kwargs['zoneId']
+        if zone_id is None:
+            raise TypeError("Missing 'zone_id' argument")
+
+        _setter("cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+        _setter("zone_id", zone_id)
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
@@ -61,12 +82,31 @@ class _QueryLogState:
         :param pulumi.Input[str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.
         :param pulumi.Input[str] zone_id: Route53 hosted zone ID to enable query logs.
         """
+        _QueryLogState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cloudwatch_log_group_arn=cloudwatch_log_group_arn,
+            zone_id=zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
+             zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloudwatch_log_group_arn is None and 'cloudwatchLogGroupArn' in kwargs:
+            cloudwatch_log_group_arn = kwargs['cloudwatchLogGroupArn']
+        if zone_id is None and 'zoneId' in kwargs:
+            zone_id = kwargs['zoneId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cloudwatch_log_group_arn is not None:
-            pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+            _setter("cloudwatch_log_group_arn", cloudwatch_log_group_arn)
         if zone_id is not None:
-            pulumi.set(__self__, "zone_id", zone_id)
+            _setter("zone_id", zone_id)
 
     @property
     @pulumi.getter
@@ -122,41 +162,6 @@ class QueryLog(pulumi.CustomResource):
         the Route53 hosted zone must be public.
         See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Example CloudWatch log group in us-east-1
-        us_east_1 = aws.Provider("us-east-1", region="us-east-1")
-        aws_route53_example_com = aws.cloudwatch.LogGroup("awsRoute53ExampleCom", retention_in_days=30,
-        opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
-        # Example CloudWatch log resource policy to allow Route53 to write logs
-        # to any log group under /aws/route53/*
-        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
-            resources=["arn:aws:logs:*:*:log-group:/aws/route53/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["route53.amazonaws.com"],
-                type="Service",
-            )],
-        )])
-        route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy",
-            policy_document=route53_query_logging_policy_policy_document.json,
-            policy_name="route53-query-logging-policy",
-            opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
-        # Example Route53 zone with query logging
-        example_com_zone = aws.route53.Zone("exampleComZone")
-        example_com_query_log = aws.route53.QueryLog("exampleComQueryLog",
-            cloudwatch_log_group_arn=aws_route53_example_com.arn,
-            zone_id=example_com_zone.zone_id,
-            opts=pulumi.ResourceOptions(depends_on=[route53_query_logging_policy_log_resource_policy]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route53 query logging configurations using their ID. For example:
@@ -185,41 +190,6 @@ class QueryLog(pulumi.CustomResource):
         the Route53 hosted zone must be public.
         See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Example CloudWatch log group in us-east-1
-        us_east_1 = aws.Provider("us-east-1", region="us-east-1")
-        aws_route53_example_com = aws.cloudwatch.LogGroup("awsRoute53ExampleCom", retention_in_days=30,
-        opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
-        # Example CloudWatch log resource policy to allow Route53 to write logs
-        # to any log group under /aws/route53/*
-        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
-            resources=["arn:aws:logs:*:*:log-group:/aws/route53/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["route53.amazonaws.com"],
-                type="Service",
-            )],
-        )])
-        route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy",
-            policy_document=route53_query_logging_policy_policy_document.json,
-            policy_name="route53-query-logging-policy",
-            opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
-        # Example Route53 zone with query logging
-        example_com_zone = aws.route53.Zone("exampleComZone")
-        example_com_query_log = aws.route53.QueryLog("exampleComQueryLog",
-            cloudwatch_log_group_arn=aws_route53_example_com.arn,
-            zone_id=example_com_zone.zone_id,
-            opts=pulumi.ResourceOptions(depends_on=[route53_query_logging_policy_log_resource_policy]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route53 query logging configurations using their ID. For example:
@@ -238,6 +208,10 @@ class QueryLog(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            QueryLogArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

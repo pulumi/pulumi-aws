@@ -12,39 +12,6 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker endpoint configuration resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ec = new Aws.Sagemaker.EndpointConfiguration("ec", new()
-    ///     {
-    ///         ProductionVariants = new[]
-    ///         {
-    ///             new Aws.Sagemaker.Inputs.EndpointConfigurationProductionVariantArgs
-    ///             {
-    ///                 VariantName = "variant-1",
-    ///                 ModelName = aws_sagemaker_model.M.Name,
-    ///                 InitialInstanceCount = 1,
-    ///                 InstanceType = "ml.t2.medium",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "foo" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import endpoint configurations using the `name`. For example:

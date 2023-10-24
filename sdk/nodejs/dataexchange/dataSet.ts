@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage AWS Data Exchange DataSets.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.dataexchange.DataSet("example", {
- *     assetType: "S3_SNAPSHOT",
- *     description: "example",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import DataExchange DataSets using their ARN. For example:

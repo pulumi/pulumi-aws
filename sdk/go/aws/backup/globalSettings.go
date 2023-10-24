@@ -15,34 +15,6 @@ import (
 
 // Provides an AWS Backup Global Settings resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewGlobalSettings(ctx, "test", &backup.GlobalSettingsArgs{
-//				GlobalSettings: pulumi.StringMap{
-//					"isCrossAccountBackupEnabled": pulumi.String("true"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Backup Global Settings using the `id`. For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -70,15 +70,6 @@ def get_user_pool_signing_certificate(user_pool_id: Optional[str] = None,
     """
     Use this data source to get the signing certificate for a Cognito IdP user pool.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=aws_cognito_user_pool["my_pool"]["id"])
-    ```
-
 
     :param str user_pool_id: Cognito user pool ID.
     """
@@ -98,15 +89,6 @@ def get_user_pool_signing_certificate_output(user_pool_id: Optional[pulumi.Input
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolSigningCertificateResult]:
     """
     Use this data source to get the signing certificate for a Cognito IdP user pool.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=aws_cognito_user_pool["my_pool"]["id"])
-    ```
 
 
     :param str user_pool_id: Cognito user pool ID.

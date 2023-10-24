@@ -16,29 +16,6 @@ namespace Pulumi.Aws.Iam
     /// See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
     /// in the official AWS docs.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var strict = new Aws.Iam.AccountPasswordPolicy("strict", new()
-    ///     {
-    ///         AllowUsersToChangePassword = true,
-    ///         MinimumPasswordLength = 8,
-    ///         RequireLowercaseCharacters = true,
-    ///         RequireNumbers = true,
-    ///         RequireSymbols = true,
-    ///         RequireUppercaseCharacters = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For example:

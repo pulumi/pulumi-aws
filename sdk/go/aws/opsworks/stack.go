@@ -15,38 +15,6 @@ import (
 
 // Provides an OpsWorks stack resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewStack(ctx, "main", &opsworks.StackArgs{
-//				Region:                    pulumi.String("us-west-1"),
-//				ServiceRoleArn:            pulumi.Any(aws_iam_role.Opsworks.Arn),
-//				DefaultInstanceProfileArn: pulumi.Any(aws_iam_instance_profile.Opsworks.Arn),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foobar-stack"),
-//				},
-//				CustomJson: pulumi.String("{\n \"foobar\": {\n    \"version\": \"1.0.0\"\n  }\n}\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import OpsWorks stacks using the `id`. For example:

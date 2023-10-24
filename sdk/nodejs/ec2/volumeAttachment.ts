@@ -10,31 +10,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE on EBS block devices:** If you use `ebsBlockDevice` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebsBlockDevice` cannot be mixed with external `aws.ebs.Volume` + `aws.ec2.VolumeAttachment` resources for a given instance.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const web = new aws.ec2.Instance("web", {
- *     ami: "ami-21f78e11",
- *     availabilityZone: "us-west-2a",
- *     instanceType: "t2.micro",
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * const example = new aws.ebs.Volume("example", {
- *     availabilityZone: "us-west-2a",
- *     size: 1,
- * });
- * const ebsAtt = new aws.ec2.VolumeAttachment("ebsAtt", {
- *     deviceName: "/dev/sdh",
- *     volumeId: example.id,
- *     instanceId: web.id,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:

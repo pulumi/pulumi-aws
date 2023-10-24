@@ -18,37 +18,6 @@ import (
 // See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
 // in the official AWS docs.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewAccountPasswordPolicy(ctx, "strict", &iam.AccountPasswordPolicyArgs{
-//				AllowUsersToChangePassword: pulumi.Bool(true),
-//				MinimumPasswordLength:      pulumi.Int(8),
-//				RequireLowercaseCharacters: pulumi.Bool(true),
-//				RequireNumbers:             pulumi.Bool(true),
-//				RequireSymbols:             pulumi.Bool(true),
-//				RequireUppercaseCharacters: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For example:

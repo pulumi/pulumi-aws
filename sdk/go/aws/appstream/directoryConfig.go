@@ -15,39 +15,6 @@ import (
 
 // Provides an AppStream Directory Config.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.NewDirectoryConfig(ctx, "example", &appstream.DirectoryConfigArgs{
-//				DirectoryName: pulumi.String("NAME OF DIRECTORY"),
-//				OrganizationalUnitDistinguishedNames: pulumi.StringArray{
-//					pulumi.String("DISTINGUISHED NAME"),
-//				},
-//				ServiceAccountCredentials: &appstream.DirectoryConfigServiceAccountCredentialsArgs{
-//					AccountName:     pulumi.String("NAME OF ACCOUNT"),
-//					AccountPassword: pulumi.String("PASSWORD OF ACCOUNT"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_appstream_directory_config` using the id. For example:

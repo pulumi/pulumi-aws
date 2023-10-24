@@ -10,20 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sqlInjectionMatchSet = new aws.wafregional.SqlInjectionMatchSet("sqlInjectionMatchSet", {sqlInjectionMatchTuples: [{
- *     fieldToMatch: {
- *         type: "QUERY_STRING",
- *     },
- *     textTransformation: "URL_DECODE",
- * }]});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import WAF Regional Sql Injection Match Set using the id. For example:

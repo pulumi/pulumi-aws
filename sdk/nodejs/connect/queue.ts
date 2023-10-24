@@ -12,57 +12,6 @@ import * as utilities from "../utilities";
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Queue("test", {
- *     description: "Example Description",
- *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     tags: {
- *         Name: "Example Queue",
- *     },
- * });
- * ```
- * ### With Quick Connect IDs
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Queue("test", {
- *     description: "Example Description",
- *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     quickConnectIds: ["12345678-abcd-1234-abcd-123456789012"],
- *     tags: {
- *         Name: "Example Queue with Quick Connect IDs",
- *     },
- * });
- * ```
- * ### With Outbound Caller Config
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Queue("test", {
- *     description: "Example Description",
- *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     outboundCallerConfig: {
- *         outboundCallerIdName: "example",
- *         outboundCallerIdNumberId: "12345678-abcd-1234-abcd-123456789012",
- *         outboundFlowId: "87654321-defg-1234-defg-987654321234",
- *     },
- *     tags: {
- *         Name: "Example Queue with Outbound Caller Config",
- *     },
- * });
- * ```
  *
  * ## Import
  *

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -96,15 +96,6 @@ def get_instance_profiles(role_name: Optional[str] = None,
     IAM instance profiles under a role. By using this data source, you can reference IAM
     instance profile properties without having to hard code ARNs as input.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_instance_profiles(role_name="an_example_iam_role_name")
-    ```
-
 
     :param str role_name: IAM role name.
     """
@@ -128,15 +119,6 @@ def get_instance_profiles_output(role_name: Optional[pulumi.Input[str]] = None,
     This data source can be used to fetch information about all
     IAM instance profiles under a role. By using this data source, you can reference IAM
     instance profile properties without having to hard code ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_instance_profiles(role_name="an_example_iam_role_name")
-    ```
 
 
     :param str role_name: IAM role name.

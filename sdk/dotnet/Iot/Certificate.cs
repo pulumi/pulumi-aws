@@ -13,61 +13,6 @@ namespace Pulumi.Aws.Iot
     /// Creates and manages an AWS IoT certificate.
     /// 
     /// ## Example Usage
-    /// ### With CSR
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cert = new Aws.Iot.Certificate("cert", new()
-    ///     {
-    ///         Csr = File.ReadAllText("/my/csr.pem"),
-    ///         Active = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Without CSR
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cert = new Aws.Iot.Certificate("cert", new()
-    ///     {
-    ///         Active = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### From existing certificate without a CA
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cert = new Aws.Iot.Certificate("cert", new()
-    ///     {
-    ///         CertificatePem = File.ReadAllText("/my/cert.pem"),
-    ///         Active = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:iot/certificate:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific API Gateway Authorizer.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigateway.getAuthorizer({
- *     restApiId: aws_api_gateway_rest_api.example.id,
- *     authorizerId: data.aws_api_gateway_authorizers.example.ids[0],
- * });
- * ```
  */
 export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizerResult> {
 
@@ -91,18 +79,6 @@ export interface GetAuthorizerResult {
 }
 /**
  * Provides details about a specific API Gateway Authorizer.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigateway.getAuthorizer({
- *     restApiId: aws_api_gateway_rest_api.example.id,
- *     authorizerId: data.aws_api_gateway_authorizers.example.ids[0],
- * });
- * ```
  */
 export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizer(a, opts))

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,17 +36,62 @@ class DevEnvironmentArgs:
         :param pulumi.Input[int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         :param pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         """
-        pulumi.set(__self__, "ides", ides)
-        pulumi.set(__self__, "instance_type", instance_type)
-        pulumi.set(__self__, "persistent_storage", persistent_storage)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "space_name", space_name)
+        DevEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ides=ides,
+            instance_type=instance_type,
+            persistent_storage=persistent_storage,
+            project_name=project_name,
+            space_name=space_name,
+            alias=alias,
+            inactivity_timeout_minutes=inactivity_timeout_minutes,
+            repositories=repositories,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ides: Optional[pulumi.Input['DevEnvironmentIdesArgs']] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             persistent_storage: Optional[pulumi.Input['DevEnvironmentPersistentStorageArgs']] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             space_name: Optional[pulumi.Input[str]] = None,
+             alias: Optional[pulumi.Input[str]] = None,
+             inactivity_timeout_minutes: Optional[pulumi.Input[int]] = None,
+             repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ides is None:
+            raise TypeError("Missing 'ides' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if persistent_storage is None and 'persistentStorage' in kwargs:
+            persistent_storage = kwargs['persistentStorage']
+        if persistent_storage is None:
+            raise TypeError("Missing 'persistent_storage' argument")
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if space_name is None and 'spaceName' in kwargs:
+            space_name = kwargs['spaceName']
+        if space_name is None:
+            raise TypeError("Missing 'space_name' argument")
+        if inactivity_timeout_minutes is None and 'inactivityTimeoutMinutes' in kwargs:
+            inactivity_timeout_minutes = kwargs['inactivityTimeoutMinutes']
+
+        _setter("ides", ides)
+        _setter("instance_type", instance_type)
+        _setter("persistent_storage", persistent_storage)
+        _setter("project_name", project_name)
+        _setter("space_name", space_name)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if inactivity_timeout_minutes is not None:
-            pulumi.set(__self__, "inactivity_timeout_minutes", inactivity_timeout_minutes)
+            _setter("inactivity_timeout_minutes", inactivity_timeout_minutes)
         if repositories is not None:
-            pulumi.set(__self__, "repositories", repositories)
+            _setter("repositories", repositories)
 
     @property
     @pulumi.getter
@@ -167,22 +212,57 @@ class _DevEnvironmentState:
         :param pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         :param pulumi.Input[str] space_name: The name of the space.
         """
+        _DevEnvironmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias=alias,
+            ides=ides,
+            inactivity_timeout_minutes=inactivity_timeout_minutes,
+            instance_type=instance_type,
+            persistent_storage=persistent_storage,
+            project_name=project_name,
+            repositories=repositories,
+            space_name=space_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias: Optional[pulumi.Input[str]] = None,
+             ides: Optional[pulumi.Input['DevEnvironmentIdesArgs']] = None,
+             inactivity_timeout_minutes: Optional[pulumi.Input[int]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             persistent_storage: Optional[pulumi.Input['DevEnvironmentPersistentStorageArgs']] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]] = None,
+             space_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inactivity_timeout_minutes is None and 'inactivityTimeoutMinutes' in kwargs:
+            inactivity_timeout_minutes = kwargs['inactivityTimeoutMinutes']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if persistent_storage is None and 'persistentStorage' in kwargs:
+            persistent_storage = kwargs['persistentStorage']
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if space_name is None and 'spaceName' in kwargs:
+            space_name = kwargs['spaceName']
+
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if ides is not None:
-            pulumi.set(__self__, "ides", ides)
+            _setter("ides", ides)
         if inactivity_timeout_minutes is not None:
-            pulumi.set(__self__, "inactivity_timeout_minutes", inactivity_timeout_minutes)
+            _setter("inactivity_timeout_minutes", inactivity_timeout_minutes)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if persistent_storage is not None:
-            pulumi.set(__self__, "persistent_storage", persistent_storage)
+            _setter("persistent_storage", persistent_storage)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
         if repositories is not None:
-            pulumi.set(__self__, "repositories", repositories)
+            _setter("repositories", repositories)
         if space_name is not None:
-            pulumi.set(__self__, "space_name", space_name)
+            _setter("space_name", space_name)
 
     @property
     @pulumi.getter
@@ -297,31 +377,6 @@ class DevEnvironment(pulumi.CustomResource):
         """
         Resource for managing an AWS CodeCatalyst Dev Environment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.codecatalyst.DevEnvironment("test",
-            alias="devenv",
-            ides=aws.codecatalyst.DevEnvironmentIdesArgs(
-                name="PyCharm",
-                runtime="public.ecr.aws/jetbrains/py",
-            ),
-            inactivity_timeout_minutes=40,
-            instance_type="dev.standard1.small",
-            persistent_storage=aws.codecatalyst.DevEnvironmentPersistentStorageArgs(
-                size=16,
-            ),
-            project_name="myproject",
-            repositories=[aws.codecatalyst.DevEnvironmentRepositoryArgs(
-                branch_name="main",
-                repository_name="pulumi-provider-aws",
-            )],
-            space_name="myspace")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DevEnvironmentIdesArgs']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
@@ -343,31 +398,6 @@ class DevEnvironment(pulumi.CustomResource):
         """
         Resource for managing an AWS CodeCatalyst Dev Environment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.codecatalyst.DevEnvironment("test",
-            alias="devenv",
-            ides=aws.codecatalyst.DevEnvironmentIdesArgs(
-                name="PyCharm",
-                runtime="public.ecr.aws/jetbrains/py",
-            ),
-            inactivity_timeout_minutes=40,
-            instance_type="dev.standard1.small",
-            persistent_storage=aws.codecatalyst.DevEnvironmentPersistentStorageArgs(
-                size=16,
-            ),
-            project_name="myproject",
-            repositories=[aws.codecatalyst.DevEnvironmentRepositoryArgs(
-                branch_name="main",
-                repository_name="pulumi-provider-aws",
-            )],
-            space_name="myspace")
-        ```
-
         :param str resource_name: The name of the resource.
         :param DevEnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -378,6 +408,10 @@ class DevEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DevEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -401,6 +435,7 @@ class DevEnvironment(pulumi.CustomResource):
             __props__ = DevEnvironmentArgs.__new__(DevEnvironmentArgs)
 
             __props__.__dict__["alias"] = alias
+            ides = _utilities.configure(ides, DevEnvironmentIdesArgs, True)
             if ides is None and not opts.urn:
                 raise TypeError("Missing required property 'ides'")
             __props__.__dict__["ides"] = ides
@@ -408,6 +443,7 @@ class DevEnvironment(pulumi.CustomResource):
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
+            persistent_storage = _utilities.configure(persistent_storage, DevEnvironmentPersistentStorageArgs, True)
             if persistent_storage is None and not opts.urn:
                 raise TypeError("Missing required property 'persistent_storage'")
             __props__.__dict__["persistent_storage"] = persistent_storage

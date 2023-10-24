@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProvisionedConcurrencyConfigArgs', 'ProvisionedConcurrencyConfig']
@@ -27,11 +27,40 @@ class ProvisionedConcurrencyConfigArgs:
                The following arguments are optional:
         :param pulumi.Input[bool] skip_destroy: Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
         """
-        pulumi.set(__self__, "function_name", function_name)
-        pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
-        pulumi.set(__self__, "qualifier", qualifier)
+        ProvisionedConcurrencyConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_name=function_name,
+            provisioned_concurrent_executions=provisioned_concurrent_executions,
+            qualifier=qualifier,
+            skip_destroy=skip_destroy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_name: Optional[pulumi.Input[str]] = None,
+             provisioned_concurrent_executions: Optional[pulumi.Input[int]] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if provisioned_concurrent_executions is None and 'provisionedConcurrentExecutions' in kwargs:
+            provisioned_concurrent_executions = kwargs['provisionedConcurrentExecutions']
+        if provisioned_concurrent_executions is None:
+            raise TypeError("Missing 'provisioned_concurrent_executions' argument")
+        if qualifier is None:
+            raise TypeError("Missing 'qualifier' argument")
+        if skip_destroy is None and 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+
+        _setter("function_name", function_name)
+        _setter("provisioned_concurrent_executions", provisioned_concurrent_executions)
+        _setter("qualifier", qualifier)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
 
     @property
     @pulumi.getter(name="functionName")
@@ -100,14 +129,37 @@ class _ProvisionedConcurrencyConfigState:
                The following arguments are optional:
         :param pulumi.Input[bool] skip_destroy: Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
         """
+        _ProvisionedConcurrencyConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_name=function_name,
+            provisioned_concurrent_executions=provisioned_concurrent_executions,
+            qualifier=qualifier,
+            skip_destroy=skip_destroy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_name: Optional[pulumi.Input[str]] = None,
+             provisioned_concurrent_executions: Optional[pulumi.Input[int]] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if provisioned_concurrent_executions is None and 'provisionedConcurrentExecutions' in kwargs:
+            provisioned_concurrent_executions = kwargs['provisionedConcurrentExecutions']
+        if skip_destroy is None and 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if provisioned_concurrent_executions is not None:
-            pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
+            _setter("provisioned_concurrent_executions", provisioned_concurrent_executions)
         if qualifier is not None:
-            pulumi.set(__self__, "qualifier", qualifier)
+            _setter("qualifier", qualifier)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
 
     @property
     @pulumi.getter(name="functionName")
@@ -176,28 +228,6 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         > **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
 
         ## Example Usage
-        ### Alias Name
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
-            provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_alias["example"]["name"])
-        ```
-        ### Function Version
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_function["example"]["function_name"],
-            provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_function["example"]["version"])
-        ```
 
         ## Import
 
@@ -228,28 +258,6 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         > **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
 
         ## Example Usage
-        ### Alias Name
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_alias["example"]["function_name"],
-            provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_alias["example"]["name"])
-        ```
-        ### Function Version
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.ProvisionedConcurrencyConfig("example",
-            function_name=aws_lambda_function["example"]["function_name"],
-            provisioned_concurrent_executions=1,
-            qualifier=aws_lambda_function["example"]["version"])
-        ```
 
         ## Import
 
@@ -269,6 +277,10 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProvisionedConcurrencyConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

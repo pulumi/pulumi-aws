@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserPoolUICustomizationArgs', 'UserPoolUICustomization']
@@ -25,13 +25,38 @@ class UserPoolUICustomizationArgs:
         :param pulumi.Input[str] css: The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
         :param pulumi.Input[str] image_file: The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
         """
-        pulumi.set(__self__, "user_pool_id", user_pool_id)
+        UserPoolUICustomizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_pool_id=user_pool_id,
+            client_id=client_id,
+            css=css,
+            image_file=image_file,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_pool_id: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             css: Optional[pulumi.Input[str]] = None,
+             image_file: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if user_pool_id is None:
+            raise TypeError("Missing 'user_pool_id' argument")
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if image_file is None and 'imageFile' in kwargs:
+            image_file = kwargs['imageFile']
+
+        _setter("user_pool_id", user_pool_id)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if css is not None:
-            pulumi.set(__self__, "css", css)
+            _setter("css", css)
         if image_file is not None:
-            pulumi.set(__self__, "image_file", image_file)
+            _setter("image_file", image_file)
 
     @property
     @pulumi.getter(name="userPoolId")
@@ -104,22 +129,61 @@ class _UserPoolUICustomizationState:
         :param pulumi.Input[str] last_modified_date: The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
         """
+        _UserPoolUICustomizationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            creation_date=creation_date,
+            css=css,
+            css_version=css_version,
+            image_file=image_file,
+            image_url=image_url,
+            last_modified_date=last_modified_date,
+            user_pool_id=user_pool_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             creation_date: Optional[pulumi.Input[str]] = None,
+             css: Optional[pulumi.Input[str]] = None,
+             css_version: Optional[pulumi.Input[str]] = None,
+             image_file: Optional[pulumi.Input[str]] = None,
+             image_url: Optional[pulumi.Input[str]] = None,
+             last_modified_date: Optional[pulumi.Input[str]] = None,
+             user_pool_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if creation_date is None and 'creationDate' in kwargs:
+            creation_date = kwargs['creationDate']
+        if css_version is None and 'cssVersion' in kwargs:
+            css_version = kwargs['cssVersion']
+        if image_file is None and 'imageFile' in kwargs:
+            image_file = kwargs['imageFile']
+        if image_url is None and 'imageUrl' in kwargs:
+            image_url = kwargs['imageUrl']
+        if last_modified_date is None and 'lastModifiedDate' in kwargs:
+            last_modified_date = kwargs['lastModifiedDate']
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
+            _setter("creation_date", creation_date)
         if css is not None:
-            pulumi.set(__self__, "css", css)
+            _setter("css", css)
         if css_version is not None:
-            pulumi.set(__self__, "css_version", css_version)
+            _setter("css_version", css_version)
         if image_file is not None:
-            pulumi.set(__self__, "image_file", image_file)
+            _setter("image_file", image_file)
         if image_url is not None:
-            pulumi.set(__self__, "image_url", image_url)
+            _setter("image_url", image_url)
         if last_modified_date is not None:
-            pulumi.set(__self__, "last_modified_date", last_modified_date)
+            _setter("last_modified_date", last_modified_date)
         if user_pool_id is not None:
-            pulumi.set(__self__, "user_pool_id", user_pool_id)
+            _setter("user_pool_id", user_pool_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -234,40 +298,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
         > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
 
         ## Example Usage
-        ### UI customization settings for a single client
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_aws as aws
-
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
-            domain="example",
-            user_pool_id=example_user_pool.id)
-        example_user_pool_client = aws.cognito.UserPoolClient("exampleUserPoolClient", user_pool_id=example_user_pool.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization",
-            client_id=example_user_pool_client.id,
-            css=".label-customizable {font-weight: 400;}",
-            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())("logo.png"),
-            user_pool_id=example_user_pool_domain.user_pool_id)
-        ```
-        ### UI customization settings for all clients
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_aws as aws
-
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
-            domain="example",
-            user_pool_id=example_user_pool.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization",
-            css=".label-customizable {font-weight: 400;}",
-            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())("logo.png"),
-            user_pool_id=example_user_pool_domain.user_pool_id)
-        ```
 
         ## Import
 
@@ -296,40 +326,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
         > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
 
         ## Example Usage
-        ### UI customization settings for a single client
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_aws as aws
-
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
-            domain="example",
-            user_pool_id=example_user_pool.id)
-        example_user_pool_client = aws.cognito.UserPoolClient("exampleUserPoolClient", user_pool_id=example_user_pool.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization",
-            client_id=example_user_pool_client.id,
-            css=".label-customizable {font-weight: 400;}",
-            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())("logo.png"),
-            user_pool_id=example_user_pool_domain.user_pool_id)
-        ```
-        ### UI customization settings for all clients
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_aws as aws
-
-        example_user_pool = aws.cognito.UserPool("exampleUserPool")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
-            domain="example",
-            user_pool_id=example_user_pool.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization",
-            css=".label-customizable {font-weight: 400;}",
-            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())("logo.png"),
-            user_pool_id=example_user_pool_domain.user_pool_id)
-        ```
 
         ## Import
 
@@ -349,6 +345,10 @@ class UserPoolUICustomization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserPoolUICustomizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

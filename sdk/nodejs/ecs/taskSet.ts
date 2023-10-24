@@ -12,24 +12,6 @@ import * as utilities from "../utilities";
  *
  * See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ecs.TaskSet("example", {
- *     service: aws_ecs_service.example.id,
- *     cluster: aws_ecs_cluster.example.id,
- *     taskDefinition: aws_ecs_task_definition.example.arn,
- *     loadBalancers: [{
- *         targetGroupArn: aws_lb_target_group.example.arn,
- *         containerName: "mongo",
- *         containerPort: 8080,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ECS Task Sets using the `task_set_id`, `service`, and `cluster` separated by commas (`,`). For example:

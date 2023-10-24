@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UploadBufferArgs', 'UploadBuffer']
@@ -23,11 +23,34 @@ class UploadBufferArgs:
         :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
         """
-        pulumi.set(__self__, "gateway_arn", gateway_arn)
+        UploadBufferArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_arn=gateway_arn,
+            disk_id=disk_id,
+            disk_path=disk_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_arn: Optional[pulumi.Input[str]] = None,
+             disk_id: Optional[pulumi.Input[str]] = None,
+             disk_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_arn is None and 'gatewayArn' in kwargs:
+            gateway_arn = kwargs['gatewayArn']
+        if gateway_arn is None:
+            raise TypeError("Missing 'gateway_arn' argument")
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if disk_path is None and 'diskPath' in kwargs:
+            disk_path = kwargs['diskPath']
+
+        _setter("gateway_arn", gateway_arn)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if disk_path is not None:
-            pulumi.set(__self__, "disk_path", disk_path)
+            _setter("disk_path", disk_path)
 
     @property
     @pulumi.getter(name="gatewayArn")
@@ -78,12 +101,33 @@ class _UploadBufferState:
         :param pulumi.Input[str] disk_path: Local disk path. For example, `/dev/nvme1n1`.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         """
+        _UploadBufferState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_id=disk_id,
+            disk_path=disk_path,
+            gateway_arn=gateway_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_id: Optional[pulumi.Input[str]] = None,
+             disk_path: Optional[pulumi.Input[str]] = None,
+             gateway_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if disk_path is None and 'diskPath' in kwargs:
+            disk_path = kwargs['diskPath']
+        if gateway_arn is None and 'gatewayArn' in kwargs:
+            gateway_arn = kwargs['gatewayArn']
+
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if disk_path is not None:
-            pulumi.set(__self__, "disk_path", disk_path)
+            _setter("disk_path", disk_path)
         if gateway_arn is not None:
-            pulumi.set(__self__, "gateway_arn", gateway_arn)
+            _setter("gateway_arn", gateway_arn)
 
     @property
     @pulumi.getter(name="diskId")
@@ -137,30 +181,6 @@ class UploadBuffer(pulumi.CustomResource):
         > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
 
         ## Example Usage
-        ### Cached and VTL Gateway Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_local_disk = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        test_upload_buffer = aws.storagegateway.UploadBuffer("testUploadBuffer",
-            disk_path=test_local_disk.disk_path,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        ```
-        ### Stored Gateway Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        example = aws.storagegateway.UploadBuffer("example",
-            disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
-            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
-        ```
 
         ## Import
 
@@ -188,30 +208,6 @@ class UploadBuffer(pulumi.CustomResource):
         > **NOTE:** The Storage Gateway API provides no method to remove an upload buffer disk. Destroying this resource does not perform any Storage Gateway actions.
 
         ## Example Usage
-        ### Cached and VTL Gateway Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_local_disk = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        test_upload_buffer = aws.storagegateway.UploadBuffer("testUploadBuffer",
-            disk_path=test_local_disk.disk_path,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        ```
-        ### Stored Gateway Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
-        example = aws.storagegateway.UploadBuffer("example",
-            disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
-            gateway_arn=aws_storagegateway_gateway["example"]["arn"])
-        ```
 
         ## Import
 
@@ -231,6 +227,10 @@ class UploadBuffer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UploadBufferArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

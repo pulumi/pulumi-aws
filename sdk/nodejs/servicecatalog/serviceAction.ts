@@ -11,19 +11,6 @@ import * as utilities from "../utilities";
  * Manages a Service Catalog self-service action.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.ServiceAction("example", {
- *     definition: {
- *         name: "AWS-RestartEC2Instance",
- *     },
- *     description: "Motor generator unit",
- * });
- * ```
  *
  * ## Import
  *

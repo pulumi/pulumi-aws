@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Location Service Tracker.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.location.Tracker("example", {trackerName: "example"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:

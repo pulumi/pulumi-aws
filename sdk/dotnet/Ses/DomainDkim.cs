@@ -14,45 +14,6 @@ namespace Pulumi.Aws.Ses
     /// 
     /// Domain ownership needs to be confirmed first using ses_domain_identity Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleDomainIdentity = new Aws.Ses.DomainIdentity("exampleDomainIdentity", new()
-    ///     {
-    ///         Domain = "example.com",
-    ///     });
-    /// 
-    ///     var exampleDomainDkim = new Aws.Ses.DomainDkim("exampleDomainDkim", new()
-    ///     {
-    ///         Domain = exampleDomainIdentity.Domain,
-    ///     });
-    /// 
-    ///     var exampleAmazonsesDkimRecord = new List&lt;Aws.Route53.Record&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
-    ///     {
-    ///         var range = new { Value = rangeIndex };
-    ///         exampleAmazonsesDkimRecord.Add(new Aws.Route53.Record($"exampleAmazonsesDkimRecord-{range.Value}", new()
-    ///         {
-    ///             ZoneId = "ABCDEFGHIJ123",
-    ///             Name = exampleDomainDkim.DkimTokens.Apply(dkimTokens =&gt; $"{dkimTokens[range.Value]}._domainkey"),
-    ///             Type = "CNAME",
-    ///             Ttl = 600,
-    ///             Records = new[]
-    ///             {
-    ///                 exampleDomainDkim.DkimTokens.Apply(dkimTokens =&gt; $"{dkimTokens[range.Value]}.dkim.amazonses.com"),
-    ///             },
-    ///         }));
-    ///     }
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:

@@ -12,25 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a CloudWatch Logs destination resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testDestination = new Aws.CloudWatch.LogDestination("testDestination", new()
-    ///     {
-    ///         RoleArn = aws_iam_role.Iam_for_cloudwatch.Arn,
-    ///         TargetArn = aws_kinesis_stream.Kinesis_for_cloudwatch.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:

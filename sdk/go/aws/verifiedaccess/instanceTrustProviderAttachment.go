@@ -15,48 +15,6 @@ import (
 
 // Resource for managing a Verified Access Instance Trust Provider Attachment.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleInstance, err := verifiedaccess.NewInstance(ctx, "exampleInstance", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleTrustProvider, err := verifiedaccess.NewTrustProvider(ctx, "exampleTrustProvider", &verifiedaccess.TrustProviderArgs{
-//				DeviceTrustProviderType: pulumi.String("jamf"),
-//				PolicyReferenceName:     pulumi.String("example"),
-//				TrustProviderType:       pulumi.String("device"),
-//				DeviceOptions: &verifiedaccess.TrustProviderDeviceOptionsArgs{
-//					TenantId: pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = verifiedaccess.NewInstanceTrustProviderAttachment(ctx, "exampleInstanceTrustProviderAttachment", &verifiedaccess.InstanceTrustProviderAttachmentArgs{
-//				VerifiedaccessInstanceId:      exampleInstance.ID(),
-//				VerifiedaccessTrustProviderId: exampleTrustProvider.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:

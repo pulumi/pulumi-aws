@@ -11,15 +11,6 @@ import * as utilities from "../utilities";
  * Manages an Amazon FSx for OpenZFS volume.
  * See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.fsx.OpenZfsVolume("test", {parentVolumeId: aws_fsx_openzfs_file_system.test.root_volume_id});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import FSx Volumes using the `id`. For example:

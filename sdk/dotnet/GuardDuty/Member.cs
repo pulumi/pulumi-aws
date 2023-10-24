@@ -12,41 +12,6 @@ namespace Pulumi.Aws.GuardDuty
     /// <summary>
     /// Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the `aws.guardduty.InviteAccepter` resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = new Aws.GuardDuty.Detector("primary", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var memberDetector = new Aws.GuardDuty.Detector("memberDetector", new()
-    ///     {
-    ///         Enable = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Dev,
-    ///     });
-    /// 
-    ///     var memberMember = new Aws.GuardDuty.Member("memberMember", new()
-    ///     {
-    ///         AccountId = memberDetector.AccountId,
-    ///         DetectorId = primary.Id,
-    ///         Email = "required@example.com",
-    ///         Invite = true,
-    ///         InvitationMessage = "please accept guardduty invitation",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GuardDuty members using the primary GuardDuty detector ID and member AWS account ID. For example:

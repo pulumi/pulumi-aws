@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,20 +33,51 @@ class GameSessionQueueArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] timeout_in_seconds: Maximum time a game session request can remain in the queue.
         """
+        GameSessionQueueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_event_data=custom_event_data,
+            destinations=destinations,
+            name=name,
+            notification_target=notification_target,
+            player_latency_policies=player_latency_policies,
+            tags=tags,
+            timeout_in_seconds=timeout_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_event_data: Optional[pulumi.Input[str]] = None,
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_target: Optional[pulumi.Input[str]] = None,
+             player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_event_data is None and 'customEventData' in kwargs:
+            custom_event_data = kwargs['customEventData']
+        if notification_target is None and 'notificationTarget' in kwargs:
+            notification_target = kwargs['notificationTarget']
+        if player_latency_policies is None and 'playerLatencyPolicies' in kwargs:
+            player_latency_policies = kwargs['playerLatencyPolicies']
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if custom_event_data is not None:
-            pulumi.set(__self__, "custom_event_data", custom_event_data)
+            _setter("custom_event_data", custom_event_data)
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_target is not None:
-            pulumi.set(__self__, "notification_target", notification_target)
+            _setter("notification_target", notification_target)
         if player_latency_policies is not None:
-            pulumi.set(__self__, "player_latency_policies", player_latency_policies)
+            _setter("player_latency_policies", player_latency_policies)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter(name="customEventData")
@@ -157,27 +188,64 @@ class _GameSessionQueueState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] timeout_in_seconds: Maximum time a game session request can remain in the queue.
         """
+        _GameSessionQueueState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            custom_event_data=custom_event_data,
+            destinations=destinations,
+            name=name,
+            notification_target=notification_target,
+            player_latency_policies=player_latency_policies,
+            tags=tags,
+            tags_all=tags_all,
+            timeout_in_seconds=timeout_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             custom_event_data: Optional[pulumi.Input[str]] = None,
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_target: Optional[pulumi.Input[str]] = None,
+             player_latency_policies: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePlayerLatencyPolicyArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_event_data is None and 'customEventData' in kwargs:
+            custom_event_data = kwargs['customEventData']
+        if notification_target is None and 'notificationTarget' in kwargs:
+            notification_target = kwargs['notificationTarget']
+        if player_latency_policies is None and 'playerLatencyPolicies' in kwargs:
+            player_latency_policies = kwargs['playerLatencyPolicies']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if custom_event_data is not None:
-            pulumi.set(__self__, "custom_event_data", custom_event_data)
+            _setter("custom_event_data", custom_event_data)
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_target is not None:
-            pulumi.set(__self__, "notification_target", notification_target)
+            _setter("notification_target", notification_target)
         if player_latency_policies is not None:
-            pulumi.set(__self__, "player_latency_policies", player_latency_policies)
+            _setter("player_latency_policies", player_latency_policies)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter
@@ -307,30 +375,6 @@ class GameSessionQueue(pulumi.CustomResource):
         """
         Provides an GameLift Game Session Queue resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.gamelift.GameSessionQueue("test",
-            destinations=[
-                aws_gamelift_fleet["us_west_2_fleet"]["arn"],
-                aws_gamelift_fleet["eu_central_1_fleet"]["arn"],
-            ],
-            notification_target=aws_sns_topic["game_session_queue_notifications"]["arn"],
-            player_latency_policies=[
-                aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                    maximum_individual_player_latency_milliseconds=100,
-                    policy_duration_seconds=5,
-                ),
-                aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                    maximum_individual_player_latency_milliseconds=200,
-                ),
-            ],
-            timeout_in_seconds=60)
-        ```
-
         ## Import
 
         Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
@@ -358,30 +402,6 @@ class GameSessionQueue(pulumi.CustomResource):
         """
         Provides an GameLift Game Session Queue resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.gamelift.GameSessionQueue("test",
-            destinations=[
-                aws_gamelift_fleet["us_west_2_fleet"]["arn"],
-                aws_gamelift_fleet["eu_central_1_fleet"]["arn"],
-            ],
-            notification_target=aws_sns_topic["game_session_queue_notifications"]["arn"],
-            player_latency_policies=[
-                aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                    maximum_individual_player_latency_milliseconds=100,
-                    policy_duration_seconds=5,
-                ),
-                aws.gamelift.GameSessionQueuePlayerLatencyPolicyArgs(
-                    maximum_individual_player_latency_milliseconds=200,
-                ),
-            ],
-            timeout_in_seconds=60)
-        ```
-
         ## Import
 
         Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
@@ -400,6 +420,10 @@ class GameSessionQueue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GameSessionQueueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

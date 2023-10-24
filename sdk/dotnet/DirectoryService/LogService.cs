@@ -12,67 +12,6 @@ namespace Pulumi.Aws.DirectoryService
     /// <summary>
     /// Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new()
-    ///     {
-    ///         RetentionInDays = 14,
-    ///     });
-    /// 
-    ///     var ad_log_policyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "logs:CreateLogStream",
-    ///                     "logs:PutLogEvents",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "ds.amazonaws.com",
-    ///                         },
-    ///                         Type = "Service",
-    ///                     },
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{exampleLogGroup.Arn}:*",
-    ///                 },
-    ///                 Effect = "Allow",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var ad_log_policyLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("ad-log-policyLogResourcePolicy", new()
-    ///     {
-    ///         PolicyDocument = ad_log_policyPolicyDocument.Apply(ad_log_policyPolicyDocument =&gt; ad_log_policyPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
-    ///         PolicyName = "ad-log-policy",
-    ///     });
-    /// 
-    ///     var exampleLogService = new Aws.DirectoryService.LogService("exampleLogService", new()
-    ///     {
-    ///         DirectoryId = aws_directory_service_directory.Example.Id,
-    ///         LogGroupName = exampleLogGroup.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For example:

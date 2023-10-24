@@ -8,14 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Synthetics Group resource.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.synthetics.Group("example", {});
- * ```
  *
  * ## Import
  *

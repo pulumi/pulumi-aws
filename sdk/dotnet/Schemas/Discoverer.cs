@@ -14,27 +14,6 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var messenger = new Aws.CloudWatch.EventBus("messenger");
-    /// 
-    ///     var test = new Aws.Schemas.Discoverer("test", new()
-    ///     {
-    ///         SourceArn = messenger.Arn,
-    ///         Description = "Auto discover event schemas",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge discoverers using the `id`. For example:

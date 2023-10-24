@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getDistributionConfigurations({
- *     filters: [{
- *         name: "name",
- *         values: ["example"],
- *     }],
- * });
- * ```
  */
 export function getDistributionConfigurations(args?: GetDistributionConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionConfigurationsResult> {
     args = args || {};
@@ -63,20 +49,6 @@ export interface GetDistributionConfigurationsResult {
 }
 /**
  * Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getDistributionConfigurations({
- *     filters: [{
- *         name: "name",
- *         values: ["example"],
- *     }],
- * });
- * ```
  */
 export function getDistributionConfigurationsOutput(args?: GetDistributionConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => getDistributionConfigurations(a, opts))

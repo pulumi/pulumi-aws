@@ -10,39 +10,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
- * ### Dimensional Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const serviceMonitor = new aws.costexplorer.AnomalyMonitor("serviceMonitor", {
- *     monitorDimension: "SERVICE",
- *     monitorType: "DIMENSIONAL",
- * });
- * ```
- * ### Custom Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.costexplorer.AnomalyMonitor("test", {
- *     monitorType: "CUSTOM",
- *     monitorSpecification: JSON.stringify({
- *         And: undefined,
- *         CostCategories: undefined,
- *         Dimensions: undefined,
- *         Not: undefined,
- *         Or: undefined,
- *         Tags: {
- *             Key: "CostCenter",
- *             MatchOptions: undefined,
- *             Values: ["10000"],
- *         },
- *     }),
- * });
- * ```
  *
  * ## Import
  *

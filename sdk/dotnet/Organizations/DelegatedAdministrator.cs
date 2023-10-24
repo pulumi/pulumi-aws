@@ -12,25 +12,6 @@ namespace Pulumi.Aws.Organizations
     /// <summary>
     /// Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Organizations.DelegatedAdministrator("example", new()
-    ///     {
-    ///         AccountId = "123456789012",
-    ///         ServicePrincipal = "principal",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:

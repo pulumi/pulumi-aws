@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -105,16 +105,6 @@ def get_regex_pattern_set(name: Optional[str] = None,
     """
     Retrieves the summary of a WAFv2 Regex Pattern Set.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.wafv2.get_regex_pattern_set(name="some-regex-pattern-set",
-        scope="REGIONAL")
-    ```
-
 
     :param str name: Name of the WAFv2 Regex Pattern Set.
     :param str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -140,16 +130,6 @@ def get_regex_pattern_set_output(name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegexPatternSetResult]:
     """
     Retrieves the summary of a WAFv2 Regex Pattern Set.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.wafv2.get_regex_pattern_set(name="some-regex-pattern-set",
-        scope="REGIONAL")
-    ```
 
 
     :param str name: Name of the WAFv2 Regex Pattern Set.

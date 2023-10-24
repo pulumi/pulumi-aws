@@ -12,29 +12,6 @@ namespace Pulumi.Aws.DataSync
     /// <summary>
     /// Manages an S3 Location within AWS DataSync.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataSync.S3Location("example", new()
-    ///     {
-    ///         S3BucketArn = aws_s3_bucket.Example.Arn,
-    ///         Subdirectory = "/example/prefix",
-    ///         S3Config = new Aws.DataSync.Inputs.S3LocationS3ConfigArgs
-    ///         {
-    ///             BucketAccessRoleArn = aws_iam_role.Example.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_s3` using the DataSync Task Amazon Resource Name (ARN). For example:

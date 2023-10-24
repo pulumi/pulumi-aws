@@ -12,25 +12,6 @@ namespace Pulumi.Aws.Location
     /// <summary>
     /// Provides a Location Service Route Calculator.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Location.RouteCalculation("example", new()
-    ///     {
-    ///         CalculatorName = "example",
-    ///         DataSource = "Here",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:

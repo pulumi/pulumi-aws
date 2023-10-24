@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,26 +41,75 @@ class ApplicationArgs:
         :param pulumi.Input['ApplicationNetworkConfigurationArgs'] network_configuration: The network configuration for customer VPC connectivity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "release_label", release_label)
-        pulumi.set(__self__, "type", type)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            release_label=release_label,
+            type=type,
+            architecture=architecture,
+            auto_start_configuration=auto_start_configuration,
+            auto_stop_configuration=auto_stop_configuration,
+            image_configuration=image_configuration,
+            initial_capacities=initial_capacities,
+            maximum_capacity=maximum_capacity,
+            name=name,
+            network_configuration=network_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             release_label: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             architecture: Optional[pulumi.Input[str]] = None,
+             auto_start_configuration: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']] = None,
+             auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
+             image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationArgs']] = None,
+             initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
+             maximum_capacity: Optional[pulumi.Input['ApplicationMaximumCapacityArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if release_label is None and 'releaseLabel' in kwargs:
+            release_label = kwargs['releaseLabel']
+        if release_label is None:
+            raise TypeError("Missing 'release_label' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if auto_start_configuration is None and 'autoStartConfiguration' in kwargs:
+            auto_start_configuration = kwargs['autoStartConfiguration']
+        if auto_stop_configuration is None and 'autoStopConfiguration' in kwargs:
+            auto_stop_configuration = kwargs['autoStopConfiguration']
+        if image_configuration is None and 'imageConfiguration' in kwargs:
+            image_configuration = kwargs['imageConfiguration']
+        if initial_capacities is None and 'initialCapacities' in kwargs:
+            initial_capacities = kwargs['initialCapacities']
+        if maximum_capacity is None and 'maximumCapacity' in kwargs:
+            maximum_capacity = kwargs['maximumCapacity']
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+
+        _setter("release_label", release_label)
+        _setter("type", type)
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if auto_start_configuration is not None:
-            pulumi.set(__self__, "auto_start_configuration", auto_start_configuration)
+            _setter("auto_start_configuration", auto_start_configuration)
         if auto_stop_configuration is not None:
-            pulumi.set(__self__, "auto_stop_configuration", auto_stop_configuration)
+            _setter("auto_stop_configuration", auto_stop_configuration)
         if image_configuration is not None:
-            pulumi.set(__self__, "image_configuration", image_configuration)
+            _setter("image_configuration", image_configuration)
         if initial_capacities is not None:
-            pulumi.set(__self__, "initial_capacities", initial_capacities)
+            _setter("initial_capacities", initial_capacities)
         if maximum_capacity is not None:
-            pulumi.set(__self__, "maximum_capacity", maximum_capacity)
+            _setter("maximum_capacity", maximum_capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="releaseLabel")
@@ -227,35 +276,86 @@ class _ApplicationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of application you want to start, such as `spark` or `hive`.
         """
+        _ApplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            architecture=architecture,
+            arn=arn,
+            auto_start_configuration=auto_start_configuration,
+            auto_stop_configuration=auto_stop_configuration,
+            image_configuration=image_configuration,
+            initial_capacities=initial_capacities,
+            maximum_capacity=maximum_capacity,
+            name=name,
+            network_configuration=network_configuration,
+            release_label=release_label,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             architecture: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_start_configuration: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']] = None,
+             auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
+             image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationArgs']] = None,
+             initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
+             maximum_capacity: Optional[pulumi.Input['ApplicationMaximumCapacityArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
+             release_label: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_start_configuration is None and 'autoStartConfiguration' in kwargs:
+            auto_start_configuration = kwargs['autoStartConfiguration']
+        if auto_stop_configuration is None and 'autoStopConfiguration' in kwargs:
+            auto_stop_configuration = kwargs['autoStopConfiguration']
+        if image_configuration is None and 'imageConfiguration' in kwargs:
+            image_configuration = kwargs['imageConfiguration']
+        if initial_capacities is None and 'initialCapacities' in kwargs:
+            initial_capacities = kwargs['initialCapacities']
+        if maximum_capacity is None and 'maximumCapacity' in kwargs:
+            maximum_capacity = kwargs['maximumCapacity']
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if release_label is None and 'releaseLabel' in kwargs:
+            release_label = kwargs['releaseLabel']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_start_configuration is not None:
-            pulumi.set(__self__, "auto_start_configuration", auto_start_configuration)
+            _setter("auto_start_configuration", auto_start_configuration)
         if auto_stop_configuration is not None:
-            pulumi.set(__self__, "auto_stop_configuration", auto_stop_configuration)
+            _setter("auto_stop_configuration", auto_stop_configuration)
         if image_configuration is not None:
-            pulumi.set(__self__, "image_configuration", image_configuration)
+            _setter("image_configuration", image_configuration)
         if initial_capacities is not None:
-            pulumi.set(__self__, "initial_capacities", initial_capacities)
+            _setter("initial_capacities", initial_capacities)
         if maximum_capacity is not None:
-            pulumi.set(__self__, "maximum_capacity", maximum_capacity)
+            _setter("maximum_capacity", maximum_capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if release_label is not None:
-            pulumi.set(__self__, "release_label", release_label)
+            _setter("release_label", release_label)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -438,50 +538,6 @@ class Application(pulumi.CustomResource):
         Manages an EMR Serverless Application.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrserverless.Application("example",
-            release_label="emr-6.6.0",
-            type="hive")
-        ```
-        ### Initial Capacity Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrserverless.Application("example",
-            initial_capacities=[aws.emrserverless.ApplicationInitialCapacityArgs(
-                initial_capacity_config=aws.emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs(
-                    worker_configuration=aws.emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs(
-                        cpu="2 vCPU",
-                        memory="10 GB",
-                    ),
-                    worker_count=1,
-                ),
-                initial_capacity_type="HiveDriver",
-            )],
-            release_label="emr-6.6.0",
-            type="hive")
-        ```
-        ### Maximum Capacity Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrserverless.Application("example",
-            maximum_capacity=aws.emrserverless.ApplicationMaximumCapacityArgs(
-                cpu="2 vCPU",
-                memory="10 GB",
-            ),
-            release_label="emr-6.6.0",
-            type="hive")
-        ```
 
         ## Import
 
@@ -515,50 +571,6 @@ class Application(pulumi.CustomResource):
         Manages an EMR Serverless Application.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrserverless.Application("example",
-            release_label="emr-6.6.0",
-            type="hive")
-        ```
-        ### Initial Capacity Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrserverless.Application("example",
-            initial_capacities=[aws.emrserverless.ApplicationInitialCapacityArgs(
-                initial_capacity_config=aws.emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs(
-                    worker_configuration=aws.emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs(
-                        cpu="2 vCPU",
-                        memory="10 GB",
-                    ),
-                    worker_count=1,
-                ),
-                initial_capacity_type="HiveDriver",
-            )],
-            release_label="emr-6.6.0",
-            type="hive")
-        ```
-        ### Maximum Capacity Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrserverless.Application("example",
-            maximum_capacity=aws.emrserverless.ApplicationMaximumCapacityArgs(
-                cpu="2 vCPU",
-                memory="10 GB",
-            ),
-            release_label="emr-6.6.0",
-            type="hive")
-        ```
 
         ## Import
 
@@ -578,6 +590,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -604,12 +620,17 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["architecture"] = architecture
+            auto_start_configuration = _utilities.configure(auto_start_configuration, ApplicationAutoStartConfigurationArgs, True)
             __props__.__dict__["auto_start_configuration"] = auto_start_configuration
+            auto_stop_configuration = _utilities.configure(auto_stop_configuration, ApplicationAutoStopConfigurationArgs, True)
             __props__.__dict__["auto_stop_configuration"] = auto_stop_configuration
+            image_configuration = _utilities.configure(image_configuration, ApplicationImageConfigurationArgs, True)
             __props__.__dict__["image_configuration"] = image_configuration
             __props__.__dict__["initial_capacities"] = initial_capacities
+            maximum_capacity = _utilities.configure(maximum_capacity, ApplicationMaximumCapacityArgs, True)
             __props__.__dict__["maximum_capacity"] = maximum_capacity
             __props__.__dict__["name"] = name
+            network_configuration = _utilities.configure(network_configuration, ApplicationNetworkConfigurationArgs, True)
             __props__.__dict__["network_configuration"] = network_configuration
             if release_label is None and not opts.urn:
                 raise TypeError("Missing required property 'release_label'")

@@ -15,51 +15,6 @@ namespace Pulumi.Aws.Acm
         /// Use this data source to get the ARN of a certificate in AWS Certificate
         /// Manager (ACM), you can reference
         /// it by domain without having to hard code the ARNs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var issued = Aws.Acm.GetCertificate.Invoke(new()
-        ///     {
-        ///         Domain = "tf.example.com",
-        ///         Statuses = new[]
-        ///         {
-        ///             "ISSUED",
-        ///         },
-        ///     });
-        /// 
-        ///     var amazonIssued = Aws.Acm.GetCertificate.Invoke(new()
-        ///     {
-        ///         Domain = "tf.example.com",
-        ///         MostRecent = true,
-        ///         Types = new[]
-        ///         {
-        ///             "AMAZON_ISSUED",
-        ///         },
-        ///     });
-        /// 
-        ///     var rsa4096 = Aws.Acm.GetCertificate.Invoke(new()
-        ///     {
-        ///         Domain = "tf.example.com",
-        ///         KeyTypes = new[]
-        ///         {
-        ///             "RSA_4096",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws:acm/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
@@ -68,51 +23,6 @@ namespace Pulumi.Aws.Acm
         /// Use this data source to get the ARN of a certificate in AWS Certificate
         /// Manager (ACM), you can reference
         /// it by domain without having to hard code the ARNs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var issued = Aws.Acm.GetCertificate.Invoke(new()
-        ///     {
-        ///         Domain = "tf.example.com",
-        ///         Statuses = new[]
-        ///         {
-        ///             "ISSUED",
-        ///         },
-        ///     });
-        /// 
-        ///     var amazonIssued = Aws.Acm.GetCertificate.Invoke(new()
-        ///     {
-        ///         Domain = "tf.example.com",
-        ///         MostRecent = true,
-        ///         Types = new[]
-        ///         {
-        ///             "AMAZON_ISSUED",
-        ///         },
-        ///     });
-        /// 
-        ///     var rsa4096 = Aws.Acm.GetCertificate.Invoke(new()
-        ///     {
-        ///         Domain = "tf.example.com",
-        ///         KeyTypes = new[]
-        ///         {
-        ///             "RSA_4096",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:acm/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

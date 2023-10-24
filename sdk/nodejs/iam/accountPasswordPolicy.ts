@@ -11,22 +11,6 @@ import * as utilities from "../utilities";
  * See more about [Account Password Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_account-policy.html)
  * in the official AWS docs.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const strict = new aws.iam.AccountPasswordPolicy("strict", {
- *     allowUsersToChangePassword: true,
- *     minimumPasswordLength: 8,
- *     requireLowercaseCharacters: true,
- *     requireNumbers: true,
- *     requireSymbols: true,
- *     requireUppercaseCharacters: true,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For example:

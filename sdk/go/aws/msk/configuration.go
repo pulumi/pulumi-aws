@@ -15,35 +15,6 @@ import (
 
 // Manages an Amazon Managed Streaming for Kafka configuration. More information can be found on the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration.html).
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := msk.NewConfiguration(ctx, "example", &msk.ConfigurationArgs{
-//				KafkaVersions: pulumi.StringArray{
-//					pulumi.String("2.1.0"),
-//				},
-//				ServerProperties: pulumi.String("auto.create.topics.enable = true\ndelete.topic.enable = true\n\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import MSK configurations using the configuration ARN. For example:

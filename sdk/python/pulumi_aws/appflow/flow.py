@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,18 +35,59 @@ class FlowArgs:
         :param pulumi.Input[str] name: Name of the flow.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "destination_flow_configs", destination_flow_configs)
-        pulumi.set(__self__, "source_flow_config", source_flow_config)
-        pulumi.set(__self__, "tasks", tasks)
-        pulumi.set(__self__, "trigger_config", trigger_config)
+        FlowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_flow_configs=destination_flow_configs,
+            source_flow_config=source_flow_config,
+            tasks=tasks,
+            trigger_config=trigger_config,
+            description=description,
+            kms_arn=kms_arn,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_flow_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]] = None,
+             source_flow_config: Optional[pulumi.Input['FlowSourceFlowConfigArgs']] = None,
+             tasks: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]]] = None,
+             trigger_config: Optional[pulumi.Input['FlowTriggerConfigArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             kms_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_flow_configs is None and 'destinationFlowConfigs' in kwargs:
+            destination_flow_configs = kwargs['destinationFlowConfigs']
+        if destination_flow_configs is None:
+            raise TypeError("Missing 'destination_flow_configs' argument")
+        if source_flow_config is None and 'sourceFlowConfig' in kwargs:
+            source_flow_config = kwargs['sourceFlowConfig']
+        if source_flow_config is None:
+            raise TypeError("Missing 'source_flow_config' argument")
+        if tasks is None:
+            raise TypeError("Missing 'tasks' argument")
+        if trigger_config is None and 'triggerConfig' in kwargs:
+            trigger_config = kwargs['triggerConfig']
+        if trigger_config is None:
+            raise TypeError("Missing 'trigger_config' argument")
+        if kms_arn is None and 'kmsArn' in kwargs:
+            kms_arn = kwargs['kmsArn']
+
+        _setter("destination_flow_configs", destination_flow_configs)
+        _setter("source_flow_config", source_flow_config)
+        _setter("tasks", tasks)
+        _setter("trigger_config", trigger_config)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if kms_arn is not None:
-            pulumi.set(__self__, "kms_arn", kms_arn)
+            _setter("kms_arn", kms_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="destinationFlowConfigs")
@@ -171,29 +212,68 @@ class _FlowState:
         :param pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]] tasks: A Task that Amazon AppFlow performs while transferring the data in the flow run.
         :param pulumi.Input['FlowTriggerConfigArgs'] trigger_config: A Trigger that determine how and when the flow runs.
         """
+        _FlowState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            destination_flow_configs=destination_flow_configs,
+            kms_arn=kms_arn,
+            name=name,
+            source_flow_config=source_flow_config,
+            tags=tags,
+            tags_all=tags_all,
+            tasks=tasks,
+            trigger_config=trigger_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             destination_flow_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]] = None,
+             kms_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_flow_config: Optional[pulumi.Input['FlowSourceFlowConfigArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tasks: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]]] = None,
+             trigger_config: Optional[pulumi.Input['FlowTriggerConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_flow_configs is None and 'destinationFlowConfigs' in kwargs:
+            destination_flow_configs = kwargs['destinationFlowConfigs']
+        if kms_arn is None and 'kmsArn' in kwargs:
+            kms_arn = kwargs['kmsArn']
+        if source_flow_config is None and 'sourceFlowConfig' in kwargs:
+            source_flow_config = kwargs['sourceFlowConfig']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if trigger_config is None and 'triggerConfig' in kwargs:
+            trigger_config = kwargs['triggerConfig']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_flow_configs is not None:
-            pulumi.set(__self__, "destination_flow_configs", destination_flow_configs)
+            _setter("destination_flow_configs", destination_flow_configs)
         if kms_arn is not None:
-            pulumi.set(__self__, "kms_arn", kms_arn)
+            _setter("kms_arn", kms_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_flow_config is not None:
-            pulumi.set(__self__, "source_flow_config", source_flow_config)
+            _setter("source_flow_config", source_flow_config)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tasks is not None:
-            pulumi.set(__self__, "tasks", tasks)
+            _setter("tasks", tasks)
         if trigger_config is not None:
-            pulumi.set(__self__, "trigger_config", trigger_config)
+            _setter("trigger_config", trigger_config)
 
     @property
     @pulumi.getter
@@ -336,96 +416,6 @@ class Flow(pulumi.CustomResource):
         """
         Provides an AppFlow flow resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_source_bucket_v2 = aws.s3.BucketV2("exampleSourceBucketV2")
-        example_source_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="AllowAppFlowSourceActions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appflow.amazonaws.com"],
-            )],
-            actions=[
-                "s3:ListBucket",
-                "s3:GetObject",
-            ],
-            resources=[
-                "arn:aws:s3:::example_source",
-                "arn:aws:s3:::example_source/*",
-            ],
-        )])
-        example_source_bucket_policy = aws.s3.BucketPolicy("exampleSourceBucketPolicy",
-            bucket=example_source_bucket_v2.id,
-            policy=example_source_policy_document.json)
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_source_bucket_v2.id,
-            key="example_source.csv",
-            source=pulumi.FileAsset("example_source.csv"))
-        example_destination_bucket_v2 = aws.s3.BucketV2("exampleDestinationBucketV2")
-        example_destination_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="AllowAppFlowDestinationActions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appflow.amazonaws.com"],
-            )],
-            actions=[
-                "s3:PutObject",
-                "s3:AbortMultipartUpload",
-                "s3:ListMultipartUploadParts",
-                "s3:ListBucketMultipartUploads",
-                "s3:GetBucketAcl",
-                "s3:PutObjectAcl",
-            ],
-            resources=[
-                "arn:aws:s3:::example_destination",
-                "arn:aws:s3:::example_destination/*",
-            ],
-        )])
-        example_destination_bucket_policy = aws.s3.BucketPolicy("exampleDestinationBucketPolicy",
-            bucket=example_destination_bucket_v2.id,
-            policy=example_destination_policy_document.json)
-        example_flow = aws.appflow.Flow("exampleFlow",
-            source_flow_config=aws.appflow.FlowSourceFlowConfigArgs(
-                connector_type="S3",
-                source_connector_properties=aws.appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs(
-                    s3=aws.appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3Args(
-                        bucket_name=example_source_bucket_policy.bucket,
-                        bucket_prefix="example",
-                    ),
-                ),
-            ),
-            destination_flow_configs=[aws.appflow.FlowDestinationFlowConfigArgs(
-                connector_type="S3",
-                destination_connector_properties=aws.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs(
-                    s3=aws.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args(
-                        bucket_name=example_destination_bucket_policy.bucket,
-                        s3_output_format_config=aws.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs(
-                            prefix_config=aws.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs(
-                                prefix_type="PATH",
-                            ),
-                        ),
-                    ),
-                ),
-            )],
-            tasks=[aws.appflow.FlowTaskArgs(
-                source_fields=["exampleField"],
-                destination_field="exampleField",
-                task_type="Map",
-                connector_operators=[aws.appflow.FlowTaskConnectorOperatorArgs(
-                    s3="NO_OP",
-                )],
-            )],
-            trigger_config=aws.appflow.FlowTriggerConfigArgs(
-                trigger_type="OnDemand",
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import AppFlow flows using the `arn`. For example:
@@ -454,96 +444,6 @@ class Flow(pulumi.CustomResource):
         """
         Provides an AppFlow flow resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_source_bucket_v2 = aws.s3.BucketV2("exampleSourceBucketV2")
-        example_source_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="AllowAppFlowSourceActions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appflow.amazonaws.com"],
-            )],
-            actions=[
-                "s3:ListBucket",
-                "s3:GetObject",
-            ],
-            resources=[
-                "arn:aws:s3:::example_source",
-                "arn:aws:s3:::example_source/*",
-            ],
-        )])
-        example_source_bucket_policy = aws.s3.BucketPolicy("exampleSourceBucketPolicy",
-            bucket=example_source_bucket_v2.id,
-            policy=example_source_policy_document.json)
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_source_bucket_v2.id,
-            key="example_source.csv",
-            source=pulumi.FileAsset("example_source.csv"))
-        example_destination_bucket_v2 = aws.s3.BucketV2("exampleDestinationBucketV2")
-        example_destination_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="AllowAppFlowDestinationActions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appflow.amazonaws.com"],
-            )],
-            actions=[
-                "s3:PutObject",
-                "s3:AbortMultipartUpload",
-                "s3:ListMultipartUploadParts",
-                "s3:ListBucketMultipartUploads",
-                "s3:GetBucketAcl",
-                "s3:PutObjectAcl",
-            ],
-            resources=[
-                "arn:aws:s3:::example_destination",
-                "arn:aws:s3:::example_destination/*",
-            ],
-        )])
-        example_destination_bucket_policy = aws.s3.BucketPolicy("exampleDestinationBucketPolicy",
-            bucket=example_destination_bucket_v2.id,
-            policy=example_destination_policy_document.json)
-        example_flow = aws.appflow.Flow("exampleFlow",
-            source_flow_config=aws.appflow.FlowSourceFlowConfigArgs(
-                connector_type="S3",
-                source_connector_properties=aws.appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs(
-                    s3=aws.appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3Args(
-                        bucket_name=example_source_bucket_policy.bucket,
-                        bucket_prefix="example",
-                    ),
-                ),
-            ),
-            destination_flow_configs=[aws.appflow.FlowDestinationFlowConfigArgs(
-                connector_type="S3",
-                destination_connector_properties=aws.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs(
-                    s3=aws.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args(
-                        bucket_name=example_destination_bucket_policy.bucket,
-                        s3_output_format_config=aws.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs(
-                            prefix_config=aws.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs(
-                                prefix_type="PATH",
-                            ),
-                        ),
-                    ),
-                ),
-            )],
-            tasks=[aws.appflow.FlowTaskArgs(
-                source_fields=["exampleField"],
-                destination_field="exampleField",
-                task_type="Map",
-                connector_operators=[aws.appflow.FlowTaskConnectorOperatorArgs(
-                    s3="NO_OP",
-                )],
-            )],
-            trigger_config=aws.appflow.FlowTriggerConfigArgs(
-                trigger_type="OnDemand",
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import AppFlow flows using the `arn`. For example:
@@ -562,6 +462,10 @@ class Flow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -590,6 +494,7 @@ class Flow(pulumi.CustomResource):
             __props__.__dict__["destination_flow_configs"] = destination_flow_configs
             __props__.__dict__["kms_arn"] = kms_arn
             __props__.__dict__["name"] = name
+            source_flow_config = _utilities.configure(source_flow_config, FlowSourceFlowConfigArgs, True)
             if source_flow_config is None and not opts.urn:
                 raise TypeError("Missing required property 'source_flow_config'")
             __props__.__dict__["source_flow_config"] = source_flow_config
@@ -597,6 +502,7 @@ class Flow(pulumi.CustomResource):
             if tasks is None and not opts.urn:
                 raise TypeError("Missing required property 'tasks'")
             __props__.__dict__["tasks"] = tasks
+            trigger_config = _utilities.configure(trigger_config, FlowTriggerConfigArgs, True)
             if trigger_config is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger_config'")
             __props__.__dict__["trigger_config"] = trigger_config

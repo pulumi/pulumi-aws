@@ -15,52 +15,6 @@ import (
 
 // Manages an Image Builder Distribution Configuration.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewDistributionConfiguration(ctx, "example", &imagebuilder.DistributionConfigurationArgs{
-//				Distributions: imagebuilder.DistributionConfigurationDistributionArray{
-//					&imagebuilder.DistributionConfigurationDistributionArgs{
-//						AmiDistributionConfiguration: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs{
-//							AmiTags: pulumi.StringMap{
-//								"CostCenter": pulumi.String("IT"),
-//							},
-//							LaunchPermission: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{
-//								UserIds: pulumi.StringArray{
-//									pulumi.String("123456789012"),
-//								},
-//							},
-//							Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),
-//						},
-//						LaunchTemplateConfigurations: imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArray{
-//							&imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{
-//								LaunchTemplateId: pulumi.String("lt-0aaa1bcde2ff3456"),
-//							},
-//						},
-//						Region: pulumi.String("us-east-1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:

@@ -12,27 +12,6 @@ namespace Pulumi.Aws.Quicksight
     /// <summary>
     /// Resource for managing an AWS QuickSight Account Subscription.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var subscription = new Aws.Quicksight.AccountSubscription("subscription", new()
-    ///     {
-    ///         AccountName = "quicksight-pulumi",
-    ///         AuthenticationMethod = "IAM_AND_QUICKSIGHT",
-    ///         Edition = "ENTERPRISE",
-    ///         NotificationEmail = "notification@email.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// You cannot import this resource.

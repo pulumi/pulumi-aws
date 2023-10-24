@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -102,15 +102,6 @@ def get_serverless_access_policy(name: Optional[str] = None,
     Data source for managing an AWS OpenSearch Serverless Access Policy.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_access_policy(name=aws_opensearchserverless_access_policy["example"]["name"],
-        type=aws_opensearchserverless_access_policy["example"]["type"])
-    ```
 
 
     :param str name: Name of the policy.
@@ -139,15 +130,6 @@ def get_serverless_access_policy_output(name: Optional[pulumi.Input[str]] = None
     Data source for managing an AWS OpenSearch Serverless Access Policy.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_access_policy(name=aws_opensearchserverless_access_policy["example"]["name"],
-        type=aws_opensearchserverless_access_policy["example"]["type"])
-    ```
 
 
     :param str name: Name of the policy.

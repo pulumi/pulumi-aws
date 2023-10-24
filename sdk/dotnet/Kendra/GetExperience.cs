@@ -13,58 +13,12 @@ namespace Pulumi.Aws.Kendra
     {
         /// <summary>
         /// Provides details about a specific Amazon Kendra Experience.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kendra.GetExperience.Invoke(new()
-        ///     {
-        ///         ExperienceId = "87654321-1234-4321-4321-321987654321",
-        ///         IndexId = "12345678-1234-1234-1234-123456789123",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetExperienceResult> InvokeAsync(GetExperienceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperienceResult>("aws:kendra/getExperience:getExperience", args ?? new GetExperienceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Kendra Experience.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kendra.GetExperience.Invoke(new()
-        ///     {
-        ///         ExperienceId = "87654321-1234-4321-4321-321987654321",
-        ///         IndexId = "12345678-1234-1234-1234-123456789123",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetExperienceResult> Invoke(GetExperienceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperienceResult>("aws:kendra/getExperience:getExperience", args ?? new GetExperienceInvokeArgs(), options.WithDefaults());

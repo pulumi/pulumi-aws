@@ -12,30 +12,6 @@ namespace Pulumi.Aws.Xray
     /// <summary>
     /// Creates and manages an AWS XRay Group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Xray.Group("example", new()
-    ///     {
-    ///         FilterExpression = "responsetime &gt; 5",
-    ///         GroupName = "example",
-    ///         InsightsConfiguration = new Aws.Xray.Inputs.GroupInsightsConfigurationArgs
-    ///         {
-    ///             InsightsEnabled = true,
-    ///             NotificationsEnabled = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import XRay Groups using the ARN. For example:

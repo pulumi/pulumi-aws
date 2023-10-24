@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -63,40 +63,123 @@ class IntegrationArgs:
                this provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input['IntegrationTlsConfigArgs'] tls_config: TLS configuration for a private integration. Supported only for HTTP APIs.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "integration_type", integration_type)
+        IntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            integration_type=integration_type,
+            connection_id=connection_id,
+            connection_type=connection_type,
+            content_handling_strategy=content_handling_strategy,
+            credentials_arn=credentials_arn,
+            description=description,
+            integration_method=integration_method,
+            integration_subtype=integration_subtype,
+            integration_uri=integration_uri,
+            passthrough_behavior=passthrough_behavior,
+            payload_format_version=payload_format_version,
+            request_parameters=request_parameters,
+            request_templates=request_templates,
+            response_parameters=response_parameters,
+            template_selection_expression=template_selection_expression,
+            timeout_milliseconds=timeout_milliseconds,
+            tls_config=tls_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             integration_type: Optional[pulumi.Input[str]] = None,
+             connection_id: Optional[pulumi.Input[str]] = None,
+             connection_type: Optional[pulumi.Input[str]] = None,
+             content_handling_strategy: Optional[pulumi.Input[str]] = None,
+             credentials_arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             integration_method: Optional[pulumi.Input[str]] = None,
+             integration_subtype: Optional[pulumi.Input[str]] = None,
+             integration_uri: Optional[pulumi.Input[str]] = None,
+             passthrough_behavior: Optional[pulumi.Input[str]] = None,
+             payload_format_version: Optional[pulumi.Input[str]] = None,
+             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]] = None,
+             template_selection_expression: Optional[pulumi.Input[str]] = None,
+             timeout_milliseconds: Optional[pulumi.Input[int]] = None,
+             tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if integration_type is None and 'integrationType' in kwargs:
+            integration_type = kwargs['integrationType']
+        if integration_type is None:
+            raise TypeError("Missing 'integration_type' argument")
+        if connection_id is None and 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if connection_type is None and 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if content_handling_strategy is None and 'contentHandlingStrategy' in kwargs:
+            content_handling_strategy = kwargs['contentHandlingStrategy']
+        if credentials_arn is None and 'credentialsArn' in kwargs:
+            credentials_arn = kwargs['credentialsArn']
+        if integration_method is None and 'integrationMethod' in kwargs:
+            integration_method = kwargs['integrationMethod']
+        if integration_subtype is None and 'integrationSubtype' in kwargs:
+            integration_subtype = kwargs['integrationSubtype']
+        if integration_uri is None and 'integrationUri' in kwargs:
+            integration_uri = kwargs['integrationUri']
+        if passthrough_behavior is None and 'passthroughBehavior' in kwargs:
+            passthrough_behavior = kwargs['passthroughBehavior']
+        if payload_format_version is None and 'payloadFormatVersion' in kwargs:
+            payload_format_version = kwargs['payloadFormatVersion']
+        if request_parameters is None and 'requestParameters' in kwargs:
+            request_parameters = kwargs['requestParameters']
+        if request_templates is None and 'requestTemplates' in kwargs:
+            request_templates = kwargs['requestTemplates']
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if template_selection_expression is None and 'templateSelectionExpression' in kwargs:
+            template_selection_expression = kwargs['templateSelectionExpression']
+        if timeout_milliseconds is None and 'timeoutMilliseconds' in kwargs:
+            timeout_milliseconds = kwargs['timeoutMilliseconds']
+        if tls_config is None and 'tlsConfig' in kwargs:
+            tls_config = kwargs['tlsConfig']
+
+        _setter("api_id", api_id)
+        _setter("integration_type", integration_type)
         if connection_id is not None:
-            pulumi.set(__self__, "connection_id", connection_id)
+            _setter("connection_id", connection_id)
         if connection_type is not None:
-            pulumi.set(__self__, "connection_type", connection_type)
+            _setter("connection_type", connection_type)
         if content_handling_strategy is not None:
-            pulumi.set(__self__, "content_handling_strategy", content_handling_strategy)
+            _setter("content_handling_strategy", content_handling_strategy)
         if credentials_arn is not None:
-            pulumi.set(__self__, "credentials_arn", credentials_arn)
+            _setter("credentials_arn", credentials_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if integration_method is not None:
-            pulumi.set(__self__, "integration_method", integration_method)
+            _setter("integration_method", integration_method)
         if integration_subtype is not None:
-            pulumi.set(__self__, "integration_subtype", integration_subtype)
+            _setter("integration_subtype", integration_subtype)
         if integration_uri is not None:
-            pulumi.set(__self__, "integration_uri", integration_uri)
+            _setter("integration_uri", integration_uri)
         if passthrough_behavior is not None:
-            pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
+            _setter("passthrough_behavior", passthrough_behavior)
         if payload_format_version is not None:
-            pulumi.set(__self__, "payload_format_version", payload_format_version)
+            _setter("payload_format_version", payload_format_version)
         if request_parameters is not None:
-            pulumi.set(__self__, "request_parameters", request_parameters)
+            _setter("request_parameters", request_parameters)
         if request_templates is not None:
-            pulumi.set(__self__, "request_templates", request_templates)
+            _setter("request_templates", request_templates)
         if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
+            _setter("response_parameters", response_parameters)
         if template_selection_expression is not None:
-            pulumi.set(__self__, "template_selection_expression", template_selection_expression)
+            _setter("template_selection_expression", template_selection_expression)
         if timeout_milliseconds is not None:
-            pulumi.set(__self__, "timeout_milliseconds", timeout_milliseconds)
+            _setter("timeout_milliseconds", timeout_milliseconds)
         if tls_config is not None:
-            pulumi.set(__self__, "tls_config", tls_config)
+            _setter("tls_config", tls_config)
 
     @property
     @pulumi.getter(name="apiId")
@@ -375,44 +458,127 @@ class _IntegrationState:
                this provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input['IntegrationTlsConfigArgs'] tls_config: TLS configuration for a private integration. Supported only for HTTP APIs.
         """
+        _IntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            connection_id=connection_id,
+            connection_type=connection_type,
+            content_handling_strategy=content_handling_strategy,
+            credentials_arn=credentials_arn,
+            description=description,
+            integration_method=integration_method,
+            integration_response_selection_expression=integration_response_selection_expression,
+            integration_subtype=integration_subtype,
+            integration_type=integration_type,
+            integration_uri=integration_uri,
+            passthrough_behavior=passthrough_behavior,
+            payload_format_version=payload_format_version,
+            request_parameters=request_parameters,
+            request_templates=request_templates,
+            response_parameters=response_parameters,
+            template_selection_expression=template_selection_expression,
+            timeout_milliseconds=timeout_milliseconds,
+            tls_config=tls_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             connection_id: Optional[pulumi.Input[str]] = None,
+             connection_type: Optional[pulumi.Input[str]] = None,
+             content_handling_strategy: Optional[pulumi.Input[str]] = None,
+             credentials_arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             integration_method: Optional[pulumi.Input[str]] = None,
+             integration_response_selection_expression: Optional[pulumi.Input[str]] = None,
+             integration_subtype: Optional[pulumi.Input[str]] = None,
+             integration_type: Optional[pulumi.Input[str]] = None,
+             integration_uri: Optional[pulumi.Input[str]] = None,
+             passthrough_behavior: Optional[pulumi.Input[str]] = None,
+             payload_format_version: Optional[pulumi.Input[str]] = None,
+             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]] = None,
+             template_selection_expression: Optional[pulumi.Input[str]] = None,
+             timeout_milliseconds: Optional[pulumi.Input[int]] = None,
+             tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if connection_id is None and 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if connection_type is None and 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if content_handling_strategy is None and 'contentHandlingStrategy' in kwargs:
+            content_handling_strategy = kwargs['contentHandlingStrategy']
+        if credentials_arn is None and 'credentialsArn' in kwargs:
+            credentials_arn = kwargs['credentialsArn']
+        if integration_method is None and 'integrationMethod' in kwargs:
+            integration_method = kwargs['integrationMethod']
+        if integration_response_selection_expression is None and 'integrationResponseSelectionExpression' in kwargs:
+            integration_response_selection_expression = kwargs['integrationResponseSelectionExpression']
+        if integration_subtype is None and 'integrationSubtype' in kwargs:
+            integration_subtype = kwargs['integrationSubtype']
+        if integration_type is None and 'integrationType' in kwargs:
+            integration_type = kwargs['integrationType']
+        if integration_uri is None and 'integrationUri' in kwargs:
+            integration_uri = kwargs['integrationUri']
+        if passthrough_behavior is None and 'passthroughBehavior' in kwargs:
+            passthrough_behavior = kwargs['passthroughBehavior']
+        if payload_format_version is None and 'payloadFormatVersion' in kwargs:
+            payload_format_version = kwargs['payloadFormatVersion']
+        if request_parameters is None and 'requestParameters' in kwargs:
+            request_parameters = kwargs['requestParameters']
+        if request_templates is None and 'requestTemplates' in kwargs:
+            request_templates = kwargs['requestTemplates']
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if template_selection_expression is None and 'templateSelectionExpression' in kwargs:
+            template_selection_expression = kwargs['templateSelectionExpression']
+        if timeout_milliseconds is None and 'timeoutMilliseconds' in kwargs:
+            timeout_milliseconds = kwargs['timeoutMilliseconds']
+        if tls_config is None and 'tlsConfig' in kwargs:
+            tls_config = kwargs['tlsConfig']
+
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if connection_id is not None:
-            pulumi.set(__self__, "connection_id", connection_id)
+            _setter("connection_id", connection_id)
         if connection_type is not None:
-            pulumi.set(__self__, "connection_type", connection_type)
+            _setter("connection_type", connection_type)
         if content_handling_strategy is not None:
-            pulumi.set(__self__, "content_handling_strategy", content_handling_strategy)
+            _setter("content_handling_strategy", content_handling_strategy)
         if credentials_arn is not None:
-            pulumi.set(__self__, "credentials_arn", credentials_arn)
+            _setter("credentials_arn", credentials_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if integration_method is not None:
-            pulumi.set(__self__, "integration_method", integration_method)
+            _setter("integration_method", integration_method)
         if integration_response_selection_expression is not None:
-            pulumi.set(__self__, "integration_response_selection_expression", integration_response_selection_expression)
+            _setter("integration_response_selection_expression", integration_response_selection_expression)
         if integration_subtype is not None:
-            pulumi.set(__self__, "integration_subtype", integration_subtype)
+            _setter("integration_subtype", integration_subtype)
         if integration_type is not None:
-            pulumi.set(__self__, "integration_type", integration_type)
+            _setter("integration_type", integration_type)
         if integration_uri is not None:
-            pulumi.set(__self__, "integration_uri", integration_uri)
+            _setter("integration_uri", integration_uri)
         if passthrough_behavior is not None:
-            pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
+            _setter("passthrough_behavior", passthrough_behavior)
         if payload_format_version is not None:
-            pulumi.set(__self__, "payload_format_version", payload_format_version)
+            _setter("payload_format_version", payload_format_version)
         if request_parameters is not None:
-            pulumi.set(__self__, "request_parameters", request_parameters)
+            _setter("request_parameters", request_parameters)
         if request_templates is not None:
-            pulumi.set(__self__, "request_templates", request_templates)
+            _setter("request_templates", request_templates)
         if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
+            _setter("response_parameters", response_parameters)
         if template_selection_expression is not None:
-            pulumi.set(__self__, "template_selection_expression", template_selection_expression)
+            _setter("template_selection_expression", template_selection_expression)
         if timeout_milliseconds is not None:
-            pulumi.set(__self__, "timeout_milliseconds", timeout_milliseconds)
+            _setter("timeout_milliseconds", timeout_milliseconds)
         if tls_config is not None:
-            pulumi.set(__self__, "tls_config", tls_config)
+            _setter("tls_config", tls_config)
 
     @property
     @pulumi.getter(name="apiId")
@@ -680,91 +846,6 @@ class Integration(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Integration("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            integration_type="MOCK")
-        ```
-        ### Lambda Integration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_function = aws.lambda_.Function("exampleFunction",
-            code=pulumi.FileArchive("example.zip"),
-            role=aws_iam_role["example"]["arn"],
-            handler="index.handler",
-            runtime="nodejs16.x")
-        example_integration = aws.apigatewayv2.Integration("exampleIntegration",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            integration_type="AWS_PROXY",
-            connection_type="INTERNET",
-            content_handling_strategy="CONVERT_TO_TEXT",
-            description="Lambda example",
-            integration_method="POST",
-            integration_uri=example_function.invoke_arn,
-            passthrough_behavior="WHEN_NO_MATCH")
-        ```
-        ### AWS Service Integration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Integration("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            credentials_arn=aws_iam_role["example"]["arn"],
-            description="SQS example",
-            integration_type="AWS_PROXY",
-            integration_subtype="SQS-SendMessage",
-            request_parameters={
-                "QueueUrl": "$request.header.queueUrl",
-                "MessageBody": "$request.body.message",
-            })
-        ```
-        ### Private Integration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Integration("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            credentials_arn=aws_iam_role["example"]["arn"],
-            description="Example with a load balancer",
-            integration_type="HTTP_PROXY",
-            integration_uri=aws_lb_listener["example"]["arn"],
-            integration_method="ANY",
-            connection_type="VPC_LINK",
-            connection_id=aws_apigatewayv2_vpc_link["example"]["id"],
-            tls_config=aws.apigatewayv2.IntegrationTlsConfigArgs(
-                server_name_to_verify="example.com",
-            ),
-            request_parameters={
-                "append:header.authforintegration": "$context.authorizer.authorizerResponse",
-                "overwrite:path": "staticValueForIntegration",
-            },
-            response_parameters=[
-                aws.apigatewayv2.IntegrationResponseParameterArgs(
-                    status_code="403",
-                    mappings={
-                        "append:header.auth": "$context.authorizer.authorizerResponse",
-                    },
-                ),
-                aws.apigatewayv2.IntegrationResponseParameterArgs(
-                    status_code="200",
-                    mappings={
-                        "overwrite:statuscode": "204",
-                    },
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -815,91 +896,6 @@ class Integration(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Integration("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            integration_type="MOCK")
-        ```
-        ### Lambda Integration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_function = aws.lambda_.Function("exampleFunction",
-            code=pulumi.FileArchive("example.zip"),
-            role=aws_iam_role["example"]["arn"],
-            handler="index.handler",
-            runtime="nodejs16.x")
-        example_integration = aws.apigatewayv2.Integration("exampleIntegration",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            integration_type="AWS_PROXY",
-            connection_type="INTERNET",
-            content_handling_strategy="CONVERT_TO_TEXT",
-            description="Lambda example",
-            integration_method="POST",
-            integration_uri=example_function.invoke_arn,
-            passthrough_behavior="WHEN_NO_MATCH")
-        ```
-        ### AWS Service Integration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Integration("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            credentials_arn=aws_iam_role["example"]["arn"],
-            description="SQS example",
-            integration_type="AWS_PROXY",
-            integration_subtype="SQS-SendMessage",
-            request_parameters={
-                "QueueUrl": "$request.header.queueUrl",
-                "MessageBody": "$request.body.message",
-            })
-        ```
-        ### Private Integration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Integration("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            credentials_arn=aws_iam_role["example"]["arn"],
-            description="Example with a load balancer",
-            integration_type="HTTP_PROXY",
-            integration_uri=aws_lb_listener["example"]["arn"],
-            integration_method="ANY",
-            connection_type="VPC_LINK",
-            connection_id=aws_apigatewayv2_vpc_link["example"]["id"],
-            tls_config=aws.apigatewayv2.IntegrationTlsConfigArgs(
-                server_name_to_verify="example.com",
-            ),
-            request_parameters={
-                "append:header.authforintegration": "$context.authorizer.authorizerResponse",
-                "overwrite:path": "staticValueForIntegration",
-            },
-            response_parameters=[
-                aws.apigatewayv2.IntegrationResponseParameterArgs(
-                    status_code="403",
-                    mappings={
-                        "append:header.auth": "$context.authorizer.authorizerResponse",
-                    },
-                ),
-                aws.apigatewayv2.IntegrationResponseParameterArgs(
-                    status_code="200",
-                    mappings={
-                        "overwrite:statuscode": "204",
-                    },
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -920,6 +916,10 @@ class Integration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -973,6 +973,7 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["response_parameters"] = response_parameters
             __props__.__dict__["template_selection_expression"] = template_selection_expression
             __props__.__dict__["timeout_milliseconds"] = timeout_milliseconds
+            tls_config = _utilities.configure(tls_config, IntegrationTlsConfigArgs, True)
             __props__.__dict__["tls_config"] = tls_config
             __props__.__dict__["integration_response_selection_expression"] = None
         super(Integration, __self__).__init__(

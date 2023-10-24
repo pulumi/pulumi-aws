@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -90,64 +90,183 @@ class ClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         """
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_immediately=apply_immediately,
+            auto_minor_version_upgrade=auto_minor_version_upgrade,
+            availability_zone=availability_zone,
+            az_mode=az_mode,
+            cluster_id=cluster_id,
+            engine=engine,
+            engine_version=engine_version,
+            final_snapshot_identifier=final_snapshot_identifier,
+            ip_discovery=ip_discovery,
+            log_delivery_configurations=log_delivery_configurations,
+            maintenance_window=maintenance_window,
+            network_type=network_type,
+            node_type=node_type,
+            notification_topic_arn=notification_topic_arn,
+            num_cache_nodes=num_cache_nodes,
+            outpost_mode=outpost_mode,
+            parameter_group_name=parameter_group_name,
+            port=port,
+            preferred_availability_zones=preferred_availability_zones,
+            preferred_outpost_arn=preferred_outpost_arn,
+            replication_group_id=replication_group_id,
+            security_group_ids=security_group_ids,
+            snapshot_arns=snapshot_arns,
+            snapshot_name=snapshot_name,
+            snapshot_retention_limit=snapshot_retention_limit,
+            snapshot_window=snapshot_window,
+            subnet_group_name=subnet_group_name,
+            tags=tags,
+            transit_encryption_enabled=transit_encryption_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_immediately: Optional[pulumi.Input[bool]] = None,
+             auto_minor_version_upgrade: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             az_mode: Optional[pulumi.Input[str]] = None,
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             ip_discovery: Optional[pulumi.Input[str]] = None,
+             log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]] = None,
+             maintenance_window: Optional[pulumi.Input[str]] = None,
+             network_type: Optional[pulumi.Input[str]] = None,
+             node_type: Optional[pulumi.Input[str]] = None,
+             notification_topic_arn: Optional[pulumi.Input[str]] = None,
+             num_cache_nodes: Optional[pulumi.Input[int]] = None,
+             outpost_mode: Optional[pulumi.Input[str]] = None,
+             parameter_group_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
+             replication_group_id: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_arns: Optional[pulumi.Input[str]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
+             snapshot_window: Optional[pulumi.Input[str]] = None,
+             subnet_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if apply_immediately is None and 'applyImmediately' in kwargs:
+            apply_immediately = kwargs['applyImmediately']
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if az_mode is None and 'azMode' in kwargs:
+            az_mode = kwargs['azMode']
+        if cluster_id is None and 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if final_snapshot_identifier is None and 'finalSnapshotIdentifier' in kwargs:
+            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
+        if ip_discovery is None and 'ipDiscovery' in kwargs:
+            ip_discovery = kwargs['ipDiscovery']
+        if log_delivery_configurations is None and 'logDeliveryConfigurations' in kwargs:
+            log_delivery_configurations = kwargs['logDeliveryConfigurations']
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if network_type is None and 'networkType' in kwargs:
+            network_type = kwargs['networkType']
+        if node_type is None and 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if notification_topic_arn is None and 'notificationTopicArn' in kwargs:
+            notification_topic_arn = kwargs['notificationTopicArn']
+        if num_cache_nodes is None and 'numCacheNodes' in kwargs:
+            num_cache_nodes = kwargs['numCacheNodes']
+        if outpost_mode is None and 'outpostMode' in kwargs:
+            outpost_mode = kwargs['outpostMode']
+        if parameter_group_name is None and 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+        if preferred_availability_zones is None and 'preferredAvailabilityZones' in kwargs:
+            preferred_availability_zones = kwargs['preferredAvailabilityZones']
+        if preferred_outpost_arn is None and 'preferredOutpostArn' in kwargs:
+            preferred_outpost_arn = kwargs['preferredOutpostArn']
+        if replication_group_id is None and 'replicationGroupId' in kwargs:
+            replication_group_id = kwargs['replicationGroupId']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if snapshot_arns is None and 'snapshotArns' in kwargs:
+            snapshot_arns = kwargs['snapshotArns']
+        if snapshot_name is None and 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if snapshot_retention_limit is None and 'snapshotRetentionLimit' in kwargs:
+            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
+        if snapshot_window is None and 'snapshotWindow' in kwargs:
+            snapshot_window = kwargs['snapshotWindow']
+        if subnet_group_name is None and 'subnetGroupName' in kwargs:
+            subnet_group_name = kwargs['subnetGroupName']
+        if transit_encryption_enabled is None and 'transitEncryptionEnabled' in kwargs:
+            transit_encryption_enabled = kwargs['transitEncryptionEnabled']
+
         if apply_immediately is not None:
-            pulumi.set(__self__, "apply_immediately", apply_immediately)
+            _setter("apply_immediately", apply_immediately)
         if auto_minor_version_upgrade is not None:
-            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if az_mode is not None:
-            pulumi.set(__self__, "az_mode", az_mode)
+            _setter("az_mode", az_mode)
         if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+            _setter("cluster_id", cluster_id)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if final_snapshot_identifier is not None:
-            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+            _setter("final_snapshot_identifier", final_snapshot_identifier)
         if ip_discovery is not None:
-            pulumi.set(__self__, "ip_discovery", ip_discovery)
+            _setter("ip_discovery", ip_discovery)
         if log_delivery_configurations is not None:
-            pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
+            _setter("log_delivery_configurations", log_delivery_configurations)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if network_type is not None:
-            pulumi.set(__self__, "network_type", network_type)
+            _setter("network_type", network_type)
         if node_type is not None:
-            pulumi.set(__self__, "node_type", node_type)
+            _setter("node_type", node_type)
         if notification_topic_arn is not None:
-            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+            _setter("notification_topic_arn", notification_topic_arn)
         if num_cache_nodes is not None:
-            pulumi.set(__self__, "num_cache_nodes", num_cache_nodes)
+            _setter("num_cache_nodes", num_cache_nodes)
         if outpost_mode is not None:
-            pulumi.set(__self__, "outpost_mode", outpost_mode)
+            _setter("outpost_mode", outpost_mode)
         if parameter_group_name is not None:
-            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+            _setter("parameter_group_name", parameter_group_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if preferred_availability_zones is not None:
-            pulumi.set(__self__, "preferred_availability_zones", preferred_availability_zones)
+            _setter("preferred_availability_zones", preferred_availability_zones)
         if preferred_outpost_arn is not None:
-            pulumi.set(__self__, "preferred_outpost_arn", preferred_outpost_arn)
+            _setter("preferred_outpost_arn", preferred_outpost_arn)
         if replication_group_id is not None:
-            pulumi.set(__self__, "replication_group_id", replication_group_id)
+            _setter("replication_group_id", replication_group_id)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if snapshot_arns is not None:
-            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
+            _setter("snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
+            _setter("snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            pulumi.set(__self__, "snapshot_window", snapshot_window)
+            _setter("snapshot_window", snapshot_window)
         if subnet_group_name is not None:
-            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+            _setter("subnet_group_name", subnet_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transit_encryption_enabled is not None:
-            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
+            _setter("transit_encryption_enabled", transit_encryption_enabled)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -600,79 +719,220 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         """
+        _ClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_immediately=apply_immediately,
+            arn=arn,
+            auto_minor_version_upgrade=auto_minor_version_upgrade,
+            availability_zone=availability_zone,
+            az_mode=az_mode,
+            cache_nodes=cache_nodes,
+            cluster_address=cluster_address,
+            cluster_id=cluster_id,
+            configuration_endpoint=configuration_endpoint,
+            engine=engine,
+            engine_version=engine_version,
+            engine_version_actual=engine_version_actual,
+            final_snapshot_identifier=final_snapshot_identifier,
+            ip_discovery=ip_discovery,
+            log_delivery_configurations=log_delivery_configurations,
+            maintenance_window=maintenance_window,
+            network_type=network_type,
+            node_type=node_type,
+            notification_topic_arn=notification_topic_arn,
+            num_cache_nodes=num_cache_nodes,
+            outpost_mode=outpost_mode,
+            parameter_group_name=parameter_group_name,
+            port=port,
+            preferred_availability_zones=preferred_availability_zones,
+            preferred_outpost_arn=preferred_outpost_arn,
+            replication_group_id=replication_group_id,
+            security_group_ids=security_group_ids,
+            snapshot_arns=snapshot_arns,
+            snapshot_name=snapshot_name,
+            snapshot_retention_limit=snapshot_retention_limit,
+            snapshot_window=snapshot_window,
+            subnet_group_name=subnet_group_name,
+            tags=tags,
+            tags_all=tags_all,
+            transit_encryption_enabled=transit_encryption_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_immediately: Optional[pulumi.Input[bool]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_minor_version_upgrade: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             az_mode: Optional[pulumi.Input[str]] = None,
+             cache_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCacheNodeArgs']]]] = None,
+             cluster_address: Optional[pulumi.Input[str]] = None,
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             configuration_endpoint: Optional[pulumi.Input[str]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             engine_version_actual: Optional[pulumi.Input[str]] = None,
+             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             ip_discovery: Optional[pulumi.Input[str]] = None,
+             log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]] = None,
+             maintenance_window: Optional[pulumi.Input[str]] = None,
+             network_type: Optional[pulumi.Input[str]] = None,
+             node_type: Optional[pulumi.Input[str]] = None,
+             notification_topic_arn: Optional[pulumi.Input[str]] = None,
+             num_cache_nodes: Optional[pulumi.Input[int]] = None,
+             outpost_mode: Optional[pulumi.Input[str]] = None,
+             parameter_group_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
+             replication_group_id: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_arns: Optional[pulumi.Input[str]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
+             snapshot_window: Optional[pulumi.Input[str]] = None,
+             subnet_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if apply_immediately is None and 'applyImmediately' in kwargs:
+            apply_immediately = kwargs['applyImmediately']
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if az_mode is None and 'azMode' in kwargs:
+            az_mode = kwargs['azMode']
+        if cache_nodes is None and 'cacheNodes' in kwargs:
+            cache_nodes = kwargs['cacheNodes']
+        if cluster_address is None and 'clusterAddress' in kwargs:
+            cluster_address = kwargs['clusterAddress']
+        if cluster_id is None and 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if configuration_endpoint is None and 'configurationEndpoint' in kwargs:
+            configuration_endpoint = kwargs['configurationEndpoint']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if engine_version_actual is None and 'engineVersionActual' in kwargs:
+            engine_version_actual = kwargs['engineVersionActual']
+        if final_snapshot_identifier is None and 'finalSnapshotIdentifier' in kwargs:
+            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
+        if ip_discovery is None and 'ipDiscovery' in kwargs:
+            ip_discovery = kwargs['ipDiscovery']
+        if log_delivery_configurations is None and 'logDeliveryConfigurations' in kwargs:
+            log_delivery_configurations = kwargs['logDeliveryConfigurations']
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if network_type is None and 'networkType' in kwargs:
+            network_type = kwargs['networkType']
+        if node_type is None and 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if notification_topic_arn is None and 'notificationTopicArn' in kwargs:
+            notification_topic_arn = kwargs['notificationTopicArn']
+        if num_cache_nodes is None and 'numCacheNodes' in kwargs:
+            num_cache_nodes = kwargs['numCacheNodes']
+        if outpost_mode is None and 'outpostMode' in kwargs:
+            outpost_mode = kwargs['outpostMode']
+        if parameter_group_name is None and 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+        if preferred_availability_zones is None and 'preferredAvailabilityZones' in kwargs:
+            preferred_availability_zones = kwargs['preferredAvailabilityZones']
+        if preferred_outpost_arn is None and 'preferredOutpostArn' in kwargs:
+            preferred_outpost_arn = kwargs['preferredOutpostArn']
+        if replication_group_id is None and 'replicationGroupId' in kwargs:
+            replication_group_id = kwargs['replicationGroupId']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if snapshot_arns is None and 'snapshotArns' in kwargs:
+            snapshot_arns = kwargs['snapshotArns']
+        if snapshot_name is None and 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if snapshot_retention_limit is None and 'snapshotRetentionLimit' in kwargs:
+            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
+        if snapshot_window is None and 'snapshotWindow' in kwargs:
+            snapshot_window = kwargs['snapshotWindow']
+        if subnet_group_name is None and 'subnetGroupName' in kwargs:
+            subnet_group_name = kwargs['subnetGroupName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if transit_encryption_enabled is None and 'transitEncryptionEnabled' in kwargs:
+            transit_encryption_enabled = kwargs['transitEncryptionEnabled']
+
         if apply_immediately is not None:
-            pulumi.set(__self__, "apply_immediately", apply_immediately)
+            _setter("apply_immediately", apply_immediately)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_minor_version_upgrade is not None:
-            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if az_mode is not None:
-            pulumi.set(__self__, "az_mode", az_mode)
+            _setter("az_mode", az_mode)
         if cache_nodes is not None:
-            pulumi.set(__self__, "cache_nodes", cache_nodes)
+            _setter("cache_nodes", cache_nodes)
         if cluster_address is not None:
-            pulumi.set(__self__, "cluster_address", cluster_address)
+            _setter("cluster_address", cluster_address)
         if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+            _setter("cluster_id", cluster_id)
         if configuration_endpoint is not None:
-            pulumi.set(__self__, "configuration_endpoint", configuration_endpoint)
+            _setter("configuration_endpoint", configuration_endpoint)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if engine_version_actual is not None:
-            pulumi.set(__self__, "engine_version_actual", engine_version_actual)
+            _setter("engine_version_actual", engine_version_actual)
         if final_snapshot_identifier is not None:
-            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+            _setter("final_snapshot_identifier", final_snapshot_identifier)
         if ip_discovery is not None:
-            pulumi.set(__self__, "ip_discovery", ip_discovery)
+            _setter("ip_discovery", ip_discovery)
         if log_delivery_configurations is not None:
-            pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
+            _setter("log_delivery_configurations", log_delivery_configurations)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if network_type is not None:
-            pulumi.set(__self__, "network_type", network_type)
+            _setter("network_type", network_type)
         if node_type is not None:
-            pulumi.set(__self__, "node_type", node_type)
+            _setter("node_type", node_type)
         if notification_topic_arn is not None:
-            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+            _setter("notification_topic_arn", notification_topic_arn)
         if num_cache_nodes is not None:
-            pulumi.set(__self__, "num_cache_nodes", num_cache_nodes)
+            _setter("num_cache_nodes", num_cache_nodes)
         if outpost_mode is not None:
-            pulumi.set(__self__, "outpost_mode", outpost_mode)
+            _setter("outpost_mode", outpost_mode)
         if parameter_group_name is not None:
-            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+            _setter("parameter_group_name", parameter_group_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if preferred_availability_zones is not None:
-            pulumi.set(__self__, "preferred_availability_zones", preferred_availability_zones)
+            _setter("preferred_availability_zones", preferred_availability_zones)
         if preferred_outpost_arn is not None:
-            pulumi.set(__self__, "preferred_outpost_arn", preferred_outpost_arn)
+            _setter("preferred_outpost_arn", preferred_outpost_arn)
         if replication_group_id is not None:
-            pulumi.set(__self__, "replication_group_id", replication_group_id)
+            _setter("replication_group_id", replication_group_id)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if snapshot_arns is not None:
-            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
+            _setter("snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
+            _setter("snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            pulumi.set(__self__, "snapshot_window", snapshot_window)
+            _setter("snapshot_window", snapshot_window)
         if subnet_group_name is not None:
-            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+            _setter("subnet_group_name", subnet_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if transit_encryption_enabled is not None:
-            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
+            _setter("transit_encryption_enabled", transit_encryption_enabled)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -1168,70 +1428,6 @@ class Cluster(pulumi.CustomResource):
         > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
 
         ## Example Usage
-        ### Memcached Cluster
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticache.Cluster("example",
-            engine="memcached",
-            node_type="cache.m4.large",
-            num_cache_nodes=2,
-            parameter_group_name="default.memcached1.4",
-            port=11211)
-        ```
-        ### Redis Instance
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticache.Cluster("example",
-            engine="redis",
-            engine_version="3.2.10",
-            node_type="cache.m4.large",
-            num_cache_nodes=1,
-            parameter_group_name="default.redis3.2",
-            port=6379)
-        ```
-        ### Redis Cluster Mode Disabled Read Replica Instance
-
-        These inherit their settings from the replication group.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        replica = aws.elasticache.Cluster("replica", replication_group_id=aws_elasticache_replication_group["example"]["id"])
-        ```
-        ### Redis Log Delivery configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.elasticache.Cluster("test",
-            engine="redis",
-            node_type="cache.t3.micro",
-            num_cache_nodes=1,
-            port=6379,
-            apply_immediately=True,
-            log_delivery_configurations=[
-                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_cloudwatch_log_group["example"]["name"],
-                    destination_type="cloudwatch-logs",
-                    log_format="text",
-                    log_type="slow-log",
-                ),
-                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
-                    destination_type="kinesis-firehose",
-                    log_format="json",
-                    log_type="engine-log",
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -1314,70 +1510,6 @@ class Cluster(pulumi.CustomResource):
         > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
 
         ## Example Usage
-        ### Memcached Cluster
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticache.Cluster("example",
-            engine="memcached",
-            node_type="cache.m4.large",
-            num_cache_nodes=2,
-            parameter_group_name="default.memcached1.4",
-            port=11211)
-        ```
-        ### Redis Instance
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.elasticache.Cluster("example",
-            engine="redis",
-            engine_version="3.2.10",
-            node_type="cache.m4.large",
-            num_cache_nodes=1,
-            parameter_group_name="default.redis3.2",
-            port=6379)
-        ```
-        ### Redis Cluster Mode Disabled Read Replica Instance
-
-        These inherit their settings from the replication group.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        replica = aws.elasticache.Cluster("replica", replication_group_id=aws_elasticache_replication_group["example"]["id"])
-        ```
-        ### Redis Log Delivery configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.elasticache.Cluster("test",
-            engine="redis",
-            node_type="cache.t3.micro",
-            num_cache_nodes=1,
-            port=6379,
-            apply_immediately=True,
-            log_delivery_configurations=[
-                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_cloudwatch_log_group["example"]["name"],
-                    destination_type="cloudwatch-logs",
-                    log_format="text",
-                    log_type="slow-log",
-                ),
-                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
-                    destination_type="kinesis-firehose",
-                    log_format="json",
-                    log_type="engine-log",
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -1397,6 +1529,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

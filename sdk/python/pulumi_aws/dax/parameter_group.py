@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,12 +25,27 @@ class ParameterGroupArgs:
         :param pulumi.Input[str] name: The name of the parameter group.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: The parameters of the parameter group.
         """
+        ParameterGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -81,12 +96,27 @@ class _ParameterGroupState:
         :param pulumi.Input[str] name: The name of the parameter group.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: The parameters of the parameter group.
         """
+        _ParameterGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -137,24 +167,6 @@ class ParameterGroup(pulumi.CustomResource):
         """
         Provides a DAX Parameter Group resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dax.ParameterGroup("example", parameters=[
-            aws.dax.ParameterGroupParameterArgs(
-                name="query-ttl-millis",
-                value="100000",
-            ),
-            aws.dax.ParameterGroupParameterArgs(
-                name="record-ttl-millis",
-                value="100000",
-            ),
-        ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
@@ -178,24 +190,6 @@ class ParameterGroup(pulumi.CustomResource):
         """
         Provides a DAX Parameter Group resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.dax.ParameterGroup("example", parameters=[
-            aws.dax.ParameterGroupParameterArgs(
-                name="query-ttl-millis",
-                value="100000",
-            ),
-            aws.dax.ParameterGroupParameterArgs(
-                name="record-ttl-millis",
-                value="100000",
-            ),
-        ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
@@ -214,6 +208,10 @@ class ParameterGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ParameterGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -12,26 +12,6 @@ namespace Pulumi.Aws.Pinpoint
     /// <summary>
     /// Use the `aws.pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new Aws.Pinpoint.App("app");
-    /// 
-    ///     var sms = new Aws.Pinpoint.SmsChannel("sms", new()
-    ///     {
-    ///         ApplicationId = app.ApplicationId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:

@@ -16,50 +16,6 @@ namespace Pulumi.Aws.Route53
     /// 
     /// &gt; **NOTE:** This provider provides both this standalone Zone VPC Association resource and exclusive VPC associations defined in-line in the `aws.route53.Zone` resource via `vpc` configuration blocks. At this time, you cannot use those in-line VPC associations in conjunction with this resource and the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) in the `aws.route53.Zone` resource to manage additional associations via this resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = new Aws.Ec2.Vpc("primary", new()
-    ///     {
-    ///         CidrBlock = "10.6.0.0/16",
-    ///         EnableDnsHostnames = true,
-    ///         EnableDnsSupport = true,
-    ///     });
-    /// 
-    ///     var secondaryVpc = new Aws.Ec2.Vpc("secondaryVpc", new()
-    ///     {
-    ///         CidrBlock = "10.7.0.0/16",
-    ///         EnableDnsHostnames = true,
-    ///         EnableDnsSupport = true,
-    ///     });
-    /// 
-    ///     var example = new Aws.Route53.Zone("example", new()
-    ///     {
-    ///         Vpcs = new[]
-    ///         {
-    ///             new Aws.Route53.Inputs.ZoneVpcArgs
-    ///             {
-    ///                 VpcId = primary.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var secondaryZoneAssociation = new Aws.Route53.ZoneAssociation("secondaryZoneAssociation", new()
-    ///     {
-    ///         ZoneId = example.ZoneId,
-    ///         VpcId = secondaryVpc.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// The VPC is _not_ in the same region where you have configured the AWS Provider:

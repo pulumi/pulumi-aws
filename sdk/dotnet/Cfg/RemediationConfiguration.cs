@@ -14,68 +14,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// &gt; **Note:** Config Remediation Configuration requires an existing Config Rule to be present.
     /// 
-    /// ## Example Usage
-    /// 
-    /// AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var thisRule = new Aws.Cfg.Rule("thisRule", new()
-    ///     {
-    ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
-    ///         {
-    ///             Owner = "AWS",
-    ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
-    ///         },
-    ///     });
-    /// 
-    ///     var thisRemediationConfiguration = new Aws.Cfg.RemediationConfiguration("thisRemediationConfiguration", new()
-    ///     {
-    ///         ConfigRuleName = thisRule.Name,
-    ///         ResourceType = "AWS::S3::Bucket",
-    ///         TargetType = "SSM_DOCUMENT",
-    ///         TargetId = "AWS-EnableS3BucketEncryption",
-    ///         TargetVersion = "1",
-    ///         Parameters = new[]
-    ///         {
-    ///             new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
-    ///             {
-    ///                 Name = "AutomationAssumeRole",
-    ///                 StaticValue = "arn:aws:iam::875924563244:role/security_config",
-    ///             },
-    ///             new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
-    ///             {
-    ///                 Name = "BucketName",
-    ///                 ResourceValue = "RESOURCE_ID",
-    ///             },
-    ///             new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
-    ///             {
-    ///                 Name = "SSEAlgorithm",
-    ///                 StaticValue = "AES256",
-    ///             },
-    ///         },
-    ///         Automatic = true,
-    ///         MaximumAutomaticAttempts = 10,
-    ///         RetryAttemptSeconds = 600,
-    ///         ExecutionControls = new Aws.Cfg.Inputs.RemediationConfigurationExecutionControlsArgs
-    ///         {
-    ///             SsmControls = new Aws.Cfg.Inputs.RemediationConfigurationExecutionControlsSsmControlsArgs
-    ///             {
-    ///                 ConcurrentExecutionRatePercentage = 25,
-    ///                 ErrorPercentage = 20,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:

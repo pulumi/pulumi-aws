@@ -10,40 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Image Builder Container Recipe.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.imagebuilder.ContainerRecipe("example", {
- *     version: "1.0.0",
- *     containerType: "DOCKER",
- *     parentImage: "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
- *     targetRepository: {
- *         repositoryName: aws_ecr_repository.example.name,
- *         service: "ECR",
- *     },
- *     components: [{
- *         componentArn: aws_imagebuilder_component.example.arn,
- *         parameters: [
- *             {
- *                 name: "Parameter1",
- *                 value: "Value1",
- *             },
- *             {
- *                 name: "Parameter2",
- *                 value: "Value2",
- *             },
- *         ],
- *     }],
- *     dockerfileTemplateData: `FROM {{{ imagebuilder:parentImage }}}
- * {{{ imagebuilder:environments }}}
- * {{{ imagebuilder:components }}}
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:

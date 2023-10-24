@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CloudWatch Logs query definition resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudwatch.QueryDefinition("example", {
- *     logGroupNames: [
- *         "/aws/logGroup1",
- *         "/aws/logGroup2",
- *     ],
- *     queryString: `fields @timestamp, @message
- * | sort @timestamp desc
- * | limit 25
- *
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch query definitions using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For example:

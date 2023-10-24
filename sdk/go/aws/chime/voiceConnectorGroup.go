@@ -16,55 +16,6 @@ import (
 //
 // You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This creates a fault tolerant mechanism for fallback in case of availability events.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			vc1, err := chime.NewVoiceConnector(ctx, "vc1", &chime.VoiceConnectorArgs{
-//				RequireEncryption: pulumi.Bool(true),
-//				AwsRegion:         pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			vc2, err := chime.NewVoiceConnector(ctx, "vc2", &chime.VoiceConnectorArgs{
-//				RequireEncryption: pulumi.Bool(true),
-//				AwsRegion:         pulumi.String("us-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorGroup(ctx, "group", &chime.VoiceConnectorGroupArgs{
-//				Connectors: chime.VoiceConnectorGroupConnectorArray{
-//					&chime.VoiceConnectorGroupConnectorArgs{
-//						VoiceConnectorId: vc1.ID(),
-//						Priority:         pulumi.Int(1),
-//					},
-//					&chime.VoiceConnectorGroupConnectorArgs{
-//						VoiceConnectorId: vc2.ID(),
-//						Priority:         pulumi.Int(3),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Configuration Recorder using the name. For example:

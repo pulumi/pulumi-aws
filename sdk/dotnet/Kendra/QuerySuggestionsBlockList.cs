@@ -13,33 +13,6 @@ namespace Pulumi.Aws.Kendra
     /// Use the `aws_kendra_index_block_list` resource to manage an AWS Kendra block list used for query suggestions for an index.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kendra.QuerySuggestionsBlockList("example", new()
-    ///     {
-    ///         IndexId = aws_kendra_index.Example.Id,
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         SourceS3Path = new Aws.Kendra.Inputs.QuerySuggestionsBlockListSourceS3PathArgs
-    ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Key = "example/suggestions.txt",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Kendra Index" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

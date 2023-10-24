@@ -16,26 +16,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessAccessPolicy.Invoke(new()
-        ///     {
-        ///         Name = aws_opensearchserverless_access_policy.Example.Name,
-        ///         Type = aws_opensearchserverless_access_policy.Example.Type,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServerlessAccessPolicyResult> InvokeAsync(GetServerlessAccessPolicyArgs args, InvokeOptions? options = null)
@@ -46,26 +26,6 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.OpenSearch.GetServerlessAccessPolicy.Invoke(new()
-        ///     {
-        ///         Name = aws_opensearchserverless_access_policy.Example.Name,
-        ///         Type = aws_opensearchserverless_access_policy.Example.Type,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServerlessAccessPolicyResult> Invoke(GetServerlessAccessPolicyInvokeArgs args, InvokeOptions? options = null)

@@ -7,26 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages the specified primary contact information associated with an AWS Account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.account.PrimaryContact("test", {
- *     addressLine1: "123 Any Street",
- *     city: "Seattle",
- *     companyName: "Example Corp, Inc.",
- *     countryCode: "US",
- *     districtOrCounty: "King",
- *     fullName: "My Name",
- *     phoneNumber: "+64211111111",
- *     postalCode: "98101",
- *     stateOrRegion: "WA",
- *     websiteUrl: "https://www.examplecorp.com",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import the Primary Contact using the `account_id`. For example:

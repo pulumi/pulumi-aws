@@ -12,27 +12,6 @@ namespace Pulumi.Aws.Emr
     /// <summary>
     /// Provides an Elastic MapReduce Studio Session Mapping.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Emr.StudioSessionMapping("example", new()
-    ///     {
-    ///         StudioId = aws_emr_studio.Example.Id,
-    ///         IdentityType = "USER",
-    ///         IdentityId = "example",
-    ///         SessionPolicyArn = aws_iam_policy.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:

@@ -13,30 +13,6 @@ namespace Pulumi.Aws.Efs
     /// Provides an Elastic File System (EFS) Backup Policy resource.
     /// Backup policies turn automatic backups on or off for an existing file system.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fs = new Aws.Efs.FileSystem("fs");
-    /// 
-    ///     var policy = new Aws.Efs.BackupPolicy("policy", new()
-    ///     {
-    ///         FileSystemId = fs.Id,
-    ///         BackupPolicyDetails = new Aws.Efs.Inputs.BackupPolicyBackupPolicyArgs
-    ///         {
-    ///             Status = "ENABLED",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the EFS backup policies using the `id`. For example:

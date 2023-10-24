@@ -15,55 +15,6 @@ namespace Pulumi.Aws.Ebs
         /// `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
         /// 
         /// This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleEbsVolumes = Aws.Ebs.GetEbsVolumes.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "VolumeSet", "TestVolumeSet" },
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleVolume = .Select(__value =&gt; 
-        ///     {
-        ///         return Aws.Ebs.GetVolume.Invoke(new()
-        ///         {
-        ///             Filters = new[]
-        ///             {
-        ///                 new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
-        ///                 {
-        ///                     Name = "volume-id",
-        ///                     Values = new[]
-        ///                     {
-        ///                         each.Value,
-        ///                     },
-        ///                 },
-        ///             },
-        ///         });
-        ///     }).ToList();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["availabilityZoneToVolumeId"] = exampleVolume,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEbsVolumesResult> InvokeAsync(GetEbsVolumesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesArgs(), options.WithDefaults());
@@ -72,55 +23,6 @@ namespace Pulumi.Aws.Ebs
         /// `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
         /// 
         /// This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleEbsVolumes = Aws.Ebs.GetEbsVolumes.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "VolumeSet", "TestVolumeSet" },
-        ///         },
-        ///     });
-        /// 
-        ///     var exampleVolume = .Select(__value =&gt; 
-        ///     {
-        ///         return Aws.Ebs.GetVolume.Invoke(new()
-        ///         {
-        ///             Filters = new[]
-        ///             {
-        ///                 new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
-        ///                 {
-        ///                     Name = "volume-id",
-        ///                     Values = new[]
-        ///                     {
-        ///                         each.Value,
-        ///                     },
-        ///                 },
-        ///             },
-        ///         });
-        ///     }).ToList();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["availabilityZoneToVolumeId"] = exampleVolume,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEbsVolumesResult> Invoke(GetEbsVolumesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesInvokeArgs(), options.WithDefaults());

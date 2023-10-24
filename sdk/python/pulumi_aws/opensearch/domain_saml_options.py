@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,28 @@ class DomainSamlOptionsArgs:
                The following arguments are optional:
         :param pulumi.Input['DomainSamlOptionsSamlOptionsArgs'] saml_options: SAML authentication options for an AWS OpenSearch Domain.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
+        DomainSamlOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            saml_options=saml_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             saml_options: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if saml_options is None and 'samlOptions' in kwargs:
+            saml_options = kwargs['samlOptions']
+
+        _setter("domain_name", domain_name)
         if saml_options is not None:
-            pulumi.set(__self__, "saml_options", saml_options)
+            _setter("saml_options", saml_options)
 
     @property
     @pulumi.getter(name="domainName")
@@ -68,10 +87,27 @@ class _DomainSamlOptionsState:
                The following arguments are optional:
         :param pulumi.Input['DomainSamlOptionsSamlOptionsArgs'] saml_options: SAML authentication options for an AWS OpenSearch Domain.
         """
+        _DomainSamlOptionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            saml_options=saml_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             saml_options: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if saml_options is None and 'samlOptions' in kwargs:
+            saml_options = kwargs['samlOptions']
+
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if saml_options is not None:
-            pulumi.set(__self__, "saml_options", saml_options)
+            _setter("saml_options", saml_options)
 
     @property
     @pulumi.getter(name="domainName")
@@ -112,33 +148,6 @@ class DomainSamlOptions(pulumi.CustomResource):
         Manages SAML authentication options for an AWS OpenSearch Domain.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_domain = aws.opensearch.Domain("exampleDomain",
-            engine_version="OpenSearch_1.1",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r4.large.search",
-            ),
-            snapshot_options=aws.opensearch.DomainSnapshotOptionsArgs(
-                automated_snapshot_start_hour=23,
-            ),
-            tags={
-                "Domain": "TestDomain",
-            })
-        example_domain_saml_options = aws.opensearch.DomainSamlOptions("exampleDomainSamlOptions",
-            domain_name=example_domain.domain_name,
-            saml_options=aws.opensearch.DomainSamlOptionsSamlOptionsArgs(
-                enabled=True,
-                idp=aws.opensearch.DomainSamlOptionsSamlOptionsIdpArgs(
-                    entity_id="https://example.com",
-                    metadata_content=(lambda path: open(path).read())("./saml-metadata.xml"),
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -165,33 +174,6 @@ class DomainSamlOptions(pulumi.CustomResource):
         Manages SAML authentication options for an AWS OpenSearch Domain.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_domain = aws.opensearch.Domain("exampleDomain",
-            engine_version="OpenSearch_1.1",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r4.large.search",
-            ),
-            snapshot_options=aws.opensearch.DomainSnapshotOptionsArgs(
-                automated_snapshot_start_hour=23,
-            ),
-            tags={
-                "Domain": "TestDomain",
-            })
-        example_domain_saml_options = aws.opensearch.DomainSamlOptions("exampleDomainSamlOptions",
-            domain_name=example_domain.domain_name,
-            saml_options=aws.opensearch.DomainSamlOptionsSamlOptionsArgs(
-                enabled=True,
-                idp=aws.opensearch.DomainSamlOptionsSamlOptionsIdpArgs(
-                    entity_id="https://example.com",
-                    metadata_content=(lambda path: open(path).read())("./saml-metadata.xml"),
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -211,6 +193,10 @@ class DomainSamlOptions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainSamlOptionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -230,6 +216,7 @@ class DomainSamlOptions(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            saml_options = _utilities.configure(saml_options, DomainSamlOptionsSamlOptionsArgs, True)
             __props__.__dict__["saml_options"] = saml_options
         super(DomainSamlOptions, __self__).__init__(
             'aws:opensearch/domainSamlOptions:DomainSamlOptions',

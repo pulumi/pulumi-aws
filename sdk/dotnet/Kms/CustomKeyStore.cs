@@ -13,27 +13,6 @@ namespace Pulumi.Aws.Kms
     /// Resource for managing an AWS KMS (Key Management) Custom Key Store.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Kms.CustomKeyStore("test", new()
-    ///     {
-    ///         CloudHsmClusterId = @var.Cloud_hsm_cluster_id,
-    ///         CustomKeyStoreName = "kms-custom-key-store-test",
-    ///         KeyStorePassword = "noplaintextpasswords1",
-    ///         TrustAnchorCertificate = File.ReadAllText("anchor-certificate.crt"),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

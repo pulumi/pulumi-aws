@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,27 @@ class VoiceConnectorTerminationCredentialsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]] credentials: List of termination SIP credentials.
         :param pulumi.Input[str] voice_connector_id: Amazon Chime Voice Connector ID.
         """
-        pulumi.set(__self__, "credentials", credentials)
-        pulumi.set(__self__, "voice_connector_id", voice_connector_id)
+        VoiceConnectorTerminationCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            voice_connector_id=voice_connector_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]]] = None,
+             voice_connector_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credentials is None:
+            raise TypeError("Missing 'credentials' argument")
+        if voice_connector_id is None and 'voiceConnectorId' in kwargs:
+            voice_connector_id = kwargs['voiceConnectorId']
+        if voice_connector_id is None:
+            raise TypeError("Missing 'voice_connector_id' argument")
+
+        _setter("credentials", credentials)
+        _setter("voice_connector_id", voice_connector_id)
 
     @property
     @pulumi.getter
@@ -61,10 +80,25 @@ class _VoiceConnectorTerminationCredentialsState:
         :param pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]] credentials: List of termination SIP credentials.
         :param pulumi.Input[str] voice_connector_id: Amazon Chime Voice Connector ID.
         """
+        _VoiceConnectorTerminationCredentialsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            voice_connector_id=voice_connector_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]]] = None,
+             voice_connector_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if voice_connector_id is None and 'voiceConnectorId' in kwargs:
+            voice_connector_id = kwargs['voiceConnectorId']
+
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if voice_connector_id is not None:
-            pulumi.set(__self__, "voice_connector_id", voice_connector_id)
+            _setter("voice_connector_id", voice_connector_id)
 
     @property
     @pulumi.getter
@@ -104,31 +138,6 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
 
         > **Note:** Voice Connector Termination Credentials requires a Voice Connector Termination to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_termination = aws.chime.VoiceConnectorTermination("defaultVoiceConnectorTermination",
-            disabled=True,
-            cps_limit=1,
-            cidr_allow_lists=["50.35.78.96/31"],
-            calling_regions=[
-                "US",
-                "CA",
-            ],
-            voice_connector_id=default_voice_connector.id)
-        default_voice_connector_termination_credentials = aws.chime.VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials",
-            voice_connector_id=default_voice_connector.id,
-            credentials=[aws.chime.VoiceConnectorTerminationCredentialsCredentialArgs(
-                username="test",
-                password="test!",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Chime Voice Connector Termination Credentials using the `voice_connector_id`. For example:
@@ -153,31 +162,6 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
 
         > **Note:** Voice Connector Termination Credentials requires a Voice Connector Termination to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        default_voice_connector_termination = aws.chime.VoiceConnectorTermination("defaultVoiceConnectorTermination",
-            disabled=True,
-            cps_limit=1,
-            cidr_allow_lists=["50.35.78.96/31"],
-            calling_regions=[
-                "US",
-                "CA",
-            ],
-            voice_connector_id=default_voice_connector.id)
-        default_voice_connector_termination_credentials = aws.chime.VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials",
-            voice_connector_id=default_voice_connector.id,
-            credentials=[aws.chime.VoiceConnectorTerminationCredentialsCredentialArgs(
-                username="test",
-                password="test!",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Chime Voice Connector Termination Credentials using the `voice_connector_id`. For example:
@@ -196,6 +180,10 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VoiceConnectorTerminationCredentialsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

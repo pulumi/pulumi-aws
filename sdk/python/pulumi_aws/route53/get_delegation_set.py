@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -75,17 +75,6 @@ def get_delegation_set(id: Optional[str] = None,
 
     This data source allows to find a list of name servers associated with a specific delegation set.
 
-    ## Example Usage
-
-    The following example shows how to get a delegation set from its id.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    dset = aws.route53.get_delegation_set(id="MQWGHCBFAKEID")
-    ```
-
 
     :param str id: Delegation set ID.
            
@@ -110,17 +99,6 @@ def get_delegation_set_output(id: Optional[pulumi.Input[str]] = None,
     `route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
 
     This data source allows to find a list of name servers associated with a specific delegation set.
-
-    ## Example Usage
-
-    The following example shows how to get a delegation set from its id.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    dset = aws.route53.get_delegation_set(id="MQWGHCBFAKEID")
-    ```
 
 
     :param str id: Delegation set ID.

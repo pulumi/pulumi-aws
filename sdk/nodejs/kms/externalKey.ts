@@ -8,15 +8,6 @@ import * as utilities from "../utilities";
  * Manages a single-Region or multi-Region primary KMS key that uses external key material.
  * To instead manage a single-Region or multi-Region primary KMS key where AWS automatically generates and potentially rotates key material, see the `aws.kms.Key` resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kms.ExternalKey("example", {description: "KMS EXTERNAL for AMI encryption"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import KMS External Keys using the `id`. For example:

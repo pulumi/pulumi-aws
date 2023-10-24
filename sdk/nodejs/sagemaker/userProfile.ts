@@ -11,17 +11,6 @@ import * as utilities from "../utilities";
  * Provides a SageMaker User Profile resource.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.UserProfile("example", {
- *     domainId: aws_sagemaker_domain.test.id,
- *     userProfileName: "example",
- * });
- * ```
  *
  * ## Import
  *

@@ -16,53 +16,6 @@ import (
 // Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
 //
 // ## Example Usage
-// ### Accept cross-account request
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpcEndpointService, err := ec2.NewVpcEndpointService(ctx, "exampleVpcEndpointService", &ec2.VpcEndpointServiceArgs{
-//				AcceptanceRequired: pulumi.Bool(false),
-//				NetworkLoadBalancerArns: pulumi.StringArray{
-//					aws_lb.Example.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "exampleVpcEndpoint", &ec2.VpcEndpointArgs{
-//				VpcId:             pulumi.Any(aws_vpc.Test_alternate.Id),
-//				ServiceName:       pulumi.Any(aws_vpc_endpoint_service.Test.Service_name),
-//				VpcEndpointType:   pulumi.String("Interface"),
-//				PrivateDnsEnabled: pulumi.Bool(false),
-//				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Test.Id,
-//				},
-//			}, pulumi.Provider(aws.Alternate))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewVpcEndpointConnectionAccepter(ctx, "exampleVpcEndpointConnectionAccepter", &ec2.VpcEndpointConnectionAccepterArgs{
-//				VpcEndpointServiceId: exampleVpcEndpointService.ID(),
-//				VpcEndpointId:        exampleVpcEndpoint.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

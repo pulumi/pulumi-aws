@@ -15,60 +15,6 @@ import (
 
 // Manages an Image Builder Image Recipe.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewImageRecipe(ctx, "example", &imagebuilder.ImageRecipeArgs{
-//				BlockDeviceMappings: imagebuilder.ImageRecipeBlockDeviceMappingArray{
-//					&imagebuilder.ImageRecipeBlockDeviceMappingArgs{
-//						DeviceName: pulumi.String("/dev/xvdb"),
-//						Ebs: &imagebuilder.ImageRecipeBlockDeviceMappingEbsArgs{
-//							DeleteOnTermination: pulumi.String("true"),
-//							VolumeSize:          pulumi.Int(100),
-//							VolumeType:          pulumi.String("gp2"),
-//						},
-//					},
-//				},
-//				Components: imagebuilder.ImageRecipeComponentArray{
-//					&imagebuilder.ImageRecipeComponentArgs{
-//						ComponentArn: pulumi.Any(aws_imagebuilder_component.Example.Arn),
-//						Parameters: imagebuilder.ImageRecipeComponentParameterArray{
-//							&imagebuilder.ImageRecipeComponentParameterArgs{
-//								Name:  pulumi.String("Parameter1"),
-//								Value: pulumi.String("Value1"),
-//							},
-//							&imagebuilder.ImageRecipeComponentParameterArgs{
-//								Name:  pulumi.String("Parameter2"),
-//								Value: pulumi.String("Value2"),
-//							},
-//						},
-//					},
-//				},
-//				ParentImage: pulumi.String(fmt.Sprintf("arn:%v:imagebuilder:%v:aws:image/amazon-linux-2-x86/x.x.x", data.Aws_partition.Current.Partition, data.Aws_region.Current.Name)),
-//				Version:     pulumi.String("1.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:

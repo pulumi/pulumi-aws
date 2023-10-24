@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a Location Service Route Calculator.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getRouteCalculator({
- *     calculatorName: "example",
- * });
- * ```
  */
 export function getRouteCalculator(args: GetRouteCalculatorArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteCalculatorResult> {
 
@@ -77,17 +66,6 @@ export interface GetRouteCalculatorResult {
 }
 /**
  * Retrieve information about a Location Service Route Calculator.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.location.getRouteCalculator({
- *     calculatorName: "example",
- * });
- * ```
  */
 export function getRouteCalculatorOutput(args: GetRouteCalculatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteCalculatorResult> {
     return pulumi.output(args).apply((a: any) => getRouteCalculator(a, opts))

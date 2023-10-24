@@ -12,38 +12,6 @@ namespace Pulumi.Aws.Xray
     /// <summary>
     /// Creates and manages an AWS XRay Sampling Rule.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Xray.SamplingRule("example", new()
-    ///     {
-    ///         Attributes = 
-    ///         {
-    ///             { "Hello", "Tris" },
-    ///         },
-    ///         FixedRate = 0.05,
-    ///         Host = "*",
-    ///         HttpMethod = "*",
-    ///         Priority = 9999,
-    ///         ReservoirSize = 1,
-    ///         ResourceArn = "*",
-    ///         RuleName = "example",
-    ///         ServiceName = "*",
-    ///         ServiceType = "*",
-    ///         UrlPath = "*",
-    ///         Version = 1,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import XRay Sampling Rules using the name. For example:

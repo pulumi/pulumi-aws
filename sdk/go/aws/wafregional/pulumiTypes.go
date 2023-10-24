@@ -895,7 +895,7 @@ type RuleGroupActivatedRule struct {
 	Priority int `pulumi:"priority"`
 	// The ID of a rule
 	RuleId string `pulumi:"ruleId"`
-	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type *string `pulumi:"type"`
 }
 
@@ -917,7 +917,7 @@ type RuleGroupActivatedRuleArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// The ID of a rule
 	RuleId pulumi.StringInput `pulumi:"ruleId"`
-	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1005,7 +1005,7 @@ func (o RuleGroupActivatedRuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) string { return v.RuleId }).(pulumi.StringOutput)
 }
 
-// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 func (o RuleGroupActivatedRuleOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRule) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1037,7 +1037,7 @@ func (o RuleGroupActivatedRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupAct
 }
 
 type RuleGroupActivatedRuleAction struct {
-	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type string `pulumi:"type"`
 }
 
@@ -1053,7 +1053,7 @@ type RuleGroupActivatedRuleActionInput interface {
 }
 
 type RuleGroupActivatedRuleActionArgs struct {
-	// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+	// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1095,7 +1095,7 @@ func (o RuleGroupActivatedRuleActionOutput) ToOutput(ctx context.Context) pulumi
 	}
 }
 
-// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
 func (o RuleGroupActivatedRuleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupActivatedRuleAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2674,7 +2674,7 @@ func (o WebAclRuleActionPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type WebAclRuleOverrideAction struct {
-	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
 	Type string `pulumi:"type"`
 }
 
@@ -2690,7 +2690,7 @@ type WebAclRuleOverrideActionInput interface {
 }
 
 type WebAclRuleOverrideActionArgs struct {
-	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+	// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2789,7 +2789,7 @@ func (o WebAclRuleOverrideActionOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
-// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
 func (o WebAclRuleOverrideActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRuleOverrideAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2824,7 +2824,7 @@ func (o WebAclRuleOverrideActionPtrOutput) Elem() WebAclRuleOverrideActionOutput
 	}).(WebAclRuleOverrideActionOutput)
 }
 
-// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
 func (o WebAclRuleOverrideActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleOverrideAction) *string {
 		if v == nil {

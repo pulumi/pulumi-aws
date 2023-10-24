@@ -14,42 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE:** This tagging resource should not be combined with the providers resource for managing the parent resource. For example, using `aws.ec2.Vpc` and `aws.ec2.Tag` to manage tags of the same VPC will cause a perpetual difference where the `aws.ec2.Vpc` resource will try to remove the tag being added by the `aws.ec2.Tag` resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway");
-    /// 
-    ///     var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new()
-    ///     {
-    ///         BgpAsn = "65000",
-    ///         IpAddress = "172.0.0.1",
-    ///         Type = "ipsec.1",
-    ///     });
-    /// 
-    ///     var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new()
-    ///     {
-    ///         CustomerGatewayId = exampleCustomerGateway.Id,
-    ///         TransitGatewayId = exampleTransitGateway.Id,
-    ///         Type = exampleCustomerGateway.Type,
-    ///     });
-    /// 
-    ///     var exampleTag = new Aws.Ec2.Tag("exampleTag", new()
-    ///     {
-    ///         ResourceId = exampleVpnConnection.TransitGatewayAttachmentId,
-    ///         Key = "Name",
-    ///         Value = "Hello World",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For example:

@@ -13,24 +13,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// Manages a Service Catalog Tag Option.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.TagOption("example", new()
-    ///     {
-    ///         Key = "nyckel",
-    ///         Value = "värde",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

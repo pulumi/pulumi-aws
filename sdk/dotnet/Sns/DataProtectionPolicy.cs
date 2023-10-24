@@ -12,55 +12,6 @@ namespace Pulumi.Aws.Sns
     /// <summary>
     /// Provides an SNS data protection topic policy resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleTopic = new Aws.Sns.Topic("exampleTopic");
-    /// 
-    ///     var exampleDataProtectionPolicy = new Aws.Sns.DataProtectionPolicy("exampleDataProtectionPolicy", new()
-    ///     {
-    ///         Arn = exampleTopic.Arn,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Description"] = "Example data protection policy",
-    ///             ["Name"] = "__example_data_protection_policy",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["DataDirection"] = "Inbound",
-    ///                     ["DataIdentifier"] = new[]
-    ///                     {
-    ///                         "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-    ///                     },
-    ///                     ["Operation"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Deny"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                         },
-    ///                     },
-    ///                     ["Principal"] = new[]
-    ///                     {
-    ///                         "*",
-    ///                     },
-    ///                     ["Sid"] = "__deny_statement_11ba9d96",
-    ///                 },
-    ///             },
-    ///             ["Version"] = "2021-06-01",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:

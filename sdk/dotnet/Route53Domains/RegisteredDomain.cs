@@ -15,39 +15,6 @@ namespace Pulumi.Aws.Route53Domains
     /// **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
     /// 
     /// The `aws.route53domains.RegisteredDomain` resource behaves differently from normal resources in that if a domain has been registered, the provider does not _register_ this domain, but instead "adopts" it into management. A destroy does not delete the domain but does remove the resource from state.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53Domains.RegisteredDomain("example", new()
-    ///     {
-    ///         DomainName = "example.com",
-    ///         NameServers = new[]
-    ///         {
-    ///             new Aws.Route53Domains.Inputs.RegisteredDomainNameServerArgs
-    ///             {
-    ///                 Name = "ns-195.awsdns-24.com",
-    ///             },
-    ///             new Aws.Route53Domains.Inputs.RegisteredDomainNameServerArgs
-    ///             {
-    ///                 Name = "ns-874.awsdns-45.net",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:route53domains/registeredDomain:RegisteredDomain")]
     public partial class RegisteredDomain : global::Pulumi.CustomResource

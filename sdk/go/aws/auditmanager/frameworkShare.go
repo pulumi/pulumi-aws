@@ -16,33 +16,6 @@ import (
 // Resource for managing an AWS Audit Manager Framework Share.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewFrameworkShare(ctx, "example", &auditmanager.FrameworkShareArgs{
-//				DestinationAccount: pulumi.String("012345678901"),
-//				DestinationRegion:  pulumi.String("us-east-1"),
-//				FrameworkId:        pulumi.Any(aws_auditmanager_framework.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

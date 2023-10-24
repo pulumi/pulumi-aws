@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcEndpointConnectionAccepterArgs', 'VpcEndpointConnectionAccepter']
@@ -21,8 +21,29 @@ class VpcEndpointConnectionAccepterArgs:
         :param pulumi.Input[str] vpc_endpoint_id: AWS VPC Endpoint ID.
         :param pulumi.Input[str] vpc_endpoint_service_id: AWS VPC Endpoint Service ID.
         """
-        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
-        pulumi.set(__self__, "vpc_endpoint_service_id", vpc_endpoint_service_id)
+        VpcEndpointConnectionAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_endpoint_id=vpc_endpoint_id,
+            vpc_endpoint_service_id=vpc_endpoint_service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if vpc_endpoint_id is None:
+            raise TypeError("Missing 'vpc_endpoint_id' argument")
+        if vpc_endpoint_service_id is None and 'vpcEndpointServiceId' in kwargs:
+            vpc_endpoint_service_id = kwargs['vpcEndpointServiceId']
+        if vpc_endpoint_service_id is None:
+            raise TypeError("Missing 'vpc_endpoint_service_id' argument")
+
+        _setter("vpc_endpoint_id", vpc_endpoint_id)
+        _setter("vpc_endpoint_service_id", vpc_endpoint_service_id)
 
     @property
     @pulumi.getter(name="vpcEndpointId")
@@ -61,12 +82,33 @@ class _VpcEndpointConnectionAccepterState:
         :param pulumi.Input[str] vpc_endpoint_service_id: AWS VPC Endpoint Service ID.
         :param pulumi.Input[str] vpc_endpoint_state: State of the VPC Endpoint.
         """
+        _VpcEndpointConnectionAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_endpoint_id=vpc_endpoint_id,
+            vpc_endpoint_service_id=vpc_endpoint_service_id,
+            vpc_endpoint_state=vpc_endpoint_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if vpc_endpoint_service_id is None and 'vpcEndpointServiceId' in kwargs:
+            vpc_endpoint_service_id = kwargs['vpcEndpointServiceId']
+        if vpc_endpoint_state is None and 'vpcEndpointState' in kwargs:
+            vpc_endpoint_state = kwargs['vpcEndpointState']
+
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
         if vpc_endpoint_service_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_service_id", vpc_endpoint_service_id)
+            _setter("vpc_endpoint_service_id", vpc_endpoint_service_id)
         if vpc_endpoint_state is not None:
-            pulumi.set(__self__, "vpc_endpoint_state", vpc_endpoint_state)
+            _setter("vpc_endpoint_state", vpc_endpoint_state)
 
     @property
     @pulumi.getter(name="vpcEndpointId")
@@ -117,26 +159,6 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
         Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
 
         ## Example Usage
-        ### Accept cross-account request
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
-            acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["example"]["arn"]])
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            vpc_id=aws_vpc["test_alternate"]["id"],
-            service_name=aws_vpc_endpoint_service["test"]["service_name"],
-            vpc_endpoint_type="Interface",
-            private_dns_enabled=False,
-            security_group_ids=[aws_security_group["test"]["id"]],
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter",
-            vpc_endpoint_service_id=example_vpc_endpoint_service.id,
-            vpc_endpoint_id=example_vpc_endpoint.id)
-        ```
 
         ## Import
 
@@ -161,26 +183,6 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
         Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
 
         ## Example Usage
-        ### Accept cross-account request
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vpc_endpoint_service = aws.ec2.VpcEndpointService("exampleVpcEndpointService",
-            acceptance_required=False,
-            network_load_balancer_arns=[aws_lb["example"]["arn"]])
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            vpc_id=aws_vpc["test_alternate"]["id"],
-            service_name=aws_vpc_endpoint_service["test"]["service_name"],
-            vpc_endpoint_type="Interface",
-            private_dns_enabled=False,
-            security_group_ids=[aws_security_group["test"]["id"]],
-            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
-        example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter",
-            vpc_endpoint_service_id=example_vpc_endpoint_service.id,
-            vpc_endpoint_id=example_vpc_endpoint.id)
-        ```
 
         ## Import
 
@@ -200,6 +202,10 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcEndpointConnectionAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

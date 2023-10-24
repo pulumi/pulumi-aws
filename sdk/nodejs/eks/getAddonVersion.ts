@@ -6,34 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const defaultAddonVersion = await aws.eks.getAddonVersion({
- *         addonName: "vpc-cni",
- *         kubernetesVersion: aws_eks_cluster.example.version,
- *     });
- *     const latestAddonVersion = await aws.eks.getAddonVersion({
- *         addonName: "vpc-cni",
- *         kubernetesVersion: aws_eks_cluster.example.version,
- *         mostRecent: true,
- *     });
- *     const vpcCni = new aws.eks.Addon("vpcCni", {
- *         clusterName: aws_eks_cluster.example.name,
- *         addonName: "vpc-cni",
- *         addonVersion: latestAddonVersion.version,
- *     });
- *     return {
- *         "default": defaultAddonVersion.version,
- *         latest: latestAddonVersion.version,
- *     };
- * }
- * ```
  */
 export function getAddonVersion(args: GetAddonVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonVersionResult> {
 
@@ -82,34 +54,6 @@ export interface GetAddonVersionResult {
 }
 /**
  * Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const defaultAddonVersion = await aws.eks.getAddonVersion({
- *         addonName: "vpc-cni",
- *         kubernetesVersion: aws_eks_cluster.example.version,
- *     });
- *     const latestAddonVersion = await aws.eks.getAddonVersion({
- *         addonName: "vpc-cni",
- *         kubernetesVersion: aws_eks_cluster.example.version,
- *         mostRecent: true,
- *     });
- *     const vpcCni = new aws.eks.Addon("vpcCni", {
- *         clusterName: aws_eks_cluster.example.name,
- *         addonName: "vpc-cni",
- *         addonVersion: latestAddonVersion.version,
- *     });
- *     return {
- *         "default": defaultAddonVersion.version,
- *         latest: latestAddonVersion.version,
- *     };
- * }
- * ```
  */
 export function getAddonVersionOutput(args: GetAddonVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonVersionResult> {
     return pulumi.output(args).apply((a: any) => getAddonVersion(a, opts))

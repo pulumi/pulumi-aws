@@ -13,50 +13,12 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.Ec2.GetSerialConsoleAccess.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSerialConsoleAccessResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSerialConsoleAccessResult>("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.Ec2.GetSerialConsoleAccess.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSerialConsoleAccessResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSerialConsoleAccessResult>("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", InvokeArgs.Empty, options.WithDefaults());

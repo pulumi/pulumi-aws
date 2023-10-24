@@ -13,76 +13,12 @@ namespace Pulumi.Aws.Ssm
     {
         /// <summary>
         /// Use this data source to get the window IDs of SSM maintenance windows.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ssm.GetMaintenanceWindows.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ssm.Inputs.GetMaintenanceWindowsFilterInputArgs
-        ///             {
-        ///                 Name = "Enabled",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "true",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMaintenanceWindowsResult> InvokeAsync(GetMaintenanceWindowsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceWindowsResult>("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args ?? new GetMaintenanceWindowsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the window IDs of SSM maintenance windows.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ssm.GetMaintenanceWindows.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ssm.Inputs.GetMaintenanceWindowsFilterInputArgs
-        ///             {
-        ///                 Name = "Enabled",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "true",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetMaintenanceWindowsResult> Invoke(GetMaintenanceWindowsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceWindowsResult>("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args ?? new GetMaintenanceWindowsInvokeArgs(), options.WithDefaults());

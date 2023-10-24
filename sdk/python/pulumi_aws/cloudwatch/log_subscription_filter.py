@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LogSubscriptionFilterArgs', 'LogSubscriptionFilter']
@@ -29,15 +29,50 @@ class LogSubscriptionFilterArgs:
         :param pulumi.Input[str] name: A name for the subscription filter
         :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         """
-        pulumi.set(__self__, "destination_arn", destination_arn)
-        pulumi.set(__self__, "filter_pattern", filter_pattern)
-        pulumi.set(__self__, "log_group", log_group)
+        LogSubscriptionFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_arn=destination_arn,
+            filter_pattern=filter_pattern,
+            log_group=log_group,
+            distribution=distribution,
+            name=name,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_arn: Optional[pulumi.Input[str]] = None,
+             filter_pattern: Optional[pulumi.Input[str]] = None,
+             log_group: Optional[pulumi.Input[str]] = None,
+             distribution: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if destination_arn is None:
+            raise TypeError("Missing 'destination_arn' argument")
+        if filter_pattern is None and 'filterPattern' in kwargs:
+            filter_pattern = kwargs['filterPattern']
+        if filter_pattern is None:
+            raise TypeError("Missing 'filter_pattern' argument")
+        if log_group is None and 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+        if log_group is None:
+            raise TypeError("Missing 'log_group' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
+        _setter("destination_arn", destination_arn)
+        _setter("filter_pattern", filter_pattern)
+        _setter("log_group", log_group)
         if distribution is not None:
-            pulumi.set(__self__, "distribution", distribution)
+            _setter("distribution", distribution)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -130,18 +165,47 @@ class _LogSubscriptionFilterState:
         :param pulumi.Input[str] name: A name for the subscription filter
         :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         """
+        _LogSubscriptionFilterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_arn=destination_arn,
+            distribution=distribution,
+            filter_pattern=filter_pattern,
+            log_group=log_group,
+            name=name,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_arn: Optional[pulumi.Input[str]] = None,
+             distribution: Optional[pulumi.Input[str]] = None,
+             filter_pattern: Optional[pulumi.Input[str]] = None,
+             log_group: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if filter_pattern is None and 'filterPattern' in kwargs:
+            filter_pattern = kwargs['filterPattern']
+        if log_group is None and 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if destination_arn is not None:
-            pulumi.set(__self__, "destination_arn", destination_arn)
+            _setter("destination_arn", destination_arn)
         if distribution is not None:
-            pulumi.set(__self__, "distribution", distribution)
+            _setter("distribution", distribution)
         if filter_pattern is not None:
-            pulumi.set(__self__, "filter_pattern", filter_pattern)
+            _setter("filter_pattern", filter_pattern)
         if log_group is not None:
-            pulumi.set(__self__, "log_group", log_group)
+            _setter("log_group", log_group)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -231,20 +295,6 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         """
         Provides a CloudWatch Logs subscription filter resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_lambdafunction_logfilter = aws.cloudwatch.LogSubscriptionFilter("testLambdafunctionLogfilter",
-            role_arn=aws_iam_role["iam_for_lambda"]["arn"],
-            log_group="/aws/lambda/example_lambda_name",
-            filter_pattern="logtype test",
-            destination_arn=aws_kinesis_stream["test_logstream"]["arn"],
-            distribution="Random")
-        ```
-
         ## Import
 
         Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For example:
@@ -271,20 +321,6 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         """
         Provides a CloudWatch Logs subscription filter resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_lambdafunction_logfilter = aws.cloudwatch.LogSubscriptionFilter("testLambdafunctionLogfilter",
-            role_arn=aws_iam_role["iam_for_lambda"]["arn"],
-            log_group="/aws/lambda/example_lambda_name",
-            filter_pattern="logtype test",
-            destination_arn=aws_kinesis_stream["test_logstream"]["arn"],
-            distribution="Random")
-        ```
-
         ## Import
 
         Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For example:
@@ -303,6 +339,10 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogSubscriptionFilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

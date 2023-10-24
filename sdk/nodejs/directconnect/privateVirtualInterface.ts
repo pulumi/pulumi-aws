@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Direct Connect private virtual interface resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.directconnect.PrivateVirtualInterface("foo", {
- *     addressFamily: "ipv4",
- *     bgpAsn: 65352,
- *     connectionId: "dxcon-zzzzzzzz",
- *     vlan: 4094,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Direct Connect private virtual interfaces using the VIF `id`. For example:

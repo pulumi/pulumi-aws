@@ -12,27 +12,6 @@ namespace Pulumi.Aws.AppStream
     /// <summary>
     /// Provides an AppStream user.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppStream.User("example", new()
-    ///     {
-    ///         AuthenticationType = "USERPOOL",
-    ///         FirstName = "FIRST NAME",
-    ///         LastName = "LAST NAME",
-    ///         UserName = "EMAIL",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:

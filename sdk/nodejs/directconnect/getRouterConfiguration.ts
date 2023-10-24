@@ -11,17 +11,6 @@ import * as utilities from "../utilities";
  * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.directconnect.getRouterConfiguration({
- *     routerTypeIdentifier: "CiscoSystemsInc-2900SeriesRouters-IOS124",
- *     virtualInterfaceId: "dxvif-abcde123",
- * });
- * ```
  */
 export function getRouterConfiguration(args: GetRouterConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRouterConfigurationResult> {
 
@@ -40,10 +29,6 @@ export interface GetRouterConfigurationArgs {
      * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
      *
      * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     routerTypeIdentifier: string;
     /**
@@ -79,17 +64,6 @@ export interface GetRouterConfigurationResult {
  * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.directconnect.getRouterConfiguration({
- *     routerTypeIdentifier: "CiscoSystemsInc-2900SeriesRouters-IOS124",
- *     virtualInterfaceId: "dxvif-abcde123",
- * });
- * ```
  */
 export function getRouterConfigurationOutput(args: GetRouterConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouterConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getRouterConfiguration(a, opts))
@@ -103,10 +77,6 @@ export interface GetRouterConfigurationOutputArgs {
      * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
      *
      * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     routerTypeIdentifier: pulumi.Input<string>;
     /**

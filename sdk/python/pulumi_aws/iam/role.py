@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -44,27 +44,74 @@ class RoleArgs:
         :param pulumi.Input[str] permissions_boundary: ARN of the policy that is used to set the permissions boundary for the role.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "assume_role_policy", assume_role_policy)
+        RoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assume_role_policy=assume_role_policy,
+            description=description,
+            force_detach_policies=force_detach_policies,
+            inline_policies=inline_policies,
+            managed_policy_arns=managed_policy_arns,
+            max_session_duration=max_session_duration,
+            name=name,
+            name_prefix=name_prefix,
+            path=path,
+            permissions_boundary=permissions_boundary,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assume_role_policy: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             force_detach_policies: Optional[pulumi.Input[bool]] = None,
+             inline_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RoleInlinePolicyArgs']]]] = None,
+             managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_session_duration: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             permissions_boundary: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assume_role_policy is None and 'assumeRolePolicy' in kwargs:
+            assume_role_policy = kwargs['assumeRolePolicy']
+        if assume_role_policy is None:
+            raise TypeError("Missing 'assume_role_policy' argument")
+        if force_detach_policies is None and 'forceDetachPolicies' in kwargs:
+            force_detach_policies = kwargs['forceDetachPolicies']
+        if inline_policies is None and 'inlinePolicies' in kwargs:
+            inline_policies = kwargs['inlinePolicies']
+        if managed_policy_arns is None and 'managedPolicyArns' in kwargs:
+            managed_policy_arns = kwargs['managedPolicyArns']
+        if max_session_duration is None and 'maxSessionDuration' in kwargs:
+            max_session_duration = kwargs['maxSessionDuration']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if permissions_boundary is None and 'permissionsBoundary' in kwargs:
+            permissions_boundary = kwargs['permissionsBoundary']
+
+        _setter("assume_role_policy", assume_role_policy)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if force_detach_policies is not None:
-            pulumi.set(__self__, "force_detach_policies", force_detach_policies)
+            _setter("force_detach_policies", force_detach_policies)
         if inline_policies is not None:
-            pulumi.set(__self__, "inline_policies", inline_policies)
+            _setter("inline_policies", inline_policies)
         if managed_policy_arns is not None:
-            pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
+            _setter("managed_policy_arns", managed_policy_arns)
         if max_session_duration is not None:
-            pulumi.set(__self__, "max_session_duration", max_session_duration)
+            _setter("max_session_duration", max_session_duration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if permissions_boundary is not None:
-            pulumi.set(__self__, "permissions_boundary", permissions_boundary)
+            _setter("permissions_boundary", permissions_boundary)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="assumeRolePolicy")
@@ -239,39 +286,98 @@ class _RoleState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] unique_id: Stable and unique string identifying the role.
         """
+        _RoleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            assume_role_policy=assume_role_policy,
+            create_date=create_date,
+            description=description,
+            force_detach_policies=force_detach_policies,
+            inline_policies=inline_policies,
+            managed_policy_arns=managed_policy_arns,
+            max_session_duration=max_session_duration,
+            name=name,
+            name_prefix=name_prefix,
+            path=path,
+            permissions_boundary=permissions_boundary,
+            tags=tags,
+            tags_all=tags_all,
+            unique_id=unique_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             assume_role_policy: Optional[pulumi.Input[str]] = None,
+             create_date: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             force_detach_policies: Optional[pulumi.Input[bool]] = None,
+             inline_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RoleInlinePolicyArgs']]]] = None,
+             managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_session_duration: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             permissions_boundary: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             unique_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assume_role_policy is None and 'assumeRolePolicy' in kwargs:
+            assume_role_policy = kwargs['assumeRolePolicy']
+        if create_date is None and 'createDate' in kwargs:
+            create_date = kwargs['createDate']
+        if force_detach_policies is None and 'forceDetachPolicies' in kwargs:
+            force_detach_policies = kwargs['forceDetachPolicies']
+        if inline_policies is None and 'inlinePolicies' in kwargs:
+            inline_policies = kwargs['inlinePolicies']
+        if managed_policy_arns is None and 'managedPolicyArns' in kwargs:
+            managed_policy_arns = kwargs['managedPolicyArns']
+        if max_session_duration is None and 'maxSessionDuration' in kwargs:
+            max_session_duration = kwargs['maxSessionDuration']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if permissions_boundary is None and 'permissionsBoundary' in kwargs:
+            permissions_boundary = kwargs['permissionsBoundary']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if unique_id is None and 'uniqueId' in kwargs:
+            unique_id = kwargs['uniqueId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if assume_role_policy is not None:
-            pulumi.set(__self__, "assume_role_policy", assume_role_policy)
+            _setter("assume_role_policy", assume_role_policy)
         if create_date is not None:
-            pulumi.set(__self__, "create_date", create_date)
+            _setter("create_date", create_date)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if force_detach_policies is not None:
-            pulumi.set(__self__, "force_detach_policies", force_detach_policies)
+            _setter("force_detach_policies", force_detach_policies)
         if inline_policies is not None:
-            pulumi.set(__self__, "inline_policies", inline_policies)
+            _setter("inline_policies", inline_policies)
         if managed_policy_arns is not None:
-            pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
+            _setter("managed_policy_arns", managed_policy_arns)
         if max_session_duration is not None:
-            pulumi.set(__self__, "max_session_duration", max_session_duration)
+            _setter("max_session_duration", max_session_duration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if permissions_boundary is not None:
-            pulumi.set(__self__, "permissions_boundary", permissions_boundary)
+            _setter("permissions_boundary", permissions_boundary)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if unique_id is not None:
-            pulumi.set(__self__, "unique_id", unique_id)
+            _setter("unique_id", unique_id)
 
     @property
     @pulumi.getter
@@ -483,139 +589,6 @@ class Role(pulumi.CustomResource):
         > **NOTE:** If you use this resource's `managed_policy_arns` argument or `inline_policy` configuration blocks, this resource will take over exclusive management of the role's respective policy types (e.g., both policy types if both arguments are used). These arguments are incompatible with other ways of managing a role's policies, such as `iam.PolicyAttachment`, `iam.RolePolicyAttachment`, and `iam.RolePolicy`. If you attempt to manage a role's policies by multiple means, you will get resource cycling and/or errors.
 
         ## Example Usage
-        ### Basic Example
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test_role = aws.iam.Role("testRole",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com",
-                    },
-                }],
-            }),
-            tags={
-                "tag-key": "tag-value",
-            })
-        ```
-        ### Example of Using Data Source for Assume Role Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        instance_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-        )])
-        instance = aws.iam.Role("instance",
-            path="/system/",
-            assume_role_policy=instance_assume_role_policy.json)
-        ```
-        ### Example of Exclusive Inline Policies
-
-        This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        inline_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["ec2:DescribeAccountAttributes"],
-            resources=["*"],
-        )])
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            inline_policies=[
-                aws.iam.RoleInlinePolicyArgs(
-                    name="my_inline_policy",
-                    policy=json.dumps({
-                        "Version": "2012-10-17",
-                        "Statement": [{
-                            "Action": ["ec2:Describe*"],
-                            "Effect": "Allow",
-                            "Resource": "*",
-                        }],
-                    }),
-                ),
-                aws.iam.RoleInlinePolicyArgs(
-                    name="policy-8675309",
-                    policy=inline_policy.json,
-                ),
-            ])
-        ```
-        ### Example of Removing Inline Policies
-
-        This example creates an IAM role with what appears to be empty IAM `inline_policy` argument instead of using `inline_policy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            inline_policies=[aws.iam.RoleInlinePolicyArgs()])
-        ```
-        ### Example of Exclusive Managed Policies
-
-        This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        policy_one = aws.iam.Policy("policyOne", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": ["ec2:Describe*"],
-                "Effect": "Allow",
-                "Resource": "*",
-            }],
-        }))
-        policy_two = aws.iam.Policy("policyTwo", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": [
-                    "s3:ListAllMyBuckets",
-                    "s3:ListBucket",
-                    "s3:HeadBucket",
-                ],
-                "Effect": "Allow",
-                "Resource": "*",
-            }],
-        }))
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            managed_policy_arns=[
-                policy_one.arn,
-                policy_two.arn,
-            ])
-        ```
-        ### Example of Removing Managed Policies
-
-        This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            managed_policy_arns=[])
-        ```
 
         ## Import
 
@@ -656,139 +629,6 @@ class Role(pulumi.CustomResource):
         > **NOTE:** If you use this resource's `managed_policy_arns` argument or `inline_policy` configuration blocks, this resource will take over exclusive management of the role's respective policy types (e.g., both policy types if both arguments are used). These arguments are incompatible with other ways of managing a role's policies, such as `iam.PolicyAttachment`, `iam.RolePolicyAttachment`, and `iam.RolePolicy`. If you attempt to manage a role's policies by multiple means, you will get resource cycling and/or errors.
 
         ## Example Usage
-        ### Basic Example
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test_role = aws.iam.Role("testRole",
-            assume_role_policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Action": "sts:AssumeRole",
-                    "Effect": "Allow",
-                    "Sid": "",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com",
-                    },
-                }],
-            }),
-            tags={
-                "tag-key": "tag-value",
-            })
-        ```
-        ### Example of Using Data Source for Assume Role Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        instance_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-        )])
-        instance = aws.iam.Role("instance",
-            path="/system/",
-            assume_role_policy=instance_assume_role_policy.json)
-        ```
-        ### Example of Exclusive Inline Policies
-
-        This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        inline_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["ec2:DescribeAccountAttributes"],
-            resources=["*"],
-        )])
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            inline_policies=[
-                aws.iam.RoleInlinePolicyArgs(
-                    name="my_inline_policy",
-                    policy=json.dumps({
-                        "Version": "2012-10-17",
-                        "Statement": [{
-                            "Action": ["ec2:Describe*"],
-                            "Effect": "Allow",
-                            "Resource": "*",
-                        }],
-                    }),
-                ),
-                aws.iam.RoleInlinePolicyArgs(
-                    name="policy-8675309",
-                    policy=inline_policy.json,
-                ),
-            ])
-        ```
-        ### Example of Removing Inline Policies
-
-        This example creates an IAM role with what appears to be empty IAM `inline_policy` argument instead of using `inline_policy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            inline_policies=[aws.iam.RoleInlinePolicyArgs()])
-        ```
-        ### Example of Exclusive Managed Policies
-
-        This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        policy_one = aws.iam.Policy("policyOne", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": ["ec2:Describe*"],
-                "Effect": "Allow",
-                "Resource": "*",
-            }],
-        }))
-        policy_two = aws.iam.Policy("policyTwo", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": [
-                    "s3:ListAllMyBuckets",
-                    "s3:ListBucket",
-                    "s3:HeadBucket",
-                ],
-                "Effect": "Allow",
-                "Resource": "*",
-            }],
-        }))
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            managed_policy_arns=[
-                policy_one.arn,
-                policy_two.arn,
-            ])
-        ```
-        ### Example of Removing Managed Policies
-
-        This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
-            managed_policy_arns=[])
-        ```
 
         ## Import
 
@@ -808,6 +648,10 @@ class Role(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

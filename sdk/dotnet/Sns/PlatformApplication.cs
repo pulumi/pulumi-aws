@@ -13,64 +13,6 @@ namespace Pulumi.Aws.Sns
     /// Provides an SNS platform application resource
     /// 
     /// ## Example Usage
-    /// ### Apple Push Notification Service (APNS) using certificate-based authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var apnsApplication = new Aws.Sns.PlatformApplication("apnsApplication", new()
-    ///     {
-    ///         Platform = "APNS",
-    ///         PlatformCredential = "&lt;APNS PRIVATE KEY&gt;",
-    ///         PlatformPrincipal = "&lt;APNS CERTIFICATE&gt;",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Apple Push Notification Service (APNS) using token-based authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var apnsApplication = new Aws.Sns.PlatformApplication("apnsApplication", new()
-    ///     {
-    ///         ApplePlatformBundleId = "&lt;APPLE BUNDLE ID&gt;",
-    ///         ApplePlatformTeamId = "&lt;APPLE TEAM ID&gt;",
-    ///         Platform = "APNS",
-    ///         PlatformCredential = "&lt;APNS SIGNING KEY&gt;",
-    ///         PlatformPrincipal = "&lt;APNS SIGNING KEY ID&gt;",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Google Cloud Messaging (GCM)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var gcmApplication = new Aws.Sns.PlatformApplication("gcmApplication", new()
-    ///     {
-    ///         Platform = "GCM",
-    ///         PlatformCredential = "&lt;GCM API KEY&gt;",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

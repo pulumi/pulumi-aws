@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -233,14 +233,6 @@ def get_budget(account_id: Optional[str] = None,
     Data source for managing an AWS Web Services Budgets Budget.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.budgets.get_budget(name=aws_budgets_budget["test"]["name"])
-    ```
 
 
     :param str account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
@@ -285,14 +277,6 @@ def get_budget_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
     Data source for managing an AWS Web Services Budgets Budget.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.budgets.get_budget(name=aws_budgets_budget["test"]["name"])
-    ```
 
 
     :param str account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.

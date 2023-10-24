@@ -10,28 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WorkLink
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkLink.Fleet("example");
-    /// 
-    ///     var test = new Aws.WorkLink.WebsiteCertificateAuthorityAssociation("test", new()
-    ///     {
-    ///         FleetArn = aws_worklink_fleet.Test.Arn,
-    ///         Certificate = File.ReadAllText("certificate.pem"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:

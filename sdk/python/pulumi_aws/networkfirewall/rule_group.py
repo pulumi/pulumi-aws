@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,53 @@ class RuleGroupArgs:
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "type", type)
+        RuleGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            type=type,
+            description=description,
+            encryption_configuration=encryption_configuration,
+            name=name,
+            rule_group=rule_group,
+            rules=rules,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encryption_configuration: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
+             rules: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if rule_group is None and 'ruleGroup' in kwargs:
+            rule_group = kwargs['ruleGroup']
+
+        _setter("capacity", capacity)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encryption_configuration is not None:
-            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+            _setter("encryption_configuration", encryption_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rule_group is not None:
-            pulumi.set(__self__, "rule_group", rule_group)
+            _setter("rule_group", rule_group)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -175,31 +208,70 @@ class _RuleGroupState:
         :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
         :param pulumi.Input[str] update_token: A string token used when updating the rule group.
         """
+        _RuleGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            capacity=capacity,
+            description=description,
+            encryption_configuration=encryption_configuration,
+            name=name,
+            rule_group=rule_group,
+            rules=rules,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+            update_token=update_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encryption_configuration: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
+             rules: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             update_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if rule_group is None and 'ruleGroup' in kwargs:
+            rule_group = kwargs['ruleGroup']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if update_token is None and 'updateToken' in kwargs:
+            update_token = kwargs['updateToken']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encryption_configuration is not None:
-            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+            _setter("encryption_configuration", encryption_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rule_group is not None:
-            pulumi.set(__self__, "rule_group", rule_group)
+            _setter("rule_group", rule_group)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if update_token is not None:
-            pulumi.set(__self__, "update_token", update_token)
+            _setter("update_token", update_token)
 
     @property
     @pulumi.getter
@@ -355,123 +427,6 @@ class RuleGroup(pulumi.CustomResource):
         Provides an AWS Network Firewall Rule Group Resource
 
         ## Example Usage
-        ### Stateful Inspection for denying access to a domain
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
-                        generated_rules_type="DENYLIST",
-                        target_types=["HTTP_HOST"],
-                        targets=["test.example.com"],
-                    ),
-                ),
-            ),
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            },
-            type="STATEFUL")
-        ```
-        ### Stateful Inspection from rules specifications defined in Suricata flat format
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            type="STATEFUL",
-            rules=(lambda path: open(path).read())("example.rules"),
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-        ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rule_variables=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesArgs(
-                    ip_sets=[
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
-                            key="WEBSERVERS_HOSTS",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
-                                definitions=[
-                                    "10.0.0.0/16",
-                                    "10.0.1.0/24",
-                                    "192.168.0.0/16",
-                                ],
-                            ),
-                        ),
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
-                            key="EXTERNAL_HOST",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
-                                definitions=["1.2.3.4/32"],
-                            ),
-                        ),
-                    ],
-                    port_sets=[aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs(
-                        key="HTTP_PORTS",
-                        port_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs(
-                            definitions=[
-                                "443",
-                                "80",
-                            ],
-                        ),
-                    )],
-                ),
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_string=(lambda path: open(path).read())("suricata_rules_file"),
-                ),
-            ),
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-        ### IP Set References to the Rule Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
-                        generated_rules_type="DENYLIST",
-                        target_types=["HTTP_HOST"],
-                        targets=["test.example.com"],
-                    ),
-                ),
-                reference_sets=aws.networkfirewall.RuleGroupRuleGroupReferenceSetsArgs(
-                    ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(
-                        key="example",
-                        ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(
-                            reference_arn=aws_ec2_managed_prefix_list["this"]["arn"],
-                        )],
-                    )],
-                ),
-            ),
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
 
         ## Import
 
@@ -502,123 +457,6 @@ class RuleGroup(pulumi.CustomResource):
         Provides an AWS Network Firewall Rule Group Resource
 
         ## Example Usage
-        ### Stateful Inspection for denying access to a domain
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
-                        generated_rules_type="DENYLIST",
-                        target_types=["HTTP_HOST"],
-                        targets=["test.example.com"],
-                    ),
-                ),
-            ),
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            },
-            type="STATEFUL")
-        ```
-        ### Stateful Inspection from rules specifications defined in Suricata flat format
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            type="STATEFUL",
-            rules=(lambda path: open(path).read())("example.rules"),
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-        ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rule_variables=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesArgs(
-                    ip_sets=[
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
-                            key="WEBSERVERS_HOSTS",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
-                                definitions=[
-                                    "10.0.0.0/16",
-                                    "10.0.1.0/24",
-                                    "192.168.0.0/16",
-                                ],
-                            ),
-                        ),
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
-                            key="EXTERNAL_HOST",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
-                                definitions=["1.2.3.4/32"],
-                            ),
-                        ),
-                    ],
-                    port_sets=[aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs(
-                        key="HTTP_PORTS",
-                        port_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs(
-                            definitions=[
-                                "443",
-                                "80",
-                            ],
-                        ),
-                    )],
-                ),
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_string=(lambda path: open(path).read())("suricata_rules_file"),
-                ),
-            ),
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-        ### IP Set References to the Rule Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
-                        generated_rules_type="DENYLIST",
-                        target_types=["HTTP_HOST"],
-                        targets=["test.example.com"],
-                    ),
-                ),
-                reference_sets=aws.networkfirewall.RuleGroupRuleGroupReferenceSetsArgs(
-                    ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(
-                        key="example",
-                        ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(
-                            reference_arn=aws_ec2_managed_prefix_list["this"]["arn"],
-                        )],
-                    )],
-                ),
-            ),
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
 
         ## Import
 
@@ -638,6 +476,10 @@ class RuleGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RuleGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -664,8 +506,10 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'capacity'")
             __props__.__dict__["capacity"] = capacity
             __props__.__dict__["description"] = description
+            encryption_configuration = _utilities.configure(encryption_configuration, RuleGroupEncryptionConfigurationArgs, True)
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["name"] = name
+            rule_group = _utilities.configure(rule_group, RuleGroupRuleGroupArgs, True)
             __props__.__dict__["rule_group"] = rule_group
             __props__.__dict__["rules"] = rules
             __props__.__dict__["tags"] = tags

@@ -12,32 +12,6 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Provides a Route 53 Resolver DNS Firewall config resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///         EnableDnsSupport = true,
-    ///         EnableDnsHostnames = true,
-    ///     });
-    /// 
-    ///     var exampleResolverFirewallConfig = new Aws.Route53.ResolverFirewallConfig("exampleResolverFirewallConfig", new()
-    ///     {
-    ///         ResourceId = exampleVpc.Id,
-    ///         FirewallFailOpen = "ENABLED",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:

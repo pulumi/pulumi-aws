@@ -10,16 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a site in a global network.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {});
- * const exampleSite = new aws.networkmanager.Site("exampleSite", {globalNetworkId: exampleGlobalNetwork.id});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For example:

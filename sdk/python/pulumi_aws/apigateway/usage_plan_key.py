@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UsagePlanKeyArgs', 'UsagePlanKey']
@@ -23,9 +23,36 @@ class UsagePlanKeyArgs:
         :param pulumi.Input[str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
         :param pulumi.Input[str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
         """
-        pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "key_type", key_type)
-        pulumi.set(__self__, "usage_plan_id", usage_plan_id)
+        UsagePlanKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_id=key_id,
+            key_type=key_type,
+            usage_plan_id=usage_plan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_id: Optional[pulumi.Input[str]] = None,
+             key_type: Optional[pulumi.Input[str]] = None,
+             usage_plan_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if key_type is None:
+            raise TypeError("Missing 'key_type' argument")
+        if usage_plan_id is None and 'usagePlanId' in kwargs:
+            usage_plan_id = kwargs['usagePlanId']
+        if usage_plan_id is None:
+            raise TypeError("Missing 'usage_plan_id' argument")
+
+        _setter("key_id", key_id)
+        _setter("key_type", key_type)
+        _setter("usage_plan_id", usage_plan_id)
 
     @property
     @pulumi.getter(name="keyId")
@@ -80,16 +107,41 @@ class _UsagePlanKeyState:
         :param pulumi.Input[str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
         :param pulumi.Input[str] value: Value of a usage plan key.
         """
+        _UsagePlanKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_id=key_id,
+            key_type=key_type,
+            name=name,
+            usage_plan_id=usage_plan_id,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_id: Optional[pulumi.Input[str]] = None,
+             key_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             usage_plan_id: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if usage_plan_id is None and 'usagePlanId' in kwargs:
+            usage_plan_id = kwargs['usagePlanId']
+
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if key_type is not None:
-            pulumi.set(__self__, "key_type", key_type)
+            _setter("key_type", key_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if usage_plan_id is not None:
-            pulumi.set(__self__, "usage_plan_id", usage_plan_id)
+            _setter("usage_plan_id", usage_plan_id)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="keyId")
@@ -164,25 +216,6 @@ class UsagePlanKey(pulumi.CustomResource):
         """
         Provides an API Gateway Usage Plan Key.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.apigateway.RestApi("test")
-        # ...
-        myusageplan = aws.apigateway.UsagePlan("myusageplan", api_stages=[aws.apigateway.UsagePlanApiStageArgs(
-            api_id=test.id,
-            stage=aws_api_gateway_stage["foo"]["stage_name"],
-        )])
-        mykey = aws.apigateway.ApiKey("mykey")
-        main = aws.apigateway.UsagePlanKey("main",
-            key_id=mykey.id,
-            key_type="API_KEY",
-            usage_plan_id=myusageplan.id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
@@ -206,25 +239,6 @@ class UsagePlanKey(pulumi.CustomResource):
         """
         Provides an API Gateway Usage Plan Key.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.apigateway.RestApi("test")
-        # ...
-        myusageplan = aws.apigateway.UsagePlan("myusageplan", api_stages=[aws.apigateway.UsagePlanApiStageArgs(
-            api_id=test.id,
-            stage=aws_api_gateway_stage["foo"]["stage_name"],
-        )])
-        mykey = aws.apigateway.ApiKey("mykey")
-        main = aws.apigateway.UsagePlanKey("main",
-            key_id=mykey.id,
-            key_type="API_KEY",
-            usage_plan_id=myusageplan.id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
@@ -243,6 +257,10 @@ class UsagePlanKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UsagePlanKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -15,44 +15,6 @@ import (
 
 // Provides an API Gateway Gateway Response for a REST API Gateway.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := apigateway.NewRestApi(ctx, "main", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewResponse(ctx, "test", &apigateway.ResponseArgs{
-//				RestApiId:    main.ID(),
-//				StatusCode:   pulumi.String("401"),
-//				ResponseType: pulumi.String("UNAUTHORIZED"),
-//				ResponseTemplates: pulumi.StringMap{
-//					"application/json": pulumi.String("{\"message\":$context.error.messageString}"),
-//				},
-//				ResponseParameters: pulumi.StringMap{
-//					"gatewayresponse.header.Authorization": pulumi.String("'Basic'"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:

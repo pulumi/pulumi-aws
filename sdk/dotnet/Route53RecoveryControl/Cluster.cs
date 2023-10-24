@@ -12,21 +12,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// <summary>
     /// Provides an AWS Route 53 Recovery Control Config Cluster.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryControl.Cluster("example");
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Recovery Control Config cluster using the cluster ARN. For example:

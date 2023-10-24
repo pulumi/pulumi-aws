@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterIamRolesArgs', 'ClusterIamRoles']
@@ -23,11 +23,34 @@ class ClusterIamRolesArgs:
         :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_role_arns: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         """
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        ClusterIamRolesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_identifier=cluster_identifier,
+            default_iam_role_arn=default_iam_role_arn,
+            iam_role_arns=iam_role_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             default_iam_role_arn: Optional[pulumi.Input[str]] = None,
+             iam_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_identifier is None:
+            raise TypeError("Missing 'cluster_identifier' argument")
+        if default_iam_role_arn is None and 'defaultIamRoleArn' in kwargs:
+            default_iam_role_arn = kwargs['defaultIamRoleArn']
+        if iam_role_arns is None and 'iamRoleArns' in kwargs:
+            iam_role_arns = kwargs['iamRoleArns']
+
+        _setter("cluster_identifier", cluster_identifier)
         if default_iam_role_arn is not None:
-            pulumi.set(__self__, "default_iam_role_arn", default_iam_role_arn)
+            _setter("default_iam_role_arn", default_iam_role_arn)
         if iam_role_arns is not None:
-            pulumi.set(__self__, "iam_role_arns", iam_role_arns)
+            _setter("iam_role_arns", iam_role_arns)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -78,12 +101,33 @@ class _ClusterIamRolesState:
         :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_role_arns: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         """
+        _ClusterIamRolesState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_identifier=cluster_identifier,
+            default_iam_role_arn=default_iam_role_arn,
+            iam_role_arns=iam_role_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             default_iam_role_arn: Optional[pulumi.Input[str]] = None,
+             iam_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if default_iam_role_arn is None and 'defaultIamRoleArn' in kwargs:
+            default_iam_role_arn = kwargs['defaultIamRoleArn']
+        if iam_role_arns is None and 'iamRoleArns' in kwargs:
+            iam_role_arns = kwargs['iamRoleArns']
+
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if default_iam_role_arn is not None:
-            pulumi.set(__self__, "default_iam_role_arn", default_iam_role_arn)
+            _setter("default_iam_role_arn", default_iam_role_arn)
         if iam_role_arns is not None:
-            pulumi.set(__self__, "iam_role_arns", iam_role_arns)
+            _setter("iam_role_arns", iam_role_arns)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -136,17 +180,6 @@ class ClusterIamRoles(pulumi.CustomResource):
 
         > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `redshift.Cluster` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.ClusterIamRoles("example",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-            iam_role_arns=[aws_iam_role["example"]["arn"]])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
@@ -172,17 +205,6 @@ class ClusterIamRoles(pulumi.CustomResource):
 
         > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `redshift.Cluster` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.ClusterIamRoles("example",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-            iam_role_arns=[aws_iam_role["example"]["arn"]])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
@@ -201,6 +223,10 @@ class ClusterIamRoles(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterIamRolesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

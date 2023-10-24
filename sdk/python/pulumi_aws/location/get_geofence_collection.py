@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -133,14 +133,6 @@ def get_geofence_collection(collection_name: Optional[str] = None,
     Retrieve information about a Location Service Geofence Collection.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_geofence_collection(collection_name="example")
-    ```
 
 
     :param str collection_name: Name of the geofence collection.
@@ -174,14 +166,6 @@ def get_geofence_collection_output(collection_name: Optional[pulumi.Input[str]] 
     Retrieve information about a Location Service Geofence Collection.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_geofence_collection(collection_name="example")
-    ```
 
 
     :param str collection_name: Name of the geofence collection.

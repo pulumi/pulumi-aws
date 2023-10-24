@@ -14,60 +14,6 @@ namespace Pulumi.Aws.Fms
     /// 
     /// &gt; **NOTE:** Due to limitations with testing, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRuleGroup = new Aws.WafRegional.RuleGroup("exampleRuleGroup", new()
-    ///     {
-    ///         MetricName = "WAFRuleGroupExample",
-    ///     });
-    /// 
-    ///     var examplePolicy = new Aws.Fms.Policy("examplePolicy", new()
-    ///     {
-    ///         ExcludeResourceTags = false,
-    ///         RemediationEnabled = false,
-    ///         ResourceType = "AWS::ElasticLoadBalancingV2::LoadBalancer",
-    ///         SecurityServicePolicyData = new Aws.Fms.Inputs.PolicySecurityServicePolicyDataArgs
-    ///         {
-    ///             Type = "WAF",
-    ///             ManagedServiceData = exampleRuleGroup.Id.Apply(id =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["type"] = "WAF",
-    ///                 ["ruleGroups"] = new[]
-    ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["id"] = id,
-    ///                         ["overrideAction"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["type"] = "COUNT",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 ["defaultAction"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["type"] = "BLOCK",
-    ///                 },
-    ///                 ["overrideCustomerWebACLAssociation"] = false,
-    ///             })),
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-fms-policy" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Firewall Manager policies using the policy ID. For example:

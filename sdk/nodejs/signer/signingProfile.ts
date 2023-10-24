@@ -10,27 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testSp = new aws.signer.SigningProfile("testSp", {platformId: "AWSLambda-SHA384-ECDSA"});
- * const prodSp = new aws.signer.SigningProfile("prodSp", {
- *     namePrefix: "prod_sp_",
- *     platformId: "AWSLambda-SHA384-ECDSA",
- *     signatureValidityPeriod: {
- *         type: "YEARS",
- *         value: 5,
- *     },
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value2",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Signer signing profiles using the `name`. For example:

@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.TransitGatewayPeering("example", {
- *     coreNetworkId: awscc_networkmanager_core_network.example.id,
- *     transitGatewayArn: aws_ec2_transit_gateway.example.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For example:

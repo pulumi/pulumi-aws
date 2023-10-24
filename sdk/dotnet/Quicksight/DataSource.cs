@@ -12,36 +12,6 @@ namespace Pulumi.Aws.Quicksight
     /// <summary>
     /// Resource for managing QuickSight Data Source
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Quicksight.DataSource("default", new()
-    ///     {
-    ///         DataSourceId = "example-id",
-    ///         Parameters = new Aws.Quicksight.Inputs.DataSourceParametersArgs
-    ///         {
-    ///             S3 = new Aws.Quicksight.Inputs.DataSourceParametersS3Args
-    ///             {
-    ///                 ManifestFileLocation = new Aws.Quicksight.Inputs.DataSourceParametersS3ManifestFileLocationArgs
-    ///                 {
-    ///                     Bucket = "my-bucket",
-    ///                     Key = "path/to/manifest.json",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Type = "S3",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:

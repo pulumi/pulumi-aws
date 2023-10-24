@@ -11,28 +11,6 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Pipeline resource.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.Pipeline("example", {
- *     pipelineName: "example",
- *     pipelineDisplayName: "example",
- *     roleArn: aws_iam_role.example.arn,
- *     pipelineDefinition: JSON.stringify({
- *         Version: "2020-12-01",
- *         Steps: [{
- *             Name: "Test",
- *             Type: "Fail",
- *             Arguments: {
- *                 ErrorMessage: "test",
- *             },
- *         }],
- *     }),
- * });
- * ```
  *
  * ## Import
  *

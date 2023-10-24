@@ -12,39 +12,6 @@ namespace Pulumi.Aws.AppStream
     /// <summary>
     /// Provides an AppStream image builder.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testFleet = new Aws.AppStream.ImageBuilder("testFleet", new()
-    ///     {
-    ///         Description = "Description of a ImageBuilder",
-    ///         DisplayName = "Display name of a ImageBuilder",
-    ///         EnableDefaultInternetAccess = false,
-    ///         ImageName = "AppStream-WinServer2019-10-05-2022",
-    ///         InstanceType = "stream.standard.large",
-    ///         VpcConfig = new Aws.AppStream.Inputs.ImageBuilderVpcConfigArgs
-    ///         {
-    ///             SubnetIds = new[]
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Image Builder" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:

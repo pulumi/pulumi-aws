@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResolverFirewallRuleGroupAssociationArgs', 'ResolverFirewallRuleGroupAssociation']
@@ -29,15 +29,48 @@ class ResolverFirewallRuleGroupAssociationArgs:
         :param pulumi.Input[str] name: A name that lets you identify the rule group association, to manage and use it.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        ResolverFirewallRuleGroupAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firewall_rule_group_id=firewall_rule_group_id,
+            priority=priority,
+            vpc_id=vpc_id,
+            mutation_protection=mutation_protection,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             mutation_protection: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_rule_group_id is None and 'firewallRuleGroupId' in kwargs:
+            firewall_rule_group_id = kwargs['firewallRuleGroupId']
+        if firewall_rule_group_id is None:
+            raise TypeError("Missing 'firewall_rule_group_id' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if mutation_protection is None and 'mutationProtection' in kwargs:
+            mutation_protection = kwargs['mutationProtection']
+
+        _setter("firewall_rule_group_id", firewall_rule_group_id)
+        _setter("priority", priority)
+        _setter("vpc_id", vpc_id)
         if mutation_protection is not None:
-            pulumi.set(__self__, "mutation_protection", mutation_protection)
+            _setter("mutation_protection", mutation_protection)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="firewallRuleGroupId")
@@ -134,25 +167,58 @@ class _ResolverFirewallRuleGroupAssociationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The unique identifier of the VPC that you want to associate with the rule group.
         """
+        _ResolverFirewallRuleGroupAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            firewall_rule_group_id=firewall_rule_group_id,
+            mutation_protection=mutation_protection,
+            name=name,
+            priority=priority,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
+             mutation_protection: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_rule_group_id is None and 'firewallRuleGroupId' in kwargs:
+            firewall_rule_group_id = kwargs['firewallRuleGroupId']
+        if mutation_protection is None and 'mutationProtection' in kwargs:
+            mutation_protection = kwargs['mutationProtection']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if firewall_rule_group_id is not None:
-            pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
+            _setter("firewall_rule_group_id", firewall_rule_group_id)
         if mutation_protection is not None:
-            pulumi.set(__self__, "mutation_protection", mutation_protection)
+            _setter("mutation_protection", mutation_protection)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -269,19 +335,6 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         """
         Provides a Route 53 Resolver DNS Firewall rule group association resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup")
-        example_resolver_firewall_rule_group_association = aws.route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation",
-            firewall_rule_group_id=example_resolver_firewall_rule_group.id,
-            priority=100,
-            vpc_id=aws_vpc["example"]["id"])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
@@ -308,19 +361,6 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         """
         Provides a Route 53 Resolver DNS Firewall rule group association resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_resolver_firewall_rule_group = aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup")
-        example_resolver_firewall_rule_group_association = aws.route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation",
-            firewall_rule_group_id=example_resolver_firewall_rule_group.id,
-            priority=100,
-            vpc_id=aws_vpc["example"]["id"])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
@@ -339,6 +379,10 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResolverFirewallRuleGroupAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

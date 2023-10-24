@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
  *
  * More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.memorydb.Acl("example", {userNames: [
- *     "my-user-1",
- *     "my-user-2",
- * ]});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import an ACL using the `name`. For example:

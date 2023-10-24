@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new certificate
- * const test = new aws.dms.Certificate("test", {
- *     certificateId: "test-dms-certificate-tf",
- *     certificatePem: "...",
- *     tags: {
- *         Name: "test",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import certificates using the `certificate_id`. For example:

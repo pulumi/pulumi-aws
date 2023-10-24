@@ -12,45 +12,6 @@ namespace Pulumi.Aws.WafRegional
     /// <summary>
     /// Provides a WAF Regional Regex Match Set Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRegexPatternSet = new Aws.WafRegional.RegexPatternSet("exampleRegexPatternSet", new()
-    ///     {
-    ///         RegexPatternStrings = new[]
-    ///         {
-    ///             "one",
-    ///             "two",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRegexMatchSet = new Aws.WafRegional.RegexMatchSet("exampleRegexMatchSet", new()
-    ///     {
-    ///         RegexMatchTuples = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.RegexMatchSetRegexMatchTupleArgs
-    ///             {
-    ///                 FieldToMatch = new Aws.WafRegional.Inputs.RegexMatchSetRegexMatchTupleFieldToMatchArgs
-    ///                 {
-    ///                     Data = "User-Agent",
-    ///                     Type = "HEADER",
-    ///                 },
-    ///                 RegexPatternSetId = exampleRegexPatternSet.Id,
-    ///                 TextTransformation = "NONE",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Regional Regex Match Set using the id. For example:

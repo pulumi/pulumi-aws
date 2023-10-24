@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ListenerCertificateArgs', 'ListenerCertificate']
@@ -21,8 +21,29 @@ class ListenerCertificateArgs:
         :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
         """
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
-        pulumi.set(__self__, "listener_arn", listener_arn)
+        ListenerCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            listener_arn=listener_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             listener_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if certificate_arn is None:
+            raise TypeError("Missing 'certificate_arn' argument")
+        if listener_arn is None and 'listenerArn' in kwargs:
+            listener_arn = kwargs['listenerArn']
+        if listener_arn is None:
+            raise TypeError("Missing 'listener_arn' argument")
+
+        _setter("certificate_arn", certificate_arn)
+        _setter("listener_arn", listener_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -59,10 +80,27 @@ class _ListenerCertificateState:
         :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
         """
+        _ListenerCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            listener_arn=listener_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             listener_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if listener_arn is None and 'listenerArn' in kwargs:
+            listener_arn = kwargs['listenerArn']
+
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if listener_arn is not None:
-            pulumi.set(__self__, "listener_arn", listener_arn)
+            _setter("listener_arn", listener_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -104,23 +142,6 @@ class ListenerCertificate(pulumi.CustomResource):
 
         > **Note:** `alb.ListenerCertificate` is known as `lb.ListenerCertificate`. The functionality is identical.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_certificate = aws.acm.Certificate("exampleCertificate")
-        # ...
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener")
-        # ...
-        example_listener_certificate = aws.lb.ListenerCertificate("exampleListenerCertificate",
-            listener_arn=front_end_listener.arn,
-            certificate_arn=example_certificate.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Listener Certificates using the listener arn and certificate arn, separated by an underscore (`_`). For example:
@@ -147,23 +168,6 @@ class ListenerCertificate(pulumi.CustomResource):
 
         > **Note:** `alb.ListenerCertificate` is known as `lb.ListenerCertificate`. The functionality is identical.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_certificate = aws.acm.Certificate("exampleCertificate")
-        # ...
-        front_end_load_balancer = aws.lb.LoadBalancer("frontEndLoadBalancer")
-        # ...
-        front_end_listener = aws.lb.Listener("frontEndListener")
-        # ...
-        example_listener_certificate = aws.lb.ListenerCertificate("exampleListenerCertificate",
-            listener_arn=front_end_listener.arn,
-            certificate_arn=example_certificate.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Listener Certificates using the listener arn and certificate arn, separated by an underscore (`_`). For example:
@@ -182,6 +186,10 @@ class ListenerCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ListenerCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -11,41 +11,6 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Notebook Instance resource.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ni = new aws.sagemaker.NotebookInstance("ni", {
- *     roleArn: aws_iam_role.role.arn,
- *     instanceType: "ml.t2.medium",
- *     tags: {
- *         Name: "foo",
- *     },
- * });
- * ```
- * ### Code repository usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.CodeRepository("example", {
- *     codeRepositoryName: "my-notebook-instance-code-repo",
- *     gitConfig: {
- *         repositoryUrl: "https://github.com/github/docs.git",
- *     },
- * });
- * const ni = new aws.sagemaker.NotebookInstance("ni", {
- *     roleArn: aws_iam_role.role.arn,
- *     instanceType: "ml.t2.medium",
- *     defaultCodeRepository: example.codeRepositoryName,
- *     tags: {
- *         Name: "foo",
- *     },
- * });
- * ```
  *
  * ## Import
  *

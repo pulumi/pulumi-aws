@@ -15,41 +15,6 @@ import (
 
 // Manages the specified primary contact information associated with an AWS Account.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/account"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := account.NewPrimaryContact(ctx, "test", &account.PrimaryContactArgs{
-//				AddressLine1:     pulumi.String("123 Any Street"),
-//				City:             pulumi.String("Seattle"),
-//				CompanyName:      pulumi.String("Example Corp, Inc."),
-//				CountryCode:      pulumi.String("US"),
-//				DistrictOrCounty: pulumi.String("King"),
-//				FullName:         pulumi.String("My Name"),
-//				PhoneNumber:      pulumi.String("+64211111111"),
-//				PostalCode:       pulumi.String("98101"),
-//				StateOrRegion:    pulumi.String("WA"),
-//				WebsiteUrl:       pulumi.String("https://www.examplecorp.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import the Primary Contact using the `account_id`. For example:

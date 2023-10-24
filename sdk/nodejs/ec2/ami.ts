@@ -17,27 +17,6 @@ import * as utilities from "../utilities";
  * If you just want to share an existing AMI with another AWS account,
  * it's better to use `aws.ec2.AmiLaunchPermission` instead.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create an AMI that will start a machine whose root device is backed by
- * // an EBS volume populated from a snapshot. We assume that such a snapshot
- * // already exists with the id "snap-xxxxxxxx".
- * const example = new aws.ec2.Ami("example", {
- *     ebsBlockDevices: [{
- *         deviceName: "/dev/xvda",
- *         snapshotId: "snap-xxxxxxxx",
- *         volumeSize: 8,
- *     }],
- *     imdsSupport: "v2.0",
- *     rootDeviceName: "/dev/xvda",
- *     virtualizationType: "hvm",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:

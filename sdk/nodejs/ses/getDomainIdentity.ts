@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the SES domain identity
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ses.getDomainIdentity({
- *     domain: "example.com",
- * });
- * ```
  */
 export function getDomainIdentity(args: GetDomainIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainIdentityResult> {
 
@@ -59,17 +48,6 @@ export interface GetDomainIdentityResult {
 }
 /**
  * Retrieve the SES domain identity
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ses.getDomainIdentity({
- *     domain: "example.com",
- * });
- * ```
  */
 export function getDomainIdentityOutput(args: GetDomainIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainIdentityResult> {
     return pulumi.output(args).apply((a: any) => getDomainIdentity(a, opts))

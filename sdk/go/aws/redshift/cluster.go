@@ -17,37 +17,6 @@ import (
 //
 // > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `defaultIamRoleArn` argument and the `redshift.ClusterIamRoles` resource's `defaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewCluster(ctx, "example", &redshift.ClusterArgs{
-//				ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
-//				ClusterType:       pulumi.String("single-node"),
-//				DatabaseName:      pulumi.String("mydb"),
-//				MasterPassword:    pulumi.String("Mustbe8characters"),
-//				MasterUsername:    pulumi.String("exampleuser"),
-//				NodeType:          pulumi.String("dc1.large"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:

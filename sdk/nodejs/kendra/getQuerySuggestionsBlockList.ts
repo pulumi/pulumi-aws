@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.kendra.getQuerySuggestionsBlockList({
- *     indexId: "12345678-1234-1234-1234-123456789123",
- *     querySuggestionsBlockListId: "87654321-1234-4321-4321-321987654321",
- * });
- * ```
  */
 export function getQuerySuggestionsBlockList(args: GetQuerySuggestionsBlockListArgs, opts?: pulumi.InvokeOptions): Promise<GetQuerySuggestionsBlockListResult> {
 
@@ -111,18 +99,6 @@ export interface GetQuerySuggestionsBlockListResult {
 }
 /**
  * Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.kendra.getQuerySuggestionsBlockList({
- *     indexId: "12345678-1234-1234-1234-123456789123",
- *     querySuggestionsBlockListId: "87654321-1234-4321-4321-321987654321",
- * });
- * ```
  */
 export function getQuerySuggestionsBlockListOutput(args: GetQuerySuggestionsBlockListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuerySuggestionsBlockListResult> {
     return pulumi.output(args).apply((a: any) => getQuerySuggestionsBlockList(a, opts))

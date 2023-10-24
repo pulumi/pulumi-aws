@@ -6,38 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const lb = new aws.elb.LoadBalancer("lb", {
- *     availabilityZones: ["us-east-1a"],
- *     listeners: [
- *         {
- *             instancePort: 25,
- *             instanceProtocol: "tcp",
- *             lbPort: 25,
- *             lbProtocol: "tcp",
- *         },
- *         {
- *             instancePort: 587,
- *             instanceProtocol: "tcp",
- *             lbPort: 587,
- *             lbProtocol: "tcp",
- *         },
- *     ],
- * });
- * const smtp = new aws.ec2.ProxyProtocolPolicy("smtp", {
- *     loadBalancer: lb.name,
- *     instancePorts: [
- *         "25",
- *         "587",
- *     ],
- * });
- * ```
  */
 export class ProxyProtocolPolicy extends pulumi.CustomResource {
     /**

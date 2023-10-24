@@ -13,6 +13,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
     [OutputType]
     public sealed class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings
     {
+        /// <summary>
+        /// List of item names, such as cookies, headers, or query strings.
+        /// </summary>
         public readonly ImmutableArray<string> Items;
 
         [OutputConstructor]

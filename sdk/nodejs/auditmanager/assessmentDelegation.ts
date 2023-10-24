@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Audit Manager Assessment Delegation.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.auditmanager.AssessmentDelegation("example", {
- *     assessmentId: aws_auditmanager_assessment.example.id,
- *     roleArn: aws_iam_role.example.arn,
- *     roleType: "RESOURCE_OWNER",
- *     controlSetId: "example",
- * });
- * ```
  *
  * ## Import
  *

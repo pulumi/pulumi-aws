@@ -11,37 +11,6 @@ namespace Pulumi.Aws.Ebs
 {
     /// <summary>
     /// Imports a disk image from S3 as a Snapshot.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ebs.SnapshotImport("example", new()
-    ///     {
-    ///         DiskContainer = new Aws.Ebs.Inputs.SnapshotImportDiskContainerArgs
-    ///         {
-    ///             Format = "VHD",
-    ///             UserBucket = new Aws.Ebs.Inputs.SnapshotImportDiskContainerUserBucketArgs
-    ///             {
-    ///                 S3Bucket = "disk-images",
-    ///                 S3Key = "source.vhd",
-    ///             },
-    ///         },
-    ///         RoleName = "disk-image-import",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/snapshotImport:SnapshotImport")]
     public partial class SnapshotImport : global::Pulumi.CustomResource

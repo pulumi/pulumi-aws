@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
- * const example = new aws.msk.ClusterPolicy("example", {
- *     clusterArn: aws_msk_cluster.example.arn,
- *     policy: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "ExampleMskClusterPolicy",
- *             Effect: "Allow",
- *             Principal: {
- *                 AWS: `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`,
- *             },
- *             Action: [
- *                 "kafka:Describe*",
- *                 "kafka:Get*",
- *                 "kafka:CreateVpcConnection",
- *                 "kafka:GetBootstrapBrokers",
- *             ],
- *             Resource: aws_msk_cluster.example.arn,
- *         }],
- *     })),
- * });
- * ```
  *
  * ## Import
  *

@@ -8,16 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS CloudWatch Observability Access Manager Sink.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.oam.Sink("example", {tags: {
- *     Env: "prod",
- * }});
- * ```
  *
  * ## Import
  *

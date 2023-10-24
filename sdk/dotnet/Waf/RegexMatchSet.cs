@@ -12,45 +12,6 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF Regex Match Set Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRegexPatternSet = new Aws.Waf.RegexPatternSet("exampleRegexPatternSet", new()
-    ///     {
-    ///         RegexPatternStrings = new[]
-    ///         {
-    ///             "one",
-    ///             "two",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRegexMatchSet = new Aws.Waf.RegexMatchSet("exampleRegexMatchSet", new()
-    ///     {
-    ///         RegexMatchTuples = new[]
-    ///         {
-    ///             new Aws.Waf.Inputs.RegexMatchSetRegexMatchTupleArgs
-    ///             {
-    ///                 FieldToMatch = new Aws.Waf.Inputs.RegexMatchSetRegexMatchTupleFieldToMatchArgs
-    ///                 {
-    ///                     Data = "User-Agent",
-    ///                     Type = "HEADER",
-    ///                 },
-    ///                 RegexPatternSetId = exampleRegexPatternSet.Id,
-    ///                 TextTransformation = "NONE",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Regex Match Set using their ID. For example:

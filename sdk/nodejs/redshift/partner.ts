@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a new Amazon Redshift Partner Integration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.Partner("example", {
- *     clusterIdentifier: aws_redshift_cluster.example.id,
- *     accountId: "1234567910",
- *     databaseName: aws_redshift_cluster.example.database_name,
- *     partnerName: "example",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Redshift usage limits using the `id`. For example:

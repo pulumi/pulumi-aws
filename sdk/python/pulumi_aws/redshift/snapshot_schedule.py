@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SnapshotScheduleArgs', 'SnapshotSchedule']
@@ -30,17 +30,44 @@ class SnapshotScheduleArgs:
                identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "definitions", definitions)
+        SnapshotScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definitions=definitions,
+            description=description,
+            force_destroy=force_destroy,
+            identifier=identifier,
+            identifier_prefix=identifier_prefix,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definitions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             identifier: Optional[pulumi.Input[str]] = None,
+             identifier_prefix: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if definitions is None:
+            raise TypeError("Missing 'definitions' argument")
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if identifier_prefix is None and 'identifierPrefix' in kwargs:
+            identifier_prefix = kwargs['identifierPrefix']
+
+        _setter("definitions", definitions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
         if identifier_prefix is not None:
-            pulumi.set(__self__, "identifier_prefix", identifier_prefix)
+            _setter("identifier_prefix", identifier_prefix)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -139,25 +166,56 @@ class _SnapshotScheduleState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _SnapshotScheduleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            definitions=definitions,
+            description=description,
+            force_destroy=force_destroy,
+            identifier=identifier,
+            identifier_prefix=identifier_prefix,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             definitions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             identifier: Optional[pulumi.Input[str]] = None,
+             identifier_prefix: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if identifier_prefix is None and 'identifierPrefix' in kwargs:
+            identifier_prefix = kwargs['identifierPrefix']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if definitions is not None:
-            pulumi.set(__self__, "definitions", definitions)
+            _setter("definitions", definitions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
         if identifier_prefix is not None:
-            pulumi.set(__self__, "identifier_prefix", identifier_prefix)
+            _setter("identifier_prefix", identifier_prefix)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -273,17 +331,6 @@ class SnapshotSchedule(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.redshift.SnapshotSchedule("default",
-            definitions=["rate(12 hours)"],
-            identifier="tf-redshift-snapshot-schedule")
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
@@ -309,17 +356,6 @@ class SnapshotSchedule(pulumi.CustomResource):
                  args: SnapshotScheduleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.redshift.SnapshotSchedule("default",
-            definitions=["rate(12 hours)"],
-            identifier="tf-redshift-snapshot-schedule")
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
@@ -338,6 +374,10 @@ class SnapshotSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnapshotScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

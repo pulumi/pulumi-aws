@@ -14,39 +14,6 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new()
-    ///     {
-    ///         VpcId = exampleVpc.Id,
-    ///         CidrBlock = "10.0.0.0/24",
-    ///         AvailabilityZone = "us-west-2a",
-    ///     });
-    /// 
-    ///     var exampleSubnetGroup = new Aws.MemoryDb.SubnetGroup("exampleSubnetGroup", new()
-    ///     {
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleSubnet.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a subnet group using its `name`. For example:

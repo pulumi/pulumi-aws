@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AliasArgs', 'Alias']
@@ -24,11 +24,32 @@ class AliasArgs:
         :param pulumi.Input[str] name_prefix: Creates an unique alias beginning with the specified prefix.
                The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
         """
-        pulumi.set(__self__, "target_key_id", target_key_id)
+        AliasArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_key_id=target_key_id,
+            name=name,
+            name_prefix=name_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_key_id is None and 'targetKeyId' in kwargs:
+            target_key_id = kwargs['targetKeyId']
+        if target_key_id is None:
+            raise TypeError("Missing 'target_key_id' argument")
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+
+        _setter("target_key_id", target_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
 
     @property
     @pulumi.getter(name="targetKeyId")
@@ -85,16 +106,41 @@ class _AliasState:
         :param pulumi.Input[str] target_key_arn: The Amazon Resource Name (ARN) of the target key identifier.
         :param pulumi.Input[str] target_key_id: Identifier for the key for which the alias is for, can be either an ARN or key_id.
         """
+        _AliasState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            name=name,
+            name_prefix=name_prefix,
+            target_key_arn=target_key_arn,
+            target_key_id=target_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             target_key_arn: Optional[pulumi.Input[str]] = None,
+             target_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if target_key_arn is None and 'targetKeyArn' in kwargs:
+            target_key_arn = kwargs['targetKeyArn']
+        if target_key_id is None and 'targetKeyId' in kwargs:
+            target_key_id = kwargs['targetKeyId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if target_key_arn is not None:
-            pulumi.set(__self__, "target_key_arn", target_key_arn)
+            _setter("target_key_arn", target_key_arn)
         if target_key_id is not None:
-            pulumi.set(__self__, "target_key_id", target_key_id)
+            _setter("target_key_id", target_key_id)
 
     @property
     @pulumi.getter
@@ -172,16 +218,6 @@ class Alias(pulumi.CustomResource):
         but API (hence this provider too) allows you to create as many aliases as
         the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        key = aws.kms.Key("key")
-        alias = aws.kms.Alias("alias", target_key_id=key.key_id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import KMS aliases using the `name`. For example:
@@ -208,16 +244,6 @@ class Alias(pulumi.CustomResource):
         but API (hence this provider too) allows you to create as many aliases as
         the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        key = aws.kms.Key("key")
-        alias = aws.kms.Alias("alias", target_key_id=key.key_id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import KMS aliases using the `name`. For example:
@@ -236,6 +262,10 @@ class Alias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

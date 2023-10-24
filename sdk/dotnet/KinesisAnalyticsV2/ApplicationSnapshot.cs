@@ -13,25 +13,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// Manages a Kinesis Analytics v2 Application Snapshot.
     /// Snapshots are the AWS implementation of [Flink Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.KinesisAnalyticsV2.ApplicationSnapshot("example", new()
-    ///     {
-    ///         ApplicationName = aws_kinesisanalyticsv2_application.Example.Name,
-    ///         SnapshotName = "example-snapshot",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For example:

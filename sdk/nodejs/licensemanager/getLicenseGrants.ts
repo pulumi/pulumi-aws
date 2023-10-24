@@ -9,23 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * This resource can be used to get a set of license grant ARNs matching a filter.
- *
- * ## Example Usage
- *
- * The following shows getting all license grant ARNs granted to your account.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const test = current.then(current => aws.licensemanager.getLicenseGrants({
- *     filters: [{
- *         name: "GranteePrincipalARN",
- *         values: [`arn:aws:iam::${current.accountId}:root`],
- *     }],
- * }));
- * ```
  */
 export function getLicenseGrants(args?: GetLicenseGrantsArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseGrantsResult> {
     args = args || {};
@@ -65,23 +48,6 @@ export interface GetLicenseGrantsResult {
 }
 /**
  * This resource can be used to get a set of license grant ARNs matching a filter.
- *
- * ## Example Usage
- *
- * The following shows getting all license grant ARNs granted to your account.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const test = current.then(current => aws.licensemanager.getLicenseGrants({
- *     filters: [{
- *         name: "GranteePrincipalARN",
- *         values: [`arn:aws:iam::${current.accountId}:root`],
- *     }],
- * }));
- * ```
  */
 export function getLicenseGrantsOutput(args?: GetLicenseGrantsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseGrantsResult> {
     return pulumi.output(args).apply((a: any) => getLicenseGrants(a, opts))

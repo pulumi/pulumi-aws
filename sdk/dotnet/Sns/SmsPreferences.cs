@@ -11,21 +11,6 @@ namespace Pulumi.Aws.Sns
 {
     /// <summary>
     /// Provides a way to set SNS SMS preferences.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var updateSmsPrefs = new Aws.Sns.SmsPreferences("updateSmsPrefs");
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:sns/smsPreferences:SmsPreferences")]
     public partial class SmsPreferences : global::Pulumi.CustomResource

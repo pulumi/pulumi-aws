@@ -15,37 +15,6 @@ import (
 
 // Creates and manages an AWS XRay Group.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/xray"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := xray.NewGroup(ctx, "example", &xray.GroupArgs{
-//				FilterExpression: pulumi.String("responsetime > 5"),
-//				GroupName:        pulumi.String("example"),
-//				InsightsConfiguration: &xray.GroupInsightsConfigurationArgs{
-//					InsightsEnabled:      pulumi.Bool(true),
-//					NotificationsEnabled: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import XRay Groups using the ARN. For example:

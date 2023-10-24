@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DelegationSetArgs', 'DelegationSet']
@@ -20,8 +20,21 @@ class DelegationSetArgs:
         :param pulumi.Input[str] reference_name: This is a reference name used in Caller Reference
                (helpful for identifying single delegation set amongst others)
         """
+        DelegationSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reference_name=reference_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reference_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if reference_name is None and 'referenceName' in kwargs:
+            reference_name = kwargs['referenceName']
+
         if reference_name is not None:
-            pulumi.set(__self__, "reference_name", reference_name)
+            _setter("reference_name", reference_name)
 
     @property
     @pulumi.getter(name="referenceName")
@@ -51,12 +64,31 @@ class _DelegationSetState:
         :param pulumi.Input[str] reference_name: This is a reference name used in Caller Reference
                (helpful for identifying single delegation set amongst others)
         """
+        _DelegationSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            name_servers=name_servers,
+            reference_name=reference_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             reference_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name_servers is None and 'nameServers' in kwargs:
+            name_servers = kwargs['nameServers']
+        if reference_name is None and 'referenceName' in kwargs:
+            reference_name = kwargs['referenceName']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name_servers is not None:
-            pulumi.set(__self__, "name_servers", name_servers)
+            _setter("name_servers", name_servers)
         if reference_name is not None:
-            pulumi.set(__self__, "reference_name", reference_name)
+            _setter("reference_name", reference_name)
 
     @property
     @pulumi.getter
@@ -107,17 +139,6 @@ class DelegationSet(pulumi.CustomResource):
         """
         Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.route53.DelegationSet("main", reference_name="DynDNS")
-        primary = aws.route53.Zone("primary", delegation_set_id=main.id)
-        secondary = aws.route53.Zone("secondary", delegation_set_id=main.id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
@@ -140,17 +161,6 @@ class DelegationSet(pulumi.CustomResource):
         """
         Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.route53.DelegationSet("main", reference_name="DynDNS")
-        primary = aws.route53.Zone("primary", delegation_set_id=main.id)
-        secondary = aws.route53.Zone("secondary", delegation_set_id=main.id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
@@ -169,6 +179,10 @@ class DelegationSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DelegationSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

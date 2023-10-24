@@ -11,38 +11,6 @@ namespace Pulumi.Aws.S3
 {
     /// <summary>
     /// Provides a resource for copying an S3 object.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.S3.ObjectCopy("test", new()
-    ///     {
-    ///         Bucket = "destination_bucket",
-    ///         Grants = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.ObjectCopyGrantArgs
-    ///             {
-    ///                 Permissions = new[]
-    ///                 {
-    ///                     "READ",
-    ///                 },
-    ///                 Type = "Group",
-    ///                 Uri = "http://acs.amazonaws.com/groups/global/AllUsers",
-    ///             },
-    ///         },
-    ///         Key = "destination_key",
-    ///         Source = "source_bucket/source_key",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:s3/objectCopy:ObjectCopy")]
     public partial class ObjectCopy : global::Pulumi.CustomResource

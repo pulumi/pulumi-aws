@@ -12,34 +12,6 @@ namespace Pulumi.Aws.AppRunner
     /// <summary>
     /// Manages an App Runner VPC Connector.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var connector = new Aws.AppRunner.VpcConnector("connector", new()
-    ///     {
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             "sg1",
-    ///             "sg2",
-    ///         },
-    ///         Subnets = new[]
-    ///         {
-    ///             "subnet1",
-    ///             "subnet2",
-    ///         },
-    ///         VpcConnectorName = "name",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:

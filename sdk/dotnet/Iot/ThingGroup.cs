@@ -12,42 +12,6 @@ namespace Pulumi.Aws.Iot
     /// <summary>
     /// Manages an AWS IoT Thing Group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var parent = new Aws.Iot.ThingGroup("parent");
-    /// 
-    ///     var example = new Aws.Iot.ThingGroup("example", new()
-    ///     {
-    ///         ParentGroupName = parent.Name,
-    ///         Properties = new Aws.Iot.Inputs.ThingGroupPropertiesArgs
-    ///         {
-    ///             AttributePayload = new Aws.Iot.Inputs.ThingGroupPropertiesAttributePayloadArgs
-    ///             {
-    ///                 Attributes = 
-    ///                 {
-    ///                     { "One", "11111" },
-    ///                     { "Two", "TwoTwo" },
-    ///                 },
-    ///             },
-    ///             Description = "This is my thing group",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "managed", "true" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IoT Things Groups using the name. For example:

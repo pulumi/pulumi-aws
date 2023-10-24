@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppConfig Deployment Strategy resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appconfig.DeploymentStrategy("example", {
- *     deploymentDurationInMinutes: 3,
- *     description: "Example Deployment Strategy",
- *     finalBakeTimeInMinutes: 4,
- *     growthFactor: 10,
- *     growthType: "LINEAR",
- *     replicateTo: "NONE",
- *     tags: {
- *         Type: "AppConfig Deployment Strategy",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:

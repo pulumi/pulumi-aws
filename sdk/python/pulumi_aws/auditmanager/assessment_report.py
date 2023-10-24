@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AssessmentReportArgs', 'AssessmentReport']
@@ -25,11 +25,30 @@ class AssessmentReportArgs:
         :param pulumi.Input[str] description: Description of the assessment report.
         :param pulumi.Input[str] name: Name of the assessment report.
         """
-        pulumi.set(__self__, "assessment_id", assessment_id)
+        AssessmentReportArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_id=assessment_id,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assessment_id is None and 'assessmentId' in kwargs:
+            assessment_id = kwargs['assessmentId']
+        if assessment_id is None:
+            raise TypeError("Missing 'assessment_id' argument")
+
+        _setter("assessment_id", assessment_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="assessmentId")
@@ -88,16 +107,37 @@ class _AssessmentReportState:
         :param pulumi.Input[str] name: Name of the assessment report.
         :param pulumi.Input[str] status: Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
         """
+        _AssessmentReportState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_id=assessment_id,
+            author=author,
+            description=description,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_id: Optional[pulumi.Input[str]] = None,
+             author: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assessment_id is None and 'assessmentId' in kwargs:
+            assessment_id = kwargs['assessmentId']
+
         if assessment_id is not None:
-            pulumi.set(__self__, "assessment_id", assessment_id)
+            _setter("assessment_id", assessment_id)
         if author is not None:
-            pulumi.set(__self__, "author", author)
+            _setter("author", author)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="assessmentId")
@@ -175,14 +215,6 @@ class AssessmentReport(pulumi.CustomResource):
         Resource for managing an AWS Audit Manager Assessment Report.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.auditmanager.AssessmentReport("test", assessment_id=aws_auditmanager_assessment["test"]["id"])
-        ```
 
         ## Import
 
@@ -210,14 +242,6 @@ class AssessmentReport(pulumi.CustomResource):
         Resource for managing an AWS Audit Manager Assessment Report.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.auditmanager.AssessmentReport("test", assessment_id=aws_auditmanager_assessment["test"]["id"])
-        ```
 
         ## Import
 
@@ -237,6 +261,10 @@ class AssessmentReport(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssessmentReportArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

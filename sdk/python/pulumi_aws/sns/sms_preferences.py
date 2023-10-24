@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SmsPreferencesArgs', 'SmsPreferences']
@@ -29,18 +29,51 @@ class SmsPreferencesArgs:
         :param pulumi.Input[int] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
         :param pulumi.Input[str] usage_report_s3_bucket: The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """
+        SmsPreferencesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_sender_id=default_sender_id,
+            default_sms_type=default_sms_type,
+            delivery_status_iam_role_arn=delivery_status_iam_role_arn,
+            delivery_status_success_sampling_rate=delivery_status_success_sampling_rate,
+            monthly_spend_limit=monthly_spend_limit,
+            usage_report_s3_bucket=usage_report_s3_bucket,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_sender_id: Optional[pulumi.Input[str]] = None,
+             default_sms_type: Optional[pulumi.Input[str]] = None,
+             delivery_status_iam_role_arn: Optional[pulumi.Input[str]] = None,
+             delivery_status_success_sampling_rate: Optional[pulumi.Input[str]] = None,
+             monthly_spend_limit: Optional[pulumi.Input[int]] = None,
+             usage_report_s3_bucket: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_sender_id is None and 'defaultSenderId' in kwargs:
+            default_sender_id = kwargs['defaultSenderId']
+        if default_sms_type is None and 'defaultSmsType' in kwargs:
+            default_sms_type = kwargs['defaultSmsType']
+        if delivery_status_iam_role_arn is None and 'deliveryStatusIamRoleArn' in kwargs:
+            delivery_status_iam_role_arn = kwargs['deliveryStatusIamRoleArn']
+        if delivery_status_success_sampling_rate is None and 'deliveryStatusSuccessSamplingRate' in kwargs:
+            delivery_status_success_sampling_rate = kwargs['deliveryStatusSuccessSamplingRate']
+        if monthly_spend_limit is None and 'monthlySpendLimit' in kwargs:
+            monthly_spend_limit = kwargs['monthlySpendLimit']
+        if usage_report_s3_bucket is None and 'usageReportS3Bucket' in kwargs:
+            usage_report_s3_bucket = kwargs['usageReportS3Bucket']
+
         if default_sender_id is not None:
-            pulumi.set(__self__, "default_sender_id", default_sender_id)
+            _setter("default_sender_id", default_sender_id)
         if default_sms_type is not None:
-            pulumi.set(__self__, "default_sms_type", default_sms_type)
+            _setter("default_sms_type", default_sms_type)
         if delivery_status_iam_role_arn is not None:
-            pulumi.set(__self__, "delivery_status_iam_role_arn", delivery_status_iam_role_arn)
+            _setter("delivery_status_iam_role_arn", delivery_status_iam_role_arn)
         if delivery_status_success_sampling_rate is not None:
-            pulumi.set(__self__, "delivery_status_success_sampling_rate", delivery_status_success_sampling_rate)
+            _setter("delivery_status_success_sampling_rate", delivery_status_success_sampling_rate)
         if monthly_spend_limit is not None:
-            pulumi.set(__self__, "monthly_spend_limit", monthly_spend_limit)
+            _setter("monthly_spend_limit", monthly_spend_limit)
         if usage_report_s3_bucket is not None:
-            pulumi.set(__self__, "usage_report_s3_bucket", usage_report_s3_bucket)
+            _setter("usage_report_s3_bucket", usage_report_s3_bucket)
 
     @property
     @pulumi.getter(name="defaultSenderId")
@@ -133,18 +166,51 @@ class _SmsPreferencesState:
         :param pulumi.Input[int] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
         :param pulumi.Input[str] usage_report_s3_bucket: The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """
+        _SmsPreferencesState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_sender_id=default_sender_id,
+            default_sms_type=default_sms_type,
+            delivery_status_iam_role_arn=delivery_status_iam_role_arn,
+            delivery_status_success_sampling_rate=delivery_status_success_sampling_rate,
+            monthly_spend_limit=monthly_spend_limit,
+            usage_report_s3_bucket=usage_report_s3_bucket,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_sender_id: Optional[pulumi.Input[str]] = None,
+             default_sms_type: Optional[pulumi.Input[str]] = None,
+             delivery_status_iam_role_arn: Optional[pulumi.Input[str]] = None,
+             delivery_status_success_sampling_rate: Optional[pulumi.Input[str]] = None,
+             monthly_spend_limit: Optional[pulumi.Input[int]] = None,
+             usage_report_s3_bucket: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_sender_id is None and 'defaultSenderId' in kwargs:
+            default_sender_id = kwargs['defaultSenderId']
+        if default_sms_type is None and 'defaultSmsType' in kwargs:
+            default_sms_type = kwargs['defaultSmsType']
+        if delivery_status_iam_role_arn is None and 'deliveryStatusIamRoleArn' in kwargs:
+            delivery_status_iam_role_arn = kwargs['deliveryStatusIamRoleArn']
+        if delivery_status_success_sampling_rate is None and 'deliveryStatusSuccessSamplingRate' in kwargs:
+            delivery_status_success_sampling_rate = kwargs['deliveryStatusSuccessSamplingRate']
+        if monthly_spend_limit is None and 'monthlySpendLimit' in kwargs:
+            monthly_spend_limit = kwargs['monthlySpendLimit']
+        if usage_report_s3_bucket is None and 'usageReportS3Bucket' in kwargs:
+            usage_report_s3_bucket = kwargs['usageReportS3Bucket']
+
         if default_sender_id is not None:
-            pulumi.set(__self__, "default_sender_id", default_sender_id)
+            _setter("default_sender_id", default_sender_id)
         if default_sms_type is not None:
-            pulumi.set(__self__, "default_sms_type", default_sms_type)
+            _setter("default_sms_type", default_sms_type)
         if delivery_status_iam_role_arn is not None:
-            pulumi.set(__self__, "delivery_status_iam_role_arn", delivery_status_iam_role_arn)
+            _setter("delivery_status_iam_role_arn", delivery_status_iam_role_arn)
         if delivery_status_success_sampling_rate is not None:
-            pulumi.set(__self__, "delivery_status_success_sampling_rate", delivery_status_success_sampling_rate)
+            _setter("delivery_status_success_sampling_rate", delivery_status_success_sampling_rate)
         if monthly_spend_limit is not None:
-            pulumi.set(__self__, "monthly_spend_limit", monthly_spend_limit)
+            _setter("monthly_spend_limit", monthly_spend_limit)
         if usage_report_s3_bucket is not None:
-            pulumi.set(__self__, "usage_report_s3_bucket", usage_report_s3_bucket)
+            _setter("usage_report_s3_bucket", usage_report_s3_bucket)
 
     @property
     @pulumi.getter(name="defaultSenderId")
@@ -234,15 +300,6 @@ class SmsPreferences(pulumi.CustomResource):
         """
         Provides a way to set SNS SMS preferences.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        update_sms_prefs = aws.sns.SmsPreferences("updateSmsPrefs")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_sender_id: A string, such as your business brand, that is displayed as the sender on the receiving device.
@@ -261,15 +318,6 @@ class SmsPreferences(pulumi.CustomResource):
         """
         Provides a way to set SNS SMS preferences.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        update_sms_prefs = aws.sns.SmsPreferences("updateSmsPrefs")
-        ```
-
         :param str resource_name: The name of the resource.
         :param SmsPreferencesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -280,6 +328,10 @@ class SmsPreferences(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SmsPreferencesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

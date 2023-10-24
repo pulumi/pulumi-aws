@@ -7,17 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a VPC DHCP Options Association resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const dnsResolver = new aws.ec2.VpcDhcpOptionsAssociation("dnsResolver", {
- *     vpcId: aws_vpc.foo.id,
- *     dhcpOptionsId: aws_vpc_dhcp_options.foo.id,
- * });
- * ```
  * ## Remarks
  *
  * * You can only associate one DHCP Options Set to a given VPC ID.

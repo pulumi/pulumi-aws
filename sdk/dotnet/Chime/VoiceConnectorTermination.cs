@@ -12,40 +12,6 @@ namespace Pulumi.Aws.Chime
     /// <summary>
     /// Enable Termination settings to control outbound calling from your SIP infrastructure.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
-    ///     {
-    ///         RequireEncryption = true,
-    ///     });
-    /// 
-    ///     var defaultVoiceConnectorTermination = new Aws.Chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", new()
-    ///     {
-    ///         Disabled = false,
-    ///         CpsLimit = 1,
-    ///         CidrAllowLists = new[]
-    ///         {
-    ///             "50.35.78.96/31",
-    ///         },
-    ///         CallingRegions = new[]
-    ///         {
-    ///             "US",
-    ///             "CA",
-    ///         },
-    ///         VoiceConnectorId = defaultVoiceConnector.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For example:

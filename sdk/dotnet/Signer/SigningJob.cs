@@ -12,47 +12,6 @@ namespace Pulumi.Aws.Signer
     /// <summary>
     /// Creates a Signer Signing Job.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testSp = new Aws.Signer.SigningProfile("testSp", new()
-    ///     {
-    ///         PlatformId = "AWSLambda-SHA384-ECDSA",
-    ///     });
-    /// 
-    ///     var buildSigningJob = new Aws.Signer.SigningJob("buildSigningJob", new()
-    ///     {
-    ///         ProfileName = testSp.Name,
-    ///         Source = new Aws.Signer.Inputs.SigningJobSourceArgs
-    ///         {
-    ///             S3 = new Aws.Signer.Inputs.SigningJobSourceS3Args
-    ///             {
-    ///                 Bucket = "s3-bucket-name",
-    ///                 Key = "object-to-be-signed.zip",
-    ///                 Version = "jADjFYYYEXAMPLETszPjOmCMFDzd9dN1",
-    ///             },
-    ///         },
-    ///         Destination = new Aws.Signer.Inputs.SigningJobDestinationArgs
-    ///         {
-    ///             S3 = new Aws.Signer.Inputs.SigningJobDestinationS3Args
-    ///             {
-    ///                 Bucket = "s3-bucket-name",
-    ///                 Prefix = "signed/",
-    ///             },
-    ///         },
-    ///         IgnoreSigningJobFailure = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:

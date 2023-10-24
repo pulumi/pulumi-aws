@@ -12,22 +12,6 @@ import * as utilities from "../utilities";
  *
  * More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.memorydb.Cluster("example", {
- *     aclName: "open-access",
- *     nodeType: "db.t4g.small",
- *     numShards: 2,
- *     securityGroupIds: [aws_security_group.example.id],
- *     snapshotRetentionLimit: 7,
- *     subnetGroupName: aws_memorydb_subnet_group.example.id,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import a cluster using the `name`. For example:

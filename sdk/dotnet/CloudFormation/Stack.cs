@@ -12,62 +12,6 @@ namespace Pulumi.Aws.CloudFormation
     /// <summary>
     /// Provides a CloudFormation Stack resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var network = new Aws.CloudFormation.Stack("network", new()
-    ///     {
-    ///         Parameters = 
-    ///         {
-    ///             { "VPCCidr", "10.0.0.0/16" },
-    ///         },
-    ///         TemplateBody = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Parameters"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["VPCCidr"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Type"] = "String",
-    ///                     ["Default"] = "10.0.0.0/16",
-    ///                     ["Description"] = "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
-    ///                 },
-    ///             },
-    ///             ["Resources"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["myVpc"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Type"] = "AWS::EC2::VPC",
-    ///                     ["Properties"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["CidrBlock"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["Ref"] = "VPCCidr",
-    ///                         },
-    ///                         ["Tags"] = new[]
-    ///                         {
-    ///                             new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 ["Key"] = "Name",
-    ///                                 ["Value"] = "Primary_CF_VPC",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:

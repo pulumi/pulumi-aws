@@ -7,46 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Pinpoint Email Channel resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["pinpoint.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const email = new aws.pinpoint.EmailChannel("email", {
- *     applicationId: app.applicationId,
- *     fromAddress: "user@example.com",
- *     roleArn: role.arn,
- * });
- * const identity = new aws.ses.DomainIdentity("identity", {domain: "example.com"});
- * const rolePolicyPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: [
- *             "mobileanalytics:PutEvents",
- *             "mobileanalytics:PutItems",
- *         ],
- *         resources: ["*"],
- *     }],
- * });
- * const rolePolicyRolePolicy = new aws.iam.RolePolicy("rolePolicyRolePolicy", {
- *     role: role.id,
- *     policy: rolePolicyPolicyDocument.then(rolePolicyPolicyDocument => rolePolicyPolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:

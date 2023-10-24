@@ -12,37 +12,6 @@ namespace Pulumi.Aws.WafRegional
     /// <summary>
     /// Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var byteSet = new Aws.WafRegional.ByteMatchSet("byteSet", new()
-    ///     {
-    ///         ByteMatchTuples = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.ByteMatchSetByteMatchTupleArgs
-    ///             {
-    ///                 FieldToMatch = new Aws.WafRegional.Inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs
-    ///                 {
-    ///                     Data = "referer",
-    ///                     Type = "HEADER",
-    ///                 },
-    ///                 PositionalConstraint = "CONTAINS",
-    ///                 TargetString = "badrefer1",
-    ///                 TextTransformation = "NONE",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Regional Byte Match Set using the id. For example:

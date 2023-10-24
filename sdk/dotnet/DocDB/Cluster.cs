@@ -21,30 +21,6 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var docdb = new Aws.DocDB.Cluster("docdb", new()
-    ///     {
-    ///         BackupRetentionPeriod = 5,
-    ///         ClusterIdentifier = "my-docdb-cluster",
-    ///         Engine = "docdb",
-    ///         MasterPassword = "mustbeeightchars",
-    ///         MasterUsername = "foo",
-    ///         PreferredBackupWindow = "07:00-09:00",
-    ///         SkipFinalSnapshot = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:

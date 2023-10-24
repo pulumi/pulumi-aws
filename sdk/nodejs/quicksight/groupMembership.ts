@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing QuickSight Group Membership
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.GroupMembership("example", {
- *     groupName: "all-access-users",
- *     memberName: "john_smith",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import QuickSight Group membership using the AWS account ID, namespace, group name and member name separated by `/`. For example:

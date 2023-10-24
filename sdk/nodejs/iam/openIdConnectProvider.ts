@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an IAM OpenID Connect provider.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.iam.OpenIdConnectProvider("default", {
- *     clientIdLists: ["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
- *     thumbprintLists: ["cf23df2207d99a74fbe169e3eba035e633b65d94"],
- *     url: "https://accounts.google.com",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:

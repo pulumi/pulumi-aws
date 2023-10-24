@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeSourceParametersSelfManagedKafkaParametersCredentials {
     /**
-     * @return The ARN of the Secrets Manager secret containing the basic auth credentials.
+     * @return The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     private String basicAuth;
@@ -34,7 +34,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersCredentials {
 
     private PipeSourceParametersSelfManagedKafkaParametersCredentials() {}
     /**
-     * @return The ARN of the Secrets Manager secret containing the basic auth credentials.
+     * @return The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     public String basicAuth() {

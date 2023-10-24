@@ -13,34 +13,6 @@ import * as utilities from "../utilities";
  * This resource can prove useful when an ipam pool was created in another root
  * module and you need the pool's id as an input variable. For example, pools
  * can be shared via RAM and used to create vpcs with CIDRs from that pool.
- *
- * ## Example Usage
- *
- * The following example shows an account that has only 1 pool, perhaps shared
- * via RAM, and using that pool id to create a VPC with a CIDR derived from
- * AWS IPAM.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testVpcIpamPool = aws.ec2.getVpcIpamPool({
- *     filters: [
- *         {
- *             name: "description",
- *             values: ["*test*"],
- *         },
- *         {
- *             name: "address-family",
- *             values: ["ipv4"],
- *         },
- *     ],
- * });
- * const testVpc = new aws.ec2.Vpc("testVpc", {
- *     ipv4IpamPoolId: testVpcIpamPool.then(testVpcIpamPool => testVpcIpamPool.id),
- *     ipv4NetmaskLength: 28,
- * });
- * ```
  */
 export function getVpcIpamPool(args?: GetVpcIpamPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIpamPoolResult> {
     args = args || {};
@@ -157,34 +129,6 @@ export interface GetVpcIpamPoolResult {
  * This resource can prove useful when an ipam pool was created in another root
  * module and you need the pool's id as an input variable. For example, pools
  * can be shared via RAM and used to create vpcs with CIDRs from that pool.
- *
- * ## Example Usage
- *
- * The following example shows an account that has only 1 pool, perhaps shared
- * via RAM, and using that pool id to create a VPC with a CIDR derived from
- * AWS IPAM.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testVpcIpamPool = aws.ec2.getVpcIpamPool({
- *     filters: [
- *         {
- *             name: "description",
- *             values: ["*test*"],
- *         },
- *         {
- *             name: "address-family",
- *             values: ["ipv4"],
- *         },
- *     ],
- * });
- * const testVpc = new aws.ec2.Vpc("testVpc", {
- *     ipv4IpamPoolId: testVpcIpamPool.then(testVpcIpamPool => testVpcIpamPool.id),
- *     ipv4NetmaskLength: 28,
- * });
- * ```
  */
 export function getVpcIpamPoolOutput(args?: GetVpcIpamPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIpamPoolResult> {
     return pulumi.output(args).apply((a: any) => getVpcIpamPool(a, opts))

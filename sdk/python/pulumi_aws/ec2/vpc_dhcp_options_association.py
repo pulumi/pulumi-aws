@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcDhcpOptionsAssociationArgs', 'VpcDhcpOptionsAssociation']
@@ -21,8 +21,29 @@ class VpcDhcpOptionsAssociationArgs:
         :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
-        pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        VpcDhcpOptionsAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dhcp_options_id=dhcp_options_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dhcp_options_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dhcp_options_id is None and 'dhcpOptionsId' in kwargs:
+            dhcp_options_id = kwargs['dhcpOptionsId']
+        if dhcp_options_id is None:
+            raise TypeError("Missing 'dhcp_options_id' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
+        _setter("dhcp_options_id", dhcp_options_id)
+        _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="dhcpOptionsId")
@@ -59,10 +80,27 @@ class _VpcDhcpOptionsAssociationState:
         :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
+        _VpcDhcpOptionsAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dhcp_options_id=dhcp_options_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dhcp_options_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dhcp_options_id is None and 'dhcpOptionsId' in kwargs:
+            dhcp_options_id = kwargs['dhcpOptionsId']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if dhcp_options_id is not None:
-            pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
+            _setter("dhcp_options_id", dhcp_options_id)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="dhcpOptionsId")
@@ -100,16 +138,6 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         """
         Provides a VPC DHCP Options Association resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        dns_resolver = aws.ec2.VpcDhcpOptionsAssociation("dnsResolver",
-            vpc_id=aws_vpc["foo"]["id"],
-            dhcp_options_id=aws_vpc_dhcp_options["foo"]["id"])
-        ```
         ## Remarks
 
         * You can only associate one DHCP Options Set to a given VPC ID.
@@ -137,16 +165,6 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         """
         Provides a VPC DHCP Options Association resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        dns_resolver = aws.ec2.VpcDhcpOptionsAssociation("dnsResolver",
-            vpc_id=aws_vpc["foo"]["id"],
-            dhcp_options_id=aws_vpc_dhcp_options["foo"]["id"])
-        ```
         ## Remarks
 
         * You can only associate one DHCP Options Set to a given VPC ID.
@@ -170,6 +188,10 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcDhcpOptionsAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

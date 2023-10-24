@@ -12,41 +12,6 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF Rule Group Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRule = new Aws.Waf.Rule("exampleRule", new()
-    ///     {
-    ///         MetricName = "example",
-    ///     });
-    /// 
-    ///     var exampleRuleGroup = new Aws.Waf.RuleGroup("exampleRuleGroup", new()
-    ///     {
-    ///         MetricName = "example",
-    ///         ActivatedRules = new[]
-    ///         {
-    ///             new Aws.Waf.Inputs.RuleGroupActivatedRuleArgs
-    ///             {
-    ///                 Action = new Aws.Waf.Inputs.RuleGroupActivatedRuleActionArgs
-    ///                 {
-    ///                     Type = "COUNT",
-    ///                 },
-    ///                 Priority = 50,
-    ///                 RuleId = exampleRule.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Rule Group using the id. For example:

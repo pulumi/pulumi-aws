@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,55 @@ class EfsLocationArgs:
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Default `/`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "ec2_config", ec2_config)
-        pulumi.set(__self__, "efs_file_system_arn", efs_file_system_arn)
+        EfsLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ec2_config=ec2_config,
+            efs_file_system_arn=efs_file_system_arn,
+            access_point_arn=access_point_arn,
+            file_system_access_role_arn=file_system_access_role_arn,
+            in_transit_encryption=in_transit_encryption,
+            subdirectory=subdirectory,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ec2_config: Optional[pulumi.Input['EfsLocationEc2ConfigArgs']] = None,
+             efs_file_system_arn: Optional[pulumi.Input[str]] = None,
+             access_point_arn: Optional[pulumi.Input[str]] = None,
+             file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
+             in_transit_encryption: Optional[pulumi.Input[str]] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ec2_config is None and 'ec2Config' in kwargs:
+            ec2_config = kwargs['ec2Config']
+        if ec2_config is None:
+            raise TypeError("Missing 'ec2_config' argument")
+        if efs_file_system_arn is None and 'efsFileSystemArn' in kwargs:
+            efs_file_system_arn = kwargs['efsFileSystemArn']
+        if efs_file_system_arn is None:
+            raise TypeError("Missing 'efs_file_system_arn' argument")
+        if access_point_arn is None and 'accessPointArn' in kwargs:
+            access_point_arn = kwargs['accessPointArn']
+        if file_system_access_role_arn is None and 'fileSystemAccessRoleArn' in kwargs:
+            file_system_access_role_arn = kwargs['fileSystemAccessRoleArn']
+        if in_transit_encryption is None and 'inTransitEncryption' in kwargs:
+            in_transit_encryption = kwargs['inTransitEncryption']
+
+        _setter("ec2_config", ec2_config)
+        _setter("efs_file_system_arn", efs_file_system_arn)
         if access_point_arn is not None:
-            pulumi.set(__self__, "access_point_arn", access_point_arn)
+            _setter("access_point_arn", access_point_arn)
         if file_system_access_role_arn is not None:
-            pulumi.set(__self__, "file_system_access_role_arn", file_system_access_role_arn)
+            _setter("file_system_access_role_arn", file_system_access_role_arn)
         if in_transit_encryption is not None:
-            pulumi.set(__self__, "in_transit_encryption", in_transit_encryption)
+            _setter("in_transit_encryption", in_transit_encryption)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="ec2Config")
@@ -156,29 +193,70 @@ class _EfsLocationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _EfsLocationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_point_arn=access_point_arn,
+            arn=arn,
+            ec2_config=ec2_config,
+            efs_file_system_arn=efs_file_system_arn,
+            file_system_access_role_arn=file_system_access_role_arn,
+            in_transit_encryption=in_transit_encryption,
+            subdirectory=subdirectory,
+            tags=tags,
+            tags_all=tags_all,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_point_arn: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             ec2_config: Optional[pulumi.Input['EfsLocationEc2ConfigArgs']] = None,
+             efs_file_system_arn: Optional[pulumi.Input[str]] = None,
+             file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
+             in_transit_encryption: Optional[pulumi.Input[str]] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_point_arn is None and 'accessPointArn' in kwargs:
+            access_point_arn = kwargs['accessPointArn']
+        if ec2_config is None and 'ec2Config' in kwargs:
+            ec2_config = kwargs['ec2Config']
+        if efs_file_system_arn is None and 'efsFileSystemArn' in kwargs:
+            efs_file_system_arn = kwargs['efsFileSystemArn']
+        if file_system_access_role_arn is None and 'fileSystemAccessRoleArn' in kwargs:
+            file_system_access_role_arn = kwargs['fileSystemAccessRoleArn']
+        if in_transit_encryption is None and 'inTransitEncryption' in kwargs:
+            in_transit_encryption = kwargs['inTransitEncryption']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if access_point_arn is not None:
-            pulumi.set(__self__, "access_point_arn", access_point_arn)
+            _setter("access_point_arn", access_point_arn)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if ec2_config is not None:
-            pulumi.set(__self__, "ec2_config", ec2_config)
+            _setter("ec2_config", ec2_config)
         if efs_file_system_arn is not None:
-            pulumi.set(__self__, "efs_file_system_arn", efs_file_system_arn)
+            _setter("efs_file_system_arn", efs_file_system_arn)
         if file_system_access_role_arn is not None:
-            pulumi.set(__self__, "file_system_access_role_arn", file_system_access_role_arn)
+            _setter("file_system_access_role_arn", file_system_access_role_arn)
         if in_transit_encryption is not None:
-            pulumi.set(__self__, "in_transit_encryption", in_transit_encryption)
+            _setter("in_transit_encryption", in_transit_encryption)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="accessPointArn")
@@ -319,20 +397,6 @@ class EfsLocation(pulumi.CustomResource):
 
         > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.EfsLocation("example",
-            efs_file_system_arn=aws_efs_mount_target["example"]["file_system_arn"],
-            ec2_config=aws.datasync.EfsLocationEc2ConfigArgs(
-                security_group_arns=[aws_security_group["example"]["arn"]],
-                subnet_arn=aws_subnet["example"]["arn"],
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For example:
@@ -362,20 +426,6 @@ class EfsLocation(pulumi.CustomResource):
 
         > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.datasync.EfsLocation("example",
-            efs_file_system_arn=aws_efs_mount_target["example"]["file_system_arn"],
-            ec2_config=aws.datasync.EfsLocationEc2ConfigArgs(
-                security_group_arns=[aws_security_group["example"]["arn"]],
-                subnet_arn=aws_subnet["example"]["arn"],
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For example:
@@ -394,6 +444,10 @@ class EfsLocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EfsLocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -416,6 +470,7 @@ class EfsLocation(pulumi.CustomResource):
             __props__ = EfsLocationArgs.__new__(EfsLocationArgs)
 
             __props__.__dict__["access_point_arn"] = access_point_arn
+            ec2_config = _utilities.configure(ec2_config, EfsLocationEc2ConfigArgs, True)
             if ec2_config is None and not opts.urn:
                 raise TypeError("Missing required property 'ec2_config'")
             __props__.__dict__["ec2_config"] = ec2_config

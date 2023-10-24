@@ -13,26 +13,6 @@ namespace Pulumi.Aws.Auditmanager
     /// Resource for managing an AWS Audit Manager Assessment Delegation.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Auditmanager.AssessmentDelegation("example", new()
-    ///     {
-    ///         AssessmentId = aws_auditmanager_assessment.Example.Id,
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         RoleType = "RESOURCE_OWNER",
-    ///         ControlSetId = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

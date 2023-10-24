@@ -13,69 +13,6 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Workteam resource.
     /// 
     /// ## Example Usage
-    /// ### Cognito Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.Workteam("example", new()
-    ///     {
-    ///         WorkteamName = "example",
-    ///         WorkforceName = aws_sagemaker_workforce.Example.Id,
-    ///         Description = "example",
-    ///         MemberDefinitions = new[]
-    ///         {
-    ///             new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
-    ///             {
-    ///                 CognitoMemberDefinition = new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionCognitoMemberDefinitionArgs
-    ///                 {
-    ///                     ClientId = aws_cognito_user_pool_client.Example.Id,
-    ///                     UserPool = aws_cognito_user_pool_domain.Example.User_pool_id,
-    ///                     UserGroup = aws_cognito_user_group.Example.Id,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Oidc Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.Workteam("example", new()
-    ///     {
-    ///         WorkteamName = "example",
-    ///         WorkforceName = aws_sagemaker_workforce.Example.Id,
-    ///         Description = "example",
-    ///         MemberDefinitions = new[]
-    ///         {
-    ///             new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
-    ///             {
-    ///                 OidcMemberDefinition = new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionOidcMemberDefinitionArgs
-    ///                 {
-    ///                     Groups = new[]
-    ///                     {
-    ///                         "example",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

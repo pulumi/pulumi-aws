@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,23 +39,72 @@ class FirewallArgs:
         :param pulumi.Input[bool] subnet_change_protection: A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "firewall_policy_arn", firewall_policy_arn)
-        pulumi.set(__self__, "subnet_mappings", subnet_mappings)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        FirewallArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firewall_policy_arn=firewall_policy_arn,
+            subnet_mappings=subnet_mappings,
+            vpc_id=vpc_id,
+            delete_protection=delete_protection,
+            description=description,
+            encryption_configuration=encryption_configuration,
+            firewall_policy_change_protection=firewall_policy_change_protection,
+            name=name,
+            subnet_change_protection=subnet_change_protection,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firewall_policy_arn: Optional[pulumi.Input[str]] = None,
+             subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             delete_protection: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encryption_configuration: Optional[pulumi.Input['FirewallEncryptionConfigurationArgs']] = None,
+             firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             subnet_change_protection: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_policy_arn is None and 'firewallPolicyArn' in kwargs:
+            firewall_policy_arn = kwargs['firewallPolicyArn']
+        if firewall_policy_arn is None:
+            raise TypeError("Missing 'firewall_policy_arn' argument")
+        if subnet_mappings is None and 'subnetMappings' in kwargs:
+            subnet_mappings = kwargs['subnetMappings']
+        if subnet_mappings is None:
+            raise TypeError("Missing 'subnet_mappings' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if firewall_policy_change_protection is None and 'firewallPolicyChangeProtection' in kwargs:
+            firewall_policy_change_protection = kwargs['firewallPolicyChangeProtection']
+        if subnet_change_protection is None and 'subnetChangeProtection' in kwargs:
+            subnet_change_protection = kwargs['subnetChangeProtection']
+
+        _setter("firewall_policy_arn", firewall_policy_arn)
+        _setter("subnet_mappings", subnet_mappings)
+        _setter("vpc_id", vpc_id)
         if delete_protection is not None:
-            pulumi.set(__self__, "delete_protection", delete_protection)
+            _setter("delete_protection", delete_protection)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encryption_configuration is not None:
-            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+            _setter("encryption_configuration", encryption_configuration)
         if firewall_policy_change_protection is not None:
-            pulumi.set(__self__, "firewall_policy_change_protection", firewall_policy_change_protection)
+            _setter("firewall_policy_change_protection", firewall_policy_change_protection)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subnet_change_protection is not None:
-            pulumi.set(__self__, "subnet_change_protection", subnet_change_protection)
+            _setter("subnet_change_protection", subnet_change_protection)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="firewallPolicyArn")
@@ -212,37 +261,94 @@ class _FirewallState:
         :param pulumi.Input[str] update_token: A string token used when updating a firewall.
         :param pulumi.Input[str] vpc_id: The unique identifier of the VPC where AWS Network Firewall should create the firewall.
         """
+        _FirewallState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            delete_protection=delete_protection,
+            description=description,
+            encryption_configuration=encryption_configuration,
+            firewall_policy_arn=firewall_policy_arn,
+            firewall_policy_change_protection=firewall_policy_change_protection,
+            firewall_statuses=firewall_statuses,
+            name=name,
+            subnet_change_protection=subnet_change_protection,
+            subnet_mappings=subnet_mappings,
+            tags=tags,
+            tags_all=tags_all,
+            update_token=update_token,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             delete_protection: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encryption_configuration: Optional[pulumi.Input['FirewallEncryptionConfigurationArgs']] = None,
+             firewall_policy_arn: Optional[pulumi.Input[str]] = None,
+             firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
+             firewall_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             subnet_change_protection: Optional[pulumi.Input[bool]] = None,
+             subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             update_token: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if firewall_policy_arn is None and 'firewallPolicyArn' in kwargs:
+            firewall_policy_arn = kwargs['firewallPolicyArn']
+        if firewall_policy_change_protection is None and 'firewallPolicyChangeProtection' in kwargs:
+            firewall_policy_change_protection = kwargs['firewallPolicyChangeProtection']
+        if firewall_statuses is None and 'firewallStatuses' in kwargs:
+            firewall_statuses = kwargs['firewallStatuses']
+        if subnet_change_protection is None and 'subnetChangeProtection' in kwargs:
+            subnet_change_protection = kwargs['subnetChangeProtection']
+        if subnet_mappings is None and 'subnetMappings' in kwargs:
+            subnet_mappings = kwargs['subnetMappings']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if update_token is None and 'updateToken' in kwargs:
+            update_token = kwargs['updateToken']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if delete_protection is not None:
-            pulumi.set(__self__, "delete_protection", delete_protection)
+            _setter("delete_protection", delete_protection)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encryption_configuration is not None:
-            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+            _setter("encryption_configuration", encryption_configuration)
         if firewall_policy_arn is not None:
-            pulumi.set(__self__, "firewall_policy_arn", firewall_policy_arn)
+            _setter("firewall_policy_arn", firewall_policy_arn)
         if firewall_policy_change_protection is not None:
-            pulumi.set(__self__, "firewall_policy_change_protection", firewall_policy_change_protection)
+            _setter("firewall_policy_change_protection", firewall_policy_change_protection)
         if firewall_statuses is not None:
-            pulumi.set(__self__, "firewall_statuses", firewall_statuses)
+            _setter("firewall_statuses", firewall_statuses)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subnet_change_protection is not None:
-            pulumi.set(__self__, "subnet_change_protection", subnet_change_protection)
+            _setter("subnet_change_protection", subnet_change_protection)
         if subnet_mappings is not None:
-            pulumi.set(__self__, "subnet_mappings", subnet_mappings)
+            _setter("subnet_mappings", subnet_mappings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if update_token is not None:
-            pulumi.set(__self__, "update_token", update_token)
+            _setter("update_token", update_token)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -435,24 +541,6 @@ class Firewall(pulumi.CustomResource):
         """
         Provides an AWS Network Firewall Firewall Resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.Firewall("example",
-            firewall_policy_arn=aws_networkfirewall_firewall_policy["example"]["arn"],
-            vpc_id=aws_vpc["example"]["id"],
-            subnet_mappings=[aws.networkfirewall.FirewallSubnetMappingArgs(
-                subnet_id=aws_subnet["example"]["id"],
-            )],
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
@@ -483,24 +571,6 @@ class Firewall(pulumi.CustomResource):
         """
         Provides an AWS Network Firewall Firewall Resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkfirewall.Firewall("example",
-            firewall_policy_arn=aws_networkfirewall_firewall_policy["example"]["arn"],
-            vpc_id=aws_vpc["example"]["id"],
-            subnet_mappings=[aws.networkfirewall.FirewallSubnetMappingArgs(
-                subnet_id=aws_subnet["example"]["id"],
-            )],
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
@@ -519,6 +589,10 @@ class Firewall(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -545,6 +619,7 @@ class Firewall(pulumi.CustomResource):
 
             __props__.__dict__["delete_protection"] = delete_protection
             __props__.__dict__["description"] = description
+            encryption_configuration = _utilities.configure(encryption_configuration, FirewallEncryptionConfigurationArgs, True)
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             if firewall_policy_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_policy_arn'")

@@ -14,69 +14,6 @@ namespace Pulumi.Aws.Connect
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
     /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.PhoneNumber("example", new()
-    ///     {
-    ///         TargetArn = aws_connect_instance.Example.Arn,
-    ///         CountryCode = "US",
-    ///         Type = "DID",
-    ///         Tags = 
-    ///         {
-    ///             { "hello", "world" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Description
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.PhoneNumber("example", new()
-    ///     {
-    ///         TargetArn = aws_connect_instance.Example.Arn,
-    ///         CountryCode = "US",
-    ///         Type = "DID",
-    ///         Description = "example description",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Prefix to filter phone numbers
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.PhoneNumber("example", new()
-    ///     {
-    ///         TargetArn = aws_connect_instance.Example.Arn,
-    ///         CountryCode = "US",
-    ///         Type = "DID",
-    ///         Prefix = "+18005",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

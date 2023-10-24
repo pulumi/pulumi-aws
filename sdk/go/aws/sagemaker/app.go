@@ -16,34 +16,6 @@ import (
 // Provides a SageMaker App resource.
 //
 // ## Example Usage
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewApp(ctx, "example", &sagemaker.AppArgs{
-//				DomainId:        pulumi.Any(aws_sagemaker_domain.Example.Id),
-//				UserProfileName: pulumi.Any(aws_sagemaker_user_profile.Example.User_profile_name),
-//				AppName:         pulumi.String("example"),
-//				AppType:         pulumi.String("JupyterServer"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

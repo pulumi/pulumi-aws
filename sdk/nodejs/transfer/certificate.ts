@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer AS2 Certificate resource.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const example = new aws.transfer.Certificate("example", {
- *     certificate: fs.readFileSync(`${path.module}/example.com/example.crt`),
- *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
- *     privateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
- *     description: "example",
- *     usage: "SIGNING",
- * });
- * ```
  *
  * ## Import
  *

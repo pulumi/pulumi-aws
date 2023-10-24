@@ -14,32 +14,6 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.MemoryDb.ParameterGroup("example", new()
-    ///     {
-    ///         Family = "memorydb_redis6",
-    ///         Parameters = new[]
-    ///         {
-    ///             new Aws.MemoryDb.Inputs.ParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "activedefrag",
-    ///                 Value = "yes",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a parameter group using the `name`. For example:

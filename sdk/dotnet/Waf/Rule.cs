@@ -12,51 +12,6 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF Rule Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ipset = new Aws.Waf.IpSet("ipset", new()
-    ///     {
-    ///         IpSetDescriptors = new[]
-    ///         {
-    ///             new Aws.Waf.Inputs.IpSetIpSetDescriptorArgs
-    ///             {
-    ///                 Type = "IPV4",
-    ///                 Value = "192.0.7.0/24",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var wafrule = new Aws.Waf.Rule("wafrule", new()
-    ///     {
-    ///         MetricName = "tfWAFRule",
-    ///         Predicates = new[]
-    ///         {
-    ///             new Aws.Waf.Inputs.RulePredicateArgs
-    ///             {
-    ///                 DataId = ipset.Id,
-    ///                 Negated = false,
-    ///                 Type = "IPMatch",
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             ipset,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF rules using the id. For example:

@@ -12,26 +12,6 @@ namespace Pulumi.Aws.NetworkManager
     /// <summary>
     /// Creates a site in a global network.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("exampleGlobalNetwork");
-    /// 
-    ///     var exampleSite = new Aws.NetworkManager.Site("exampleSite", new()
-    ///     {
-    ///         GlobalNetworkId = exampleGlobalNetwork.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For example:

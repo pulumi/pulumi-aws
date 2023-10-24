@@ -12,25 +12,6 @@ namespace Pulumi.Aws.CodeCommit
     /// <summary>
     /// Provides a CodeCommit Repository Resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CodeCommit.Repository("test", new()
-    ///     {
-    ///         Description = "This is the Sample App Repository",
-    ///         RepositoryName = "MyTestRepository",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeCommit repository using repository name. For example:

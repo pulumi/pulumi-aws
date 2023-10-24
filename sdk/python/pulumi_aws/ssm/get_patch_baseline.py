@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -209,31 +209,6 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
     """
     Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
 
-    ## Example Usage
-
-    To retrieve a baseline provided by AWS:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    centos = aws.ssm.get_patch_baseline(name_prefix="AWS-",
-        operating_system="CENTOS",
-        owner="AWS")
-    ```
-
-    To retrieve a baseline on your account:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default_custom = aws.ssm.get_patch_baseline(default_baseline=True,
-        name_prefix="MyCustomBaseline",
-        operating_system="WINDOWS",
-        owner="Self")
-    ```
-
 
     :param bool default_baseline: Filters the results against the baselines default_baseline field.
     :param str name_prefix: Filter results by the baseline name prefix.
@@ -274,31 +249,6 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPatchBaselineResult]:
     """
     Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
-
-    ## Example Usage
-
-    To retrieve a baseline provided by AWS:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    centos = aws.ssm.get_patch_baseline(name_prefix="AWS-",
-        operating_system="CENTOS",
-        owner="AWS")
-    ```
-
-    To retrieve a baseline on your account:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default_custom = aws.ssm.get_patch_baseline(default_baseline=True,
-        name_prefix="MyCustomBaseline",
-        operating_system="WINDOWS",
-        owner="Self")
-    ```
 
 
     :param bool default_baseline: Filters the results against the baselines default_baseline field.

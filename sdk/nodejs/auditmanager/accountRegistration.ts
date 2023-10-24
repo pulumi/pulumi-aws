@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing AWS Audit Manager Account Registration.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.auditmanager.AccountRegistration("example", {});
- * ```
- * ### Deregister On Destroy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.auditmanager.AccountRegistration("example", {deregisterOnDestroy: true});
- * ```
  *
  * ## Import
  *

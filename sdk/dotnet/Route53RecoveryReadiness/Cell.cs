@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// <summary>
     /// Provides an AWS Route 53 Recovery Readiness Cell.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryReadiness.Cell("example", new()
-    ///     {
-    ///         CellName = "us-west-2-failover-cell",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:

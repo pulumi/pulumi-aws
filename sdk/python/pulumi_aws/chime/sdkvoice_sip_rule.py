@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,13 +31,44 @@ class SdkvoiceSipRuleArgs:
         :param pulumi.Input[bool] disabled: Enables or disables a rule. You must disable rules before you can delete them.
         :param pulumi.Input[str] name: The name of the SIP rule.
         """
-        pulumi.set(__self__, "target_applications", target_applications)
-        pulumi.set(__self__, "trigger_type", trigger_type)
-        pulumi.set(__self__, "trigger_value", trigger_value)
+        SdkvoiceSipRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_applications=target_applications,
+            trigger_type=trigger_type,
+            trigger_value=trigger_value,
+            disabled=disabled,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_applications: Optional[pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]]] = None,
+             trigger_type: Optional[pulumi.Input[str]] = None,
+             trigger_value: Optional[pulumi.Input[str]] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_applications is None and 'targetApplications' in kwargs:
+            target_applications = kwargs['targetApplications']
+        if target_applications is None:
+            raise TypeError("Missing 'target_applications' argument")
+        if trigger_type is None and 'triggerType' in kwargs:
+            trigger_type = kwargs['triggerType']
+        if trigger_type is None:
+            raise TypeError("Missing 'trigger_type' argument")
+        if trigger_value is None and 'triggerValue' in kwargs:
+            trigger_value = kwargs['triggerValue']
+        if trigger_value is None:
+            raise TypeError("Missing 'trigger_value' argument")
+
+        _setter("target_applications", target_applications)
+        _setter("trigger_type", trigger_type)
+        _setter("trigger_value", trigger_value)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="targetApplications")
@@ -120,16 +151,41 @@ class _SdkvoiceSipRuleState:
                
                The following arguments are optional:
         """
+        _SdkvoiceSipRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disabled=disabled,
+            name=name,
+            target_applications=target_applications,
+            trigger_type=trigger_type,
+            trigger_value=trigger_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             target_applications: Optional[pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]]] = None,
+             trigger_type: Optional[pulumi.Input[str]] = None,
+             trigger_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_applications is None and 'targetApplications' in kwargs:
+            target_applications = kwargs['targetApplications']
+        if trigger_type is None and 'triggerType' in kwargs:
+            trigger_type = kwargs['triggerType']
+        if trigger_value is None and 'triggerValue' in kwargs:
+            trigger_value = kwargs['triggerValue']
+
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if target_applications is not None:
-            pulumi.set(__self__, "target_applications", target_applications)
+            _setter("target_applications", target_applications)
         if trigger_type is not None:
-            pulumi.set(__self__, "trigger_type", trigger_type)
+            _setter("trigger_type", trigger_type)
         if trigger_value is not None:
-            pulumi.set(__self__, "trigger_value", trigger_value)
+            _setter("trigger_value", trigger_value)
 
     @property
     @pulumi.getter
@@ -209,21 +265,6 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.chime.SdkvoiceSipRule("example",
-            trigger_type="RequestUriHostname",
-            trigger_value=aws_chime_voice_connector["example-voice-connector"]["outbound_host_name"],
-            target_applications=[aws.chime.SdkvoiceSipRuleTargetApplicationArgs(
-                priority=1,
-                sip_media_application_id=aws_chimesdkvoice_sip_media_application["example-sma"]["id"],
-                aws_region="us-east-1",
-            )])
-        ```
 
         ## Import
 
@@ -253,21 +294,6 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.chime.SdkvoiceSipRule("example",
-            trigger_type="RequestUriHostname",
-            trigger_value=aws_chime_voice_connector["example-voice-connector"]["outbound_host_name"],
-            target_applications=[aws.chime.SdkvoiceSipRuleTargetApplicationArgs(
-                priority=1,
-                sip_media_application_id=aws_chimesdkvoice_sip_media_application["example-sma"]["id"],
-                aws_region="us-east-1",
-            )])
-        ```
 
         ## Import
 
@@ -287,6 +313,10 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SdkvoiceSipRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

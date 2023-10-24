@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BranchArgs', 'Branch']
@@ -51,38 +51,109 @@ class BranchArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] ttl: Content Time To Live (TTL) for the website in seconds.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "branch_name", branch_name)
+        BranchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            branch_name=branch_name,
+            backend_environment_arn=backend_environment_arn,
+            basic_auth_credentials=basic_auth_credentials,
+            description=description,
+            display_name=display_name,
+            enable_auto_build=enable_auto_build,
+            enable_basic_auth=enable_basic_auth,
+            enable_notification=enable_notification,
+            enable_performance_mode=enable_performance_mode,
+            enable_pull_request_preview=enable_pull_request_preview,
+            environment_variables=environment_variables,
+            framework=framework,
+            pull_request_environment_name=pull_request_environment_name,
+            stage=stage,
+            tags=tags,
+            ttl=ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             branch_name: Optional[pulumi.Input[str]] = None,
+             backend_environment_arn: Optional[pulumi.Input[str]] = None,
+             basic_auth_credentials: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enable_auto_build: Optional[pulumi.Input[bool]] = None,
+             enable_basic_auth: Optional[pulumi.Input[bool]] = None,
+             enable_notification: Optional[pulumi.Input[bool]] = None,
+             enable_performance_mode: Optional[pulumi.Input[bool]] = None,
+             enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
+             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             framework: Optional[pulumi.Input[str]] = None,
+             pull_request_environment_name: Optional[pulumi.Input[str]] = None,
+             stage: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ttl: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if branch_name is None and 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if branch_name is None:
+            raise TypeError("Missing 'branch_name' argument")
+        if backend_environment_arn is None and 'backendEnvironmentArn' in kwargs:
+            backend_environment_arn = kwargs['backendEnvironmentArn']
+        if basic_auth_credentials is None and 'basicAuthCredentials' in kwargs:
+            basic_auth_credentials = kwargs['basicAuthCredentials']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if enable_auto_build is None and 'enableAutoBuild' in kwargs:
+            enable_auto_build = kwargs['enableAutoBuild']
+        if enable_basic_auth is None and 'enableBasicAuth' in kwargs:
+            enable_basic_auth = kwargs['enableBasicAuth']
+        if enable_notification is None and 'enableNotification' in kwargs:
+            enable_notification = kwargs['enableNotification']
+        if enable_performance_mode is None and 'enablePerformanceMode' in kwargs:
+            enable_performance_mode = kwargs['enablePerformanceMode']
+        if enable_pull_request_preview is None and 'enablePullRequestPreview' in kwargs:
+            enable_pull_request_preview = kwargs['enablePullRequestPreview']
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if pull_request_environment_name is None and 'pullRequestEnvironmentName' in kwargs:
+            pull_request_environment_name = kwargs['pullRequestEnvironmentName']
+
+        _setter("app_id", app_id)
+        _setter("branch_name", branch_name)
         if backend_environment_arn is not None:
-            pulumi.set(__self__, "backend_environment_arn", backend_environment_arn)
+            _setter("backend_environment_arn", backend_environment_arn)
         if basic_auth_credentials is not None:
-            pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
+            _setter("basic_auth_credentials", basic_auth_credentials)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enable_auto_build is not None:
-            pulumi.set(__self__, "enable_auto_build", enable_auto_build)
+            _setter("enable_auto_build", enable_auto_build)
         if enable_basic_auth is not None:
-            pulumi.set(__self__, "enable_basic_auth", enable_basic_auth)
+            _setter("enable_basic_auth", enable_basic_auth)
         if enable_notification is not None:
-            pulumi.set(__self__, "enable_notification", enable_notification)
+            _setter("enable_notification", enable_notification)
         if enable_performance_mode is not None:
-            pulumi.set(__self__, "enable_performance_mode", enable_performance_mode)
+            _setter("enable_performance_mode", enable_performance_mode)
         if enable_pull_request_preview is not None:
-            pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
+            _setter("enable_pull_request_preview", enable_pull_request_preview)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if framework is not None:
-            pulumi.set(__self__, "framework", framework)
+            _setter("framework", framework)
         if pull_request_environment_name is not None:
-            pulumi.set(__self__, "pull_request_environment_name", pull_request_environment_name)
+            _setter("pull_request_environment_name", pull_request_environment_name)
         if stage is not None:
-            pulumi.set(__self__, "stage", stage)
+            _setter("stage", stage)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
 
     @property
     @pulumi.getter(name="appId")
@@ -341,55 +412,144 @@ class _BranchState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] ttl: Content Time To Live (TTL) for the website in seconds.
         """
+        _BranchState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            arn=arn,
+            associated_resources=associated_resources,
+            backend_environment_arn=backend_environment_arn,
+            basic_auth_credentials=basic_auth_credentials,
+            branch_name=branch_name,
+            custom_domains=custom_domains,
+            description=description,
+            destination_branch=destination_branch,
+            display_name=display_name,
+            enable_auto_build=enable_auto_build,
+            enable_basic_auth=enable_basic_auth,
+            enable_notification=enable_notification,
+            enable_performance_mode=enable_performance_mode,
+            enable_pull_request_preview=enable_pull_request_preview,
+            environment_variables=environment_variables,
+            framework=framework,
+            pull_request_environment_name=pull_request_environment_name,
+            source_branch=source_branch,
+            stage=stage,
+            tags=tags,
+            tags_all=tags_all,
+            ttl=ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             associated_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             backend_environment_arn: Optional[pulumi.Input[str]] = None,
+             basic_auth_credentials: Optional[pulumi.Input[str]] = None,
+             branch_name: Optional[pulumi.Input[str]] = None,
+             custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             destination_branch: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enable_auto_build: Optional[pulumi.Input[bool]] = None,
+             enable_basic_auth: Optional[pulumi.Input[bool]] = None,
+             enable_notification: Optional[pulumi.Input[bool]] = None,
+             enable_performance_mode: Optional[pulumi.Input[bool]] = None,
+             enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
+             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             framework: Optional[pulumi.Input[str]] = None,
+             pull_request_environment_name: Optional[pulumi.Input[str]] = None,
+             source_branch: Optional[pulumi.Input[str]] = None,
+             stage: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ttl: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if associated_resources is None and 'associatedResources' in kwargs:
+            associated_resources = kwargs['associatedResources']
+        if backend_environment_arn is None and 'backendEnvironmentArn' in kwargs:
+            backend_environment_arn = kwargs['backendEnvironmentArn']
+        if basic_auth_credentials is None and 'basicAuthCredentials' in kwargs:
+            basic_auth_credentials = kwargs['basicAuthCredentials']
+        if branch_name is None and 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if custom_domains is None and 'customDomains' in kwargs:
+            custom_domains = kwargs['customDomains']
+        if destination_branch is None and 'destinationBranch' in kwargs:
+            destination_branch = kwargs['destinationBranch']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if enable_auto_build is None and 'enableAutoBuild' in kwargs:
+            enable_auto_build = kwargs['enableAutoBuild']
+        if enable_basic_auth is None and 'enableBasicAuth' in kwargs:
+            enable_basic_auth = kwargs['enableBasicAuth']
+        if enable_notification is None and 'enableNotification' in kwargs:
+            enable_notification = kwargs['enableNotification']
+        if enable_performance_mode is None and 'enablePerformanceMode' in kwargs:
+            enable_performance_mode = kwargs['enablePerformanceMode']
+        if enable_pull_request_preview is None and 'enablePullRequestPreview' in kwargs:
+            enable_pull_request_preview = kwargs['enablePullRequestPreview']
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if pull_request_environment_name is None and 'pullRequestEnvironmentName' in kwargs:
+            pull_request_environment_name = kwargs['pullRequestEnvironmentName']
+        if source_branch is None and 'sourceBranch' in kwargs:
+            source_branch = kwargs['sourceBranch']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if associated_resources is not None:
-            pulumi.set(__self__, "associated_resources", associated_resources)
+            _setter("associated_resources", associated_resources)
         if backend_environment_arn is not None:
-            pulumi.set(__self__, "backend_environment_arn", backend_environment_arn)
+            _setter("backend_environment_arn", backend_environment_arn)
         if basic_auth_credentials is not None:
-            pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
+            _setter("basic_auth_credentials", basic_auth_credentials)
         if branch_name is not None:
-            pulumi.set(__self__, "branch_name", branch_name)
+            _setter("branch_name", branch_name)
         if custom_domains is not None:
-            pulumi.set(__self__, "custom_domains", custom_domains)
+            _setter("custom_domains", custom_domains)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_branch is not None:
-            pulumi.set(__self__, "destination_branch", destination_branch)
+            _setter("destination_branch", destination_branch)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enable_auto_build is not None:
-            pulumi.set(__self__, "enable_auto_build", enable_auto_build)
+            _setter("enable_auto_build", enable_auto_build)
         if enable_basic_auth is not None:
-            pulumi.set(__self__, "enable_basic_auth", enable_basic_auth)
+            _setter("enable_basic_auth", enable_basic_auth)
         if enable_notification is not None:
-            pulumi.set(__self__, "enable_notification", enable_notification)
+            _setter("enable_notification", enable_notification)
         if enable_performance_mode is not None:
-            pulumi.set(__self__, "enable_performance_mode", enable_performance_mode)
+            _setter("enable_performance_mode", enable_performance_mode)
         if enable_pull_request_preview is not None:
-            pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
+            _setter("enable_pull_request_preview", enable_pull_request_preview)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if framework is not None:
-            pulumi.set(__self__, "framework", framework)
+            _setter("framework", framework)
         if pull_request_environment_name is not None:
-            pulumi.set(__self__, "pull_request_environment_name", pull_request_environment_name)
+            _setter("pull_request_environment_name", pull_request_environment_name)
         if source_branch is not None:
-            pulumi.set(__self__, "source_branch", source_branch)
+            _setter("source_branch", source_branch)
         if stage is not None:
-            pulumi.set(__self__, "stage", stage)
+            _setter("stage", stage)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
 
     @property
     @pulumi.getter(name="appId")
@@ -697,86 +857,6 @@ class Branch(pulumi.CustomResource):
         """
         Provides an Amplify Branch resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example")
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master",
-            framework="React",
-            stage="PRODUCTION",
-            environment_variables={
-                "REACT_APP_API_SERVER": "https://api.example.com",
-            })
-        ```
-        ### Notifications
-
-        Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example")
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master",
-            enable_notification=True)
-        # EventBridge Rule for Amplify notifications
-        amplify_app_master_event_rule = aws.cloudwatch.EventRule("amplifyAppMasterEventRule",
-            description=master.branch_name.apply(lambda branch_name: f"AWS Amplify build notifications for :  App: {aws_amplify_app['app']['id']} Branch: {branch_name}"),
-            event_pattern=pulumi.Output.all(example.id, master.branch_name).apply(lambda id, branch_name: json.dumps({
-                "detail": {
-                    "appId": [id],
-                    "branchName": [branch_name],
-                    "jobStatus": [
-                        "SUCCEED",
-                        "FAILED",
-                        "STARTED",
-                    ],
-                },
-                "detail-type": ["Amplify Deployment Status Change"],
-                "source": ["aws.amplify"],
-            })))
-        amplify_app_master_topic = aws.sns.Topic("amplifyAppMasterTopic")
-        amplify_app_master_event_target = aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget",
-            rule=amplify_app_master_event_rule.name,
-            arn=amplify_app_master_topic.arn,
-            input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
-                input_paths={
-                    "jobId": "$.detail.jobId",
-                    "appId": "$.detail.appId",
-                    "region": "$.region",
-                    "branch": "$.detail.branchName",
-                    "status": "$.detail.jobStatus",
-                },
-                input_template="\\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \\"",
-            ))
-        # SNS Topic for Amplify notifications
-        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid=f"Allow_Publish_Events {master_arn}",
-            effect="Allow",
-            actions=["SNS:Publish"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["events.amazonaws.com"],
-            )],
-            resources=[amplify_app_master_topic_arn],
-        )]))
-        amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy",
-            arn=amplify_app_master_topic.arn,
-            policy=amplify_app_master_policy_document.json)
-        this = aws.sns.TopicSubscription("this",
-            topic=amplify_app_master_topic.arn,
-            protocol="email",
-            endpoint="user@acme.com")
-        ```
-
         ## Import
 
         Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For example:
@@ -814,86 +894,6 @@ class Branch(pulumi.CustomResource):
         """
         Provides an Amplify Branch resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example")
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master",
-            framework="React",
-            stage="PRODUCTION",
-            environment_variables={
-                "REACT_APP_API_SERVER": "https://api.example.com",
-            })
-        ```
-        ### Notifications
-
-        Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example")
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master",
-            enable_notification=True)
-        # EventBridge Rule for Amplify notifications
-        amplify_app_master_event_rule = aws.cloudwatch.EventRule("amplifyAppMasterEventRule",
-            description=master.branch_name.apply(lambda branch_name: f"AWS Amplify build notifications for :  App: {aws_amplify_app['app']['id']} Branch: {branch_name}"),
-            event_pattern=pulumi.Output.all(example.id, master.branch_name).apply(lambda id, branch_name: json.dumps({
-                "detail": {
-                    "appId": [id],
-                    "branchName": [branch_name],
-                    "jobStatus": [
-                        "SUCCEED",
-                        "FAILED",
-                        "STARTED",
-                    ],
-                },
-                "detail-type": ["Amplify Deployment Status Change"],
-                "source": ["aws.amplify"],
-            })))
-        amplify_app_master_topic = aws.sns.Topic("amplifyAppMasterTopic")
-        amplify_app_master_event_target = aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget",
-            rule=amplify_app_master_event_rule.name,
-            arn=amplify_app_master_topic.arn,
-            input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
-                input_paths={
-                    "jobId": "$.detail.jobId",
-                    "appId": "$.detail.appId",
-                    "region": "$.region",
-                    "branch": "$.detail.branchName",
-                    "status": "$.detail.jobStatus",
-                },
-                input_template="\\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \\"",
-            ))
-        # SNS Topic for Amplify notifications
-        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid=f"Allow_Publish_Events {master_arn}",
-            effect="Allow",
-            actions=["SNS:Publish"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["events.amazonaws.com"],
-            )],
-            resources=[amplify_app_master_topic_arn],
-        )]))
-        amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy",
-            arn=amplify_app_master_topic.arn,
-            policy=amplify_app_master_policy_document.json)
-        this = aws.sns.TopicSubscription("this",
-            topic=amplify_app_master_topic.arn,
-            protocol="email",
-            endpoint="user@acme.com")
-        ```
-
         ## Import
 
         Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For example:
@@ -912,6 +912,10 @@ class Branch(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BranchArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

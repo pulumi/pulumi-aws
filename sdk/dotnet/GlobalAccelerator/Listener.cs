@@ -12,46 +12,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// <summary>
     /// Provides a Global Accelerator listener.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAccelerator = new Aws.GlobalAccelerator.Accelerator("exampleAccelerator", new()
-    ///     {
-    ///         IpAddressType = "IPV4",
-    ///         Enabled = true,
-    ///         Attributes = new Aws.GlobalAccelerator.Inputs.AcceleratorAttributesArgs
-    ///         {
-    ///             FlowLogsEnabled = true,
-    ///             FlowLogsS3Bucket = "example-bucket",
-    ///             FlowLogsS3Prefix = "flow-logs/",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleListener = new Aws.GlobalAccelerator.Listener("exampleListener", new()
-    ///     {
-    ///         AcceleratorArn = exampleAccelerator.Id,
-    ///         ClientAffinity = "SOURCE_IP",
-    ///         Protocol = "TCP",
-    ///         PortRanges = new[]
-    ///         {
-    ///             new Aws.GlobalAccelerator.Inputs.ListenerPortRangeArgs
-    ///             {
-    ///                 FromPort = 80,
-    ///                 ToPort = 80,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:

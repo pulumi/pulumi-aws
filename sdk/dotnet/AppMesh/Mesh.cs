@@ -13,43 +13,6 @@ namespace Pulumi.Aws.AppMesh
     /// Provides an AWS App Mesh service mesh resource.
     /// 
     /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var simple = new Aws.AppMesh.Mesh("simple");
-    /// 
-    /// });
-    /// ```
-    /// ### Egress Filter
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var simple = new Aws.AppMesh.Mesh("simple", new()
-    ///     {
-    ///         Spec = new Aws.AppMesh.Inputs.MeshSpecArgs
-    ///         {
-    ///             EgressFilter = new Aws.AppMesh.Inputs.MeshSpecEgressFilterArgs
-    ///             {
-    ///                 Type = "ALLOW_ALL",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

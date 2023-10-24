@@ -12,33 +12,6 @@ namespace Pulumi.Aws.AppConfig
     /// <summary>
     /// Provides an AppConfig Deployment Strategy resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppConfig.DeploymentStrategy("example", new()
-    ///     {
-    ///         DeploymentDurationInMinutes = 3,
-    ///         Description = "Example Deployment Strategy",
-    ///         FinalBakeTimeInMinutes = 4,
-    ///         GrowthFactor = 10,
-    ///         GrowthType = "LINEAR",
-    ///         ReplicateTo = "NONE",
-    ///         Tags = 
-    ///         {
-    ///             { "Type", "AppConfig Deployment Strategy" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:

@@ -10,36 +10,6 @@ import {PolicyDocument} from "../iam";
  * Allows you to set a policy of an SQS Queue
  * while referencing ARN of the queue within the policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const queue = new aws.sqs.Queue("queue", {});
- * const testPolicyDocument = queue.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         sid: "First",
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["sqs:SendMessage"],
- *         resources: [arn],
- *         conditions: [{
- *             test: "ArnEquals",
- *             variable: "aws:SourceArn",
- *             values: [aws_sns_topic.example.arn],
- *         }],
- *     }],
- * }));
- * const testQueuePolicy = new aws.sqs.QueuePolicy("testQueuePolicy", {
- *     queueUrl: queue.id,
- *     policy: testPolicyDocument.apply(testPolicyDocument => testPolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:

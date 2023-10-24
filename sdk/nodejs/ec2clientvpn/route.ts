@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
  * Provides additional routes for AWS Client VPN endpoints. For more information on usage, please see the
  * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleEndpoint = new aws.ec2clientvpn.Endpoint("exampleEndpoint", {
- *     description: "Example Client VPN endpoint",
- *     serverCertificateArn: aws_acm_certificate.example.arn,
- *     clientCidrBlock: "10.0.0.0/16",
- *     authenticationOptions: [{
- *         type: "certificate-authentication",
- *         rootCertificateChainArn: aws_acm_certificate.example.arn,
- *     }],
- *     connectionLogOptions: {
- *         enabled: false,
- *     },
- * });
- * const exampleNetworkAssociation = new aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation", {
- *     clientVpnEndpointId: exampleEndpoint.id,
- *     subnetId: aws_subnet.example.id,
- * });
- * const exampleRoute = new aws.ec2clientvpn.Route("exampleRoute", {
- *     clientVpnEndpointId: exampleEndpoint.id,
- *     destinationCidrBlock: "0.0.0.0/0",
- *     targetVpcSubnetId: exampleNetworkAssociation.subnetId,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:

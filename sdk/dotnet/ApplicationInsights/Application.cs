@@ -12,50 +12,6 @@ namespace Pulumi.Aws.ApplicationInsights
     /// <summary>
     /// Provides a ApplicationInsights Application resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGroup = new Aws.ResourceGroups.Group("exampleGroup", new()
-    ///     {
-    ///         ResourceQuery = new Aws.ResourceGroups.Inputs.GroupResourceQueryArgs
-    ///         {
-    ///             Query = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["ResourceTypeFilters"] = new[]
-    ///                 {
-    ///                     "AWS::EC2::Instance",
-    ///                 },
-    ///                 ["TagFilters"] = new[]
-    ///                 {
-    ///                     new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Key"] = "Stage",
-    ///                         ["Values"] = new[]
-    ///                         {
-    ///                             "Test",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             }),
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleApplication = new Aws.ApplicationInsights.Application("exampleApplication", new()
-    ///     {
-    ///         ResourceGroupName = exampleGroup.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:

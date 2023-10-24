@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -82,20 +82,6 @@ def get_local_gateways(filters: Optional[Sequence[pulumi.InputType['GetLocalGate
     """
     Provides information for multiple EC2 Local Gateways, such as their identifiers.
 
-    ## Example Usage
-
-    The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo_local_gateways = aws.ec2.get_local_gateways(tags={
-        "service": "production",
-    })
-    pulumi.export("foo", foo_local_gateways.ids)
-    ```
-
 
     :param Sequence[pulumi.InputType['GetLocalGatewaysFilterArgs']] filters: Custom filter block as described below.
            
@@ -123,20 +109,6 @@ def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[p
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewaysResult]:
     """
     Provides information for multiple EC2 Local Gateways, such as their identifiers.
-
-    ## Example Usage
-
-    The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo_local_gateways = aws.ec2.get_local_gateways(tags={
-        "service": "production",
-    })
-    pulumi.export("foo", foo_local_gateways.ids)
-    ```
 
 
     :param Sequence[pulumi.InputType['GetLocalGatewaysFilterArgs']] filters: Custom filter block as described below.

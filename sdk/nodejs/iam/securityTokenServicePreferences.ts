@@ -6,15 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an IAM Security Token Service Preferences resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iam.SecurityTokenServicePreferences("example", {globalEndpointTokenVersion: "v2Token"});
- * ```
  */
 export class SecurityTokenServicePreferences extends pulumi.CustomResource {
     /**

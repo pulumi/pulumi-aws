@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -82,15 +82,6 @@ def get_pull_through_cache_rule(ecr_repository_prefix: Optional[str] = None,
     """
     The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ecr_public = aws.ecr.get_pull_through_cache_rule(ecr_repository_prefix="ecr-public")
-    ```
-
 
     :param str ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
     """
@@ -111,15 +102,6 @@ def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.In
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPullThroughCacheRuleResult]:
     """
     The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ecr_public = aws.ecr.get_pull_through_cache_rule(ecr_repository_prefix="ecr-public")
-    ```
 
 
     :param str ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.

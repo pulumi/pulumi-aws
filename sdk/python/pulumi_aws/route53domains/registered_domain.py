@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,27 +41,80 @@ class RegisteredDomainArgs:
         :param pulumi.Input[bool] tech_privacy: Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] transfer_lock: Whether the domain is locked for transfer. Default: `true`.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
+        RegisteredDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            admin_contact=admin_contact,
+            admin_privacy=admin_privacy,
+            auto_renew=auto_renew,
+            name_servers=name_servers,
+            registrant_contact=registrant_contact,
+            registrant_privacy=registrant_privacy,
+            tags=tags,
+            tech_contact=tech_contact,
+            tech_privacy=tech_privacy,
+            transfer_lock=transfer_lock,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             admin_contact: Optional[pulumi.Input['RegisteredDomainAdminContactArgs']] = None,
+             admin_privacy: Optional[pulumi.Input[bool]] = None,
+             auto_renew: Optional[pulumi.Input[bool]] = None,
+             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArgs']]]] = None,
+             registrant_contact: Optional[pulumi.Input['RegisteredDomainRegistrantContactArgs']] = None,
+             registrant_privacy: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tech_contact: Optional[pulumi.Input['RegisteredDomainTechContactArgs']] = None,
+             tech_privacy: Optional[pulumi.Input[bool]] = None,
+             transfer_lock: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if admin_contact is None and 'adminContact' in kwargs:
+            admin_contact = kwargs['adminContact']
+        if admin_privacy is None and 'adminPrivacy' in kwargs:
+            admin_privacy = kwargs['adminPrivacy']
+        if auto_renew is None and 'autoRenew' in kwargs:
+            auto_renew = kwargs['autoRenew']
+        if name_servers is None and 'nameServers' in kwargs:
+            name_servers = kwargs['nameServers']
+        if registrant_contact is None and 'registrantContact' in kwargs:
+            registrant_contact = kwargs['registrantContact']
+        if registrant_privacy is None and 'registrantPrivacy' in kwargs:
+            registrant_privacy = kwargs['registrantPrivacy']
+        if tech_contact is None and 'techContact' in kwargs:
+            tech_contact = kwargs['techContact']
+        if tech_privacy is None and 'techPrivacy' in kwargs:
+            tech_privacy = kwargs['techPrivacy']
+        if transfer_lock is None and 'transferLock' in kwargs:
+            transfer_lock = kwargs['transferLock']
+
+        _setter("domain_name", domain_name)
         if admin_contact is not None:
-            pulumi.set(__self__, "admin_contact", admin_contact)
+            _setter("admin_contact", admin_contact)
         if admin_privacy is not None:
-            pulumi.set(__self__, "admin_privacy", admin_privacy)
+            _setter("admin_privacy", admin_privacy)
         if auto_renew is not None:
-            pulumi.set(__self__, "auto_renew", auto_renew)
+            _setter("auto_renew", auto_renew)
         if name_servers is not None:
-            pulumi.set(__self__, "name_servers", name_servers)
+            _setter("name_servers", name_servers)
         if registrant_contact is not None:
-            pulumi.set(__self__, "registrant_contact", registrant_contact)
+            _setter("registrant_contact", registrant_contact)
         if registrant_privacy is not None:
-            pulumi.set(__self__, "registrant_privacy", registrant_privacy)
+            _setter("registrant_privacy", registrant_privacy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tech_contact is not None:
-            pulumi.set(__self__, "tech_contact", tech_contact)
+            _setter("tech_contact", tech_contact)
         if tech_privacy is not None:
-            pulumi.set(__self__, "tech_privacy", tech_privacy)
+            _setter("tech_privacy", tech_privacy)
         if transfer_lock is not None:
-            pulumi.set(__self__, "transfer_lock", transfer_lock)
+            _setter("transfer_lock", transfer_lock)
 
     @property
     @pulumi.getter(name="domainName")
@@ -246,53 +299,146 @@ class _RegisteredDomainState:
         :param pulumi.Input[str] updated_date: The last updated date of the domain as found in the response to a WHOIS query.
         :param pulumi.Input[str] whois_server: The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
         """
+        _RegisteredDomainState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            abuse_contact_email=abuse_contact_email,
+            abuse_contact_phone=abuse_contact_phone,
+            admin_contact=admin_contact,
+            admin_privacy=admin_privacy,
+            auto_renew=auto_renew,
+            creation_date=creation_date,
+            domain_name=domain_name,
+            expiration_date=expiration_date,
+            name_servers=name_servers,
+            registrant_contact=registrant_contact,
+            registrant_privacy=registrant_privacy,
+            registrar_name=registrar_name,
+            registrar_url=registrar_url,
+            reseller=reseller,
+            status_lists=status_lists,
+            tags=tags,
+            tags_all=tags_all,
+            tech_contact=tech_contact,
+            tech_privacy=tech_privacy,
+            transfer_lock=transfer_lock,
+            updated_date=updated_date,
+            whois_server=whois_server,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             abuse_contact_email: Optional[pulumi.Input[str]] = None,
+             abuse_contact_phone: Optional[pulumi.Input[str]] = None,
+             admin_contact: Optional[pulumi.Input['RegisteredDomainAdminContactArgs']] = None,
+             admin_privacy: Optional[pulumi.Input[bool]] = None,
+             auto_renew: Optional[pulumi.Input[bool]] = None,
+             creation_date: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArgs']]]] = None,
+             registrant_contact: Optional[pulumi.Input['RegisteredDomainRegistrantContactArgs']] = None,
+             registrant_privacy: Optional[pulumi.Input[bool]] = None,
+             registrar_name: Optional[pulumi.Input[str]] = None,
+             registrar_url: Optional[pulumi.Input[str]] = None,
+             reseller: Optional[pulumi.Input[str]] = None,
+             status_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tech_contact: Optional[pulumi.Input['RegisteredDomainTechContactArgs']] = None,
+             tech_privacy: Optional[pulumi.Input[bool]] = None,
+             transfer_lock: Optional[pulumi.Input[bool]] = None,
+             updated_date: Optional[pulumi.Input[str]] = None,
+             whois_server: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if abuse_contact_email is None and 'abuseContactEmail' in kwargs:
+            abuse_contact_email = kwargs['abuseContactEmail']
+        if abuse_contact_phone is None and 'abuseContactPhone' in kwargs:
+            abuse_contact_phone = kwargs['abuseContactPhone']
+        if admin_contact is None and 'adminContact' in kwargs:
+            admin_contact = kwargs['adminContact']
+        if admin_privacy is None and 'adminPrivacy' in kwargs:
+            admin_privacy = kwargs['adminPrivacy']
+        if auto_renew is None and 'autoRenew' in kwargs:
+            auto_renew = kwargs['autoRenew']
+        if creation_date is None and 'creationDate' in kwargs:
+            creation_date = kwargs['creationDate']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if name_servers is None and 'nameServers' in kwargs:
+            name_servers = kwargs['nameServers']
+        if registrant_contact is None and 'registrantContact' in kwargs:
+            registrant_contact = kwargs['registrantContact']
+        if registrant_privacy is None and 'registrantPrivacy' in kwargs:
+            registrant_privacy = kwargs['registrantPrivacy']
+        if registrar_name is None and 'registrarName' in kwargs:
+            registrar_name = kwargs['registrarName']
+        if registrar_url is None and 'registrarUrl' in kwargs:
+            registrar_url = kwargs['registrarUrl']
+        if status_lists is None and 'statusLists' in kwargs:
+            status_lists = kwargs['statusLists']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if tech_contact is None and 'techContact' in kwargs:
+            tech_contact = kwargs['techContact']
+        if tech_privacy is None and 'techPrivacy' in kwargs:
+            tech_privacy = kwargs['techPrivacy']
+        if transfer_lock is None and 'transferLock' in kwargs:
+            transfer_lock = kwargs['transferLock']
+        if updated_date is None and 'updatedDate' in kwargs:
+            updated_date = kwargs['updatedDate']
+        if whois_server is None and 'whoisServer' in kwargs:
+            whois_server = kwargs['whoisServer']
+
         if abuse_contact_email is not None:
-            pulumi.set(__self__, "abuse_contact_email", abuse_contact_email)
+            _setter("abuse_contact_email", abuse_contact_email)
         if abuse_contact_phone is not None:
-            pulumi.set(__self__, "abuse_contact_phone", abuse_contact_phone)
+            _setter("abuse_contact_phone", abuse_contact_phone)
         if admin_contact is not None:
-            pulumi.set(__self__, "admin_contact", admin_contact)
+            _setter("admin_contact", admin_contact)
         if admin_privacy is not None:
-            pulumi.set(__self__, "admin_privacy", admin_privacy)
+            _setter("admin_privacy", admin_privacy)
         if auto_renew is not None:
-            pulumi.set(__self__, "auto_renew", auto_renew)
+            _setter("auto_renew", auto_renew)
         if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
+            _setter("creation_date", creation_date)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if name_servers is not None:
-            pulumi.set(__self__, "name_servers", name_servers)
+            _setter("name_servers", name_servers)
         if registrant_contact is not None:
-            pulumi.set(__self__, "registrant_contact", registrant_contact)
+            _setter("registrant_contact", registrant_contact)
         if registrant_privacy is not None:
-            pulumi.set(__self__, "registrant_privacy", registrant_privacy)
+            _setter("registrant_privacy", registrant_privacy)
         if registrar_name is not None:
-            pulumi.set(__self__, "registrar_name", registrar_name)
+            _setter("registrar_name", registrar_name)
         if registrar_url is not None:
-            pulumi.set(__self__, "registrar_url", registrar_url)
+            _setter("registrar_url", registrar_url)
         if reseller is not None:
-            pulumi.set(__self__, "reseller", reseller)
+            _setter("reseller", reseller)
         if status_lists is not None:
-            pulumi.set(__self__, "status_lists", status_lists)
+            _setter("status_lists", status_lists)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tech_contact is not None:
-            pulumi.set(__self__, "tech_contact", tech_contact)
+            _setter("tech_contact", tech_contact)
         if tech_privacy is not None:
-            pulumi.set(__self__, "tech_privacy", tech_privacy)
+            _setter("tech_privacy", tech_privacy)
         if transfer_lock is not None:
-            pulumi.set(__self__, "transfer_lock", transfer_lock)
+            _setter("transfer_lock", transfer_lock)
         if updated_date is not None:
-            pulumi.set(__self__, "updated_date", updated_date)
+            _setter("updated_date", updated_date)
         if whois_server is not None:
-            pulumi.set(__self__, "whois_server", whois_server)
+            _setter("whois_server", whois_server)
 
     @property
     @pulumi.getter(name="abuseContactEmail")
@@ -586,27 +732,6 @@ class RegisteredDomain(pulumi.CustomResource):
 
         The `route53domains.RegisteredDomain` resource behaves differently from normal resources in that if a domain has been registered, the provider does not _register_ this domain, but instead "adopts" it into management. A destroy does not delete the domain but does remove the resource from state.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53domains.RegisteredDomain("example",
-            domain_name="example.com",
-            name_servers=[
-                aws.route53domains.RegisteredDomainNameServerArgs(
-                    name="ns-195.awsdns-24.com",
-                ),
-                aws.route53domains.RegisteredDomainNameServerArgs(
-                    name="ns-874.awsdns-45.net",
-                ),
-            ],
-            tags={
-                "Environment": "test",
-            })
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArgs']] admin_contact: Details about the domain administrative contact.
@@ -634,27 +759,6 @@ class RegisteredDomain(pulumi.CustomResource):
 
         The `route53domains.RegisteredDomain` resource behaves differently from normal resources in that if a domain has been registered, the provider does not _register_ this domain, but instead "adopts" it into management. A destroy does not delete the domain but does remove the resource from state.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53domains.RegisteredDomain("example",
-            domain_name="example.com",
-            name_servers=[
-                aws.route53domains.RegisteredDomainNameServerArgs(
-                    name="ns-195.awsdns-24.com",
-                ),
-                aws.route53domains.RegisteredDomainNameServerArgs(
-                    name="ns-874.awsdns-45.net",
-                ),
-            ],
-            tags={
-                "Environment": "test",
-            })
-        ```
-
         :param str resource_name: The name of the resource.
         :param RegisteredDomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -665,6 +769,10 @@ class RegisteredDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegisteredDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -690,6 +798,7 @@ class RegisteredDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RegisteredDomainArgs.__new__(RegisteredDomainArgs)
 
+            admin_contact = _utilities.configure(admin_contact, RegisteredDomainAdminContactArgs, True)
             __props__.__dict__["admin_contact"] = admin_contact
             __props__.__dict__["admin_privacy"] = admin_privacy
             __props__.__dict__["auto_renew"] = auto_renew
@@ -697,9 +806,11 @@ class RegisteredDomain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["name_servers"] = name_servers
+            registrant_contact = _utilities.configure(registrant_contact, RegisteredDomainRegistrantContactArgs, True)
             __props__.__dict__["registrant_contact"] = registrant_contact
             __props__.__dict__["registrant_privacy"] = registrant_privacy
             __props__.__dict__["tags"] = tags
+            tech_contact = _utilities.configure(tech_contact, RegisteredDomainTechContactArgs, True)
             __props__.__dict__["tech_contact"] = tech_contact
             __props__.__dict__["tech_privacy"] = tech_privacy
             __props__.__dict__["transfer_lock"] = transfer_lock

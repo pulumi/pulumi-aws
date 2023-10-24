@@ -13,51 +13,6 @@ namespace Pulumi.Aws.VpcLattice
     /// Resource for managing an AWS VPC Lattice Auth Policy.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleService = new Aws.VpcLattice.Service("exampleService", new()
-    ///     {
-    ///         AuthType = "AWS_IAM",
-    ///         CustomDomainName = "example.com",
-    ///     });
-    /// 
-    ///     var exampleAuthPolicy = new Aws.VpcLattice.AuthPolicy("exampleAuthPolicy", new()
-    ///     {
-    ///         ResourceIdentifier = exampleService.Arn,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "*",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = "*",
-    ///                     ["Resource"] = "*",
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["StringNotEqualsIgnoreCase"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["aws:PrincipalType"] = "anonymous",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

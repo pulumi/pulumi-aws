@@ -9,28 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const simple = aws.appmesh.getMesh({
- *     name: "simpleapp",
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const simple = current.then(current => aws.appmesh.getMesh({
- *     name: "simpleapp",
- *     meshOwner: current.accountId,
- * }));
- * ```
  */
 export function getMesh(args: GetMeshArgs, opts?: pulumi.InvokeOptions): Promise<GetMeshResult> {
 
@@ -97,28 +75,6 @@ export interface GetMeshResult {
 }
 /**
  * The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const simple = aws.appmesh.getMesh({
- *     name: "simpleapp",
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const simple = current.then(current => aws.appmesh.getMesh({
- *     name: "simpleapp",
- *     meshOwner: current.accountId,
- * }));
- * ```
  */
 export function getMeshOutput(args: GetMeshOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMeshResult> {
     return pulumi.output(args).apply((a: any) => getMesh(a, opts))

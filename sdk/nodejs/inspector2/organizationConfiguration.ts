@@ -15,18 +15,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** When this resource is deleted, EC2, ECR and Lambda scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.inspector2.OrganizationConfiguration("example", {autoEnable: {
- *     ec2: true,
- *     ecr: false,
- *     lambda: true,
- * }});
- * ```
  */
 export class OrganizationConfiguration extends pulumi.CustomResource {
     /**

@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
  * Provides authorization rules for AWS Client VPN endpoints. For more information on usage, please see the
  * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2clientvpn.AuthorizationRule("example", {
- *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint.example.id,
- *     targetNetworkCidr: aws_subnet.example.cidr_block,
- *     authorizeAllGroups: true,
- * });
- * ```
- *
  * ## Import
  *
  * Using the endpoint ID, target network CIDR, and group name:

@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Route53 CIDR location resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCidrCollection = new aws.route53.CidrCollection("exampleCidrCollection", {});
- * const exampleCidrLocation = new aws.route53.CidrLocation("exampleCidrLocation", {
- *     cidrCollectionId: exampleCidrCollection.id,
- *     cidrBlocks: [
- *         "200.5.3.0/24",
- *         "200.6.3.0/24",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For example:

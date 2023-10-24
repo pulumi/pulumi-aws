@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -57,40 +57,123 @@ class LaunchConfigurationArgs:
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         """
-        pulumi.set(__self__, "image_id", image_id)
-        pulumi.set(__self__, "instance_type", instance_type)
+        LaunchConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_id=image_id,
+            instance_type=instance_type,
+            associate_public_ip_address=associate_public_ip_address,
+            ebs_block_devices=ebs_block_devices,
+            ebs_optimized=ebs_optimized,
+            enable_monitoring=enable_monitoring,
+            ephemeral_block_devices=ephemeral_block_devices,
+            iam_instance_profile=iam_instance_profile,
+            key_name=key_name,
+            metadata_options=metadata_options,
+            name=name,
+            name_prefix=name_prefix,
+            placement_tenancy=placement_tenancy,
+            root_block_device=root_block_device,
+            security_groups=security_groups,
+            spot_price=spot_price,
+            user_data=user_data,
+            user_data_base64=user_data_base64,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_id: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
+             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             enable_monitoring: Optional[pulumi.Input[bool]] = None,
+             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]]] = None,
+             iam_instance_profile: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             metadata_options: Optional[pulumi.Input['LaunchConfigurationMetadataOptionsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             placement_tenancy: Optional[pulumi.Input[str]] = None,
+             root_block_device: Optional[pulumi.Input['LaunchConfigurationRootBlockDeviceArgs']] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             spot_price: Optional[pulumi.Input[str]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             user_data_base64: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if image_id is None:
+            raise TypeError("Missing 'image_id' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if associate_public_ip_address is None and 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if ebs_block_devices is None and 'ebsBlockDevices' in kwargs:
+            ebs_block_devices = kwargs['ebsBlockDevices']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if enable_monitoring is None and 'enableMonitoring' in kwargs:
+            enable_monitoring = kwargs['enableMonitoring']
+        if ephemeral_block_devices is None and 'ephemeralBlockDevices' in kwargs:
+            ephemeral_block_devices = kwargs['ephemeralBlockDevices']
+        if iam_instance_profile is None and 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if metadata_options is None and 'metadataOptions' in kwargs:
+            metadata_options = kwargs['metadataOptions']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if placement_tenancy is None and 'placementTenancy' in kwargs:
+            placement_tenancy = kwargs['placementTenancy']
+        if root_block_device is None and 'rootBlockDevice' in kwargs:
+            root_block_device = kwargs['rootBlockDevice']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if spot_price is None and 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if user_data_base64 is None and 'userDataBase64' in kwargs:
+            user_data_base64 = kwargs['userDataBase64']
+
+        _setter("image_id", image_id)
+        _setter("instance_type", instance_type)
         if associate_public_ip_address is not None:
-            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+            _setter("associate_public_ip_address", associate_public_ip_address)
         if ebs_block_devices is not None:
-            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+            _setter("ebs_block_devices", ebs_block_devices)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if enable_monitoring is not None:
-            pulumi.set(__self__, "enable_monitoring", enable_monitoring)
+            _setter("enable_monitoring", enable_monitoring)
         if ephemeral_block_devices is not None:
-            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+            _setter("ephemeral_block_devices", ephemeral_block_devices)
         if iam_instance_profile is not None:
-            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+            _setter("iam_instance_profile", iam_instance_profile)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if metadata_options is not None:
-            pulumi.set(__self__, "metadata_options", metadata_options)
+            _setter("metadata_options", metadata_options)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if placement_tenancy is not None:
-            pulumi.set(__self__, "placement_tenancy", placement_tenancy)
+            _setter("placement_tenancy", placement_tenancy)
         if root_block_device is not None:
-            pulumi.set(__self__, "root_block_device", root_block_device)
+            _setter("root_block_device", root_block_device)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if spot_price is not None:
-            pulumi.set(__self__, "spot_price", spot_price)
+            _setter("spot_price", spot_price)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if user_data_base64 is not None:
-            pulumi.set(__self__, "user_data_base64", user_data_base64)
+            _setter("user_data_base64", user_data_base64)
 
     @property
     @pulumi.getter(name="imageId")
@@ -357,44 +440,125 @@ class _LaunchConfigurationState:
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         """
+        _LaunchConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            associate_public_ip_address=associate_public_ip_address,
+            ebs_block_devices=ebs_block_devices,
+            ebs_optimized=ebs_optimized,
+            enable_monitoring=enable_monitoring,
+            ephemeral_block_devices=ephemeral_block_devices,
+            iam_instance_profile=iam_instance_profile,
+            image_id=image_id,
+            instance_type=instance_type,
+            key_name=key_name,
+            metadata_options=metadata_options,
+            name=name,
+            name_prefix=name_prefix,
+            placement_tenancy=placement_tenancy,
+            root_block_device=root_block_device,
+            security_groups=security_groups,
+            spot_price=spot_price,
+            user_data=user_data,
+            user_data_base64=user_data_base64,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
+             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             enable_monitoring: Optional[pulumi.Input[bool]] = None,
+             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]]] = None,
+             iam_instance_profile: Optional[pulumi.Input[str]] = None,
+             image_id: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             metadata_options: Optional[pulumi.Input['LaunchConfigurationMetadataOptionsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             placement_tenancy: Optional[pulumi.Input[str]] = None,
+             root_block_device: Optional[pulumi.Input['LaunchConfigurationRootBlockDeviceArgs']] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             spot_price: Optional[pulumi.Input[str]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             user_data_base64: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if associate_public_ip_address is None and 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if ebs_block_devices is None and 'ebsBlockDevices' in kwargs:
+            ebs_block_devices = kwargs['ebsBlockDevices']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if enable_monitoring is None and 'enableMonitoring' in kwargs:
+            enable_monitoring = kwargs['enableMonitoring']
+        if ephemeral_block_devices is None and 'ephemeralBlockDevices' in kwargs:
+            ephemeral_block_devices = kwargs['ephemeralBlockDevices']
+        if iam_instance_profile is None and 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if metadata_options is None and 'metadataOptions' in kwargs:
+            metadata_options = kwargs['metadataOptions']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if placement_tenancy is None and 'placementTenancy' in kwargs:
+            placement_tenancy = kwargs['placementTenancy']
+        if root_block_device is None and 'rootBlockDevice' in kwargs:
+            root_block_device = kwargs['rootBlockDevice']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if spot_price is None and 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if user_data_base64 is None and 'userDataBase64' in kwargs:
+            user_data_base64 = kwargs['userDataBase64']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if associate_public_ip_address is not None:
-            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+            _setter("associate_public_ip_address", associate_public_ip_address)
         if ebs_block_devices is not None:
-            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+            _setter("ebs_block_devices", ebs_block_devices)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if enable_monitoring is not None:
-            pulumi.set(__self__, "enable_monitoring", enable_monitoring)
+            _setter("enable_monitoring", enable_monitoring)
         if ephemeral_block_devices is not None:
-            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+            _setter("ephemeral_block_devices", ephemeral_block_devices)
         if iam_instance_profile is not None:
-            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+            _setter("iam_instance_profile", iam_instance_profile)
         if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
+            _setter("image_id", image_id)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if metadata_options is not None:
-            pulumi.set(__self__, "metadata_options", metadata_options)
+            _setter("metadata_options", metadata_options)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if placement_tenancy is not None:
-            pulumi.set(__self__, "placement_tenancy", placement_tenancy)
+            _setter("placement_tenancy", placement_tenancy)
         if root_block_device is not None:
-            pulumi.set(__self__, "root_block_device", root_block_device)
+            _setter("root_block_device", root_block_device)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if spot_price is not None:
-            pulumi.set(__self__, "spot_price", spot_price)
+            _setter("spot_price", spot_price)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if user_data_base64 is not None:
-            pulumi.set(__self__, "user_data_base64", user_data_base64)
+            _setter("user_data_base64", user_data_base64)
 
     @property
     @pulumi.getter
@@ -658,100 +822,6 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
-            ],
-            owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
-            image_id=ubuntu.id,
-            instance_type="t2.micro")
-        ```
-        ## Using with AutoScaling Groups
-
-        Launch Configurations cannot be updated after creation with the Amazon
-        Web Service API. In order to update a Launch Configuration, this provider will
-        destroy the existing resource and create a replacement. In order to effectively
-        use a Launch Configuration resource with an AutoScaling Group resource,
-        it's recommended to specify `create_before_destroy` in a lifecycle block.
-        Either omit the Launch Configuration `name` attribute, or specify a partial name
-        with `name_prefix`.  Example:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
-            ],
-            owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
-            name_prefix="lc-example-",
-            image_id=ubuntu.id,
-            instance_type="t2.micro")
-        bar = aws.autoscaling.Group("bar",
-            launch_configuration=as_conf.name,
-            min_size=1,
-            max_size=2)
-        ```
-
-        With this setup this provider generates a unique name for your Launch
-        Configuration and can then update the AutoScaling Group without conflict before
-        destroying the previous Launch Configuration.
-
-        ## Using with Spot Instances
-
-        Launch configurations can set the spot instance pricing to be used for the
-        Auto Scaling Group to reserve instances. Simply specifying the `spot_price`
-        parameter will set the price on the Launch Configuration which will attempt to
-        reserve your instances at this price.  See the [AWS Spot Instance
-        documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-        for more information or how to launch [Spot Instances][3] with this provider.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
-            ],
-            owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
-            image_id=ubuntu.id,
-            instance_type="m4.large",
-            spot_price="0.001")
-        bar = aws.autoscaling.Group("bar", launch_configuration=as_conf.name)
-        ```
-
         ## Block devices
 
         Each of the `*_block_device` attributes controls a portion of the AWS
@@ -848,100 +918,6 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         > **Note** When using `ec2.LaunchConfiguration` with `autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
-            ],
-            owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
-            image_id=ubuntu.id,
-            instance_type="t2.micro")
-        ```
-        ## Using with AutoScaling Groups
-
-        Launch Configurations cannot be updated after creation with the Amazon
-        Web Service API. In order to update a Launch Configuration, this provider will
-        destroy the existing resource and create a replacement. In order to effectively
-        use a Launch Configuration resource with an AutoScaling Group resource,
-        it's recommended to specify `create_before_destroy` in a lifecycle block.
-        Either omit the Launch Configuration `name` attribute, or specify a partial name
-        with `name_prefix`.  Example:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
-            ],
-            owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
-            name_prefix="lc-example-",
-            image_id=ubuntu.id,
-            instance_type="t2.micro")
-        bar = aws.autoscaling.Group("bar",
-            launch_configuration=as_conf.name,
-            min_size=1,
-            max_size=2)
-        ```
-
-        With this setup this provider generates a unique name for your Launch
-        Configuration and can then update the AutoScaling Group without conflict before
-        destroying the previous Launch Configuration.
-
-        ## Using with Spot Instances
-
-        Launch configurations can set the spot instance pricing to be used for the
-        Auto Scaling Group to reserve instances. Simply specifying the `spot_price`
-        parameter will set the price on the Launch Configuration which will attempt to
-        reserve your instances at this price.  See the [AWS Spot Instance
-        documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-        for more information or how to launch [Spot Instances][3] with this provider.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
-            ],
-            owners=["099720109477"])
-        as_conf = aws.ec2.LaunchConfiguration("asConf",
-            image_id=ubuntu.id,
-            instance_type="m4.large",
-            spot_price="0.001")
-        bar = aws.autoscaling.Group("bar", launch_configuration=as_conf.name)
-        ```
-
         ## Block devices
 
         Each of the `*_block_device` attributes controls a portion of the AWS
@@ -1012,6 +988,10 @@ class LaunchConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LaunchConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1057,10 +1037,12 @@ class LaunchConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["key_name"] = key_name
+            metadata_options = _utilities.configure(metadata_options, LaunchConfigurationMetadataOptionsArgs, True)
             __props__.__dict__["metadata_options"] = metadata_options
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["placement_tenancy"] = placement_tenancy
+            root_block_device = _utilities.configure(root_block_device, LaunchConfigurationRootBlockDeviceArgs, True)
             __props__.__dict__["root_block_device"] = root_block_device
             __props__.__dict__["security_groups"] = security_groups
             __props__.__dict__["spot_price"] = spot_price

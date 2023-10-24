@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -201,14 +201,6 @@ def get_replication_task(replication_task_id: Optional[str] = None,
     Data source for managing an AWS DMS (Database Migration) Replication Task.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.dms.get_replication_task(replication_task_id=aws_dms_replication_task["test"]["replication_task_id"])
-    ```
 
 
     :param str replication_task_id: The replication task identifier.
@@ -249,14 +241,6 @@ def get_replication_task_output(replication_task_id: Optional[pulumi.Input[str]]
     Data source for managing an AWS DMS (Database Migration) Replication Task.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.dms.get_replication_task(replication_task_id=aws_dms_replication_task["test"]["replication_task_id"])
-    ```
 
 
     :param str replication_task_id: The replication task identifier.

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
@@ -21,8 +21,27 @@ class ResourcePolicyArgs:
         :param pulumi.Input[str] policy: A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
         :param pulumi.Input[str] resource_arn: The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        ResourcePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+
+        _setter("policy", policy)
+        _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter
@@ -59,10 +78,25 @@ class _ResourcePolicyState:
         :param pulumi.Input[str] policy: A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
         :param pulumi.Input[str] resource_arn: The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
         """
+        _ResourcePolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter
@@ -100,42 +134,6 @@ class ResourcePolicy(pulumi.CustomResource):
         """
         Provides a CodeBuild Resource Policy Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
-            type="TEST",
-            export_config=aws.codebuild.ReportGroupExportConfigArgs(
-                type="NO_EXPORT",
-            ))
-        current_partition = aws.get_partition()
-        current_caller_identity = aws.get_caller_identity()
-        example_resource_policy = aws.codebuild.ResourcePolicy("exampleResourcePolicy",
-            resource_arn=example_report_group.arn,
-            policy=example_report_group.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Id": "default",
-                "Statement": [{
-                    "Sid": "default",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
-                    },
-                    "Action": [
-                        "codebuild:BatchGetReportGroups",
-                        "codebuild:BatchGetReports",
-                        "codebuild:ListReportsForReportGroup",
-                        "codebuild:DescribeTestCases",
-                    ],
-                    "Resource": arn,
-                }],
-            })))
-        ```
-
         ## Import
 
         Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
@@ -158,42 +156,6 @@ class ResourcePolicy(pulumi.CustomResource):
         """
         Provides a CodeBuild Resource Policy Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_report_group = aws.codebuild.ReportGroup("exampleReportGroup",
-            type="TEST",
-            export_config=aws.codebuild.ReportGroupExportConfigArgs(
-                type="NO_EXPORT",
-            ))
-        current_partition = aws.get_partition()
-        current_caller_identity = aws.get_caller_identity()
-        example_resource_policy = aws.codebuild.ResourcePolicy("exampleResourcePolicy",
-            resource_arn=example_report_group.arn,
-            policy=example_report_group.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Id": "default",
-                "Statement": [{
-                    "Sid": "default",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
-                    },
-                    "Action": [
-                        "codebuild:BatchGetReportGroups",
-                        "codebuild:BatchGetReports",
-                        "codebuild:ListReportsForReportGroup",
-                        "codebuild:DescribeTestCases",
-                    ],
-                    "Resource": arn,
-                }],
-            })))
-        ```
-
         ## Import
 
         Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
@@ -212,6 +174,10 @@ class ResourcePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourcePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

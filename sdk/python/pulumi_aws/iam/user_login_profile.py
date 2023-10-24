@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserLoginProfileArgs', 'UserLoginProfile']
@@ -25,13 +25,38 @@ class UserLoginProfileArgs:
         :param pulumi.Input[bool] password_reset_required: Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
         """
-        pulumi.set(__self__, "user", user)
+        UserLoginProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user=user,
+            password_length=password_length,
+            password_reset_required=password_reset_required,
+            pgp_key=pgp_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user: Optional[pulumi.Input[str]] = None,
+             password_length: Optional[pulumi.Input[int]] = None,
+             password_reset_required: Optional[pulumi.Input[bool]] = None,
+             pgp_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if password_length is None and 'passwordLength' in kwargs:
+            password_length = kwargs['passwordLength']
+        if password_reset_required is None and 'passwordResetRequired' in kwargs:
+            password_reset_required = kwargs['passwordResetRequired']
+        if pgp_key is None and 'pgpKey' in kwargs:
+            pgp_key = kwargs['pgpKey']
+
+        _setter("user", user)
         if password_length is not None:
-            pulumi.set(__self__, "password_length", password_length)
+            _setter("password_length", password_length)
         if password_reset_required is not None:
-            pulumi.set(__self__, "password_reset_required", password_reset_required)
+            _setter("password_reset_required", password_reset_required)
         if pgp_key is not None:
-            pulumi.set(__self__, "pgp_key", pgp_key)
+            _setter("pgp_key", pgp_key)
 
     @property
     @pulumi.getter
@@ -102,20 +127,53 @@ class _UserLoginProfileState:
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
         :param pulumi.Input[str] user: The IAM user's name.
         """
+        _UserLoginProfileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encrypted_password=encrypted_password,
+            key_fingerprint=key_fingerprint,
+            password=password,
+            password_length=password_length,
+            password_reset_required=password_reset_required,
+            pgp_key=pgp_key,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encrypted_password: Optional[pulumi.Input[str]] = None,
+             key_fingerprint: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             password_length: Optional[pulumi.Input[int]] = None,
+             password_reset_required: Optional[pulumi.Input[bool]] = None,
+             pgp_key: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encrypted_password is None and 'encryptedPassword' in kwargs:
+            encrypted_password = kwargs['encryptedPassword']
+        if key_fingerprint is None and 'keyFingerprint' in kwargs:
+            key_fingerprint = kwargs['keyFingerprint']
+        if password_length is None and 'passwordLength' in kwargs:
+            password_length = kwargs['passwordLength']
+        if password_reset_required is None and 'passwordResetRequired' in kwargs:
+            password_reset_required = kwargs['passwordResetRequired']
+        if pgp_key is None and 'pgpKey' in kwargs:
+            pgp_key = kwargs['pgpKey']
+
         if encrypted_password is not None:
-            pulumi.set(__self__, "encrypted_password", encrypted_password)
+            _setter("encrypted_password", encrypted_password)
         if key_fingerprint is not None:
-            pulumi.set(__self__, "key_fingerprint", key_fingerprint)
+            _setter("key_fingerprint", key_fingerprint)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if password_length is not None:
-            pulumi.set(__self__, "password_length", password_length)
+            _setter("password_length", password_length)
         if password_reset_required is not None:
-            pulumi.set(__self__, "password_reset_required", password_reset_required)
+            _setter("password_reset_required", password_reset_required)
         if pgp_key is not None:
-            pulumi.set(__self__, "pgp_key", pgp_key)
+            _setter("pgp_key", pgp_key)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter(name="encryptedPassword")
@@ -217,21 +275,6 @@ class UserLoginProfile(pulumi.CustomResource):
 
         > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_user = aws.iam.User("exampleUser",
-            path="/",
-            force_destroy=True)
-        example_user_login_profile = aws.iam.UserLoginProfile("exampleUserLoginProfile",
-            user=example_user.name,
-            pgp_key="keybase:some_person_that_exists")
-        pulumi.export("password", example_user_login_profile.encrypted_password)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:
@@ -259,21 +302,6 @@ class UserLoginProfile(pulumi.CustomResource):
 
         > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_user = aws.iam.User("exampleUser",
-            path="/",
-            force_destroy=True)
-        example_user_login_profile = aws.iam.UserLoginProfile("exampleUserLoginProfile",
-            user=example_user.name,
-            pgp_key="keybase:some_person_that_exists")
-        pulumi.export("password", example_user_login_profile.encrypted_password)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:
@@ -293,6 +321,10 @@ class UserLoginProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserLoginProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

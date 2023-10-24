@@ -15,46 +15,6 @@ import * as utilities from "../utilities";
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.scheduler.Schedule("example", {
- *     groupName: "default",
- *     flexibleTimeWindow: {
- *         mode: "OFF",
- *     },
- *     scheduleExpression: "rate(1 hours)",
- *     target: {
- *         arn: aws_sqs_queue.example.arn,
- *         roleArn: aws_iam_role.example.arn,
- *     },
- * });
- * ```
- * ### Universal Target
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleQueue = new aws.sqs.Queue("exampleQueue", {});
- * const exampleSchedule = new aws.scheduler.Schedule("exampleSchedule", {
- *     flexibleTimeWindow: {
- *         mode: "OFF",
- *     },
- *     scheduleExpression: "rate(1 hours)",
- *     target: {
- *         arn: "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
- *         roleArn: aws_iam_role.example.arn,
- *         input: exampleQueue.url.apply(url => JSON.stringify({
- *             MessageBody: "Greetings, programs!",
- *             QueueUrl: url,
- *         })),
- *     },
- * });
- * ```
  *
  * ## Import
  *
@@ -93,7 +53,7 @@ export class Schedule extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+     * ARN of the SQS queue specified as the destination for the dead-letter queue.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -208,7 +168,7 @@ export class Schedule extends pulumi.CustomResource {
  */
 export interface ScheduleState {
     /**
-     * ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+     * ARN of the SQS queue specified as the destination for the dead-letter queue.
      */
     arn?: pulumi.Input<string>;
     /**

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -83,25 +83,6 @@ def get_public_ipv4_pools(filters: Optional[Sequence[pulumi.InputType['GetPublic
     Data source for getting information about AWS EC2 Public IPv4 Pools.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_public_ipv4_pools()
-    ```
-    ### Usage with Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_public_ipv4_pools(filters=[aws.ec2.GetPublicIpv4PoolsFilterArgs(
-        name="tag-key",
-        values=["ExampleTagKey"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetPublicIpv4PoolsFilterArgs']] filters: Custom filter block as described below.
@@ -131,25 +112,6 @@ def get_public_ipv4_pools_output(filters: Optional[pulumi.Input[Optional[Sequenc
     Data source for getting information about AWS EC2 Public IPv4 Pools.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_public_ipv4_pools()
-    ```
-    ### Usage with Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_public_ipv4_pools(filters=[aws.ec2.GetPublicIpv4PoolsFilterArgs(
-        name="tag-key",
-        values=["ExampleTagKey"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetPublicIpv4PoolsFilterArgs']] filters: Custom filter block as described below.

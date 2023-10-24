@@ -11,50 +11,6 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Provides a static route between a VPN connection and a customer gateway.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var vpc = new Aws.Ec2.Vpc("vpc", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var vpnGateway = new Aws.Ec2.VpnGateway("vpnGateway", new()
-    ///     {
-    ///         VpcId = vpc.Id,
-    ///     });
-    /// 
-    ///     var customerGateway = new Aws.Ec2.CustomerGateway("customerGateway", new()
-    ///     {
-    ///         BgpAsn = "65000",
-    ///         IpAddress = "172.0.0.1",
-    ///         Type = "ipsec.1",
-    ///     });
-    /// 
-    ///     var main = new Aws.Ec2.VpnConnection("main", new()
-    ///     {
-    ///         VpnGatewayId = vpnGateway.Id,
-    ///         CustomerGatewayId = customerGateway.Id,
-    ///         Type = "ipsec.1",
-    ///         StaticRoutesOnly = true,
-    ///     });
-    /// 
-    ///     var office = new Aws.Ec2.VpnConnectionRoute("office", new()
-    ///     {
-    ///         DestinationCidrBlock = "192.168.10.0/24",
-    ///         VpnConnectionId = main.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpnConnectionRoute:VpnConnectionRoute")]
     public partial class VpnConnectionRoute : global::Pulumi.CustomResource

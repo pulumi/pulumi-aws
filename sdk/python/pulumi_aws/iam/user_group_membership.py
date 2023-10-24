@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserGroupMembershipArgs', 'UserGroupMembership']
@@ -21,8 +21,25 @@ class UserGroupMembershipArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A list of IAM Groups to add the user to
         :param pulumi.Input[str] user: The name of the IAM User to add to groups
         """
-        pulumi.set(__self__, "groups", groups)
-        pulumi.set(__self__, "user", user)
+        UserGroupMembershipArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if groups is None:
+            raise TypeError("Missing 'groups' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+
+        _setter("groups", groups)
+        _setter("user", user)
 
     @property
     @pulumi.getter
@@ -59,10 +76,23 @@ class _UserGroupMembershipState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A list of IAM Groups to add the user to
         :param pulumi.Input[str] user: The name of the IAM User to add to groups
         """
+        _UserGroupMembershipState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter
@@ -105,27 +135,6 @@ class UserGroupMembership(pulumi.CustomResource):
         To exclusively manage the users in a group, see the
         `iam.GroupMembership` resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user1 = aws.iam.User("user1")
-        group1 = aws.iam.Group("group1")
-        group2 = aws.iam.Group("group2")
-        example1 = aws.iam.UserGroupMembership("example1",
-            user=user1.name,
-            groups=[
-                group1.name,
-                group2.name,
-            ])
-        group3 = aws.iam.Group("group3")
-        example2 = aws.iam.UserGroupMembership("example2",
-            user=user1.name,
-            groups=[group3.name])
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
@@ -153,27 +162,6 @@ class UserGroupMembership(pulumi.CustomResource):
         To exclusively manage the users in a group, see the
         `iam.GroupMembership` resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user1 = aws.iam.User("user1")
-        group1 = aws.iam.Group("group1")
-        group2 = aws.iam.Group("group2")
-        example1 = aws.iam.UserGroupMembership("example1",
-            user=user1.name,
-            groups=[
-                group1.name,
-                group2.name,
-            ])
-        group3 = aws.iam.Group("group3")
-        example2 = aws.iam.UserGroupMembership("example2",
-            user=user1.name,
-            groups=[group3.name])
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
@@ -192,6 +180,10 @@ class UserGroupMembership(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserGroupMembershipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

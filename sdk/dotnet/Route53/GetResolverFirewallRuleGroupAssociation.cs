@@ -15,30 +15,6 @@ namespace Pulumi.Aws.Route53
         /// `aws.route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
         /// 
         /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example shows how to get a firewall rule group association from its id.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverFirewallRuleGroupAssociation.Invoke(new()
-        ///     {
-        ///         FirewallRuleGroupAssociationId = "rslvr-frgassoc-example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetResolverFirewallRuleGroupAssociationResult> InvokeAsync(GetResolverFirewallRuleGroupAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverFirewallRuleGroupAssociationResult>("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", args ?? new GetResolverFirewallRuleGroupAssociationArgs(), options.WithDefaults());
@@ -47,30 +23,6 @@ namespace Pulumi.Aws.Route53
         /// `aws.route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
         /// 
         /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example shows how to get a firewall rule group association from its id.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Route53.GetResolverFirewallRuleGroupAssociation.Invoke(new()
-        ///     {
-        ///         FirewallRuleGroupAssociationId = "rslvr-frgassoc-example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetResolverFirewallRuleGroupAssociationResult> Invoke(GetResolverFirewallRuleGroupAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallRuleGroupAssociationResult>("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", args ?? new GetResolverFirewallRuleGroupAssociationInvokeArgs(), options.WithDefaults());

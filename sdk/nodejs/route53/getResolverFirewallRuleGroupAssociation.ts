@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
  * `aws.route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
  *
  * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
- *
- * ## Example Usage
- *
- * The following example shows how to get a firewall rule group association from its id.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverFirewallRuleGroupAssociation({
- *     firewallRuleGroupAssociationId: "rslvr-frgassoc-example",
- * });
- * ```
  */
 export function getResolverFirewallRuleGroupAssociation(args: GetResolverFirewallRuleGroupAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallRuleGroupAssociationResult> {
 
@@ -68,19 +55,6 @@ export interface GetResolverFirewallRuleGroupAssociationResult {
  * `aws.route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
  *
  * This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group association.
- *
- * ## Example Usage
- *
- * The following example shows how to get a firewall rule group association from its id.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverFirewallRuleGroupAssociation({
- *     firewallRuleGroupAssociationId: "rslvr-frgassoc-example",
- * });
- * ```
  */
 export function getResolverFirewallRuleGroupAssociationOutput(args: GetResolverFirewallRuleGroupAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallRuleGroupAssociationResult> {
     return pulumi.output(args).apply((a: any) => getResolverFirewallRuleGroupAssociation(a, opts))

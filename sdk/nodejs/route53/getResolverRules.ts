@@ -8,41 +8,6 @@ import * as utilities from "../utilities";
  * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
  *
  * ## Example Usage
- * ### Retrieving the default resolver rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverRules({
- *     ownerId: "Route 53 Resolver",
- *     ruleType: "RECURSIVE",
- *     shareStatus: "NOT_SHARED",
- * });
- * ```
- * ### Retrieving forward rules shared with me
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverRules({
- *     ruleType: "FORWARD",
- *     shareStatus: "SHARED_WITH_ME",
- * });
- * ```
- * ### Retrieving rules by name regex
- *
- * Resolver rules whose name contains `abc`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverRules({
- *     nameRegex: ".*abc.*",
- * });
- * ```
  */
 export function getResolverRules(args?: GetResolverRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRulesResult> {
     args = args || {};
@@ -107,41 +72,6 @@ export interface GetResolverRulesResult {
  * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
  *
  * ## Example Usage
- * ### Retrieving the default resolver rule
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverRules({
- *     ownerId: "Route 53 Resolver",
- *     ruleType: "RECURSIVE",
- *     shareStatus: "NOT_SHARED",
- * });
- * ```
- * ### Retrieving forward rules shared with me
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverRules({
- *     ruleType: "FORWARD",
- *     shareStatus: "SHARED_WITH_ME",
- * });
- * ```
- * ### Retrieving rules by name regex
- *
- * Resolver rules whose name contains `abc`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverRules({
- *     nameRegex: ".*abc.*",
- * });
- * ```
  */
 export function getResolverRulesOutput(args?: GetResolverRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRulesResult> {
     return pulumi.output(args).apply((a: any) => getResolverRules(a, opts))

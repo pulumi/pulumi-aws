@@ -12,42 +12,6 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Provides an AWS Backup Region Settings resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Backup.RegionSettings("test", new()
-    ///     {
-    ///         ResourceTypeManagementPreference = 
-    ///         {
-    ///             { "DynamoDB", true },
-    ///             { "EFS", true },
-    ///         },
-    ///         ResourceTypeOptInPreference = 
-    ///         {
-    ///             { "Aurora", true },
-    ///             { "DocumentDB", true },
-    ///             { "DynamoDB", true },
-    ///             { "EBS", true },
-    ///             { "EC2", true },
-    ///             { "EFS", true },
-    ///             { "FSx", true },
-    ///             { "Neptune", true },
-    ///             { "RDS", true },
-    ///             { "Storage Gateway", true },
-    ///             { "VirtualMachine", true },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup Region Settings using the `region`. For example:

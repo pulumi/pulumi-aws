@@ -10,26 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Elastic Transcoder pipeline resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bar = new aws.elastictranscoder.Pipeline("bar", {
- *     inputBucket: aws_s3_bucket.input_bucket.id,
- *     role: aws_iam_role.test_role.arn,
- *     contentConfig: {
- *         bucket: aws_s3_bucket.content_bucket.id,
- *         storageClass: "Standard",
- *     },
- *     thumbnailConfig: {
- *         bucket: aws_s3_bucket.thumb_bucket.id,
- *         storageClass: "Standard",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:

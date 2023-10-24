@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,63 @@ class DocumentArgs:
         :param pulumi.Input[str] target_type: The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
         :param pulumi.Input[str] version_name: A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "document_type", document_type)
+        DocumentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            document_type=document_type,
+            attachments_sources=attachments_sources,
+            document_format=document_format,
+            name=name,
+            permissions=permissions,
+            tags=tags,
+            target_type=target_type,
+            version_name=version_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             document_type: Optional[pulumi.Input[str]] = None,
+             attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
+             document_format: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_type: Optional[pulumi.Input[str]] = None,
+             version_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if document_type is None and 'documentType' in kwargs:
+            document_type = kwargs['documentType']
+        if document_type is None:
+            raise TypeError("Missing 'document_type' argument")
+        if attachments_sources is None and 'attachmentsSources' in kwargs:
+            attachments_sources = kwargs['attachmentsSources']
+        if document_format is None and 'documentFormat' in kwargs:
+            document_format = kwargs['documentFormat']
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if version_name is None and 'versionName' in kwargs:
+            version_name = kwargs['versionName']
+
+        _setter("content", content)
+        _setter("document_type", document_type)
         if attachments_sources is not None:
-            pulumi.set(__self__, "attachments_sources", attachments_sources)
+            _setter("attachments_sources", attachments_sources)
         if document_format is not None:
-            pulumi.set(__self__, "document_format", document_format)
+            _setter("document_format", document_format)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_type is not None:
-            pulumi.set(__self__, "target_type", target_type)
+            _setter("target_type", target_type)
         if version_name is not None:
-            pulumi.set(__self__, "version_name", version_name)
+            _setter("version_name", version_name)
 
     @property
     @pulumi.getter
@@ -214,55 +255,136 @@ class _DocumentState:
         :param pulumi.Input[str] target_type: The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
         :param pulumi.Input[str] version_name: A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
         """
+        _DocumentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            attachments_sources=attachments_sources,
+            content=content,
+            created_date=created_date,
+            default_version=default_version,
+            description=description,
+            document_format=document_format,
+            document_type=document_type,
+            document_version=document_version,
+            hash=hash,
+            hash_type=hash_type,
+            latest_version=latest_version,
+            name=name,
+            owner=owner,
+            parameters=parameters,
+            permissions=permissions,
+            platform_types=platform_types,
+            schema_version=schema_version,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            target_type=target_type,
+            version_name=version_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             created_date: Optional[pulumi.Input[str]] = None,
+             default_version: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             document_format: Optional[pulumi.Input[str]] = None,
+             document_type: Optional[pulumi.Input[str]] = None,
+             document_version: Optional[pulumi.Input[str]] = None,
+             hash: Optional[pulumi.Input[str]] = None,
+             hash_type: Optional[pulumi.Input[str]] = None,
+             latest_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentParameterArgs']]]] = None,
+             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             platform_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             schema_version: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_type: Optional[pulumi.Input[str]] = None,
+             version_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attachments_sources is None and 'attachmentsSources' in kwargs:
+            attachments_sources = kwargs['attachmentsSources']
+        if created_date is None and 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if default_version is None and 'defaultVersion' in kwargs:
+            default_version = kwargs['defaultVersion']
+        if document_format is None and 'documentFormat' in kwargs:
+            document_format = kwargs['documentFormat']
+        if document_type is None and 'documentType' in kwargs:
+            document_type = kwargs['documentType']
+        if document_version is None and 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if hash_type is None and 'hashType' in kwargs:
+            hash_type = kwargs['hashType']
+        if latest_version is None and 'latestVersion' in kwargs:
+            latest_version = kwargs['latestVersion']
+        if platform_types is None and 'platformTypes' in kwargs:
+            platform_types = kwargs['platformTypes']
+        if schema_version is None and 'schemaVersion' in kwargs:
+            schema_version = kwargs['schemaVersion']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if version_name is None and 'versionName' in kwargs:
+            version_name = kwargs['versionName']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if attachments_sources is not None:
-            pulumi.set(__self__, "attachments_sources", attachments_sources)
+            _setter("attachments_sources", attachments_sources)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if default_version is not None:
-            pulumi.set(__self__, "default_version", default_version)
+            _setter("default_version", default_version)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if document_format is not None:
-            pulumi.set(__self__, "document_format", document_format)
+            _setter("document_format", document_format)
         if document_type is not None:
-            pulumi.set(__self__, "document_type", document_type)
+            _setter("document_type", document_type)
         if document_version is not None:
-            pulumi.set(__self__, "document_version", document_version)
+            _setter("document_version", document_version)
         if hash is not None:
-            pulumi.set(__self__, "hash", hash)
+            _setter("hash", hash)
         if hash_type is not None:
-            pulumi.set(__self__, "hash_type", hash_type)
+            _setter("hash_type", hash_type)
         if latest_version is not None:
-            pulumi.set(__self__, "latest_version", latest_version)
+            _setter("latest_version", latest_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if platform_types is not None:
-            pulumi.set(__self__, "platform_types", platform_types)
+            _setter("platform_types", platform_types)
         if schema_version is not None:
-            pulumi.set(__self__, "schema_version", schema_version)
+            _setter("schema_version", schema_version)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target_type is not None:
-            pulumi.set(__self__, "target_type", target_type)
+            _setter("target_type", target_type)
         if version_name is not None:
-            pulumi.set(__self__, "version_name", version_name)
+            _setter("version_name", version_name)
 
     @property
     @pulumi.getter
@@ -563,55 +685,6 @@ class Document(pulumi.CustomResource):
         or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older schema version you must recreate the resource. Not all document types support a schema version of 2.0 or greater. Refer to [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) for information about which schema versions are supported for the respective `document_type`.
 
         ## Example Usage
-        ### Create an ssm document in JSON format
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ssm.Document("foo",
-            content=\"\"\"  {
-            "schemaVersion": "1.2",
-            "description": "Check ip configuration of a Linux instance.",
-            "parameters": {
-
-            },
-            "runtimeConfig": {
-              "aws:runShellScript": {
-                "properties": [
-                  {
-                    "id": "0.aws:runShellScript",
-                    "runCommand": ["ifconfig"]
-                  }
-                ]
-              }
-            }
-          }
-
-        \"\"\",
-            document_type="Command")
-        ```
-        ### Create an ssm document in YAML format
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ssm.Document("foo",
-            content=\"\"\"schemaVersion: '1.2'
-        description: Check ip configuration of a Linux instance.
-        parameters: {}
-        runtimeConfig:
-          'aws:runShellScript':
-            properties:
-              - id: '0.aws:runShellScript'
-                runCommand:
-                  - ifconfig
-
-        \"\"\",
-            document_format="YAML",
-            document_type="Command")
-        ```
         ## Permissions
 
         The permissions attribute specifies how you want to share the document. If you share a document privately,
@@ -657,55 +730,6 @@ class Document(pulumi.CustomResource):
         or greater can update their content once created, see [SSM Schema Features](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html#document-schemas-features). To update a document with an older schema version you must recreate the resource. Not all document types support a schema version of 2.0 or greater. Refer to [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) for information about which schema versions are supported for the respective `document_type`.
 
         ## Example Usage
-        ### Create an ssm document in JSON format
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ssm.Document("foo",
-            content=\"\"\"  {
-            "schemaVersion": "1.2",
-            "description": "Check ip configuration of a Linux instance.",
-            "parameters": {
-
-            },
-            "runtimeConfig": {
-              "aws:runShellScript": {
-                "properties": [
-                  {
-                    "id": "0.aws:runShellScript",
-                    "runCommand": ["ifconfig"]
-                  }
-                ]
-              }
-            }
-          }
-
-        \"\"\",
-            document_type="Command")
-        ```
-        ### Create an ssm document in YAML format
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ssm.Document("foo",
-            content=\"\"\"schemaVersion: '1.2'
-        description: Check ip configuration of a Linux instance.
-        parameters: {}
-        runtimeConfig:
-          'aws:runShellScript':
-            properties:
-              - id: '0.aws:runShellScript'
-                runCommand:
-                  - ifconfig
-
-        \"\"\",
-            document_format="YAML",
-            document_type="Command")
-        ```
         ## Permissions
 
         The permissions attribute specifies how you want to share the document. If you share a document privately,
@@ -736,6 +760,10 @@ class Document(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DocumentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

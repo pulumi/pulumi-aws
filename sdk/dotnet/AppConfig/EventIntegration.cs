@@ -12,33 +12,6 @@ namespace Pulumi.Aws.AppConfig
     /// <summary>
     /// Provides an Amazon AppIntegrations Event Integration resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppConfig.EventIntegration("example", new()
-    ///     {
-    ///         Description = "Example Description",
-    ///         EventFilter = new Aws.AppConfig.Inputs.EventIntegrationEventFilterArgs
-    ///         {
-    ///             Source = "aws.partner/examplepartner.com",
-    ///         },
-    ///         EventbridgeBus = "default",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Event Integration" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:

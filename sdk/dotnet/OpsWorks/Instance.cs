@@ -12,30 +12,6 @@ namespace Pulumi.Aws.OpsWorks
     /// <summary>
     /// Provides an OpsWorks instance resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var my_instance = new Aws.OpsWorks.Instance("my-instance", new()
-    ///     {
-    ///         StackId = aws_opsworks_stack.Main.Id,
-    ///         LayerIds = new[]
-    ///         {
-    ///             aws_opsworks_custom_layer.My_layer.Id,
-    ///         },
-    ///         InstanceType = "t2.micro",
-    ///         Os = "Amazon Linux 2015.09",
-    ///         State = "stopped",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Block devices
     /// 
     /// Each of the `*_block_device` attributes controls a portion of the AWS

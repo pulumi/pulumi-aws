@@ -14,26 +14,6 @@ namespace Pulumi.Aws.Kms
     /// but API (hence this provider too) allows you to create as many aliases as
     /// the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var key = new Aws.Kms.Key("key");
-    /// 
-    ///     var @alias = new Aws.Kms.Alias("alias", new()
-    ///     {
-    ///         TargetKeyId = key.KeyId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS aliases using the `name`. For example:

@@ -12,24 +12,6 @@ import * as utilities from "../utilities";
  *
  * More information about capacity providers can be found in the [ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCluster = new aws.ecs.Cluster("exampleCluster", {});
- * const exampleClusterCapacityProviders = new aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", {
- *     clusterName: exampleCluster.name,
- *     capacityProviders: ["FARGATE"],
- *     defaultCapacityProviderStrategies: [{
- *         base: 1,
- *         weight: 100,
- *         capacityProvider: "FARGATE",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:

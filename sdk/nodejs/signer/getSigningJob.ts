@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Signer Signing Job.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const buildSigningJob = aws.signer.getSigningJob({
- *     jobId: "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
- * });
- * ```
  */
 export function getSigningJob(args: GetSigningJobArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningJobResult> {
 
@@ -111,17 +100,6 @@ export interface GetSigningJobResult {
 }
 /**
  * Provides information about a Signer Signing Job.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const buildSigningJob = aws.signer.getSigningJob({
- *     jobId: "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
- * });
- * ```
  */
 export function getSigningJobOutput(args: GetSigningJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSigningJobResult> {
     return pulumi.output(args).apply((a: any) => getSigningJob(a, opts))

@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage an Infrastructure Performance subscription.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.VpcNetworkPerformanceMetricSubscription("example", {
- *     destination: "us-west-1",
- *     source: "us-east-1",
- * });
- * ```
  */
 export class VpcNetworkPerformanceMetricSubscription extends pulumi.CustomResource {
     /**

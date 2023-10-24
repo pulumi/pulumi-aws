@@ -7,26 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppSync Type.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
- * const exampleType = new aws.appsync.Type("exampleType", {
- *     apiId: exampleGraphQLApi.id,
- *     format: "SDL",
- *     definition: `type Mutation
- *
- * {
- * putPost(id: ID!,title: String! ): Post
- *
- * }
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Appsync Types using the `id`. For example:

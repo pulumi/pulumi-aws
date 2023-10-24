@@ -13,38 +13,6 @@ namespace Pulumi.Aws.GuardDuty
     /// Provides a resource to manage a single Amazon GuardDuty [organization configuration feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
     /// 
     /// &gt; **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource in simply removed from state instead.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GuardDuty.Detector("example", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var eksRuntimeMonitoring = new Aws.GuardDuty.OrganizationConfigurationFeature("eksRuntimeMonitoring", new()
-    ///     {
-    ///         DetectorId = example.Id,
-    ///         AutoEnable = "ALL",
-    ///         AdditionalConfigurations = new[]
-    ///         {
-    ///             new Aws.GuardDuty.Inputs.OrganizationConfigurationFeatureAdditionalConfigurationArgs
-    ///             {
-    ///                 Name = "EKS_ADDON_MANAGEMENT",
-    ///                 AutoEnable = "NEW",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature")]
     public partial class OrganizationConfigurationFeature : global::Pulumi.CustomResource

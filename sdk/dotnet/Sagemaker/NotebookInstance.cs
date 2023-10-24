@@ -13,60 +13,6 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Notebook Instance resource.
     /// 
     /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ni = new Aws.Sagemaker.NotebookInstance("ni", new()
-    ///     {
-    ///         RoleArn = aws_iam_role.Role.Arn,
-    ///         InstanceType = "ml.t2.medium",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "foo" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Code repository usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.CodeRepository("example", new()
-    ///     {
-    ///         CodeRepositoryName = "my-notebook-instance-code-repo",
-    ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
-    ///         {
-    ///             RepositoryUrl = "https://github.com/github/docs.git",
-    ///         },
-    ///     });
-    /// 
-    ///     var ni = new Aws.Sagemaker.NotebookInstance("ni", new()
-    ///     {
-    ///         RoleArn = aws_iam_role.Role.Arn,
-    ///         InstanceType = "ml.t2.medium",
-    ///         DefaultCodeRepository = example.CodeRepositoryName,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "foo" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

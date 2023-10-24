@@ -9,38 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getSecurityGroups({
- *     tags: {
- *         Application: "k8s",
- *         Environment: "dev",
- *     },
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getSecurityGroups({
- *     filters: [
- *         {
- *             name: "group-name",
- *             values: ["*nodes*"],
- *         },
- *         {
- *             name: "vpc-id",
- *             values: [_var.vpc_id],
- *         },
- *     ],
- * });
- * ```
  */
 export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupsResult> {
     args = args || {};
@@ -91,38 +59,6 @@ export interface GetSecurityGroupsResult {
 }
 /**
  * Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getSecurityGroups({
- *     tags: {
- *         Application: "k8s",
- *         Environment: "dev",
- *     },
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getSecurityGroups({
- *     filters: [
- *         {
- *             name: "group-name",
- *             values: ["*nodes*"],
- *         },
- *         {
- *             name: "vpc-id",
- *             values: [_var.vpc_id],
- *         },
- *     ],
- * });
- * ```
  */
 export function getSecurityGroupsOutput(args?: GetSecurityGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupsResult> {
     return pulumi.output(args).apply((a: any) => getSecurityGroups(a, opts))

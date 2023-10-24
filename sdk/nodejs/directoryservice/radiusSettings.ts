@@ -7,24 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.directoryservice.RadiusSettings("example", {
- *     directoryId: aws_directory_service_directory.example.id,
- *     authenticationProtocol: "PAP",
- *     displayLabel: "example",
- *     radiusPort: 1812,
- *     radiusRetries: 4,
- *     radiusServers: ["10.0.1.5"],
- *     radiusTimeout: 1,
- *     sharedSecret: "12345678",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import RADIUS settings using the directory ID. For example:

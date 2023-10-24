@@ -15,42 +15,6 @@ import (
 
 // Manages an AWS DataSync FSx OpenZfs Location.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewFsxOpenZfsFileSystem(ctx, "example", &datasync.FsxOpenZfsFileSystemArgs{
-//				FsxFilesystemArn: pulumi.Any(aws_fsx_openzfs_file_system.Example.Arn),
-//				SecurityGroupArns: pulumi.StringArray{
-//					aws_security_group.Example.Arn,
-//				},
-//				Protocol: &datasync.FsxOpenZfsFileSystemProtocolArgs{
-//					Nfs: &datasync.FsxOpenZfsFileSystemProtocolNfsArgs{
-//						MountOptions: &datasync.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{
-//							Version: pulumi.String("AUTOMATIC"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_fsx_openzfs_file_system` using the `DataSync-ARN#FSx-openzfs-ARN`. For example:

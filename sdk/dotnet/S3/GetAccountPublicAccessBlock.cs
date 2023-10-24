@@ -13,50 +13,12 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// The S3 account public access block data source returns account-level public access block configuration.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.S3.GetAccountPublicAccessBlock.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountPublicAccessBlockResult> InvokeAsync(GetAccountPublicAccessBlockArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountPublicAccessBlockResult>("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args ?? new GetAccountPublicAccessBlockArgs(), options.WithDefaults());
 
         /// <summary>
         /// The S3 account public access block data source returns account-level public access block configuration.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.S3.GetAccountPublicAccessBlock.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAccountPublicAccessBlockResult> Invoke(GetAccountPublicAccessBlockInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountPublicAccessBlockResult>("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args ?? new GetAccountPublicAccessBlockInvokeArgs(), options.WithDefaults());

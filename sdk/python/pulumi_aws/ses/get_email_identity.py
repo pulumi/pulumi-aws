@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -73,15 +73,6 @@ def get_email_identity(email: Optional[str] = None,
     """
     Retrieve the active SES email identity
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ses.get_email_identity(email="awesome@example.com")
-    ```
-
 
     :param str email: Email identity.
     """
@@ -101,15 +92,6 @@ def get_email_identity_output(email: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
     Retrieve the active SES email identity
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ses.get_email_identity(email="awesome@example.com")
-    ```
 
 
     :param str email: Email identity.

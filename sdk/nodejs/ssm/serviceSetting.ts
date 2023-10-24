@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * This setting defines how a user interacts with or uses a service or a feature of a service.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testSetting = new aws.ssm.ServiceSetting("testSetting", {
- *     settingId: "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
- *     settingValue: "true",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AWS SSM Service Setting using the `setting_id`. For example:

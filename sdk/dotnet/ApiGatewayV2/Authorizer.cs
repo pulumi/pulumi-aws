@@ -14,53 +14,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
     /// 
     /// ## Example Usage
-    /// ### Basic WebSocket API
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGatewayV2.Authorizer("example", new()
-    ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         AuthorizerType = "REQUEST",
-    ///         AuthorizerUri = aws_lambda_function.Example.Invoke_arn,
-    ///         IdentitySources = new[]
-    ///         {
-    ///             "route.request.header.Auth",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Basic HTTP API
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGatewayV2.Authorizer("example", new()
-    ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         AuthorizerType = "REQUEST",
-    ///         AuthorizerUri = aws_lambda_function.Example.Invoke_arn,
-    ///         IdentitySources = new[]
-    ///         {
-    ///             "$request.header.Authorization",
-    ///         },
-    ///         AuthorizerPayloadFormatVersion = "2.0",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

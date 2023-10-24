@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConnectionArgs', 'Connection']
@@ -35,20 +35,57 @@ class ConnectionArgs:
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "bandwidth", bandwidth)
-        pulumi.set(__self__, "location", location)
+        ConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bandwidth=bandwidth,
+            location=location,
+            encryption_mode=encryption_mode,
+            name=name,
+            provider_name=provider_name,
+            request_macsec=request_macsec,
+            skip_destroy=skip_destroy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bandwidth: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             encryption_mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provider_name: Optional[pulumi.Input[str]] = None,
+             request_macsec: Optional[pulumi.Input[bool]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bandwidth is None:
+            raise TypeError("Missing 'bandwidth' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if encryption_mode is None and 'encryptionMode' in kwargs:
+            encryption_mode = kwargs['encryptionMode']
+        if provider_name is None and 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if request_macsec is None and 'requestMacsec' in kwargs:
+            request_macsec = kwargs['requestMacsec']
+        if skip_destroy is None and 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+
+        _setter("bandwidth", bandwidth)
+        _setter("location", location)
         if encryption_mode is not None:
-            pulumi.set(__self__, "encryption_mode", encryption_mode)
+            _setter("encryption_mode", encryption_mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
+            _setter("provider_name", provider_name)
         if request_macsec is not None:
-            pulumi.set(__self__, "request_macsec", request_macsec)
+            _setter("request_macsec", request_macsec)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -193,45 +230,116 @@ class _ConnectionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] vlan_id: The VLAN ID.
         """
+        _ConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            aws_device=aws_device,
+            bandwidth=bandwidth,
+            encryption_mode=encryption_mode,
+            has_logical_redundancy=has_logical_redundancy,
+            jumbo_frame_capable=jumbo_frame_capable,
+            location=location,
+            macsec_capable=macsec_capable,
+            name=name,
+            owner_account_id=owner_account_id,
+            partner_name=partner_name,
+            port_encryption_status=port_encryption_status,
+            provider_name=provider_name,
+            request_macsec=request_macsec,
+            skip_destroy=skip_destroy,
+            tags=tags,
+            tags_all=tags_all,
+            vlan_id=vlan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_device: Optional[pulumi.Input[str]] = None,
+             bandwidth: Optional[pulumi.Input[str]] = None,
+             encryption_mode: Optional[pulumi.Input[str]] = None,
+             has_logical_redundancy: Optional[pulumi.Input[str]] = None,
+             jumbo_frame_capable: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             macsec_capable: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             partner_name: Optional[pulumi.Input[str]] = None,
+             port_encryption_status: Optional[pulumi.Input[str]] = None,
+             provider_name: Optional[pulumi.Input[str]] = None,
+             request_macsec: Optional[pulumi.Input[bool]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vlan_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_device is None and 'awsDevice' in kwargs:
+            aws_device = kwargs['awsDevice']
+        if encryption_mode is None and 'encryptionMode' in kwargs:
+            encryption_mode = kwargs['encryptionMode']
+        if has_logical_redundancy is None and 'hasLogicalRedundancy' in kwargs:
+            has_logical_redundancy = kwargs['hasLogicalRedundancy']
+        if jumbo_frame_capable is None and 'jumboFrameCapable' in kwargs:
+            jumbo_frame_capable = kwargs['jumboFrameCapable']
+        if macsec_capable is None and 'macsecCapable' in kwargs:
+            macsec_capable = kwargs['macsecCapable']
+        if owner_account_id is None and 'ownerAccountId' in kwargs:
+            owner_account_id = kwargs['ownerAccountId']
+        if partner_name is None and 'partnerName' in kwargs:
+            partner_name = kwargs['partnerName']
+        if port_encryption_status is None and 'portEncryptionStatus' in kwargs:
+            port_encryption_status = kwargs['portEncryptionStatus']
+        if provider_name is None and 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if request_macsec is None and 'requestMacsec' in kwargs:
+            request_macsec = kwargs['requestMacsec']
+        if skip_destroy is None and 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vlan_id is None and 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_device is not None:
-            pulumi.set(__self__, "aws_device", aws_device)
+            _setter("aws_device", aws_device)
         if bandwidth is not None:
-            pulumi.set(__self__, "bandwidth", bandwidth)
+            _setter("bandwidth", bandwidth)
         if encryption_mode is not None:
-            pulumi.set(__self__, "encryption_mode", encryption_mode)
+            _setter("encryption_mode", encryption_mode)
         if has_logical_redundancy is not None:
-            pulumi.set(__self__, "has_logical_redundancy", has_logical_redundancy)
+            _setter("has_logical_redundancy", has_logical_redundancy)
         if jumbo_frame_capable is not None:
-            pulumi.set(__self__, "jumbo_frame_capable", jumbo_frame_capable)
+            _setter("jumbo_frame_capable", jumbo_frame_capable)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if macsec_capable is not None:
-            pulumi.set(__self__, "macsec_capable", macsec_capable)
+            _setter("macsec_capable", macsec_capable)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_account_id is not None:
-            pulumi.set(__self__, "owner_account_id", owner_account_id)
+            _setter("owner_account_id", owner_account_id)
         if partner_name is not None:
-            pulumi.set(__self__, "partner_name", partner_name)
+            _setter("partner_name", partner_name)
         if port_encryption_status is not None:
-            pulumi.set(__self__, "port_encryption_status", port_encryption_status)
+            _setter("port_encryption_status", port_encryption_status)
         if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
+            _setter("provider_name", provider_name)
         if request_macsec is not None:
-            pulumi.set(__self__, "request_macsec", request_macsec)
+            _setter("request_macsec", request_macsec)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vlan_id is not None:
-            pulumi.set(__self__, "vlan_id", vlan_id)
+            _setter("vlan_id", vlan_id)
 
     @property
     @pulumi.getter
@@ -473,41 +581,6 @@ class Connection(pulumi.CustomResource):
         Provides a Connection of Direct Connect.
 
         ## Example Usage
-        ### Create a connection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        hoge = aws.directconnect.Connection("hoge",
-            bandwidth="1Gbps",
-            location="EqDC2")
-        ```
-        ### Request a MACsec-capable connection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directconnect.Connection("example",
-            bandwidth="10Gbps",
-            location="EqDA2",
-            request_macsec=True)
-        ```
-        ### Configure encryption mode for MACsec-capable connections
-
-        > **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directconnect.Connection("example",
-            bandwidth="10Gbps",
-            encryption_mode="must_encrypt",
-            location="EqDC2",
-            request_macsec=True)
-        ```
 
         ## Import
 
@@ -540,41 +613,6 @@ class Connection(pulumi.CustomResource):
         Provides a Connection of Direct Connect.
 
         ## Example Usage
-        ### Create a connection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        hoge = aws.directconnect.Connection("hoge",
-            bandwidth="1Gbps",
-            location="EqDC2")
-        ```
-        ### Request a MACsec-capable connection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directconnect.Connection("example",
-            bandwidth="10Gbps",
-            location="EqDA2",
-            request_macsec=True)
-        ```
-        ### Configure encryption mode for MACsec-capable connections
-
-        > **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directconnect.Connection("example",
-            bandwidth="10Gbps",
-            encryption_mode="must_encrypt",
-            location="EqDC2",
-            request_macsec=True)
-        ```
 
         ## Import
 
@@ -594,6 +632,10 @@ class Connection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

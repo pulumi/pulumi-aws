@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Route 53 Recovery Control Config Routing Control.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoverycontrol.RoutingControl("example", {clusterArn: "arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393"});
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoverycontrol.RoutingControl("example", {
- *     clusterArn: "arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
- *     controlPanelArn: "arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For example:

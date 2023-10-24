@@ -13,28 +13,6 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer AS2 Certificate resource.
     /// 
     /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Transfer.Certificate("example", new()
-    ///     {
-    ///         CertificateFile = File.ReadAllText($"{path.Module}/example.com/example.crt"),
-    ///         CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
-    ///         PrivateKey = File.ReadAllText($"{path.Module}/example.com/example.key"),
-    ///         Description = "example",
-    ///         Usage = "SIGNING",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

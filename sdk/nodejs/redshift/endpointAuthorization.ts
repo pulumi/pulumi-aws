@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a new Amazon Redshift endpoint authorization.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.EndpointAuthorization("example", {
- *     account: "01234567910",
- *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Redshift endpoint authorization using the `id`. For example:

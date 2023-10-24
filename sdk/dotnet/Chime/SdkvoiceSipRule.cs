@@ -13,33 +13,6 @@ namespace Pulumi.Aws.Chime
     /// A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Chime.SdkvoiceSipRule("example", new()
-    ///     {
-    ///         TriggerType = "RequestUriHostname",
-    ///         TriggerValue = aws_chime_voice_connector.Example_voice_connector.Outbound_host_name,
-    ///         TargetApplications = new[]
-    ///         {
-    ///             new Aws.Chime.Inputs.SdkvoiceSipRuleTargetApplicationArgs
-    ///             {
-    ///                 Priority = 1,
-    ///                 SipMediaApplicationId = aws_chimesdkvoice_sip_media_application.Example_sma.Id,
-    ///                 AwsRegion = "us-east-1",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -12,24 +12,6 @@ namespace Pulumi.Aws.ResourceExplorer
     /// <summary>
     /// Provides a resource to manage a Resource Explorer index in the current AWS Region.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ResourceExplorer.Index("example", new()
-    ///     {
-    ///         Type = "LOCAL",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Resource Explorer indexes using the `arn`. For example:

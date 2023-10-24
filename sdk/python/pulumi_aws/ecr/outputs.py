@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -51,8 +51,29 @@ class RegistryScanningConfigurationRule(dict):
         :param Sequence['RegistryScanningConfigurationRuleRepositoryFilterArgs'] repository_filters: One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
         :param str scan_frequency: The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
         """
-        pulumi.set(__self__, "repository_filters", repository_filters)
-        pulumi.set(__self__, "scan_frequency", scan_frequency)
+        RegistryScanningConfigurationRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_filters=repository_filters,
+            scan_frequency=scan_frequency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_filters: Optional[Sequence['outputs.RegistryScanningConfigurationRuleRepositoryFilter']] = None,
+             scan_frequency: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository_filters is None and 'repositoryFilters' in kwargs:
+            repository_filters = kwargs['repositoryFilters']
+        if repository_filters is None:
+            raise TypeError("Missing 'repository_filters' argument")
+        if scan_frequency is None and 'scanFrequency' in kwargs:
+            scan_frequency = kwargs['scanFrequency']
+        if scan_frequency is None:
+            raise TypeError("Missing 'scan_frequency' argument")
+
+        _setter("repository_filters", repository_filters)
+        _setter("scan_frequency", scan_frequency)
 
     @property
     @pulumi.getter(name="repositoryFilters")
@@ -93,8 +114,27 @@ class RegistryScanningConfigurationRuleRepositoryFilter(dict):
     def __init__(__self__, *,
                  filter: str,
                  filter_type: str):
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "filter_type", filter_type)
+        RegistryScanningConfigurationRuleRepositoryFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter=filter,
+            filter_type=filter_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter: Optional[str] = None,
+             filter_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if filter_type is None and 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if filter_type is None:
+            raise TypeError("Missing 'filter_type' argument")
+
+        _setter("filter", filter)
+        _setter("filter_type", filter_type)
 
     @property
     @pulumi.getter
@@ -114,7 +154,20 @@ class ReplicationConfigurationReplicationConfiguration(dict):
         """
         :param Sequence['ReplicationConfigurationReplicationConfigurationRuleArgs'] rules: The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         """
-        pulumi.set(__self__, "rules", rules)
+        ReplicationConfigurationReplicationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules: Optional[Sequence['outputs.ReplicationConfigurationReplicationConfigurationRule']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+
+        _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -151,9 +204,26 @@ class ReplicationConfigurationReplicationConfigurationRule(dict):
         :param Sequence['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs'] destinations: the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
         :param Sequence['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs'] repository_filters: filters for a replication rule. See Repository Filter.
         """
-        pulumi.set(__self__, "destinations", destinations)
+        ReplicationConfigurationReplicationConfigurationRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destinations=destinations,
+            repository_filters=repository_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destinations: Optional[Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleDestination']] = None,
+             repository_filters: Optional[Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destinations is None:
+            raise TypeError("Missing 'destinations' argument")
+        if repository_filters is None and 'repositoryFilters' in kwargs:
+            repository_filters = kwargs['repositoryFilters']
+
+        _setter("destinations", destinations)
         if repository_filters is not None:
-            pulumi.set(__self__, "repository_filters", repository_filters)
+            _setter("repository_filters", repository_filters)
 
     @property
     @pulumi.getter
@@ -198,8 +268,27 @@ class ReplicationConfigurationReplicationConfigurationRuleDestination(dict):
         :param str region: A Region to replicate to.
         :param str registry_id: The account ID of the destination registry to replicate to.
         """
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "registry_id", registry_id)
+        ReplicationConfigurationReplicationConfigurationRuleDestination._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            region=region,
+            registry_id=registry_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             region: Optional[str] = None,
+             registry_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if registry_id is None and 'registryId' in kwargs:
+            registry_id = kwargs['registryId']
+        if registry_id is None:
+            raise TypeError("Missing 'registry_id' argument")
+
+        _setter("region", region)
+        _setter("registry_id", registry_id)
 
     @property
     @pulumi.getter
@@ -244,8 +333,27 @@ class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter(dict)
         :param str filter: The repository filter details.
         :param str filter_type: The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
         """
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "filter_type", filter_type)
+        ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter=filter,
+            filter_type=filter_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter: Optional[str] = None,
+             filter_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if filter_type is None and 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if filter_type is None:
+            raise TypeError("Missing 'filter_type' argument")
+
+        _setter("filter", filter)
+        _setter("filter_type", filter_type)
 
     @property
     @pulumi.getter
@@ -292,10 +400,27 @@ class RepositoryEncryptionConfiguration(dict):
         :param str encryption_type: The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
         :param str kms_key: The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
         """
+        RepositoryEncryptionConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_type=encryption_type,
+            kms_key=kms_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_type: Optional[str] = None,
+             kms_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_type is None and 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if kms_key is None and 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+
         if encryption_type is not None:
-            pulumi.set(__self__, "encryption_type", encryption_type)
+            _setter("encryption_type", encryption_type)
         if kms_key is not None:
-            pulumi.set(__self__, "kms_key", kms_key)
+            _setter("kms_key", kms_key)
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -338,7 +463,22 @@ class RepositoryImageScanningConfiguration(dict):
         """
         :param bool scan_on_push: Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
         """
-        pulumi.set(__self__, "scan_on_push", scan_on_push)
+        RepositoryImageScanningConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scan_on_push=scan_on_push,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scan_on_push: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scan_on_push is None and 'scanOnPush' in kwargs:
+            scan_on_push = kwargs['scanOnPush']
+        if scan_on_push is None:
+            raise TypeError("Missing 'scan_on_push' argument")
+
+        _setter("scan_on_push", scan_on_push)
 
     @property
     @pulumi.getter(name="scanOnPush")
@@ -358,8 +498,29 @@ class GetRepositoryEncryptionConfigurationResult(dict):
         :param str encryption_type: Encryption type to use for the repository, either `AES256` or `KMS`.
         :param str kms_key: If `encryption_type` is `KMS`, the ARN of the KMS key used.
         """
-        pulumi.set(__self__, "encryption_type", encryption_type)
-        pulumi.set(__self__, "kms_key", kms_key)
+        GetRepositoryEncryptionConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_type=encryption_type,
+            kms_key=kms_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_type: Optional[str] = None,
+             kms_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_type is None and 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if encryption_type is None:
+            raise TypeError("Missing 'encryption_type' argument")
+        if kms_key is None and 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+        if kms_key is None:
+            raise TypeError("Missing 'kms_key' argument")
+
+        _setter("encryption_type", encryption_type)
+        _setter("kms_key", kms_key)
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -385,7 +546,22 @@ class GetRepositoryImageScanningConfigurationResult(dict):
         """
         :param bool scan_on_push: Whether images are scanned after being pushed to the repository.
         """
-        pulumi.set(__self__, "scan_on_push", scan_on_push)
+        GetRepositoryImageScanningConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scan_on_push=scan_on_push,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scan_on_push: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scan_on_push is None and 'scanOnPush' in kwargs:
+            scan_on_push = kwargs['scanOnPush']
+        if scan_on_push is None:
+            raise TypeError("Missing 'scan_on_push' argument")
+
+        _setter("scan_on_push", scan_on_push)
 
     @property
     @pulumi.getter(name="scanOnPush")

@@ -18,26 +18,6 @@ namespace Pulumi.Aws.Elb
     /// `instances` defined in-line. At this time you cannot use an ELB with in-line
     /// instances in conjunction with an ELB Attachment resource. Doing so will cause a
     /// conflict and will overwrite attachments.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new load balancer attachment
-    ///     var baz = new Aws.Elb.Attachment("baz", new()
-    ///     {
-    ///         Elb = aws_elb.Bar.Id,
-    ///         Instance = aws_instance.Foo.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:elb/attachment:Attachment")]
     public partial class Attachment : global::Pulumi.CustomResource

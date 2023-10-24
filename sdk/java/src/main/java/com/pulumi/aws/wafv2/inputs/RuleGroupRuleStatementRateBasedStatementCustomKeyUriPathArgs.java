@@ -18,16 +18,6 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs 
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
      * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
      * 
      */
     @Import(name="textTransformations", required=true)
@@ -35,16 +25,6 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs 
 
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
      * At least one required.
      * See Text Transformation below for details.
      * 
@@ -81,16 +61,6 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs 
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
          * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
          * 
          * @return builder
          * 
@@ -104,16 +74,6 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs 
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
          * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
          * 
          * @return builder
          * 
@@ -124,16 +84,6 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs 
 
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
          * At least one required.
          * See Text Transformation below for details.
          * 

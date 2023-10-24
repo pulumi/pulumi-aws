@@ -12,17 +12,6 @@ import * as utilities from "../utilities";
  * resources.
  *
  * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const stream = aws.kinesis.getStream({
- *     name: "stream-name",
- * });
- * ```
  */
 export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
 
@@ -101,17 +90,6 @@ export interface GetStreamResult {
  * resources.
  *
  * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const stream = aws.kinesis.getStream({
- *     name: "stream-name",
- * });
- * ```
  */
 export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamResult> {
     return pulumi.output(args).apply((a: any) => getStream(a, opts))

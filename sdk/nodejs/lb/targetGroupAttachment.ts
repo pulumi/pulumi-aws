@@ -10,68 +10,6 @@ import * as utilities from "../utilities";
  * > **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testTargetGroup = new aws.lb.TargetGroup("testTargetGroup", {});
- * // ... other configuration ...
- * const testInstance = new aws.ec2.Instance("testInstance", {});
- * // ... other configuration ...
- * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("testTargetGroupAttachment", {
- *     targetGroupArn: testTargetGroup.arn,
- *     targetId: testInstance.id,
- *     port: 80,
- * });
- * ```
- * ### Lambda Target
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testTargetGroup = new aws.lb.TargetGroup("testTargetGroup", {targetType: "lambda"});
- * const testFunction = new aws.lambda.Function("testFunction", {});
- * // ... other configuration ...
- * const withLb = new aws.lambda.Permission("withLb", {
- *     action: "lambda:InvokeFunction",
- *     "function": testFunction.name,
- *     principal: "elasticloadbalancing.amazonaws.com",
- *     sourceArn: testTargetGroup.arn,
- * });
- * const testTargetGroupAttachment = new aws.lb.TargetGroupAttachment("testTargetGroupAttachment", {
- *     targetGroupArn: testTargetGroup.arn,
- *     targetId: testFunction.arn,
- * }, {
- *     dependsOn: [withLb],
- * });
- * ```
- * ### Registering Multiple Targets
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleInstance: aws.ec2.Instance[] = [];
- * for (const range = {value: 0}; range.value < 3; range.value++) {
- *     exampleInstance.push(new aws.ec2.Instance(`exampleInstance-${range.value}`, {}));
- * }
- * // ... other configuration ...
- * const exampleTargetGroup = new aws.lb.TargetGroup("exampleTargetGroup", {});
- * // ... other configuration ...
- * const exampleTargetGroupAttachment: aws.lb.TargetGroupAttachment[] = [];
- * pulumi.all(exampleInstance.map((v, k) => [k, v]).reduce((__obj, [, ]) => ({ ...__obj, [v.id]: v }))).apply(rangeBody => {
- *     for (const range of Object.entries(rangeBody).map(([k, v]) => ({key: k, value: v}))) {
- *         exampleTargetGroupAttachment.push(new aws.lb.TargetGroupAttachment(`exampleTargetGroupAttachment-${range.key}`, {
- *             targetGroupArn: exampleTargetGroup.arn,
- *             targetId: range.value.id,
- *             port: 80,
- *         }));
- *     }
- * });
- * ```
  *
  * ## Import
  *

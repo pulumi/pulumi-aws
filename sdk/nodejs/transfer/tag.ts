@@ -11,25 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Server("example", {identityProviderType: "SERVICE_MANAGED"});
- * const zoneId = new aws.transfer.Tag("zoneId", {
- *     resourceArn: example.arn,
- *     key: "aws:transfer:route53HostedZoneId",
- *     value: "/hostedzone/MyHostedZoneId",
- * });
- * const hostname = new aws.transfer.Tag("hostname", {
- *     resourceArn: example.arn,
- *     key: "aws:transfer:customHostname",
- *     value: "example.com",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For example:

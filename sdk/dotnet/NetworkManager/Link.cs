@@ -12,31 +12,6 @@ namespace Pulumi.Aws.NetworkManager
     /// <summary>
     /// Creates a link for a site.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.Link("example", new()
-    ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///         SiteId = aws_networkmanager_site.Example.Id,
-    ///         Bandwidth = new Aws.NetworkManager.Inputs.LinkBandwidthArgs
-    ///         {
-    ///             UploadSpeed = 10,
-    ///             DownloadSpeed = 50,
-    ///         },
-    ///         ProviderName = "MegaCorp",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For example:

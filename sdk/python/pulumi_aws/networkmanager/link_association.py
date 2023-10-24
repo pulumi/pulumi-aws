@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LinkAssociationArgs', 'LinkAssociation']
@@ -23,9 +23,36 @@ class LinkAssociationArgs:
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] link_id: The ID of the link.
         """
-        pulumi.set(__self__, "device_id", device_id)
-        pulumi.set(__self__, "global_network_id", global_network_id)
-        pulumi.set(__self__, "link_id", link_id)
+        LinkAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_id=device_id,
+            global_network_id=global_network_id,
+            link_id=link_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_id: Optional[pulumi.Input[str]] = None,
+             global_network_id: Optional[pulumi.Input[str]] = None,
+             link_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if device_id is None:
+            raise TypeError("Missing 'device_id' argument")
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if global_network_id is None:
+            raise TypeError("Missing 'global_network_id' argument")
+        if link_id is None and 'linkId' in kwargs:
+            link_id = kwargs['linkId']
+        if link_id is None:
+            raise TypeError("Missing 'link_id' argument")
+
+        _setter("device_id", device_id)
+        _setter("global_network_id", global_network_id)
+        _setter("link_id", link_id)
 
     @property
     @pulumi.getter(name="deviceId")
@@ -76,12 +103,33 @@ class _LinkAssociationState:
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] link_id: The ID of the link.
         """
+        _LinkAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_id=device_id,
+            global_network_id=global_network_id,
+            link_id=link_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_id: Optional[pulumi.Input[str]] = None,
+             global_network_id: Optional[pulumi.Input[str]] = None,
+             link_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if link_id is None and 'linkId' in kwargs:
+            link_id = kwargs['linkId']
+
         if device_id is not None:
-            pulumi.set(__self__, "device_id", device_id)
+            _setter("device_id", device_id)
         if global_network_id is not None:
-            pulumi.set(__self__, "global_network_id", global_network_id)
+            _setter("global_network_id", global_network_id)
         if link_id is not None:
-            pulumi.set(__self__, "link_id", link_id)
+            _setter("link_id", link_id)
 
     @property
     @pulumi.getter(name="deviceId")
@@ -134,18 +182,6 @@ class LinkAssociation(pulumi.CustomResource):
         A device can be associated to multiple links and a link can be associated to multiple devices.
         The device and link must be in the same global network and the same site.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.LinkAssociation("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            link_id=aws_networkmanager_link["example"]["id"],
-            device_id=aws_networkmanager_device["example"]["id"])
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
@@ -171,18 +207,6 @@ class LinkAssociation(pulumi.CustomResource):
         A device can be associated to multiple links and a link can be associated to multiple devices.
         The device and link must be in the same global network and the same site.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.LinkAssociation("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            link_id=aws_networkmanager_link["example"]["id"],
-            device_id=aws_networkmanager_device["example"]["id"])
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
@@ -201,6 +225,10 @@ class LinkAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

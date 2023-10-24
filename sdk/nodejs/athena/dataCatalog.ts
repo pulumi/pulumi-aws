@@ -11,67 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Tip:** for a more detailed explanation on the usage of `parameters`, see the [DataCatalog API documentation](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.athena.DataCatalog("example", {
- *     description: "Example Athena data catalog",
- *     parameters: {
- *         "function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
- *     },
- *     tags: {
- *         Name: "example-athena-data-catalog",
- *     },
- *     type: "LAMBDA",
- * });
- * ```
- * ### Hive based Data Catalog
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.athena.DataCatalog("example", {
- *     description: "Hive based Data Catalog",
- *     parameters: {
- *         "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function",
- *     },
- *     type: "HIVE",
- * });
- * ```
- * ### Glue based Data Catalog
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.athena.DataCatalog("example", {
- *     description: "Glue based Data Catalog",
- *     parameters: {
- *         "catalog-id": "123456789012",
- *     },
- *     type: "GLUE",
- * });
- * ```
- * ### Lambda based Data Catalog
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.athena.DataCatalog("example", {
- *     description: "Lambda based Data Catalog",
- *     parameters: {
- *         "metadata-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-1",
- *         "record-function": "arn:aws:lambda:eu-central-1:123456789012:function:not-important-lambda-function-2",
- *     },
- *     type: "LAMBDA",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import data catalogs using their `name`. For example:

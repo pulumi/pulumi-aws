@@ -12,28 +12,6 @@ namespace Pulumi.Aws.AppConfig
     /// <summary>
     /// Provides an AppConfig Application resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppConfig.Application("example", new()
-    ///     {
-    ///         Description = "Example AppConfig Application",
-    ///         Tags = 
-    ///         {
-    ///             { "Type", "AppConfig Application" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Applications using their application ID. For example:

@@ -9,32 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource for managing an AWS CodeCatalyst Dev Environment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.codecatalyst.DevEnvironment("test", {
- *     alias: "devenv",
- *     ides: {
- *         name: "PyCharm",
- *         runtime: "public.ecr.aws/jetbrains/py",
- *     },
- *     inactivityTimeoutMinutes: 40,
- *     instanceType: "dev.standard1.small",
- *     persistentStorage: {
- *         size: 16,
- *     },
- *     projectName: "myproject",
- *     repositories: [{
- *         branchName: "main",
- *         repositoryName: "pulumi-provider-aws",
- *     }],
- *     spaceName: "myspace",
- * });
- * ```
  */
 export class DevEnvironment extends pulumi.CustomResource {
     /**

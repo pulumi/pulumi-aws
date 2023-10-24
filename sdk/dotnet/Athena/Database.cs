@@ -12,27 +12,6 @@ namespace Pulumi.Aws.Athena
     /// <summary>
     /// Provides an Athena database.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleDatabase = new Aws.Athena.Database("exampleDatabase", new()
-    ///     {
-    ///         Name = "database_name",
-    ///         Bucket = exampleBucketV2.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Athena Databases using their name. For example:

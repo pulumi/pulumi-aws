@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -211,15 +211,6 @@ def get_security_group_rule(filters: Optional[Sequence[pulumi.InputType['GetSecu
     """
     `vpc_get_security_group_rule` provides details about a specific security group rule.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpc.get_security_group_rule(security_group_rule_id=var["security_group_rule_id"])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetSecurityGroupRuleFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str security_group_rule_id: ID of the security group rule to select.
@@ -254,15 +245,6 @@ def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Seque
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupRuleResult]:
     """
     `vpc_get_security_group_rule` provides details about a specific security group rule.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.vpc.get_security_group_rule(security_group_rule_id=var["security_group_rule_id"])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupRuleFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

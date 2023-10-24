@@ -10,34 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Managed Scaling policy for EMR Cluster. With Amazon EMR versions 5.30.0 and later (except for Amazon EMR 6.0.0), you can enable EMR managed scaling to automatically increase or decrease the number of instances or units in your cluster based on workload. See [Using EMR Managed Scaling in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html) for more information.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sample = new aws.emr.Cluster("sample", {
- *     releaseLabel: "emr-5.30.0",
- *     masterInstanceGroup: {
- *         instanceType: "m4.large",
- *     },
- *     coreInstanceGroup: {
- *         instanceType: "c4.large",
- *     },
- * });
- * // skip ...
- * const samplepolicy = new aws.emr.ManagedScalingPolicy("samplepolicy", {
- *     clusterId: sample.id,
- *     computeLimits: [{
- *         unitType: "Instances",
- *         minimumCapacityUnits: 2,
- *         maximumCapacityUnits: 10,
- *         maximumOndemandCapacityUnits: 2,
- *         maximumCoreCapacityUnits: 10,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For example:

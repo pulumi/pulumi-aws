@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Manages a Service Catalog Product Portfolio Association.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.ProductPortfolioAssociation("example", {
- *     portfolioId: "port-68656c6c6f",
- *     productId: "prod-dnigbtea24ste",
- * });
- * ```
  *
  * ## Import
  *

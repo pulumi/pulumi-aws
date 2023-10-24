@@ -11,48 +11,6 @@ namespace Pulumi.Aws.Ebs
 {
     /// <summary>
     /// Creates a Snapshot of a snapshot.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ebs.Volume("example", new()
-    ///     {
-    ///         AvailabilityZone = "us-west-2a",
-    ///         Size = 40,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new()
-    ///     {
-    ///         VolumeId = example.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld_snap" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleCopy = new Aws.Ebs.SnapshotCopy("exampleCopy", new()
-    ///     {
-    ///         SourceSnapshotId = exampleSnapshot.Id,
-    ///         SourceRegion = "us-west-2",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld_copy_snap" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/snapshotCopy:SnapshotCopy")]
     public partial class SnapshotCopy : global::Pulumi.CustomResource

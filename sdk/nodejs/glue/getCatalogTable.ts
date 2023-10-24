@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * This data source can be used to fetch information about an AWS Glue Data Catalog Table.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.glue.getCatalogTable({
- *     databaseName: "MyCatalogDatabase",
- *     name: "MyCatalogTable",
- * });
- * ```
  */
 export function getCatalogTable(args: GetCatalogTableArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogTableResult> {
 
@@ -133,18 +121,6 @@ export interface GetCatalogTableResult {
 }
 /**
  * This data source can be used to fetch information about an AWS Glue Data Catalog Table.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.glue.getCatalogTable({
- *     databaseName: "MyCatalogDatabase",
- *     name: "MyCatalogTable",
- * });
- * ```
  */
 export function getCatalogTableOutput(args: GetCatalogTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCatalogTableResult> {
     return pulumi.output(args).apply((a: any) => getCatalogTable(a, opts))

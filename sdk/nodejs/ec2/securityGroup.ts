@@ -19,87 +19,7 @@ import * as utilities from "../utilities";
  * > **NOTE:** The `cidrBlocks` and `ipv6CidrBlocks` parameters are optional in the `ingress` and `egress` blocks. If nothing is specified, traffic will be blocked as described in _NOTE on Egress rules_ later.
  *
  * ## Example Usage
- * ### Basic Usage
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const allowTls = new aws.ec2.SecurityGroup("allowTls", {
- *     description: "Allow TLS inbound traffic",
- *     vpcId: aws_vpc.main.id,
- *     ingress: [{
- *         description: "TLS from VPC",
- *         fromPort: 443,
- *         toPort: 443,
- *         protocol: "tcp",
- *         cidrBlocks: [aws_vpc.main.cidr_block],
- *         ipv6CidrBlocks: [aws_vpc.main.ipv6_cidr_block],
- *     }],
- *     egress: [{
- *         fromPort: 0,
- *         toPort: 0,
- *         protocol: "-1",
- *         cidrBlocks: ["0.0.0.0/0"],
- *         ipv6CidrBlocks: ["::/0"],
- *     }],
- *     tags: {
- *         Name: "allow_tls",
- *     },
- * });
- * ```
- *
- * > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.SecurityGroup("example", {egress: [{
- *     cidrBlocks: ["0.0.0.0/0"],
- *     fromPort: 0,
- *     ipv6CidrBlocks: ["::/0"],
- *     protocol: "-1",
- *     toPort: 0,
- * }]});
- * ```
- * ### Usage With Prefix List IDs
- *
- * Prefix Lists are either managed by AWS internally, or created by the customer using a
- * Prefix List resource. Prefix Lists provided by
- * AWS are associated with a prefix list name, or service name, that is linked to a specific region.
- * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myEndpoint = new aws.ec2.VpcEndpoint("myEndpoint", {});
- * // ... other configuration ...
- * // ... other configuration ...
- * const example = new aws.ec2.SecurityGroup("example", {egress: [{
- *     fromPort: 0,
- *     toPort: 0,
- *     protocol: "-1",
- *     prefixListIds: [myEndpoint.prefixListId],
- * }]});
- * ```
- *
- * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
- * ### Removing All Ingress and Egress Rules
- *
- * The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.SecurityGroup("example", {
- *     vpcId: aws_vpc.example.id,
- *     ingress: [],
- *     egress: [],
- * });
- * ```
  * ### Recreating a Security Group
  *
  * A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `namePrefix`, or `vpcId` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.
@@ -111,47 +31,6 @@ import * as utilities from "../utilities";
  * The provider does not model bi-directional dependencies like this, but, even if it did, simply knowing the dependency situation would not be enough to solve it. For example, some resources must always have an associated security group while others don't need to. In addition, when the `aws.ec2.SecurityGroup` resource attempts to recreate, it receives a dependent object error, which does not provide information on whether the dependent object is a security group rule or, for example, an associated EC2 instance. Within the provider, the associated resource (_e.g._, `aws.ec2.Instance`) does not receive an error when the `aws.ec2.SecurityGroup` is trying to recreate even though that is where changes to the associated resource would need to take place (_e.g._, removing the security group association).
  *
  * Despite these sticky problems, below are some ways to improve your experience when you find it necessary to recreate a security group.
- * ### `createBeforeDestroy`
- *
- * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
- *
- * Normally, the provider first deletes the existing security group resource and then creates a new one. When a security group is associated with a resource, the delete won't succeed. You can invert the default behavior using the `createBeforeDestroy` meta argument:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.SecurityGroup("example", {});
- * ```
- * ### `replaceTriggeredBy`
- *
- * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
- *
- * To replace a resource when a security group changes, use the `replaceTriggeredBy` meta argument. Note that in this example, the `aws.ec2.Instance` will be destroyed and created again when the `aws.ec2.SecurityGroup` changes.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleSecurityGroup = new aws.ec2.SecurityGroup("exampleSecurityGroup", {});
- * // ... other configuration ...
- * const exampleInstance = new aws.ec2.Instance("exampleInstance", {
- *     instanceType: "t3.small",
- *     vpcSecurityGroupIds: [aws_security_group.test.id],
- * });
- * ```
- * ### Shorter timeout
- *
- * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
- *
- * If destroying a security group takes a long time, it may be because the provider cannot distinguish between a dependent object (_e.g._, a security group rule or EC2 instance) that is _in the process of being deleted_ and one that is not. In other words, it may be waiting for a train that isn't scheduled to arrive. To fail faster, shorten the `delete` timeout from the default timeout:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.SecurityGroup("example", {});
- * ```
  *
  * ## Import
  *

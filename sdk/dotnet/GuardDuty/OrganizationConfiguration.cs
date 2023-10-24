@@ -14,54 +14,6 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// &gt; **NOTE:** This is an advanced resource. The provider will automatically assume management of the GuardDuty Organization Configuration without import and perform no actions on removal from the resource configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleDetector = new Aws.GuardDuty.Detector("exampleDetector", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var exampleOrganizationConfiguration = new Aws.GuardDuty.OrganizationConfiguration("exampleOrganizationConfiguration", new()
-    ///     {
-    ///         AutoEnableOrganizationMembers = "ALL",
-    ///         DetectorId = exampleDetector.Id,
-    ///         Datasources = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesArgs
-    ///         {
-    ///             S3Logs = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesS3LogsArgs
-    ///             {
-    ///                 AutoEnable = true,
-    ///             },
-    ///             Kubernetes = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesKubernetesArgs
-    ///             {
-    ///                 AuditLogs = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs
-    ///                 {
-    ///                     Enable = true,
-    ///                 },
-    ///             },
-    ///             MalwareProtection = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesMalwareProtectionArgs
-    ///             {
-    ///                 ScanEc2InstanceWithFindings = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs
-    ///                 {
-    ///                     EbsVolumes = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs
-    ///                     {
-    ///                         AutoEnable = true,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GuardDuty Organization Configurations using the GuardDuty Detector ID. For example:

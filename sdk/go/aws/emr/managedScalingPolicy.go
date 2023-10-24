@@ -15,53 +15,6 @@ import (
 
 // Provides a Managed Scaling policy for EMR Cluster. With Amazon EMR versions 5.30.0 and later (except for Amazon EMR 6.0.0), you can enable EMR managed scaling to automatically increase or decrease the number of instances or units in your cluster based on workload. See [Using EMR Managed Scaling in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html) for more information.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			sample, err := emr.NewCluster(ctx, "sample", &emr.ClusterArgs{
-//				ReleaseLabel: pulumi.String("emr-5.30.0"),
-//				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
-//					InstanceType: pulumi.String("m4.large"),
-//				},
-//				CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
-//					InstanceType: pulumi.String("c4.large"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = emr.NewManagedScalingPolicy(ctx, "samplepolicy", &emr.ManagedScalingPolicyArgs{
-//				ClusterId: sample.ID(),
-//				ComputeLimits: emr.ManagedScalingPolicyComputeLimitArray{
-//					&emr.ManagedScalingPolicyComputeLimitArgs{
-//						UnitType:                     pulumi.String("Instances"),
-//						MinimumCapacityUnits:         pulumi.Int(2),
-//						MaximumCapacityUnits:         pulumi.Int(10),
-//						MaximumOndemandCapacityUnits: pulumi.Int(2),
-//						MaximumCoreCapacityUnits:     pulumi.Int(10),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For example:

@@ -11,28 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** To improve execution times on larger updates, it is recommended to use the inline `entry` block as part of the Managed Prefix List resource when creating a prefix list with more than 100 entries. You can find more information about the resource here.
  *
- * ## Example Usage
- *
- * Basic usage.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.ManagedPrefixList("example", {
- *     addressFamily: "IPv4",
- *     maxEntries: 5,
- *     tags: {
- *         Env: "live",
- *     },
- * });
- * const entry1 = new aws.ec2.ManagedPrefixListEntry("entry1", {
- *     cidr: aws_vpc.example.cidr_block,
- *     description: "Primary",
- *     prefixListId: example.id,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:

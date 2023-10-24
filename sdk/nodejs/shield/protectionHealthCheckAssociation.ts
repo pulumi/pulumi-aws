@@ -11,38 +11,6 @@ import * as utilities from "../utilities";
  * Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
  *
  * ## Example Usage
- * ### Create an association between a protected EIP and a Route53 Health Check
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
- * const exampleEip = new aws.ec2.Eip("exampleEip", {
- *     domain: "vpc",
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * const exampleProtection = new aws.shield.Protection("exampleProtection", {resourceArn: pulumi.all([currentPartition, currentRegion, currentCallerIdentity, exampleEip.id]).apply(([currentPartition, currentRegion, currentCallerIdentity, id]) => `arn:${currentPartition.partition}:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${id}`)});
- * const exampleHealthCheck = new aws.route53.HealthCheck("exampleHealthCheck", {
- *     ipAddress: exampleEip.publicIp,
- *     port: 80,
- *     type: "HTTP",
- *     resourcePath: "/ready",
- *     failureThreshold: 3,
- *     requestInterval: 30,
- *     tags: {
- *         Name: "tf-example-health-check",
- *     },
- * });
- * const exampleProtectionHealthCheckAssociation = new aws.shield.ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation", {
- *     healthCheckArn: exampleHealthCheck.arn,
- *     shieldProtectionId: exampleProtection.id,
- * });
- * ```
  *
  * ## Import
  *

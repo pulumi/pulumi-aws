@@ -7,29 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Route 53 Resolver DNS Firewall rule resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleResolverFirewallDomainList = new aws.route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList", {
- *     domains: ["example.com"],
- *     tags: {},
- * });
- * const exampleResolverFirewallRuleGroup = new aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", {tags: {}});
- * const exampleResolverFirewallRule = new aws.route53.ResolverFirewallRule("exampleResolverFirewallRule", {
- *     action: "BLOCK",
- *     blockOverrideDnsType: "CNAME",
- *     blockOverrideDomain: "example.com",
- *     blockOverrideTtl: 1,
- *     blockResponse: "OVERRIDE",
- *     firewallDomainListId: exampleResolverFirewallDomainList.id,
- *     firewallRuleGroupId: exampleResolverFirewallRuleGroup.id,
- *     priority: 100,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import

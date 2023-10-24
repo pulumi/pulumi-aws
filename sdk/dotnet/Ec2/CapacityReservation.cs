@@ -12,27 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Ec2.CapacityReservation("default", new()
-    ///     {
-    ///         AvailabilityZone = "eu-west-1a",
-    ///         InstanceCount = 1,
-    ///         InstancePlatform = "Linux/UNIX",
-    ///         InstanceType = "t2.micro",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Capacity Reservations using the `id`. For example:

@@ -24,37 +24,6 @@ import (
 //
 // Copying an AMI can take several minutes. The creation of this resource will
 // block until the new AMI is available for use on new instances.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewAmiCopy(ctx, "example", &ec2.AmiCopyArgs{
-//				Description:     pulumi.String("A copy of ami-xxxxxxxx"),
-//				SourceAmiId:     pulumi.String("ami-xxxxxxxx"),
-//				SourceAmiRegion: pulumi.String("us-west-1"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type AmiCopy struct {
 	pulumi.CustomResourceState
 
@@ -76,7 +45,7 @@ type AmiCopy struct {
 	EbsBlockDevices AmiCopyEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
 	// Whether enhanced networking with ENA is enabled. Defaults to `false`.
 	EnaSupport pulumi.BoolOutput `pulumi:"enaSupport"`
-	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+	// Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
 	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
@@ -187,7 +156,7 @@ type amiCopyState struct {
 	EbsBlockDevices []AmiCopyEbsBlockDevice `pulumi:"ebsBlockDevices"`
 	// Whether enhanced networking with ENA is enabled. Defaults to `false`.
 	EnaSupport *bool `pulumi:"enaSupport"`
-	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+	// Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
 	Encrypted *bool `pulumi:"encrypted"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
@@ -259,7 +228,7 @@ type AmiCopyState struct {
 	EbsBlockDevices AmiCopyEbsBlockDeviceArrayInput
 	// Whether enhanced networking with ENA is enabled. Defaults to `false`.
 	EnaSupport pulumi.BoolPtrInput
-	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+	// Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
 	Encrypted pulumi.BoolPtrInput
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
@@ -327,7 +296,7 @@ type amiCopyArgs struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices []AmiCopyEbsBlockDevice `pulumi:"ebsBlockDevices"`
-	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+	// Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
 	Encrypted *bool `pulumi:"encrypted"`
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
@@ -358,7 +327,7 @@ type AmiCopyArgs struct {
 	// Nested block describing an EBS block device that should be
 	// attached to created instances. The structure of this block is described below.
 	EbsBlockDevices AmiCopyEbsBlockDeviceArrayInput
-	// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+	// Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
 	Encrypted pulumi.BoolPtrInput
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
@@ -530,7 +499,7 @@ func (o AmiCopyOutput) EnaSupport() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AmiCopy) pulumi.BoolOutput { return v.EnaSupport }).(pulumi.BoolOutput)
 }
 
-// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+// Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
 func (o AmiCopyOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AmiCopy) pulumi.BoolPtrOutput { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }

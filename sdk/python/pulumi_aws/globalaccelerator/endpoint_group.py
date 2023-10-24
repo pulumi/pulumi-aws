@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -40,25 +40,76 @@ class EndpointGroupArgs:
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
         """
-        pulumi.set(__self__, "listener_arn", listener_arn)
+        EndpointGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            listener_arn=listener_arn,
+            endpoint_configurations=endpoint_configurations,
+            endpoint_group_region=endpoint_group_region,
+            health_check_interval_seconds=health_check_interval_seconds,
+            health_check_path=health_check_path,
+            health_check_port=health_check_port,
+            health_check_protocol=health_check_protocol,
+            port_overrides=port_overrides,
+            threshold_count=threshold_count,
+            traffic_dial_percentage=traffic_dial_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             listener_arn: Optional[pulumi.Input[str]] = None,
+             endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]] = None,
+             endpoint_group_region: Optional[pulumi.Input[str]] = None,
+             health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
+             health_check_path: Optional[pulumi.Input[str]] = None,
+             health_check_port: Optional[pulumi.Input[int]] = None,
+             health_check_protocol: Optional[pulumi.Input[str]] = None,
+             port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]] = None,
+             threshold_count: Optional[pulumi.Input[int]] = None,
+             traffic_dial_percentage: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if listener_arn is None and 'listenerArn' in kwargs:
+            listener_arn = kwargs['listenerArn']
+        if listener_arn is None:
+            raise TypeError("Missing 'listener_arn' argument")
+        if endpoint_configurations is None and 'endpointConfigurations' in kwargs:
+            endpoint_configurations = kwargs['endpointConfigurations']
+        if endpoint_group_region is None and 'endpointGroupRegion' in kwargs:
+            endpoint_group_region = kwargs['endpointGroupRegion']
+        if health_check_interval_seconds is None and 'healthCheckIntervalSeconds' in kwargs:
+            health_check_interval_seconds = kwargs['healthCheckIntervalSeconds']
+        if health_check_path is None and 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if health_check_port is None and 'healthCheckPort' in kwargs:
+            health_check_port = kwargs['healthCheckPort']
+        if health_check_protocol is None and 'healthCheckProtocol' in kwargs:
+            health_check_protocol = kwargs['healthCheckProtocol']
+        if port_overrides is None and 'portOverrides' in kwargs:
+            port_overrides = kwargs['portOverrides']
+        if threshold_count is None and 'thresholdCount' in kwargs:
+            threshold_count = kwargs['thresholdCount']
+        if traffic_dial_percentage is None and 'trafficDialPercentage' in kwargs:
+            traffic_dial_percentage = kwargs['trafficDialPercentage']
+
+        _setter("listener_arn", listener_arn)
         if endpoint_configurations is not None:
-            pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
+            _setter("endpoint_configurations", endpoint_configurations)
         if endpoint_group_region is not None:
-            pulumi.set(__self__, "endpoint_group_region", endpoint_group_region)
+            _setter("endpoint_group_region", endpoint_group_region)
         if health_check_interval_seconds is not None:
-            pulumi.set(__self__, "health_check_interval_seconds", health_check_interval_seconds)
+            _setter("health_check_interval_seconds", health_check_interval_seconds)
         if health_check_path is not None:
-            pulumi.set(__self__, "health_check_path", health_check_path)
+            _setter("health_check_path", health_check_path)
         if health_check_port is not None:
-            pulumi.set(__self__, "health_check_port", health_check_port)
+            _setter("health_check_port", health_check_port)
         if health_check_protocol is not None:
-            pulumi.set(__self__, "health_check_protocol", health_check_protocol)
+            _setter("health_check_protocol", health_check_protocol)
         if port_overrides is not None:
-            pulumi.set(__self__, "port_overrides", port_overrides)
+            _setter("port_overrides", port_overrides)
         if threshold_count is not None:
-            pulumi.set(__self__, "threshold_count", threshold_count)
+            _setter("threshold_count", threshold_count)
         if traffic_dial_percentage is not None:
-            pulumi.set(__self__, "traffic_dial_percentage", traffic_dial_percentage)
+            _setter("traffic_dial_percentage", traffic_dial_percentage)
 
     @property
     @pulumi.getter(name="listenerArn")
@@ -211,28 +262,79 @@ class _EndpointGroupState:
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
         """
+        _EndpointGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            endpoint_configurations=endpoint_configurations,
+            endpoint_group_region=endpoint_group_region,
+            health_check_interval_seconds=health_check_interval_seconds,
+            health_check_path=health_check_path,
+            health_check_port=health_check_port,
+            health_check_protocol=health_check_protocol,
+            listener_arn=listener_arn,
+            port_overrides=port_overrides,
+            threshold_count=threshold_count,
+            traffic_dial_percentage=traffic_dial_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]] = None,
+             endpoint_group_region: Optional[pulumi.Input[str]] = None,
+             health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
+             health_check_path: Optional[pulumi.Input[str]] = None,
+             health_check_port: Optional[pulumi.Input[int]] = None,
+             health_check_protocol: Optional[pulumi.Input[str]] = None,
+             listener_arn: Optional[pulumi.Input[str]] = None,
+             port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]] = None,
+             threshold_count: Optional[pulumi.Input[int]] = None,
+             traffic_dial_percentage: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_configurations is None and 'endpointConfigurations' in kwargs:
+            endpoint_configurations = kwargs['endpointConfigurations']
+        if endpoint_group_region is None and 'endpointGroupRegion' in kwargs:
+            endpoint_group_region = kwargs['endpointGroupRegion']
+        if health_check_interval_seconds is None and 'healthCheckIntervalSeconds' in kwargs:
+            health_check_interval_seconds = kwargs['healthCheckIntervalSeconds']
+        if health_check_path is None and 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if health_check_port is None and 'healthCheckPort' in kwargs:
+            health_check_port = kwargs['healthCheckPort']
+        if health_check_protocol is None and 'healthCheckProtocol' in kwargs:
+            health_check_protocol = kwargs['healthCheckProtocol']
+        if listener_arn is None and 'listenerArn' in kwargs:
+            listener_arn = kwargs['listenerArn']
+        if port_overrides is None and 'portOverrides' in kwargs:
+            port_overrides = kwargs['portOverrides']
+        if threshold_count is None and 'thresholdCount' in kwargs:
+            threshold_count = kwargs['thresholdCount']
+        if traffic_dial_percentage is None and 'trafficDialPercentage' in kwargs:
+            traffic_dial_percentage = kwargs['trafficDialPercentage']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if endpoint_configurations is not None:
-            pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
+            _setter("endpoint_configurations", endpoint_configurations)
         if endpoint_group_region is not None:
-            pulumi.set(__self__, "endpoint_group_region", endpoint_group_region)
+            _setter("endpoint_group_region", endpoint_group_region)
         if health_check_interval_seconds is not None:
-            pulumi.set(__self__, "health_check_interval_seconds", health_check_interval_seconds)
+            _setter("health_check_interval_seconds", health_check_interval_seconds)
         if health_check_path is not None:
-            pulumi.set(__self__, "health_check_path", health_check_path)
+            _setter("health_check_path", health_check_path)
         if health_check_port is not None:
-            pulumi.set(__self__, "health_check_port", health_check_port)
+            _setter("health_check_port", health_check_port)
         if health_check_protocol is not None:
-            pulumi.set(__self__, "health_check_protocol", health_check_protocol)
+            _setter("health_check_protocol", health_check_protocol)
         if listener_arn is not None:
-            pulumi.set(__self__, "listener_arn", listener_arn)
+            _setter("listener_arn", listener_arn)
         if port_overrides is not None:
-            pulumi.set(__self__, "port_overrides", port_overrides)
+            _setter("port_overrides", port_overrides)
         if threshold_count is not None:
-            pulumi.set(__self__, "threshold_count", threshold_count)
+            _setter("threshold_count", threshold_count)
         if traffic_dial_percentage is not None:
-            pulumi.set(__self__, "traffic_dial_percentage", traffic_dial_percentage)
+            _setter("traffic_dial_percentage", traffic_dial_percentage)
 
     @property
     @pulumi.getter
@@ -387,20 +489,6 @@ class EndpointGroup(pulumi.CustomResource):
         """
         Provides a Global Accelerator endpoint group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.globalaccelerator.EndpointGroup("example",
-            listener_arn=aws_globalaccelerator_listener["example"]["id"],
-            endpoint_configurations=[aws.globalaccelerator.EndpointGroupEndpointConfigurationArgs(
-                endpoint_id=aws_lb["example"]["arn"],
-                weight=100,
-            )])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:
@@ -432,20 +520,6 @@ class EndpointGroup(pulumi.CustomResource):
         """
         Provides a Global Accelerator endpoint group.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.globalaccelerator.EndpointGroup("example",
-            listener_arn=aws_globalaccelerator_listener["example"]["id"],
-            endpoint_configurations=[aws.globalaccelerator.EndpointGroupEndpointConfigurationArgs(
-                endpoint_id=aws_lb["example"]["arn"],
-                weight=100,
-            )])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:
@@ -464,6 +538,10 @@ class EndpointGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

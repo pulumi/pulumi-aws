@@ -21,30 +21,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Copying an AMI can take several minutes. The creation of this resource will
     /// block until the new AMI is available for use on new instances.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.AmiCopy("example", new()
-    ///     {
-    ///         Description = "A copy of ami-xxxxxxxx",
-    ///         SourceAmiId = "ami-xxxxxxxx",
-    ///         SourceAmiRegion = "us-west-1",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/amiCopy:AmiCopy")]
     public partial class AmiCopy : global::Pulumi.CustomResource
@@ -100,7 +76,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> EnaSupport { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        /// Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         /// </summary>
         [Output("encrypted")]
         public Output<bool?> Encrypted { get; private set; } = null!;
@@ -314,7 +290,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        /// Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -435,7 +411,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnaSupport { get; set; }
 
         /// <summary>
-        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        /// Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }

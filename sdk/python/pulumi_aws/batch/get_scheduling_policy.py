@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -93,15 +93,6 @@ def get_scheduling_policy(arn: Optional[str] = None,
     """
     The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.batch.get_scheduling_policy(arn="arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
-    ```
-
 
     :param str arn: ARN of the scheduling policy.
     :param Mapping[str, str] tags: Key-value map of resource tags
@@ -126,15 +117,6 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
     """
     The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.batch.get_scheduling_policy(arn="arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
-    ```
 
 
     :param str arn: ARN of the scheduling policy.

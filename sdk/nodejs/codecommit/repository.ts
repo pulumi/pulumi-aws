@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CodeCommit Repository Resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.codecommit.Repository("test", {
- *     description: "This is the Sample App Repository",
- *     repositoryName: "MyTestRepository",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CodeCommit repository using repository name. For example:

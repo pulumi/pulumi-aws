@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProtectionHealthCheckAssociationArgs', 'ProtectionHealthCheckAssociation']
@@ -21,8 +21,29 @@ class ProtectionHealthCheckAssociationArgs:
         :param pulumi.Input[str] health_check_arn: The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
         :param pulumi.Input[str] shield_protection_id: The ID of the protected resource.
         """
-        pulumi.set(__self__, "health_check_arn", health_check_arn)
-        pulumi.set(__self__, "shield_protection_id", shield_protection_id)
+        ProtectionHealthCheckAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_check_arn=health_check_arn,
+            shield_protection_id=shield_protection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_check_arn: Optional[pulumi.Input[str]] = None,
+             shield_protection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health_check_arn is None and 'healthCheckArn' in kwargs:
+            health_check_arn = kwargs['healthCheckArn']
+        if health_check_arn is None:
+            raise TypeError("Missing 'health_check_arn' argument")
+        if shield_protection_id is None and 'shieldProtectionId' in kwargs:
+            shield_protection_id = kwargs['shieldProtectionId']
+        if shield_protection_id is None:
+            raise TypeError("Missing 'shield_protection_id' argument")
+
+        _setter("health_check_arn", health_check_arn)
+        _setter("shield_protection_id", shield_protection_id)
 
     @property
     @pulumi.getter(name="healthCheckArn")
@@ -59,10 +80,27 @@ class _ProtectionHealthCheckAssociationState:
         :param pulumi.Input[str] health_check_arn: The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
         :param pulumi.Input[str] shield_protection_id: The ID of the protected resource.
         """
+        _ProtectionHealthCheckAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_check_arn=health_check_arn,
+            shield_protection_id=shield_protection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_check_arn: Optional[pulumi.Input[str]] = None,
+             shield_protection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health_check_arn is None and 'healthCheckArn' in kwargs:
+            health_check_arn = kwargs['healthCheckArn']
+        if shield_protection_id is None and 'shieldProtectionId' in kwargs:
+            shield_protection_id = kwargs['shieldProtectionId']
+
         if health_check_arn is not None:
-            pulumi.set(__self__, "health_check_arn", health_check_arn)
+            _setter("health_check_arn", health_check_arn)
         if shield_protection_id is not None:
-            pulumi.set(__self__, "shield_protection_id", shield_protection_id)
+            _setter("shield_protection_id", shield_protection_id)
 
     @property
     @pulumi.getter(name="healthCheckArn")
@@ -104,35 +142,6 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
 
         ## Example Usage
-        ### Create an association between a protected EIP and a Route53 Health Check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        example_eip = aws.ec2.Eip("exampleEip",
-            domain="vpc",
-            tags={
-                "Name": "example",
-            })
-        example_protection = aws.shield.Protection("exampleProtection", resource_arn=example_eip.id.apply(lambda id: f"arn:{current_partition.partition}:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"))
-        example_health_check = aws.route53.HealthCheck("exampleHealthCheck",
-            ip_address=example_eip.public_ip,
-            port=80,
-            type="HTTP",
-            resource_path="/ready",
-            failure_threshold=3,
-            request_interval=30,
-            tags={
-                "Name": "tf-example-health-check",
-            })
-        example_protection_health_check_association = aws.shield.ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation",
-            health_check_arn=example_health_check.arn,
-            shield_protection_id=example_protection.id)
-        ```
 
         ## Import
 
@@ -160,35 +169,6 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
 
         ## Example Usage
-        ### Create an association between a protected EIP and a Route53 Health Check
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_region = aws.get_region()
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        example_eip = aws.ec2.Eip("exampleEip",
-            domain="vpc",
-            tags={
-                "Name": "example",
-            })
-        example_protection = aws.shield.Protection("exampleProtection", resource_arn=example_eip.id.apply(lambda id: f"arn:{current_partition.partition}:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"))
-        example_health_check = aws.route53.HealthCheck("exampleHealthCheck",
-            ip_address=example_eip.public_ip,
-            port=80,
-            type="HTTP",
-            resource_path="/ready",
-            failure_threshold=3,
-            request_interval=30,
-            tags={
-                "Name": "tf-example-health-check",
-            })
-        example_protection_health_check_association = aws.shield.ProtectionHealthCheckAssociation("exampleProtectionHealthCheckAssociation",
-            health_check_arn=example_health_check.arn,
-            shield_protection_id=example_protection.id)
-        ```
 
         ## Import
 
@@ -208,6 +188,10 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProtectionHealthCheckAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -12,34 +12,6 @@ namespace Pulumi.Aws.Kendra
     /// <summary>
     /// Resource for managing an AWS Kendra Thesaurus.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kendra.Thesaurus("example", new()
-    ///     {
-    ///         IndexId = aws_kendra_index.Example.Id,
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         SourceS3Path = new Aws.Kendra.Inputs.ThesaurusSourceS3PathArgs
-    ///         {
-    ///             Bucket = aws_s3_bucket.Example.Id,
-    ///             Key = aws_s3_object.Example.Key,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Kendra Thesaurus" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:

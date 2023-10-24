@@ -19,68 +19,6 @@ namespace Pulumi.Aws.Ec2
     /// and the accepter can use the `aws.ec2.VpcPeeringConnectionAccepter` resource to "adopt" its side of the
     /// connection into management.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var peer = new Aws.Provider("peer", new()
-    ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     // Accepter's credentials.
-    ///     var main = new Aws.Ec2.Vpc("main", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var peerVpc = new Aws.Ec2.Vpc("peerVpc", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Peer,
-    ///     });
-    /// 
-    ///     var peerCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     // Requester's side of the connection.
-    ///     var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peerVpcPeeringConnection", new()
-    ///     {
-    ///         VpcId = main.Id,
-    ///         PeerVpcId = peerVpc.Id,
-    ///         PeerOwnerId = peerCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///         PeerRegion = "us-west-2",
-    ///         AutoAccept = false,
-    ///         Tags = 
-    ///         {
-    ///             { "Side", "Requester" },
-    ///         },
-    ///     });
-    /// 
-    ///     // Accepter's side of the connection.
-    ///     var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter", new()
-    ///     {
-    ///         VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
-    ///         AutoAccept = true,
-    ///         Tags = 
-    ///         {
-    ///             { "Side", "Accepter" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Peer,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For example:

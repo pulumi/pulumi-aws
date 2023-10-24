@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,47 @@ class WebAclArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "default_action", default_action)
-        pulumi.set(__self__, "metric_name", metric_name)
+        WebAclArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            metric_name=metric_name,
+            logging_configuration=logging_configuration,
+            name=name,
+            rules=rules,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[pulumi.Input['WebAclDefaultActionArgs']] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             logging_configuration: Optional[pulumi.Input['WebAclLoggingConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if logging_configuration is None and 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+
+        _setter("default_action", default_action)
+        _setter("metric_name", metric_name)
         if logging_configuration is not None:
-            pulumi.set(__self__, "logging_configuration", logging_configuration)
+            _setter("logging_configuration", logging_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -137,25 +168,58 @@ class _WebAclState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _WebAclState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            default_action=default_action,
+            logging_configuration=logging_configuration,
+            metric_name=metric_name,
+            name=name,
+            rules=rules,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             default_action: Optional[pulumi.Input['WebAclDefaultActionArgs']] = None,
+             logging_configuration: Optional[pulumi.Input['WebAclLoggingConfigurationArgs']] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if logging_configuration is None and 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if logging_configuration is not None:
-            pulumi.set(__self__, "logging_configuration", logging_configuration)
+            _setter("logging_configuration", logging_configuration)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -272,68 +336,6 @@ class WebAcl(pulumi.CustomResource):
         """
         Provides a WAF Web ACL Resource
 
-        ## Example Usage
-
-        This example blocks requests coming from `192.0.7.0/24` and allows everything else.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
-        wafrule = aws.waf.Rule("wafrule",
-            metric_name="tfWAFRule",
-            predicates=[aws.waf.RulePredicateArgs(
-                data_id=ipset.id,
-                negated=False,
-                type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
-        waf_acl = aws.waf.WebAcl("wafAcl",
-            metric_name="tfWebACL",
-            default_action=aws.waf.WebAclDefaultActionArgs(
-                type="ALLOW",
-            ),
-            rules=[aws.waf.WebAclRuleArgs(
-                action=aws.waf.WebAclRuleActionArgs(
-                    type="BLOCK",
-                ),
-                priority=1,
-                rule_id=wafrule.id,
-                type="REGULAR",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    ipset,
-                    wafrule,
-                ]))
-        ```
-        ### Logging
-
-        > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.waf.WebAcl("example", logging_configuration=aws.waf.WebAclLoggingConfigurationArgs(
-            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-            redacted_fields=aws.waf.WebAclLoggingConfigurationRedactedFieldsArgs(
-                field_to_matches=[
-                    aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
-                        type="URI",
-                    ),
-                    aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
-                        data="referer",
-                        type="HEADER",
-                    ),
-                ],
-            ),
-        ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import WAF Web ACL using the `id`. For example:
@@ -360,68 +362,6 @@ class WebAcl(pulumi.CustomResource):
         """
         Provides a WAF Web ACL Resource
 
-        ## Example Usage
-
-        This example blocks requests coming from `192.0.7.0/24` and allows everything else.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ipset = aws.waf.IpSet("ipset", ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-            type="IPV4",
-            value="192.0.7.0/24",
-        )])
-        wafrule = aws.waf.Rule("wafrule",
-            metric_name="tfWAFRule",
-            predicates=[aws.waf.RulePredicateArgs(
-                data_id=ipset.id,
-                negated=False,
-                type="IPMatch",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[ipset]))
-        waf_acl = aws.waf.WebAcl("wafAcl",
-            metric_name="tfWebACL",
-            default_action=aws.waf.WebAclDefaultActionArgs(
-                type="ALLOW",
-            ),
-            rules=[aws.waf.WebAclRuleArgs(
-                action=aws.waf.WebAclRuleActionArgs(
-                    type="BLOCK",
-                ),
-                priority=1,
-                rule_id=wafrule.id,
-                type="REGULAR",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    ipset,
-                    wafrule,
-                ]))
-        ```
-        ### Logging
-
-        > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.waf.WebAcl("example", logging_configuration=aws.waf.WebAclLoggingConfigurationArgs(
-            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-            redacted_fields=aws.waf.WebAclLoggingConfigurationRedactedFieldsArgs(
-                field_to_matches=[
-                    aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
-                        type="URI",
-                    ),
-                    aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
-                        data="referer",
-                        type="HEADER",
-                    ),
-                ],
-            ),
-        ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import WAF Web ACL using the `id`. For example:
@@ -440,6 +380,10 @@ class WebAcl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAclArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -460,9 +404,11 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAclArgs.__new__(WebAclArgs)
 
+            default_action = _utilities.configure(default_action, WebAclDefaultActionArgs, True)
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action
+            logging_configuration = _utilities.configure(logging_configuration, WebAclLoggingConfigurationArgs, True)
             __props__.__dict__["logging_configuration"] = logging_configuration
             if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PolicyAttachmentArgs', 'PolicyAttachment']
@@ -23,10 +23,35 @@ class PolicyAttachmentArgs:
         :param pulumi.Input[str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         :param pulumi.Input[bool] skip_destroy: If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
         """
-        pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "target_id", target_id)
+        PolicyAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_id=policy_id,
+            target_id=target_id,
+            skip_destroy=skip_destroy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_id: Optional[pulumi.Input[str]] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if target_id is None:
+            raise TypeError("Missing 'target_id' argument")
+        if skip_destroy is None and 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+
+        _setter("policy_id", policy_id)
+        _setter("target_id", target_id)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
 
     @property
     @pulumi.getter(name="policyId")
@@ -77,12 +102,33 @@ class _PolicyAttachmentState:
         :param pulumi.Input[bool] skip_destroy: If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
         :param pulumi.Input[str] target_id: The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         """
+        _PolicyAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_id=policy_id,
+            skip_destroy=skip_destroy,
+            target_id=target_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_id: Optional[pulumi.Input[str]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if skip_destroy is None and 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
         if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+            _setter("target_id", target_id)
 
     @property
     @pulumi.getter(name="policyId")
@@ -134,36 +180,6 @@ class PolicyAttachment(pulumi.CustomResource):
         Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
 
         ## Example Usage
-        ### Organization Account
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        account = aws.organizations.PolicyAttachment("account",
-            policy_id=aws_organizations_policy["example"]["id"],
-            target_id="123456789012")
-        ```
-        ### Organization Root
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        root = aws.organizations.PolicyAttachment("root",
-            policy_id=aws_organizations_policy["example"]["id"],
-            target_id=aws_organizations_organization["example"]["roots"][0]["id"])
-        ```
-        ### Organization Unit
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        unit = aws.organizations.PolicyAttachment("unit",
-            policy_id=aws_organizations_policy["example"]["id"],
-            target_id=aws_organizations_organizational_unit["example"]["id"])
-        ```
 
         ## Import
 
@@ -191,36 +207,6 @@ class PolicyAttachment(pulumi.CustomResource):
         Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
 
         ## Example Usage
-        ### Organization Account
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        account = aws.organizations.PolicyAttachment("account",
-            policy_id=aws_organizations_policy["example"]["id"],
-            target_id="123456789012")
-        ```
-        ### Organization Root
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        root = aws.organizations.PolicyAttachment("root",
-            policy_id=aws_organizations_policy["example"]["id"],
-            target_id=aws_organizations_organization["example"]["roots"][0]["id"])
-        ```
-        ### Organization Unit
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        unit = aws.organizations.PolicyAttachment("unit",
-            policy_id=aws_organizations_policy["example"]["id"],
-            target_id=aws_organizations_organizational_unit["example"]["id"])
-        ```
 
         ## Import
 
@@ -242,6 +228,10 @@ class PolicyAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

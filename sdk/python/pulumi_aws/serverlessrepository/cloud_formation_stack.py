@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CloudFormationStackArgs', 'CloudFormationStack']
@@ -29,16 +29,45 @@ class CloudFormationStackArgs:
         :param pulumi.Input[str] semantic_version: The version of the application to deploy. If not supplied, deploys the latest version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "capabilities", capabilities)
+        CloudFormationStackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            capabilities=capabilities,
+            name=name,
+            parameters=parameters,
+            semantic_version=semantic_version,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             semantic_version: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if capabilities is None:
+            raise TypeError("Missing 'capabilities' argument")
+        if semantic_version is None and 'semanticVersion' in kwargs:
+            semantic_version = kwargs['semanticVersion']
+
+        _setter("application_id", application_id)
+        _setter("capabilities", capabilities)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if semantic_version is not None:
-            pulumi.set(__self__, "semantic_version", semantic_version)
+            _setter("semantic_version", semantic_version)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -135,25 +164,56 @@ class _CloudFormationStackState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _CloudFormationStackState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            capabilities=capabilities,
+            name=name,
+            outputs=outputs,
+            parameters=parameters,
+            semantic_version=semantic_version,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             semantic_version: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if semantic_version is None and 'semanticVersion' in kwargs:
+            semantic_version = kwargs['semanticVersion']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outputs is not None:
-            pulumi.set(__self__, "outputs", outputs)
+            _setter("outputs", outputs)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if semantic_version is not None:
-            pulumi.set(__self__, "semantic_version", semantic_version)
+            _setter("semantic_version", semantic_version)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -270,26 +330,6 @@ class CloudFormationStack(pulumi.CustomResource):
         """
         Deploys an Application CloudFormation Stack from the Serverless Application Repository.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_partition = aws.get_partition()
-        current_region = aws.get_region()
-        postgres_rotator = aws.serverlessrepository.CloudFormationStack("postgres-rotator",
-            application_id="arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
-            capabilities=[
-                "CAPABILITY_IAM",
-                "CAPABILITY_RESOURCE_POLICY",
-            ],
-            parameters={
-                "endpoint": f"secretsmanager.{current_region.name}.{current_partition.dns_suffix}",
-                "functionName": "func-postgres-rotator",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:
@@ -316,26 +356,6 @@ class CloudFormationStack(pulumi.CustomResource):
         """
         Deploys an Application CloudFormation Stack from the Serverless Application Repository.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_partition = aws.get_partition()
-        current_region = aws.get_region()
-        postgres_rotator = aws.serverlessrepository.CloudFormationStack("postgres-rotator",
-            application_id="arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser",
-            capabilities=[
-                "CAPABILITY_IAM",
-                "CAPABILITY_RESOURCE_POLICY",
-            ],
-            parameters={
-                "endpoint": f"secretsmanager.{current_region.name}.{current_partition.dns_suffix}",
-                "functionName": "func-postgres-rotator",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For example:
@@ -354,6 +374,10 @@ class CloudFormationStack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CloudFormationStackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

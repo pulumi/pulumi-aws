@@ -21,25 +21,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// &gt; **NOTE:** You can't share a shared resource, including portfolios that contain a shared product.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.PortfolioShare("example", new()
-    ///     {
-    ///         PrincipalId = "012128675309",
-    ///         PortfolioId = aws_servicecatalog_portfolio.Example.Id,
-    ///         Type = "ACCOUNT",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

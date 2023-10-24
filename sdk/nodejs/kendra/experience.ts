@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Kendra Experience.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kendra.Experience("example", {
- *     indexId: aws_kendra_index.example.id,
- *     description: "My Kendra Experience",
- *     roleArn: aws_iam_role.example.arn,
- *     configuration: {
- *         contentSourceConfiguration: {
- *             directPutContent: true,
- *             faqIds: [aws_kendra_faq.example.faq_id],
- *         },
- *         userIdentityConfiguration: {
- *             identityAttributeName: "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

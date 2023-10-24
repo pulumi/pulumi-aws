@@ -11,64 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emr.BlockPublicAccessConfiguration("example", {blockPublicSecurityGroupRules: true});
- * ```
- * ### Default Configuration
- *
- * By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emr.BlockPublicAccessConfiguration("example", {
- *     blockPublicSecurityGroupRules: true,
- *     permittedPublicSecurityGroupRuleRanges: [{
- *         maxRange: 22,
- *         minRange: 22,
- *     }],
- * });
- * ```
- *
- * > **NOTE:** If an `aws.emr.BlockPublicAccessConfiguration` resource is destroyed, the configuration will reset to this default configuration.
- * ### Multiple Permitted Public Security Group Rule Ranges
- *
- * The resource permits specification of multiple `permittedPublicSecurityGroupRuleRange` blocks.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emr.BlockPublicAccessConfiguration("example", {
- *     blockPublicSecurityGroupRules: true,
- *     permittedPublicSecurityGroupRuleRanges: [
- *         {
- *             maxRange: 22,
- *             minRange: 22,
- *         },
- *         {
- *             maxRange: 101,
- *             minRange: 100,
- *         },
- *     ],
- * });
- * ```
- * ### Disabling Block Public Access
- *
- * To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this resource.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emr.BlockPublicAccessConfiguration("example", {blockPublicSecurityGroupRules: false});
- * ```
  *
  * ## Import
  *

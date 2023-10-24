@@ -11,53 +11,6 @@ namespace Pulumi.Aws.Iot
 {
     /// <summary>
     /// Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iot.IndexingConfiguration("example", new()
-    ///     {
-    ///         ThingIndexingConfiguration = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationArgs
-    ///         {
-    ///             CustomFields = new[]
-    ///             {
-    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
-    ///                 {
-    ///                     Name = "shadow.desired.power",
-    ///                     Type = "Boolean",
-    ///                 },
-    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
-    ///                 {
-    ///                     Name = "attributes.version",
-    ///                     Type = "Number",
-    ///                 },
-    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
-    ///                 {
-    ///                     Name = "shadow.name.thing1shadow.desired.DefaultDesired",
-    ///                     Type = "String",
-    ///                 },
-    ///                 new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs
-    ///                 {
-    ///                     Name = "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
-    ///                     Type = "Number",
-    ///                 },
-    ///             },
-    ///             DeviceDefenderIndexingMode = "VIOLATIONS",
-    ///             NamedShadowIndexingMode = "ON",
-    ///             ThingConnectivityIndexingMode = "STATUS",
-    ///             ThingIndexingMode = "REGISTRY_AND_SHADOW",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:iot/indexingConfiguration:IndexingConfiguration")]
     public partial class IndexingConfiguration : global::Pulumi.CustomResource

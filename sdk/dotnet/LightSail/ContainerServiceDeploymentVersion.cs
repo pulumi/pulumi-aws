@@ -17,54 +17,6 @@ namespace Pulumi.Aws.LightSail
     /// &gt; **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LightSail.ContainerServiceDeploymentVersion("example", new()
-    ///     {
-    ///         Containers = new[]
-    ///         {
-    ///             new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionContainerArgs
-    ///             {
-    ///                 ContainerName = "hello-world",
-    ///                 Image = "amazon/amazon-lightsail:hello-world",
-    ///                 Commands = new[] {},
-    ///                 Environment = 
-    ///                 {
-    ///                     { "MY_ENVIRONMENT_VARIABLE", "my_value" },
-    ///                 },
-    ///                 Ports = 
-    ///                 {
-    ///                     { "80", "HTTP" },
-    ///                 },
-    ///             },
-    ///         },
-    ///         PublicEndpoint = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointArgs
-    ///         {
-    ///             ContainerName = "hello-world",
-    ///             ContainerPort = 80,
-    ///             HealthCheck = new Aws.LightSail.Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs
-    ///             {
-    ///                 HealthyThreshold = 2,
-    ///                 UnhealthyThreshold = 2,
-    ///                 TimeoutSeconds = 2,
-    ///                 IntervalSeconds = 5,
-    ///                 Path = "/",
-    ///                 SuccessCodes = "200-499",
-    ///             },
-    ///         },
-    ///         ServiceName = aws_lightsail_container_service.Example.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -14,29 +14,6 @@ import * as utilities from "../utilities";
  * > **Note:** Amazon S3 supports server access logging, AWS CloudTrail, or a combination of both. Refer to the [Logging options for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/logging-with-S3.html)
  * to decide which method meets your requirements.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     acl: "private",
- * });
- * const logBucket = new aws.s3.BucketV2("logBucket", {});
- * const logBucketAcl = new aws.s3.BucketAclV2("logBucketAcl", {
- *     bucket: logBucket.id,
- *     acl: "log-delivery-write",
- * });
- * const exampleBucketLoggingV2 = new aws.s3.BucketLoggingV2("exampleBucketLoggingV2", {
- *     bucket: exampleBucketV2.id,
- *     targetBucket: logBucket.id,
- *     targetPrefix: "log/",
- * });
- * ```
- *
  * ## Import
  *
  * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):

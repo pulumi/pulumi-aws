@@ -18,58 +18,6 @@ namespace Pulumi.Aws.DirectConnect
     /// **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `aws.directconnect.MacsecKeyAssociation` resource.
     /// 
     /// ## Example Usage
-    /// ### Create MACSec key with CKN and CAK
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.DirectConnect.GetConnection.Invoke(new()
-    ///     {
-    ///         Name = "tf-dx-connection",
-    ///     });
-    /// 
-    ///     var test = new Aws.DirectConnect.MacsecKeyAssociation("test", new()
-    ///     {
-    ///         ConnectionId = example.Apply(getConnectionResult =&gt; getConnectionResult.Id),
-    ///         Ckn = "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
-    ///         Cak = "abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Create MACSec key with existing Secrets Manager secret
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleConnection = Aws.DirectConnect.GetConnection.Invoke(new()
-    ///     {
-    ///         Name = "tf-dx-connection",
-    ///     });
-    /// 
-    ///     var exampleSecret = Aws.SecretsManager.GetSecret.Invoke(new()
-    ///     {
-    ///         Name = "directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
-    ///     });
-    /// 
-    ///     var test = new Aws.DirectConnect.MacsecKeyAssociation("test", new()
-    ///     {
-    ///         ConnectionId = exampleConnection.Apply(getConnectionResult =&gt; getConnectionResult.Id),
-    ///         SecretArn = exampleSecret.Apply(getSecretResult =&gt; getSecretResult.Arn),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation")]
     public partial class MacsecKeyAssociation : global::Pulumi.CustomResource

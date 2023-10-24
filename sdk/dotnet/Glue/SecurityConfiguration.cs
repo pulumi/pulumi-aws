@@ -12,39 +12,6 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Manages a Glue Security Configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.SecurityConfiguration("example", new()
-    ///     {
-    ///         EncryptionConfiguration = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationArgs
-    ///         {
-    ///             CloudwatchEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs
-    ///             {
-    ///                 CloudwatchEncryptionMode = "DISABLED",
-    ///             },
-    ///             JobBookmarksEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs
-    ///             {
-    ///                 JobBookmarksEncryptionMode = "DISABLED",
-    ///             },
-    ///             S3Encryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs
-    ///             {
-    ///                 KmsKeyArn = data.Aws_kms_key.Example.Arn,
-    ///                 S3EncryptionMode = "SSE-KMS",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Security Configurations using `name`. For example:

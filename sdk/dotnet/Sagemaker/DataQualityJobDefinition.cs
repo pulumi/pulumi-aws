@@ -12,56 +12,6 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker data quality job definition resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Sagemaker.DataQualityJobDefinition("test", new()
-    ///     {
-    ///         DataQualityAppSpecification = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs
-    ///         {
-    ///             ImageUri = data.Aws_sagemaker_prebuilt_ecr_image.Monitor.Registry_path,
-    ///         },
-    ///         DataQualityJobInput = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobInputArgs
-    ///         {
-    ///             EndpointInput = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs
-    ///             {
-    ///                 EndpointName = aws_sagemaker_endpoint.My_endpoint.Name,
-    ///             },
-    ///         },
-    ///         DataQualityJobOutputConfig = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigArgs
-    ///         {
-    ///             MonitoringOutputs = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs
-    ///             {
-    ///                 S3Output = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs
-    ///                 {
-    ///                     S3Uri = $"https://{aws_s3_bucket.My_bucket.Bucket_regional_domain_name}/output",
-    ///                 },
-    ///             },
-    ///         },
-    ///         JobResources = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionJobResourcesArgs
-    ///         {
-    ///             ClusterConfig = new Aws.Sagemaker.Inputs.DataQualityJobDefinitionJobResourcesClusterConfigArgs
-    ///             {
-    ///                 InstanceCount = 1,
-    ///                 InstanceType = "ml.t3.medium",
-    ///                 VolumeSizeInGb = 20,
-    ///             },
-    ///         },
-    ///         RoleArn = aws_iam_role.My_role.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import data quality job definitions using the `name`. For example:

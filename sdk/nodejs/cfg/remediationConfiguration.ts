@@ -12,50 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Config Remediation Configuration requires an existing Config Rule to be present.
  *
- * ## Example Usage
- *
- * AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const thisRule = new aws.cfg.Rule("thisRule", {source: {
- *     owner: "AWS",
- *     sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
- * }});
- * const thisRemediationConfiguration = new aws.cfg.RemediationConfiguration("thisRemediationConfiguration", {
- *     configRuleName: thisRule.name,
- *     resourceType: "AWS::S3::Bucket",
- *     targetType: "SSM_DOCUMENT",
- *     targetId: "AWS-EnableS3BucketEncryption",
- *     targetVersion: "1",
- *     parameters: [
- *         {
- *             name: "AutomationAssumeRole",
- *             staticValue: "arn:aws:iam::875924563244:role/security_config",
- *         },
- *         {
- *             name: "BucketName",
- *             resourceValue: "RESOURCE_ID",
- *         },
- *         {
- *             name: "SSEAlgorithm",
- *             staticValue: "AES256",
- *         },
- *     ],
- *     automatic: true,
- *     maximumAutomaticAttempts: 10,
- *     retryAttemptSeconds: 600,
- *     executionControls: {
- *         ssmControls: {
- *             concurrentExecutionRatePercentage: 25,
- *             errorPercentage: 20,
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:

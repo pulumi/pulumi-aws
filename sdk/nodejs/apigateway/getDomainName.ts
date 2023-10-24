@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get the custom domain name for use with AWS API Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigateway.getDomainName({
- *     domainName: "api.example.com",
- * });
- * ```
  */
 export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
 
@@ -108,17 +97,6 @@ export interface GetDomainNameResult {
 }
 /**
  * Use this data source to get the custom domain name for use with AWS API Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigateway.getDomainName({
- *     domainName: "api.example.com",
- * });
- * ```
  */
 export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
     return pulumi.output(args).apply((a: any) => getDomainName(a, opts))

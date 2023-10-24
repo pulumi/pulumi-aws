@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
@@ -21,8 +21,27 @@ class ResourcePolicyArgs:
         :param pulumi.Input[str] policy: An IAM policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[str] resource_arn: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        ResourcePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+
+        _setter("policy", policy)
+        _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter
@@ -59,10 +78,25 @@ class _ResourcePolicyState:
         :param pulumi.Input[str] policy: An IAM policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[str] resource_arn: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         """
+        _ResourcePolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter
@@ -101,35 +135,6 @@ class ResourcePolicy(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Resource Policy.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        example_service_network = aws.vpclattice.ServiceNetwork("exampleServiceNetwork")
-        example_resource_policy = aws.vpclattice.ResourcePolicy("exampleResourcePolicy",
-            resource_arn=example_service_network.arn,
-            policy=example_service_network.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "test-pol-principals-6",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
-                    },
-                    "Action": [
-                        "vpc-lattice:CreateServiceNetworkVpcAssociation",
-                        "vpc-lattice:CreateServiceNetworkServiceAssociation",
-                        "vpc-lattice:GetServiceNetwork",
-                    ],
-                    "Resource": arn,
-                }],
-            })))
-        ```
 
         ## Import
 
@@ -154,35 +159,6 @@ class ResourcePolicy(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Resource Policy.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        example_service_network = aws.vpclattice.ServiceNetwork("exampleServiceNetwork")
-        example_resource_policy = aws.vpclattice.ResourcePolicy("exampleResourcePolicy",
-            resource_arn=example_service_network.arn,
-            policy=example_service_network.arn.apply(lambda arn: json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "test-pol-principals-6",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": f"arn:{current_partition.partition}:iam::{current_caller_identity.account_id}:root",
-                    },
-                    "Action": [
-                        "vpc-lattice:CreateServiceNetworkVpcAssociation",
-                        "vpc-lattice:CreateServiceNetworkServiceAssociation",
-                        "vpc-lattice:GetServiceNetwork",
-                    ],
-                    "Resource": arn,
-                }],
-            })))
-        ```
 
         ## Import
 
@@ -202,6 +178,10 @@ class ResourcePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourcePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

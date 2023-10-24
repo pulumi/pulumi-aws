@@ -11,36 +11,6 @@ import * as utilities from "../utilities";
  * Manages SAML authentication options for an AWS OpenSearch Domain.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {
- *     engineVersion: "OpenSearch_1.1",
- *     clusterConfig: {
- *         instanceType: "r4.large.search",
- *     },
- *     snapshotOptions: {
- *         automatedSnapshotStartHour: 23,
- *     },
- *     tags: {
- *         Domain: "TestDomain",
- *     },
- * });
- * const exampleDomainSamlOptions = new aws.opensearch.DomainSamlOptions("exampleDomainSamlOptions", {
- *     domainName: exampleDomain.domainName,
- *     samlOptions: {
- *         enabled: true,
- *         idp: {
- *             entityId: "https://example.com",
- *             metadataContent: fs.readFileSync("./saml-metadata.xml"),
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

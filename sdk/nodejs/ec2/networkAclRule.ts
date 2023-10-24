@@ -13,27 +13,6 @@ import * as utilities from "../utilities";
  * in conjunction with any Network ACL Rule resources. Doing so will cause
  * a conflict of rule settings and will overwrite rules.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const barNetworkAcl = new aws.ec2.NetworkAcl("barNetworkAcl", {vpcId: aws_vpc.foo.id});
- * const barNetworkAclRule = new aws.ec2.NetworkAclRule("barNetworkAclRule", {
- *     networkAclId: barNetworkAcl.id,
- *     ruleNumber: 200,
- *     egress: false,
- *     protocol: "tcp",
- *     ruleAction: "allow",
- *     cidrBlock: aws_vpc.foo.cidr_block,
- *     fromPort: 22,
- *     toPort: 22,
- * });
- * ```
- *
- * > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
- *
  * ## Import
  *
  * Using the procotol's decimal value:

@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing QuickSight User
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.User("example", {
- *     email: "author@example.com",
- *     iamArn: "arn:aws:iam::123456789012:user/Example",
- *     identityType: "IAM",
- *     namespace: "foo",
- *     sessionName: "an-author",
- *     userRole: "AUTHOR",
- * });
- * ```
- *
  * ## Import
  *
  * You cannot import this resource.

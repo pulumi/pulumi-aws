@@ -13,35 +13,6 @@ namespace Pulumi.Aws.Shield
     /// Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var currentRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var example = new Aws.Shield.ApplicationLayerAutomaticResponse("example", new()
-    ///     {
-    ///         Action = "COUNT",
-    ///         ResourceArn = Output.Tuple(currentPartition, currentCallerIdentity).Apply(values =&gt;
-    ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             return $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudfront:{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:distribution/{@var.Distribution_id}";
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse")]
     public partial class ApplicationLayerAutomaticResponse : global::Pulumi.CustomResource

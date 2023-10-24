@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Pinpoint Baidu Channel resource.
  *
  * > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const channel = new aws.pinpoint.BaiduChannel("channel", {
- *     applicationId: app.applicationId,
- *     apiKey: "",
- *     secretKey: "",
- * });
- * ```
  *
  * ## Import
  *

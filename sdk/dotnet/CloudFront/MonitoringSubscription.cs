@@ -12,31 +12,6 @@ namespace Pulumi.Aws.CloudFront
     /// <summary>
     /// Provides a CloudFront real-time log configuration resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.MonitoringSubscription("example", new()
-    ///     {
-    ///         DistributionId = aws_cloudfront_distribution.Example.Id,
-    ///         MonitoringSubscriptionDetails = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs
-    ///         {
-    ///             RealtimeMetricsSubscriptionConfig = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs
-    ///             {
-    ///                 RealtimeMetricsSubscriptionStatus = "Enabled",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:

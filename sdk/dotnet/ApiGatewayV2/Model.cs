@@ -13,38 +13,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
     /// 
     /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGatewayV2.Model("example", new()
-    ///     {
-    ///         ApiId = aws_apigatewayv2_api.Example.Id,
-    ///         ContentType = "application/json",
-    ///         Schema = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["$schema"] = "http://json-schema.org/draft-04/schema#",
-    ///             ["title"] = "ExampleModel",
-    ///             ["type"] = "object",
-    ///             ["properties"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["id"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["type"] = "string",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

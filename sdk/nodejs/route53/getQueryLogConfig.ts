@@ -9,35 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getQueryLogConfig({
- *     resolverQueryLogConfigId: "rqlc-1abc2345ef678g91h",
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getQueryLogConfig({
- *     filters: [
- *         {
- *             name: "Name",
- *             values: ["shared-query-log-config"],
- *         },
- *         {
- *             name: "ShareStatus",
- *             values: ["SHARED_WITH_ME"],
- *         },
- *     ],
- * });
- * ```
  */
 export function getQueryLogConfig(args?: GetQueryLogConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryLogConfigResult> {
     args = args || {};
@@ -98,35 +69,6 @@ export interface GetQueryLogConfigResult {
 }
 /**
  * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getQueryLogConfig({
- *     resolverQueryLogConfigId: "rqlc-1abc2345ef678g91h",
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getQueryLogConfig({
- *     filters: [
- *         {
- *             name: "Name",
- *             values: ["shared-query-log-config"],
- *         },
- *         {
- *             name: "ShareStatus",
- *             values: ["SHARED_WITH_ME"],
- *         },
- *     ],
- * });
- * ```
  */
 export function getQueryLogConfigOutput(args?: GetQueryLogConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryLogConfigResult> {
     return pulumi.output(args).apply((a: any) => getQueryLogConfig(a, opts))

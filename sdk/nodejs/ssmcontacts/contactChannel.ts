@@ -11,38 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SSM Contacts Contact Channel.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssmcontacts.ContactChannel("example", {
- *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
- *     deliveryAddress: {
- *         simpleAddress: "email@example.com",
- *     },
- *     type: "EMAIL",
- * });
- * ```
- * ### Usage with SSM Contact
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleContact = new aws.ssmcontacts.Contact("exampleContact", {
- *     alias: "example_contact",
- *     type: "PERSONAL",
- * });
- * const example = new aws.ssmcontacts.ContactChannel("example", {
- *     contactId: exampleContact.arn,
- *     deliveryAddress: {
- *         simpleAddress: "email@example.com",
- *     },
- *     type: "EMAIL",
- * });
- * ```
  *
  * ## Import
  *

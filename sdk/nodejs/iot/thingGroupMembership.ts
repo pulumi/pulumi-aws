@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Adds an IoT Thing to an IoT Thing Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iot.ThingGroupMembership("example", {
- *     overrideDynamicGroup: true,
- *     thingGroupName: "example-group",
- *     thingName: "example-thing",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For example:

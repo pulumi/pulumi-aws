@@ -17,50 +17,6 @@ import * as utilities from "../utilities";
  * however, this policy will not be in the state and as such, will present a diff on plan/apply. For that reason, you must use the `aws.secretsmanager.SecretPolicy`
  * resource](/docs/providers/aws/r/secretsmanager_secret_policy.html) as shown below in order to ensure that the state is in a clean state after the creation of secret and the association to the cluster.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCluster = new aws.msk.Cluster("exampleCluster", {clientAuthentication: {
- *     sasl: {
- *         scram: true,
- *     },
- * }});
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "Example Key for MSK Cluster Scram Secret Association"});
- * const exampleSecret = new aws.secretsmanager.Secret("exampleSecret", {kmsKeyId: exampleKey.keyId});
- * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("exampleSecretVersion", {
- *     secretId: exampleSecret.id,
- *     secretString: JSON.stringify({
- *         username: "user",
- *         password: "pass",
- *     }),
- * });
- * const exampleScramSecretAssociation = new aws.msk.ScramSecretAssociation("exampleScramSecretAssociation", {
- *     clusterArn: exampleCluster.arn,
- *     secretArnLists: [exampleSecret.arn],
- * }, {
- *     dependsOn: [exampleSecretVersion],
- * });
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         sid: "AWSKafkaResourcePolicy",
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["kafka.amazonaws.com"],
- *         }],
- *         actions: ["secretsmanager:getSecretValue"],
- *         resources: [exampleSecret.arn],
- *     }],
- * });
- * const exampleSecretPolicy = new aws.secretsmanager.SecretPolicy("exampleSecretPolicy", {
- *     secretArn: exampleSecret.arn,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:

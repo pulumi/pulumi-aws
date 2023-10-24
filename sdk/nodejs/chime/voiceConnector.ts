@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.chime.VoiceConnector("test", {
- *     awsRegion: "us-east-1",
- *     requireEncryption: true,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Configuration Recorder using the name. For example:

@@ -12,52 +12,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// <summary>
     /// Manages an Image Builder Distribution Configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ImageBuilder.DistributionConfiguration("example", new()
-    ///     {
-    ///         Distributions = new[]
-    ///         {
-    ///             new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionArgs
-    ///             {
-    ///                 AmiDistributionConfiguration = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs
-    ///                 {
-    ///                     AmiTags = 
-    ///                     {
-    ///                         { "CostCenter", "IT" },
-    ///                     },
-    ///                     LaunchPermission = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs
-    ///                     {
-    ///                         UserIds = new[]
-    ///                         {
-    ///                             "123456789012",
-    ///                         },
-    ///                     },
-    ///                     Name = "example-{{ imagebuilder:buildDate }}",
-    ///                 },
-    ///                 LaunchTemplateConfigurations = new[]
-    ///                 {
-    ///                     new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs
-    ///                     {
-    ///                         LaunchTemplateId = "lt-0aaa1bcde2ff3456",
-    ///                     },
-    ///                 },
-    ///                 Region = "us-east-1",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:

@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an AWS Certificate Manager Private Certificate Authorities Permission.
  * Currently, this is only required in order to allow the ACM service to automatically renew certificates issued by a PCA.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("exampleCertificateAuthority", {certificateAuthorityConfiguration: {
- *     keyAlgorithm: "RSA_4096",
- *     signingAlgorithm: "SHA512WITHRSA",
- *     subject: {
- *         commonName: "example.com",
- *     },
- * }});
- * const examplePermission = new aws.acmpca.Permission("examplePermission", {
- *     certificateAuthorityArn: exampleCertificateAuthority.arn,
- *     actions: [
- *         "IssueCertificate",
- *         "GetCertificate",
- *         "ListPermissions",
- *     ],
- *     principal: "acm.amazonaws.com",
- * });
- * ```
  */
 export class Permission extends pulumi.CustomResource {
     /**

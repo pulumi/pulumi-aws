@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,14 +27,33 @@ class DetectorArgs:
         :param pulumi.Input[str] finding_publishing_frequency: Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        DetectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datasources=datasources,
+            enable=enable,
+            finding_publishing_frequency=finding_publishing_frequency,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datasources: Optional[pulumi.Input['DetectorDatasourcesArgs']] = None,
+             enable: Optional[pulumi.Input[bool]] = None,
+             finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if finding_publishing_frequency is None and 'findingPublishingFrequency' in kwargs:
+            finding_publishing_frequency = kwargs['findingPublishingFrequency']
+
         if datasources is not None:
-            pulumi.set(__self__, "datasources", datasources)
+            _setter("datasources", datasources)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if finding_publishing_frequency is not None:
-            pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
+            _setter("finding_publishing_frequency", finding_publishing_frequency)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -105,23 +124,52 @@ class _DetectorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _DetectorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            arn=arn,
+            datasources=datasources,
+            enable=enable,
+            finding_publishing_frequency=finding_publishing_frequency,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             datasources: Optional[pulumi.Input['DetectorDatasourcesArgs']] = None,
+             enable: Optional[pulumi.Input[bool]] = None,
+             finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if finding_publishing_frequency is None and 'findingPublishingFrequency' in kwargs:
+            finding_publishing_frequency = kwargs['findingPublishingFrequency']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if datasources is not None:
-            pulumi.set(__self__, "datasources", datasources)
+            _setter("datasources", datasources)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if finding_publishing_frequency is not None:
-            pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
+            _setter("finding_publishing_frequency", finding_publishing_frequency)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accountId")
@@ -226,33 +274,6 @@ class Detector(pulumi.CustomResource):
 
         > **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_detector = aws.guardduty.Detector("myDetector",
-            datasources=aws.guardduty.DetectorDatasourcesArgs(
-                kubernetes=aws.guardduty.DetectorDatasourcesKubernetesArgs(
-                    audit_logs=aws.guardduty.DetectorDatasourcesKubernetesAuditLogsArgs(
-                        enable=False,
-                    ),
-                ),
-                malware_protection=aws.guardduty.DetectorDatasourcesMalwareProtectionArgs(
-                    scan_ec2_instance_with_findings=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs(
-                        ebs_volumes=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs(
-                            enable=True,
-                        ),
-                    ),
-                ),
-                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
-                    enable=True,
-                ),
-            ),
-            enable=True)
-        ```
-
         ## Import
 
         Using `pulumi import`, import GuardDuty detectors using the detector ID. For example:
@@ -280,33 +301,6 @@ class Detector(pulumi.CustomResource):
 
         > **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_detector = aws.guardduty.Detector("myDetector",
-            datasources=aws.guardduty.DetectorDatasourcesArgs(
-                kubernetes=aws.guardduty.DetectorDatasourcesKubernetesArgs(
-                    audit_logs=aws.guardduty.DetectorDatasourcesKubernetesAuditLogsArgs(
-                        enable=False,
-                    ),
-                ),
-                malware_protection=aws.guardduty.DetectorDatasourcesMalwareProtectionArgs(
-                    scan_ec2_instance_with_findings=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs(
-                        ebs_volumes=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs(
-                            enable=True,
-                        ),
-                    ),
-                ),
-                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
-                    enable=True,
-                ),
-            ),
-            enable=True)
-        ```
-
         ## Import
 
         Using `pulumi import`, import GuardDuty detectors using the detector ID. For example:
@@ -326,6 +320,10 @@ class Detector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DetectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -344,6 +342,7 @@ class Detector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DetectorArgs.__new__(DetectorArgs)
 
+            datasources = _utilities.configure(datasources, DetectorDatasourcesArgs, True)
             __props__.__dict__["datasources"] = datasources
             __props__.__dict__["enable"] = enable
             __props__.__dict__["finding_publishing_frequency"] = finding_publishing_frequency

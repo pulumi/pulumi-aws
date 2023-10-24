@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Msk
     {
         /// <summary>
         /// Get information on an Amazon MSK Broker Nodes.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Msk.GetBrokerNodes.Invoke(new()
-        ///     {
-        ///         ClusterArn = aws_msk_cluster.Example.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetBrokerNodesResult> InvokeAsync(GetBrokerNodesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerNodesResult>("aws:msk/getBrokerNodes:getBrokerNodes", args ?? new GetBrokerNodesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information on an Amazon MSK Broker Nodes.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Msk.GetBrokerNodes.Invoke(new()
-        ///     {
-        ///         ClusterArn = aws_msk_cluster.Example.Arn,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetBrokerNodesResult> Invoke(GetBrokerNodesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerNodesResult>("aws:msk/getBrokerNodes:getBrokerNodes", args ?? new GetBrokerNodesInvokeArgs(), options.WithDefaults());

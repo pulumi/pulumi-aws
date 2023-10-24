@@ -13,65 +13,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// Manages an EC2 Transit Gateway Peering Attachment.
     /// For examples of custom route table association and propagation, see the [EC2 Transit Gateway Networking Examples Guide](https://docs.aws.amazon.com/vpc/latest/tgw/TGW_Scenarios.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var local = new Aws.Provider("local", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
-    ///     var peer = new Aws.Provider("peer", new()
-    ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     var peerRegion = Aws.GetRegion.Invoke();
-    /// 
-    ///     var localTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("localTransitGateway", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Local TGW" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Local,
-    ///     });
-    /// 
-    ///     var peerTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("peerTransitGateway", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Peer TGW" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Peer,
-    ///     });
-    /// 
-    ///     var example = new Aws.Ec2TransitGateway.PeeringAttachment("example", new()
-    ///     {
-    ///         PeerAccountId = peerTransitGateway.OwnerId,
-    ///         PeerRegion = peerRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
-    ///         PeerTransitGatewayId = peerTransitGateway.Id,
-    ///         TransitGatewayId = localTransitGateway.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "TGW Peering Requestor" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For example:

@@ -15,37 +15,6 @@ import (
 
 // Provides an IAM Service Specific Credential.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := iam.NewUser(ctx, "exampleUser", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewServiceSpecificCredential(ctx, "exampleServiceSpecificCredential", &iam.ServiceSpecificCredentialArgs{
-//				ServiceName: pulumi.String("codecommit.amazonaws.com"),
-//				UserName:    exampleUser.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import IAM Service Specific Credentials using the `service_name:user_name:service_specific_credential_id`. For example:

@@ -16,38 +16,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE:** To improve execution times on larger updates, it is recommended to use the inline `entry` block as part of the Managed Prefix List resource when creating a prefix list with more than 100 entries. You can find more information about the resource here.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.ManagedPrefixList("example", new()
-    ///     {
-    ///         AddressFamily = "IPv4",
-    ///         MaxEntries = 5,
-    ///         Tags = 
-    ///         {
-    ///             { "Env", "live" },
-    ///         },
-    ///     });
-    /// 
-    ///     var entry1 = new Aws.Ec2.ManagedPrefixListEntry("entry1", new()
-    ///     {
-    ///         Cidr = aws_vpc.Example.Cidr_block,
-    ///         Description = "Primary",
-    ///         PrefixListId = example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:

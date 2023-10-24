@@ -15,38 +15,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testStream = new Aws.Kinesis.Stream("testStream", new()
-    ///     {
-    ///         RetentionPeriod = 48,
-    ///         ShardCount = 1,
-    ///         ShardLevelMetrics = new[]
-    ///         {
-    ///             "IncomingBytes",
-    ///             "OutgoingBytes",
-    ///         },
-    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
-    ///         {
-    ///             StreamMode = "PROVISIONED",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "test" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Kinesis Streams using the `name`. For example:

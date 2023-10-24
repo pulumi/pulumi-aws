@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Backup vault lock configuration resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.backup.VaultLockConfiguration("test", {
- *     backupVaultName: "example_backup_vault",
- *     changeableForDays: 3,
- *     maxRetentionDays: 1200,
- *     minRetentionDays: 7,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:

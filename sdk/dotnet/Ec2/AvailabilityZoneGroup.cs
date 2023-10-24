@@ -14,25 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE:** This is an advanced resource. The provider will automatically assume management of the EC2 Availability Zone Group without import and perform no actions on removal from configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.AvailabilityZoneGroup("example", new()
-    ///     {
-    ///         GroupName = "us-west-2-lax-1",
-    ///         OptInStatus = "opted-in",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For example:

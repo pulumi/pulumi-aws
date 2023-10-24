@@ -14,34 +14,6 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// &gt; **Note:** Removing the `license_count` attribute is not supported by the License Manager API.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LicenseManager.LicenseConfiguration("example", new()
-    ///     {
-    ///         Description = "Example",
-    ///         LicenseCount = 10,
-    ///         LicenseCountHardLimit = true,
-    ///         LicenseCountingType = "Socket",
-    ///         LicenseRules = new[]
-    ///         {
-    ///             "#minimumSockets=2",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "barr" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Rules
     /// 
     /// License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:

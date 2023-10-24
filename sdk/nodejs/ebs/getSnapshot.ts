@@ -9,28 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ebsVolume = aws.ebs.getSnapshot({
- *     filters: [
- *         {
- *             name: "volume-size",
- *             values: ["40"],
- *         },
- *         {
- *             name: "tag:Name",
- *             values: ["Example"],
- *         },
- *     ],
- *     mostRecent: true,
- *     owners: ["self"],
- * });
- * ```
  */
 export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     args = args || {};
@@ -150,28 +128,6 @@ export interface GetSnapshotResult {
 }
 /**
  * Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ebsVolume = aws.ebs.getSnapshot({
- *     filters: [
- *         {
- *             name: "volume-size",
- *             values: ["40"],
- *         },
- *         {
- *             name: "tag:Name",
- *             values: ["Example"],
- *         },
- *     ],
- *     mostRecent: true,
- *     owners: ["self"],
- * });
- * ```
  */
 export function getSnapshotOutput(args?: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))

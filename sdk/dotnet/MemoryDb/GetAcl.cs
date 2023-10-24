@@ -13,56 +13,12 @@ namespace Pulumi.Aws.MemoryDb
     {
         /// <summary>
         /// Provides information about a MemoryDB ACL.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetAcl.Invoke(new()
-        ///     {
-        ///         Name = "my-acl",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAclResult> InvokeAsync(GetAclArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAclResult>("aws:memorydb/getAcl:getAcl", args ?? new GetAclArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about a MemoryDB ACL.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.MemoryDb.GetAcl.Invoke(new()
-        ///     {
-        ///         Name = "my-acl",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAclResult> Invoke(GetAclInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAclResult>("aws:memorydb/getAcl:getAcl", args ?? new GetAclInvokeArgs(), options.WithDefaults());

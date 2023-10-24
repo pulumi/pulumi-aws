@@ -7,55 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an IP address pool resource for IPAM.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
- * }]});
- * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
- *     addressFamily: "ipv4",
- *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
- * });
- * ```
- *
- * Nested Pools:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
- * }]});
- * const parent = new aws.ec2.VpcIpamPool("parent", {
- *     addressFamily: "ipv4",
- *     ipamScopeId: example.privateDefaultScopeId,
- * });
- * const parentTest = new aws.ec2.VpcIpamPoolCidr("parentTest", {
- *     ipamPoolId: parent.id,
- *     cidr: "172.20.0.0/16",
- * });
- * const child = new aws.ec2.VpcIpamPool("child", {
- *     addressFamily: "ipv4",
- *     ipamScopeId: example.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
- *     sourceIpamPoolId: parent.id,
- * });
- * const childTest = new aws.ec2.VpcIpamPoolCidr("childTest", {
- *     ipamPoolId: child.id,
- *     cidr: "172.20.0.0/24",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:

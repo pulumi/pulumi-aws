@@ -12,25 +12,6 @@ namespace Pulumi.Aws.AppSync
     /// <summary>
     /// Provides an AppSync Domain Name.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.DomainName("example", new()
-    ///     {
-    ///         Name = "api.example.com",
-    ///         CertificateArn = aws_acm_certificate.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For example:

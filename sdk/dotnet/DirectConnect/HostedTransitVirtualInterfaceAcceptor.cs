@@ -15,62 +15,6 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// &gt; **NOTE:** AWS allows a Direct Connect hosted transit virtual interface to be deleted from either the allocator's or accepter's side. However, this provider only allows the Direct Connect hosted transit virtual interface to be deleted from the allocator's side by removing the corresponding `aws.directconnect.HostedTransitVirtualInterface` resource from your configuration. Removing a `aws.directconnect.HostedTransitVirtualInterfaceAcceptor` resource from your configuration will remove it from your statefile and management, **but will not delete the Direct Connect virtual interface.**
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var accepter = new Aws.Provider("accepter");
-    /// 
-    ///     // Accepter's credentials.
-    ///     var accepterCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     // Accepter's side of the VIF.
-    ///     var example = new Aws.DirectConnect.Gateway("example", new()
-    ///     {
-    ///         AmazonSideAsn = "64512",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Accepter,
-    ///     });
-    /// 
-    ///     // Creator's side of the VIF
-    ///     var creator = new Aws.DirectConnect.HostedTransitVirtualInterface("creator", new()
-    ///     {
-    ///         ConnectionId = "dxcon-zzzzzzzz",
-    ///         OwnerAccountId = accepterCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///         Vlan = 4094,
-    ///         AddressFamily = "ipv4",
-    ///         BgpAsn = 65352,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    ///     var accepterHostedTransitVirtualInterfaceAcceptor = new Aws.DirectConnect.HostedTransitVirtualInterfaceAcceptor("accepterHostedTransitVirtualInterfaceAcceptor", new()
-    ///     {
-    ///         VirtualInterfaceId = creator.Id,
-    ///         DxGatewayId = example.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Side", "Accepter" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Accepter,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:

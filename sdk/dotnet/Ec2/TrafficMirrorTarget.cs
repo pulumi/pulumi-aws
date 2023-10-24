@@ -13,39 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides a Traffic mirror target.\
     /// Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
     /// 
-    /// ## Example Usage
-    /// 
-    /// To create a basic traffic mirror session
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var nlb = new Aws.Ec2.TrafficMirrorTarget("nlb", new()
-    ///     {
-    ///         Description = "NLB target",
-    ///         NetworkLoadBalancerArn = aws_lb.Lb.Arn,
-    ///     });
-    /// 
-    ///     var eni = new Aws.Ec2.TrafficMirrorTarget("eni", new()
-    ///     {
-    ///         Description = "ENI target",
-    ///         NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,
-    ///     });
-    /// 
-    ///     var gwlb = new Aws.Ec2.TrafficMirrorTarget("gwlb", new()
-    ///     {
-    ///         Description = "GWLB target",
-    ///         GatewayLoadBalancerEndpointId = aws_vpc_endpoint.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import traffic mirror targets using the `id`. For example:

@@ -16,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse {
     /**
-     * @return Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+     * @return Instructs AWS WAF to allow the web request. See `allow` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow allow;
     /**
-     * @return Specifies that AWS WAF should block requests by default. See `block` below for details.
+     * @return Instructs AWS WAF to block the web request. See `block` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock block;
@@ -43,14 +43,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
     private WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse() {}
     /**
-     * @return Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+     * @return Instructs AWS WAF to allow the web request. See `allow` below for details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow> allow() {
         return Optional.ofNullable(this.allow);
     }
     /**
-     * @return Specifies that AWS WAF should block requests by default. See `block` below for details.
+     * @return Instructs AWS WAF to block the web request. See `block` below for details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock> block() {

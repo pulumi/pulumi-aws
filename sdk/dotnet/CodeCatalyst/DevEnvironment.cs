@@ -11,45 +11,6 @@ namespace Pulumi.Aws.CodeCatalyst
 {
     /// <summary>
     /// Resource for managing an AWS CodeCatalyst Dev Environment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CodeCatalyst.DevEnvironment("test", new()
-    ///     {
-    ///         Alias = "devenv",
-    ///         Ides = new Aws.CodeCatalyst.Inputs.DevEnvironmentIdesArgs
-    ///         {
-    ///             Name = "PyCharm",
-    ///             Runtime = "public.ecr.aws/jetbrains/py",
-    ///         },
-    ///         InactivityTimeoutMinutes = 40,
-    ///         InstanceType = "dev.standard1.small",
-    ///         PersistentStorage = new Aws.CodeCatalyst.Inputs.DevEnvironmentPersistentStorageArgs
-    ///         {
-    ///             Size = 16,
-    ///         },
-    ///         ProjectName = "myproject",
-    ///         Repositories = new[]
-    ///         {
-    ///             new Aws.CodeCatalyst.Inputs.DevEnvironmentRepositoryArgs
-    ///             {
-    ///                 BranchName = "main",
-    ///                 RepositoryName = "pulumi-provider-aws",
-    ///             },
-    ///         },
-    ///         SpaceName = "myspace",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:codecatalyst/devEnvironment:DevEnvironment")]
     public partial class DevEnvironment : global::Pulumi.CustomResource

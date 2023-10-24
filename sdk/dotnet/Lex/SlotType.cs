@@ -13,48 +13,6 @@ namespace Pulumi.Aws.Lex
     /// Provides an Amazon Lex Slot Type resource. For more information see
     /// [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var flowerTypes = new Aws.Lex.SlotType("flowerTypes", new()
-    ///     {
-    ///         CreateVersion = true,
-    ///         Description = "Types of flowers to order",
-    ///         EnumerationValues = new[]
-    ///         {
-    ///             new Aws.Lex.Inputs.SlotTypeEnumerationValueArgs
-    ///             {
-    ///                 Synonyms = new[]
-    ///                 {
-    ///                     "Lirium",
-    ///                     "Martagon",
-    ///                 },
-    ///                 Value = "lilies",
-    ///             },
-    ///             new Aws.Lex.Inputs.SlotTypeEnumerationValueArgs
-    ///             {
-    ///                 Synonyms = new[]
-    ///                 {
-    ///                     "Eduardoregelia",
-    ///                     "Podonix",
-    ///                 },
-    ///                 Value = "tulips",
-    ///             },
-    ///         },
-    ///         Name = "FlowerTypes",
-    ///         ValueSelectionStrategy = "ORIGINAL_VALUE",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import slot types using their name. For example:

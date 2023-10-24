@@ -8,25 +8,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Connect Security Profile resource. For more information see
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.SecurityProfile("example", {
- *     description: "example description",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     permissions: [
- *         "BasicAgentAccess",
- *         "OutboundCallAccess",
- *     ],
- *     tags: {
- *         Name: "Example Security Profile",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Security Profiles using the `instance_id` and `security_profile_id` separated by a colon (`:`). For example:

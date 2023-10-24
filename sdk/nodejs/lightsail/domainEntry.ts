@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE on `id`:** In an effort to simplify imports, this resource `id` field has been updated to the standard resource id separator, a comma (`,`). For backward compatibility, the previous separator (underscore `_`) can still be used to read and import existing resources. When state is refreshed, the `id` will be updated to use the new standard separator. The previous separator will be deprecated in a future major release.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testDomain = new aws.lightsail.Domain("testDomain", {domainName: "mydomain.com"});
- * const testDomainEntry = new aws.lightsail.DomainEntry("testDomainEntry", {
- *     domainName: aws_lightsail_domain.domain_test.domain_name,
- *     type: "A",
- *     target: "127.0.0.1",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:

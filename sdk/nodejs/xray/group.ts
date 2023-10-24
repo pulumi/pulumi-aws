@@ -10,22 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Creates and manages an AWS XRay Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.xray.Group("example", {
- *     filterExpression: "responsetime > 5",
- *     groupName: "example",
- *     insightsConfiguration: {
- *         insightsEnabled: true,
- *         notificationsEnabled: true,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import XRay Groups using the ARN. For example:

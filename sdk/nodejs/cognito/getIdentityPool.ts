@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Cognito Identity Pool.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cognito.getIdentityPool({
- *     identityPoolName: "test pool",
- * });
- * ```
  */
 export function getIdentityPool(args: GetIdentityPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityPoolResult> {
 
@@ -95,16 +85,6 @@ export interface GetIdentityPoolResult {
  * Data source for managing an AWS Cognito Identity Pool.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cognito.getIdentityPool({
- *     identityPoolName: "test pool",
- * });
- * ```
  */
 export function getIdentityPoolOutput(args: GetIdentityPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolResult> {
     return pulumi.output(args).apply((a: any) => getIdentityPool(a, opts))

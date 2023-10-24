@@ -14,50 +14,6 @@ namespace Pulumi.Aws.CleanRooms
     /// join the collaboration and can create memberships.
     /// 
     /// ## Example Usage
-    /// ### Collaboration with tags
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testCollaboration = new Aws.CleanRooms.Collaboration("testCollaboration", new()
-    ///     {
-    ///         CreatorDisplayName = "Creator ",
-    ///         CreatorMemberAbilities = new[]
-    ///         {
-    ///             "CAN_QUERY",
-    ///             "CAN_RECEIVE_RESULTS",
-    ///         },
-    ///         DataEncryptionMetadata = new Aws.CleanRooms.Inputs.CollaborationDataEncryptionMetadataArgs
-    ///         {
-    ///             AllowClearText = true,
-    ///             AllowDuplicates = true,
-    ///             AllowJoinsOnColumnsWithDifferentNames = true,
-    ///             PreserveNulls = false,
-    ///         },
-    ///         Description = "I made this collaboration with Pulumi!",
-    ///         Members = new[]
-    ///         {
-    ///             new Aws.CleanRooms.Inputs.CollaborationMemberArgs
-    ///             {
-    ///                 AccountId = "123456789012",
-    ///                 DisplayName = "Other member",
-    ///                 MemberAbilities = new[] {},
-    ///             },
-    ///         },
-    ///         QueryLogStatus = "DISABLED",
-    ///         Tags = 
-    ///         {
-    ///             { "Project", "Pulumi" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -12,40 +12,6 @@ namespace Pulumi.Aws.Inspector
     /// <summary>
     /// Provides an Inspector Classic Assessment Template
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Inspector.AssessmentTemplate("example", new()
-    ///     {
-    ///         TargetArn = aws_inspector_assessment_target.Example.Arn,
-    ///         Duration = 3600,
-    ///         RulesPackageArns = new[]
-    ///         {
-    ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
-    ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
-    ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
-    ///             "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
-    ///         },
-    ///         EventSubscriptions = new[]
-    ///         {
-    ///             new Aws.Inspector.Inputs.AssessmentTemplateEventSubscriptionArgs
-    ///             {
-    ///                 Event = "ASSESSMENT_RUN_COMPLETED",
-    ///                 TopicArn = aws_sns_topic.Example.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:

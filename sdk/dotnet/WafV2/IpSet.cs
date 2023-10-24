@@ -12,36 +12,6 @@ namespace Pulumi.Aws.WafV2
     /// <summary>
     /// Provides a WAFv2 IP Set Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WafV2.IpSet("example", new()
-    ///     {
-    ///         Addresses = new[]
-    ///         {
-    ///             "1.2.3.4/32",
-    ///             "5.6.7.8/32",
-    ///         },
-    ///         Description = "Example IP set",
-    ///         IpAddressVersion = "IPV4",
-    ///         Scope = "REGIONAL",
-    ///         Tags = 
-    ///         {
-    ///             { "Tag1", "Value1" },
-    ///             { "Tag2", "Value2" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For example:

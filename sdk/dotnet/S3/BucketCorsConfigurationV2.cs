@@ -14,61 +14,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `aws.s3.BucketCorsConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketCorsConfigurationV2 = new Aws.S3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         CorsRules = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
-    ///             {
-    ///                 AllowedHeaders = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///                 AllowedMethods = new[]
-    ///                 {
-    ///                     "PUT",
-    ///                     "POST",
-    ///                 },
-    ///                 AllowedOrigins = new[]
-    ///                 {
-    ///                     "https://s3-website-test.domain.example",
-    ///                 },
-    ///                 ExposeHeaders = new[]
-    ///                 {
-    ///                     "ETag",
-    ///                 },
-    ///                 MaxAgeSeconds = 3000,
-    ///             },
-    ///             new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
-    ///             {
-    ///                 AllowedMethods = new[]
-    ///                 {
-    ///                     "GET",
-    ///                 },
-    ///                 AllowedOrigins = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):

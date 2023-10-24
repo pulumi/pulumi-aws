@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,36 @@ class RealtimeLogConfigArgs:
         :param pulumi.Input[int] sampling_rate: The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
         :param pulumi.Input[str] name: The unique name to identify this real-time log configuration.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "sampling_rate", sampling_rate)
+        RealtimeLogConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            fields=fields,
+            sampling_rate=sampling_rate,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: Optional[pulumi.Input['RealtimeLogConfigEndpointArgs']] = None,
+             fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sampling_rate: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if fields is None:
+            raise TypeError("Missing 'fields' argument")
+        if sampling_rate is None and 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+        if sampling_rate is None:
+            raise TypeError("Missing 'sampling_rate' argument")
+
+        _setter("endpoint", endpoint)
+        _setter("fields", fields)
+        _setter("sampling_rate", sampling_rate)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -98,16 +123,37 @@ class _RealtimeLogConfigState:
         :param pulumi.Input[str] name: The unique name to identify this real-time log configuration.
         :param pulumi.Input[int] sampling_rate: The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
         """
+        _RealtimeLogConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            endpoint=endpoint,
+            fields=fields,
+            name=name,
+            sampling_rate=sampling_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input['RealtimeLogConfigEndpointArgs']] = None,
+             fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sampling_rate: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sampling_rate is None and 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if fields is not None:
-            pulumi.set(__self__, "fields", fields)
+            _setter("fields", fields)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sampling_rate is not None:
-            pulumi.set(__self__, "sampling_rate", sampling_rate)
+            _setter("sampling_rate", sampling_rate)
 
     @property
     @pulumi.getter
@@ -183,50 +229,6 @@ class RealtimeLogConfig(pulumi.CustomResource):
         """
         Provides a CloudFront real-time log configuration resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["cloudfront.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "kinesis:DescribeStreamSummary",
-                "kinesis:DescribeStream",
-                "kinesis:PutRecord",
-                "kinesis:PutRecords",
-            ],
-            resources=[aws_kinesis_stream["example"]["arn"]],
-        )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=example_policy_document.json)
-        example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("exampleRealtimeLogConfig",
-            sampling_rate=75,
-            fields=[
-                "timestamp",
-                "c-ip",
-            ],
-            endpoint=aws.cloudfront.RealtimeLogConfigEndpointArgs(
-                stream_type="Kinesis",
-                kinesis_stream_config=aws.cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs(
-                    role_arn=example_role.arn,
-                    stream_arn=aws_kinesis_stream["example"]["arn"],
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
@@ -251,50 +253,6 @@ class RealtimeLogConfig(pulumi.CustomResource):
         """
         Provides a CloudFront real-time log configuration resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["cloudfront.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
-                "kinesis:DescribeStreamSummary",
-                "kinesis:DescribeStream",
-                "kinesis:PutRecord",
-                "kinesis:PutRecords",
-            ],
-            resources=[aws_kinesis_stream["example"]["arn"]],
-        )])
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=example_policy_document.json)
-        example_realtime_log_config = aws.cloudfront.RealtimeLogConfig("exampleRealtimeLogConfig",
-            sampling_rate=75,
-            fields=[
-                "timestamp",
-                "c-ip",
-            ],
-            endpoint=aws.cloudfront.RealtimeLogConfigEndpointArgs(
-                stream_type="Kinesis",
-                kinesis_stream_config=aws.cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs(
-                    role_arn=example_role.arn,
-                    stream_arn=aws_kinesis_stream["example"]["arn"],
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
@@ -313,6 +271,10 @@ class RealtimeLogConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RealtimeLogConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -331,6 +293,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RealtimeLogConfigArgs.__new__(RealtimeLogConfigArgs)
 
+            endpoint = _utilities.configure(endpoint, RealtimeLogConfigEndpointArgs, True)
             if endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint'")
             __props__.__dict__["endpoint"] = endpoint

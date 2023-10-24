@@ -9,38 +9,6 @@ import * as utilities from "../utilities";
  *
  * The provider waits for the domain service access policy to become `Active` when applying a configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleDomain = new aws.cloudsearch.Domain("exampleDomain", {});
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "search_only",
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: [
- *             "cloudsearch:search",
- *             "cloudsearch:document",
- *         ],
- *         conditions: [{
- *             test: "IpAddress",
- *             variable: "aws:SourceIp",
- *             values: ["192.0.2.0/32"],
- *         }],
- *     }],
- * });
- * const exampleDomainServiceAccessPolicy = new aws.cloudsearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", {
- *     domainName: exampleDomain.id,
- *     accessPolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:

@@ -12,55 +12,6 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var awsGlueCatalogDatabase = new Aws.Glue.CatalogDatabase("awsGlueCatalogDatabase", new()
-    ///     {
-    ///         Name = "MyCatalogDatabase",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Create Table Default Permissions
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var awsGlueCatalogDatabase = new Aws.Glue.CatalogDatabase("awsGlueCatalogDatabase", new()
-    ///     {
-    ///         CreateTableDefaultPermissions = new[]
-    ///         {
-    ///             new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs
-    ///             {
-    ///                 Permissions = new[]
-    ///                 {
-    ///                     "SELECT",
-    ///                 },
-    ///                 Principal = new Aws.Glue.Inputs.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs
-    ///                 {
-    ///                     DataLakePrincipalIdentifier = "IAM_ALLOWED_PRINCIPALS",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Name = "MyCatalogDatabase",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:

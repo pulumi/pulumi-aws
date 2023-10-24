@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Synthetics Group Association resource.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.synthetics.GroupAssociation("example", {
- *     groupName: aws_synthetics_group.example.name,
- *     canaryArn: aws_synthetics_canary.example.arn,
- * });
- * ```
  *
  * ## Import
  *

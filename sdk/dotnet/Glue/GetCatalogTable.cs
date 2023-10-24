@@ -13,58 +13,12 @@ namespace Pulumi.Aws.Glue
     {
         /// <summary>
         /// This data source can be used to fetch information about an AWS Glue Data Catalog Table.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Glue.GetCatalogTable.Invoke(new()
-        ///     {
-        ///         DatabaseName = "MyCatalogDatabase",
-        ///         Name = "MyCatalogTable",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCatalogTableResult> InvokeAsync(GetCatalogTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCatalogTableResult>("aws:glue/getCatalogTable:getCatalogTable", args ?? new GetCatalogTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// This data source can be used to fetch information about an AWS Glue Data Catalog Table.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Glue.GetCatalogTable.Invoke(new()
-        ///     {
-        ///         DatabaseName = "MyCatalogDatabase",
-        ///         Name = "MyCatalogTable",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCatalogTableResult> Invoke(GetCatalogTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogTableResult>("aws:glue/getCatalogTable:getCatalogTable", args ?? new GetCatalogTableInvokeArgs(), options.WithDefaults());

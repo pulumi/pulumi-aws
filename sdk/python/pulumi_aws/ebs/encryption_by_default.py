@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EncryptionByDefaultArgs', 'EncryptionByDefault']
@@ -19,8 +19,19 @@ class EncryptionByDefaultArgs:
         The set of arguments for constructing a EncryptionByDefault resource.
         :param pulumi.Input[bool] enabled: Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
         """
+        EncryptionByDefaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -43,8 +54,19 @@ class _EncryptionByDefaultState:
         Input properties used for looking up and filtering EncryptionByDefault resources.
         :param pulumi.Input[bool] enabled: Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
         """
+        _EncryptionByDefaultState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -71,15 +93,6 @@ class EncryptionByDefault(pulumi.CustomResource):
 
         > **NOTE:** Removing this resource disables default EBS encryption.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.EncryptionByDefault("example", enabled=True)
-        ```
-
         ## Import
 
         Using `pulumi import`, import the default EBS encryption state. For example:
@@ -103,15 +116,6 @@ class EncryptionByDefault(pulumi.CustomResource):
 
         > **NOTE:** Removing this resource disables default EBS encryption.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.EncryptionByDefault("example", enabled=True)
-        ```
-
         ## Import
 
         Using `pulumi import`, import the default EBS encryption state. For example:
@@ -130,6 +134,10 @@ class EncryptionByDefault(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EncryptionByDefaultArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

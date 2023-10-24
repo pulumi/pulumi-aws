@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InvitationAccepterArgs', 'InvitationAccepter']
@@ -19,7 +19,22 @@ class InvitationAccepterArgs:
         The set of arguments for constructing a InvitationAccepter resource.
         :param pulumi.Input[str] administrator_account_id: The AWS account ID for the account that sent the invitation.
         """
-        pulumi.set(__self__, "administrator_account_id", administrator_account_id)
+        InvitationAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_account_id=administrator_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if administrator_account_id is None and 'administratorAccountId' in kwargs:
+            administrator_account_id = kwargs['administratorAccountId']
+        if administrator_account_id is None:
+            raise TypeError("Missing 'administrator_account_id' argument")
+
+        _setter("administrator_account_id", administrator_account_id)
 
     @property
     @pulumi.getter(name="administratorAccountId")
@@ -44,10 +59,27 @@ class _InvitationAccepterState:
         :param pulumi.Input[str] administrator_account_id: The AWS account ID for the account that sent the invitation.
         :param pulumi.Input[str] invitation_id: The unique identifier for the invitation.
         """
+        _InvitationAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_account_id=administrator_account_id,
+            invitation_id=invitation_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_account_id: Optional[pulumi.Input[str]] = None,
+             invitation_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if administrator_account_id is None and 'administratorAccountId' in kwargs:
+            administrator_account_id = kwargs['administratorAccountId']
+        if invitation_id is None and 'invitationId' in kwargs:
+            invitation_id = kwargs['invitationId']
+
         if administrator_account_id is not None:
-            pulumi.set(__self__, "administrator_account_id", administrator_account_id)
+            _setter("administrator_account_id", administrator_account_id)
         if invitation_id is not None:
-            pulumi.set(__self__, "invitation_id", invitation_id)
+            _setter("invitation_id", invitation_id)
 
     @property
     @pulumi.getter(name="administratorAccountId")
@@ -84,25 +116,6 @@ class InvitationAccepter(pulumi.CustomResource):
         """
         Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary_account = aws.macie2.Account("primaryAccount", opts=pulumi.ResourceOptions(provider="awsalternate"))
-        member_account = aws.macie2.Account("memberAccount")
-        primary_member = aws.macie2.Member("primaryMember",
-            account_id="ACCOUNT ID",
-            email="EMAIL",
-            invite=True,
-            invitation_message="Message of the invite",
-            opts=pulumi.ResourceOptions(provider="awsalternate",
-                depends_on=[primary_account]))
-        member_invitation_accepter = aws.macie2.InvitationAccepter("memberInvitationAccepter", administrator_account_id="ADMINISTRATOR ACCOUNT ID",
-        opts=pulumi.ResourceOptions(depends_on=[primary_member]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
@@ -124,25 +137,6 @@ class InvitationAccepter(pulumi.CustomResource):
         """
         Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary_account = aws.macie2.Account("primaryAccount", opts=pulumi.ResourceOptions(provider="awsalternate"))
-        member_account = aws.macie2.Account("memberAccount")
-        primary_member = aws.macie2.Member("primaryMember",
-            account_id="ACCOUNT ID",
-            email="EMAIL",
-            invite=True,
-            invitation_message="Message of the invite",
-            opts=pulumi.ResourceOptions(provider="awsalternate",
-                depends_on=[primary_account]))
-        member_invitation_accepter = aws.macie2.InvitationAccepter("memberInvitationAccepter", administrator_account_id="ADMINISTRATOR ACCOUNT ID",
-        opts=pulumi.ResourceOptions(depends_on=[primary_member]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
@@ -161,6 +155,10 @@ class InvitationAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InvitationAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

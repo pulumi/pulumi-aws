@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServiceNetworkVpcAssociationArgs', 'ServiceNetworkVpcAssociation']
@@ -26,12 +26,39 @@ class ServiceNetworkVpcAssociationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of the security groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "service_network_identifier", service_network_identifier)
-        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        ServiceNetworkVpcAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_network_identifier=service_network_identifier,
+            vpc_identifier=vpc_identifier,
+            security_group_ids=security_group_ids,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_network_identifier: Optional[pulumi.Input[str]] = None,
+             vpc_identifier: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_network_identifier is None and 'serviceNetworkIdentifier' in kwargs:
+            service_network_identifier = kwargs['serviceNetworkIdentifier']
+        if service_network_identifier is None:
+            raise TypeError("Missing 'service_network_identifier' argument")
+        if vpc_identifier is None and 'vpcIdentifier' in kwargs:
+            vpc_identifier = kwargs['vpcIdentifier']
+        if vpc_identifier is None:
+            raise TypeError("Missing 'vpc_identifier' argument")
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
+        _setter("service_network_identifier", service_network_identifier)
+        _setter("vpc_identifier", vpc_identifier)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="serviceNetworkIdentifier")
@@ -106,25 +133,60 @@ class _ServiceNetworkVpcAssociationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_identifier: The ID of the VPC.
         """
+        _ServiceNetworkVpcAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            created_by=created_by,
+            security_group_ids=security_group_ids,
+            service_network_identifier=service_network_identifier,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_identifier=vpc_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             created_by: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             service_network_identifier: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if service_network_identifier is None and 'serviceNetworkIdentifier' in kwargs:
+            service_network_identifier = kwargs['serviceNetworkIdentifier']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_identifier is None and 'vpcIdentifier' in kwargs:
+            vpc_identifier = kwargs['vpcIdentifier']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if service_network_identifier is not None:
-            pulumi.set(__self__, "service_network_identifier", service_network_identifier)
+            _setter("service_network_identifier", service_network_identifier)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_identifier is not None:
-            pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+            _setter("vpc_identifier", vpc_identifier)
 
     @property
     @pulumi.getter
@@ -241,17 +303,6 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Service Network VPC Association.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ServiceNetworkVpcAssociation("example",
-            vpc_identifier=aws_vpc["example"]["id"],
-            service_network_identifier=aws_vpclattice_service_network["example"]["id"],
-            security_group_ids=[aws_security_group["example"]["id"]])
-        ```
 
         ## Import
 
@@ -279,17 +330,6 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Service Network VPC Association.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.vpclattice.ServiceNetworkVpcAssociation("example",
-            vpc_identifier=aws_vpc["example"]["id"],
-            service_network_identifier=aws_vpclattice_service_network["example"]["id"],
-            security_group_ids=[aws_security_group["example"]["id"]])
-        ```
 
         ## Import
 
@@ -309,6 +349,10 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceNetworkVpcAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

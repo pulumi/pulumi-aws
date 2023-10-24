@@ -24,44 +24,6 @@ namespace Pulumi.Aws.Ec2
     /// of 20 entries and you reference that prefix list in a security group rule, this counts
     /// as 20 rules for the security group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.ManagedPrefixList("example", new()
-    ///     {
-    ///         AddressFamily = "IPv4",
-    ///         MaxEntries = 5,
-    ///         Entries = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
-    ///             {
-    ///                 Cidr = aws_vpc.Example.Cidr_block,
-    ///                 Description = "Primary",
-    ///             },
-    ///             new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
-    ///             {
-    ///                 Cidr = aws_vpc_ipv4_cidr_block_association.Example.Cidr_block,
-    ///                 Description = "Secondary",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Env", "live" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Prefix Lists using the `id`. For example:

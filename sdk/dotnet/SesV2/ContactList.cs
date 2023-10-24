@@ -13,51 +13,6 @@ namespace Pulumi.Aws.SesV2
     /// Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.ContactList("example", new()
-    ///     {
-    ///         ContactListName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Extended Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.ContactList("example", new()
-    ///     {
-    ///         ContactListName = "example",
-    ///         Description = "description",
-    ///         Topics = new[]
-    ///         {
-    ///             new Aws.SesV2.Inputs.ContactListTopicArgs
-    ///             {
-    ///                 DefaultSubscriptionStatus = "OPT_IN",
-    ///                 Description = "topic description",
-    ///                 DisplayName = "Example Topic",
-    ///                 TopicName = "example-topic",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

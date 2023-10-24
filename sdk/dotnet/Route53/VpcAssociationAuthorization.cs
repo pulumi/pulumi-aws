@@ -12,64 +12,6 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var alternate = new Aws.Provider("alternate");
-    /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
-    ///     {
-    ///         CidrBlock = "10.6.0.0/16",
-    ///         EnableDnsHostnames = true,
-    ///         EnableDnsSupport = true,
-    ///     });
-    /// 
-    ///     var exampleZone = new Aws.Route53.Zone("exampleZone", new()
-    ///     {
-    ///         Vpcs = new[]
-    ///         {
-    ///             new Aws.Route53.Inputs.ZoneVpcArgs
-    ///             {
-    ///                 VpcId = exampleVpc.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var alternateVpc = new Aws.Ec2.Vpc("alternateVpc", new()
-    ///     {
-    ///         CidrBlock = "10.7.0.0/16",
-    ///         EnableDnsHostnames = true,
-    ///         EnableDnsSupport = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Alternate,
-    ///     });
-    /// 
-    ///     var exampleVpcAssociationAuthorization = new Aws.Route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization", new()
-    ///     {
-    ///         VpcId = alternateVpc.Id,
-    ///         ZoneId = exampleZone.Id,
-    ///     });
-    /// 
-    ///     var exampleZoneAssociation = new Aws.Route53.ZoneAssociation("exampleZoneAssociation", new()
-    ///     {
-    ///         VpcId = exampleVpcAssociationAuthorization.VpcId,
-    ///         ZoneId = exampleVpcAssociationAuthorization.ZoneId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Alternate,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:

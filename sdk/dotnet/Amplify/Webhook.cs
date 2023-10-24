@@ -12,34 +12,6 @@ namespace Pulumi.Aws.Amplify
     /// <summary>
     /// Provides an Amplify Webhook resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amplify.App("example");
-    /// 
-    ///     var masterBranch = new Aws.Amplify.Branch("masterBranch", new()
-    ///     {
-    ///         AppId = example.Id,
-    ///         BranchName = "master",
-    ///     });
-    /// 
-    ///     var masterWebhook = new Aws.Amplify.Webhook("masterWebhook", new()
-    ///     {
-    ///         AppId = example.Id,
-    ///         BranchName = masterBranch.BranchName,
-    ///         Description = "triggermaster",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amplify webhook using a webhook ID. For example:

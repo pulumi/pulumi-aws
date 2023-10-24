@@ -12,36 +12,6 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF Size Constraint Set Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sizeConstraintSet = new Aws.Waf.SizeConstraintSet("sizeConstraintSet", new()
-    ///     {
-    ///         SizeConstraints = new[]
-    ///         {
-    ///             new Aws.Waf.Inputs.SizeConstraintSetSizeConstraintArgs
-    ///             {
-    ///                 ComparisonOperator = "EQ",
-    ///                 FieldToMatch = new Aws.Waf.Inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs
-    ///                 {
-    ///                     Type = "BODY",
-    ///                 },
-    ///                 Size = 4096,
-    ///                 TextTransformation = "NONE",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS WAF Size Constraint Set using their ID. For example:

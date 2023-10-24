@@ -7,17 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [AWS Detective Graph](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateGraph.html). As an AWS account may own only one Detective graph per region, provisioning multiple Detective graphs requires a separate provider configuration for each graph.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.detective.Graph("example", {tags: {
- *     Name: "example-detective-graph",
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_detective_graph` using the ARN. For example:

@@ -19,48 +19,6 @@ import (
 //
 // > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
-//				IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = transfer.NewTag(ctx, "zoneId", &transfer.TagArgs{
-//				ResourceArn: example.Arn,
-//				Key:         pulumi.String("aws:transfer:route53HostedZoneId"),
-//				Value:       pulumi.String("/hostedzone/MyHostedZoneId"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = transfer.NewTag(ctx, "hostname", &transfer.TagArgs{
-//				ResourceArn: example.Arn,
-//				Key:         pulumi.String("aws:transfer:customHostname"),
-//				Value:       pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For example:

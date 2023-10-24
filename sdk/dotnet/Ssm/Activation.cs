@@ -12,69 +12,6 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "ssm.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testRole = new Aws.Iam.Role("testRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var testAttach = new Aws.Iam.RolePolicyAttachment("testAttach", new()
-    ///     {
-    ///         Role = testRole.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
-    ///     });
-    /// 
-    ///     var foo = new Aws.Ssm.Activation("foo", new()
-    ///     {
-    ///         Description = "Test",
-    ///         IamRole = testRole.Id,
-    ///         RegistrationLimit = 5,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             testAttach,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS SSM Activation using the `id`. For example:

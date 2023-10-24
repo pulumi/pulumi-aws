@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -144,15 +144,6 @@ def get_report_plan(name: Optional[str] = None,
     """
     Use this data source to get information on an existing backup report plan.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.backup.get_report_plan(name="my_example_backup_report_plan_name")
-    ```
-
 
     :param str name: Backup report plan name.
     :param Mapping[str, str] tags: Metadata that you can assign to help organize the report plans you create.
@@ -181,15 +172,6 @@ def get_report_plan_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportPlanResult]:
     """
     Use this data source to get information on an existing backup report plan.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.backup.get_report_plan(name="my_example_backup_report_plan_name")
-    ```
 
 
     :param str name: Backup report plan name.

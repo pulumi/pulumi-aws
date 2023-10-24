@@ -12,46 +12,6 @@ namespace Pulumi.Aws.AppConfig
     /// <summary>
     /// Provides an AppConfig Environment resource for an `aws.appconfig.Application` resource. One or more environments can be defined for an application.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleApplication = new Aws.AppConfig.Application("exampleApplication", new()
-    ///     {
-    ///         Description = "Example AppConfig Application",
-    ///         Tags = 
-    ///         {
-    ///             { "Type", "AppConfig Application" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleEnvironment = new Aws.AppConfig.Environment("exampleEnvironment", new()
-    ///     {
-    ///         Description = "Example AppConfig Environment",
-    ///         ApplicationId = exampleApplication.Id,
-    ///         Monitors = new[]
-    ///         {
-    ///             new Aws.AppConfig.Inputs.EnvironmentMonitorArgs
-    ///             {
-    ///                 AlarmArn = aws_cloudwatch_metric_alarm.Example.Arn,
-    ///                 AlarmRoleArn = aws_iam_role.Example.Arn,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Type", "AppConfig Environment" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:

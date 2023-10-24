@@ -12,33 +12,6 @@ namespace Pulumi.Aws.DocDB
     /// <summary>
     /// Manages a DocumentDB Cluster Parameter Group
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DocDB.ClusterParameterGroup("example", new()
-    ///     {
-    ///         Description = "docdb cluster parameter group",
-    ///         Family = "docdb3.6",
-    ///         Parameters = new[]
-    ///         {
-    ///             new Aws.DocDB.Inputs.ClusterParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "tls",
-    ///                 Value = "enabled",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DocumentDB Cluster Parameter Groups using the `name`. For example:

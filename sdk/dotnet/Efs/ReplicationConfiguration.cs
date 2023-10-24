@@ -14,57 +14,6 @@ namespace Pulumi.Aws.Efs
     /// 
     /// &gt; **NOTE:** Deleting this resource does **not** delete the destination file system that was created.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleFileSystem = new Aws.Efs.FileSystem("exampleFileSystem");
-    /// 
-    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("exampleReplicationConfiguration", new()
-    ///     {
-    ///         SourceFileSystemId = exampleFileSystem.Id,
-    ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
-    ///         {
-    ///             Region = "us-west-2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleFileSystem = new Aws.Efs.FileSystem("exampleFileSystem");
-    /// 
-    ///     var exampleReplicationConfiguration = new Aws.Efs.ReplicationConfiguration("exampleReplicationConfiguration", new()
-    ///     {
-    ///         SourceFileSystemId = exampleFileSystem.Id,
-    ///         Destination = new Aws.Efs.Inputs.ReplicationConfigurationDestinationArgs
-    ///         {
-    ///             AvailabilityZoneName = "us-west-2b",
-    ///             KmsKeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EFS Replication Configurations using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must __not__ be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan. For example:

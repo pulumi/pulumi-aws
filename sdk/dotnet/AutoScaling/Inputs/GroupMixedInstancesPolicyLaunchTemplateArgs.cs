@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
     public sealed class GroupMixedInstancesPolicyLaunchTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Nested argument defines the Launch Template. Defined below.
+        /// Override the instance launch template specification in the Launch Template.
         /// </summary>
         [Input("launchTemplateSpecification", required: true)]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs> LaunchTemplateSpecification { get; set; } = null!;

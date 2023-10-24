@@ -9,44 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.xray.EncryptionConfig("example", {type: "NONE"});
- * ```
- * ### With KMS Key
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const examplePolicyDocument = current.then(current => aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "Enable IAM User Permissions",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: [`arn:aws:iam::${current.accountId}:root`],
- *         }],
- *         actions: ["kms:*"],
- *         resources: ["*"],
- *     }],
- * }));
- * const exampleKey = new aws.kms.Key("exampleKey", {
- *     description: "Some Key",
- *     deletionWindowInDays: 7,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * const exampleEncryptionConfig = new aws.xray.EncryptionConfig("exampleEncryptionConfig", {
- *     type: "KMS",
- *     keyId: exampleKey.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import XRay Encryption Config using the region name. For example:

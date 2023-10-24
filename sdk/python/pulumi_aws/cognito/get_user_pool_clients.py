@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -82,15 +82,6 @@ def get_user_pool_clients(user_pool_id: Optional[str] = None,
     """
     Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.cognito.get_user_pool_clients(user_pool_id=aws_cognito_user_pool["main"]["id"])
-    ```
-
 
     :param str user_pool_id: Cognito user pool ID.
     """
@@ -111,15 +102,6 @@ def get_user_pool_clients_output(user_pool_id: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolClientsResult]:
     """
     Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    main = aws.cognito.get_user_pool_clients(user_pool_id=aws_cognito_user_pool["main"]["id"])
-    ```
 
 
     :param str user_pool_id: Cognito user pool ID.

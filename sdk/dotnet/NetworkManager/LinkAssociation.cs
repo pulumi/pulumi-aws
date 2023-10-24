@@ -14,26 +14,6 @@ namespace Pulumi.Aws.NetworkManager
     /// A device can be associated to multiple links and a link can be associated to multiple devices.
     /// The device and link must be in the same global network and the same site.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.LinkAssociation("example", new()
-    ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///         LinkId = aws_networkmanager_link.Example.Id,
-    ///         DeviceId = aws_networkmanager_device.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:

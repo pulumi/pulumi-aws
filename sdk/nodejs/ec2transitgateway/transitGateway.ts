@@ -9,15 +9,6 @@ import {ARN} from "..";
 /**
  * Manages an EC2 Transit Gateway.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.TransitGateway("example", {description: "example"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway` using the EC2 Transit Gateway identifier. For example:

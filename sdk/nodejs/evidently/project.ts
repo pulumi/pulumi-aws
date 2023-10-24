@@ -11,56 +11,6 @@ import * as utilities from "../utilities";
  * Provides a CloudWatch Evidently Project resource.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Project("example", {
- *     description: "Example Description",
- *     tags: {
- *         Key1: "example Project",
- *     },
- * });
- * ```
- * ### Store evaluation events in a CloudWatch Log Group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Project("example", {
- *     dataDelivery: {
- *         cloudwatchLogs: {
- *             logGroup: "example-log-group-name",
- *         },
- *     },
- *     description: "Example Description",
- *     tags: {
- *         Key1: "example Project",
- *     },
- * });
- * ```
- * ### Store evaluation events in an S3 bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Project("example", {
- *     dataDelivery: {
- *         s3Destination: {
- *             bucket: "example-bucket-name",
- *             prefix: "example",
- *         },
- *     },
- *     description: "Example Description",
- *     tags: {
- *         Key1: "example Project",
- *     },
- * });
- * ```
  *
  * ## Import
  *

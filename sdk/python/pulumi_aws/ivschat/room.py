@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,18 +36,47 @@ class RoomArgs:
         :param pulumi.Input[str] name: Room name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        RoomArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            logging_configuration_identifiers=logging_configuration_identifiers,
+            maximum_message_length=maximum_message_length,
+            maximum_message_rate_per_second=maximum_message_rate_per_second,
+            message_review_handler=message_review_handler,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             logging_configuration_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             maximum_message_length: Optional[pulumi.Input[int]] = None,
+             maximum_message_rate_per_second: Optional[pulumi.Input[int]] = None,
+             message_review_handler: Optional[pulumi.Input['RoomMessageReviewHandlerArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if logging_configuration_identifiers is None and 'loggingConfigurationIdentifiers' in kwargs:
+            logging_configuration_identifiers = kwargs['loggingConfigurationIdentifiers']
+        if maximum_message_length is None and 'maximumMessageLength' in kwargs:
+            maximum_message_length = kwargs['maximumMessageLength']
+        if maximum_message_rate_per_second is None and 'maximumMessageRatePerSecond' in kwargs:
+            maximum_message_rate_per_second = kwargs['maximumMessageRatePerSecond']
+        if message_review_handler is None and 'messageReviewHandler' in kwargs:
+            message_review_handler = kwargs['messageReviewHandler']
+
         if logging_configuration_identifiers is not None:
-            pulumi.set(__self__, "logging_configuration_identifiers", logging_configuration_identifiers)
+            _setter("logging_configuration_identifiers", logging_configuration_identifiers)
         if maximum_message_length is not None:
-            pulumi.set(__self__, "maximum_message_length", maximum_message_length)
+            _setter("maximum_message_length", maximum_message_length)
         if maximum_message_rate_per_second is not None:
-            pulumi.set(__self__, "maximum_message_rate_per_second", maximum_message_rate_per_second)
+            _setter("maximum_message_rate_per_second", maximum_message_rate_per_second)
         if message_review_handler is not None:
-            pulumi.set(__self__, "message_review_handler", message_review_handler)
+            _setter("message_review_handler", message_review_handler)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="loggingConfigurationIdentifiers")
@@ -154,25 +183,60 @@ class _RoomState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _RoomState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            logging_configuration_identifiers=logging_configuration_identifiers,
+            maximum_message_length=maximum_message_length,
+            maximum_message_rate_per_second=maximum_message_rate_per_second,
+            message_review_handler=message_review_handler,
+            name=name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             logging_configuration_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             maximum_message_length: Optional[pulumi.Input[int]] = None,
+             maximum_message_rate_per_second: Optional[pulumi.Input[int]] = None,
+             message_review_handler: Optional[pulumi.Input['RoomMessageReviewHandlerArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if logging_configuration_identifiers is None and 'loggingConfigurationIdentifiers' in kwargs:
+            logging_configuration_identifiers = kwargs['loggingConfigurationIdentifiers']
+        if maximum_message_length is None and 'maximumMessageLength' in kwargs:
+            maximum_message_length = kwargs['maximumMessageLength']
+        if maximum_message_rate_per_second is None and 'maximumMessageRatePerSecond' in kwargs:
+            maximum_message_rate_per_second = kwargs['maximumMessageRatePerSecond']
+        if message_review_handler is None and 'messageReviewHandler' in kwargs:
+            message_review_handler = kwargs['messageReviewHandler']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if logging_configuration_identifiers is not None:
-            pulumi.set(__self__, "logging_configuration_identifiers", logging_configuration_identifiers)
+            _setter("logging_configuration_identifiers", logging_configuration_identifiers)
         if maximum_message_length is not None:
-            pulumi.set(__self__, "maximum_message_length", maximum_message_length)
+            _setter("maximum_message_length", maximum_message_length)
         if maximum_message_rate_per_second is not None:
-            pulumi.set(__self__, "maximum_message_rate_per_second", maximum_message_rate_per_second)
+            _setter("maximum_message_rate_per_second", maximum_message_rate_per_second)
         if message_review_handler is not None:
-            pulumi.set(__self__, "message_review_handler", message_review_handler)
+            _setter("message_review_handler", message_review_handler)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -295,30 +359,6 @@ class Room(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Chat Room.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ivschat.Room("example")
-        ```
-        ## Usage with Logging Configuration to S3 Bucket
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2",
-            bucket_prefix="tf-ivschat-logging-bucket-",
-            force_destroy=True)
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            s3=aws.ivschat.LoggingConfigurationDestinationConfigurationS3Args(
-                bucket_name=example_bucket_v2.id,
-            ),
-        ))
-        example_room = aws.ivschat.Room("exampleRoom", logging_configuration_identifiers=[example_logging_configuration.arn])
-        ```
 
         ## Import
 
@@ -352,30 +392,6 @@ class Room(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Chat Room.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ivschat.Room("example")
-        ```
-        ## Usage with Logging Configuration to S3 Bucket
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2",
-            bucket_prefix="tf-ivschat-logging-bucket-",
-            force_destroy=True)
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            s3=aws.ivschat.LoggingConfigurationDestinationConfigurationS3Args(
-                bucket_name=example_bucket_v2.id,
-            ),
-        ))
-        example_room = aws.ivschat.Room("exampleRoom", logging_configuration_identifiers=[example_logging_configuration.arn])
-        ```
 
         ## Import
 
@@ -395,6 +411,10 @@ class Room(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoomArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -418,6 +438,7 @@ class Room(pulumi.CustomResource):
             __props__.__dict__["logging_configuration_identifiers"] = logging_configuration_identifiers
             __props__.__dict__["maximum_message_length"] = maximum_message_length
             __props__.__dict__["maximum_message_rate_per_second"] = maximum_message_rate_per_second
+            message_review_handler = _utilities.configure(message_review_handler, RoomMessageReviewHandlerArgs, True)
             __props__.__dict__["message_review_handler"] = message_review_handler
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

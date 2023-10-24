@@ -19,61 +19,6 @@ import (
 // See [Amazon Fault Injection Simulator](https://docs.aws.amazon.com/fis/index.html)
 // for more information.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fis.NewExperimentTemplate(ctx, "example", &fis.ExperimentTemplateArgs{
-//				Description: pulumi.String("example"),
-//				RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
-//				StopConditions: fis.ExperimentTemplateStopConditionArray{
-//					&fis.ExperimentTemplateStopConditionArgs{
-//						Source: pulumi.String("none"),
-//					},
-//				},
-//				Actions: fis.ExperimentTemplateActionArray{
-//					&fis.ExperimentTemplateActionArgs{
-//						Name:     pulumi.String("example-action"),
-//						ActionId: pulumi.String("aws:ec2:terminate-instances"),
-//						Target: &fis.ExperimentTemplateActionTargetArgs{
-//							Key:   pulumi.String("Instances"),
-//							Value: pulumi.String("example-target"),
-//						},
-//					},
-//				},
-//				Targets: fis.ExperimentTemplateTargetArray{
-//					&fis.ExperimentTemplateTargetArgs{
-//						Name:          pulumi.String("example-target"),
-//						ResourceType:  pulumi.String("aws:ec2:instance"),
-//						SelectionMode: pulumi.String("COUNT(1)"),
-//						ResourceTags: fis.ExperimentTemplateTargetResourceTagArray{
-//							&fis.ExperimentTemplateTargetResourceTagArgs{
-//								Key:   pulumi.String("env"),
-//								Value: pulumi.String("example"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:

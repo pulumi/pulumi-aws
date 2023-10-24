@@ -12,29 +12,6 @@ import * as utilities from "../utilities";
  * To exclusively manage the users in a group, see the
  * `aws.iam.GroupMembership` resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const user1 = new aws.iam.User("user1", {});
- * const group1 = new aws.iam.Group("group1", {});
- * const group2 = new aws.iam.Group("group2", {});
- * const example1 = new aws.iam.UserGroupMembership("example1", {
- *     user: user1.name,
- *     groups: [
- *         group1.name,
- *         group2.name,
- *     ],
- * });
- * const group3 = new aws.iam.Group("group3", {});
- * const example2 = new aws.iam.UserGroupMembership("example2", {
- *     user: user1.name,
- *     groups: [group3.name],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:

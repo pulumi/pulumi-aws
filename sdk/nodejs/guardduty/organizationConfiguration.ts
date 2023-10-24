@@ -12,36 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This is an advanced resource. The provider will automatically assume management of the GuardDuty Organization Configuration without import and perform no actions on removal from the resource configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleDetector = new aws.guardduty.Detector("exampleDetector", {enable: true});
- * const exampleOrganizationConfiguration = new aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration", {
- *     autoEnableOrganizationMembers: "ALL",
- *     detectorId: exampleDetector.id,
- *     datasources: {
- *         s3Logs: {
- *             autoEnable: true,
- *         },
- *         kubernetes: {
- *             auditLogs: {
- *                 enable: true,
- *             },
- *         },
- *         malwareProtection: {
- *             scanEc2InstanceWithFindings: {
- *                 ebsVolumes: {
- *                     autoEnable: true,
- *                 },
- *             },
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import GuardDuty Organization Configurations using the GuardDuty Detector ID. For example:

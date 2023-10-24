@@ -12,29 +12,6 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.HsmConfiguration("example", new()
-    ///     {
-    ///         Description = "example",
-    ///         HsmConfigurationIdentifier = "example",
-    ///         HsmIpAddress = "10.0.0.1",
-    ///         HsmPartitionName = "aws",
-    ///         HsmPartitionPassword = "example",
-    ///         HsmServerPublicCertificate = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:

@@ -10,32 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Global Accelerator listener.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccelerator = new aws.globalaccelerator.Accelerator("exampleAccelerator", {
- *     ipAddressType: "IPV4",
- *     enabled: true,
- *     attributes: {
- *         flowLogsEnabled: true,
- *         flowLogsS3Bucket: "example-bucket",
- *         flowLogsS3Prefix: "flow-logs/",
- *     },
- * });
- * const exampleListener = new aws.globalaccelerator.Listener("exampleListener", {
- *     acceleratorArn: exampleAccelerator.id,
- *     clientAffinity: "SOURCE_IP",
- *     protocol: "TCP",
- *     portRanges: [{
- *         fromPort: 80,
- *         toPort: 80,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:

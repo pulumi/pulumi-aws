@@ -13,28 +13,6 @@ import * as utilities from "../utilities";
  * **This is an advanced resource** and has special caveats to be aware of when using it. Please read this document in its entirety before using this resource.
  *
  * The `aws.route53domains.RegisteredDomain` resource behaves differently from normal resources in that if a domain has been registered, the provider does not _register_ this domain, but instead "adopts" it into management. A destroy does not delete the domain but does remove the resource from state.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53domains.RegisteredDomain("example", {
- *     domainName: "example.com",
- *     nameServers: [
- *         {
- *             name: "ns-195.awsdns-24.com",
- *         },
- *         {
- *             name: "ns-874.awsdns-45.net",
- *         },
- *     ],
- *     tags: {
- *         Environment: "test",
- *     },
- * });
- * ```
  */
 export class RegisteredDomain extends pulumi.CustomResource {
     /**

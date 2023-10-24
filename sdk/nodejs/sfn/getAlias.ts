@@ -11,17 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS SFN (Step Functions) State Machine Alias.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sfn.getAlias({
- *     name: "my_sfn_alias",
- *     statemachineArn: aws_sfn_state_machine.sfn_test.arn,
- * });
- * ```
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
 
@@ -82,17 +71,6 @@ export interface GetAliasResult {
  * Data source for managing an AWS SFN (Step Functions) State Machine Alias.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sfn.getAlias({
- *     name: "my_sfn_alias",
- *     statemachineArn: aws_sfn_state_machine.sfn_test.arn,
- * });
- * ```
  */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
     return pulumi.output(args).apply((a: any) => getAlias(a, opts))

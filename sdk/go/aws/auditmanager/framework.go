@@ -15,40 +15,6 @@ import (
 // Resource for managing an AWS Audit Manager Framework.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewFramework(ctx, "test", &auditmanager.FrameworkArgs{
-//				ControlSets: auditmanager.FrameworkControlSetArray{
-//					&auditmanager.FrameworkControlSetArgs{
-//						Name: pulumi.String("example"),
-//						Controls: auditmanager.FrameworkControlSetControlArray{
-//							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: pulumi.Any(aws_auditmanager_control.Test.Id),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

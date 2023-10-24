@@ -16,33 +16,6 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("exampleComputeEnvironment", new()
-    ///     {
-    ///         ComputeEnvironmentName = "example",
-    ///         ServiceRole = aws_iam_role.Example.Arn,
-    ///         Type = "UNMANAGED",
-    ///     });
-    /// 
-    ///     var exampleTag = new Aws.Ecs.Tag("exampleTag", new()
-    ///     {
-    ///         ResourceArn = exampleComputeEnvironment.EcsClusterArn,
-    ///         Key = "Name",
-    ///         Value = "Hello World",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:

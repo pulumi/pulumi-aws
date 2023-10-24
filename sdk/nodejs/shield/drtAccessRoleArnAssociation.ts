@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Sid: "",
- *         Effect: "Allow",
- *         Principal: {
- *             Service: "drt.shield.amazonaws.com",
- *         },
- *         Action: "sts:AssumeRole",
- *     }],
- * })});
- * const testRolePolicyAttachment = new aws.iam.RolePolicyAttachment("testRolePolicyAttachment", {
- *     role: testRole.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
- * });
- * const testDrtAccessRoleArnAssociation = new aws.shield.DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", {roleArn: testRole.arn});
- * ```
  */
 export class DrtAccessRoleArnAssociation extends pulumi.CustomResource {
     /**

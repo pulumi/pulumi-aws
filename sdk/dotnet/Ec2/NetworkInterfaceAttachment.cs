@@ -12,26 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Attach an Elastic network interface (ENI) resource with EC2 instance.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ec2.NetworkInterfaceAttachment("test", new()
-    ///     {
-    ///         InstanceId = aws_instance.Test.Id,
-    ///         NetworkInterfaceId = aws_network_interface.Test.Id,
-    ///         DeviceIndex = 0,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:

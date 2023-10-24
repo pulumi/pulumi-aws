@@ -11,34 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.ConfigurationSet("example", {
- *     configurationSetName: "example",
- *     deliveryOptions: {
- *         tlsPolicy: "REQUIRE",
- *     },
- *     reputationOptions: {
- *         reputationMetricsEnabled: false,
- *     },
- *     sendingOptions: {
- *         sendingEnabled: true,
- *     },
- *     suppressionOptions: {
- *         suppressedReasons: [
- *             "BOUNCE",
- *             "COMPLAINT",
- *         ],
- *     },
- *     trackingOptions: {
- *         customRedirectDomain: "example.com",
- *     },
- * });
- * ```
  *
  * ## Import
  *

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,21 +34,54 @@ class ResponsePlanArgs:
         :param pulumi.Input[str] name: The name of the response plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags applied to the response plan.
         """
-        pulumi.set(__self__, "incident_template", incident_template)
+        ResponsePlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            incident_template=incident_template,
+            action=action,
+            chat_channels=chat_channels,
+            display_name=display_name,
+            engagements=engagements,
+            integration=integration,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             incident_template: Optional[pulumi.Input['ResponsePlanIncidentTemplateArgs']] = None,
+             action: Optional[pulumi.Input['ResponsePlanActionArgs']] = None,
+             chat_channels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             engagements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             integration: Optional[pulumi.Input['ResponsePlanIntegrationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if incident_template is None and 'incidentTemplate' in kwargs:
+            incident_template = kwargs['incidentTemplate']
+        if incident_template is None:
+            raise TypeError("Missing 'incident_template' argument")
+        if chat_channels is None and 'chatChannels' in kwargs:
+            chat_channels = kwargs['chatChannels']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("incident_template", incident_template)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if chat_channels is not None:
-            pulumi.set(__self__, "chat_channels", chat_channels)
+            _setter("chat_channels", chat_channels)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if engagements is not None:
-            pulumi.set(__self__, "engagements", engagements)
+            _setter("engagements", engagements)
         if integration is not None:
-            pulumi.set(__self__, "integration", integration)
+            _setter("integration", integration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="incidentTemplate")
@@ -169,29 +202,66 @@ class _ResponsePlanState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags applied to the response plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ResponsePlanState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            arn=arn,
+            chat_channels=chat_channels,
+            display_name=display_name,
+            engagements=engagements,
+            incident_template=incident_template,
+            integration=integration,
+            name=name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['ResponsePlanActionArgs']] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             chat_channels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             engagements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             incident_template: Optional[pulumi.Input['ResponsePlanIncidentTemplateArgs']] = None,
+             integration: Optional[pulumi.Input['ResponsePlanIntegrationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if chat_channels is None and 'chatChannels' in kwargs:
+            chat_channels = kwargs['chatChannels']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if incident_template is None and 'incidentTemplate' in kwargs:
+            incident_template = kwargs['incidentTemplate']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if chat_channels is not None:
-            pulumi.set(__self__, "chat_channels", chat_channels)
+            _setter("chat_channels", chat_channels)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if engagements is not None:
-            pulumi.set(__self__, "engagements", engagements)
+            _setter("engagements", engagements)
         if incident_template is not None:
-            pulumi.set(__self__, "incident_template", incident_template)
+            _setter("incident_template", incident_template)
         if integration is not None:
-            pulumi.set(__self__, "integration", integration)
+            _setter("integration", integration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -332,86 +402,6 @@ class ResponsePlan(pulumi.CustomResource):
         Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssmincidents.ResponsePlan("example",
-            incident_template=aws.ssmincidents.ResponsePlanIncidentTemplateArgs(
-                title="title",
-                impact=3,
-            ),
-            tags={
-                "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
-        ```
-        ### Usage With All Fields
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssmincidents.ResponsePlan("example",
-            incident_template=aws.ssmincidents.ResponsePlanIncidentTemplateArgs(
-                title="title",
-                impact=3,
-                dedupe_string="dedupe",
-                incident_tags={
-                    "key": "value",
-                },
-                notification_targets=[
-                    aws.ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs(
-                        sns_topic_arn=aws_sns_topic["example1"]["arn"],
-                    ),
-                    aws.ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs(
-                        sns_topic_arn=aws_sns_topic["example2"]["arn"],
-                    ),
-                ],
-                summary="summary",
-            ),
-            display_name="display name",
-            chat_channels=[aws_sns_topic["topic"]["arn"]],
-            engagements=["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
-            action=aws.ssmincidents.ResponsePlanActionArgs(
-                ssm_automations=[aws.ssmincidents.ResponsePlanActionSsmAutomationArgs(
-                    document_name=aws_ssm_document["document1"]["name"],
-                    role_arn=aws_iam_role["role1"]["arn"],
-                    document_version="version1",
-                    target_account="RESPONSE_PLAN_OWNER_ACCOUNT",
-                    parameters=[
-                        aws.ssmincidents.ResponsePlanActionSsmAutomationParameterArgs(
-                            name="key",
-                            values=[
-                                "value1",
-                                "value2",
-                            ],
-                        ),
-                        aws.ssmincidents.ResponsePlanActionSsmAutomationParameterArgs(
-                            name="foo",
-                            values=["bar"],
-                        ),
-                    ],
-                    dynamic_parameters={
-                        "someKey": "INVOLVED_RESOURCES",
-                        "anotherKey": "INCIDENT_RECORD_ARN",
-                    },
-                )],
-            ),
-            integration=aws.ssmincidents.ResponsePlanIntegrationArgs(
-                pagerduties=[aws.ssmincidents.ResponsePlanIntegrationPagerdutyArgs(
-                    name="pagerdutyIntergration",
-                    service_id="example",
-                    secret_id="example",
-                )],
-            ),
-            tags={
-                "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
-        ```
 
         ## Import
 
@@ -441,86 +431,6 @@ class ResponsePlan(pulumi.CustomResource):
         Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssmincidents.ResponsePlan("example",
-            incident_template=aws.ssmincidents.ResponsePlanIncidentTemplateArgs(
-                title="title",
-                impact=3,
-            ),
-            tags={
-                "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
-        ```
-        ### Usage With All Fields
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssmincidents.ResponsePlan("example",
-            incident_template=aws.ssmincidents.ResponsePlanIncidentTemplateArgs(
-                title="title",
-                impact=3,
-                dedupe_string="dedupe",
-                incident_tags={
-                    "key": "value",
-                },
-                notification_targets=[
-                    aws.ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs(
-                        sns_topic_arn=aws_sns_topic["example1"]["arn"],
-                    ),
-                    aws.ssmincidents.ResponsePlanIncidentTemplateNotificationTargetArgs(
-                        sns_topic_arn=aws_sns_topic["example2"]["arn"],
-                    ),
-                ],
-                summary="summary",
-            ),
-            display_name="display name",
-            chat_channels=[aws_sns_topic["topic"]["arn"]],
-            engagements=["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
-            action=aws.ssmincidents.ResponsePlanActionArgs(
-                ssm_automations=[aws.ssmincidents.ResponsePlanActionSsmAutomationArgs(
-                    document_name=aws_ssm_document["document1"]["name"],
-                    role_arn=aws_iam_role["role1"]["arn"],
-                    document_version="version1",
-                    target_account="RESPONSE_PLAN_OWNER_ACCOUNT",
-                    parameters=[
-                        aws.ssmincidents.ResponsePlanActionSsmAutomationParameterArgs(
-                            name="key",
-                            values=[
-                                "value1",
-                                "value2",
-                            ],
-                        ),
-                        aws.ssmincidents.ResponsePlanActionSsmAutomationParameterArgs(
-                            name="foo",
-                            values=["bar"],
-                        ),
-                    ],
-                    dynamic_parameters={
-                        "someKey": "INVOLVED_RESOURCES",
-                        "anotherKey": "INCIDENT_RECORD_ARN",
-                    },
-                )],
-            ),
-            integration=aws.ssmincidents.ResponsePlanIntegrationArgs(
-                pagerduties=[aws.ssmincidents.ResponsePlanIntegrationPagerdutyArgs(
-                    name="pagerdutyIntergration",
-                    service_id="example",
-                    secret_id="example",
-                )],
-            ),
-            tags={
-                "key": "value",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
-        ```
 
         ## Import
 
@@ -540,6 +450,10 @@ class ResponsePlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResponsePlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -562,13 +476,16 @@ class ResponsePlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResponsePlanArgs.__new__(ResponsePlanArgs)
 
+            action = _utilities.configure(action, ResponsePlanActionArgs, True)
             __props__.__dict__["action"] = action
             __props__.__dict__["chat_channels"] = chat_channels
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["engagements"] = engagements
+            incident_template = _utilities.configure(incident_template, ResponsePlanIncidentTemplateArgs, True)
             if incident_template is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_template'")
             __props__.__dict__["incident_template"] = incident_template
+            integration = _utilities.configure(integration, ResponsePlanIntegrationArgs, True)
             __props__.__dict__["integration"] = integration
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

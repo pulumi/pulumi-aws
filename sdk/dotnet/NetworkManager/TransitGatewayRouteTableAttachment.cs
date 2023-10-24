@@ -12,25 +12,6 @@ namespace Pulumi.Aws.NetworkManager
     /// <summary>
     /// Creates a transit gateway route table attachment.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.TransitGatewayRouteTableAttachment("example", new()
-    ///     {
-    ///         PeeringId = aws_networkmanager_transit_gateway_peering.Example.Id,
-    ///         TransitGatewayRouteTableArn = aws_ec2_transit_gateway_route_table.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:

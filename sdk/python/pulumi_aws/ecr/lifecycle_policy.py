@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LifecyclePolicyArgs', 'LifecyclePolicy']
@@ -21,8 +21,25 @@ class LifecyclePolicyArgs:
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
         :param pulumi.Input[str] repository: Name of the repository to apply the policy.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "repository", repository)
+        LifecyclePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
+        _setter("policy", policy)
+        _setter("repository", repository)
 
     @property
     @pulumi.getter
@@ -61,12 +78,29 @@ class _LifecyclePolicyState:
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository: Name of the repository to apply the policy.
         """
+        _LifecyclePolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            registry_id=registry_id,
+            repository=repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             registry_id: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_id is None and 'registryId' in kwargs:
+            registry_id = kwargs['registryId']
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if registry_id is not None:
-            pulumi.set(__self__, "registry_id", registry_id)
+            _setter("registry_id", registry_id)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
 
     @property
     @pulumi.getter
@@ -121,62 +155,6 @@ class LifecyclePolicy(pulumi.CustomResource):
         > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
 
         ## Example Usage
-        ### Policy on untagged image
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecr.Repository("foo")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            repository=foo.name,
-            policy=\"\"\"{
-            "rules": [
-                {
-                    "rulePriority": 1,
-                    "description": "Expire images older than 14 days",
-                    "selection": {
-                        "tagStatus": "untagged",
-                        "countType": "sinceImagePushed",
-                        "countUnit": "days",
-                        "countNumber": 14
-                    },
-                    "action": {
-                        "type": "expire"
-                    }
-                }
-            ]
-        }
-        \"\"\")
-        ```
-        ### Policy on tagged image
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecr.Repository("foo")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            repository=foo.name,
-            policy=\"\"\"{
-            "rules": [
-                {
-                    "rulePriority": 1,
-                    "description": "Keep last 30 images",
-                    "selection": {
-                        "tagStatus": "tagged",
-                        "tagPrefixList": ["v"],
-                        "countType": "imageCountMoreThan",
-                        "countNumber": 30
-                    },
-                    "action": {
-                        "type": "expire"
-                    }
-                }
-            ]
-        }
-        \"\"\")
-        ```
 
         ## Import
 
@@ -205,62 +183,6 @@ class LifecyclePolicy(pulumi.CustomResource):
         > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
 
         ## Example Usage
-        ### Policy on untagged image
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecr.Repository("foo")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            repository=foo.name,
-            policy=\"\"\"{
-            "rules": [
-                {
-                    "rulePriority": 1,
-                    "description": "Expire images older than 14 days",
-                    "selection": {
-                        "tagStatus": "untagged",
-                        "countType": "sinceImagePushed",
-                        "countUnit": "days",
-                        "countNumber": 14
-                    },
-                    "action": {
-                        "type": "expire"
-                    }
-                }
-            ]
-        }
-        \"\"\")
-        ```
-        ### Policy on tagged image
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecr.Repository("foo")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            repository=foo.name,
-            policy=\"\"\"{
-            "rules": [
-                {
-                    "rulePriority": 1,
-                    "description": "Keep last 30 images",
-                    "selection": {
-                        "tagStatus": "tagged",
-                        "tagPrefixList": ["v"],
-                        "countType": "imageCountMoreThan",
-                        "countNumber": 30
-                    },
-                    "action": {
-                        "type": "expire"
-                    }
-                }
-            ]
-        }
-        \"\"\")
-        ```
 
         ## Import
 
@@ -280,6 +202,10 @@ class LifecyclePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LifecyclePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

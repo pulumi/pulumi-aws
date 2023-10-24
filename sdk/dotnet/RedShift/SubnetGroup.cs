@@ -12,59 +12,6 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///     });
-    /// 
-    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
-    ///     {
-    ///         CidrBlock = "10.1.1.0/24",
-    ///         AvailabilityZone = "us-west-2a",
-    ///         VpcId = fooVpc.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "tf-dbsubnet-test-1" },
-    ///         },
-    ///     });
-    /// 
-    ///     var bar = new Aws.Ec2.Subnet("bar", new()
-    ///     {
-    ///         CidrBlock = "10.1.2.0/24",
-    ///         AvailabilityZone = "us-west-2b",
-    ///         VpcId = fooVpc.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "tf-dbsubnet-test-2" },
-    ///         },
-    ///     });
-    /// 
-    ///     var fooSubnetGroup = new Aws.RedShift.SubnetGroup("fooSubnetGroup", new()
-    ///     {
-    ///         SubnetIds = new[]
-    ///         {
-    ///             fooSubnet.Id,
-    ///             bar.Id,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "Production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift subnet groups using the `name`. For example:

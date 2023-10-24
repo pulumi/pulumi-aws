@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,28 @@ class TrafficSourceAttachmentArgs:
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs'] traffic_source: The unique identifiers of a traffic sources.
         """
-        pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
+        TrafficSourceAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscaling_group_name=autoscaling_group_name,
+            traffic_source=traffic_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
+             traffic_source: Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if autoscaling_group_name is None and 'autoscalingGroupName' in kwargs:
+            autoscaling_group_name = kwargs['autoscalingGroupName']
+        if autoscaling_group_name is None:
+            raise TypeError("Missing 'autoscaling_group_name' argument")
+        if traffic_source is None and 'trafficSource' in kwargs:
+            traffic_source = kwargs['trafficSource']
+
+        _setter("autoscaling_group_name", autoscaling_group_name)
         if traffic_source is not None:
-            pulumi.set(__self__, "traffic_source", traffic_source)
+            _setter("traffic_source", traffic_source)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -62,10 +81,27 @@ class _TrafficSourceAttachmentState:
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs'] traffic_source: The unique identifiers of a traffic sources.
         """
+        _TrafficSourceAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscaling_group_name=autoscaling_group_name,
+            traffic_source=traffic_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
+             traffic_source: Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if autoscaling_group_name is None and 'autoscalingGroupName' in kwargs:
+            autoscaling_group_name = kwargs['autoscalingGroupName']
+        if traffic_source is None and 'trafficSource' in kwargs:
+            traffic_source = kwargs['trafficSource']
+
         if autoscaling_group_name is not None:
-            pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
+            _setter("autoscaling_group_name", autoscaling_group_name)
         if traffic_source is not None:
-            pulumi.set(__self__, "traffic_source", traffic_source)
+            _setter("traffic_source", traffic_source)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -106,19 +142,6 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.autoscaling.TrafficSourceAttachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArgs(
-                identifier=aws_lb_target_group["example"]["arn"],
-                type="elbv2",
-            ))
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,19 +160,6 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.autoscaling.TrafficSourceAttachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArgs(
-                identifier=aws_lb_target_group["example"]["arn"],
-                type="elbv2",
-            ))
-        ```
 
         :param str resource_name: The name of the resource.
         :param TrafficSourceAttachmentArgs args: The arguments to use to populate this resource's properties.
@@ -161,6 +171,10 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrafficSourceAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,6 +194,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
             if autoscaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'autoscaling_group_name'")
             __props__.__dict__["autoscaling_group_name"] = autoscaling_group_name
+            traffic_source = _utilities.configure(traffic_source, TrafficSourceAttachmentTrafficSourceArgs, True)
             __props__.__dict__["traffic_source"] = traffic_source
         super(TrafficSourceAttachment, __self__).__init__(
             'aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment',

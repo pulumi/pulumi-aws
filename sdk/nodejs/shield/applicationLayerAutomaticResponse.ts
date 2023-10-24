@@ -11,20 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
- * const example = new aws.shield.ApplicationLayerAutomaticResponse("example", {
- *     action: "COUNT",
- *     resourceArn: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => `arn:${currentPartition.partition}:cloudfront:${currentCallerIdentity.accountId}:distribution/${_var.distribution_id}`),
- * });
- * ```
  */
 export class ApplicationLayerAutomaticResponse extends pulumi.CustomResource {
     /**

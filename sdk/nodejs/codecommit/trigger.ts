@@ -9,23 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a CodeCommit Trigger Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testRepository = new aws.codecommit.Repository("testRepository", {repositoryName: "test"});
- * const testTrigger = new aws.codecommit.Trigger("testTrigger", {
- *     repositoryName: testRepository.repositoryName,
- *     triggers: [{
- *         name: "all",
- *         events: ["all"],
- *         destinationArn: aws_sns_topic.test.arn,
- *     }],
- * });
- * ```
  */
 export class Trigger extends pulumi.CustomResource {
     /**

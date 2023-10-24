@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information on an existing AppIntegrations Event Integration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.appintegrations.getEventIntegration({
- *     name: "example",
- * });
- * ```
  */
 export function getEventIntegration(args: GetEventIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetEventIntegrationResult> {
 
@@ -76,17 +65,6 @@ export interface GetEventIntegrationResult {
 }
 /**
  * Use this data source to get information on an existing AppIntegrations Event Integration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.appintegrations.getEventIntegration({
- *     name: "example",
- * });
- * ```
  */
 export function getEventIntegrationOutput(args: GetEventIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventIntegrationResult> {
     return pulumi.output(args).apply((a: any) => getEventIntegration(a, opts))

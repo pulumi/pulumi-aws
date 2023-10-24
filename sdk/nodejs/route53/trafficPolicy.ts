@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Route53 Traffic Policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53.TrafficPolicy("example", {
- *     comment: "example comment",
- *     document: `{
- *   "AWSPolicyFormatVersion": "2015-10-01",
- *   "RecordType": "A",
- *   "Endpoints": {
- *     "endpoint-start-NkPh": {
- *       "Type": "value",
- *       "Value": "10.0.0.2"
- *     }
- *   },
- *   "StartEndpoint": "endpoint-start-NkPh"
- * }
- *
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For example:

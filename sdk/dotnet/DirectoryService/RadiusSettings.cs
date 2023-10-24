@@ -12,34 +12,6 @@ namespace Pulumi.Aws.DirectoryService
     /// <summary>
     /// Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DirectoryService.RadiusSettings("example", new()
-    ///     {
-    ///         DirectoryId = aws_directory_service_directory.Example.Id,
-    ///         AuthenticationProtocol = "PAP",
-    ///         DisplayLabel = "example",
-    ///         RadiusPort = 1812,
-    ///         RadiusRetries = 4,
-    ///         RadiusServers = new[]
-    ///         {
-    ///             "10.0.1.5",
-    ///         },
-    ///         RadiusTimeout = 1,
-    ///         SharedSecret = "12345678",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import RADIUS settings using the directory ID. For example:

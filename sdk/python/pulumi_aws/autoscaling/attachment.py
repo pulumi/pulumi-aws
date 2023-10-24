@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AttachmentArgs', 'Attachment']
@@ -23,11 +23,32 @@ class AttachmentArgs:
         :param pulumi.Input[str] elb: Name of the ELB.
         :param pulumi.Input[str] lb_target_group_arn: ARN of a load balancer target group.
         """
-        pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
+        AttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscaling_group_name=autoscaling_group_name,
+            elb=elb,
+            lb_target_group_arn=lb_target_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
+             elb: Optional[pulumi.Input[str]] = None,
+             lb_target_group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if autoscaling_group_name is None and 'autoscalingGroupName' in kwargs:
+            autoscaling_group_name = kwargs['autoscalingGroupName']
+        if autoscaling_group_name is None:
+            raise TypeError("Missing 'autoscaling_group_name' argument")
+        if lb_target_group_arn is None and 'lbTargetGroupArn' in kwargs:
+            lb_target_group_arn = kwargs['lbTargetGroupArn']
+
+        _setter("autoscaling_group_name", autoscaling_group_name)
         if elb is not None:
-            pulumi.set(__self__, "elb", elb)
+            _setter("elb", elb)
         if lb_target_group_arn is not None:
-            pulumi.set(__self__, "lb_target_group_arn", lb_target_group_arn)
+            _setter("lb_target_group_arn", lb_target_group_arn)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -78,12 +99,31 @@ class _AttachmentState:
         :param pulumi.Input[str] elb: Name of the ELB.
         :param pulumi.Input[str] lb_target_group_arn: ARN of a load balancer target group.
         """
+        _AttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscaling_group_name=autoscaling_group_name,
+            elb=elb,
+            lb_target_group_arn=lb_target_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
+             elb: Optional[pulumi.Input[str]] = None,
+             lb_target_group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if autoscaling_group_name is None and 'autoscalingGroupName' in kwargs:
+            autoscaling_group_name = kwargs['autoscalingGroupName']
+        if lb_target_group_arn is None and 'lbTargetGroupArn' in kwargs:
+            lb_target_group_arn = kwargs['lbTargetGroupArn']
+
         if autoscaling_group_name is not None:
-            pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
+            _setter("autoscaling_group_name", autoscaling_group_name)
         if elb is not None:
-            pulumi.set(__self__, "elb", elb)
+            _setter("elb", elb)
         if lb_target_group_arn is not None:
-            pulumi.set(__self__, "lb_target_group_arn", lb_target_group_arn)
+            _setter("lb_target_group_arn", lb_target_group_arn)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -136,28 +176,6 @@ class Attachment(pulumi.CustomResource):
 
         > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new load balancer attachment
-        example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            elb=aws_elb["example"]["id"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new ALB Target Group attachment
-        example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            lb_target_group_arn=aws_lb_target_group["example"]["arn"])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
@@ -175,28 +193,6 @@ class Attachment(pulumi.CustomResource):
 
         > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new load balancer attachment
-        example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            elb=aws_elb["example"]["id"])
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new ALB Target Group attachment
-        example = aws.autoscaling.Attachment("example",
-            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            lb_target_group_arn=aws_lb_target_group["example"]["arn"])
-        ```
-
         :param str resource_name: The name of the resource.
         :param AttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,6 +203,10 @@ class Attachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

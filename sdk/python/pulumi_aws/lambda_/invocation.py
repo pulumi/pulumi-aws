@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InvocationArgs', 'Invocation']
@@ -30,16 +30,47 @@ class InvocationArgs:
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
-        pulumi.set(__self__, "function_name", function_name)
-        pulumi.set(__self__, "input", input)
+        InvocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_name=function_name,
+            input=input,
+            lifecycle_scope=lifecycle_scope,
+            qualifier=qualifier,
+            terraform_key=terraform_key,
+            triggers=triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_name: Optional[pulumi.Input[str]] = None,
+             input: Optional[pulumi.Input[str]] = None,
+             lifecycle_scope: Optional[pulumi.Input[str]] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
+             terraform_key: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if input is None:
+            raise TypeError("Missing 'input' argument")
+        if lifecycle_scope is None and 'lifecycleScope' in kwargs:
+            lifecycle_scope = kwargs['lifecycleScope']
+        if terraform_key is None and 'terraformKey' in kwargs:
+            terraform_key = kwargs['terraformKey']
+
+        _setter("function_name", function_name)
+        _setter("input", input)
         if lifecycle_scope is not None:
-            pulumi.set(__self__, "lifecycle_scope", lifecycle_scope)
+            _setter("lifecycle_scope", lifecycle_scope)
         if qualifier is not None:
-            pulumi.set(__self__, "qualifier", qualifier)
+            _setter("qualifier", qualifier)
         if terraform_key is not None:
-            pulumi.set(__self__, "terraform_key", terraform_key)
+            _setter("terraform_key", terraform_key)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
 
     @property
     @pulumi.getter(name="functionName")
@@ -134,20 +165,49 @@ class _InvocationState:
         :param pulumi.Input[str] result: String result of the lambda function invocation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
+        _InvocationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_name=function_name,
+            input=input,
+            lifecycle_scope=lifecycle_scope,
+            qualifier=qualifier,
+            result=result,
+            terraform_key=terraform_key,
+            triggers=triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_name: Optional[pulumi.Input[str]] = None,
+             input: Optional[pulumi.Input[str]] = None,
+             lifecycle_scope: Optional[pulumi.Input[str]] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
+             result: Optional[pulumi.Input[str]] = None,
+             terraform_key: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if lifecycle_scope is None and 'lifecycleScope' in kwargs:
+            lifecycle_scope = kwargs['lifecycleScope']
+        if terraform_key is None and 'terraformKey' in kwargs:
+            terraform_key = kwargs['terraformKey']
+
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if lifecycle_scope is not None:
-            pulumi.set(__self__, "lifecycle_scope", lifecycle_scope)
+            _setter("lifecycle_scope", lifecycle_scope)
         if qualifier is not None:
-            pulumi.set(__self__, "qualifier", qualifier)
+            _setter("qualifier", qualifier)
         if result is not None:
-            pulumi.set(__self__, "result", result)
+            _setter("result", result)
         if terraform_key is not None:
-            pulumi.set(__self__, "terraform_key", terraform_key)
+            _setter("terraform_key", terraform_key)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
 
     @property
     @pulumi.getter(name="functionName")
@@ -253,64 +313,6 @@ class Invocation(pulumi.CustomResource):
         > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
 
         ## Example Usage
-        ### Dynamic Invocation Example Using Triggers
-
-        ```python
-        import pulumi
-        import hashlib
-        import json
-        import pulumi_aws as aws
-
-        example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
-            triggers={
-                "redeployment": hashlib.sha1(json.dumps([aws_lambda_function["example"]["environment"]]).encode()).hexdigest(),
-            },
-            input=json.dumps({
-                "key1": "value1",
-                "key2": "value2",
-            }))
-        ```
-        ### CRUD Lifecycle Scope
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
-            input=json.dumps({
-                "key1": "value1",
-                "key2": "value2",
-            }),
-            lifecycle_scope="CRUD")
-        ```
-
-        > **NOTE:** `lifecycle_scope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
-
-        The key `tf` gets added with subkeys:
-
-        * `action` - Action Pulumi performs on the resource. Values are `create`, `update`, or `delete`.
-        * `prev_input` - Input JSON payload from the previous invocation. This can be used to handle update and delete events.
-
-        When the resource from the example above is created, the Lambda will get following JSON payload:
-
-        ```python
-        import pulumi
-        ```
-
-        If the input value of `key1` changes to "valueB", then the lambda will be invoked again with the following JSON payload:
-
-        ```python
-        import pulumi
-        ```
-
-        When the invocation resource is removed, the final invocation will have the following JSON payload:
-
-        ```python
-        import pulumi
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -336,64 +338,6 @@ class Invocation(pulumi.CustomResource):
         > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
 
         ## Example Usage
-        ### Dynamic Invocation Example Using Triggers
-
-        ```python
-        import pulumi
-        import hashlib
-        import json
-        import pulumi_aws as aws
-
-        example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
-            triggers={
-                "redeployment": hashlib.sha1(json.dumps([aws_lambda_function["example"]["environment"]]).encode()).hexdigest(),
-            },
-            input=json.dumps({
-                "key1": "value1",
-                "key2": "value2",
-            }))
-        ```
-        ### CRUD Lifecycle Scope
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
-            input=json.dumps({
-                "key1": "value1",
-                "key2": "value2",
-            }),
-            lifecycle_scope="CRUD")
-        ```
-
-        > **NOTE:** `lifecycle_scope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
-
-        The key `tf` gets added with subkeys:
-
-        * `action` - Action Pulumi performs on the resource. Values are `create`, `update`, or `delete`.
-        * `prev_input` - Input JSON payload from the previous invocation. This can be used to handle update and delete events.
-
-        When the resource from the example above is created, the Lambda will get following JSON payload:
-
-        ```python
-        import pulumi
-        ```
-
-        If the input value of `key1` changes to "valueB", then the lambda will be invoked again with the following JSON payload:
-
-        ```python
-        import pulumi
-        ```
-
-        When the invocation resource is removed, the final invocation will have the following JSON payload:
-
-        ```python
-        import pulumi
-        ```
 
         :param str resource_name: The name of the resource.
         :param InvocationArgs args: The arguments to use to populate this resource's properties.
@@ -405,6 +349,10 @@ class Invocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InvocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

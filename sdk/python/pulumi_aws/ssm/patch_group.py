@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PatchGroupArgs', 'PatchGroup']
@@ -21,8 +21,29 @@ class PatchGroupArgs:
         :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.
         :param pulumi.Input[str] patch_group: The name of the patch group that should be registered with the patch baseline.
         """
-        pulumi.set(__self__, "baseline_id", baseline_id)
-        pulumi.set(__self__, "patch_group", patch_group)
+        PatchGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            baseline_id=baseline_id,
+            patch_group=patch_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             baseline_id: Optional[pulumi.Input[str]] = None,
+             patch_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if baseline_id is None and 'baselineId' in kwargs:
+            baseline_id = kwargs['baselineId']
+        if baseline_id is None:
+            raise TypeError("Missing 'baseline_id' argument")
+        if patch_group is None and 'patchGroup' in kwargs:
+            patch_group = kwargs['patchGroup']
+        if patch_group is None:
+            raise TypeError("Missing 'patch_group' argument")
+
+        _setter("baseline_id", baseline_id)
+        _setter("patch_group", patch_group)
 
     @property
     @pulumi.getter(name="baselineId")
@@ -59,10 +80,27 @@ class _PatchGroupState:
         :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.
         :param pulumi.Input[str] patch_group: The name of the patch group that should be registered with the patch baseline.
         """
+        _PatchGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            baseline_id=baseline_id,
+            patch_group=patch_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             baseline_id: Optional[pulumi.Input[str]] = None,
+             patch_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if baseline_id is None and 'baselineId' in kwargs:
+            baseline_id = kwargs['baselineId']
+        if patch_group is None and 'patchGroup' in kwargs:
+            patch_group = kwargs['patchGroup']
+
         if baseline_id is not None:
-            pulumi.set(__self__, "baseline_id", baseline_id)
+            _setter("baseline_id", baseline_id)
         if patch_group is not None:
-            pulumi.set(__self__, "patch_group", patch_group)
+            _setter("patch_group", patch_group)
 
     @property
     @pulumi.getter(name="baselineId")
@@ -100,18 +138,6 @@ class PatchGroup(pulumi.CustomResource):
         """
         Provides an SSM Patch Group resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        production = aws.ssm.PatchBaseline("production", approved_patches=["KB123456"])
-        patchgroup = aws.ssm.PatchGroup("patchgroup",
-            baseline_id=production.id,
-            patch_group="patch-group-name")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] baseline_id: The ID of the patch baseline to register the patch group with.
@@ -126,18 +152,6 @@ class PatchGroup(pulumi.CustomResource):
         """
         Provides an SSM Patch Group resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        production = aws.ssm.PatchBaseline("production", approved_patches=["KB123456"])
-        patchgroup = aws.ssm.PatchGroup("patchgroup",
-            baseline_id=production.id,
-            patch_group="patch-group-name")
-        ```
-
         :param str resource_name: The name of the resource.
         :param PatchGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,6 +162,10 @@ class PatchGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PatchGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -12,30 +12,6 @@ namespace Pulumi.Aws.AppSync
     /// <summary>
     /// Provides an AppSync API Key.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
-    ///     {
-    ///         AuthenticationType = "API_KEY",
-    ///     });
-    /// 
-    ///     var exampleApiKey = new Aws.AppSync.ApiKey("exampleApiKey", new()
-    ///     {
-    ///         ApiId = exampleGraphQLApi.Id,
-    ///         Expires = "2018-05-03T04:00:00Z",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:

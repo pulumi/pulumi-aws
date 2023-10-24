@@ -11,33 +11,6 @@ namespace Pulumi.Aws.Ssm
 {
     /// <summary>
     /// Provides an SSM Patch Group resource
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var production = new Aws.Ssm.PatchBaseline("production", new()
-    ///     {
-    ///         ApprovedPatches = new[]
-    ///         {
-    ///             "KB123456",
-    ///         },
-    ///     });
-    /// 
-    ///     var patchgroup = new Aws.Ssm.PatchGroup("patchgroup", new()
-    ///     {
-    ///         BaselineId = production.Id,
-    ///         PatchGroupName = "patch-group-name",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/patchGroup:PatchGroup")]
     public partial class PatchGroup : global::Pulumi.CustomResource

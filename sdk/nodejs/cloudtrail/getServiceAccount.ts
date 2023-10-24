@@ -7,44 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
  * in a given region for the purpose of allowing CloudTrail to store trail data in S3.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = aws.cloudtrail.getServiceAccount({});
- * const bucket = new aws.s3.BucketV2("bucket", {forceDestroy: true});
- * const allowCloudtrailLoggingPolicyDocument = pulumi.all([main, bucket.arn, main, bucket.arn]).apply(([main, bucketArn, main1, bucketArn1]) => aws.iam.getPolicyDocumentOutput({
- *     statements: [
- *         {
- *             sid: "Put bucket policy needed for trails",
- *             effect: "Allow",
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: [main.arn],
- *             }],
- *             actions: ["s3:PutObject"],
- *             resources: [`${bucketArn}/*`],
- *         },
- *         {
- *             sid: "Get bucket policy needed for trails",
- *             effect: "Allow",
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: [main1.arn],
- *             }],
- *             actions: ["s3:GetBucketAcl"],
- *             resources: [bucketArn1],
- *         },
- *     ],
- * }));
- * const allowCloudtrailLoggingBucketPolicy = new aws.s3.BucketPolicy("allowCloudtrailLoggingBucketPolicy", {
- *     bucket: bucket.id,
- *     policy: allowCloudtrailLoggingPolicyDocument.apply(allowCloudtrailLoggingPolicyDocument => allowCloudtrailLoggingPolicyDocument.json),
- * });
- * ```
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     args = args || {};
@@ -83,44 +45,6 @@ export interface GetServiceAccountResult {
 /**
  * Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
  * in a given region for the purpose of allowing CloudTrail to store trail data in S3.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = aws.cloudtrail.getServiceAccount({});
- * const bucket = new aws.s3.BucketV2("bucket", {forceDestroy: true});
- * const allowCloudtrailLoggingPolicyDocument = pulumi.all([main, bucket.arn, main, bucket.arn]).apply(([main, bucketArn, main1, bucketArn1]) => aws.iam.getPolicyDocumentOutput({
- *     statements: [
- *         {
- *             sid: "Put bucket policy needed for trails",
- *             effect: "Allow",
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: [main.arn],
- *             }],
- *             actions: ["s3:PutObject"],
- *             resources: [`${bucketArn}/*`],
- *         },
- *         {
- *             sid: "Get bucket policy needed for trails",
- *             effect: "Allow",
- *             principals: [{
- *                 type: "AWS",
- *                 identifiers: [main1.arn],
- *             }],
- *             actions: ["s3:GetBucketAcl"],
- *             resources: [bucketArn1],
- *         },
- *     ],
- * }));
- * const allowCloudtrailLoggingBucketPolicy = new aws.s3.BucketPolicy("allowCloudtrailLoggingBucketPolicy", {
- *     bucket: bucket.id,
- *     policy: allowCloudtrailLoggingPolicyDocument.apply(allowCloudtrailLoggingPolicyDocument => allowCloudtrailLoggingPolicyDocument.json),
- * });
- * ```
  */
 export function getServiceAccountOutput(args?: GetServiceAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceAccountResult> {
     return pulumi.output(args).apply((a: any) => getServiceAccount(a, opts))

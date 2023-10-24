@@ -12,36 +12,6 @@ namespace Pulumi.Aws.OpsWorks
     /// <summary>
     /// Provides an OpsWorks stack resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.OpsWorks.Stack("main", new()
-    ///     {
-    ///         Region = "us-west-1",
-    ///         ServiceRoleArn = aws_iam_role.Opsworks.Arn,
-    ///         DefaultInstanceProfileArn = aws_iam_instance_profile.Opsworks.Arn,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "foobar-stack" },
-    ///         },
-    ///         CustomJson = @"{
-    ///  ""foobar"": {
-    ///     ""version"": ""1.0.0""
-    ///   }
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpsWorks stacks using the `id`. For example:

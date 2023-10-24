@@ -12,21 +12,6 @@ namespace Pulumi.Aws.Sfn
     /// <summary>
     /// Provides a Step Function Activity resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sfnActivity = new Aws.Sfn.Activity("sfnActivity");
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import activities using the `arn`. For example:

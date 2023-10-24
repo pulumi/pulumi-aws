@@ -18,32 +18,6 @@ import (
 //
 // > **NOTE:** Deleting this resource does not change the block public access value, the resource in simply removed from state instead.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewImageBlockPublicAccess(ctx, "test", &ec2.ImageBlockPublicAccessArgs{
-//				State: pulumi.String("block-new-sharing"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // You cannot import this resource.

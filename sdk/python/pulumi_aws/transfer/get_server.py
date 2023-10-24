@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -203,15 +203,6 @@ def get_server(server_id: Optional[str] = None,
     Use this data source to get the ARN of an AWS Transfer Server for use in other
     resources.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.transfer.get_server(server_id="s-1234567")
-    ```
-
 
     :param str server_id: ID for an SFTP server.
     """
@@ -243,15 +234,6 @@ def get_server_output(server_id: Optional[pulumi.Input[str]] = None,
     """
     Use this data source to get the ARN of an AWS Transfer Server for use in other
     resources.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.transfer.get_server(server_id="s-1234567")
-    ```
 
 
     :param str server_id: ID for an SFTP server.

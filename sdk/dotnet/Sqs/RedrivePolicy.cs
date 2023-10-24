@@ -17,44 +17,6 @@ namespace Pulumi.Aws.Sqs
     /// dead letter queue for a standard or FIFO queue, but need
     /// the dead letter queue to exist before setting the redrive policy.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var queue = new Aws.Sqs.Queue("queue");
-    /// 
-    ///     var ddl = new Aws.Sqs.Queue("ddl", new()
-    ///     {
-    ///         RedriveAllowPolicy = queue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["redrivePermission"] = "byQueue",
-    ///             ["sourceQueueArns"] = new[]
-    ///             {
-    ///                 arn,
-    ///             },
-    ///         })),
-    ///     });
-    /// 
-    ///     var redrivePolicy = new Aws.Sqs.RedrivePolicy("redrivePolicy", new()
-    ///     {
-    ///         QueueUrl = queue.Id,
-    ///         RedrivePolicyName = ddl.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["deadLetterTargetArn"] = arn,
-    ///             ["maxReceiveCount"] = 4,
-    ///         })),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:

@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.waf.getIpset({
- *     name: "tfWAFIPSet",
- * });
- * ```
  */
 export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> {
 
@@ -48,17 +37,6 @@ export interface GetIpsetResult {
 }
 /**
  * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.waf.getIpset({
- *     name: "tfWAFIPSet",
- * });
- * ```
  */
 export function getIpsetOutput(args: GetIpsetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpsetResult> {
     return pulumi.output(args).apply((a: any) => getIpset(a, opts))

@@ -13,70 +13,12 @@ namespace Pulumi.Aws.ServerlessRepository
     {
         /// <summary>
         /// Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleApplication = Aws.ServerlessRepository.GetApplication.Invoke(new()
-        ///     {
-        ///         ApplicationId = "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
-        ///     });
-        /// 
-        ///     var exampleCloudFormationStack = new Aws.ServerlessRepository.CloudFormationStack("exampleCloudFormationStack", new()
-        ///     {
-        ///         ApplicationId = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
-        ///         SemanticVersion = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.SemanticVersion),
-        ///         Capabilities = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.RequiredCapabilities),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws:serverlessrepository/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleApplication = Aws.ServerlessRepository.GetApplication.Invoke(new()
-        ///     {
-        ///         ApplicationId = "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
-        ///     });
-        /// 
-        ///     var exampleCloudFormationStack = new Aws.ServerlessRepository.CloudFormationStack("exampleCloudFormationStack", new()
-        ///     {
-        ///         ApplicationId = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
-        ///         SemanticVersion = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.SemanticVersion),
-        ///         Capabilities = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.RequiredCapabilities),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws:serverlessrepository/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpnGatewayRoutePropagationArgs', 'VpnGatewayRoutePropagation']
@@ -21,8 +21,29 @@ class VpnGatewayRoutePropagationArgs:
         :param pulumi.Input[str] route_table_id: The id of the `ec2.RouteTable` to propagate routes into.
         :param pulumi.Input[str] vpn_gateway_id: The id of the `ec2.VpnGateway` to propagate routes from.
         """
-        pulumi.set(__self__, "route_table_id", route_table_id)
-        pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+        VpnGatewayRoutePropagationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            route_table_id=route_table_id,
+            vpn_gateway_id=vpn_gateway_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             route_table_id: Optional[pulumi.Input[str]] = None,
+             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if route_table_id is None and 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if route_table_id is None:
+            raise TypeError("Missing 'route_table_id' argument")
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+        if vpn_gateway_id is None:
+            raise TypeError("Missing 'vpn_gateway_id' argument")
+
+        _setter("route_table_id", route_table_id)
+        _setter("vpn_gateway_id", vpn_gateway_id)
 
     @property
     @pulumi.getter(name="routeTableId")
@@ -59,10 +80,27 @@ class _VpnGatewayRoutePropagationState:
         :param pulumi.Input[str] route_table_id: The id of the `ec2.RouteTable` to propagate routes into.
         :param pulumi.Input[str] vpn_gateway_id: The id of the `ec2.VpnGateway` to propagate routes from.
         """
+        _VpnGatewayRoutePropagationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            route_table_id=route_table_id,
+            vpn_gateway_id=vpn_gateway_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             route_table_id: Optional[pulumi.Input[str]] = None,
+             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if route_table_id is None and 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+
         if route_table_id is not None:
-            pulumi.set(__self__, "route_table_id", route_table_id)
+            _setter("route_table_id", route_table_id)
         if vpn_gateway_id is not None:
-            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+            _setter("vpn_gateway_id", vpn_gateway_id)
 
     @property
     @pulumi.getter(name="routeTableId")
@@ -104,17 +142,6 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         the `propagating_vgws` argument set. If that argument is set, any route
         propagation not explicitly listed in its value will be removed.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.VpnGatewayRoutePropagation("example",
-            vpn_gateway_id=aws_vpn_gateway["example"]["id"],
-            route_table_id=aws_route_table["example"]["id"])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: The id of the `ec2.RouteTable` to propagate routes into.
@@ -133,17 +160,6 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         the `propagating_vgws` argument set. If that argument is set, any route
         propagation not explicitly listed in its value will be removed.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.VpnGatewayRoutePropagation("example",
-            vpn_gateway_id=aws_vpn_gateway["example"]["id"],
-            route_table_id=aws_route_table["example"]["id"])
-        ```
-
         :param str resource_name: The name of the resource.
         :param VpnGatewayRoutePropagationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,6 +170,10 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnGatewayRoutePropagationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

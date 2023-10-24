@@ -11,31 +11,6 @@ import * as utilities from "../utilities";
  * Data source for listing RDS Database Instances.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.rds.getInstances({
- *     filters: [{
- *         name: "db-instance-id",
- *         values: ["my-database-id"],
- *     }],
- * });
- * ```
- * ### Using tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.rds.getInstances({
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
  */
 export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
     args = args || {};
@@ -84,31 +59,6 @@ export interface GetInstancesResult {
  * Data source for listing RDS Database Instances.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.rds.getInstances({
- *     filters: [{
- *         name: "db-instance-id",
- *         values: ["my-database-id"],
- *     }],
- * });
- * ```
- * ### Using tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.rds.getInstances({
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
  */
 export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancesResult> {
     return pulumi.output(args).apply((a: any) => getInstances(a, opts))

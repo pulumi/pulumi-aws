@@ -14,58 +14,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// &gt; *NOTE:* If policies are attached to the user via the `aws.iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `force_destroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lbUser = new Aws.Iam.User("lbUser", new()
-    ///     {
-    ///         Path = "/system/",
-    ///         Tags = 
-    ///         {
-    ///             { "tag-key", "tag-value" },
-    ///         },
-    ///     });
-    /// 
-    ///     var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new()
-    ///     {
-    ///         User = lbUser.Name,
-    ///     });
-    /// 
-    ///     var lbRoPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "ec2:Describe*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var lbRoUserPolicy = new Aws.Iam.UserPolicy("lbRoUserPolicy", new()
-    ///     {
-    ///         User = lbUser.Name,
-    ///         Policy = lbRoPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM Users using the `name`. For example:

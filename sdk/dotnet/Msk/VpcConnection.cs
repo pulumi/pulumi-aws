@@ -12,31 +12,6 @@ namespace Pulumi.Aws.Msk
     /// <summary>
     /// Resource for managing an AWS Managed Streaming for Kafka VPC Connection.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Msk.VpcConnection("test", new()
-    ///     {
-    ///         Authentication = "SASL_IAM",
-    ///         TargetClusterArn = "aws_msk_cluster.arn",
-    ///         VpcId = aws_vpc.Test.Id,
-    ///         ClientSubnets = aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             aws_security_group.Test.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MSK configurations using the configuration ARN. For example:

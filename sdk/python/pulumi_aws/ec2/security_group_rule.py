@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -45,23 +45,78 @@ class SecurityGroupRuleArgs:
         :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         :param pulumi.Input[str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         """
-        pulumi.set(__self__, "from_port", from_port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "security_group_id", security_group_id)
-        pulumi.set(__self__, "to_port", to_port)
-        pulumi.set(__self__, "type", type)
+        SecurityGroupRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_port=from_port,
+            protocol=protocol,
+            security_group_id=security_group_id,
+            to_port=to_port,
+            type=type,
+            cidr_blocks=cidr_blocks,
+            description=description,
+            ipv6_cidr_blocks=ipv6_cidr_blocks,
+            prefix_list_ids=prefix_list_ids,
+            self=self,
+            source_security_group_id=source_security_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_port: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[Union[str, 'ProtocolType']]] = None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             to_port: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             ipv6_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             self: Optional[pulumi.Input[bool]] = None,
+             source_security_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_port is None and 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if from_port is None:
+            raise TypeError("Missing 'from_port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if security_group_id is None and 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+        if security_group_id is None:
+            raise TypeError("Missing 'security_group_id' argument")
+        if to_port is None and 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+        if to_port is None:
+            raise TypeError("Missing 'to_port' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if cidr_blocks is None and 'cidrBlocks' in kwargs:
+            cidr_blocks = kwargs['cidrBlocks']
+        if ipv6_cidr_blocks is None and 'ipv6CidrBlocks' in kwargs:
+            ipv6_cidr_blocks = kwargs['ipv6CidrBlocks']
+        if prefix_list_ids is None and 'prefixListIds' in kwargs:
+            prefix_list_ids = kwargs['prefixListIds']
+        if source_security_group_id is None and 'sourceSecurityGroupId' in kwargs:
+            source_security_group_id = kwargs['sourceSecurityGroupId']
+
+        _setter("from_port", from_port)
+        _setter("protocol", protocol)
+        _setter("security_group_id", security_group_id)
+        _setter("to_port", to_port)
+        _setter("type", type)
         if cidr_blocks is not None:
-            pulumi.set(__self__, "cidr_blocks", cidr_blocks)
+            _setter("cidr_blocks", cidr_blocks)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if ipv6_cidr_blocks is not None:
-            pulumi.set(__self__, "ipv6_cidr_blocks", ipv6_cidr_blocks)
+            _setter("ipv6_cidr_blocks", ipv6_cidr_blocks)
         if prefix_list_ids is not None:
-            pulumi.set(__self__, "prefix_list_ids", prefix_list_ids)
+            _setter("prefix_list_ids", prefix_list_ids)
         if self is not None:
-            pulumi.set(__self__, "self", self)
+            _setter("self", self)
         if source_security_group_id is not None:
-            pulumi.set(__self__, "source_security_group_id", source_security_group_id)
+            _setter("source_security_group_id", source_security_group_id)
 
     @property
     @pulumi.getter(name="fromPort")
@@ -236,30 +291,79 @@ class _SecurityGroupRuleState:
                
                > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
+        _SecurityGroupRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr_blocks=cidr_blocks,
+            description=description,
+            from_port=from_port,
+            ipv6_cidr_blocks=ipv6_cidr_blocks,
+            prefix_list_ids=prefix_list_ids,
+            protocol=protocol,
+            security_group_id=security_group_id,
+            security_group_rule_id=security_group_rule_id,
+            self=self,
+            source_security_group_id=source_security_group_id,
+            to_port=to_port,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             from_port: Optional[pulumi.Input[int]] = None,
+             ipv6_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             protocol: Optional[pulumi.Input[Union[str, 'ProtocolType']]] = None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             security_group_rule_id: Optional[pulumi.Input[str]] = None,
+             self: Optional[pulumi.Input[bool]] = None,
+             source_security_group_id: Optional[pulumi.Input[str]] = None,
+             to_port: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cidr_blocks is None and 'cidrBlocks' in kwargs:
+            cidr_blocks = kwargs['cidrBlocks']
+        if from_port is None and 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if ipv6_cidr_blocks is None and 'ipv6CidrBlocks' in kwargs:
+            ipv6_cidr_blocks = kwargs['ipv6CidrBlocks']
+        if prefix_list_ids is None and 'prefixListIds' in kwargs:
+            prefix_list_ids = kwargs['prefixListIds']
+        if security_group_id is None and 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+        if security_group_rule_id is None and 'securityGroupRuleId' in kwargs:
+            security_group_rule_id = kwargs['securityGroupRuleId']
+        if source_security_group_id is None and 'sourceSecurityGroupId' in kwargs:
+            source_security_group_id = kwargs['sourceSecurityGroupId']
+        if to_port is None and 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         if cidr_blocks is not None:
-            pulumi.set(__self__, "cidr_blocks", cidr_blocks)
+            _setter("cidr_blocks", cidr_blocks)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if from_port is not None:
-            pulumi.set(__self__, "from_port", from_port)
+            _setter("from_port", from_port)
         if ipv6_cidr_blocks is not None:
-            pulumi.set(__self__, "ipv6_cidr_blocks", ipv6_cidr_blocks)
+            _setter("ipv6_cidr_blocks", ipv6_cidr_blocks)
         if prefix_list_ids is not None:
-            pulumi.set(__self__, "prefix_list_ids", prefix_list_ids)
+            _setter("prefix_list_ids", prefix_list_ids)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if security_group_id is not None:
-            pulumi.set(__self__, "security_group_id", security_group_id)
+            _setter("security_group_id", security_group_id)
         if security_group_rule_id is not None:
-            pulumi.set(__self__, "security_group_rule_id", security_group_rule_id)
+            _setter("security_group_rule_id", security_group_rule_id)
         if self is not None:
-            pulumi.set(__self__, "self", self)
+            _setter("self", self)
         if source_security_group_id is not None:
-            pulumi.set(__self__, "source_security_group_id", source_security_group_id)
+            _setter("source_security_group_id", source_security_group_id)
         if to_port is not None:
-            pulumi.set(__self__, "to_port", to_port)
+            _setter("to_port", to_port)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="cidrBlocks")
@@ -441,66 +545,6 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 
-        ## Example Usage
-
-        Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroupRule("example",
-            type="ingress",
-            from_port=0,
-            to_port=65535,
-            protocol="tcp",
-            cidr_blocks=[aws_vpc["example"]["cidr_block"]],
-            ipv6_cidr_blocks=[aws_vpc["example"]["ipv6_cidr_block"]],
-            security_group_id="sg-123456")
-        ```
-        ### Usage With Prefix List IDs
-
-        Prefix Lists are either managed by AWS internally, or created by the customer using a
-        Managed Prefix List resource. Prefix Lists provided by
-        AWS are associated with a prefix list name, or service name, that is linked to a specific region.
-
-        Prefix list IDs are exported on VPC Endpoints, so you can use this format:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
-        # ...
-        allow_all = aws.ec2.SecurityGroupRule("allowAll",
-            type="egress",
-            to_port=0,
-            protocol="-1",
-            prefix_list_ids=[my_endpoint.prefix_list_id],
-            from_port=0,
-            security_group_id="sg-123456")
-        ```
-
-        You can also find a specific Prefix List using the `ec2_get_prefix_list`
-        or `ec2_managed_prefix_list` data sources:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.name}.s3")
-        s3_gateway_egress = aws.ec2.SecurityGroupRule("s3GatewayEgress",
-            description="S3 Gateway Egress",
-            type="egress",
-            security_group_id="sg-123456",
-            from_port=443,
-            to_port=443,
-            protocol="tcp",
-            prefix_list_ids=[s3.id])
-        ```
-
         ## Import
 
         Import a rule with various IPv4 and IPv6 source CIDR blocks:
@@ -593,66 +637,6 @@ class SecurityGroupRule(pulumi.CustomResource):
 
         > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 
-        ## Example Usage
-
-        Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SecurityGroupRule("example",
-            type="ingress",
-            from_port=0,
-            to_port=65535,
-            protocol="tcp",
-            cidr_blocks=[aws_vpc["example"]["cidr_block"]],
-            ipv6_cidr_blocks=[aws_vpc["example"]["ipv6_cidr_block"]],
-            security_group_id="sg-123456")
-        ```
-        ### Usage With Prefix List IDs
-
-        Prefix Lists are either managed by AWS internally, or created by the customer using a
-        Managed Prefix List resource. Prefix Lists provided by
-        AWS are associated with a prefix list name, or service name, that is linked to a specific region.
-
-        Prefix list IDs are exported on VPC Endpoints, so you can use this format:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ...
-        my_endpoint = aws.ec2.VpcEndpoint("myEndpoint")
-        # ...
-        allow_all = aws.ec2.SecurityGroupRule("allowAll",
-            type="egress",
-            to_port=0,
-            protocol="-1",
-            prefix_list_ids=[my_endpoint.prefix_list_id],
-            from_port=0,
-            security_group_id="sg-123456")
-        ```
-
-        You can also find a specific Prefix List using the `ec2_get_prefix_list`
-        or `ec2_managed_prefix_list` data sources:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.name}.s3")
-        s3_gateway_egress = aws.ec2.SecurityGroupRule("s3GatewayEgress",
-            description="S3 Gateway Egress",
-            type="egress",
-            security_group_id="sg-123456",
-            from_port=443,
-            to_port=443,
-            protocol="tcp",
-            prefix_list_ids=[s3.id])
-        ```
-
         ## Import
 
         Import a rule with various IPv4 and IPv6 source CIDR blocks:
@@ -717,6 +701,10 @@ class SecurityGroupRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityGroupRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

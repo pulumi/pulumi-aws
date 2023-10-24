@@ -7,28 +7,6 @@ import * as utilities from "../utilities";
 /**
  * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
  * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLogDeliveryCanonicalUserId = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     accessControlPolicy: {
- *         grants: [{
- *             grantee: {
- *                 id: exampleLogDeliveryCanonicalUserId.then(exampleLogDeliveryCanonicalUserId => exampleLogDeliveryCanonicalUserId.id),
- *                 type: "CanonicalUser",
- *             },
- *             permission: "FULL_CONTROL",
- *         }],
- *     },
- * });
- * ```
  */
 export function getLogDeliveryCanonicalUserId(args?: GetLogDeliveryCanonicalUserIdArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDeliveryCanonicalUserIdResult> {
     args = args || {};
@@ -62,28 +40,6 @@ export interface GetLogDeliveryCanonicalUserIdResult {
 /**
  * The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
  * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLogDeliveryCanonicalUserId = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     accessControlPolicy: {
- *         grants: [{
- *             grantee: {
- *                 id: exampleLogDeliveryCanonicalUserId.then(exampleLogDeliveryCanonicalUserId => exampleLogDeliveryCanonicalUserId.id),
- *                 type: "CanonicalUser",
- *             },
- *             permission: "FULL_CONTROL",
- *         }],
- *     },
- * });
- * ```
  */
 export function getLogDeliveryCanonicalUserIdOutput(args?: GetLogDeliveryCanonicalUserIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDeliveryCanonicalUserIdResult> {
     return pulumi.output(args).apply((a: any) => getLogDeliveryCanonicalUserId(a, opts))

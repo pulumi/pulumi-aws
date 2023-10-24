@@ -19,25 +19,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// &gt; **NOTE:** The user or role that use this resource must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `template_physical_id` argument.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.ProvisioningArtifact("example", new()
-    ///     {
-    ///         ProductId = aws_servicecatalog_product.Example.Id,
-    ///         Type = "CLOUD_FORMATION_TEMPLATE",
-    ///         TemplateUrl = $"https://{aws_s3_bucket.Example.Bucket_regional_domain_name}/{aws_s3_object.Example.Key}",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

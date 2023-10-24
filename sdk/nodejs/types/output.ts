@@ -802,9 +802,6 @@ export namespace alb {
     export interface ListenerRuleConditionHostHeader {
         /**
          * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         *
-         *
-         * Query String Value Blocks (for `query_string.values`) support the following:
          */
         values: string[];
     }
@@ -823,9 +820,6 @@ export namespace alb {
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
          * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         *
-         *
-         * Query String Value Blocks (for `query_string.values`) support the following:
          */
         values: string[];
     }
@@ -833,9 +827,6 @@ export namespace alb {
     export interface ListenerRuleConditionPathPattern {
         /**
          * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         *
-         *
-         * Query String Value Blocks (for `query_string.values`) support the following:
          */
         values: string[];
     }
@@ -854,9 +845,6 @@ export namespace alb {
     export interface ListenerRuleConditionSourceIp {
         /**
          * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         *
-         *
-         * Query String Value Blocks (for `query_string.values`) support the following:
          */
         values: string[];
     }
@@ -1512,26 +1500,6 @@ export namespace appautoscaling {
         minAdjustmentMagnitude?: number;
         /**
          * Set of adjustments that manage scaling. These have the following structure:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const ecsPolicy = new aws.appautoscaling.Policy("ecsPolicy", {stepScalingPolicyConfiguration: {
-         *     stepAdjustments: [
-         *         {
-         *             metricIntervalLowerBound: "1",
-         *             metricIntervalUpperBound: "2",
-         *             scalingAdjustment: -1,
-         *         },
-         *         {
-         *             metricIntervalLowerBound: "2",
-         *             metricIntervalUpperBound: "3",
-         *             scalingAdjustment: 1,
-         *         },
-         *     ],
-         * }});
-         * ```
          */
         stepAdjustments?: outputs.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustment[];
     }
@@ -1580,7 +1548,7 @@ export namespace appautoscaling {
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
         /**
-         * Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+         * Dimensions of the metric.
          */
         dimensions?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension[];
         /**
@@ -1600,7 +1568,7 @@ export namespace appautoscaling {
          */
         statistic?: string;
         /**
-         * Unit of the metric.
+         * Unit of the metrics to return.
          */
         unit?: string;
     }
@@ -1649,14 +1617,14 @@ export namespace appautoscaling {
          */
         stat: string;
         /**
-         * Unit of the metric.
+         * Unit of the metrics to return.
          */
         unit?: string;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric {
         /**
-         * Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+         * Dimensions of the metric.
          */
         dimensions?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension[];
         /**
@@ -2694,7 +2662,7 @@ export namespace appflow {
          */
         entityName: string;
         /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig;
         /**
@@ -2735,7 +2703,7 @@ export namespace appflow {
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge {
         /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig;
         /**
@@ -2761,7 +2729,7 @@ export namespace appflow {
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode {
         /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig;
         /**
@@ -2790,7 +2758,7 @@ export namespace appflow {
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo {
         /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig;
         /**
@@ -2816,11 +2784,11 @@ export namespace appflow {
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift {
         /**
-         * Object key for the bucket in which Amazon AppFlow places the destination files.
+         * Amazon S3 bucket prefix.
          */
         bucketPrefix?: string;
         /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig;
         /**
@@ -2850,11 +2818,11 @@ export namespace appflow {
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3 {
         /**
-         * Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+         * Name of the Amazon S3 bucket.
          */
         bucketName: string;
         /**
-         * Object key for the bucket in which Amazon AppFlow places the destination files.
+         * Amazon S3 bucket prefix.
          */
         bucketPrefix?: string;
         /**
@@ -2902,7 +2870,7 @@ export namespace appflow {
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce {
         /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig;
         /**
@@ -2936,7 +2904,7 @@ export namespace appflow {
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData {
         /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig;
         /**
@@ -2985,11 +2953,11 @@ export namespace appflow {
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake {
         /**
-         * Object key for the bucket in which Amazon AppFlow places the destination files.
+         * Amazon S3 bucket prefix.
          */
         bucketPrefix?: string;
         /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig;
         /**
@@ -3019,11 +2987,11 @@ export namespace appflow {
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver {
         /**
-         * Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+         * Name of the Amazon S3 bucket.
          */
         bucketName: string;
         /**
-         * Object key for the bucket in which Amazon AppFlow places the destination files.
+         * Amazon S3 bucket prefix.
          */
         bucketPrefix?: string;
         /**
@@ -3067,7 +3035,7 @@ export namespace appflow {
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk {
         /**
-         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig;
         /**
@@ -3251,11 +3219,11 @@ export namespace appflow {
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesS3 {
         /**
-         * Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+         * Name of the Amazon S3 bucket.
          */
         bucketName: string;
         /**
-         * Object key for the bucket in which Amazon AppFlow places the destination files.
+         * Amazon S3 bucket prefix.
          */
         bucketPrefix?: string;
         /**
@@ -3572,7 +3540,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecGrpcRouteMatch {
         /**
-         * The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+         * The port number to match from the request.
          */
         port?: number;
         /**
@@ -3667,19 +3635,19 @@ export namespace appmesh {
          */
         headers?: outputs.appmesh.GatewayRouteSpecHttp2RouteMatchHeader[];
         /**
-         * Host name to rewrite.
+         * Host name to match on.
          */
         hostname?: outputs.appmesh.GatewayRouteSpecHttp2RouteMatchHostname;
         /**
-         * Exact path to rewrite.
+         * Client request path to match on.
          */
         path?: outputs.appmesh.GatewayRouteSpecHttp2RouteMatchPath;
         /**
-         * The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+         * The port number to match from the request.
          */
         port?: number;
         /**
-         * Specified beginning characters to rewrite.
+         * Header value sent by the client must begin with the specified characters.
          */
         prefix?: string;
         /**
@@ -3705,11 +3673,11 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteMatchHeaderMatch {
         /**
-         * Value used to replace matched path.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: string;
         /**
-         * Specified beginning characters to rewrite.
+         * Header value sent by the client must begin with the specified characters.
          */
         prefix?: string;
         /**
@@ -3772,7 +3740,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteMatchQueryParameterMatch {
         /**
-         * Value used to replace matched path.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: string;
     }
@@ -3863,19 +3831,19 @@ export namespace appmesh {
          */
         headers?: outputs.appmesh.GatewayRouteSpecHttpRouteMatchHeader[];
         /**
-         * Host name to rewrite.
+         * Host name to match on.
          */
         hostname?: outputs.appmesh.GatewayRouteSpecHttpRouteMatchHostname;
         /**
-         * Exact path to rewrite.
+         * Client request path to match on.
          */
         path?: outputs.appmesh.GatewayRouteSpecHttpRouteMatchPath;
         /**
-         * The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+         * The port number to match from the request.
          */
         port?: number;
         /**
-         * Specified beginning characters to rewrite.
+         * Header value sent by the client must begin with the specified characters.
          */
         prefix?: string;
         /**
@@ -3901,11 +3869,11 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteMatchHeaderMatch {
         /**
-         * Value used to replace matched path.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: string;
         /**
-         * Specified beginning characters to rewrite.
+         * Header value sent by the client must begin with the specified characters.
          */
         prefix?: string;
         /**
@@ -3968,7 +3936,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteMatchQueryParameterMatch {
         /**
-         * Value used to replace matched path.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: string;
     }
@@ -5147,8 +5115,7 @@ export namespace appmesh {
          */
         port?: number;
         /**
-         * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * Header value sent by the client must begin with the specified characters.
          */
         prefix?: string;
         /**
@@ -5178,12 +5145,11 @@ export namespace appmesh {
          */
         exact?: string;
         /**
-         * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * Header value sent by the client must begin with the specified characters.
          */
         prefix?: string;
         /**
-         * Object that specifies the range of numbers that the value sent by the client must be included in.
+         * Object that specifies the range of numbers that the header value sent by the client must be included in.
          */
         range?: outputs.appmesh.RouteSpecGrpcRouteMatchMetadataMatchRange;
         /**
@@ -5191,7 +5157,7 @@ export namespace appmesh {
          */
         regex?: string;
         /**
-         * Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+         * Header value sent by the client must end with the specified characters.
          */
         suffix?: string;
     }
@@ -5216,7 +5182,6 @@ export namespace appmesh {
         /**
          * List of HTTP retry events.
          * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-         * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
          */
         httpRetryEvents?: string[];
         /**
@@ -5229,9 +5194,6 @@ export namespace appmesh {
         perRetryTimeout: outputs.appmesh.RouteSpecGrpcRouteRetryPolicyPerRetryTimeout;
         /**
          * List of TCP retry events. The only valid value is `connection-error`.
-         *
-         *
-         * You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
          */
         tcpRetryEvents?: string[];
     }
@@ -5340,8 +5302,7 @@ export namespace appmesh {
          */
         port?: number;
         /**
-         * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * Header value sent by the client must begin with the specified characters.
          */
         prefix?: string;
         /**
@@ -5375,12 +5336,11 @@ export namespace appmesh {
          */
         exact?: string;
         /**
-         * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * Header value sent by the client must begin with the specified characters.
          */
         prefix?: string;
         /**
-         * Object that specifies the range of numbers that the value sent by the client must be included in.
+         * Object that specifies the range of numbers that the header value sent by the client must be included in.
          */
         range?: outputs.appmesh.RouteSpecHttp2RouteMatchHeaderMatchRange;
         /**
@@ -5388,7 +5348,7 @@ export namespace appmesh {
          */
         regex?: string;
         /**
-         * Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+         * Header value sent by the client must end with the specified characters.
          */
         suffix?: string;
     }
@@ -5406,11 +5366,11 @@ export namespace appmesh {
 
     export interface RouteSpecHttp2RouteMatchPath {
         /**
-         * Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: string;
         /**
-         * Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+         * Header value sent by the client must include the specified characters.
          */
         regex?: string;
     }
@@ -5437,7 +5397,6 @@ export namespace appmesh {
         /**
          * List of HTTP retry events.
          * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-         * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
          */
         httpRetryEvents?: string[];
         /**
@@ -5450,9 +5409,6 @@ export namespace appmesh {
         perRetryTimeout: outputs.appmesh.RouteSpecHttp2RouteRetryPolicyPerRetryTimeout;
         /**
          * List of TCP retry events. The only valid value is `connection-error`.
-         *
-         *
-         * You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
          */
         tcpRetryEvents?: string[];
     }
@@ -5561,8 +5517,7 @@ export namespace appmesh {
          */
         port?: number;
         /**
-         * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * Header value sent by the client must begin with the specified characters.
          */
         prefix?: string;
         /**
@@ -5596,12 +5551,11 @@ export namespace appmesh {
          */
         exact?: string;
         /**
-         * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * Header value sent by the client must begin with the specified characters.
          */
         prefix?: string;
         /**
-         * Object that specifies the range of numbers that the value sent by the client must be included in.
+         * Object that specifies the range of numbers that the header value sent by the client must be included in.
          */
         range?: outputs.appmesh.RouteSpecHttpRouteMatchHeaderMatchRange;
         /**
@@ -5609,7 +5563,7 @@ export namespace appmesh {
          */
         regex?: string;
         /**
-         * Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+         * Header value sent by the client must end with the specified characters.
          */
         suffix?: string;
     }
@@ -5627,11 +5581,11 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatchPath {
         /**
-         * Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+         * Header value sent by the client must match the specified value exactly.
          */
         exact?: string;
         /**
-         * Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+         * Header value sent by the client must include the specified characters.
          */
         regex?: string;
     }
@@ -5658,7 +5612,6 @@ export namespace appmesh {
         /**
          * List of HTTP retry events.
          * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-         * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
          */
         httpRetryEvents?: string[];
         /**
@@ -5671,9 +5624,6 @@ export namespace appmesh {
         perRetryTimeout: outputs.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeout;
         /**
          * List of TCP retry events. The only valid value is `connection-error`.
-         *
-         *
-         * You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
          */
         tcpRetryEvents?: string[];
     }
@@ -6606,7 +6556,7 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * The specified value for the JSON. Must be between 1 and 100 characters in length.
+         * Number of time units. Minimum value of `0`.
          */
         value: number;
     }
@@ -6669,7 +6619,7 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * The specified value for the JSON. Must be between 1 and 100 characters in length.
+         * Number of time units. Minimum value of `0`.
          */
         value: number;
     }
@@ -6713,7 +6663,7 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * The specified value for the JSON. Must be between 1 and 100 characters in length.
+         * Number of time units. Minimum value of `0`.
          */
         value: number;
     }
@@ -6735,7 +6685,7 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * The specified value for the JSON. Must be between 1 and 100 characters in length.
+         * Number of time units. Minimum value of `0`.
          */
         value: number;
     }
@@ -8532,7 +8482,7 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplate {
         /**
-         * Nested argument defines the Launch Template. Defined below.
+         * Override the instance launch template specification in the Launch Template.
          */
         launchTemplateSpecification: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification;
         /**
@@ -8566,7 +8516,7 @@ export namespace autoscaling {
          */
         instanceType?: string;
         /**
-         * Nested argument defines the Launch Template. Defined below.
+         * Override the instance launch template specification in the Launch Template.
          */
         launchTemplateSpecification?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification;
         /**
@@ -8582,18 +8532,10 @@ export namespace autoscaling {
         acceleratorCount?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount;
         /**
          * List of accelerator manufacturer names. Default is any manufacturer.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorManufacturers?: string[];
         /**
          * List of accelerator names. Default is any acclerator.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorNames?: string[];
         /**
@@ -8602,10 +8544,6 @@ export namespace autoscaling {
         acceleratorTotalMemoryMib?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib;
         /**
          * List of accelerator types. Default is any accelerator type.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorTypes?: string[];
         /**
@@ -8630,10 +8568,6 @@ export namespace autoscaling {
          * List of CPU manufacturer names. Default is any manufacturer.
          *
          * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         cpuManufacturers?: string[];
         /**
@@ -8644,10 +8578,6 @@ export namespace autoscaling {
         excludedInstanceTypes?: string[];
         /**
          * List of instance generation names. Default is any generation.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         instanceGenerations?: string[];
         /**
@@ -8656,10 +8586,6 @@ export namespace autoscaling {
         localStorage?: string;
         /**
          * List of local storage type names. Default any storage type.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         localStorageTypes?: string[];
         /**
@@ -8706,7 +8632,7 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -8717,7 +8643,7 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -8728,7 +8654,7 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -8739,7 +8665,7 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -8750,7 +8676,7 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -8761,7 +8687,7 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -8772,7 +8698,7 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -8783,7 +8709,7 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -8794,7 +8720,7 @@ export namespace autoscaling {
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -10776,15 +10702,15 @@ export namespace chimesdkmediapipelines {
          */
         callAnalyticsStreamCategories?: string[];
         /**
-         * Labels all personally identifiable information (PII) identified in Utterance events.
+         * Labels all personally identifiable information (PII) identified in Transcript events.
          */
         contentIdentificationType?: string;
         /**
-         * Redacts all personally identifiable information (PII) identified in Utterance events.
+         * Redacts all personally identifiable information (PII) identified in Transcript events.
          */
         contentRedactionType?: string;
         /**
-         * Enables partial result stabilization in Utterance events.
+         * Enables partial result stabilization in Transcript events.
          */
         enablePartialResultsStabilization?: boolean;
         /**
@@ -10804,7 +10730,7 @@ export namespace chimesdkmediapipelines {
          */
         partialResultsStability?: string;
         /**
-         * Types of personally identifiable information (PII) to redact from an Utterance event.
+         * Types of personally identifiable information (PII) to redact from a Transcript event.
          */
         piiEntityTypes?: string;
         /**
@@ -10812,15 +10738,15 @@ export namespace chimesdkmediapipelines {
          */
         postCallAnalyticsSettings?: outputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings;
         /**
-         * Method for applying a vocabulary filter to Utterance events.
+         * Method for applying a vocabulary filter to Transcript events.
          */
         vocabularyFilterMethod?: string;
         /**
-         * Name of the custom vocabulary filter to use when processing Utterance events.
+         * Name of the custom vocabulary filter to use when processing Transcript events.
          */
         vocabularyFilterName?: string;
         /**
-         * Name of the custom vocabulary to use when processing Utterance events.
+         * Name of the custom vocabulary to use when processing Transcript events.
          */
         vocabularyName?: string;
     }
@@ -10846,15 +10772,15 @@ export namespace chimesdkmediapipelines {
 
     export interface MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration {
         /**
-         * Labels all personally identifiable information (PII) identified in Utterance events.
+         * Labels all personally identifiable information (PII) identified in Transcript events.
          */
         contentIdentificationType?: string;
         /**
-         * Redacts all personally identifiable information (PII) identified in Utterance events.
+         * Redacts all personally identifiable information (PII) identified in Transcript events.
          */
         contentRedactionType?: string;
         /**
-         * Enables partial result stabilization in Utterance events.
+         * Enables partial result stabilization in Transcript events.
          */
         enablePartialResultsStabilization?: boolean;
         /**
@@ -10874,7 +10800,7 @@ export namespace chimesdkmediapipelines {
          */
         partialResultsStability?: string;
         /**
-         * Types of personally identifiable information (PII) to redact from an Utterance event.
+         * Types of personally identifiable information (PII) to redact from a Transcript event.
          */
         piiEntityTypes?: string;
         /**
@@ -10882,29 +10808,29 @@ export namespace chimesdkmediapipelines {
          */
         showSpeakerLabel?: boolean;
         /**
-         * Method for applying a vocabulary filter to Utterance events.
+         * Method for applying a vocabulary filter to Transcript events.
          */
         vocabularyFilterMethod?: string;
         /**
-         * Name of the custom vocabulary filter to use when processing Utterance events.
+         * Name of the custom vocabulary filter to use when processing Transcript events.
          */
         vocabularyFilterName?: string;
         /**
-         * Name of the custom vocabulary to use when processing Utterance events.
+         * Name of the custom vocabulary to use when processing Transcript events.
          */
         vocabularyName?: string;
     }
 
     export interface MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration {
         /**
-         * Kinesis Data Stream to deliver results.
+         * SQS queue to deliver results.
          */
         insightsTarget: string;
     }
 
     export interface MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration {
         /**
-         * Kinesis Data Stream to deliver results.
+         * SQS queue to deliver results.
          */
         insightsTarget: string;
     }
@@ -10918,14 +10844,14 @@ export namespace chimesdkmediapipelines {
 
     export interface MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration {
         /**
-         * Kinesis Data Stream to deliver results.
+         * SQS queue to deliver results.
          */
         insightsTarget: string;
     }
 
     export interface MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration {
         /**
-         * Kinesis Data Stream to deliver results.
+         * SQS queue to deliver results.
          */
         insightsTarget: string;
     }
@@ -11187,6 +11113,9 @@ export namespace cloudfront {
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
+        /**
+         * List of item names, such as cookies, headers, or query strings.
+         */
         items?: string[];
     }
 
@@ -11202,6 +11131,9 @@ export namespace cloudfront {
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
+        /**
+         * List of item names, such as cookies, headers, or query strings.
+         */
         items?: string[];
     }
 
@@ -11217,6 +11149,9 @@ export namespace cloudfront {
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
+        /**
+         * List of item names, such as cookies, headers, or query strings.
+         */
         items?: string[];
     }
 
@@ -11613,7 +11548,7 @@ export namespace cloudfront {
          */
         originAccessControlId?: string;
         /**
-         * Unique identifier for the origin.
+         * Unique identifier of the member origin.
          */
         originId: string;
         /**
@@ -11672,7 +11607,7 @@ export namespace cloudfront {
          */
         members: outputs.cloudfront.DistributionOriginGroupMember[];
         /**
-         * Unique identifier for the origin.
+         * Unique identifier of the member origin.
          */
         originId: string;
     }
@@ -11686,14 +11621,14 @@ export namespace cloudfront {
 
     export interface DistributionOriginGroupMember {
         /**
-         * Unique identifier for the origin.
+         * Unique identifier of the member origin.
          */
         originId: string;
     }
 
     export interface DistributionOriginOriginShield {
         /**
-         * Whether the distribution is enabled to accept end user requests for content.
+         * Whether Origin Shield is enabled.
          */
         enabled: boolean;
         /**
@@ -11726,7 +11661,7 @@ export namespace cloudfront {
 
     export interface DistributionTrustedKeyGroup {
         /**
-         * Whether the distribution is enabled to accept end user requests for content.
+         * Whether Origin Shield is enabled.
          */
         enabled: boolean;
         /**
@@ -11748,7 +11683,7 @@ export namespace cloudfront {
 
     export interface DistributionTrustedSigner {
         /**
-         * Whether the distribution is enabled to accept end user requests for content.
+         * Whether Origin Shield is enabled.
          */
         enabled: boolean;
         /**
@@ -12308,7 +12243,7 @@ export namespace cloudfront {
          */
         header: string;
         /**
-         * Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+         * Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
          */
         override: boolean;
         /**
@@ -13625,7 +13560,7 @@ export namespace codebuild {
          */
         groupName?: string;
         /**
-         * Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+         * Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
          */
         status?: string;
         /**
@@ -13648,7 +13583,7 @@ export namespace codebuild {
          */
         location?: string;
         /**
-         * Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+         * Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
          */
         status?: string;
     }
@@ -14744,6 +14679,9 @@ export namespace cognito {
          * The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
          */
         eventAction: string;
+        /**
+         * Whether to send a notification.
+         */
         notify: boolean;
     }
 
@@ -14752,6 +14690,9 @@ export namespace cognito {
          * The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
          */
         eventAction: string;
+        /**
+         * Whether to send a notification.
+         */
         notify: boolean;
     }
 
@@ -14760,6 +14701,9 @@ export namespace cognito {
          * The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
          */
         eventAction: string;
+        /**
+         * Whether to send a notification.
+         */
         notify: boolean;
     }
 
@@ -18253,10 +18197,6 @@ export namespace directconnect {
          * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
          *
          * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         routerTypeIdentifier: string;
         /**
@@ -18415,7 +18355,7 @@ export namespace dlm {
          */
         eventSource?: outputs.dlm.LifecyclePolicyPolicyDetailsEventSource;
         /**
-         * A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+         * Information about the event. See the `parameters` configuration block.
          */
         parameters?: outputs.dlm.LifecyclePolicyPolicyDetailsParameters;
         /**
@@ -18470,11 +18410,11 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration {
         /**
-         * The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+         * The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
          */
         cmkArn?: string;
         /**
-         * To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+         * To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
          */
         encrypted?: boolean;
     }
@@ -18492,7 +18432,7 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsEventSource {
         /**
-         * A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+         * Information about the event. See the `parameters` configuration block.
          */
         parameters: outputs.dlm.LifecyclePolicyPolicyDetailsEventSourceParameters;
         /**
@@ -18529,7 +18469,7 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsSchedule {
         /**
-         * Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+         * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
          */
         copyTags: boolean;
         /**
@@ -18541,7 +18481,7 @@ export namespace dlm {
          */
         crossRegionCopyRules?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule[];
         /**
-         * See the `deprecateRule` block. Max of 1 per schedule.
+         * The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
          */
         deprecateRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleDeprecateRule;
         /**
@@ -18595,19 +18535,19 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
         /**
-         * The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+         * The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
          */
         cmkArn?: string;
         /**
-         * Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+         * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
          */
         copyTags?: boolean;
         /**
-         * See the `deprecateRule` block. Max of 1 per schedule.
+         * The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
          */
         deprecateRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule;
         /**
-         * To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+         * To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
          */
         encrypted: boolean;
         /**
@@ -19495,21 +19435,6 @@ export namespace ebs {
          * Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
          * For example, if matching against the `size` filter, use:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const tenOrTwentyGbVolumes = aws.ebs.getEbsVolumes({
-         *     filters: [{
-         *         name: "size",
-         *         values: [
-         *             "10",
-         *             "20",
-         *         ],
-         *     }],
-         * });
-         * ```
          */
         name: string;
         /**
@@ -20164,99 +20089,99 @@ export namespace ec2 {
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * Minimum.
+         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * Minimum.
+         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * Minimum.
+         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * Minimum.
+         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * Minimum.
+         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
          */
         min: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * Minimum.
+         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * Minimum.
+         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * Minimum.
+         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
          */
         min?: number;
     }
 
     export interface FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
          */
         max?: number;
         /**
-         * Minimum.
+         * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
          */
         min: number;
     }
@@ -22292,18 +22217,6 @@ export namespace ec2 {
          * Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const selected = aws.ec2.getSubnets({
-         *     filters: [{
-         *         name: "tag:Name",
-         *         values: [""],
-         *     }],
-         * });
-         * ```
          */
         name: string;
         /**
@@ -23204,18 +23117,10 @@ export namespace ec2 {
         acceleratorCount?: outputs.ec2.LaunchTemplateInstanceRequirementsAcceleratorCount;
         /**
          * List of accelerator manufacturer names. Default is any manufacturer.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorManufacturers?: string[];
         /**
          * List of accelerator names. Default is any acclerator.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorNames?: string[];
         /**
@@ -23224,10 +23129,6 @@ export namespace ec2 {
         acceleratorTotalMemoryMib?: outputs.ec2.LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib;
         /**
          * List of accelerator types. Default is any accelerator type.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorTypes?: string[];
         /**
@@ -23252,10 +23153,6 @@ export namespace ec2 {
          * List of CPU manufacturer names. Default is any manufacturer.
          *
          * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         cpuManufacturers?: string[];
         /**
@@ -23266,10 +23163,6 @@ export namespace ec2 {
         excludedInstanceTypes?: string[];
         /**
          * List of instance generation names. Default is any generation.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         instanceGenerations?: string[];
         /**
@@ -23278,10 +23171,6 @@ export namespace ec2 {
         localStorage?: string;
         /**
          * List of local storage type names. Default any storage type.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         localStorageTypes?: string[];
         /**
@@ -23328,7 +23217,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsAcceleratorCount {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -23339,7 +23228,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -23350,7 +23239,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -23361,7 +23250,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -23372,7 +23261,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsMemoryMib {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -23383,7 +23272,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -23394,7 +23283,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsNetworkInterfaceCount {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -23405,7 +23294,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsTotalLocalStorageGb {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -23416,7 +23305,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateInstanceRequirementsVcpuCount {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -24865,18 +24754,10 @@ export namespace ec2 {
         acceleratorCount?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount;
         /**
          * List of accelerator manufacturer names. Default is any manufacturer.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorManufacturers?: string[];
         /**
          * List of accelerator names. Default is any acclerator.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorNames?: string[];
         /**
@@ -24885,10 +24766,6 @@ export namespace ec2 {
         acceleratorTotalMemoryMib?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib;
         /**
          * List of accelerator types. Default is any accelerator type.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         acceleratorTypes?: string[];
         /**
@@ -24913,10 +24790,6 @@ export namespace ec2 {
          * List of CPU manufacturer names. Default is any manufacturer.
          *
          * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         cpuManufacturers?: string[];
         /**
@@ -24927,10 +24800,6 @@ export namespace ec2 {
         excludedInstanceTypes?: string[];
         /**
          * List of instance generation names. Default is any generation.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         instanceGenerations?: string[];
         /**
@@ -24939,10 +24808,6 @@ export namespace ec2 {
         localStorage?: string;
         /**
          * List of local storage type names. Default any storage type.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         localStorageTypes?: string[];
         /**
@@ -24989,7 +24854,7 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -25000,7 +24865,7 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -25011,7 +24876,7 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -25022,7 +24887,7 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -25033,7 +24898,7 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -25044,7 +24909,7 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -25055,7 +24920,7 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -25066,7 +24931,7 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -25077,7 +24942,7 @@ export namespace ec2 {
 
     export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount {
         /**
-         * Maximum. Set to `0` to exclude instance types with accelerators.
+         * Maximum.
          */
         max?: number;
         /**
@@ -31409,11 +31274,11 @@ export namespace glue {
 
     export interface CrawlerS3Target {
         /**
-         * The name of the connection to use to connect to the JDBC target.
+         * The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
          */
         connectionName?: string;
         /**
-         * The ARN of the dead-letter SQS queue.
+         * A valid Amazon SQS ARN.
          *
          * > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
          *
@@ -31421,7 +31286,7 @@ export namespace glue {
          */
         dlqEventQueueArn?: string;
         /**
-         * The ARN of the SQS queue to receive S3 notifications from.
+         * A valid Amazon SQS ARN.
          */
         eventQueueArn?: string;
         /**
@@ -34186,8 +34051,6 @@ export namespace iot {
     export interface TopicRuleDynamodbv2PutItem {
         /**
          * The name of the DynamoDB table.
-         *
-         * The `dynamodbv2` object takes the following arguments:
          */
         tableName: string;
     }
@@ -34351,8 +34214,6 @@ export namespace iot {
     export interface TopicRuleErrorActionDynamodbv2PutItem {
         /**
          * The name of the DynamoDB table.
-         *
-         * The `dynamodbv2` object takes the following arguments:
          */
         tableName: string;
     }
@@ -36406,7 +36267,6 @@ export namespace kinesis {
         bufferingInterval?: number;
         /**
          * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -36431,7 +36291,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role that provides access to the source Kinesis stream.
+         * The ARN of the role used to access the Amazon MSK cluster.
          */
         roleArn: string;
     }
@@ -36478,7 +36338,6 @@ export namespace kinesis {
         bufferingInterval?: number;
         /**
          * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -36515,7 +36374,7 @@ export namespace kinesis {
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration;
         /**
-         * The ARN of the role that provides access to the source Kinesis stream.
+         * The ARN of the role used to access the Amazon MSK cluster.
          */
         roleArn: string;
         /**
@@ -36523,7 +36382,7 @@ export namespace kinesis {
          */
         s3BackupConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration;
         /**
-         * The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
          */
         s3BackupMode?: string;
     }
@@ -36776,7 +36635,6 @@ export namespace kinesis {
         bufferingInterval?: number;
         /**
          * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -36801,7 +36659,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role that provides access to the source Kinesis stream.
+         * The ARN of the role used to access the Amazon MSK cluster.
          */
         roleArn: string;
     }
@@ -36955,7 +36813,6 @@ export namespace kinesis {
         bufferingInterval?: number;
         /**
          * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -36980,7 +36837,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role that provides access to the source Kinesis stream.
+         * The ARN of the role used to access the Amazon MSK cluster.
          */
         roleArn: string;
     }
@@ -37157,7 +37014,6 @@ export namespace kinesis {
         bufferingInterval?: number;
         /**
          * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -37182,7 +37038,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role that provides access to the source Kinesis stream.
+         * The ARN of the role used to access the Amazon MSK cluster.
          */
         roleArn: string;
     }
@@ -37326,7 +37182,6 @@ export namespace kinesis {
         bufferingInterval?: number;
         /**
          * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -37351,7 +37206,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role that provides access to the source Kinesis stream.
+         * The ARN of the role used to access the Amazon MSK cluster.
          */
         roleArn: string;
     }
@@ -37503,7 +37358,6 @@ export namespace kinesis {
         bufferingInterval?: number;
         /**
          * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -37528,7 +37382,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role that provides access to the source Kinesis stream.
+         * The ARN of the role used to access the Amazon MSK cluster.
          */
         roleArn: string;
     }
@@ -37559,7 +37413,6 @@ export namespace kinesis {
         bufferingInterval?: number;
         /**
          * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -37584,7 +37437,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role that provides access to the source Kinesis stream.
+         * The ARN of the role used to access the Amazon MSK cluster.
          */
         roleArn: string;
     }
@@ -37721,7 +37574,6 @@ export namespace kinesis {
         bufferingInterval?: number;
         /**
          * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          */
         bufferingSize?: number;
         /**
@@ -37746,7 +37598,7 @@ export namespace kinesis {
          */
         prefix?: string;
         /**
-         * The ARN of the role that provides access to the source Kinesis stream.
+         * The ARN of the role used to access the Amazon MSK cluster.
          */
         roleArn: string;
     }
@@ -39597,9 +39449,6 @@ export namespace lb {
     export interface ListenerRuleConditionHostHeader {
         /**
          * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         *
-         *
-         * Query String Value Blocks (for `query_string.values`) support the following:
          */
         values: string[];
     }
@@ -39618,9 +39467,6 @@ export namespace lb {
     export interface ListenerRuleConditionHttpRequestMethod {
         /**
          * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         *
-         *
-         * Query String Value Blocks (for `query_string.values`) support the following:
          */
         values: string[];
     }
@@ -39628,9 +39474,6 @@ export namespace lb {
     export interface ListenerRuleConditionPathPattern {
         /**
          * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         *
-         *
-         * Query String Value Blocks (for `query_string.values`) support the following:
          */
         values: string[];
     }
@@ -39649,9 +39492,6 @@ export namespace lb {
     export interface ListenerRuleConditionSourceIp {
         /**
          * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         *
-         *
-         * Query String Value Blocks (for `query_string.values`) support the following:
          */
         values: string[];
     }
@@ -39764,11 +39604,14 @@ export namespace lb {
 
 export namespace lex {
     export interface BotAbortStatement {
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message.
+         */
         messages: outputs.lex.BotAbortStatementMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
          */
@@ -39830,11 +39673,14 @@ export namespace lex {
          * The number of times to prompt the user for information.
          */
         maxAttempts: number;
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message.
+         */
         messages: outputs.lex.BotClarificationPromptMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
          */
@@ -39874,13 +39720,14 @@ export namespace lex {
     }
 
     export interface IntentConclusionStatement {
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
+         */
         messages: outputs.lex.IntentConclusionStatementMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          */
@@ -39908,13 +39755,14 @@ export namespace lex {
          * The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
          */
         maxAttempts: number;
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
+         */
         messages: outputs.lex.IntentConfirmationPromptMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          */
@@ -39999,13 +39847,14 @@ export namespace lex {
     }
 
     export interface IntentFollowUpPromptRejectionStatement {
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
+         */
         messages: outputs.lex.IntentFollowUpPromptRejectionStatementMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          */
@@ -40055,13 +39904,14 @@ export namespace lex {
     }
 
     export interface IntentRejectionStatement {
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
+         */
         messages: outputs.lex.IntentRejectionStatementMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          */
@@ -40137,13 +39987,14 @@ export namespace lex {
          * The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
          */
         maxAttempts: number;
+        /**
+         * A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
+         */
         messages: outputs.lex.IntentSlotValueElicitationPromptMessage[];
         /**
          * The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          */
@@ -40221,18 +40072,6 @@ export namespace licensemanager {
          * Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
          * For example, if filtering using `ProductSKU`, use:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const selected = aws.licensemanager.getLicenseGrants({
-         *     filters: [{
-         *         name: "ProductSKU",
-         *         values: [""],
-         *     }],
-         * });
-         * ```
          */
         name: string;
         /**
@@ -40351,18 +40190,6 @@ export namespace licensemanager {
          * Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
          * For example, if filtering using `ProductSKU`, use:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const selected = aws.licensemanager.getReceivedLicenses({
-         *     filters: [{
-         *         name: "ProductSKU",
-         *         values: [""],
-         *     }],
-         * });
-         * ```
          */
         name: string;
         /**
@@ -40821,7 +40648,7 @@ export namespace macie2 {
 
     export interface ClassificationJobS3JobDefinitionBucketCriteriaIncludes {
         /**
-         * An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+         * An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
          */
         ands: outputs.macie2.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd[];
     }
@@ -40961,7 +40788,7 @@ export namespace macie2 {
 
     export interface ClassificationJobS3JobDefinitionScopingIncludes {
         /**
-         * An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+         * An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
          */
         ands: outputs.macie2.ClassificationJobS3JobDefinitionScopingIncludesAnd[];
     }
@@ -41864,7 +41691,7 @@ export namespace medialive {
          */
         uri: string;
         /**
-         * Username for destination.
+         * . Username to be used.
          */
         username: string;
     }
@@ -42200,7 +42027,7 @@ export namespace medialive {
          */
         uri: string;
         /**
-         * Username for destination.
+         * . Username to be used.
          */
         username: string;
     }
@@ -42481,7 +42308,7 @@ export namespace medialive {
          */
         uri: string;
         /**
-         * Username for destination.
+         * . Username to be used.
          */
         username: string;
     }
@@ -42784,7 +42611,7 @@ export namespace medialive {
          */
         entropyEncoding: string;
         /**
-         * Filters to apply to an encode. See H264 Filter Settings for more details.
+         * Filters to apply to an encode. See H265 Filter Settings for more details.
          */
         filterSettings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings;
         /**
@@ -42829,7 +42656,7 @@ export namespace medialive {
          */
         gopSizeUnits: string;
         /**
-         * H264 level.
+         * H265 level.
          */
         level: string;
         /**
@@ -42959,7 +42786,7 @@ export namespace medialive {
          */
         colorSpaceSettings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings;
         /**
-         * Filters to apply to an encode. See H264 Filter Settings for more details.
+         * Filters to apply to an encode. See H265 Filter Settings for more details.
          */
         filterSettings?: outputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings;
         /**
@@ -42988,7 +42815,7 @@ export namespace medialive {
          */
         gopSizeUnits: string;
         /**
-         * H264 level.
+         * H265 level.
          */
         level: string;
         /**
@@ -43184,7 +43011,7 @@ export namespace medialive {
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
         /**
-         * The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
+         * The name of the audio selector used as the source for this AudioDescription.
          */
         audioSelectorName: string;
         /**
@@ -44249,11 +44076,11 @@ export namespace msk {
 
     export interface ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
         /**
-         * Enables SASL/IAM authentication for VPC connectivity.
+         * Enables IAM client authentication. Defaults to `false`.
          */
         iam: boolean;
         /**
-         * Enables SASL/SCRAM authentication for VPC connectivity.
+         * Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
          */
         scram: boolean;
     }
@@ -44304,11 +44131,11 @@ export namespace msk {
 
     export interface ClusterClientAuthenticationSasl {
         /**
-         * Enables SASL/IAM authentication for VPC connectivity.
+         * Enables IAM client authentication. Defaults to `false`.
          */
         iam?: boolean;
         /**
-         * Enables SASL/SCRAM authentication for VPC connectivity.
+         * Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
          */
         scram?: boolean;
     }
@@ -44423,14 +44250,14 @@ export namespace msk {
 
     export interface ClusterOpenMonitoringPrometheusJmxExporter {
         /**
-         * Indicates whether you want to enable or disable the JMX Exporter.
+         * Indicates whether you want to enable or disable the Node Exporter.
          */
         enabledInBroker: boolean;
     }
 
     export interface ClusterOpenMonitoringPrometheusNodeExporter {
         /**
-         * Indicates whether you want to enable or disable the JMX Exporter.
+         * Indicates whether you want to enable or disable the Node Exporter.
          */
         enabledInBroker: boolean;
     }
@@ -48032,7 +47859,7 @@ export namespace pipes {
 
     export interface PipeSourceParametersActivemqBrokerParametersCredentials {
         /**
-         * The ARN of the Secrets Manager secret containing the basic auth credentials.
+         * The ARN of the Secrets Manager secret containing the credentials.
          */
         basicAuth: string;
     }
@@ -48202,7 +48029,7 @@ export namespace pipes {
 
     export interface PipeSourceParametersRabbitmqBrokerParametersCredentials {
         /**
-         * The ARN of the Secrets Manager secret containing the basic auth credentials.
+         * The ARN of the Secrets Manager secret containing the credentials.
          */
         basicAuth: string;
     }
@@ -48248,7 +48075,7 @@ export namespace pipes {
 
     export interface PipeSourceParametersSelfManagedKafkaParametersCredentials {
         /**
-         * The ARN of the Secrets Manager secret containing the basic auth credentials.
+         * The ARN of the Secrets Manager secret containing the credentials.
          */
         basicAuth: string;
         /**
@@ -48378,11 +48205,11 @@ export namespace pipes {
 
     export interface PipeTargetParametersBatchJobParametersContainerOverrides {
         /**
-         * List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+         * List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
          */
         commands?: string[];
         /**
-         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
          */
         environments?: outputs.pipes.PipeTargetParametersBatchJobParametersContainerOverridesEnvironment[];
         /**
@@ -48390,7 +48217,7 @@ export namespace pipes {
          */
         instanceType?: string;
         /**
-         * The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+         * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
          */
         resourceRequirements?: outputs.pipes.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement[];
     }
@@ -48401,18 +48228,18 @@ export namespace pipes {
          */
         name?: string;
         /**
-         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
          */
         value?: string;
     }
 
     export interface PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement {
         /**
-         * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
          */
         type: string;
         /**
-         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
          */
         value: string;
     }
@@ -48423,7 +48250,7 @@ export namespace pipes {
          */
         jobId?: string;
         /**
-         * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
          */
         type?: string;
     }
@@ -48552,7 +48379,7 @@ export namespace pipes {
          */
         containerOverrides?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverride[];
         /**
-         * The cpu override for the task.
+         * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
          */
         cpu?: string;
         /**
@@ -48568,7 +48395,7 @@ export namespace pipes {
          */
         inferenceAcceleratorOverrides?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride[];
         /**
-         * The memory override for the task.
+         * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
          */
         memory?: string;
         /**
@@ -48579,11 +48406,11 @@ export namespace pipes {
 
     export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverride {
         /**
-         * List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+         * List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
          */
         commands?: string[];
         /**
-         * The cpu override for the task.
+         * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
          */
         cpu?: number;
         /**
@@ -48591,11 +48418,11 @@ export namespace pipes {
          */
         environmentFiles?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile[];
         /**
-         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
          */
         environments?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment[];
         /**
-         * The memory override for the task.
+         * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
          */
         memory?: number;
         /**
@@ -48607,7 +48434,7 @@ export namespace pipes {
          */
         name?: string;
         /**
-         * The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+         * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
          */
         resourceRequirements?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement[];
     }
@@ -48618,29 +48445,29 @@ export namespace pipes {
          */
         name?: string;
         /**
-         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
          */
         value?: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile {
         /**
-         * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
          */
         type: string;
         /**
-         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
          */
         value: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement {
         /**
-         * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
          */
         type: string;
         /**
-         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
          */
         value: string;
     }
@@ -48669,7 +48496,7 @@ export namespace pipes {
          */
         expression?: string;
         /**
-         * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
          */
         type?: string;
     }
@@ -48680,7 +48507,7 @@ export namespace pipes {
          */
         field?: string;
         /**
-         * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
          */
         type?: string;
     }
@@ -48777,7 +48604,7 @@ export namespace pipes {
          */
         name: string;
         /**
-         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
          */
         value: string;
     }
@@ -52382,7 +52209,7 @@ export namespace s3 {
          */
         format?: string;
         /**
-         * Object prefix for filtering.
+         * Prefix to append to exported analytics data.
          */
         prefix?: string;
     }
@@ -59192,7 +59019,7 @@ export namespace signer {
 
     export interface SigningJobSignedObject {
         /**
-         * A configuration block describing the S3 Source object: See S3 Source below for details.
+         * A configuration block describing the S3 Destination object: See S3 Destination below for details.
          */
         s3s: outputs.signer.SigningJobSignedObjectS3[];
     }
@@ -60442,10 +60269,6 @@ export namespace transfer {
          * Represents the map target.
          *
          * The `Restricted` option is achieved using the following mapping:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * ```
          */
         target: string;
     }
@@ -60487,7 +60310,7 @@ export namespace transfer {
          */
         tagStepDetails?: outputs.transfer.WorkflowOnExceptionStepTagStepDetails;
         /**
-         * One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+         * The type of encryption used. Currently, this value must be `"PGP"`.
          */
         type: string;
     }
@@ -60539,7 +60362,7 @@ export namespace transfer {
          */
         bucket?: string;
         /**
-         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         * The name assigned to the tag that you create.
          */
         key?: string;
     }
@@ -60614,7 +60437,7 @@ export namespace transfer {
          */
         bucket?: string;
         /**
-         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         * The name assigned to the tag that you create.
          */
         key?: string;
     }
@@ -60647,7 +60470,7 @@ export namespace transfer {
 
     export interface WorkflowOnExceptionStepTagStepDetailsTag {
         /**
-         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         * The name assigned to the tag that you create.
          */
         key: string;
         /**
@@ -60678,7 +60501,7 @@ export namespace transfer {
          */
         tagStepDetails?: outputs.transfer.WorkflowStepTagStepDetails;
         /**
-         * One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+         * The type of encryption used. Currently, this value must be `"PGP"`.
          */
         type: string;
     }
@@ -60730,7 +60553,7 @@ export namespace transfer {
          */
         bucket?: string;
         /**
-         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         * The name assigned to the tag that you create.
          */
         key?: string;
     }
@@ -60805,7 +60628,7 @@ export namespace transfer {
          */
         bucket?: string;
         /**
-         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         * The name assigned to the tag that you create.
          */
         key?: string;
     }
@@ -60838,7 +60661,7 @@ export namespace transfer {
 
     export interface WorkflowStepTagStepDetailsTag {
         /**
-         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         * The name assigned to the tag that you create.
          */
         key: string;
         /**
@@ -61388,14 +61211,14 @@ export namespace waf {
          */
         ruleId: string;
         /**
-         * e.g., `BLOCK`, `ALLOW`, or `COUNT`
+         * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
          */
         type?: string;
     }
 
     export interface RuleGroupActivatedRuleAction {
         /**
-         * e.g., `BLOCK`, `ALLOW`, or `COUNT`
+         * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
          */
         type: string;
     }
@@ -61721,14 +61544,14 @@ export namespace wafregional {
          */
         ruleId: string;
         /**
-         * e.g., `BLOCK`, `ALLOW`, or `COUNT`
+         * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
          */
         type?: string;
     }
 
     export interface RuleGroupActivatedRuleAction {
         /**
-         * e.g., `BLOCK`, `ALLOW`, or `COUNT`
+         * The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
          */
         type: string;
     }
@@ -61880,7 +61703,7 @@ export namespace wafregional {
 
     export interface WebAclRuleOverrideAction {
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
          */
         type: string;
     }
@@ -62278,7 +62101,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchBody {
         /**
-         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
          */
         oversizeHandling?: string;
     }
@@ -62551,16 +62374,6 @@ export namespace wafv2 {
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
          * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation[];
     }
@@ -62586,16 +62399,6 @@ export namespace wafv2 {
         name: string;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
          * At least one required.
          * See Text Transformation below for details.
          */
@@ -62635,16 +62438,6 @@ export namespace wafv2 {
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
          * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation[];
     }
@@ -62665,16 +62458,6 @@ export namespace wafv2 {
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
          * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
          */
         textTransformations: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation[];
     }
@@ -62693,16 +62476,6 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath {
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
          * At least one required.
          * See Text Transformation below for details.
          */
@@ -62858,7 +62631,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody {
         /**
-         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
          */
         oversizeHandling?: string;
     }
@@ -63125,7 +62898,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody {
         /**
-         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
          */
         oversizeHandling?: string;
     }
@@ -63319,7 +63092,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody {
         /**
-         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
          */
         oversizeHandling?: string;
     }
@@ -63517,7 +63290,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody {
         /**
-         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
          */
         oversizeHandling?: string;
     }
@@ -63707,7 +63480,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody {
         /**
-         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
          */
         oversizeHandling?: string;
     }
@@ -63897,7 +63670,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody {
         /**
-         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
          */
         oversizeHandling?: string;
     }
@@ -64091,7 +63864,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody {
         /**
-         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
          */
         oversizeHandling?: string;
     }
@@ -64285,7 +64058,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody {
         /**
-         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
          */
         oversizeHandling?: string;
     }
@@ -64483,7 +64256,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody {
         /**
-         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
          */
         oversizeHandling?: string;
     }
@@ -64673,7 +64446,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody {
         /**
-         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
          */
         oversizeHandling?: string;
     }
@@ -64863,7 +64636,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchBody {
         /**
-         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
          */
         oversizeHandling?: string;
     }
@@ -65880,7 +65653,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField {
         /**
-         * The name of the password field.
+         * The identifier for the value to match against in the JSON.
          */
         identifier: string;
     }
@@ -66123,11 +65896,11 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse {
         /**
-         * Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+         * Instructs AWS WAF to allow the web request. See `allow` below for details.
          */
         allow?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow;
         /**
-         * Specifies that AWS WAF should block requests by default. See `block` below for details.
+         * Instructs AWS WAF to block the web request. See `block` below for details.
          */
         block?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock;
         /**
@@ -69456,11 +69229,11 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse {
         /**
-         * Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+         * Instructs AWS WAF to allow the web request. See `allow` below for details.
          */
         allow?: outputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow;
         /**
-         * Specifies that AWS WAF should block requests by default. See `block` below for details.
+         * Instructs AWS WAF to block the web request. See `block` below for details.
          */
         block?: outputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock;
         /**

@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an SSM Parameter data source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = aws.ssm.getParameter({
- *     name: "foo",
- * });
- * ```
- *
- * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
  */
 export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterResult> {
 
@@ -63,19 +50,6 @@ export interface GetParameterResult {
 }
 /**
  * Provides an SSM Parameter data source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = aws.ssm.getParameter({
- *     name: "foo",
- * });
- * ```
- *
- * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
  */
 export function getParameterOutput(args: GetParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterResult> {
     return pulumi.output(args).apply((a: any) => getParameter(a, opts))

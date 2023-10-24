@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProxyProtocolPolicyArgs', 'ProxyProtocolPolicy']
@@ -23,8 +23,29 @@ class ProxyProtocolPolicyArgs:
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
         """
-        pulumi.set(__self__, "instance_ports", instance_ports)
-        pulumi.set(__self__, "load_balancer", load_balancer)
+        ProxyProtocolPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_ports=instance_ports,
+            load_balancer=load_balancer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             load_balancer: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_ports is None and 'instancePorts' in kwargs:
+            instance_ports = kwargs['instancePorts']
+        if instance_ports is None:
+            raise TypeError("Missing 'instance_ports' argument")
+        if load_balancer is None and 'loadBalancer' in kwargs:
+            load_balancer = kwargs['loadBalancer']
+        if load_balancer is None:
+            raise TypeError("Missing 'load_balancer' argument")
+
+        _setter("instance_ports", instance_ports)
+        _setter("load_balancer", load_balancer)
 
     @property
     @pulumi.getter(name="instancePorts")
@@ -65,10 +86,27 @@ class _ProxyProtocolPolicyState:
         :param pulumi.Input[str] load_balancer: The load balancer to which the policy
                should be attached.
         """
+        _ProxyProtocolPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_ports=instance_ports,
+            load_balancer=load_balancer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             load_balancer: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_ports is None and 'instancePorts' in kwargs:
+            instance_ports = kwargs['instancePorts']
+        if load_balancer is None and 'loadBalancer' in kwargs:
+            load_balancer = kwargs['loadBalancer']
+
         if instance_ports is not None:
-            pulumi.set(__self__, "instance_ports", instance_ports)
+            _setter("instance_ports", instance_ports)
         if load_balancer is not None:
-            pulumi.set(__self__, "load_balancer", load_balancer)
+            _setter("load_balancer", load_balancer)
 
     @property
     @pulumi.getter(name="instancePorts")
@@ -108,36 +146,6 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         """
         Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb = aws.elb.LoadBalancer("lb",
-            availability_zones=["us-east-1a"],
-            listeners=[
-                aws.elb.LoadBalancerListenerArgs(
-                    instance_port=25,
-                    instance_protocol="tcp",
-                    lb_port=25,
-                    lb_protocol="tcp",
-                ),
-                aws.elb.LoadBalancerListenerArgs(
-                    instance_port=587,
-                    instance_protocol="tcp",
-                    lb_port=587,
-                    lb_protocol="tcp",
-                ),
-            ])
-        smtp = aws.ec2.ProxyProtocolPolicy("smtp",
-            load_balancer=lb.name,
-            instance_ports=[
-                "25",
-                "587",
-            ])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_ports: List of instance ports to which the policy
@@ -154,36 +162,6 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         """
         Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb = aws.elb.LoadBalancer("lb",
-            availability_zones=["us-east-1a"],
-            listeners=[
-                aws.elb.LoadBalancerListenerArgs(
-                    instance_port=25,
-                    instance_protocol="tcp",
-                    lb_port=25,
-                    lb_protocol="tcp",
-                ),
-                aws.elb.LoadBalancerListenerArgs(
-                    instance_port=587,
-                    instance_protocol="tcp",
-                    lb_port=587,
-                    lb_protocol="tcp",
-                ),
-            ])
-        smtp = aws.ec2.ProxyProtocolPolicy("smtp",
-            load_balancer=lb.name,
-            instance_ports=[
-                "25",
-                "587",
-            ])
-        ```
-
         :param str resource_name: The name of the resource.
         :param ProxyProtocolPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,6 +172,10 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProxyProtocolPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

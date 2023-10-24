@@ -13,38 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides an Elastic network interface (ENI) resource.
     /// 
     /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ec2.NetworkInterface("test", new()
-    ///     {
-    ///         SubnetId = aws_subnet.Public_a.Id,
-    ///         PrivateIps = new[]
-    ///         {
-    ///             "10.0.0.50",
-    ///         },
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             aws_security_group.Web.Id,
-    ///         },
-    ///         Attachments = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.NetworkInterfaceAttachmentArgs
-    ///             {
-    ///                 Instance = aws_instance.Test.Id,
-    ///                 DeviceIndex = 1,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Example of Managing Multiple IPs on a Network Interface
     /// 
     /// By default, private IPs are managed through the `private_ips` and `private_ips_count` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.

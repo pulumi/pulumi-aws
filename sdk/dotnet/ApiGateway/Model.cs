@@ -12,36 +12,6 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides a Model for a REST API Gateway.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
-    ///     {
-    ///         Description = "This is my API for demonstration purposes",
-    ///     });
-    /// 
-    ///     var myDemoModel = new Aws.ApiGateway.Model("myDemoModel", new()
-    ///     {
-    ///         RestApi = myDemoAPI.Id,
-    ///         Description = "a JSON schema",
-    ///         ContentType = "application/json",
-    ///         Schema = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["type"] = "object",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -292,23 +292,6 @@ def get_load_balancer(arn: Optional[str] = None,
     variable and needs to, for example, determine the security groups associated
     with it, etc.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_arn = config.get("lbArn")
-    if lb_arn is None:
-        lb_arn = ""
-    lb_name = config.get("lbName")
-    if lb_name is None:
-        lb_name = ""
-    test = aws.lb.get_load_balancer(arn=lb_arn,
-        name=lb_name)
-    ```
-
 
     :param str arn: Full ARN of the load balancer.
     :param str name: Unique name of the load balancer.
@@ -366,23 +349,6 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     This data source can prove useful when a module accepts an LB as an input
     variable and needs to, for example, determine the security groups associated
     with it, etc.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    lb_arn = config.get("lbArn")
-    if lb_arn is None:
-        lb_arn = ""
-    lb_name = config.get("lbName")
-    if lb_name is None:
-        lb_name = ""
-    test = aws.lb.get_load_balancer(arn=lb_arn,
-        name=lb_name)
-    ```
 
 
     :param str arn: Full ARN of the load balancer.

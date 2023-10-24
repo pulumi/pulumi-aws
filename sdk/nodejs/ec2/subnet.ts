@@ -10,38 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.ec2.Subnet("main", {
- *     vpcId: aws_vpc.main.id,
- *     cidrBlock: "10.0.1.0/24",
- *     tags: {
- *         Name: "Main",
- *     },
- * });
- * ```
- * ### Subnets In Secondary VPC CIDR Blocks
- *
- * When managing subnets in one of a VPC's secondary CIDR blocks created using a `aws.ec2.VpcIpv4CidrBlockAssociation`
- * resource, it is recommended to reference that resource's `vpcId` attribute to ensure correct dependency ordering.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", {
- *     vpcId: aws_vpc.main.id,
- *     cidrBlock: "172.20.0.0/16",
- * });
- * const inSecondaryCidr = new aws.ec2.Subnet("inSecondaryCidr", {
- *     vpcId: secondaryCidr.vpcId,
- *     cidrBlock: "172.20.0.0/24",
- * });
- * ```
  *
  * ## Import
  *

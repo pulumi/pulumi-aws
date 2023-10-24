@@ -12,48 +12,6 @@ import * as utilities from "../utilities";
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.UserHierarchyStructure("example", {
- *     hierarchyStructure: {
- *         levelOne: {
- *             name: "levelone",
- *         },
- *     },
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- * });
- * ```
- * ### With Five Levels
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.UserHierarchyStructure("example", {
- *     hierarchyStructure: {
- *         levelFive: {
- *             name: "levelfive",
- *         },
- *         levelFour: {
- *             name: "levelfour",
- *         },
- *         levelOne: {
- *             name: "levelone",
- *         },
- *         levelThree: {
- *             name: "levelthree",
- *         },
- *         levelTwo: {
- *             name: "leveltwo",
- *         },
- *     },
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- * });
- * ```
  *
  * ## Import
  *

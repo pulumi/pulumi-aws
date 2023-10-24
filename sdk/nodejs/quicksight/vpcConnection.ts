@@ -11,51 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS QuickSight VPC Connection.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const vpcConnectionRole = new aws.iam.Role("vpcConnectionRole", {
- *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: "sts:AssumeRole",
- *             Principal: {
- *                 Service: "quicksight.amazonaws.com",
- *             },
- *         }],
- *     }),
- *     inlinePolicies: [{
- *         name: "QuickSightVPCConnectionRolePolicy",
- *         policy: JSON.stringify({
- *             Version: "2012-10-17",
- *             Statement: [{
- *                 Effect: "Allow",
- *                 Action: [
- *                     "ec2:CreateNetworkInterface",
- *                     "ec2:ModifyNetworkInterfaceAttribute",
- *                     "ec2:DeleteNetworkInterface",
- *                     "ec2:DescribeSubnets",
- *                     "ec2:DescribeSecurityGroups",
- *                 ],
- *                 Resource: ["*"],
- *             }],
- *         }),
- *     }],
- * });
- * const example = new aws.quicksight.VpcConnection("example", {
- *     vpcConnectionId: "example-connection-id",
- *     roleArn: vpcConnectionRole.arn,
- *     securityGroupIds: ["sg-00000000000000000"],
- *     subnetIds: [
- *         "subnet-00000000000000000",
- *         "subnet-00000000000000001",
- *     ],
- * });
- * ```
  *
  * ## Import
  *

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttpRouteMatchQueryParameterMatch {
     /**
-     * @return Value used to replace matched path.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     private @Nullable String exact;
 
     private GatewayRouteSpecHttpRouteMatchQueryParameterMatch() {}
     /**
-     * @return Value used to replace matched path.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     public Optional<String> exact() {

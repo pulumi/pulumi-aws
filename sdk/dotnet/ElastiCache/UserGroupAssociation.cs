@@ -14,59 +14,6 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// &gt; **NOTE:** The provider will detect changes in the `aws.elasticache.UserGroup` since `aws.elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.ElastiCache.User("default", new()
-    ///     {
-    ///         UserId = "defaultUserID",
-    ///         UserName = "default",
-    ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-    ///         Engine = "REDIS",
-    ///         Passwords = new[]
-    ///         {
-    ///             "password123456789",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleUserGroup = new Aws.ElastiCache.UserGroup("exampleUserGroup", new()
-    ///     {
-    ///         Engine = "REDIS",
-    ///         UserGroupId = "userGroupId",
-    ///         UserIds = new[]
-    ///         {
-    ///             @default.UserId,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleUser = new Aws.ElastiCache.User("exampleUser", new()
-    ///     {
-    ///         UserId = "exampleUserID",
-    ///         UserName = "exampleuser",
-    ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-    ///         Engine = "REDIS",
-    ///         Passwords = new[]
-    ///         {
-    ///             "password123456789",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleUserGroupAssociation = new Aws.ElastiCache.UserGroupAssociation("exampleUserGroupAssociation", new()
-    ///     {
-    ///         UserGroupId = exampleUserGroup.UserGroupId,
-    ///         UserId = exampleUser.UserId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:

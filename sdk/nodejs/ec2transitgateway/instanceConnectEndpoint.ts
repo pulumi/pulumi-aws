@@ -10,15 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an EC2 Instance Connect Endpoint.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.InstanceConnectEndpoint("example", {subnetId: aws_subnet.example.id});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:

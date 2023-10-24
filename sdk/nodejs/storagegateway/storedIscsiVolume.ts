@@ -10,35 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** The gateway must have a working storage added (e.g., via the `aws.storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
  *
  * ## Example Usage
- * ### Create Empty Stored iSCSI Volume
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.storagegateway.StoredIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
- *     networkInterfaceId: aws_instance.example.private_ip,
- *     targetName: "example",
- *     preserveExistingData: false,
- *     diskId: data.aws_storagegateway_local_disk.test.id,
- * });
- * ```
- * ### Create Stored iSCSI Volume From Snapshot
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.storagegateway.StoredIscsiVolume("example", {
- *     gatewayArn: aws_storagegateway_cache.example.gateway_arn,
- *     networkInterfaceId: aws_instance.example.private_ip,
- *     snapshotId: aws_ebs_snapshot.example.id,
- *     targetName: "example",
- *     preserveExistingData: false,
- *     diskId: data.aws_storagegateway_local_disk.test.id,
- * });
- * ```
  *
  * ## Import
  *

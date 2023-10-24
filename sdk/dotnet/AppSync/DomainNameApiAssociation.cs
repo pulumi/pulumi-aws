@@ -12,25 +12,6 @@ namespace Pulumi.Aws.AppSync
     /// <summary>
     /// Provides an AppSync API Association.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.DomainNameApiAssociation("example", new()
-    ///     {
-    ///         ApiId = aws_appsync_graphql_api.Example.Id,
-    ///         DomainName = aws_appsync_domain_name.Example.Domain_name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For example:

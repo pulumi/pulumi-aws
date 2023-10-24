@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks RDS DB Instance resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myInstance = new aws.opsworks.RdsDbInstance("myInstance", {
- *     stackId: aws_opsworks_stack.my_stack.id,
- *     rdsDbInstanceArn: aws_db_instance.my_instance.arn,
- *     dbUser: "someUser",
- *     dbPassword: "somePass",
- * });
- * ```
  */
 export class RdsDbInstance extends pulumi.CustomResource {
     /**

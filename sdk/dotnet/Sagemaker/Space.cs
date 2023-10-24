@@ -13,24 +13,6 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Space resource.
     /// 
     /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.Space("example", new()
-    ///     {
-    ///         DomainId = aws_sagemaker_domain.Test.Id,
-    ///         SpaceName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

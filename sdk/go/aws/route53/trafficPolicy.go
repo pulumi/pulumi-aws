@@ -15,46 +15,6 @@ import (
 
 // Manages a Route53 Traffic Policy.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewTrafficPolicy(ctx, "example", &route53.TrafficPolicyArgs{
-//				Comment: pulumi.String("example comment"),
-//				Document: pulumi.String(`{
-//	  "AWSPolicyFormatVersion": "2015-10-01",
-//	  "RecordType": "A",
-//	  "Endpoints": {
-//	    "endpoint-start-NkPh": {
-//	      "Type": "value",
-//	      "Value": "10.0.0.2"
-//	    }
-//	  },
-//	  "StartEndpoint": "endpoint-start-NkPh"
-//	}
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For example:

@@ -13,41 +13,6 @@ namespace Pulumi.Aws.Rbin
     /// Resource for managing an AWS RBin Rule.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rbin.Rule("example", new()
-    ///     {
-    ///         Description = "example_rule",
-    ///         ResourceTags = new[]
-    ///         {
-    ///             new Aws.Rbin.Inputs.RuleResourceTagArgs
-    ///             {
-    ///                 ResourceTagKey = "tag_key",
-    ///                 ResourceTagValue = "tag_value",
-    ///             },
-    ///         },
-    ///         ResourceType = "EBS_SNAPSHOT",
-    ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
-    ///         {
-    ///             RetentionPeriodUnit = "DAYS",
-    ///             RetentionPeriodValue = 10,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "test_tag_key", "test_tag_value" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

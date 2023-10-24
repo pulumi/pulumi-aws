@@ -16,69 +16,6 @@ import (
 // Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSink, err := oam.NewSink(ctx, "exampleSink", nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"oam:CreateLink",
-//							"oam:UpdateLink",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//						"Principal": map[string]interface{}{
-//							"AWS": []string{
-//								"1111111111111",
-//								"222222222222",
-//							},
-//						},
-//						"Condition": map[string]interface{}{
-//							"ForAllValues:StringEquals": map[string]interface{}{
-//								"oam:ResourceTypes": []string{
-//									"AWS::CloudWatch::Metric",
-//									"AWS::Logs::LogGroup",
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = oam.NewSinkPolicy(ctx, "exampleSinkPolicy", &oam.SinkPolicyArgs{
-//				SinkIdentifier: exampleSink.ID(),
-//				Policy:         pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

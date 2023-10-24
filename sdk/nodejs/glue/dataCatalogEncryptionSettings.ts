@@ -10,24 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Glue Data Catalog Encryption Settings resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.DataCatalogEncryptionSettings("example", {dataCatalogEncryptionSettings: {
- *     connectionPasswordEncryption: {
- *         awsKmsKeyId: aws_kms_key.test.arn,
- *         returnConnectionPasswordEncrypted: true,
- *     },
- *     encryptionAtRest: {
- *         catalogEncryptionMode: "SSE-KMS",
- *         sseAwsKmsKeyId: aws_kms_key.test.arn,
- *     },
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For example:

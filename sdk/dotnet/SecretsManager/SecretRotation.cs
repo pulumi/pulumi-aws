@@ -13,28 +13,7 @@ namespace Pulumi.Aws.SecretsManager
     /// Provides a resource to manage AWS Secrets Manager secret rotation. To manage a secret, see the `aws.secretsmanager.Secret` resource. To manage a secret value, see the `aws.secretsmanager.SecretVersion` resource.
     /// 
     /// ## Example Usage
-    /// ### Basic
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecretsManager.SecretRotation("example", new()
-    ///     {
-    ///         SecretId = aws_secretsmanager_secret.Example.Id,
-    ///         RotationLambdaArn = aws_lambda_function.Example.Arn,
-    ///         RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRotationRulesArgs
-    ///         {
-    ///             AutomaticallyAfterDays = 30,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Rotation Configuration
     /// 
     /// To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.

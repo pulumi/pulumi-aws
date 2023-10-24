@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a lightsail bucket.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lightsail.Bucket("test", {bundleId: "small_1_0"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:

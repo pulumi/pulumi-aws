@@ -10,23 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Runner Observability Configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apprunner.ObservabilityConfiguration("example", {
- *     observabilityConfigurationName: "example",
- *     tags: {
- *         Name: "example-apprunner-observability-configuration",
- *     },
- *     traceConfiguration: {
- *         vendor: "AWSXRAY",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:

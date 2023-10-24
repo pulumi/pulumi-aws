@@ -13,63 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides an Traffic mirror filter rule.\
     /// Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
     /// 
-    /// ## Example Usage
-    /// 
-    /// To create a basic traffic mirror session
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var filter = new Aws.Ec2.TrafficMirrorFilter("filter", new()
-    ///     {
-    ///         Description = "traffic mirror filter - example",
-    ///         NetworkServices = new[]
-    ///         {
-    ///             "amazon-dns",
-    ///         },
-    ///     });
-    /// 
-    ///     var ruleout = new Aws.Ec2.TrafficMirrorFilterRule("ruleout", new()
-    ///     {
-    ///         Description = "test rule",
-    ///         TrafficMirrorFilterId = filter.Id,
-    ///         DestinationCidrBlock = "10.0.0.0/8",
-    ///         SourceCidrBlock = "10.0.0.0/8",
-    ///         RuleNumber = 1,
-    ///         RuleAction = "accept",
-    ///         TrafficDirection = "egress",
-    ///     });
-    /// 
-    ///     var rulein = new Aws.Ec2.TrafficMirrorFilterRule("rulein", new()
-    ///     {
-    ///         Description = "test rule",
-    ///         TrafficMirrorFilterId = filter.Id,
-    ///         DestinationCidrBlock = "10.0.0.0/8",
-    ///         SourceCidrBlock = "10.0.0.0/8",
-    ///         RuleNumber = 1,
-    ///         RuleAction = "accept",
-    ///         TrafficDirection = "ingress",
-    ///         Protocol = 6,
-    ///         DestinationPortRange = new Aws.Ec2.Inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs
-    ///         {
-    ///             FromPort = 22,
-    ///             ToPort = 53,
-    ///         },
-    ///         SourcePortRange = new Aws.Ec2.Inputs.TrafficMirrorFilterRuleSourcePortRangeArgs
-    ///         {
-    ///             FromPort = 0,
-    ///             ToPort = 10,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For example:

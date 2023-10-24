@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TargetGroupAttachmentArgs', 'TargetGroupAttachment']
@@ -27,12 +27,39 @@ class TargetGroupAttachmentArgs:
         :param pulumi.Input[str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         :param pulumi.Input[int] port: The port on which targets receive traffic.
         """
-        pulumi.set(__self__, "target_group_arn", target_group_arn)
-        pulumi.set(__self__, "target_id", target_id)
+        TargetGroupAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_group_arn=target_group_arn,
+            target_id=target_id,
+            availability_zone=availability_zone,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_group_arn: Optional[pulumi.Input[str]] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_group_arn is None and 'targetGroupArn' in kwargs:
+            target_group_arn = kwargs['targetGroupArn']
+        if target_group_arn is None:
+            raise TypeError("Missing 'target_group_arn' argument")
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if target_id is None:
+            raise TypeError("Missing 'target_id' argument")
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+
+        _setter("target_group_arn", target_group_arn)
+        _setter("target_id", target_id)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="targetGroupArn")
@@ -101,14 +128,37 @@ class _TargetGroupAttachmentState:
                
                The following arguments are optional:
         """
+        _TargetGroupAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            port=port,
+            target_group_arn=target_group_arn,
+            target_id=target_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             target_group_arn: Optional[pulumi.Input[str]] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if target_group_arn is None and 'targetGroupArn' in kwargs:
+            target_group_arn = kwargs['targetGroupArn']
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if target_group_arn is not None:
-            pulumi.set(__self__, "target_group_arn", target_group_arn)
+            _setter("target_group_arn", target_group_arn)
         if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+            _setter("target_id", target_id)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -177,62 +227,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
         > **Note:** `alb.TargetGroupAttachment` is known as `lb.TargetGroupAttachment`. The functionality is identical.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_target_group = aws.lb.TargetGroup("testTargetGroup")
-        # ... other configuration ...
-        test_instance = aws.ec2.Instance("testInstance")
-        # ... other configuration ...
-        test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
-            target_group_arn=test_target_group.arn,
-            target_id=test_instance.id,
-            port=80)
-        ```
-        ### Lambda Target
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_target_group = aws.lb.TargetGroup("testTargetGroup", target_type="lambda")
-        test_function = aws.lambda_.Function("testFunction")
-        # ... other configuration ...
-        with_lb = aws.lambda_.Permission("withLb",
-            action="lambda:InvokeFunction",
-            function=test_function.name,
-            principal="elasticloadbalancing.amazonaws.com",
-            source_arn=test_target_group.arn)
-        test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
-            target_group_arn=test_target_group.arn,
-            target_id=test_function.arn,
-            opts=pulumi.ResourceOptions(depends_on=[with_lb]))
-        ```
-        ### Registering Multiple Targets
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_instance = []
-        for range in [{"value": i} for i in range(0, 3)]:
-            example_instance.append(aws.ec2.Instance(f"exampleInstance-{range['value']}"))
-        # ... other configuration ...
-        example_target_group = aws.lb.TargetGroup("exampleTargetGroup")
-        # ... other configuration ...
-        example_target_group_attachment = []
-        def create_example_target_group_attachment(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
-                example_target_group_attachment.append(aws.lb.TargetGroupAttachment(f"exampleTargetGroupAttachment-{range['key']}",
-                    target_group_arn=example_target_group.arn,
-                    target_id=range["value"],
-                    port=80))
-
-        pulumi.Output.all({v.id: v for k, v in example_instance}).apply(lambda resolved_outputs: create_example_target_group_attachment(resolved_outputs[0]))
-        ```
 
         ## Import
 
@@ -259,62 +253,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
         > **Note:** `alb.TargetGroupAttachment` is known as `lb.TargetGroupAttachment`. The functionality is identical.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_target_group = aws.lb.TargetGroup("testTargetGroup")
-        # ... other configuration ...
-        test_instance = aws.ec2.Instance("testInstance")
-        # ... other configuration ...
-        test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
-            target_group_arn=test_target_group.arn,
-            target_id=test_instance.id,
-            port=80)
-        ```
-        ### Lambda Target
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_target_group = aws.lb.TargetGroup("testTargetGroup", target_type="lambda")
-        test_function = aws.lambda_.Function("testFunction")
-        # ... other configuration ...
-        with_lb = aws.lambda_.Permission("withLb",
-            action="lambda:InvokeFunction",
-            function=test_function.name,
-            principal="elasticloadbalancing.amazonaws.com",
-            source_arn=test_target_group.arn)
-        test_target_group_attachment = aws.lb.TargetGroupAttachment("testTargetGroupAttachment",
-            target_group_arn=test_target_group.arn,
-            target_id=test_function.arn,
-            opts=pulumi.ResourceOptions(depends_on=[with_lb]))
-        ```
-        ### Registering Multiple Targets
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_instance = []
-        for range in [{"value": i} for i in range(0, 3)]:
-            example_instance.append(aws.ec2.Instance(f"exampleInstance-{range['value']}"))
-        # ... other configuration ...
-        example_target_group = aws.lb.TargetGroup("exampleTargetGroup")
-        # ... other configuration ...
-        example_target_group_attachment = []
-        def create_example_target_group_attachment(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
-                example_target_group_attachment.append(aws.lb.TargetGroupAttachment(f"exampleTargetGroupAttachment-{range['key']}",
-                    target_group_arn=example_target_group.arn,
-                    target_id=range["value"],
-                    port=80))
-
-        pulumi.Output.all({v.id: v for k, v in example_instance}).apply(lambda resolved_outputs: create_example_target_group_attachment(resolved_outputs[0]))
-        ```
 
         ## Import
 
@@ -330,6 +268,10 @@ class TargetGroupAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TargetGroupAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -20,90 +20,6 @@ import (
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := scheduler.NewSchedule(ctx, "example", &scheduler.ScheduleArgs{
-//				GroupName: pulumi.String("default"),
-//				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
-//					Mode: pulumi.String("OFF"),
-//				},
-//				ScheduleExpression: pulumi.String("rate(1 hours)"),
-//				Target: &scheduler.ScheduleTargetArgs{
-//					Arn:     pulumi.Any(aws_sqs_queue.Example.Arn),
-//					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Universal Target
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleQueue, err := sqs.NewQueue(ctx, "exampleQueue", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = scheduler.NewSchedule(ctx, "exampleSchedule", &scheduler.ScheduleArgs{
-//				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
-//					Mode: pulumi.String("OFF"),
-//				},
-//				ScheduleExpression: pulumi.String("rate(1 hours)"),
-//				Target: &scheduler.ScheduleTargetArgs{
-//					Arn:     pulumi.String("arn:aws:scheduler:::aws-sdk:sqs:sendMessage"),
-//					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//					Input: exampleQueue.Url.ApplyT(func(url string) (pulumi.String, error) {
-//						var _zero pulumi.String
-//						tmpJSON0, err := json.Marshal(map[string]interface{}{
-//							"MessageBody": "Greetings, programs!",
-//							"QueueUrl":    url,
-//						})
-//						if err != nil {
-//							return _zero, err
-//						}
-//						json0 := string(tmpJSON0)
-//						return pulumi.String(json0), nil
-//					}).(pulumi.StringOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -117,7 +33,7 @@ import (
 type Schedule struct {
 	pulumi.CustomResourceState
 
-	// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+	// ARN of the SQS queue specified as the destination for the dead-letter queue.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Brief description of the schedule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -186,7 +102,7 @@ func GetSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
-	// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+	// ARN of the SQS queue specified as the destination for the dead-letter queue.
 	Arn *string `pulumi:"arn"`
 	// Brief description of the schedule.
 	Description *string `pulumi:"description"`
@@ -217,7 +133,7 @@ type scheduleState struct {
 }
 
 type ScheduleState struct {
-	// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+	// ARN of the SQS queue specified as the destination for the dead-letter queue.
 	Arn pulumi.StringPtrInput
 	// Brief description of the schedule.
 	Description pulumi.StringPtrInput
@@ -421,7 +337,7 @@ func (o ScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*Schedule] 
 	}
 }
 
-// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+// ARN of the SQS queue specified as the destination for the dead-letter queue.
 func (o ScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

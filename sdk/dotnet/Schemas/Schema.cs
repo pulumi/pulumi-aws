@@ -14,58 +14,6 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testRegistry = new Aws.Schemas.Registry("testRegistry");
-    /// 
-    ///     var testSchema = new Aws.Schemas.Schema("testSchema", new()
-    ///     {
-    ///         RegistryName = testRegistry.Name,
-    ///         Type = "OpenApi3",
-    ///         Description = "The schema definition for my event",
-    ///         Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["openapi"] = "3.0.0",
-    ///             ["info"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["version"] = "1.0.0",
-    ///                 ["title"] = "Event",
-    ///             },
-    ///             ["paths"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///             },
-    ///             ["components"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["schemas"] = new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Event"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["type"] = "object",
-    ///                         ["properties"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["name"] = new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 ["type"] = "string",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:

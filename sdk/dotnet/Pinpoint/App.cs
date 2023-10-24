@@ -12,32 +12,6 @@ namespace Pulumi.Aws.Pinpoint
     /// <summary>
     /// Provides a Pinpoint App resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Pinpoint.App("example", new()
-    ///     {
-    ///         Limits = new Aws.Pinpoint.Inputs.AppLimitsArgs
-    ///         {
-    ///             MaximumDuration = 600,
-    ///         },
-    ///         QuietTime = new Aws.Pinpoint.Inputs.AppQuietTimeArgs
-    ///         {
-    ///             End = "06:00",
-    ///             Start = "00:00",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Pinpoint App using the `application-id`. For example:

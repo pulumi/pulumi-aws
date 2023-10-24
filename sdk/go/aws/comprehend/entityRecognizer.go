@@ -16,65 +16,6 @@ import (
 // Resource for managing an AWS Comprehend Entity Recognizer.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/comprehend"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			documents, err := s3.NewBucketObjectv2(ctx, "documents", nil)
-//			if err != nil {
-//				return err
-//			}
-//			entities, err := s3.NewBucketObjectv2(ctx, "entities", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = comprehend.NewEntityRecognizer(ctx, "example", &comprehend.EntityRecognizerArgs{
-//				DataAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				LanguageCode:      pulumi.String("en"),
-//				InputDataConfig: &comprehend.EntityRecognizerInputDataConfigArgs{
-//					EntityTypes: comprehend.EntityRecognizerInputDataConfigEntityTypeArray{
-//						&comprehend.EntityRecognizerInputDataConfigEntityTypeArgs{
-//							Type: pulumi.String("ENTITY_1"),
-//						},
-//						&comprehend.EntityRecognizerInputDataConfigEntityTypeArgs{
-//							Type: pulumi.String("ENTITY_2"),
-//						},
-//					},
-//					Documents: &comprehend.EntityRecognizerInputDataConfigDocumentsArgs{
-//						S3Uri: documents.ID().ApplyT(func(id string) (string, error) {
-//							return fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Documents.Bucket, id), nil
-//						}).(pulumi.StringOutput),
-//					},
-//					EntityList: &comprehend.EntityRecognizerInputDataConfigEntityListArgs{
-//						S3Uri: entities.ID().ApplyT(func(id string) (string, error) {
-//							return fmt.Sprintf("s3://%v/%v", aws_s3_bucket.Entities.Bucket, id), nil
-//						}).(pulumi.StringOutput),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_role_policy.Example,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

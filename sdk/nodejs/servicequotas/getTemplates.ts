@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Service Quotas Templates.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.servicequotas.getTemplates({
- *     region: "us-east-1",
- * });
- * ```
  */
 export function getTemplates(args: GetTemplatesArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplatesResult> {
 
@@ -63,16 +53,6 @@ export interface GetTemplatesResult {
  * Data source for managing an AWS Service Quotas Templates.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.servicequotas.getTemplates({
- *     region: "us-east-1",
- * });
- * ```
  */
 export function getTemplatesOutput(args: GetTemplatesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplatesResult> {
     return pulumi.output(args).apply((a: any) => getTemplates(a, opts))

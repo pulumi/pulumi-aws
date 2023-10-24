@@ -8,26 +8,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Connect Vocabulary resource. For more information see
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.Vocabulary("example", {
- *     content: `Phrase	IPA	SoundsLike	DisplayAs
- * Los-Angeles			Los Angeles
- * F.B.I.	ɛ f b i aɪ		FBI
- * Etienne		eh-tee-en	
- * `,
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     languageCode: "en-US",
- *     tags: {
- *         Key1: "Value1",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Vocabularies using the `instance_id` and `vocabulary_id` separated by a colon (`:`). For example:

@@ -14,56 +14,6 @@ import (
 )
 
 // Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
-//				MulticastSupport: pulumi.String("enable"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpcAttachment, err := ec2transitgateway.NewVpcAttachment(ctx, "exampleVpcAttachment", &ec2transitgateway.VpcAttachmentArgs{
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example.Id,
-//				},
-//				TransitGatewayId: exampleTransitGateway.ID(),
-//				VpcId:            pulumi.Any(aws_vpc.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleMulticastDomain, err := ec2transitgateway.NewMulticastDomain(ctx, "exampleMulticastDomain", &ec2transitgateway.MulticastDomainArgs{
-//				TransitGatewayId: exampleTransitGateway.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2transitgateway.NewMulticastDomainAssociation(ctx, "exampleMulticastDomainAssociation", &ec2transitgateway.MulticastDomainAssociationArgs{
-//				SubnetId:                        pulumi.Any(aws_subnet.Example.Id),
-//				TransitGatewayAttachmentId:      exampleVpcAttachment.ID(),
-//				TransitGatewayMulticastDomainId: exampleMulticastDomain.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type MulticastDomainAssociation struct {
 	pulumi.CustomResourceState
 

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,37 @@ class EventConnectionArgs:
         :param pulumi.Input[str] description: Enter a description for the connection. Maximum of 512 characters.
         :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         """
-        pulumi.set(__self__, "auth_parameters", auth_parameters)
-        pulumi.set(__self__, "authorization_type", authorization_type)
+        EventConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_parameters=auth_parameters,
+            authorization_type=authorization_type,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_parameters: Optional[pulumi.Input['EventConnectionAuthParametersArgs']] = None,
+             authorization_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_parameters is None and 'authParameters' in kwargs:
+            auth_parameters = kwargs['authParameters']
+        if auth_parameters is None:
+            raise TypeError("Missing 'auth_parameters' argument")
+        if authorization_type is None and 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if authorization_type is None:
+            raise TypeError("Missing 'authorization_type' argument")
+
+        _setter("auth_parameters", auth_parameters)
+        _setter("authorization_type", authorization_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="authParameters")
@@ -101,18 +126,45 @@ class _EventConnectionState:
         :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
         """
+        _EventConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auth_parameters=auth_parameters,
+            authorization_type=authorization_type,
+            description=description,
+            name=name,
+            secret_arn=secret_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auth_parameters: Optional[pulumi.Input['EventConnectionAuthParametersArgs']] = None,
+             authorization_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_parameters is None and 'authParameters' in kwargs:
+            auth_parameters = kwargs['authParameters']
+        if authorization_type is None and 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auth_parameters is not None:
-            pulumi.set(__self__, "auth_parameters", auth_parameters)
+            _setter("auth_parameters", auth_parameters)
         if authorization_type is not None:
-            pulumi.set(__self__, "authorization_type", authorization_type)
+            _setter("authorization_type", authorization_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
 
     @property
     @pulumi.getter
@@ -202,39 +254,6 @@ class EventConnection(pulumi.CustomResource):
 
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cloudwatch.EventConnection("test",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                api_key=aws.cloudwatch.EventConnectionAuthParametersApiKeyArgs(
-                    key="x-signature",
-                    value="1234",
-                ),
-            ),
-            authorization_type="API_KEY",
-            description="A connection description")
-        ```
-        ### Basic Authorization
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cloudwatch.EventConnection("test",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
-                    password="Pass1234!",
-                    username="user",
-                ),
-            ),
-            authorization_type="BASIC",
-            description="A connection description")
-        ```
-
         ## Import
 
         Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
@@ -261,39 +280,6 @@ class EventConnection(pulumi.CustomResource):
 
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cloudwatch.EventConnection("test",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                api_key=aws.cloudwatch.EventConnectionAuthParametersApiKeyArgs(
-                    key="x-signature",
-                    value="1234",
-                ),
-            ),
-            authorization_type="API_KEY",
-            description="A connection description")
-        ```
-        ### Basic Authorization
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cloudwatch.EventConnection("test",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
-                    password="Pass1234!",
-                    username="user",
-                ),
-            ),
-            authorization_type="BASIC",
-            description="A connection description")
-        ```
-
         ## Import
 
         Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
@@ -312,6 +298,10 @@ class EventConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -330,6 +320,7 @@ class EventConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventConnectionArgs.__new__(EventConnectionArgs)
 
+            auth_parameters = _utilities.configure(auth_parameters, EventConnectionAuthParametersArgs, True)
             if auth_parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_parameters'")
             __props__.__dict__["auth_parameters"] = auth_parameters

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -119,15 +119,6 @@ def get_alias(description: Optional[str] = None,
     Data source for managing an AWS SFN (Step Functions) State Machine Alias.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sfn.get_alias(name="my_sfn_alias",
-        statemachine_arn=aws_sfn_state_machine["sfn_test"]["arn"])
-    ```
 
 
     :param str description: Description of state machine alias.
@@ -160,15 +151,6 @@ def get_alias_output(description: Optional[pulumi.Input[Optional[str]]] = None,
     Data source for managing an AWS SFN (Step Functions) State Machine Alias.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sfn.get_alias(name="my_sfn_alias",
-        statemachine_arn=aws_sfn_state_machine["sfn_test"]["arn"])
-    ```
 
 
     :param str description: Description of state machine alias.

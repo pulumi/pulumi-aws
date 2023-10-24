@@ -7,50 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CloudWatch Dashboard resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.cloudwatch.Dashboard("main", {
- *     dashboardName: "my-dashboard",
- *     dashboardBody: JSON.stringify({
- *         widgets: [
- *             {
- *                 type: "metric",
- *                 x: 0,
- *                 y: 0,
- *                 width: 12,
- *                 height: 6,
- *                 properties: {
- *                     metrics: [[
- *                         "AWS/EC2",
- *                         "CPUUtilization",
- *                         "InstanceId",
- *                         "i-012345",
- *                     ]],
- *                     period: 300,
- *                     stat: "Average",
- *                     region: "us-east-1",
- *                     title: "EC2 Instance CPU",
- *                 },
- *             },
- *             {
- *                 type: "text",
- *                 x: 0,
- *                 y: 7,
- *                 width: 3,
- *                 height: 3,
- *                 properties: {
- *                     markdown: "Hello world",
- *                 },
- *             },
- *         ],
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:

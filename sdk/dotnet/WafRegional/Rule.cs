@@ -12,44 +12,6 @@ namespace Pulumi.Aws.WafRegional
     /// <summary>
     /// Provides an WAF Regional Rule Resource for use with Application Load Balancer.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
-    ///     {
-    ///         IpSetDescriptors = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
-    ///             {
-    ///                 Type = "IPV4",
-    ///                 Value = "192.0.7.0/24",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var wafrule = new Aws.WafRegional.Rule("wafrule", new()
-    ///     {
-    ///         MetricName = "tfWAFRule",
-    ///         Predicates = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.RulePredicateArgs
-    ///             {
-    ///                 Type = "IPMatch",
-    ///                 DataId = ipset.Id,
-    ///                 Negated = false,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Nested Fields
     /// 
     /// ### `predicate`

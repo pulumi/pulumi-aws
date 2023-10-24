@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AvailabilityZoneGroupArgs', 'AvailabilityZoneGroup']
@@ -21,8 +21,29 @@ class AvailabilityZoneGroupArgs:
         :param pulumi.Input[str] group_name: Name of the Availability Zone Group.
         :param pulumi.Input[str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         """
-        pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "opt_in_status", opt_in_status)
+        AvailabilityZoneGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            opt_in_status=opt_in_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: Optional[pulumi.Input[str]] = None,
+             opt_in_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if opt_in_status is None and 'optInStatus' in kwargs:
+            opt_in_status = kwargs['optInStatus']
+        if opt_in_status is None:
+            raise TypeError("Missing 'opt_in_status' argument")
+
+        _setter("group_name", group_name)
+        _setter("opt_in_status", opt_in_status)
 
     @property
     @pulumi.getter(name="groupName")
@@ -59,10 +80,27 @@ class _AvailabilityZoneGroupState:
         :param pulumi.Input[str] group_name: Name of the Availability Zone Group.
         :param pulumi.Input[str] opt_in_status: Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         """
+        _AvailabilityZoneGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            opt_in_status=opt_in_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: Optional[pulumi.Input[str]] = None,
+             opt_in_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if opt_in_status is None and 'optInStatus' in kwargs:
+            opt_in_status = kwargs['optInStatus']
+
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
         if opt_in_status is not None:
-            pulumi.set(__self__, "opt_in_status", opt_in_status)
+            _setter("opt_in_status", opt_in_status)
 
     @property
     @pulumi.getter(name="groupName")
@@ -102,17 +140,6 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
 
         > **NOTE:** This is an advanced resource. The provider will automatically assume management of the EC2 Availability Zone Group without import and perform no actions on removal from configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AvailabilityZoneGroup("example",
-            group_name="us-west-2-lax-1",
-            opt_in_status="opted-in")
-        ```
-
         ## Import
 
         Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For example:
@@ -137,17 +164,6 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
 
         > **NOTE:** This is an advanced resource. The provider will automatically assume management of the EC2 Availability Zone Group without import and perform no actions on removal from configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AvailabilityZoneGroup("example",
-            group_name="us-west-2-lax-1",
-            opt_in_status="opted-in")
-        ```
-
         ## Import
 
         Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For example:
@@ -166,6 +182,10 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AvailabilityZoneGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

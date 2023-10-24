@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MaintenanceWindowArgs', 'MaintenanceWindow']
@@ -41,27 +41,76 @@ class MaintenanceWindowArgs:
         :param pulumi.Input[str] start_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "cutoff", cutoff)
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "schedule", schedule)
+        MaintenanceWindowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cutoff=cutoff,
+            duration=duration,
+            schedule=schedule,
+            allow_unassociated_targets=allow_unassociated_targets,
+            description=description,
+            enabled=enabled,
+            end_date=end_date,
+            name=name,
+            schedule_offset=schedule_offset,
+            schedule_timezone=schedule_timezone,
+            start_date=start_date,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cutoff: Optional[pulumi.Input[int]] = None,
+             duration: Optional[pulumi.Input[int]] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
+             allow_unassociated_targets: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             end_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schedule_offset: Optional[pulumi.Input[int]] = None,
+             schedule_timezone: Optional[pulumi.Input[str]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cutoff is None:
+            raise TypeError("Missing 'cutoff' argument")
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if allow_unassociated_targets is None and 'allowUnassociatedTargets' in kwargs:
+            allow_unassociated_targets = kwargs['allowUnassociatedTargets']
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if schedule_offset is None and 'scheduleOffset' in kwargs:
+            schedule_offset = kwargs['scheduleOffset']
+        if schedule_timezone is None and 'scheduleTimezone' in kwargs:
+            schedule_timezone = kwargs['scheduleTimezone']
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
+        _setter("cutoff", cutoff)
+        _setter("duration", duration)
+        _setter("schedule", schedule)
         if allow_unassociated_targets is not None:
-            pulumi.set(__self__, "allow_unassociated_targets", allow_unassociated_targets)
+            _setter("allow_unassociated_targets", allow_unassociated_targets)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schedule_offset is not None:
-            pulumi.set(__self__, "schedule_offset", schedule_offset)
+            _setter("schedule_offset", schedule_offset)
         if schedule_timezone is not None:
-            pulumi.set(__self__, "schedule_timezone", schedule_timezone)
+            _setter("schedule_timezone", schedule_timezone)
         if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
+            _setter("start_date", start_date)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -240,35 +289,82 @@ class _MaintenanceWindowState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _MaintenanceWindowState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_unassociated_targets=allow_unassociated_targets,
+            cutoff=cutoff,
+            description=description,
+            duration=duration,
+            enabled=enabled,
+            end_date=end_date,
+            name=name,
+            schedule=schedule,
+            schedule_offset=schedule_offset,
+            schedule_timezone=schedule_timezone,
+            start_date=start_date,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_unassociated_targets: Optional[pulumi.Input[bool]] = None,
+             cutoff: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             duration: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             end_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
+             schedule_offset: Optional[pulumi.Input[int]] = None,
+             schedule_timezone: Optional[pulumi.Input[str]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_unassociated_targets is None and 'allowUnassociatedTargets' in kwargs:
+            allow_unassociated_targets = kwargs['allowUnassociatedTargets']
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if schedule_offset is None and 'scheduleOffset' in kwargs:
+            schedule_offset = kwargs['scheduleOffset']
+        if schedule_timezone is None and 'scheduleTimezone' in kwargs:
+            schedule_timezone = kwargs['scheduleTimezone']
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if allow_unassociated_targets is not None:
-            pulumi.set(__self__, "allow_unassociated_targets", allow_unassociated_targets)
+            _setter("allow_unassociated_targets", allow_unassociated_targets)
         if cutoff is not None:
-            pulumi.set(__self__, "cutoff", cutoff)
+            _setter("cutoff", cutoff)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if schedule_offset is not None:
-            pulumi.set(__self__, "schedule_offset", schedule_offset)
+            _setter("schedule_offset", schedule_offset)
         if schedule_timezone is not None:
-            pulumi.set(__self__, "schedule_timezone", schedule_timezone)
+            _setter("schedule_timezone", schedule_timezone)
         if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
+            _setter("start_date", start_date)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="allowUnassociatedTargets")
@@ -451,18 +547,6 @@ class MaintenanceWindow(pulumi.CustomResource):
         """
         Provides an SSM Maintenance Window resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        production = aws.ssm.MaintenanceWindow("production",
-            cutoff=1,
-            duration=3,
-            schedule="cron(0 16 ? * TUE *)")
-        ```
-
         ## Import
 
         Using `pulumi import`, import SSM
@@ -497,18 +581,6 @@ class MaintenanceWindow(pulumi.CustomResource):
         """
         Provides an SSM Maintenance Window resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        production = aws.ssm.MaintenanceWindow("production",
-            cutoff=1,
-            duration=3,
-            schedule="cron(0 16 ? * TUE *)")
-        ```
-
         ## Import
 
         Using `pulumi import`, import SSM
@@ -529,6 +601,10 @@ class MaintenanceWindow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MaintenanceWindowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

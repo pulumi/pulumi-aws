@@ -14,29 +14,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// a specific application and are used to deploy different versions of the
     /// application with the same configuration settings.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var tftest = new Aws.ElasticBeanstalk.Application("tftest", new()
-    ///     {
-    ///         Description = "tf-test-desc",
-    ///     });
-    /// 
-    ///     var myTemplate = new Aws.ElasticBeanstalk.ConfigurationTemplate("myTemplate", new()
-    ///     {
-    ///         Application = tftest.Name,
-    ///         SolutionStackName = "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Option Settings
     /// 
     /// The `setting` field supports the following format:

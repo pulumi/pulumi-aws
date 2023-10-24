@@ -13,62 +13,12 @@ namespace Pulumi.Aws.Ssm
     {
         /// <summary>
         /// Provides SSM Parameters by path.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ssm.GetParametersByPath.Invoke(new()
-        ///     {
-        ///         Path = "/foo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-        /// &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetParametersByPathResult> InvokeAsync(GetParametersByPathArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetParametersByPathResult>("aws:ssm/getParametersByPath:getParametersByPath", args ?? new GetParametersByPathArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides SSM Parameters by path.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ssm.GetParametersByPath.Invoke(new()
-        ///     {
-        ///         Path = "/foo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-        /// &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetParametersByPathResult> Invoke(GetParametersByPathInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParametersByPathResult>("aws:ssm/getParametersByPath:getParametersByPath", args ?? new GetParametersByPathInvokeArgs(), options.WithDefaults());

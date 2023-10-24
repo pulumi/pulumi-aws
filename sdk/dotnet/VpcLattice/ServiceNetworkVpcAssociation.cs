@@ -13,28 +13,6 @@ namespace Pulumi.Aws.VpcLattice
     /// Resource for managing an AWS VPC Lattice Service Network VPC Association.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VpcLattice.ServiceNetworkVpcAssociation("example", new()
-    ///     {
-    ///         VpcIdentifier = aws_vpc.Example.Id,
-    ///         ServiceNetworkIdentifier = aws_vpclattice_service_network.Example.Id,
-    ///         SecurityGroupIds = new[]
-    ///         {
-    ///             aws_security_group.Example.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

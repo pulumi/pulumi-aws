@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,19 +33,56 @@ class DirectoryArgs:
         :param pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs'] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         :param pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs'] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
         """
-        pulumi.set(__self__, "directory_id", directory_id)
+        DirectoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_id=directory_id,
+            ip_group_ids=ip_group_ids,
+            self_service_permissions=self_service_permissions,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            workspace_access_properties=workspace_access_properties,
+            workspace_creation_properties=workspace_creation_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_id: Optional[pulumi.Input[str]] = None,
+             ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_access_properties: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']] = None,
+             workspace_creation_properties: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if directory_id is None and 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if directory_id is None:
+            raise TypeError("Missing 'directory_id' argument")
+        if ip_group_ids is None and 'ipGroupIds' in kwargs:
+            ip_group_ids = kwargs['ipGroupIds']
+        if self_service_permissions is None and 'selfServicePermissions' in kwargs:
+            self_service_permissions = kwargs['selfServicePermissions']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if workspace_access_properties is None and 'workspaceAccessProperties' in kwargs:
+            workspace_access_properties = kwargs['workspaceAccessProperties']
+        if workspace_creation_properties is None and 'workspaceCreationProperties' in kwargs:
+            workspace_creation_properties = kwargs['workspaceCreationProperties']
+
+        _setter("directory_id", directory_id)
         if ip_group_ids is not None:
-            pulumi.set(__self__, "ip_group_ids", ip_group_ids)
+            _setter("ip_group_ids", ip_group_ids)
         if self_service_permissions is not None:
-            pulumi.set(__self__, "self_service_permissions", self_service_permissions)
+            _setter("self_service_permissions", self_service_permissions)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_access_properties is not None:
-            pulumi.set(__self__, "workspace_access_properties", workspace_access_properties)
+            _setter("workspace_access_properties", workspace_access_properties)
         if workspace_creation_properties is not None:
-            pulumi.set(__self__, "workspace_creation_properties", workspace_creation_properties)
+            _setter("workspace_creation_properties", workspace_creation_properties)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -170,41 +207,110 @@ class _DirectoryState:
         :param pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs'] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
         :param pulumi.Input[str] workspace_security_group_id: The identifier of the security group that is assigned to new WorkSpaces.
         """
+        _DirectoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias=alias,
+            customer_user_name=customer_user_name,
+            directory_id=directory_id,
+            directory_name=directory_name,
+            directory_type=directory_type,
+            dns_ip_addresses=dns_ip_addresses,
+            iam_role_id=iam_role_id,
+            ip_group_ids=ip_group_ids,
+            registration_code=registration_code,
+            self_service_permissions=self_service_permissions,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            tags_all=tags_all,
+            workspace_access_properties=workspace_access_properties,
+            workspace_creation_properties=workspace_creation_properties,
+            workspace_security_group_id=workspace_security_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias: Optional[pulumi.Input[str]] = None,
+             customer_user_name: Optional[pulumi.Input[str]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             directory_name: Optional[pulumi.Input[str]] = None,
+             directory_type: Optional[pulumi.Input[str]] = None,
+             dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             iam_role_id: Optional[pulumi.Input[str]] = None,
+             ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             registration_code: Optional[pulumi.Input[str]] = None,
+             self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_access_properties: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']] = None,
+             workspace_creation_properties: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']] = None,
+             workspace_security_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_user_name is None and 'customerUserName' in kwargs:
+            customer_user_name = kwargs['customerUserName']
+        if directory_id is None and 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if directory_name is None and 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if directory_type is None and 'directoryType' in kwargs:
+            directory_type = kwargs['directoryType']
+        if dns_ip_addresses is None and 'dnsIpAddresses' in kwargs:
+            dns_ip_addresses = kwargs['dnsIpAddresses']
+        if iam_role_id is None and 'iamRoleId' in kwargs:
+            iam_role_id = kwargs['iamRoleId']
+        if ip_group_ids is None and 'ipGroupIds' in kwargs:
+            ip_group_ids = kwargs['ipGroupIds']
+        if registration_code is None and 'registrationCode' in kwargs:
+            registration_code = kwargs['registrationCode']
+        if self_service_permissions is None and 'selfServicePermissions' in kwargs:
+            self_service_permissions = kwargs['selfServicePermissions']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if workspace_access_properties is None and 'workspaceAccessProperties' in kwargs:
+            workspace_access_properties = kwargs['workspaceAccessProperties']
+        if workspace_creation_properties is None and 'workspaceCreationProperties' in kwargs:
+            workspace_creation_properties = kwargs['workspaceCreationProperties']
+        if workspace_security_group_id is None and 'workspaceSecurityGroupId' in kwargs:
+            workspace_security_group_id = kwargs['workspaceSecurityGroupId']
+
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if customer_user_name is not None:
-            pulumi.set(__self__, "customer_user_name", customer_user_name)
+            _setter("customer_user_name", customer_user_name)
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if directory_name is not None:
-            pulumi.set(__self__, "directory_name", directory_name)
+            _setter("directory_name", directory_name)
         if directory_type is not None:
-            pulumi.set(__self__, "directory_type", directory_type)
+            _setter("directory_type", directory_type)
         if dns_ip_addresses is not None:
-            pulumi.set(__self__, "dns_ip_addresses", dns_ip_addresses)
+            _setter("dns_ip_addresses", dns_ip_addresses)
         if iam_role_id is not None:
-            pulumi.set(__self__, "iam_role_id", iam_role_id)
+            _setter("iam_role_id", iam_role_id)
         if ip_group_ids is not None:
-            pulumi.set(__self__, "ip_group_ids", ip_group_ids)
+            _setter("ip_group_ids", ip_group_ids)
         if registration_code is not None:
-            pulumi.set(__self__, "registration_code", registration_code)
+            _setter("registration_code", registration_code)
         if self_service_permissions is not None:
-            pulumi.set(__self__, "self_service_permissions", self_service_permissions)
+            _setter("self_service_permissions", self_service_permissions)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if workspace_access_properties is not None:
-            pulumi.set(__self__, "workspace_access_properties", workspace_access_properties)
+            _setter("workspace_access_properties", workspace_access_properties)
         if workspace_creation_properties is not None:
-            pulumi.set(__self__, "workspace_creation_properties", workspace_creation_properties)
+            _setter("workspace_creation_properties", workspace_creation_properties)
         if workspace_security_group_id is not None:
-            pulumi.set(__self__, "workspace_security_group_id", workspace_security_group_id)
+            _setter("workspace_security_group_id", workspace_security_group_id)
 
     @property
     @pulumi.getter
@@ -420,104 +526,6 @@ class Directory(pulumi.CustomResource):
 
         > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        workspaces = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["workspaces.amazonaws.com"],
-            )],
-        )])
-        workspaces_default = aws.iam.Role("workspacesDefault", assume_role_policy=workspaces.json)
-        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspacesDefaultServiceAccess",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
-        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspacesDefaultSelfServiceAccess",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_c = aws.ec2.Subnet("exampleC",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1c",
-            cidr_block="10.0.2.0/24")
-        example_d = aws.ec2.Subnet("exampleD",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1d",
-            cidr_block="10.0.3.0/24")
-        example_directory = aws.workspaces.Directory("exampleDirectory",
-            directory_id=example_directoryservice / directory_directory["id"],
-            subnet_ids=[
-                example_c.id,
-                example_d.id,
-            ],
-            tags={
-                "Example": "true",
-            },
-            self_service_permissions=aws.workspaces.DirectorySelfServicePermissionsArgs(
-                change_compute_type=True,
-                increase_volume_size=True,
-                rebuild_workspace=True,
-                restart_workspace=True,
-                switch_running_mode=True,
-            ),
-            workspace_access_properties=aws.workspaces.DirectoryWorkspaceAccessPropertiesArgs(
-                device_type_android="ALLOW",
-                device_type_chromeos="ALLOW",
-                device_type_ios="ALLOW",
-                device_type_linux="DENY",
-                device_type_osx="ALLOW",
-                device_type_web="DENY",
-                device_type_windows="DENY",
-                device_type_zeroclient="DENY",
-            ),
-            workspace_creation_properties=aws.workspaces.DirectoryWorkspaceCreationPropertiesArgs(
-                custom_security_group_id=aws_security_group["example"]["id"],
-                default_ou="OU=AWS,DC=Workgroup,DC=Example,DC=com",
-                enable_internet_access=True,
-                enable_maintenance_mode=True,
-                user_enabled_as_local_administrator=True,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    workspaces_default_service_access,
-                    workspaces_default_self_service_access,
-                ]))
-        example_a = aws.ec2.Subnet("exampleA",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1a",
-            cidr_block="10.0.0.0/24")
-        example_b = aws.ec2.Subnet("exampleB",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1b",
-            cidr_block="10.0.1.0/24")
-        example_directoryservice_directory_directory = aws.directoryservice.Directory("exampleDirectoryservice/directoryDirectory",
-            name="corp.example.com",
-            password="#S1ncerely",
-            size="Small",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=example_vpc.id,
-                subnet_ids=[
-                    example_a.id,
-                    example_b.id,
-                ],
-            ))
-        ```
-        ### IP Groups
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_ip_group = aws.workspaces.IpGroup("exampleIpGroup")
-        example_directory = aws.workspaces.Directory("exampleDirectory",
-            directory_id=aws_directory_service_directory["example"]["id"],
-            ip_group_ids=[example_ip_group.id])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Workspaces directory using the directory ID. For example:
@@ -547,104 +555,6 @@ class Directory(pulumi.CustomResource):
 
         > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        workspaces = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["workspaces.amazonaws.com"],
-            )],
-        )])
-        workspaces_default = aws.iam.Role("workspacesDefault", assume_role_policy=workspaces.json)
-        workspaces_default_service_access = aws.iam.RolePolicyAttachment("workspacesDefaultServiceAccess",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
-        workspaces_default_self_service_access = aws.iam.RolePolicyAttachment("workspacesDefaultSelfServiceAccess",
-            role=workspaces_default.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_c = aws.ec2.Subnet("exampleC",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1c",
-            cidr_block="10.0.2.0/24")
-        example_d = aws.ec2.Subnet("exampleD",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1d",
-            cidr_block="10.0.3.0/24")
-        example_directory = aws.workspaces.Directory("exampleDirectory",
-            directory_id=example_directoryservice / directory_directory["id"],
-            subnet_ids=[
-                example_c.id,
-                example_d.id,
-            ],
-            tags={
-                "Example": "true",
-            },
-            self_service_permissions=aws.workspaces.DirectorySelfServicePermissionsArgs(
-                change_compute_type=True,
-                increase_volume_size=True,
-                rebuild_workspace=True,
-                restart_workspace=True,
-                switch_running_mode=True,
-            ),
-            workspace_access_properties=aws.workspaces.DirectoryWorkspaceAccessPropertiesArgs(
-                device_type_android="ALLOW",
-                device_type_chromeos="ALLOW",
-                device_type_ios="ALLOW",
-                device_type_linux="DENY",
-                device_type_osx="ALLOW",
-                device_type_web="DENY",
-                device_type_windows="DENY",
-                device_type_zeroclient="DENY",
-            ),
-            workspace_creation_properties=aws.workspaces.DirectoryWorkspaceCreationPropertiesArgs(
-                custom_security_group_id=aws_security_group["example"]["id"],
-                default_ou="OU=AWS,DC=Workgroup,DC=Example,DC=com",
-                enable_internet_access=True,
-                enable_maintenance_mode=True,
-                user_enabled_as_local_administrator=True,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    workspaces_default_service_access,
-                    workspaces_default_self_service_access,
-                ]))
-        example_a = aws.ec2.Subnet("exampleA",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1a",
-            cidr_block="10.0.0.0/24")
-        example_b = aws.ec2.Subnet("exampleB",
-            vpc_id=example_vpc.id,
-            availability_zone="us-east-1b",
-            cidr_block="10.0.1.0/24")
-        example_directoryservice_directory_directory = aws.directoryservice.Directory("exampleDirectoryservice/directoryDirectory",
-            name="corp.example.com",
-            password="#S1ncerely",
-            size="Small",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=example_vpc.id,
-                subnet_ids=[
-                    example_a.id,
-                    example_b.id,
-                ],
-            ))
-        ```
-        ### IP Groups
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_ip_group = aws.workspaces.IpGroup("exampleIpGroup")
-        example_directory = aws.workspaces.Directory("exampleDirectory",
-            directory_id=aws_directory_service_directory["example"]["id"],
-            ip_group_ids=[example_ip_group.id])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Workspaces directory using the directory ID. For example:
@@ -663,6 +573,10 @@ class Directory(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DirectoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -688,10 +602,13 @@ class Directory(pulumi.CustomResource):
                 raise TypeError("Missing required property 'directory_id'")
             __props__.__dict__["directory_id"] = directory_id
             __props__.__dict__["ip_group_ids"] = ip_group_ids
+            self_service_permissions = _utilities.configure(self_service_permissions, DirectorySelfServicePermissionsArgs, True)
             __props__.__dict__["self_service_permissions"] = self_service_permissions
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            workspace_access_properties = _utilities.configure(workspace_access_properties, DirectoryWorkspaceAccessPropertiesArgs, True)
             __props__.__dict__["workspace_access_properties"] = workspace_access_properties
+            workspace_creation_properties = _utilities.configure(workspace_creation_properties, DirectoryWorkspaceCreationPropertiesArgs, True)
             __props__.__dict__["workspace_creation_properties"] = workspace_creation_properties
             __props__.__dict__["alias"] = None
             __props__.__dict__["customer_user_name"] = None

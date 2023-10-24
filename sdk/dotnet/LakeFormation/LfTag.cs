@@ -12,30 +12,6 @@ namespace Pulumi.Aws.LakeFormation
     /// <summary>
     /// Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.LakeFormation.LfTag("example", new()
-    ///     {
-    ///         Key = "module",
-    ///         Values = new[]
-    ///         {
-    ///             "Orders",
-    ///             "Sales",
-    ///             "Customers",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:

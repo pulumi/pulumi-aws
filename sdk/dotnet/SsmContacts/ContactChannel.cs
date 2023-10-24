@@ -13,56 +13,6 @@ namespace Pulumi.Aws.SsmContacts
     /// Resource for managing an AWS SSM Contacts Contact Channel.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SsmContacts.ContactChannel("example", new()
-    ///     {
-    ///         ContactId = "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-    ///         DeliveryAddress = new Aws.SsmContacts.Inputs.ContactChannelDeliveryAddressArgs
-    ///         {
-    ///             SimpleAddress = "email@example.com",
-    ///         },
-    ///         Type = "EMAIL",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Usage with SSM Contact
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleContact = new Aws.SsmContacts.Contact("exampleContact", new()
-    ///     {
-    ///         Alias = "example_contact",
-    ///         Type = "PERSONAL",
-    ///     });
-    /// 
-    ///     var example = new Aws.SsmContacts.ContactChannel("example", new()
-    ///     {
-    ///         ContactId = exampleContact.Arn,
-    ///         DeliveryAddress = new Aws.SsmContacts.Inputs.ContactChannelDeliveryAddressArgs
-    ///         {
-    ///             SimpleAddress = "email@example.com",
-    ///         },
-    ///         Type = "EMAIL",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

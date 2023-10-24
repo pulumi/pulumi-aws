@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -167,15 +167,6 @@ def get_configuration_profile(application_id: Optional[str] = None,
     Provides access to an AppConfig Configuration Profile.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_configuration_profile(application_id="b5d5gpj",
-        configuration_profile_id="qrbb1c1")
-    ```
 
 
     :param str application_id: ID of the AppConfig application to which this configuration profile belongs.
@@ -212,15 +203,6 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[str]]
     Provides access to an AppConfig Configuration Profile.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_configuration_profile(application_id="b5d5gpj",
-        configuration_profile_id="qrbb1c1")
-    ```
 
 
     :param str application_id: ID of the AppConfig application to which this configuration profile belongs.

@@ -10,15 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Elemental MediaConvert Queue.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.mediaconvert.Queue("test", {});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Media Convert Queue using the queue name. For example:

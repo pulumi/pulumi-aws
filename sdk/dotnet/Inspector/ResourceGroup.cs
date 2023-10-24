@@ -11,28 +11,6 @@ namespace Pulumi.Aws.Inspector
 {
     /// <summary>
     /// Provides an Amazon Inspector Classic Resource Group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Inspector.ResourceGroup("example", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Env", "bar" },
-    ///             { "Name", "foo" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:inspector/resourceGroup:ResourceGroup")]
     public partial class ResourceGroup : global::Pulumi.CustomResource

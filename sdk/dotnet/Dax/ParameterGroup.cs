@@ -12,36 +12,6 @@ namespace Pulumi.Aws.Dax
     /// <summary>
     /// Provides a DAX Parameter Group resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Dax.ParameterGroup("example", new()
-    ///     {
-    ///         Parameters = new[]
-    ///         {
-    ///             new Aws.Dax.Inputs.ParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "query-ttl-millis",
-    ///                 Value = "100000",
-    ///             },
-    ///             new Aws.Dax.Inputs.ParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "record-ttl-millis",
-    ///                 Value = "100000",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DAX Parameter Group using the `name`. For example:

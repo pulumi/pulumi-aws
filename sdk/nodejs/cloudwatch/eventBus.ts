@@ -9,25 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const messenger = new aws.cloudwatch.EventBus("messenger", {});
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplepartnerEventSource = aws.cloudwatch.getEventSource({
- *     namePrefix: "aws.partner/examplepartner.com",
- * });
- * const examplepartnerEventBus = new aws.cloudwatch.EventBus("examplepartnerEventBus", {eventSourceName: examplepartnerEventSource.then(examplepartnerEventSource => examplepartnerEventSource.name)});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:

@@ -13,27 +13,6 @@ namespace Pulumi.Aws.Pinpoint
     /// Provides a Pinpoint Baidu Channel resource.
     /// 
     /// &gt; **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new Aws.Pinpoint.App("app");
-    /// 
-    ///     var channel = new Aws.Pinpoint.BaiduChannel("channel", new()
-    ///     {
-    ///         ApplicationId = app.ApplicationId,
-    ///         ApiKey = "",
-    ///         SecretKey = "",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

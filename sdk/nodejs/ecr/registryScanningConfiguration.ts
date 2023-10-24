@@ -11,49 +11,6 @@ import * as utilities from "../utilities";
  * Provides an Elastic Container Registry Scanning Configuration. Can't be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
  *
  * ## Example Usage
- * ### Basic example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const configuration = new aws.ecr.RegistryScanningConfiguration("configuration", {
- *     rules: [{
- *         repositoryFilters: [{
- *             filter: "example",
- *             filterType: "WILDCARD",
- *         }],
- *         scanFrequency: "CONTINUOUS_SCAN",
- *     }],
- *     scanType: "ENHANCED",
- * });
- * ```
- * ### Multiple rules
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ecr.RegistryScanningConfiguration("test", {
- *     rules: [
- *         {
- *             repositoryFilters: [{
- *                 filter: "*",
- *                 filterType: "WILDCARD",
- *             }],
- *             scanFrequency: "SCAN_ON_PUSH",
- *         },
- *         {
- *             repositoryFilters: [{
- *                 filter: "example",
- *                 filterType: "WILDCARD",
- *             }],
- *             scanFrequency: "CONTINUOUS_SCAN",
- *         },
- *     ],
- *     scanType: "ENHANCED",
- * });
- * ```
  *
  * ## Import
  *

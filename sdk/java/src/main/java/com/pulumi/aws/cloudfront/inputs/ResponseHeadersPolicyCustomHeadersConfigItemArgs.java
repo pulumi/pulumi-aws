@@ -30,14 +30,14 @@ public final class ResponseHeadersPolicyCustomHeadersConfigItemArgs extends com.
     }
 
     /**
-     * Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+     * Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     @Import(name="override", required=true)
     private Output<Boolean> override;
 
     /**
-     * @return Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+     * @return Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     public Output<Boolean> override() {
@@ -107,7 +107,7 @@ public final class ResponseHeadersPolicyCustomHeadersConfigItemArgs extends com.
         }
 
         /**
-         * @param override Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+         * @param override Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class ResponseHeadersPolicyCustomHeadersConfigItemArgs extends com.
         }
 
         /**
-         * @param override Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+         * @param override Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
          * 
          * @return builder
          * 

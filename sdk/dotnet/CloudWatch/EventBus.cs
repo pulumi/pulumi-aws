@@ -14,42 +14,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var messenger = new Aws.CloudWatch.EventBus("messenger");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var examplepartnerEventSource = Aws.CloudWatch.GetEventSource.Invoke(new()
-    ///     {
-    ///         NamePrefix = "aws.partner/examplepartner.com",
-    ///     });
-    /// 
-    ///     var examplepartnerEventBus = new Aws.CloudWatch.EventBus("examplepartnerEventBus", new()
-    ///     {
-    ///         EventSourceName = examplepartnerEventSource.Apply(getEventSourceResult =&gt; getEventSourceResult.Name),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:

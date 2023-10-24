@@ -12,29 +12,6 @@ namespace Pulumi.Aws.GameLift
     /// <summary>
     /// Provides a GameLift Alias resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GameLift.Alias("example", new()
-    ///     {
-    ///         Description = "Example Description",
-    ///         RoutingStrategy = new Aws.GameLift.Inputs.AliasRoutingStrategyArgs
-    ///         {
-    ///             Message = "Example Message",
-    ///             Type = "TERMINAL",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GameLift Aliases using the ID. For example:

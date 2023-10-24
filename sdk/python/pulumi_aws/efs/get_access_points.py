@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -82,15 +82,6 @@ def get_access_points(file_system_id: Optional[str] = None,
     """
     Provides information about multiple Elastic File System (EFS) Access Points.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.efs.get_access_points(file_system_id="fs-12345678")
-    ```
-
 
     :param str file_system_id: EFS File System identifier.
     """
@@ -111,15 +102,6 @@ def get_access_points_output(file_system_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointsResult]:
     """
     Provides information about multiple Elastic File System (EFS) Access Points.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.efs.get_access_points(file_system_id="fs-12345678")
-    ```
 
 
     :param str file_system_id: EFS File System identifier.

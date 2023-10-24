@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LocalGatewayRouteArgs', 'LocalGatewayRoute']
@@ -23,9 +23,36 @@ class LocalGatewayRouteArgs:
         :param pulumi.Input[str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
         :param pulumi.Input[str] local_gateway_virtual_interface_group_id: Identifier of EC2 Local Gateway Virtual Interface Group.
         """
-        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
-        pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
-        pulumi.set(__self__, "local_gateway_virtual_interface_group_id", local_gateway_virtual_interface_group_id)
+        LocalGatewayRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_cidr_block=destination_cidr_block,
+            local_gateway_route_table_id=local_gateway_route_table_id,
+            local_gateway_virtual_interface_group_id=local_gateway_virtual_interface_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_cidr_block: Optional[pulumi.Input[str]] = None,
+             local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             local_gateway_virtual_interface_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_cidr_block is None and 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if destination_cidr_block is None:
+            raise TypeError("Missing 'destination_cidr_block' argument")
+        if local_gateway_route_table_id is None and 'localGatewayRouteTableId' in kwargs:
+            local_gateway_route_table_id = kwargs['localGatewayRouteTableId']
+        if local_gateway_route_table_id is None:
+            raise TypeError("Missing 'local_gateway_route_table_id' argument")
+        if local_gateway_virtual_interface_group_id is None and 'localGatewayVirtualInterfaceGroupId' in kwargs:
+            local_gateway_virtual_interface_group_id = kwargs['localGatewayVirtualInterfaceGroupId']
+        if local_gateway_virtual_interface_group_id is None:
+            raise TypeError("Missing 'local_gateway_virtual_interface_group_id' argument")
+
+        _setter("destination_cidr_block", destination_cidr_block)
+        _setter("local_gateway_route_table_id", local_gateway_route_table_id)
+        _setter("local_gateway_virtual_interface_group_id", local_gateway_virtual_interface_group_id)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -76,12 +103,33 @@ class _LocalGatewayRouteState:
         :param pulumi.Input[str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
         :param pulumi.Input[str] local_gateway_virtual_interface_group_id: Identifier of EC2 Local Gateway Virtual Interface Group.
         """
+        _LocalGatewayRouteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_cidr_block=destination_cidr_block,
+            local_gateway_route_table_id=local_gateway_route_table_id,
+            local_gateway_virtual_interface_group_id=local_gateway_virtual_interface_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_cidr_block: Optional[pulumi.Input[str]] = None,
+             local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             local_gateway_virtual_interface_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_cidr_block is None and 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if local_gateway_route_table_id is None and 'localGatewayRouteTableId' in kwargs:
+            local_gateway_route_table_id = kwargs['localGatewayRouteTableId']
+        if local_gateway_virtual_interface_group_id is None and 'localGatewayVirtualInterfaceGroupId' in kwargs:
+            local_gateway_virtual_interface_group_id = kwargs['localGatewayVirtualInterfaceGroupId']
+
         if destination_cidr_block is not None:
-            pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+            _setter("destination_cidr_block", destination_cidr_block)
         if local_gateway_route_table_id is not None:
-            pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
+            _setter("local_gateway_route_table_id", local_gateway_route_table_id)
         if local_gateway_virtual_interface_group_id is not None:
-            pulumi.set(__self__, "local_gateway_virtual_interface_group_id", local_gateway_virtual_interface_group_id)
+            _setter("local_gateway_virtual_interface_group_id", local_gateway_virtual_interface_group_id)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -132,18 +180,6 @@ class LocalGatewayRoute(pulumi.CustomResource):
         """
         Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.LocalGatewayRoute("example",
-            destination_cidr_block="172.16.0.0/16",
-            local_gateway_route_table_id=data["aws_ec2_local_gateway_route_table"]["example"]["id"],
-            local_gateway_virtual_interface_group_id=data["aws_ec2_local_gateway_virtual_interface_group"]["example"]["id"])
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_ec2_local_gateway_route` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For example:
@@ -167,18 +203,6 @@ class LocalGatewayRoute(pulumi.CustomResource):
         """
         Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.LocalGatewayRoute("example",
-            destination_cidr_block="172.16.0.0/16",
-            local_gateway_route_table_id=data["aws_ec2_local_gateway_route_table"]["example"]["id"],
-            local_gateway_virtual_interface_group_id=data["aws_ec2_local_gateway_virtual_interface_group"]["example"]["id"])
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_ec2_local_gateway_route` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For example:
@@ -197,6 +221,10 @@ class LocalGatewayRoute(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocalGatewayRouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

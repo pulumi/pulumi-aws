@@ -12,26 +12,6 @@ namespace Pulumi.Aws.Iot
     /// <summary>
     /// Adds an IoT Thing to an IoT Thing Group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iot.ThingGroupMembership("example", new()
-    ///     {
-    ///         OverrideDynamicGroup = true,
-    ///         ThingGroupName = "example-group",
-    ///         ThingName = "example-thing",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For example:

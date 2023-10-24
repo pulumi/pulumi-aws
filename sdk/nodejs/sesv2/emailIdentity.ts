@@ -13,48 +13,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * ### Basic Usage
- * ### Email Address Identity
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "testing@example.com"});
- * ```
- * ### Domain Identity
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.EmailIdentity("example", {emailIdentity: "example.com"});
- * ```
- * ### Configuration Set
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleConfigurationSet = new aws.sesv2.ConfigurationSet("exampleConfigurationSet", {configurationSetName: "example"});
- * const exampleEmailIdentity = new aws.sesv2.EmailIdentity("exampleEmailIdentity", {
- *     emailIdentity: "example.com",
- *     configurationSetName: exampleConfigurationSet.configurationSetName,
- * });
- * ```
- * ### DKIM Signing Attributes (BYODKIM)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.EmailIdentity("example", {
- *     dkimSigningAttributes: {
- *         domainSigningPrivateKey: "MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
- *         domainSigningSelector: "example",
- *     },
- *     emailIdentity: "example.com",
- * });
- * ```
  *
  * ## Import
  *

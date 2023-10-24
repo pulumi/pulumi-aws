@@ -11,27 +11,6 @@ namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
     /// Provides an OpsWorks RDS DB Instance resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myInstance = new Aws.OpsWorks.RdsDbInstance("myInstance", new()
-    ///     {
-    ///         StackId = aws_opsworks_stack.My_stack.Id,
-    ///         RdsDbInstanceArn = aws_db_instance.My_instance.Arn,
-    ///         DbUser = "someUser",
-    ///         DbPassword = "somePass",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/rdsDbInstance:RdsDbInstance")]
     public partial class RdsDbInstance : global::Pulumi.CustomResource

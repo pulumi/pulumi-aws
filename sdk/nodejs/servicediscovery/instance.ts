@@ -7,59 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Service Discovery Instance resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
- *     cidrBlock: "10.0.0.0/16",
- *     enableDnsSupport: true,
- *     enableDnsHostnames: true,
- * });
- * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", {
- *     description: "example",
- *     vpc: exampleVpc.id,
- * });
- * const exampleService = new aws.servicediscovery.Service("exampleService", {
- *     dnsConfig: {
- *         namespaceId: examplePrivateDnsNamespace.id,
- *         dnsRecords: [{
- *             ttl: 10,
- *             type: "A",
- *         }],
- *         routingPolicy: "MULTIVALUE",
- *     },
- *     healthCheckCustomConfig: {
- *         failureThreshold: 1,
- *     },
- * });
- * const exampleInstance = new aws.servicediscovery.Instance("exampleInstance", {
- *     instanceId: "example-instance-id",
- *     serviceId: exampleService.id,
- *     attributes: {
- *         AWS_INSTANCE_IPV4: "172.18.0.1",
- *         custom_attribute: "custom",
- *     },
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleHttpNamespace = new aws.servicediscovery.HttpNamespace("exampleHttpNamespace", {description: "example"});
- * const exampleService = new aws.servicediscovery.Service("exampleService", {namespaceId: exampleHttpNamespace.id});
- * const exampleInstance = new aws.servicediscovery.Instance("exampleInstance", {
- *     instanceId: "example-instance-id",
- *     serviceId: exampleService.id,
- *     attributes: {
- *         AWS_EC2_INSTANCE_ID: "i-0abdg374kd892cj6dl",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:

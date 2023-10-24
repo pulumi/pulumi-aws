@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,42 @@ class LoadBalancerPolicyArgs:
         :param pulumi.Input[str] policy_type_name: The policy type.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]] policy_attributes: Policy attribute to apply to the policy.
         """
-        pulumi.set(__self__, "load_balancer_name", load_balancer_name)
-        pulumi.set(__self__, "policy_name", policy_name)
-        pulumi.set(__self__, "policy_type_name", policy_type_name)
+        LoadBalancerPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_name=load_balancer_name,
+            policy_name=policy_name,
+            policy_type_name=policy_type_name,
+            policy_attributes=policy_attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_name: Optional[pulumi.Input[str]] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             policy_type_name: Optional[pulumi.Input[str]] = None,
+             policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if load_balancer_name is None and 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if load_balancer_name is None:
+            raise TypeError("Missing 'load_balancer_name' argument")
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+        if policy_type_name is None and 'policyTypeName' in kwargs:
+            policy_type_name = kwargs['policyTypeName']
+        if policy_type_name is None:
+            raise TypeError("Missing 'policy_type_name' argument")
+        if policy_attributes is None and 'policyAttributes' in kwargs:
+            policy_attributes = kwargs['policyAttributes']
+
+        _setter("load_balancer_name", load_balancer_name)
+        _setter("policy_name", policy_name)
+        _setter("policy_type_name", policy_type_name)
         if policy_attributes is not None:
-            pulumi.set(__self__, "policy_attributes", policy_attributes)
+            _setter("policy_attributes", policy_attributes)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -96,14 +127,39 @@ class _LoadBalancerPolicyState:
         :param pulumi.Input[str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[str] policy_type_name: The policy type.
         """
+        _LoadBalancerPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_name=load_balancer_name,
+            policy_attributes=policy_attributes,
+            policy_name=policy_name,
+            policy_type_name=policy_type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_name: Optional[pulumi.Input[str]] = None,
+             policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             policy_type_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if load_balancer_name is None and 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if policy_attributes is None and 'policyAttributes' in kwargs:
+            policy_attributes = kwargs['policyAttributes']
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_type_name is None and 'policyTypeName' in kwargs:
+            policy_type_name = kwargs['policyTypeName']
+
         if load_balancer_name is not None:
-            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+            _setter("load_balancer_name", load_balancer_name)
         if policy_attributes is not None:
-            pulumi.set(__self__, "policy_attributes", policy_attributes)
+            _setter("policy_attributes", policy_attributes)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
         if policy_type_name is not None:
-            pulumi.set(__self__, "policy_type_name", policy_type_name)
+            _setter("policy_type_name", policy_type_name)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -167,72 +223,6 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         """
         Provides a load balancer policy, which can be attached to an ELB listener or backend server.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        wu_tang = aws.elb.LoadBalancer("wu-tang",
-            availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=443,
-                instance_protocol="http",
-                lb_port=443,
-                lb_protocol="https",
-                ssl_certificate_id="arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-            )],
-            tags={
-                "Name": "wu-tang",
-            })
-        wu_tang_ca_pubkey_policy = aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ca-pubkey-policy",
-            policy_type_name="PublicKeyPolicyType",
-            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
-                name="PublicKey",
-                value=(lambda path: open(path).read())("wu-tang-pubkey"),
-            )])
-        wu_tang_root_ca_backend_auth_policy = aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-root-ca-backend-auth-policy",
-            policy_type_name="BackendServerAuthenticationPolicyType",
-            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
-                name="PublicKeyPolicyName",
-                value=aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"]["policy_name"],
-            )])
-        wu_tang_ssl = aws.elb.LoadBalancerPolicy("wu-tang-ssl",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ssl",
-            policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[
-                aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
-                    name="ECDHE-ECDSA-AES128-GCM-SHA256",
-                    value="true",
-                ),
-                aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
-                    name="Protocol-TLSv1.2",
-                    value="true",
-                ),
-            ])
-        wu_tang_ssl_tls_1_1 = aws.elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ssl",
-            policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
-                name="Reference-Security-Policy",
-                value="ELBSecurityPolicy-TLS-1-1-2017-01",
-            )])
-        wu_tang_backend_auth_policies_443 = aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443",
-            load_balancer_name=wu_tang.name,
-            instance_port=443,
-            policy_names=[wu_tang_root_ca_backend_auth_policy.policy_name])
-        wu_tang_listener_policies_443 = aws.elb.ListenerPolicy("wu-tang-listener-policies-443",
-            load_balancer_name=wu_tang.name,
-            load_balancer_port=443,
-            policy_names=[wu_tang_ssl.policy_name])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] load_balancer_name: The load balancer on which the policy is defined.
@@ -249,72 +239,6 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         """
         Provides a load balancer policy, which can be attached to an ELB listener or backend server.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        wu_tang = aws.elb.LoadBalancer("wu-tang",
-            availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=443,
-                instance_protocol="http",
-                lb_port=443,
-                lb_protocol="https",
-                ssl_certificate_id="arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-            )],
-            tags={
-                "Name": "wu-tang",
-            })
-        wu_tang_ca_pubkey_policy = aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ca-pubkey-policy",
-            policy_type_name="PublicKeyPolicyType",
-            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
-                name="PublicKey",
-                value=(lambda path: open(path).read())("wu-tang-pubkey"),
-            )])
-        wu_tang_root_ca_backend_auth_policy = aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-root-ca-backend-auth-policy",
-            policy_type_name="BackendServerAuthenticationPolicyType",
-            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
-                name="PublicKeyPolicyName",
-                value=aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"]["policy_name"],
-            )])
-        wu_tang_ssl = aws.elb.LoadBalancerPolicy("wu-tang-ssl",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ssl",
-            policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[
-                aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
-                    name="ECDHE-ECDSA-AES128-GCM-SHA256",
-                    value="true",
-                ),
-                aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
-                    name="Protocol-TLSv1.2",
-                    value="true",
-                ),
-            ])
-        wu_tang_ssl_tls_1_1 = aws.elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ssl",
-            policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
-                name="Reference-Security-Policy",
-                value="ELBSecurityPolicy-TLS-1-1-2017-01",
-            )])
-        wu_tang_backend_auth_policies_443 = aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443",
-            load_balancer_name=wu_tang.name,
-            instance_port=443,
-            policy_names=[wu_tang_root_ca_backend_auth_policy.policy_name])
-        wu_tang_listener_policies_443 = aws.elb.ListenerPolicy("wu-tang-listener-policies-443",
-            load_balancer_name=wu_tang.name,
-            load_balancer_port=443,
-            policy_names=[wu_tang_ssl.policy_name])
-        ```
-
         :param str resource_name: The name of the resource.
         :param LoadBalancerPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -325,6 +249,10 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoadBalancerPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -15,24 +15,6 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE:** **Do not** use both `aws.ec2.DefaultRouteTable` to manage a default route table **and** `aws.ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See aws.ec2.DefaultRouteTable documentation for more details.
     /// For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in the provider, see `aws.ec2.RouteTable`.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mainRouteTableAssociation = new Aws.Ec2.MainRouteTableAssociation("mainRouteTableAssociation", new()
-    ///     {
-    ///         VpcId = aws_vpc.Foo.Id,
-    ///         RouteTableId = aws_route_table.Bar.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Notes
     /// 
     /// On VPC creation, the AWS API always creates an initial Main Route Table. This

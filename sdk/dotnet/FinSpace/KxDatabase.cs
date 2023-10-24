@@ -13,35 +13,6 @@ namespace Pulumi.Aws.FinSpace
     /// Resource for managing an AWS FinSpace Kx Database.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
-    ///     {
-    ///         Description = "Example KMS Key",
-    ///         DeletionWindowInDays = 7,
-    ///     });
-    /// 
-    ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("exampleKxEnvironment", new()
-    ///     {
-    ///         KmsKeyId = exampleKey.Arn,
-    ///     });
-    /// 
-    ///     var exampleKxDatabase = new Aws.FinSpace.KxDatabase("exampleKxDatabase", new()
-    ///     {
-    ///         EnvironmentId = exampleKxEnvironment.Id,
-    ///         Description = "Example database description",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

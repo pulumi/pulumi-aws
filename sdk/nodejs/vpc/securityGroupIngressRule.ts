@@ -14,21 +14,6 @@ import * as utilities from "../utilities";
  * The `aws.vpc.SecurityGroupIngressRule` resource has been added to address these limitations and should be used for all new security group rules.
  * You should not use the `aws.vpc.SecurityGroupIngressRule` resource in conjunction with an `aws.ec2.SecurityGroup` resource with in-line rules or with `aws.ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpc.SecurityGroupIngressRule("example", {
- *     securityGroupId: aws_security_group.example.id,
- *     cidrIpv4: "10.0.0.0/8",
- *     fromPort: 80,
- *     ipProtocol: "tcp",
- *     toPort: 80,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For example:

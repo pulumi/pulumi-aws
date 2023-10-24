@@ -15,68 +15,6 @@ namespace Pulumi.Aws.Connect
     /// 
     /// !&gt; **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits).  For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance.  Use care when creating or deleting instances.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Connect.Instance("test", new()
-    ///     {
-    ///         IdentityManagementType = "CONNECT_MANAGED",
-    ///         InboundCallsEnabled = true,
-    ///         InstanceAlias = "friendly-name-connect",
-    ///         OutboundCallsEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With Existing Active Directory
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Connect.Instance("test", new()
-    ///     {
-    ///         DirectoryId = aws_directory_service_directory.Test.Id,
-    ///         IdentityManagementType = "EXISTING_DIRECTORY",
-    ///         InboundCallsEnabled = true,
-    ///         InstanceAlias = "friendly-name-connect",
-    ///         OutboundCallsEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With SAML
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Connect.Instance("test", new()
-    ///     {
-    ///         IdentityManagementType = "SAML",
-    ///         InboundCallsEnabled = true,
-    ///         InstanceAlias = "friendly-name-connect",
-    ///         OutboundCallsEnabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Connect instances using the `id`. For example:

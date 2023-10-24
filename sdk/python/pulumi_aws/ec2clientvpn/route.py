@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteArgs', 'Route']
@@ -25,11 +25,40 @@ class RouteArgs:
         :param pulumi.Input[str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         :param pulumi.Input[str] description: A brief description of the route.
         """
-        pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
-        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
-        pulumi.set(__self__, "target_vpc_subnet_id", target_vpc_subnet_id)
+        RouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_vpn_endpoint_id=client_vpn_endpoint_id,
+            destination_cidr_block=destination_cidr_block,
+            target_vpc_subnet_id=target_vpc_subnet_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+             destination_cidr_block: Optional[pulumi.Input[str]] = None,
+             target_vpc_subnet_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_vpn_endpoint_id is None and 'clientVpnEndpointId' in kwargs:
+            client_vpn_endpoint_id = kwargs['clientVpnEndpointId']
+        if client_vpn_endpoint_id is None:
+            raise TypeError("Missing 'client_vpn_endpoint_id' argument")
+        if destination_cidr_block is None and 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if destination_cidr_block is None:
+            raise TypeError("Missing 'destination_cidr_block' argument")
+        if target_vpc_subnet_id is None and 'targetVpcSubnetId' in kwargs:
+            target_vpc_subnet_id = kwargs['targetVpcSubnetId']
+        if target_vpc_subnet_id is None:
+            raise TypeError("Missing 'target_vpc_subnet_id' argument")
+
+        _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
+        _setter("destination_cidr_block", destination_cidr_block)
+        _setter("target_vpc_subnet_id", target_vpc_subnet_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
@@ -98,18 +127,45 @@ class _RouteState:
         :param pulumi.Input[str] target_vpc_subnet_id: The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         :param pulumi.Input[str] type: The type of the route.
         """
+        _RouteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_vpn_endpoint_id=client_vpn_endpoint_id,
+            description=description,
+            destination_cidr_block=destination_cidr_block,
+            origin=origin,
+            target_vpc_subnet_id=target_vpc_subnet_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             destination_cidr_block: Optional[pulumi.Input[str]] = None,
+             origin: Optional[pulumi.Input[str]] = None,
+             target_vpc_subnet_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_vpn_endpoint_id is None and 'clientVpnEndpointId' in kwargs:
+            client_vpn_endpoint_id = kwargs['clientVpnEndpointId']
+        if destination_cidr_block is None and 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if target_vpc_subnet_id is None and 'targetVpcSubnetId' in kwargs:
+            target_vpc_subnet_id = kwargs['targetVpcSubnetId']
+
         if client_vpn_endpoint_id is not None:
-            pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
+            _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_cidr_block is not None:
-            pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+            _setter("destination_cidr_block", destination_cidr_block)
         if origin is not None:
-            pulumi.set(__self__, "origin", origin)
+            _setter("origin", origin)
         if target_vpc_subnet_id is not None:
-            pulumi.set(__self__, "target_vpc_subnet_id", target_vpc_subnet_id)
+            _setter("target_vpc_subnet_id", target_vpc_subnet_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
@@ -198,32 +254,6 @@ class Route(pulumi.CustomResource):
         Provides additional routes for AWS Client VPN endpoints. For more information on usage, please see the
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_endpoint = aws.ec2clientvpn.Endpoint("exampleEndpoint",
-            description="Example Client VPN endpoint",
-            server_certificate_arn=aws_acm_certificate["example"]["arn"],
-            client_cidr_block="10.0.0.0/16",
-            authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
-                type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["example"]["arn"],
-            )],
-            connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
-                enabled=False,
-            ))
-        example_network_association = aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation",
-            client_vpn_endpoint_id=example_endpoint.id,
-            subnet_id=aws_subnet["example"]["id"])
-        example_route = aws.ec2clientvpn.Route("exampleRoute",
-            client_vpn_endpoint_id=example_endpoint.id,
-            destination_cidr_block="0.0.0.0/0",
-            target_vpc_subnet_id=example_network_association.subnet_id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:
@@ -249,32 +279,6 @@ class Route(pulumi.CustomResource):
         Provides additional routes for AWS Client VPN endpoints. For more information on usage, please see the
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_endpoint = aws.ec2clientvpn.Endpoint("exampleEndpoint",
-            description="Example Client VPN endpoint",
-            server_certificate_arn=aws_acm_certificate["example"]["arn"],
-            client_cidr_block="10.0.0.0/16",
-            authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
-                type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["example"]["arn"],
-            )],
-            connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
-                enabled=False,
-            ))
-        example_network_association = aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation",
-            client_vpn_endpoint_id=example_endpoint.id,
-            subnet_id=aws_subnet["example"]["id"])
-        example_route = aws.ec2clientvpn.Route("exampleRoute",
-            client_vpn_endpoint_id=example_endpoint.id,
-            destination_cidr_block="0.0.0.0/0",
-            target_vpc_subnet_id=example_network_association.subnet_id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:
@@ -293,6 +297,10 @@ class Route(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

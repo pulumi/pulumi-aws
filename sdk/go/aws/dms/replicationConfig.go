@@ -17,44 +17,6 @@ import (
 //
 // > **NOTE:** Changing most arguments will stop the replication if it is running. You can set `startReplication` to resume the replication afterwards.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.NewReplicationConfig(ctx, "name", &dms.ReplicationConfigArgs{
-//				ReplicationConfigIdentifier: pulumi.String("test-dms-serverless-replication-tf"),
-//				ResourceIdentifier:          pulumi.String("test-dms-serverless-replication-tf"),
-//				ReplicationType:             pulumi.String("cdc"),
-//				SourceEndpointArn:           pulumi.Any(aws_dms_endpoint.Source.Endpoint_arn),
-//				TargetEndpointArn:           pulumi.Any(aws_dms_endpoint.Target.Endpoint_arn),
-//				TableMappings:               pulumi.String("  {\n    \"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%%\",\"table-name\":\"%%\", \"rule-action\":\"include\"}]\n  }\n"),
-//				StartReplication:            pulumi.Bool(true),
-//				ComputeConfig: &dms.ReplicationConfigComputeConfigArgs{
-//					ReplicationSubnetGroupId:   pulumi.Any(aws_dms_replication_subnet_group.Default.Replication_subnet_group_id),
-//					MaxCapacityUnits:           pulumi.Int(64),
-//					MinCapacityUnits:           pulumi.Int(2),
-//					PreferredMaintenanceWindow: pulumi.String("sun:23:45-mon:00:30"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import a replication config using the `arn`. For example:

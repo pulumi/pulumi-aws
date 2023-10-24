@@ -13,47 +13,6 @@ namespace Pulumi.Aws.Sfn
     /// Provides a Step Function State Machine Alias.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sfnAlias = new Aws.Sfn.Alias("sfnAlias", new()
-    ///     {
-    ///         RoutingConfigurations = new[]
-    ///         {
-    ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
-    ///             {
-    ///                 StateMachineVersionArn = aws_sfn_state_machine.Sfn_test.State_machine_version_arn,
-    ///                 Weight = 100,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var mySfnAlias = new Aws.Sfn.Alias("mySfnAlias", new()
-    ///     {
-    ///         RoutingConfigurations = new[]
-    ///         {
-    ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
-    ///             {
-    ///                 StateMachineVersionArn = "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
-    ///                 Weight = 50,
-    ///             },
-    ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
-    ///             {
-    ///                 StateMachineVersionArn = "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
-    ///                 Weight = 50,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

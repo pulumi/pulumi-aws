@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get a list the AWS services for which the specified account is a delegated administrator
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.organizations.getDelegatedServices({
- *     accountId: "AWS ACCOUNT ID",
- * });
- * ```
  */
 export function getDelegatedServices(args: GetDelegatedServicesArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedServicesResult> {
 
@@ -55,17 +44,6 @@ export interface GetDelegatedServicesResult {
 }
 /**
  * Get a list the AWS services for which the specified account is a delegated administrator
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.organizations.getDelegatedServices({
- *     accountId: "AWS ACCOUNT ID",
- * });
- * ```
  */
 export function getDelegatedServicesOutput(args: GetDelegatedServicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedServicesResult> {
     return pulumi.output(args).apply((a: any) => getDelegatedServices(a, opts))

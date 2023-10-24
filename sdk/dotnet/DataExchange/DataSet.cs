@@ -12,25 +12,6 @@ namespace Pulumi.Aws.DataExchange
     /// <summary>
     /// Provides a resource to manage AWS Data Exchange DataSets.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataExchange.DataSet("example", new()
-    ///     {
-    ///         AssetType = "S3_SNAPSHOT",
-    ///         Description = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DataExchange DataSets using their ARN. For example:

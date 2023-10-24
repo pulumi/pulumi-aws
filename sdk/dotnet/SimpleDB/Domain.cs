@@ -12,21 +12,6 @@ namespace Pulumi.Aws.SimpleDB
     /// <summary>
     /// Provides a SimpleDB domain resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var users = new Aws.SimpleDB.Domain("users");
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SimpleDB Domains using the `name`. For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RegexPatternSetArgs', 'RegexPatternSet']
@@ -21,10 +21,25 @@ class RegexPatternSetArgs:
         :param pulumi.Input[str] name: The name or description of the Regex Pattern Set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regex_pattern_strings: A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
         """
+        RegexPatternSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            regex_pattern_strings=regex_pattern_strings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             regex_pattern_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if regex_pattern_strings is None and 'regexPatternStrings' in kwargs:
+            regex_pattern_strings = kwargs['regexPatternStrings']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if regex_pattern_strings is not None:
-            pulumi.set(__self__, "regex_pattern_strings", regex_pattern_strings)
+            _setter("regex_pattern_strings", regex_pattern_strings)
 
     @property
     @pulumi.getter
@@ -63,12 +78,29 @@ class _RegexPatternSetState:
         :param pulumi.Input[str] name: The name or description of the Regex Pattern Set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regex_pattern_strings: A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
         """
+        _RegexPatternSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            name=name,
+            regex_pattern_strings=regex_pattern_strings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             regex_pattern_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if regex_pattern_strings is None and 'regexPatternStrings' in kwargs:
+            regex_pattern_strings = kwargs['regexPatternStrings']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if regex_pattern_strings is not None:
-            pulumi.set(__self__, "regex_pattern_strings", regex_pattern_strings)
+            _setter("regex_pattern_strings", regex_pattern_strings)
 
     @property
     @pulumi.getter
@@ -118,18 +150,6 @@ class RegexPatternSet(pulumi.CustomResource):
         """
         Provides a WAF Regex Pattern Set Resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.waf.RegexPatternSet("example", regex_pattern_strings=[
-            "one",
-            "two",
-        ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import AWS WAF Regex Pattern Set using their ID. For example:
@@ -152,18 +172,6 @@ class RegexPatternSet(pulumi.CustomResource):
         """
         Provides a WAF Regex Pattern Set Resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.waf.RegexPatternSet("example", regex_pattern_strings=[
-            "one",
-            "two",
-        ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import AWS WAF Regex Pattern Set using their ID. For example:
@@ -182,6 +190,10 @@ class RegexPatternSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegexPatternSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -17,63 +17,6 @@ import (
 //
 // # Domain ownership needs to be confirmed first using sesDomainIdentity Resource
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
-//				Domain: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleDomainDkim, err := ses.NewDomainDkim(ctx, "exampleDomainDkim", &ses.DomainDkimArgs{
-//				Domain: exampleDomainIdentity.Domain,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			var exampleAmazonsesDkimRecord []*route53.Record
-//			for index := 0; index < 3; index++ {
-//				key0 := index
-//				val0 := index
-//				__res, err := route53.NewRecord(ctx, fmt.Sprintf("exampleAmazonsesDkimRecord-%v", key0), &route53.RecordArgs{
-//					ZoneId: pulumi.String("ABCDEFGHIJ123"),
-//					Name: exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens []string) (string, error) {
-//						return fmt.Sprintf("%v._domainkey", dkimTokens[val0]), nil
-//					}).(pulumi.StringOutput),
-//					Type: pulumi.String("CNAME"),
-//					Ttl:  pulumi.Int(600),
-//					Records: pulumi.StringArray{
-//						exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens []string) (string, error) {
-//							return fmt.Sprintf("%v.dkim.amazonses.com", dkimTokens[val0]), nil
-//						}).(pulumi.StringOutput),
-//					},
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				exampleAmazonsesDkimRecord = append(exampleAmazonsesDkimRecord, __res)
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:

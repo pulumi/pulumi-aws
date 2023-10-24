@@ -11,42 +11,6 @@ namespace Pulumi.Aws.CodeGuruReviewer
 {
     /// <summary>
     /// Resource for managing an AWS CodeGuru Reviewer Repository Association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleKey = new Aws.Kms.Key("exampleKey");
-    /// 
-    ///     var exampleRepository = new Aws.CodeCommit.Repository("exampleRepository", new()
-    ///     {
-    ///         RepositoryName = "example-repo",
-    ///     });
-    /// 
-    ///     var exampleRepositoryAssociation = new Aws.CodeGuruReviewer.RepositoryAssociation("exampleRepositoryAssociation", new()
-    ///     {
-    ///         Repository = new Aws.CodeGuruReviewer.Inputs.RepositoryAssociationRepositoryArgs
-    ///         {
-    ///             Codecommit = new Aws.CodeGuruReviewer.Inputs.RepositoryAssociationRepositoryCodecommitArgs
-    ///             {
-    ///                 Name = exampleRepository.RepositoryName,
-    ///             },
-    ///         },
-    ///         KmsKeyDetails = new Aws.CodeGuruReviewer.Inputs.RepositoryAssociationKmsKeyDetailsArgs
-    ///         {
-    ///             EncryptionOption = "CUSTOMER_MANAGED_CMK",
-    ///             KmsKeyId = exampleKey.KeyId,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")]
     public partial class RepositoryAssociation : global::Pulumi.CustomResource

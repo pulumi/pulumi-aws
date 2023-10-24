@@ -10,20 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Location Service Map.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.location.Map("example", {
- *     configuration: {
- *         style: "VectorHereBerlin",
- *     },
- *     mapName: "example",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_location_map` resources using the map name. For example:

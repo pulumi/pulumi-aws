@@ -26,7 +26,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
         /// </summary>
         public readonly string RuleId;
         /// <summary>
-        /// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+        /// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         /// </summary>
         public readonly string? Type;
 

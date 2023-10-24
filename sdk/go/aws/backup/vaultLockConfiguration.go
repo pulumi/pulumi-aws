@@ -15,35 +15,6 @@ import (
 
 // Provides an AWS Backup vault lock configuration resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewVaultLockConfiguration(ctx, "test", &backup.VaultLockConfigurationArgs{
-//				BackupVaultName:   pulumi.String("example_backup_vault"),
-//				ChangeableForDays: pulumi.Int(3),
-//				MaxRetentionDays:  pulumi.Int(1200),
-//				MinRetentionDays:  pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:

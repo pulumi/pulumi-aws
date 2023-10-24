@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * This data source can be used to fetch information about a specific
  * EventBridge event bus. Use this data source to compute the ARN of
  * an event bus, given the name of the bus.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudwatch.getEventBus({
- *     name: "example-bus-name",
- * });
- * ```
  */
 export function getEventBus(args: GetEventBusArgs, opts?: pulumi.InvokeOptions): Promise<GetEventBusResult> {
 
@@ -56,17 +45,6 @@ export interface GetEventBusResult {
  * This data source can be used to fetch information about a specific
  * EventBridge event bus. Use this data source to compute the ARN of
  * an event bus, given the name of the bus.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudwatch.getEventBus({
- *     name: "example-bus-name",
- * });
- * ```
  */
 export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventBusResult> {
     return pulumi.output(args).apply((a: any) => getEventBus(a, opts))

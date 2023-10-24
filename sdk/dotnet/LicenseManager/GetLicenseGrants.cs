@@ -13,84 +13,12 @@ namespace Pulumi.Aws.LicenseManager
     {
         /// <summary>
         /// This resource can be used to get a set of license grant ARNs matching a filter.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following shows getting all license grant ARNs granted to your account.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
-        /// 
-        ///     var test = Aws.LicenseManager.GetLicenseGrants.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.LicenseManager.Inputs.GetLicenseGrantsFilterInputArgs
-        ///             {
-        ///                 Name = "GranteePrincipalARN",
-        ///                 Values = new[]
-        ///                 {
-        ///                     $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetLicenseGrantsResult> InvokeAsync(GetLicenseGrantsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicenseGrantsResult>("aws:licensemanager/getLicenseGrants:getLicenseGrants", args ?? new GetLicenseGrantsArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource can be used to get a set of license grant ARNs matching a filter.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following shows getting all license grant ARNs granted to your account.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
-        /// 
-        ///     var test = Aws.LicenseManager.GetLicenseGrants.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.LicenseManager.Inputs.GetLicenseGrantsFilterInputArgs
-        ///             {
-        ///                 Name = "GranteePrincipalARN",
-        ///                 Values = new[]
-        ///                 {
-        ///                     $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetLicenseGrantsResult> Invoke(GetLicenseGrantsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseGrantsResult>("aws:licensemanager/getLicenseGrants:getLicenseGrants", args ?? new GetLicenseGrantsInvokeArgs(), options.WithDefaults());

@@ -15,47 +15,6 @@ import (
 
 // Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/detective"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primaryGraph, err := detective.NewGraph(ctx, "primaryGraph", nil)
-//			if err != nil {
-//				return err
-//			}
-//			primaryMember, err := detective.NewMember(ctx, "primaryMember", &detective.MemberArgs{
-//				AccountId:    pulumi.String("ACCOUNT ID"),
-//				EmailAddress: pulumi.String("EMAIL"),
-//				GraphArn:     primaryGraph.ID(),
-//				Message:      pulumi.String("Message of the invite"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = detective.NewInvitationAccepter(ctx, "member", &detective.InvitationAccepterArgs{
-//				GraphArn: primaryGraph.GraphArn,
-//			}, pulumi.Provider("awsalternate"), pulumi.DependsOn([]pulumi.Resource{
-//				primaryMember,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:

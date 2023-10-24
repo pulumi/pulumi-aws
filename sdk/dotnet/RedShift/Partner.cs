@@ -12,27 +12,6 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// Creates a new Amazon Redshift Partner Integration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.Partner("example", new()
-    ///     {
-    ///         ClusterIdentifier = aws_redshift_cluster.Example.Id,
-    ///         AccountId = "1234567910",
-    ///         DatabaseName = aws_redshift_cluster.Example.Database_name,
-    ///         PartnerName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift usage limits using the `id`. For example:

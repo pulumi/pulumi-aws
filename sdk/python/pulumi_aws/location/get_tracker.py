@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -143,15 +143,6 @@ def get_tracker(tags: Optional[Mapping[str, str]] = None,
     """
     Retrieve information about a Location Service Tracker.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_tracker(tracker_name="example")
-    ```
-
 
     :param Mapping[str, str] tags: Key-value map of resource tags for the tracker.
     :param str tracker_name: Name of the tracker resource.
@@ -180,15 +171,6 @@ def get_tracker_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]]
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackerResult]:
     """
     Retrieve information about a Location Service Tracker.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_tracker(tracker_name="example")
-    ```
 
 
     :param Mapping[str, str] tags: Key-value map of resource tags for the tracker.

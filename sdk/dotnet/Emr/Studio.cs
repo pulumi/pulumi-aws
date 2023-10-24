@@ -12,34 +12,6 @@ namespace Pulumi.Aws.Emr
     /// <summary>
     /// Provides an Elastic MapReduce Studio.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Emr.Studio("example", new()
-    ///     {
-    ///         AuthMode = "SSO",
-    ///         DefaultS3Location = $"s3://{aws_s3_bucket.Test.Bucket}/test",
-    ///         EngineSecurityGroupId = aws_security_group.Test.Id,
-    ///         ServiceRole = aws_iam_role.Test.Arn,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Test.Id,
-    ///         },
-    ///         UserRole = aws_iam_role.Test.Arn,
-    ///         VpcId = aws_vpc.Test.Id,
-    ///         WorkspaceSecurityGroupId = aws_security_group.Test.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EMR studios using the `id`. For example:

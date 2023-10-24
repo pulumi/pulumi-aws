@@ -7,37 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a VPC Endpoint Policy resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleVpcEndpointService = aws.ec2.getVpcEndpointService({
- *     service: "dynamodb",
- * });
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("exampleVpcEndpoint", {
- *     serviceName: exampleVpcEndpointService.then(exampleVpcEndpointService => exampleVpcEndpointService.serviceName),
- *     vpcId: exampleVpc.id,
- * });
- * const exampleVpcEndpointPolicy = new aws.ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy", {
- *     vpcEndpointId: exampleVpcEndpoint.id,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "AllowAll",
- *             Effect: "Allow",
- *             Principal: {
- *                 AWS: "*",
- *             },
- *             Action: ["dynamodb:*"],
- *             Resource: "*",
- *         }],
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:

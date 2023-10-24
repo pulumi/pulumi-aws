@@ -10,22 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
- * const exampleClassificationExportConfiguration = new aws.macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", {s3Destination: {
- *     bucketName: aws_s3_bucket.example.bucket,
- *     keyPrefix: "exampleprefix/",
- *     kmsKeyArn: aws_kms_key.example.arn,
- * }}, {
- *     dependsOn: [exampleAccount],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For example:

@@ -15,43 +15,6 @@ import (
 
 // Provides an AppConfig Configuration Profile resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.NewConfigurationProfile(ctx, "example", &appconfig.ConfigurationProfileArgs{
-//				ApplicationId: pulumi.Any(aws_appconfig_application.Example.Id),
-//				Description:   pulumi.String("Example Configuration Profile"),
-//				LocationUri:   pulumi.String("hosted"),
-//				Validators: appconfig.ConfigurationProfileValidatorArray{
-//					&appconfig.ConfigurationProfileValidatorArgs{
-//						Content: pulumi.Any(aws_lambda_function.Example.Arn),
-//						Type:    pulumi.String("LAMBDA"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Type": pulumi.String("AppConfig Configuration Profile"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import AppConfig Configuration Profiles using the configuration profile ID and application ID separated by a colon (`:`). For example:

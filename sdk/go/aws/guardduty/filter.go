@@ -15,60 +15,6 @@ import (
 
 // Provides a resource to manage a GuardDuty filter.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := guardduty.NewFilter(ctx, "myFilter", &guardduty.FilterArgs{
-//				Action:     pulumi.String("ARCHIVE"),
-//				DetectorId: pulumi.Any(aws_guardduty_detector.Example.Id),
-//				Rank:       pulumi.Int(1),
-//				FindingCriteria: &guardduty.FilterFindingCriteriaArgs{
-//					Criterions: guardduty.FilterFindingCriteriaCriterionArray{
-//						&guardduty.FilterFindingCriteriaCriterionArgs{
-//							Field: pulumi.String("region"),
-//							Equals: pulumi.StringArray{
-//								pulumi.String("eu-west-1"),
-//							},
-//						},
-//						&guardduty.FilterFindingCriteriaCriterionArgs{
-//							Field: pulumi.String("service.additionalInfo.threatListName"),
-//							NotEquals: pulumi.StringArray{
-//								pulumi.String("some-threat"),
-//								pulumi.String("another-threat"),
-//							},
-//						},
-//						&guardduty.FilterFindingCriteriaCriterionArgs{
-//							Field:       pulumi.String("updatedAt"),
-//							GreaterThan: pulumi.String("2020-01-01T00:00:00Z"),
-//							LessThan:    pulumi.String("2020-02-01T00:00:00Z"),
-//						},
-//						&guardduty.FilterFindingCriteriaCriterionArgs{
-//							Field:              pulumi.String("severity"),
-//							GreaterThanOrEqual: pulumi.String("4"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For example:

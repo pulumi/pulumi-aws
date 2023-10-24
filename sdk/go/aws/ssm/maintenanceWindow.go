@@ -15,34 +15,6 @@ import (
 
 // Provides an SSM Maintenance Window resource
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewMaintenanceWindow(ctx, "production", &ssm.MaintenanceWindowArgs{
-//				Cutoff:   pulumi.Int(1),
-//				Duration: pulumi.Int(3),
-//				Schedule: pulumi.String("cron(0 16 ? * TUE *)"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // # Using `pulumi import`, import SSM

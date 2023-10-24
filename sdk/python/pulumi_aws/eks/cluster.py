@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -40,24 +40,71 @@ class ClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "vpc_config", vpc_config)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            vpc_config=vpc_config,
+            default_addons_to_removes=default_addons_to_removes,
+            enabled_cluster_log_types=enabled_cluster_log_types,
+            encryption_config=encryption_config,
+            kubernetes_network_config=kubernetes_network_config,
+            name=name,
+            outpost_config=outpost_config,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: Optional[pulumi.Input[str]] = None,
+             vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None,
+             default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
+             kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+        if vpc_config is None:
+            raise TypeError("Missing 'vpc_config' argument")
+        if default_addons_to_removes is None and 'defaultAddonsToRemoves' in kwargs:
+            default_addons_to_removes = kwargs['defaultAddonsToRemoves']
+        if enabled_cluster_log_types is None and 'enabledClusterLogTypes' in kwargs:
+            enabled_cluster_log_types = kwargs['enabledClusterLogTypes']
+        if encryption_config is None and 'encryptionConfig' in kwargs:
+            encryption_config = kwargs['encryptionConfig']
+        if kubernetes_network_config is None and 'kubernetesNetworkConfig' in kwargs:
+            kubernetes_network_config = kwargs['kubernetesNetworkConfig']
+        if outpost_config is None and 'outpostConfig' in kwargs:
+            outpost_config = kwargs['outpostConfig']
+
+        _setter("role_arn", role_arn)
+        _setter("vpc_config", vpc_config)
         if default_addons_to_removes is not None:
-            pulumi.set(__self__, "default_addons_to_removes", default_addons_to_removes)
+            _setter("default_addons_to_removes", default_addons_to_removes)
         if enabled_cluster_log_types is not None:
-            pulumi.set(__self__, "enabled_cluster_log_types", enabled_cluster_log_types)
+            _setter("enabled_cluster_log_types", enabled_cluster_log_types)
         if encryption_config is not None:
-            pulumi.set(__self__, "encryption_config", encryption_config)
+            _setter("encryption_config", encryption_config)
         if kubernetes_network_config is not None:
-            pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
+            _setter("kubernetes_network_config", kubernetes_network_config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outpost_config is not None:
-            pulumi.set(__self__, "outpost_config", outpost_config)
+            _setter("outpost_config", outpost_config)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -226,49 +273,124 @@ class _ClusterState:
                
                The following arguments are optional:
         """
+        _ClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            certificate_authorities=certificate_authorities,
+            certificate_authority=certificate_authority,
+            cluster_id=cluster_id,
+            created_at=created_at,
+            default_addons_to_removes=default_addons_to_removes,
+            enabled_cluster_log_types=enabled_cluster_log_types,
+            encryption_config=encryption_config,
+            endpoint=endpoint,
+            identities=identities,
+            kubernetes_network_config=kubernetes_network_config,
+            name=name,
+            outpost_config=outpost_config,
+            platform_version=platform_version,
+            role_arn=role_arn,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            version=version,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]] = None,
+             certificate_authority: Optional[pulumi.Input['ClusterCertificateAuthorityArgs']] = None,
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             identities: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityArgs']]]] = None,
+             kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
+             platform_version: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_authorities is None and 'certificateAuthorities' in kwargs:
+            certificate_authorities = kwargs['certificateAuthorities']
+        if certificate_authority is None and 'certificateAuthority' in kwargs:
+            certificate_authority = kwargs['certificateAuthority']
+        if cluster_id is None and 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if default_addons_to_removes is None and 'defaultAddonsToRemoves' in kwargs:
+            default_addons_to_removes = kwargs['defaultAddonsToRemoves']
+        if enabled_cluster_log_types is None and 'enabledClusterLogTypes' in kwargs:
+            enabled_cluster_log_types = kwargs['enabledClusterLogTypes']
+        if encryption_config is None and 'encryptionConfig' in kwargs:
+            encryption_config = kwargs['encryptionConfig']
+        if kubernetes_network_config is None and 'kubernetesNetworkConfig' in kwargs:
+            kubernetes_network_config = kwargs['kubernetesNetworkConfig']
+        if outpost_config is None and 'outpostConfig' in kwargs:
+            outpost_config = kwargs['outpostConfig']
+        if platform_version is None and 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if certificate_authorities is not None:
-            pulumi.set(__self__, "certificate_authorities", certificate_authorities)
+            _setter("certificate_authorities", certificate_authorities)
         if certificate_authority is not None:
-            pulumi.set(__self__, "certificate_authority", certificate_authority)
+            _setter("certificate_authority", certificate_authority)
         if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+            _setter("cluster_id", cluster_id)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if default_addons_to_removes is not None:
-            pulumi.set(__self__, "default_addons_to_removes", default_addons_to_removes)
+            _setter("default_addons_to_removes", default_addons_to_removes)
         if enabled_cluster_log_types is not None:
-            pulumi.set(__self__, "enabled_cluster_log_types", enabled_cluster_log_types)
+            _setter("enabled_cluster_log_types", enabled_cluster_log_types)
         if encryption_config is not None:
-            pulumi.set(__self__, "encryption_config", encryption_config)
+            _setter("encryption_config", encryption_config)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if identities is not None:
-            pulumi.set(__self__, "identities", identities)
+            _setter("identities", identities)
         if kubernetes_network_config is not None:
-            pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
+            _setter("kubernetes_network_config", kubernetes_network_config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outpost_config is not None:
-            pulumi.set(__self__, "outpost_config", outpost_config)
+            _setter("outpost_config", outpost_config)
         if platform_version is not None:
-            pulumi.set(__self__, "platform_version", platform_version)
+            _setter("platform_version", platform_version)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter
@@ -531,96 +653,6 @@ class Cluster(pulumi.CustomResource):
         Manages an EKS Cluster.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.eks.Cluster("example",
-            role_arn=aws_iam_role["example"]["arn"],
-            vpc_config=aws.eks.ClusterVpcConfigArgs(
-                subnet_ids=[
-                    aws_subnet["example1"]["id"],
-                    aws_subnet["example2"]["id"],
-                ],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_iam_role_policy_attachment["example-AmazonEKSClusterPolicy"],
-                    aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
-                ]))
-        pulumi.export("endpoint", example.endpoint)
-        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
-        ```
-        ### Example IAM Role for EKS Cluster
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["eks.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example = aws.iam.Role("example", assume_role_policy=assume_role.json)
-        example__amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
-            role=example.name)
-        # Optionally, enable Security Groups for Pods
-        # Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
-        example__amazon_eksvpc_resource_controller = aws.iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
-            role=example.name)
-        ```
-        ### Enabling Control Plane Logging
-
-        [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabled_cluster_log_types` argument. To manage the CloudWatch Log Group retention period, the `cloudwatch.LogGroup` resource can be used.
-
-        > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        cluster_name = config.get("clusterName")
-        if cluster_name is None:
-            cluster_name = "example"
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
-        # ... potentially other configuration ...
-        example_cluster = aws.eks.Cluster("exampleCluster", enabled_cluster_log_types=[
-            "api",
-            "audit",
-        ],
-        opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
-        # ... other configuration ...
-        ```
-        ### EKS Cluster on AWS Outpost
-
-        [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=data["aws_iam_policy_document"]["example_assume_role_policy"]["json"])
-        example_cluster = aws.eks.Cluster("exampleCluster",
-            role_arn=example_role.arn,
-            vpc_config=aws.eks.ClusterVpcConfigArgs(
-                endpoint_private_access=True,
-                endpoint_public_access=False,
-            ),
-            outpost_config=aws.eks.ClusterOutpostConfigArgs(
-                control_plane_instance_type="m5d.large",
-                outpost_arns=[data["aws_outposts_outpost"]["example"]["arn"]],
-            ))
-        ```
-
-        After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
 
         ## Import
 
@@ -654,96 +686,6 @@ class Cluster(pulumi.CustomResource):
         Manages an EKS Cluster.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.eks.Cluster("example",
-            role_arn=aws_iam_role["example"]["arn"],
-            vpc_config=aws.eks.ClusterVpcConfigArgs(
-                subnet_ids=[
-                    aws_subnet["example1"]["id"],
-                    aws_subnet["example2"]["id"],
-                ],
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_iam_role_policy_attachment["example-AmazonEKSClusterPolicy"],
-                    aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
-                ]))
-        pulumi.export("endpoint", example.endpoint)
-        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
-        ```
-        ### Example IAM Role for EKS Cluster
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["eks.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example = aws.iam.Role("example", assume_role_policy=assume_role.json)
-        example__amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
-            role=example.name)
-        # Optionally, enable Security Groups for Pods
-        # Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
-        example__amazon_eksvpc_resource_controller = aws.iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
-            role=example.name)
-        ```
-        ### Enabling Control Plane Logging
-
-        [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabled_cluster_log_types` argument. To manage the CloudWatch Log Group retention period, the `cloudwatch.LogGroup` resource can be used.
-
-        > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        cluster_name = config.get("clusterName")
-        if cluster_name is None:
-            cluster_name = "example"
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=7)
-        # ... potentially other configuration ...
-        example_cluster = aws.eks.Cluster("exampleCluster", enabled_cluster_log_types=[
-            "api",
-            "audit",
-        ],
-        opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
-        # ... other configuration ...
-        ```
-        ### EKS Cluster on AWS Outpost
-
-        [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=data["aws_iam_policy_document"]["example_assume_role_policy"]["json"])
-        example_cluster = aws.eks.Cluster("exampleCluster",
-            role_arn=example_role.arn,
-            vpc_config=aws.eks.ClusterVpcConfigArgs(
-                endpoint_private_access=True,
-                endpoint_public_access=False,
-            ),
-            outpost_config=aws.eks.ClusterOutpostConfigArgs(
-                control_plane_instance_type="m5d.large",
-                outpost_arns=[data["aws_outposts_outpost"]["example"]["arn"]],
-            ))
-        ```
-
-        After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
 
         ## Import
 
@@ -763,6 +705,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -789,15 +735,19 @@ class Cluster(pulumi.CustomResource):
 
             __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
             __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
+            encryption_config = _utilities.configure(encryption_config, ClusterEncryptionConfigArgs, True)
             __props__.__dict__["encryption_config"] = encryption_config
+            kubernetes_network_config = _utilities.configure(kubernetes_network_config, ClusterKubernetesNetworkConfigArgs, True)
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["name"] = name
+            outpost_config = _utilities.configure(outpost_config, ClusterOutpostConfigArgs, True)
             __props__.__dict__["outpost_config"] = outpost_config
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
+            vpc_config = _utilities.configure(vpc_config, ClusterVpcConfigArgs, True)
             if vpc_config is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_config'")
             __props__.__dict__["vpc_config"] = vpc_config

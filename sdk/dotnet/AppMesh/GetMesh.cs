@@ -13,94 +13,12 @@ namespace Pulumi.Aws.AppMesh
     {
         /// <summary>
         /// The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
-        ///     {
-        ///         Name = "simpleapp",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
-        /// 
-        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
-        ///     {
-        ///         Name = "simpleapp",
-        ///         MeshOwner = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetMeshResult> InvokeAsync(GetMeshArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshArgs(), options.WithDefaults());
 
         /// <summary>
         /// The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
-        ///     {
-        ///         Name = "simpleapp",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.GetCallerIdentity.Invoke();
-        /// 
-        ///     var simple = Aws.AppMesh.GetMesh.Invoke(new()
-        ///     {
-        ///         Name = "simpleapp",
-        ///         MeshOwner = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetMeshResult> Invoke(GetMeshInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshInvokeArgs(), options.WithDefaults());

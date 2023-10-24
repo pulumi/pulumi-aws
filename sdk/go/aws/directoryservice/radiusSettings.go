@@ -15,41 +15,6 @@ import (
 
 // Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directoryservice.NewRadiusSettings(ctx, "example", &directoryservice.RadiusSettingsArgs{
-//				DirectoryId:            pulumi.Any(aws_directory_service_directory.Example.Id),
-//				AuthenticationProtocol: pulumi.String("PAP"),
-//				DisplayLabel:           pulumi.String("example"),
-//				RadiusPort:             pulumi.Int(1812),
-//				RadiusRetries:          pulumi.Int(4),
-//				RadiusServers: pulumi.StringArray{
-//					pulumi.String("10.0.1.5"),
-//				},
-//				RadiusTimeout: pulumi.Int(1),
-//				SharedSecret:  pulumi.String("12345678"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import RADIUS settings using the directory ID. For example:

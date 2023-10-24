@@ -11,15 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.scheduler.ScheduleGroup("example", {});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import schedule groups using the `name`. For example:

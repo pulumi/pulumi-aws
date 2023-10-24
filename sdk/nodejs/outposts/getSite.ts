@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about an Outposts Site.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getSite({
- *     name: "example",
- * });
- * ```
  */
 export function getSite(args?: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
     args = args || {};
@@ -59,17 +48,6 @@ export interface GetSiteResult {
 }
 /**
  * Provides details about an Outposts Site.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getSite({
- *     name: "example",
- * });
- * ```
  */
 export function getSiteOutput(args?: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
     return pulumi.output(args).apply((a: any) => getSite(a, opts))

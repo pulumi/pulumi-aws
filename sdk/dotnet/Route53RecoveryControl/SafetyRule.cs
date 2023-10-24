@@ -12,66 +12,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// <summary>
     /// Provides an AWS Route 53 Recovery Control Config Safety Rule
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryControl.SafetyRule("example", new()
-    ///     {
-    ///         AssertedControls = new[]
-    ///         {
-    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
-    ///         },
-    ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
-    ///         WaitPeriodMs = 5000,
-    ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
-    ///         {
-    ///             Inverted = false,
-    ///             Threshold = 1,
-    ///             Type = "ATLEAST",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryControl.SafetyRule("example", new()
-    ///     {
-    ///         ControlPanelArn = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
-    ///         WaitPeriodMs = 5000,
-    ///         GatingControls = new[]
-    ///         {
-    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
-    ///         },
-    ///         TargetControls = new[]
-    ///         {
-    ///             aws_route53recoverycontrolconfig_routing_control.Example.Arn,
-    ///         },
-    ///         RuleConfig = new Aws.Route53RecoveryControl.Inputs.SafetyRuleRuleConfigArgs
-    ///         {
-    ///             Inverted = false,
-    ///             Threshold = 1,
-    ///             Type = "ATLEAST",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For example:

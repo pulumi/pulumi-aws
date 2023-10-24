@@ -17,51 +17,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** Changes to an MQ Broker can occur when you change a parameter, such as `configuration` or `user`, and are reflected in the next maintenance window. Because of this, the provider may report a difference in its planning phase because a modification has not yet taken place. You can use the `applyImmediately` flag to instruct the service to apply the change immediately (see documentation below). Using `applyImmediately` can result in a brief downtime as the broker reboots.
  *
  * ## Example Usage
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.mq.Broker("example", {
- *     configuration: {
- *         id: aws_mq_configuration.test.id,
- *         revision: aws_mq_configuration.test.latest_revision,
- *     },
- *     engineType: "ActiveMQ",
- *     engineVersion: "5.15.9",
- *     hostInstanceType: "mq.t2.micro",
- *     securityGroups: [aws_security_group.test.id],
- *     users: [{
- *         username: "ExampleUser",
- *         password: "MindTheGap",
- *     }],
- * });
- * ```
- * ### High-throughput Optimized Example
- *
- * This example shows the use of EBS storage for high-throughput optimized performance.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.mq.Broker("example", {
- *     configuration: {
- *         id: aws_mq_configuration.test.id,
- *         revision: aws_mq_configuration.test.latest_revision,
- *     },
- *     engineType: "ActiveMQ",
- *     engineVersion: "5.15.9",
- *     storageType: "ebs",
- *     hostInstanceType: "mq.m5.large",
- *     securityGroups: [aws_security_group.test.id],
- *     users: [{
- *         username: "ExampleUser",
- *         password: "MindTheGap",
- *     }],
- * });
- * ```
  *
  * ## Import
  *

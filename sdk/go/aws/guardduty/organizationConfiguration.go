@@ -17,56 +17,6 @@ import (
 //
 // > **NOTE:** This is an advanced resource. The provider will automatically assume management of the GuardDuty Organization Configuration without import and perform no actions on removal from the resource configuration.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDetector, err := guardduty.NewDetector(ctx, "exampleDetector", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &guardduty.OrganizationConfigurationArgs{
-//				AutoEnableOrganizationMembers: pulumi.String("ALL"),
-//				DetectorId:                    exampleDetector.ID(),
-//				Datasources: &guardduty.OrganizationConfigurationDatasourcesArgs{
-//					S3Logs: &guardduty.OrganizationConfigurationDatasourcesS3LogsArgs{
-//						AutoEnable: pulumi.Bool(true),
-//					},
-//					Kubernetes: &guardduty.OrganizationConfigurationDatasourcesKubernetesArgs{
-//						AuditLogs: &guardduty.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{
-//							Enable: pulumi.Bool(true),
-//						},
-//					},
-//					MalwareProtection: &guardduty.OrganizationConfigurationDatasourcesMalwareProtectionArgs{
-//						ScanEc2InstanceWithFindings: &guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{
-//							EbsVolumes: &guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{
-//								AutoEnable: pulumi.Bool(true),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import GuardDuty Organization Configurations using the GuardDuty Detector ID. For example:

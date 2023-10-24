@@ -10,15 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage a Resource Explorer index in the current AWS Region.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.resourceexplorer.Index("example", {type: "LOCAL"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Resource Explorer indexes using the `arn`. For example:

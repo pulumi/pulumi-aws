@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -71,16 +71,6 @@ def get_organizational_units(parent_id: Optional[str] = None,
     """
     Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    org = aws.organizations.get_organization()
-    ou = aws.organizations.get_organizational_units(parent_id=org.roots[0].id)
-    ```
-
 
     :param str parent_id: Parent ID of the organizational unit.
     """
@@ -100,16 +90,6 @@ def get_organizational_units_output(parent_id: Optional[pulumi.Input[str]] = Non
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationalUnitsResult]:
     """
     Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    org = aws.organizations.get_organization()
-    ou = aws.organizations.get_organizational_units(parent_id=org.roots[0].id)
-    ```
 
 
     :param str parent_id: Parent ID of the organizational unit.
