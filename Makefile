@@ -125,7 +125,7 @@ tfgen: install_plugins upstream
 
 upstream:
 ifneq ("$(wildcard upstream)","")
-	@$(SHELL) ./scripts/upstream.sh "$@" apply
+	scripts/upstream.sh "$@" apply
 endif
 
 	# Ensure tool is installed
@@ -134,13 +134,13 @@ endif
 	cd upstream-tools && yarn --silent run apply
 
 upstream.finalize:
-	@$(SHELL) ./scripts/upstream.sh "$@" end_rebase
+	scripts/upstream.sh "$@" end_rebase
 
 upstream.rebase:
-	@$(SHELL) ./scripts/upstream.sh "$@" start_rebase
+	scripts/upstream.sh "$@" start_rebase
 
 bin/pulumi-java-gen:
-	$(shell pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java)
+	pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java
 
 # To make an immediately observable change to .ci-mgmt.yaml:
 #
