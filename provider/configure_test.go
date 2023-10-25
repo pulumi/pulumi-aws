@@ -52,6 +52,33 @@ func TestCheckConfigWithUnknownKeys(t *testing.T) {
 	}]`, "'''", "`"))
 }
 
+func TestCheckConfigRunsUpstreamValidators(t *testing.T) {
+	replaySequence(t, strings.ReplaceAll(`
+	[{
+	  "method": "/pulumirpc.ResourceProvider/CheckConfig",
+	  "request": {
+	    "urn": "urn:pulumi:dev::aws-2880::pulumi:providers:aws::default_6_5_0",
+	    "olds": {},
+	    "news": {
+              "assumeRoleWithWebIdentity": {"roleArn": "INVALID-ARN", "webIdentityToken": "TOKEN"},
+	      "accessKey": "test",
+	      "region": "us-east-1",
+	      "s3UsePathStyle": "true",
+	      "secretKey": "test",
+	      "skipCredentialsValidation": "true",
+	      "skipRequestingAccountId": "true",
+	      "version": "6.5.0"
+	    }
+	  },
+	  "response": {
+            "inputs": "*",
+            "failures": [
+              {"reason": "could not validate provider configuration: \"assume_role_with_web_identity.0.role_arn\" (INVALID-ARN) is an invalid ARN: arn: invalid prefix. Check '''pulumi config get --path aws:assumeRoleWithWebIdentity.roleArn'''."}
+            ]
+	  }
+	}]`, "'''", "`"))
+}
+
 func TestCheckConfigFastWithCustomEndpoints(t *testing.T) {
 	time0 := time.Now()
 	replaySequence(t, `
