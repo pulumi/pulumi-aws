@@ -26,7 +26,7 @@ import (
 	version "github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 )
 
-func TestConfigureFastWithCustomEndpoints(t *testing.T) {
+func TestCheckConfigFastWithCustomEndpoints(t *testing.T) {
 	time0 := time.Now()
 	replaySequence(t, `
 	[{
