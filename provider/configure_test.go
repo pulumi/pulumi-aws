@@ -16,6 +16,7 @@ package provider
 
 import (
 	"context"
+	"strings"
 	"testing"
 	"time"
 
@@ -25,6 +26,31 @@ import (
 
 	version "github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 )
+
+func TestCheckConfigWithUnknownKeys(t *testing.T) {
+	replaySequence(t, strings.ReplaceAll(`
+	[{
+	  "method": "/pulumirpc.ResourceProvider/CheckConfig",
+	  "request": {
+	    "urn": "urn:pulumi:dev::aws-2880::pulumi:providers:aws::default_6_5_0",
+	    "olds": {},
+	    "news": {
+              "unknownKey": "injected",
+	      "accessKey": "test",
+	      "region": "us-east-1",
+	      "s3UsePathStyle": "true",
+	      "secretKey": "test",
+	      "skipCredentialsValidation": "true",
+	      "skipRequestingAccountId": "true",
+	      "version": "6.5.0"
+	    }
+	  },
+	  "response": {
+            "inputs": "*",
+            "failures": [{"reason": "could not validate provider configuration: Invalid or unknown key. Check '''pulumi config get aws:unknownKey'''."}]
+	  }
+	}]`, "'''", "`"))
+}
 
 func TestCheckConfigFastWithCustomEndpoints(t *testing.T) {
 	time0 := time.Now()
