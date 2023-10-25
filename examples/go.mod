@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-aws/examples/v6
 
-go 1.21
+go 1.21.0
 
 require (
 	github.com/aws/aws-sdk-go v1.45.24
