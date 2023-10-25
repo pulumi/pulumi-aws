@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -24,10 +24,27 @@ class DomainEndpointOptionsArgs:
         :param pulumi.Input[bool] enforce_https: Enables or disables the requirement that all requests to the domain arrive over HTTPS.
         :param pulumi.Input[str] tls_security_policy: The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
         """
+        DomainEndpointOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enforce_https=enforce_https,
+            tls_security_policy=tls_security_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enforce_https: Optional[pulumi.Input[bool]] = None,
+             tls_security_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enforce_https is None and 'enforceHttps' in kwargs:
+            enforce_https = kwargs['enforceHttps']
+        if tls_security_policy is None and 'tlsSecurityPolicy' in kwargs:
+            tls_security_policy = kwargs['tlsSecurityPolicy']
+
         if enforce_https is not None:
-            pulumi.set(__self__, "enforce_https", enforce_https)
+            _setter("enforce_https", enforce_https)
         if tls_security_policy is not None:
-            pulumi.set(__self__, "tls_security_policy", tls_security_policy)
+            _setter("tls_security_policy", tls_security_policy)
 
     @property
     @pulumi.getter(name="enforceHttps")
@@ -79,24 +96,65 @@ class DomainIndexFieldArgs:
         :param pulumi.Input[bool] sort: You can enable the property to be sortable.
         :param pulumi.Input[str] source_fields: A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        DomainIndexFieldArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            analysis_scheme=analysis_scheme,
+            default_value=default_value,
+            facet=facet,
+            highlight=highlight,
+            return_=return_,
+            search=search,
+            sort=sort,
+            source_fields=source_fields,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             analysis_scheme: Optional[pulumi.Input[str]] = None,
+             default_value: Optional[pulumi.Input[str]] = None,
+             facet: Optional[pulumi.Input[bool]] = None,
+             highlight: Optional[pulumi.Input[bool]] = None,
+             return_: Optional[pulumi.Input[bool]] = None,
+             search: Optional[pulumi.Input[bool]] = None,
+             sort: Optional[pulumi.Input[bool]] = None,
+             source_fields: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if analysis_scheme is None and 'analysisScheme' in kwargs:
+            analysis_scheme = kwargs['analysisScheme']
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if return_ is None and 'return' in kwargs:
+            return_ = kwargs['return']
+        if source_fields is None and 'sourceFields' in kwargs:
+            source_fields = kwargs['sourceFields']
+
+        _setter("name", name)
+        _setter("type", type)
         if analysis_scheme is not None:
-            pulumi.set(__self__, "analysis_scheme", analysis_scheme)
+            _setter("analysis_scheme", analysis_scheme)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if facet is not None:
-            pulumi.set(__self__, "facet", facet)
+            _setter("facet", facet)
         if highlight is not None:
-            pulumi.set(__self__, "highlight", highlight)
+            _setter("highlight", highlight)
         if return_ is not None:
-            pulumi.set(__self__, "return_", return_)
+            _setter("return_", return_)
         if search is not None:
-            pulumi.set(__self__, "search", search)
+            _setter("search", search)
         if sort is not None:
-            pulumi.set(__self__, "sort", sort)
+            _setter("sort", sort)
         if source_fields is not None:
-            pulumi.set(__self__, "source_fields", source_fields)
+            _setter("source_fields", source_fields)
 
     @property
     @pulumi.getter
@@ -230,12 +288,33 @@ class DomainScalingParametersArgs:
         :param pulumi.Input[int] desired_partition_count: The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
         :param pulumi.Input[int] desired_replication_count: The number of replicas you want to preconfigure for each index partition.
         """
+        DomainScalingParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            desired_instance_type=desired_instance_type,
+            desired_partition_count=desired_partition_count,
+            desired_replication_count=desired_replication_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             desired_instance_type: Optional[pulumi.Input[str]] = None,
+             desired_partition_count: Optional[pulumi.Input[int]] = None,
+             desired_replication_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if desired_instance_type is None and 'desiredInstanceType' in kwargs:
+            desired_instance_type = kwargs['desiredInstanceType']
+        if desired_partition_count is None and 'desiredPartitionCount' in kwargs:
+            desired_partition_count = kwargs['desiredPartitionCount']
+        if desired_replication_count is None and 'desiredReplicationCount' in kwargs:
+            desired_replication_count = kwargs['desiredReplicationCount']
+
         if desired_instance_type is not None:
-            pulumi.set(__self__, "desired_instance_type", desired_instance_type)
+            _setter("desired_instance_type", desired_instance_type)
         if desired_partition_count is not None:
-            pulumi.set(__self__, "desired_partition_count", desired_partition_count)
+            _setter("desired_partition_count", desired_partition_count)
         if desired_replication_count is not None:
-            pulumi.set(__self__, "desired_replication_count", desired_replication_count)
+            _setter("desired_replication_count", desired_replication_count)
 
     @property
     @pulumi.getter(name="desiredInstanceType")

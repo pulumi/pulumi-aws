@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LifecycleHookArgs', 'LifecycleHook']
@@ -33,20 +33,63 @@ class LifecycleHookArgs:
         :param pulumi.Input[str] notification_target_arn: ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         """
-        pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
-        pulumi.set(__self__, "lifecycle_transition", lifecycle_transition)
+        LifecycleHookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscaling_group_name=autoscaling_group_name,
+            lifecycle_transition=lifecycle_transition,
+            default_result=default_result,
+            heartbeat_timeout=heartbeat_timeout,
+            name=name,
+            notification_metadata=notification_metadata,
+            notification_target_arn=notification_target_arn,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
+             lifecycle_transition: Optional[pulumi.Input[str]] = None,
+             default_result: Optional[pulumi.Input[str]] = None,
+             heartbeat_timeout: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_metadata: Optional[pulumi.Input[str]] = None,
+             notification_target_arn: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if autoscaling_group_name is None and 'autoscalingGroupName' in kwargs:
+            autoscaling_group_name = kwargs['autoscalingGroupName']
+        if autoscaling_group_name is None:
+            raise TypeError("Missing 'autoscaling_group_name' argument")
+        if lifecycle_transition is None and 'lifecycleTransition' in kwargs:
+            lifecycle_transition = kwargs['lifecycleTransition']
+        if lifecycle_transition is None:
+            raise TypeError("Missing 'lifecycle_transition' argument")
+        if default_result is None and 'defaultResult' in kwargs:
+            default_result = kwargs['defaultResult']
+        if heartbeat_timeout is None and 'heartbeatTimeout' in kwargs:
+            heartbeat_timeout = kwargs['heartbeatTimeout']
+        if notification_metadata is None and 'notificationMetadata' in kwargs:
+            notification_metadata = kwargs['notificationMetadata']
+        if notification_target_arn is None and 'notificationTargetArn' in kwargs:
+            notification_target_arn = kwargs['notificationTargetArn']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
+        _setter("autoscaling_group_name", autoscaling_group_name)
+        _setter("lifecycle_transition", lifecycle_transition)
         if default_result is not None:
-            pulumi.set(__self__, "default_result", default_result)
+            _setter("default_result", default_result)
         if heartbeat_timeout is not None:
-            pulumi.set(__self__, "heartbeat_timeout", heartbeat_timeout)
+            _setter("heartbeat_timeout", heartbeat_timeout)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_metadata is not None:
-            pulumi.set(__self__, "notification_metadata", notification_metadata)
+            _setter("notification_metadata", notification_metadata)
         if notification_target_arn is not None:
-            pulumi.set(__self__, "notification_target_arn", notification_target_arn)
+            _setter("notification_target_arn", notification_target_arn)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -167,22 +210,61 @@ class _LifecycleHookState:
         :param pulumi.Input[str] notification_target_arn: ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         """
+        _LifecycleHookState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscaling_group_name=autoscaling_group_name,
+            default_result=default_result,
+            heartbeat_timeout=heartbeat_timeout,
+            lifecycle_transition=lifecycle_transition,
+            name=name,
+            notification_metadata=notification_metadata,
+            notification_target_arn=notification_target_arn,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
+             default_result: Optional[pulumi.Input[str]] = None,
+             heartbeat_timeout: Optional[pulumi.Input[int]] = None,
+             lifecycle_transition: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_metadata: Optional[pulumi.Input[str]] = None,
+             notification_target_arn: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if autoscaling_group_name is None and 'autoscalingGroupName' in kwargs:
+            autoscaling_group_name = kwargs['autoscalingGroupName']
+        if default_result is None and 'defaultResult' in kwargs:
+            default_result = kwargs['defaultResult']
+        if heartbeat_timeout is None and 'heartbeatTimeout' in kwargs:
+            heartbeat_timeout = kwargs['heartbeatTimeout']
+        if lifecycle_transition is None and 'lifecycleTransition' in kwargs:
+            lifecycle_transition = kwargs['lifecycleTransition']
+        if notification_metadata is None and 'notificationMetadata' in kwargs:
+            notification_metadata = kwargs['notificationMetadata']
+        if notification_target_arn is None and 'notificationTargetArn' in kwargs:
+            notification_target_arn = kwargs['notificationTargetArn']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if autoscaling_group_name is not None:
-            pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
+            _setter("autoscaling_group_name", autoscaling_group_name)
         if default_result is not None:
-            pulumi.set(__self__, "default_result", default_result)
+            _setter("default_result", default_result)
         if heartbeat_timeout is not None:
-            pulumi.set(__self__, "heartbeat_timeout", heartbeat_timeout)
+            _setter("heartbeat_timeout", heartbeat_timeout)
         if lifecycle_transition is not None:
-            pulumi.set(__self__, "lifecycle_transition", lifecycle_transition)
+            _setter("lifecycle_transition", lifecycle_transition)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_metadata is not None:
-            pulumi.set(__self__, "notification_metadata", notification_metadata)
+            _setter("notification_metadata", notification_metadata)
         if notification_target_arn is not None:
-            pulumi.set(__self__, "notification_target_arn", notification_target_arn)
+            _setter("notification_target_arn", notification_target_arn)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -424,6 +506,10 @@ class LifecycleHook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LifecycleHookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

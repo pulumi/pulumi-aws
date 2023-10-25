@@ -4,8 +4,12 @@
 package directconnect
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about the AWS Direct Connect locations in the current AWS Region.
@@ -52,4 +56,50 @@ type GetLocationsResult struct {
 	Id string `pulumi:"id"`
 	// Code for the locations.
 	LocationCodes []string `pulumi:"locationCodes"`
+}
+
+func GetLocationsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLocationsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetLocationsResult, error) {
+		r, err := GetLocations(ctx, opts...)
+		var s GetLocationsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetLocationsResultOutput)
+}
+
+// A collection of values returned by getLocations.
+type GetLocationsResultOutput struct{ *pulumi.OutputState }
+
+func (GetLocationsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationsResult)(nil)).Elem()
+}
+
+func (o GetLocationsResultOutput) ToGetLocationsResultOutput() GetLocationsResultOutput {
+	return o
+}
+
+func (o GetLocationsResultOutput) ToGetLocationsResultOutputWithContext(ctx context.Context) GetLocationsResultOutput {
+	return o
+}
+
+func (o GetLocationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocationsResult] {
+	return pulumix.Output[GetLocationsResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetLocationsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Code for the locations.
+func (o GetLocationsResultOutput) LocationCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocationsResult) []string { return v.LocationCodes }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLocationsResultOutput{})
 }

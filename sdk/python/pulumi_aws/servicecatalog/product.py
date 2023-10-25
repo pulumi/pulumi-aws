@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,25 +43,72 @@ class ProductArgs:
         :param pulumi.Input[str] support_url: Contact URL for product support.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "owner", owner)
-        pulumi.set(__self__, "provisioning_artifact_parameters", provisioning_artifact_parameters)
-        pulumi.set(__self__, "type", type)
+        ProductArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            owner=owner,
+            provisioning_artifact_parameters=provisioning_artifact_parameters,
+            type=type,
+            accept_language=accept_language,
+            description=description,
+            distributor=distributor,
+            name=name,
+            support_description=support_description,
+            support_email=support_email,
+            support_url=support_url,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             owner: Optional[pulumi.Input[str]] = None,
+             provisioning_artifact_parameters: Optional[pulumi.Input['ProductProvisioningArtifactParametersArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             accept_language: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             distributor: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             support_description: Optional[pulumi.Input[str]] = None,
+             support_email: Optional[pulumi.Input[str]] = None,
+             support_url: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if owner is None:
+            raise TypeError("Missing 'owner' argument")
+        if provisioning_artifact_parameters is None and 'provisioningArtifactParameters' in kwargs:
+            provisioning_artifact_parameters = kwargs['provisioningArtifactParameters']
+        if provisioning_artifact_parameters is None:
+            raise TypeError("Missing 'provisioning_artifact_parameters' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if support_description is None and 'supportDescription' in kwargs:
+            support_description = kwargs['supportDescription']
+        if support_email is None and 'supportEmail' in kwargs:
+            support_email = kwargs['supportEmail']
+        if support_url is None and 'supportUrl' in kwargs:
+            support_url = kwargs['supportUrl']
+
+        _setter("owner", owner)
+        _setter("provisioning_artifact_parameters", provisioning_artifact_parameters)
+        _setter("type", type)
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if distributor is not None:
-            pulumi.set(__self__, "distributor", distributor)
+            _setter("distributor", distributor)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if support_description is not None:
-            pulumi.set(__self__, "support_description", support_description)
+            _setter("support_description", support_description)
         if support_email is not None:
-            pulumi.set(__self__, "support_email", support_email)
+            _setter("support_email", support_email)
         if support_url is not None:
-            pulumi.set(__self__, "support_url", support_url)
+            _setter("support_url", support_url)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -238,41 +285,98 @@ class _ProductState:
                
                The following arguments are optional:
         """
+        _ProductState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_language=accept_language,
+            arn=arn,
+            created_time=created_time,
+            description=description,
+            distributor=distributor,
+            has_default_path=has_default_path,
+            name=name,
+            owner=owner,
+            provisioning_artifact_parameters=provisioning_artifact_parameters,
+            status=status,
+            support_description=support_description,
+            support_email=support_email,
+            support_url=support_url,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             distributor: Optional[pulumi.Input[str]] = None,
+             has_default_path: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             provisioning_artifact_parameters: Optional[pulumi.Input['ProductProvisioningArtifactParametersArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             support_description: Optional[pulumi.Input[str]] = None,
+             support_email: Optional[pulumi.Input[str]] = None,
+             support_url: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if has_default_path is None and 'hasDefaultPath' in kwargs:
+            has_default_path = kwargs['hasDefaultPath']
+        if provisioning_artifact_parameters is None and 'provisioningArtifactParameters' in kwargs:
+            provisioning_artifact_parameters = kwargs['provisioningArtifactParameters']
+        if support_description is None and 'supportDescription' in kwargs:
+            support_description = kwargs['supportDescription']
+        if support_email is None and 'supportEmail' in kwargs:
+            support_email = kwargs['supportEmail']
+        if support_url is None and 'supportUrl' in kwargs:
+            support_url = kwargs['supportUrl']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if distributor is not None:
-            pulumi.set(__self__, "distributor", distributor)
+            _setter("distributor", distributor)
         if has_default_path is not None:
-            pulumi.set(__self__, "has_default_path", has_default_path)
+            _setter("has_default_path", has_default_path)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if provisioning_artifact_parameters is not None:
-            pulumi.set(__self__, "provisioning_artifact_parameters", provisioning_artifact_parameters)
+            _setter("provisioning_artifact_parameters", provisioning_artifact_parameters)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if support_description is not None:
-            pulumi.set(__self__, "support_description", support_description)
+            _setter("support_description", support_description)
         if support_email is not None:
-            pulumi.set(__self__, "support_email", support_email)
+            _setter("support_email", support_email)
         if support_url is not None:
-            pulumi.set(__self__, "support_url", support_url)
+            _setter("support_url", support_url)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -587,6 +691,10 @@ class Product(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProductArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -619,6 +727,7 @@ class Product(pulumi.CustomResource):
             if owner is None and not opts.urn:
                 raise TypeError("Missing required property 'owner'")
             __props__.__dict__["owner"] = owner
+            provisioning_artifact_parameters = _utilities.configure(provisioning_artifact_parameters, ProductProvisioningArtifactParametersArgs, True)
             if provisioning_artifact_parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioning_artifact_parameters'")
             __props__.__dict__["provisioning_artifact_parameters"] = provisioning_artifact_parameters

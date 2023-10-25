@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CrawlerS3Target
     {
         /// <summary>
-        /// The name of the connection to use to connect to the JDBC target.
+        /// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
         /// </summary>
         public readonly string? ConnectionName;
         /// <summary>
-        /// The ARN of the dead-letter SQS queue.
+        /// A valid Amazon SQS ARN.
         /// 
         /// &gt; **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
         /// 
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? DlqEventQueueArn;
         /// <summary>
-        /// The ARN of the SQS queue to receive S3 notifications from.
+        /// A valid Amazon SQS ARN.
         /// </summary>
         public readonly string? EventQueueArn;
         /// <summary>

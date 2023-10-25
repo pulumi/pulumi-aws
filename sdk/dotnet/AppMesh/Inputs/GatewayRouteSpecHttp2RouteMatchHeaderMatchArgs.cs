@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Value used to replace matched path.
+        /// Header value sent by the client must match the specified value exactly.
         /// </summary>
         [Input("exact")]
         public Input<string>? Exact { get; set; }
 
         /// <summary>
-        /// Specified beginning characters to rewrite.
+        /// Header value sent by the client must begin with the specified characters.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

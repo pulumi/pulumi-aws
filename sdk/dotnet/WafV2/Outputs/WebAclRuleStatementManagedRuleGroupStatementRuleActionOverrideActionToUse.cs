@@ -14,11 +14,11 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse
     {
         /// <summary>
-        /// Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+        /// Instructs AWS WAF to allow the web request. See `allow` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow? Allow;
         /// <summary>
-        /// Specifies that AWS WAF should block requests by default. See `block` below for details.
+        /// Instructs AWS WAF to block the web request. See `block` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock? Block;
         /// <summary>

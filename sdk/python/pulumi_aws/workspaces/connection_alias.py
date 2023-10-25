@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,11 +24,30 @@ class ConnectionAliasArgs:
         :param pulumi.Input[str] connection_string: The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
+        ConnectionAliasArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            tags=tags,
+            timeouts=timeouts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeouts: Optional[pulumi.Input['ConnectionAliasTimeoutsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+
+        _setter("connection_string", connection_string)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeouts is not None:
-            pulumi.set(__self__, "timeouts", timeouts)
+            _setter("timeouts", timeouts)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -81,21 +100,48 @@ class _ConnectionAliasState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ConnectionAliasState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            owner_account_id=owner_account_id,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+            timeouts=timeouts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeouts: Optional[pulumi.Input['ConnectionAliasTimeoutsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if owner_account_id is None and 'ownerAccountId' in kwargs:
+            owner_account_id = kwargs['ownerAccountId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if owner_account_id is not None:
-            pulumi.set(__self__, "owner_account_id", owner_account_id)
+            _setter("owner_account_id", owner_account_id)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if timeouts is not None:
-            pulumi.set(__self__, "timeouts", timeouts)
+            _setter("timeouts", timeouts)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -242,6 +288,10 @@ class ConnectionAlias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionAliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -263,6 +313,7 @@ class ConnectionAlias(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connection_string'")
             __props__.__dict__["connection_string"] = connection_string
             __props__.__dict__["tags"] = tags
+            timeouts = _utilities.configure(timeouts, ConnectionAliasTimeoutsArgs, True)
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["owner_account_id"] = None
             __props__.__dict__["state"] = None

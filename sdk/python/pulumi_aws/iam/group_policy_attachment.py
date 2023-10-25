@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupPolicyAttachmentArgs', 'GroupPolicyAttachment']
@@ -21,8 +21,27 @@ class GroupPolicyAttachmentArgs:
         :param pulumi.Input[str] group: The group the policy should be applied to
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
         """
-        pulumi.set(__self__, "group", group)
-        pulumi.set(__self__, "policy_arn", policy_arn)
+        GroupPolicyAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group=group,
+            policy_arn=policy_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group: Optional[pulumi.Input[str]] = None,
+             policy_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group is None:
+            raise TypeError("Missing 'group' argument")
+        if policy_arn is None and 'policyArn' in kwargs:
+            policy_arn = kwargs['policyArn']
+        if policy_arn is None:
+            raise TypeError("Missing 'policy_arn' argument")
+
+        _setter("group", group)
+        _setter("policy_arn", policy_arn)
 
     @property
     @pulumi.getter
@@ -59,10 +78,25 @@ class _GroupPolicyAttachmentState:
         :param pulumi.Input[str] group: The group the policy should be applied to
         :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
         """
+        _GroupPolicyAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group=group,
+            policy_arn=policy_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group: Optional[pulumi.Input[str]] = None,
+             policy_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_arn is None and 'policyArn' in kwargs:
+            policy_arn = kwargs['policyArn']
+
         if group is not None:
-            pulumi.set(__self__, "group", group)
+            _setter("group", group)
         if policy_arn is not None:
-            pulumi.set(__self__, "policy_arn", policy_arn)
+            _setter("policy_arn", policy_arn)
 
     @property
     @pulumi.getter
@@ -174,6 +208,10 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupPolicyAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

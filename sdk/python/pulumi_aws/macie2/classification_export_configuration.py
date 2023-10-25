@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,8 +21,21 @@ class ClassificationExportConfigurationArgs:
         The set of arguments for constructing a ClassificationExportConfiguration resource.
         :param pulumi.Input['ClassificationExportConfigurationS3DestinationArgs'] s3_destination: Configuration block for a S3 Destination. Defined below
         """
+        ClassificationExportConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_destination=s3_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_destination: Optional[pulumi.Input['ClassificationExportConfigurationS3DestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_destination is None and 's3Destination' in kwargs:
+            s3_destination = kwargs['s3Destination']
+
         if s3_destination is not None:
-            pulumi.set(__self__, "s3_destination", s3_destination)
+            _setter("s3_destination", s3_destination)
 
     @property
     @pulumi.getter(name="s3Destination")
@@ -45,8 +58,21 @@ class _ClassificationExportConfigurationState:
         Input properties used for looking up and filtering ClassificationExportConfiguration resources.
         :param pulumi.Input['ClassificationExportConfigurationS3DestinationArgs'] s3_destination: Configuration block for a S3 Destination. Defined below
         """
+        _ClassificationExportConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_destination=s3_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_destination: Optional[pulumi.Input['ClassificationExportConfigurationS3DestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_destination is None and 's3Destination' in kwargs:
+            s3_destination = kwargs['s3Destination']
+
         if s3_destination is not None:
-            pulumi.set(__self__, "s3_destination", s3_destination)
+            _setter("s3_destination", s3_destination)
 
     @property
     @pulumi.getter(name="s3Destination")
@@ -140,6 +166,10 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClassificationExportConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -155,6 +185,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClassificationExportConfigurationArgs.__new__(ClassificationExportConfigurationArgs)
 
+            s3_destination = _utilities.configure(s3_destination, ClassificationExportConfigurationS3DestinationArgs, True)
             __props__.__dict__["s3_destination"] = s3_destination
         super(ClassificationExportConfiguration, __self__).__init__(
             'aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration',

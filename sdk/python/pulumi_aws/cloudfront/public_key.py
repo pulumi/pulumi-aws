@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PublicKeyArgs', 'PublicKey']
@@ -27,13 +27,36 @@ class PublicKeyArgs:
                
                **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `cloudfront.PublicKey` resource.
         """
-        pulumi.set(__self__, "encoded_key", encoded_key)
+        PublicKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoded_key=encoded_key,
+            comment=comment,
+            name=name,
+            name_prefix=name_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoded_key: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encoded_key is None and 'encodedKey' in kwargs:
+            encoded_key = kwargs['encodedKey']
+        if encoded_key is None:
+            raise TypeError("Missing 'encoded_key' argument")
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+
+        _setter("encoded_key", encoded_key)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
 
     @property
     @pulumi.getter(name="encodedKey")
@@ -106,18 +129,45 @@ class _PublicKeyState:
                
                **NOTE:** When setting `encoded_key` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `cloudfront.PublicKey` resource.
         """
+        _PublicKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            caller_reference=caller_reference,
+            comment=comment,
+            encoded_key=encoded_key,
+            etag=etag,
+            name=name,
+            name_prefix=name_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             caller_reference: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             encoded_key: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if caller_reference is None and 'callerReference' in kwargs:
+            caller_reference = kwargs['callerReference']
+        if encoded_key is None and 'encodedKey' in kwargs:
+            encoded_key = kwargs['encodedKey']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+
         if caller_reference is not None:
-            pulumi.set(__self__, "caller_reference", caller_reference)
+            _setter("caller_reference", caller_reference)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if encoded_key is not None:
-            pulumi.set(__self__, "encoded_key", encoded_key)
+            _setter("encoded_key", encoded_key)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
 
     @property
     @pulumi.getter(name="callerReference")
@@ -273,6 +323,10 @@ class PublicKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PublicKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

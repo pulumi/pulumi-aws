@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,19 +37,70 @@ class FeatureGroupArgs:
         :param pulumi.Input['FeatureGroupOnlineStoreConfigArgs'] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "event_time_feature_name", event_time_feature_name)
-        pulumi.set(__self__, "feature_definitions", feature_definitions)
-        pulumi.set(__self__, "feature_group_name", feature_group_name)
-        pulumi.set(__self__, "record_identifier_feature_name", record_identifier_feature_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        FeatureGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_time_feature_name=event_time_feature_name,
+            feature_definitions=feature_definitions,
+            feature_group_name=feature_group_name,
+            record_identifier_feature_name=record_identifier_feature_name,
+            role_arn=role_arn,
+            description=description,
+            offline_store_config=offline_store_config,
+            online_store_config=online_store_config,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_time_feature_name: Optional[pulumi.Input[str]] = None,
+             feature_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]]] = None,
+             feature_group_name: Optional[pulumi.Input[str]] = None,
+             record_identifier_feature_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             offline_store_config: Optional[pulumi.Input['FeatureGroupOfflineStoreConfigArgs']] = None,
+             online_store_config: Optional[pulumi.Input['FeatureGroupOnlineStoreConfigArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_time_feature_name is None and 'eventTimeFeatureName' in kwargs:
+            event_time_feature_name = kwargs['eventTimeFeatureName']
+        if event_time_feature_name is None:
+            raise TypeError("Missing 'event_time_feature_name' argument")
+        if feature_definitions is None and 'featureDefinitions' in kwargs:
+            feature_definitions = kwargs['featureDefinitions']
+        if feature_definitions is None:
+            raise TypeError("Missing 'feature_definitions' argument")
+        if feature_group_name is None and 'featureGroupName' in kwargs:
+            feature_group_name = kwargs['featureGroupName']
+        if feature_group_name is None:
+            raise TypeError("Missing 'feature_group_name' argument")
+        if record_identifier_feature_name is None and 'recordIdentifierFeatureName' in kwargs:
+            record_identifier_feature_name = kwargs['recordIdentifierFeatureName']
+        if record_identifier_feature_name is None:
+            raise TypeError("Missing 'record_identifier_feature_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if offline_store_config is None and 'offlineStoreConfig' in kwargs:
+            offline_store_config = kwargs['offlineStoreConfig']
+        if online_store_config is None and 'onlineStoreConfig' in kwargs:
+            online_store_config = kwargs['onlineStoreConfig']
+
+        _setter("event_time_feature_name", event_time_feature_name)
+        _setter("feature_definitions", feature_definitions)
+        _setter("feature_group_name", feature_group_name)
+        _setter("record_identifier_feature_name", record_identifier_feature_name)
+        _setter("role_arn", role_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if offline_store_config is not None:
-            pulumi.set(__self__, "offline_store_config", offline_store_config)
+            _setter("offline_store_config", offline_store_config)
         if online_store_config is not None:
-            pulumi.set(__self__, "online_store_config", online_store_config)
+            _setter("online_store_config", online_store_config)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="eventTimeFeatureName")
@@ -188,31 +239,78 @@ class _FeatureGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _FeatureGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            event_time_feature_name=event_time_feature_name,
+            feature_definitions=feature_definitions,
+            feature_group_name=feature_group_name,
+            offline_store_config=offline_store_config,
+            online_store_config=online_store_config,
+            record_identifier_feature_name=record_identifier_feature_name,
+            role_arn=role_arn,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             event_time_feature_name: Optional[pulumi.Input[str]] = None,
+             feature_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]]] = None,
+             feature_group_name: Optional[pulumi.Input[str]] = None,
+             offline_store_config: Optional[pulumi.Input['FeatureGroupOfflineStoreConfigArgs']] = None,
+             online_store_config: Optional[pulumi.Input['FeatureGroupOnlineStoreConfigArgs']] = None,
+             record_identifier_feature_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_time_feature_name is None and 'eventTimeFeatureName' in kwargs:
+            event_time_feature_name = kwargs['eventTimeFeatureName']
+        if feature_definitions is None and 'featureDefinitions' in kwargs:
+            feature_definitions = kwargs['featureDefinitions']
+        if feature_group_name is None and 'featureGroupName' in kwargs:
+            feature_group_name = kwargs['featureGroupName']
+        if offline_store_config is None and 'offlineStoreConfig' in kwargs:
+            offline_store_config = kwargs['offlineStoreConfig']
+        if online_store_config is None and 'onlineStoreConfig' in kwargs:
+            online_store_config = kwargs['onlineStoreConfig']
+        if record_identifier_feature_name is None and 'recordIdentifierFeatureName' in kwargs:
+            record_identifier_feature_name = kwargs['recordIdentifierFeatureName']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if event_time_feature_name is not None:
-            pulumi.set(__self__, "event_time_feature_name", event_time_feature_name)
+            _setter("event_time_feature_name", event_time_feature_name)
         if feature_definitions is not None:
-            pulumi.set(__self__, "feature_definitions", feature_definitions)
+            _setter("feature_definitions", feature_definitions)
         if feature_group_name is not None:
-            pulumi.set(__self__, "feature_group_name", feature_group_name)
+            _setter("feature_group_name", feature_group_name)
         if offline_store_config is not None:
-            pulumi.set(__self__, "offline_store_config", offline_store_config)
+            _setter("offline_store_config", offline_store_config)
         if online_store_config is not None:
-            pulumi.set(__self__, "online_store_config", online_store_config)
+            _setter("online_store_config", online_store_config)
         if record_identifier_feature_name is not None:
-            pulumi.set(__self__, "record_identifier_feature_name", record_identifier_feature_name)
+            _setter("record_identifier_feature_name", record_identifier_feature_name)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -459,6 +557,10 @@ class FeatureGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FeatureGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -492,7 +594,9 @@ class FeatureGroup(pulumi.CustomResource):
             if feature_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'feature_group_name'")
             __props__.__dict__["feature_group_name"] = feature_group_name
+            offline_store_config = _utilities.configure(offline_store_config, FeatureGroupOfflineStoreConfigArgs, True)
             __props__.__dict__["offline_store_config"] = offline_store_config
+            online_store_config = _utilities.configure(online_store_config, FeatureGroupOnlineStoreConfigArgs, True)
             __props__.__dict__["online_store_config"] = online_store_config
             if record_identifier_feature_name is None and not opts.urn:
                 raise TypeError("Missing required property 'record_identifier_feature_name'")

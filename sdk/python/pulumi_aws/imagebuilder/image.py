@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,56 @@ class ImageArgs:
         :param pulumi.Input['ImageImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
+        ImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            infrastructure_configuration_arn=infrastructure_configuration_arn,
+            container_recipe_arn=container_recipe_arn,
+            distribution_configuration_arn=distribution_configuration_arn,
+            enhanced_image_metadata_enabled=enhanced_image_metadata_enabled,
+            image_recipe_arn=image_recipe_arn,
+            image_tests_configuration=image_tests_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
+             container_recipe_arn: Optional[pulumi.Input[str]] = None,
+             distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
+             enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+             image_recipe_arn: Optional[pulumi.Input[str]] = None,
+             image_tests_configuration: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if infrastructure_configuration_arn is None and 'infrastructureConfigurationArn' in kwargs:
+            infrastructure_configuration_arn = kwargs['infrastructureConfigurationArn']
+        if infrastructure_configuration_arn is None:
+            raise TypeError("Missing 'infrastructure_configuration_arn' argument")
+        if container_recipe_arn is None and 'containerRecipeArn' in kwargs:
+            container_recipe_arn = kwargs['containerRecipeArn']
+        if distribution_configuration_arn is None and 'distributionConfigurationArn' in kwargs:
+            distribution_configuration_arn = kwargs['distributionConfigurationArn']
+        if enhanced_image_metadata_enabled is None and 'enhancedImageMetadataEnabled' in kwargs:
+            enhanced_image_metadata_enabled = kwargs['enhancedImageMetadataEnabled']
+        if image_recipe_arn is None and 'imageRecipeArn' in kwargs:
+            image_recipe_arn = kwargs['imageRecipeArn']
+        if image_tests_configuration is None and 'imageTestsConfiguration' in kwargs:
+            image_tests_configuration = kwargs['imageTestsConfiguration']
+
+        _setter("infrastructure_configuration_arn", infrastructure_configuration_arn)
         if container_recipe_arn is not None:
-            pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
+            _setter("container_recipe_arn", container_recipe_arn)
         if distribution_configuration_arn is not None:
-            pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
+            _setter("distribution_configuration_arn", distribution_configuration_arn)
         if enhanced_image_metadata_enabled is not None:
-            pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+            _setter("enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
         if image_recipe_arn is not None:
-            pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
+            _setter("image_recipe_arn", image_recipe_arn)
         if image_tests_configuration is not None:
-            pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
+            _setter("image_tests_configuration", image_tests_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="infrastructureConfigurationArn")
@@ -174,39 +211,98 @@ class _ImageState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: Version of the image.
         """
+        _ImageState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            container_recipe_arn=container_recipe_arn,
+            date_created=date_created,
+            distribution_configuration_arn=distribution_configuration_arn,
+            enhanced_image_metadata_enabled=enhanced_image_metadata_enabled,
+            image_recipe_arn=image_recipe_arn,
+            image_tests_configuration=image_tests_configuration,
+            infrastructure_configuration_arn=infrastructure_configuration_arn,
+            name=name,
+            os_version=os_version,
+            output_resources=output_resources,
+            platform=platform,
+            tags=tags,
+            tags_all=tags_all,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             container_recipe_arn: Optional[pulumi.Input[str]] = None,
+             date_created: Optional[pulumi.Input[str]] = None,
+             distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
+             enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+             image_recipe_arn: Optional[pulumi.Input[str]] = None,
+             image_tests_configuration: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']] = None,
+             infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             os_version: Optional[pulumi.Input[str]] = None,
+             output_resources: Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceArgs']]]] = None,
+             platform: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_recipe_arn is None and 'containerRecipeArn' in kwargs:
+            container_recipe_arn = kwargs['containerRecipeArn']
+        if date_created is None and 'dateCreated' in kwargs:
+            date_created = kwargs['dateCreated']
+        if distribution_configuration_arn is None and 'distributionConfigurationArn' in kwargs:
+            distribution_configuration_arn = kwargs['distributionConfigurationArn']
+        if enhanced_image_metadata_enabled is None and 'enhancedImageMetadataEnabled' in kwargs:
+            enhanced_image_metadata_enabled = kwargs['enhancedImageMetadataEnabled']
+        if image_recipe_arn is None and 'imageRecipeArn' in kwargs:
+            image_recipe_arn = kwargs['imageRecipeArn']
+        if image_tests_configuration is None and 'imageTestsConfiguration' in kwargs:
+            image_tests_configuration = kwargs['imageTestsConfiguration']
+        if infrastructure_configuration_arn is None and 'infrastructureConfigurationArn' in kwargs:
+            infrastructure_configuration_arn = kwargs['infrastructureConfigurationArn']
+        if os_version is None and 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+        if output_resources is None and 'outputResources' in kwargs:
+            output_resources = kwargs['outputResources']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if container_recipe_arn is not None:
-            pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
+            _setter("container_recipe_arn", container_recipe_arn)
         if date_created is not None:
-            pulumi.set(__self__, "date_created", date_created)
+            _setter("date_created", date_created)
         if distribution_configuration_arn is not None:
-            pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
+            _setter("distribution_configuration_arn", distribution_configuration_arn)
         if enhanced_image_metadata_enabled is not None:
-            pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+            _setter("enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
         if image_recipe_arn is not None:
-            pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
+            _setter("image_recipe_arn", image_recipe_arn)
         if image_tests_configuration is not None:
-            pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
+            _setter("image_tests_configuration", image_tests_configuration)
         if infrastructure_configuration_arn is not None:
-            pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
+            _setter("infrastructure_configuration_arn", infrastructure_configuration_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
+            _setter("os_version", os_version)
         if output_resources is not None:
-            pulumi.set(__self__, "output_resources", output_resources)
+            _setter("output_resources", output_resources)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -481,6 +577,10 @@ class Image(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -506,6 +606,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
             __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
             __props__.__dict__["image_recipe_arn"] = image_recipe_arn
+            image_tests_configuration = _utilities.configure(image_tests_configuration, ImageImageTestsConfigurationArgs, True)
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
             if infrastructure_configuration_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'infrastructure_configuration_arn'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['QueryDefinitionArgs', 'QueryDefinition']
@@ -23,11 +23,32 @@ class QueryDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_group_names: Specific log groups to use with the query.
         :param pulumi.Input[str] name: The name of the query.
         """
-        pulumi.set(__self__, "query_string", query_string)
+        QueryDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_string=query_string,
+            log_group_names=log_group_names,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_string: Optional[pulumi.Input[str]] = None,
+             log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if query_string is None:
+            raise TypeError("Missing 'query_string' argument")
+        if log_group_names is None and 'logGroupNames' in kwargs:
+            log_group_names = kwargs['logGroupNames']
+
+        _setter("query_string", query_string)
         if log_group_names is not None:
-            pulumi.set(__self__, "log_group_names", log_group_names)
+            _setter("log_group_names", log_group_names)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="queryString")
@@ -80,14 +101,37 @@ class _QueryDefinitionState:
         :param pulumi.Input[str] query_definition_id: The query definition ID.
         :param pulumi.Input[str] query_string: The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
         """
+        _QueryDefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_names=log_group_names,
+            name=name,
+            query_definition_id=query_definition_id,
+            query_string=query_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query_definition_id: Optional[pulumi.Input[str]] = None,
+             query_string: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_names is None and 'logGroupNames' in kwargs:
+            log_group_names = kwargs['logGroupNames']
+        if query_definition_id is None and 'queryDefinitionId' in kwargs:
+            query_definition_id = kwargs['queryDefinitionId']
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+
         if log_group_names is not None:
-            pulumi.set(__self__, "log_group_names", log_group_names)
+            _setter("log_group_names", log_group_names)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if query_definition_id is not None:
-            pulumi.set(__self__, "query_definition_id", query_definition_id)
+            _setter("query_definition_id", query_definition_id)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
 
     @property
     @pulumi.getter(name="logGroupNames")
@@ -227,6 +271,10 @@ class QueryDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            QueryDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

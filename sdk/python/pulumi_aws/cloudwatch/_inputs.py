@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -79,9 +79,34 @@ class CompositeAlarmActionsSuppressorArgs:
         :param pulumi.Input[int] extension_period: The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
         :param pulumi.Input[int] wait_period: The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
         """
-        pulumi.set(__self__, "alarm", alarm)
-        pulumi.set(__self__, "extension_period", extension_period)
-        pulumi.set(__self__, "wait_period", wait_period)
+        CompositeAlarmActionsSuppressorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarm=alarm,
+            extension_period=extension_period,
+            wait_period=wait_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarm: Optional[pulumi.Input[str]] = None,
+             extension_period: Optional[pulumi.Input[int]] = None,
+             wait_period: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alarm is None:
+            raise TypeError("Missing 'alarm' argument")
+        if extension_period is None and 'extensionPeriod' in kwargs:
+            extension_period = kwargs['extensionPeriod']
+        if extension_period is None:
+            raise TypeError("Missing 'extension_period' argument")
+        if wait_period is None and 'waitPeriod' in kwargs:
+            wait_period = kwargs['waitPeriod']
+        if wait_period is None:
+            raise TypeError("Missing 'wait_period' argument")
+
+        _setter("alarm", alarm)
+        _setter("extension_period", extension_period)
+        _setter("wait_period", wait_period)
 
     @property
     @pulumi.getter
@@ -133,14 +158,35 @@ class EventConnectionAuthParametersArgs:
         :param pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgs'] invocation_http_parameters: Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input['EventConnectionAuthParametersOauthArgs'] oauth: Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
         """
+        EventConnectionAuthParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            basic=basic,
+            invocation_http_parameters=invocation_http_parameters,
+            oauth=oauth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input['EventConnectionAuthParametersApiKeyArgs']] = None,
+             basic: Optional[pulumi.Input['EventConnectionAuthParametersBasicArgs']] = None,
+             invocation_http_parameters: Optional[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgs']] = None,
+             oauth: Optional[pulumi.Input['EventConnectionAuthParametersOauthArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if invocation_http_parameters is None and 'invocationHttpParameters' in kwargs:
+            invocation_http_parameters = kwargs['invocationHttpParameters']
+
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if basic is not None:
-            pulumi.set(__self__, "basic", basic)
+            _setter("basic", basic)
         if invocation_http_parameters is not None:
-            pulumi.set(__self__, "invocation_http_parameters", invocation_http_parameters)
+            _setter("invocation_http_parameters", invocation_http_parameters)
         if oauth is not None:
-            pulumi.set(__self__, "oauth", oauth)
+            _setter("oauth", oauth)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -200,8 +246,25 @@ class EventConnectionAuthParametersApiKeyArgs:
         :param pulumi.Input[str] key: Header Name.
         :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        EventConnectionAuthParametersApiKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -237,8 +300,25 @@ class EventConnectionAuthParametersBasicArgs:
         :param pulumi.Input[str] password: A password for the authorization. Created and stored in AWS Secrets Manager.
         :param pulumi.Input[str] username: A username for the authorization.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        EventConnectionAuthParametersBasicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -276,12 +356,29 @@ class EventConnectionAuthParametersInvocationHttpParametersArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersHeaderArgs']]] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
         :param pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs']]] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
         """
+        EventConnectionAuthParametersInvocationHttpParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bodies=bodies,
+            headers=headers,
+            query_strings=query_strings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bodies: Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersBodyArgs']]]] = None,
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersHeaderArgs']]]] = None,
+             query_strings: Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_strings is None and 'queryStrings' in kwargs:
+            query_strings = kwargs['queryStrings']
+
         if bodies is not None:
-            pulumi.set(__self__, "bodies", bodies)
+            _setter("bodies", bodies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_strings is not None:
-            pulumi.set(__self__, "query_strings", query_strings)
+            _setter("query_strings", query_strings)
 
     @property
     @pulumi.getter
@@ -331,12 +428,29 @@ class EventConnectionAuthParametersInvocationHttpParametersBodyArgs:
         :param pulumi.Input[str] key: Header Name.
         :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
         """
+        EventConnectionAuthParametersInvocationHttpParametersBodyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_value_secret=is_value_secret,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_value_secret: Optional[pulumi.Input[bool]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_value_secret is None and 'isValueSecret' in kwargs:
+            is_value_secret = kwargs['isValueSecret']
+
         if is_value_secret is not None:
-            pulumi.set(__self__, "is_value_secret", is_value_secret)
+            _setter("is_value_secret", is_value_secret)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="isValueSecret")
@@ -386,12 +500,29 @@ class EventConnectionAuthParametersInvocationHttpParametersHeaderArgs:
         :param pulumi.Input[str] key: Header Name.
         :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
         """
+        EventConnectionAuthParametersInvocationHttpParametersHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_value_secret=is_value_secret,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_value_secret: Optional[pulumi.Input[bool]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_value_secret is None and 'isValueSecret' in kwargs:
+            is_value_secret = kwargs['isValueSecret']
+
         if is_value_secret is not None:
-            pulumi.set(__self__, "is_value_secret", is_value_secret)
+            _setter("is_value_secret", is_value_secret)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="isValueSecret")
@@ -441,12 +572,29 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs:
         :param pulumi.Input[str] key: Header Name.
         :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
         """
+        EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_value_secret=is_value_secret,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_value_secret: Optional[pulumi.Input[bool]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_value_secret is None and 'isValueSecret' in kwargs:
+            is_value_secret = kwargs['isValueSecret']
+
         if is_value_secret is not None:
-            pulumi.set(__self__, "is_value_secret", is_value_secret)
+            _setter("is_value_secret", is_value_secret)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="isValueSecret")
@@ -498,11 +646,42 @@ class EventConnectionAuthParametersOauthArgs:
         :param pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersArgs'] oauth_http_parameters: OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input['EventConnectionAuthParametersOauthClientParametersArgs'] client_parameters: Contains the client parameters for OAuth authorization. Contains the following two parameters.
         """
-        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
-        pulumi.set(__self__, "http_method", http_method)
-        pulumi.set(__self__, "oauth_http_parameters", oauth_http_parameters)
+        EventConnectionAuthParametersOauthArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_endpoint=authorization_endpoint,
+            http_method=http_method,
+            oauth_http_parameters=oauth_http_parameters,
+            client_parameters=client_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_endpoint: Optional[pulumi.Input[str]] = None,
+             http_method: Optional[pulumi.Input[str]] = None,
+             oauth_http_parameters: Optional[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersArgs']] = None,
+             client_parameters: Optional[pulumi.Input['EventConnectionAuthParametersOauthClientParametersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorization_endpoint is None and 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if authorization_endpoint is None:
+            raise TypeError("Missing 'authorization_endpoint' argument")
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if http_method is None:
+            raise TypeError("Missing 'http_method' argument")
+        if oauth_http_parameters is None and 'oauthHttpParameters' in kwargs:
+            oauth_http_parameters = kwargs['oauthHttpParameters']
+        if oauth_http_parameters is None:
+            raise TypeError("Missing 'oauth_http_parameters' argument")
+        if client_parameters is None and 'clientParameters' in kwargs:
+            client_parameters = kwargs['clientParameters']
+
+        _setter("authorization_endpoint", authorization_endpoint)
+        _setter("http_method", http_method)
+        _setter("oauth_http_parameters", oauth_http_parameters)
         if client_parameters is not None:
-            pulumi.set(__self__, "client_parameters", client_parameters)
+            _setter("client_parameters", client_parameters)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -562,8 +741,29 @@ class EventConnectionAuthParametersOauthClientParametersArgs:
         :param pulumi.Input[str] client_id: The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
         :param pulumi.Input[str] client_secret: The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        EventConnectionAuthParametersOauthClientParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
 
     @property
     @pulumi.getter(name="clientId")
@@ -601,12 +801,29 @@ class EventConnectionAuthParametersOauthOauthHttpParametersArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs']]] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
         :param pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs']]] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
         """
+        EventConnectionAuthParametersOauthOauthHttpParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bodies=bodies,
+            headers=headers,
+            query_strings=query_strings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bodies: Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs']]]] = None,
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs']]]] = None,
+             query_strings: Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_strings is None and 'queryStrings' in kwargs:
+            query_strings = kwargs['queryStrings']
+
         if bodies is not None:
-            pulumi.set(__self__, "bodies", bodies)
+            _setter("bodies", bodies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_strings is not None:
-            pulumi.set(__self__, "query_strings", query_strings)
+            _setter("query_strings", query_strings)
 
     @property
     @pulumi.getter
@@ -656,12 +873,29 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs:
         :param pulumi.Input[str] key: Header Name.
         :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
         """
+        EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_value_secret=is_value_secret,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_value_secret: Optional[pulumi.Input[bool]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_value_secret is None and 'isValueSecret' in kwargs:
+            is_value_secret = kwargs['isValueSecret']
+
         if is_value_secret is not None:
-            pulumi.set(__self__, "is_value_secret", is_value_secret)
+            _setter("is_value_secret", is_value_secret)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="isValueSecret")
@@ -711,12 +945,29 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs:
         :param pulumi.Input[str] key: Header Name.
         :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
         """
+        EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_value_secret=is_value_secret,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_value_secret: Optional[pulumi.Input[bool]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_value_secret is None and 'isValueSecret' in kwargs:
+            is_value_secret = kwargs['isValueSecret']
+
         if is_value_secret is not None:
-            pulumi.set(__self__, "is_value_secret", is_value_secret)
+            _setter("is_value_secret", is_value_secret)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="isValueSecret")
@@ -766,12 +1017,29 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs:
         :param pulumi.Input[str] key: Header Name.
         :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
         """
+        EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_value_secret=is_value_secret,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_value_secret: Optional[pulumi.Input[bool]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_value_secret is None and 'isValueSecret' in kwargs:
+            is_value_secret = kwargs['isValueSecret']
+
         if is_value_secret is not None:
-            pulumi.set(__self__, "is_value_secret", is_value_secret)
+            _setter("is_value_secret", is_value_secret)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="isValueSecret")
@@ -817,7 +1085,22 @@ class EventEndpointEventBusArgs:
         """
         :param pulumi.Input[str] event_bus_arn: The ARN of the event bus the endpoint is associated with.
         """
-        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+        EventEndpointEventBusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_bus_arn=event_bus_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_bus_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_bus_arn is None and 'eventBusArn' in kwargs:
+            event_bus_arn = kwargs['eventBusArn']
+        if event_bus_arn is None:
+            raise TypeError("Missing 'event_bus_arn' argument")
+
+        _setter("event_bus_arn", event_bus_arn)
 
     @property
     @pulumi.getter(name="eventBusArn")
@@ -839,8 +1122,19 @@ class EventEndpointReplicationConfigArgs:
         """
         :param pulumi.Input[str] state: The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don't have a `role_arn` or you don't want event replication enabled, set `state` to `DISABLED`.
         """
+        EventEndpointReplicationConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -862,7 +1156,22 @@ class EventEndpointRoutingConfigArgs:
         """
         :param pulumi.Input['EventEndpointRoutingConfigFailoverConfigArgs'] failover_config: Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
         """
-        pulumi.set(__self__, "failover_config", failover_config)
+        EventEndpointRoutingConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failover_config=failover_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failover_config: Optional[pulumi.Input['EventEndpointRoutingConfigFailoverConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failover_config is None and 'failoverConfig' in kwargs:
+            failover_config = kwargs['failoverConfig']
+        if failover_config is None:
+            raise TypeError("Missing 'failover_config' argument")
+
+        _setter("failover_config", failover_config)
 
     @property
     @pulumi.getter(name="failoverConfig")
@@ -886,8 +1195,25 @@ class EventEndpointRoutingConfigFailoverConfigArgs:
         :param pulumi.Input['EventEndpointRoutingConfigFailoverConfigPrimaryArgs'] primary: Parameters used for the primary Region. Documented below.
         :param pulumi.Input['EventEndpointRoutingConfigFailoverConfigSecondaryArgs'] secondary: Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
         """
-        pulumi.set(__self__, "primary", primary)
-        pulumi.set(__self__, "secondary", secondary)
+        EventEndpointRoutingConfigFailoverConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary=primary,
+            secondary=secondary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary: Optional[pulumi.Input['EventEndpointRoutingConfigFailoverConfigPrimaryArgs']] = None,
+             secondary: Optional[pulumi.Input['EventEndpointRoutingConfigFailoverConfigSecondaryArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
+        if secondary is None:
+            raise TypeError("Missing 'secondary' argument")
+
+        _setter("primary", primary)
+        _setter("secondary", secondary)
 
     @property
     @pulumi.getter
@@ -921,8 +1247,21 @@ class EventEndpointRoutingConfigFailoverConfigPrimaryArgs:
         """
         :param pulumi.Input[str] health_check: The ARN of the health check used by the endpoint to determine whether failover is triggered.
         """
+        EventEndpointRoutingConfigFailoverConfigPrimaryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_check=health_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_check: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health_check is None and 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
 
     @property
     @pulumi.getter(name="healthCheck")
@@ -944,8 +1283,19 @@ class EventEndpointRoutingConfigFailoverConfigSecondaryArgs:
         """
         :param pulumi.Input[str] route: The name of the secondary Region.
         """
+        EventEndpointRoutingConfigFailoverConfigSecondaryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            route=route,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             route: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if route is not None:
-            pulumi.set(__self__, "route", route)
+            _setter("route", route)
 
     @property
     @pulumi.getter
@@ -971,9 +1321,30 @@ class EventPermissionConditionArgs:
         :param pulumi.Input[str] type: Type of condition. Value values: `StringEquals`.
         :param pulumi.Input[str] value: Value for the key.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        EventPermissionConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("key", key)
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1025,12 +1396,41 @@ class EventTargetBatchTargetArgs:
         :param pulumi.Input[int] array_size: The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
         :param pulumi.Input[int] job_attempts: The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
         """
-        pulumi.set(__self__, "job_definition", job_definition)
-        pulumi.set(__self__, "job_name", job_name)
+        EventTargetBatchTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_definition=job_definition,
+            job_name=job_name,
+            array_size=array_size,
+            job_attempts=job_attempts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_definition: Optional[pulumi.Input[str]] = None,
+             job_name: Optional[pulumi.Input[str]] = None,
+             array_size: Optional[pulumi.Input[int]] = None,
+             job_attempts: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if job_definition is None and 'jobDefinition' in kwargs:
+            job_definition = kwargs['jobDefinition']
+        if job_definition is None:
+            raise TypeError("Missing 'job_definition' argument")
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if job_name is None:
+            raise TypeError("Missing 'job_name' argument")
+        if array_size is None and 'arraySize' in kwargs:
+            array_size = kwargs['arraySize']
+        if job_attempts is None and 'jobAttempts' in kwargs:
+            job_attempts = kwargs['jobAttempts']
+
+        _setter("job_definition", job_definition)
+        _setter("job_name", job_name)
         if array_size is not None:
-            pulumi.set(__self__, "array_size", array_size)
+            _setter("array_size", array_size)
         if job_attempts is not None:
-            pulumi.set(__self__, "job_attempts", job_attempts)
+            _setter("job_attempts", job_attempts)
 
     @property
     @pulumi.getter(name="jobDefinition")
@@ -1088,8 +1488,19 @@ class EventTargetDeadLetterConfigArgs:
         """
         :param pulumi.Input[str] arn: ARN of the SQS queue specified as the target for the dead-letter queue.
         """
+        EventTargetDeadLetterConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
 
     @property
     @pulumi.getter
@@ -1135,31 +1546,90 @@ class EventTargetEcsTargetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to ecs resources.
         :param pulumi.Input[int] task_count: The number of tasks to create based on the TaskDefinition. Defaults to `1`.
         """
-        pulumi.set(__self__, "task_definition_arn", task_definition_arn)
+        EventTargetEcsTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_definition_arn=task_definition_arn,
+            capacity_provider_strategies=capacity_provider_strategies,
+            enable_ecs_managed_tags=enable_ecs_managed_tags,
+            enable_execute_command=enable_execute_command,
+            group=group,
+            launch_type=launch_type,
+            network_configuration=network_configuration,
+            ordered_placement_strategies=ordered_placement_strategies,
+            placement_constraints=placement_constraints,
+            platform_version=platform_version,
+            propagate_tags=propagate_tags,
+            tags=tags,
+            task_count=task_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_definition_arn: Optional[pulumi.Input[str]] = None,
+             capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetCapacityProviderStrategyArgs']]]] = None,
+             enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
+             enable_execute_command: Optional[pulumi.Input[bool]] = None,
+             group: Optional[pulumi.Input[str]] = None,
+             launch_type: Optional[pulumi.Input[str]] = None,
+             network_configuration: Optional[pulumi.Input['EventTargetEcsTargetNetworkConfigurationArgs']] = None,
+             ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetOrderedPlacementStrategyArgs']]]] = None,
+             placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgs']]]] = None,
+             platform_version: Optional[pulumi.Input[str]] = None,
+             propagate_tags: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             task_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_definition_arn is None and 'taskDefinitionArn' in kwargs:
+            task_definition_arn = kwargs['taskDefinitionArn']
+        if task_definition_arn is None:
+            raise TypeError("Missing 'task_definition_arn' argument")
+        if capacity_provider_strategies is None and 'capacityProviderStrategies' in kwargs:
+            capacity_provider_strategies = kwargs['capacityProviderStrategies']
+        if enable_ecs_managed_tags is None and 'enableEcsManagedTags' in kwargs:
+            enable_ecs_managed_tags = kwargs['enableEcsManagedTags']
+        if enable_execute_command is None and 'enableExecuteCommand' in kwargs:
+            enable_execute_command = kwargs['enableExecuteCommand']
+        if launch_type is None and 'launchType' in kwargs:
+            launch_type = kwargs['launchType']
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if ordered_placement_strategies is None and 'orderedPlacementStrategies' in kwargs:
+            ordered_placement_strategies = kwargs['orderedPlacementStrategies']
+        if placement_constraints is None and 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if platform_version is None and 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+        if propagate_tags is None and 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if task_count is None and 'taskCount' in kwargs:
+            task_count = kwargs['taskCount']
+
+        _setter("task_definition_arn", task_definition_arn)
         if capacity_provider_strategies is not None:
-            pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
+            _setter("capacity_provider_strategies", capacity_provider_strategies)
         if enable_ecs_managed_tags is not None:
-            pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
+            _setter("enable_ecs_managed_tags", enable_ecs_managed_tags)
         if enable_execute_command is not None:
-            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
+            _setter("enable_execute_command", enable_execute_command)
         if group is not None:
-            pulumi.set(__self__, "group", group)
+            _setter("group", group)
         if launch_type is not None:
-            pulumi.set(__self__, "launch_type", launch_type)
+            _setter("launch_type", launch_type)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if ordered_placement_strategies is not None:
-            pulumi.set(__self__, "ordered_placement_strategies", ordered_placement_strategies)
+            _setter("ordered_placement_strategies", ordered_placement_strategies)
         if placement_constraints is not None:
-            pulumi.set(__self__, "placement_constraints", placement_constraints)
+            _setter("placement_constraints", placement_constraints)
         if platform_version is not None:
-            pulumi.set(__self__, "platform_version", platform_version)
+            _setter("platform_version", platform_version)
         if propagate_tags is not None:
-            pulumi.set(__self__, "propagate_tags", propagate_tags)
+            _setter("propagate_tags", propagate_tags)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if task_count is not None:
-            pulumi.set(__self__, "task_count", task_count)
+            _setter("task_count", task_count)
 
     @property
     @pulumi.getter(name="taskDefinitionArn")
@@ -1329,11 +1799,30 @@ class EventTargetEcsTargetCapacityProviderStrategyArgs:
         :param pulumi.Input[int] base: The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
         :param pulumi.Input[int] weight: The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
         """
-        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        EventTargetEcsTargetCapacityProviderStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_provider=capacity_provider,
+            base=base,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_provider: Optional[pulumi.Input[str]] = None,
+             base: Optional[pulumi.Input[int]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_provider is None and 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+        if capacity_provider is None:
+            raise TypeError("Missing 'capacity_provider' argument")
+
+        _setter("capacity_provider", capacity_provider)
         if base is not None:
-            pulumi.set(__self__, "base", base)
+            _setter("base", base)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="capacityProvider")
@@ -1385,11 +1874,32 @@ class EventTargetEcsTargetNetworkConfigurationArgs:
                For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
-        pulumi.set(__self__, "subnets", subnets)
+        EventTargetEcsTargetNetworkConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnets=subnets,
+            assign_public_ip=assign_public_ip,
+            security_groups=security_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             assign_public_ip: Optional[pulumi.Input[bool]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+        if assign_public_ip is None and 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
+        _setter("subnets", subnets)
         if assign_public_ip is not None:
-            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
+            _setter("assign_public_ip", assign_public_ip)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
 
     @property
     @pulumi.getter
@@ -1439,9 +1949,24 @@ class EventTargetEcsTargetOrderedPlacementStrategyArgs:
         :param pulumi.Input[str] type: Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
         :param pulumi.Input[str] field: The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
         """
-        pulumi.set(__self__, "type", type)
+        EventTargetEcsTargetOrderedPlacementStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            field=field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             field: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
 
     @property
     @pulumi.getter
@@ -1477,9 +2002,24 @@ class EventTargetEcsTargetPlacementConstraintArgs:
         :param pulumi.Input[str] type: Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
         :param pulumi.Input[str] expression: Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
         """
-        pulumi.set(__self__, "type", type)
+        EventTargetEcsTargetPlacementConstraintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            expression=expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             expression: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
 
     @property
     @pulumi.getter
@@ -1517,12 +2057,33 @@ class EventTargetHttpTargetArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] path_parameter_values: The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] query_string_parameters: Represents keys/values of query string parameters that are appended to the invoked endpoint.
         """
+        EventTargetHttpTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_parameters=header_parameters,
+            path_parameter_values=path_parameter_values,
+            query_string_parameters=query_string_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             path_parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             query_string_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header_parameters is None and 'headerParameters' in kwargs:
+            header_parameters = kwargs['headerParameters']
+        if path_parameter_values is None and 'pathParameterValues' in kwargs:
+            path_parameter_values = kwargs['pathParameterValues']
+        if query_string_parameters is None and 'queryStringParameters' in kwargs:
+            query_string_parameters = kwargs['queryStringParameters']
+
         if header_parameters is not None:
-            pulumi.set(__self__, "header_parameters", header_parameters)
+            _setter("header_parameters", header_parameters)
         if path_parameter_values is not None:
-            pulumi.set(__self__, "path_parameter_values", path_parameter_values)
+            _setter("path_parameter_values", path_parameter_values)
         if query_string_parameters is not None:
-            pulumi.set(__self__, "query_string_parameters", query_string_parameters)
+            _setter("query_string_parameters", query_string_parameters)
 
     @property
     @pulumi.getter(name="headerParameters")
@@ -1573,9 +2134,28 @@ class EventTargetInputTransformerArgs:
                * You must use JSON dot notation, not bracket notation.
                * The keys can't start with "AWS".
         """
-        pulumi.set(__self__, "input_template", input_template)
+        EventTargetInputTransformerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_template=input_template,
+            input_paths=input_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_template: Optional[pulumi.Input[str]] = None,
+             input_paths: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_template is None and 'inputTemplate' in kwargs:
+            input_template = kwargs['inputTemplate']
+        if input_template is None:
+            raise TypeError("Missing 'input_template' argument")
+        if input_paths is None and 'inputPaths' in kwargs:
+            input_paths = kwargs['inputPaths']
+
+        _setter("input_template", input_template)
         if input_paths is not None:
-            pulumi.set(__self__, "input_paths", input_paths)
+            _setter("input_paths", input_paths)
 
     @property
     @pulumi.getter(name="inputTemplate")
@@ -1612,8 +2192,21 @@ class EventTargetKinesisTargetArgs:
         """
         :param pulumi.Input[str] partition_key_path: The JSON path to be extracted from the event and used as the partition key.
         """
+        EventTargetKinesisTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partition_key_path=partition_key_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partition_key_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if partition_key_path is None and 'partitionKeyPath' in kwargs:
+            partition_key_path = kwargs['partitionKeyPath']
+
         if partition_key_path is not None:
-            pulumi.set(__self__, "partition_key_path", partition_key_path)
+            _setter("partition_key_path", partition_key_path)
 
     @property
     @pulumi.getter(name="partitionKeyPath")
@@ -1645,17 +2238,48 @@ class EventTargetRedshiftTargetArgs:
         :param pulumi.Input[str] statement_name: The name of the SQL statement.
         :param pulumi.Input[bool] with_event: Indicates whether to send an event back to EventBridge after the SQL statement runs.
         """
-        pulumi.set(__self__, "database", database)
+        EventTargetRedshiftTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            db_user=db_user,
+            secrets_manager_arn=secrets_manager_arn,
+            sql=sql,
+            statement_name=statement_name,
+            with_event=with_event,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             db_user: Optional[pulumi.Input[str]] = None,
+             secrets_manager_arn: Optional[pulumi.Input[str]] = None,
+             sql: Optional[pulumi.Input[str]] = None,
+             statement_name: Optional[pulumi.Input[str]] = None,
+             with_event: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if db_user is None and 'dbUser' in kwargs:
+            db_user = kwargs['dbUser']
+        if secrets_manager_arn is None and 'secretsManagerArn' in kwargs:
+            secrets_manager_arn = kwargs['secretsManagerArn']
+        if statement_name is None and 'statementName' in kwargs:
+            statement_name = kwargs['statementName']
+        if with_event is None and 'withEvent' in kwargs:
+            with_event = kwargs['withEvent']
+
+        _setter("database", database)
         if db_user is not None:
-            pulumi.set(__self__, "db_user", db_user)
+            _setter("db_user", db_user)
         if secrets_manager_arn is not None:
-            pulumi.set(__self__, "secrets_manager_arn", secrets_manager_arn)
+            _setter("secrets_manager_arn", secrets_manager_arn)
         if sql is not None:
-            pulumi.set(__self__, "sql", sql)
+            _setter("sql", sql)
         if statement_name is not None:
-            pulumi.set(__self__, "statement_name", statement_name)
+            _setter("statement_name", statement_name)
         if with_event is not None:
-            pulumi.set(__self__, "with_event", with_event)
+            _setter("with_event", with_event)
 
     @property
     @pulumi.getter
@@ -1739,10 +2363,27 @@ class EventTargetRetryPolicyArgs:
         :param pulumi.Input[int] maximum_event_age_in_seconds: The age in seconds to continue to make retry attempts.
         :param pulumi.Input[int] maximum_retry_attempts: maximum number of retry attempts to make before the request fails
         """
+        EventTargetRetryPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_event_age_in_seconds=maximum_event_age_in_seconds,
+            maximum_retry_attempts=maximum_retry_attempts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
+             maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_event_age_in_seconds is None and 'maximumEventAgeInSeconds' in kwargs:
+            maximum_event_age_in_seconds = kwargs['maximumEventAgeInSeconds']
+        if maximum_retry_attempts is None and 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+
         if maximum_event_age_in_seconds is not None:
-            pulumi.set(__self__, "maximum_event_age_in_seconds", maximum_event_age_in_seconds)
+            _setter("maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
-            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+            _setter("maximum_retry_attempts", maximum_retry_attempts)
 
     @property
     @pulumi.getter(name="maximumEventAgeInSeconds")
@@ -1778,8 +2419,25 @@ class EventTargetRunCommandTargetArgs:
         :param pulumi.Input[str] key: Can be either `tag:tag-key` or `InstanceIds`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        EventTargetRunCommandTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1813,8 +2471,21 @@ class EventTargetSagemakerPipelineTargetArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetSagemakerPipelineTargetPipelineParameterListArgs']]] pipeline_parameter_lists: List of Parameter names and values for SageMaker Model Building Pipeline execution.
         """
+        EventTargetSagemakerPipelineTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pipeline_parameter_lists=pipeline_parameter_lists,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pipeline_parameter_lists: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetSagemakerPipelineTargetPipelineParameterListArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pipeline_parameter_lists is None and 'pipelineParameterLists' in kwargs:
+            pipeline_parameter_lists = kwargs['pipelineParameterLists']
+
         if pipeline_parameter_lists is not None:
-            pulumi.set(__self__, "pipeline_parameter_lists", pipeline_parameter_lists)
+            _setter("pipeline_parameter_lists", pipeline_parameter_lists)
 
     @property
     @pulumi.getter(name="pipelineParameterLists")
@@ -1838,8 +2509,25 @@ class EventTargetSagemakerPipelineTargetPipelineParameterListArgs:
         :param pulumi.Input[str] name: Name of parameter to start execution of a SageMaker Model Building Pipeline.
         :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker Model Building Pipeline.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        EventTargetSagemakerPipelineTargetPipelineParameterListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1873,8 +2561,21 @@ class EventTargetSqsTargetArgs:
         """
         :param pulumi.Input[str] message_group_id: The FIFO message group ID to use as the target.
         """
+        EventTargetSqsTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_group_id=message_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message_group_id is None and 'messageGroupId' in kwargs:
+            message_group_id = kwargs['messageGroupId']
+
         if message_group_id is not None:
-            pulumi.set(__self__, "message_group_id", message_group_id)
+            _setter("message_group_id", message_group_id)
 
     @property
     @pulumi.getter(name="messageGroupId")
@@ -1898,10 +2599,27 @@ class InternetMonitorHealthEventsConfigArgs:
         :param pulumi.Input[float] availability_score_threshold: The health event threshold percentage set for availability scores.
         :param pulumi.Input[float] performance_score_threshold: The health event threshold percentage set for performance scores.
         """
+        InternetMonitorHealthEventsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_score_threshold=availability_score_threshold,
+            performance_score_threshold=performance_score_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_score_threshold: Optional[pulumi.Input[float]] = None,
+             performance_score_threshold: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_score_threshold is None and 'availabilityScoreThreshold' in kwargs:
+            availability_score_threshold = kwargs['availabilityScoreThreshold']
+        if performance_score_threshold is None and 'performanceScoreThreshold' in kwargs:
+            performance_score_threshold = kwargs['performanceScoreThreshold']
+
         if availability_score_threshold is not None:
-            pulumi.set(__self__, "availability_score_threshold", availability_score_threshold)
+            _setter("availability_score_threshold", availability_score_threshold)
         if performance_score_threshold is not None:
-            pulumi.set(__self__, "performance_score_threshold", performance_score_threshold)
+            _setter("performance_score_threshold", performance_score_threshold)
 
     @property
     @pulumi.getter(name="availabilityScoreThreshold")
@@ -1932,8 +2650,21 @@ class InternetMonitorHealthEventsConfigArgs:
 class InternetMonitorInternetMeasurementsLogDeliveryArgs:
     def __init__(__self__, *,
                  s3_config: Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs']] = None):
+        InternetMonitorInternetMeasurementsLogDeliveryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_config=s3_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_config: Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_config is None and 's3Config' in kwargs:
+            s3_config = kwargs['s3Config']
+
         if s3_config is not None:
-            pulumi.set(__self__, "s3_config", s3_config)
+            _setter("s3_config", s3_config)
 
     @property
     @pulumi.getter(name="s3Config")
@@ -1951,11 +2682,34 @@ class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs:
                  bucket_name: pulumi.Input[str],
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  log_delivery_status: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            log_delivery_status=log_delivery_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             bucket_prefix: Optional[pulumi.Input[str]] = None,
+             log_delivery_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if log_delivery_status is None and 'logDeliveryStatus' in kwargs:
+            log_delivery_status = kwargs['logDeliveryStatus']
+
+        _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if log_delivery_status is not None:
-            pulumi.set(__self__, "log_delivery_status", log_delivery_status)
+            _setter("log_delivery_status", log_delivery_status)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -2002,15 +2756,44 @@ class LogMetricFilterMetricTransformationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dimensions: Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
         :param pulumi.Input[str] unit: The unit to assign to the metric. If you omit this, the unit is set as `None`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "value", value)
+        LogMetricFilterMetricTransformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            namespace=namespace,
+            value=value,
+            default_value=default_value,
+            dimensions=dimensions,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             default_value: Optional[pulumi.Input[str]] = None,
+             dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
+        _setter("name", name)
+        _setter("namespace", namespace)
+        _setter("value", value)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -2108,19 +2891,48 @@ class MetricAlarmMetricQueryArgs:
                
                > **NOTE:**  You must specify either `metric` or `expression`. Not both.
         """
-        pulumi.set(__self__, "id", id)
+        MetricAlarmMetricQueryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            account_id=account_id,
+            expression=expression,
+            label=label,
+            metric=metric,
+            period=period,
+            return_data=return_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             account_id: Optional[pulumi.Input[str]] = None,
+             expression: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             metric: Optional[pulumi.Input['MetricAlarmMetricQueryMetricArgs']] = None,
+             period: Optional[pulumi.Input[int]] = None,
+             return_data: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if return_data is None and 'returnData' in kwargs:
+            return_data = kwargs['returnData']
+
+        _setter("id", id)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if metric is not None:
-            pulumi.set(__self__, "metric", metric)
+            _setter("metric", metric)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if return_data is not None:
-            pulumi.set(__self__, "return_data", return_data)
+            _setter("return_data", return_data)
 
     @property
     @pulumi.getter
@@ -2233,15 +3045,44 @@ class MetricAlarmMetricQueryMetricArgs:
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         :param pulumi.Input[str] unit: The unit for this metric.
         """
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "period", period)
-        pulumi.set(__self__, "stat", stat)
+        MetricAlarmMetricQueryMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            period=period,
+            stat=stat,
+            dimensions=dimensions,
+            namespace=namespace,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[int]] = None,
+             stat: Optional[pulumi.Input[str]] = None,
+             dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if period is None:
+            raise TypeError("Missing 'period' argument")
+        if stat is None:
+            raise TypeError("Missing 'stat' argument")
+
+        _setter("metric_name", metric_name)
+        _setter("period", period)
+        _setter("stat", stat)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter(name="metricName")
@@ -2330,9 +3171,26 @@ class MetricStreamExcludeFilterArgs:
         :param pulumi.Input[str] namespace: Name of the metric namespace in the filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_names: An array that defines the metrics you want to exclude for this metric namespace
         """
-        pulumi.set(__self__, "namespace", namespace)
+        MetricStreamExcludeFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+            metric_names=metric_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: Optional[pulumi.Input[str]] = None,
+             metric_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if metric_names is None and 'metricNames' in kwargs:
+            metric_names = kwargs['metricNames']
+
+        _setter("namespace", namespace)
         if metric_names is not None:
-            pulumi.set(__self__, "metric_names", metric_names)
+            _setter("metric_names", metric_names)
 
     @property
     @pulumi.getter
@@ -2368,9 +3226,26 @@ class MetricStreamIncludeFilterArgs:
         :param pulumi.Input[str] namespace: Name of the metric namespace in the filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_names: An array that defines the metrics you want to include for this metric namespace
         """
-        pulumi.set(__self__, "namespace", namespace)
+        MetricStreamIncludeFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+            metric_names=metric_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: Optional[pulumi.Input[str]] = None,
+             metric_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if metric_names is None and 'metricNames' in kwargs:
+            metric_names = kwargs['metricNames']
+
+        _setter("namespace", namespace)
         if metric_names is not None:
-            pulumi.set(__self__, "metric_names", metric_names)
+            _setter("metric_names", metric_names)
 
     @property
     @pulumi.getter
@@ -2406,8 +3281,29 @@ class MetricStreamStatisticsConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_statistics: The additional statistics to stream for the metrics listed in `include_metrics`.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgs']]] include_metrics: An array that defines the metrics that are to have additional statistics streamed. See details below.
         """
-        pulumi.set(__self__, "additional_statistics", additional_statistics)
-        pulumi.set(__self__, "include_metrics", include_metrics)
+        MetricStreamStatisticsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_statistics=additional_statistics,
+            include_metrics=include_metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_statistics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             include_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_statistics is None and 'additionalStatistics' in kwargs:
+            additional_statistics = kwargs['additionalStatistics']
+        if additional_statistics is None:
+            raise TypeError("Missing 'additional_statistics' argument")
+        if include_metrics is None and 'includeMetrics' in kwargs:
+            include_metrics = kwargs['includeMetrics']
+        if include_metrics is None:
+            raise TypeError("Missing 'include_metrics' argument")
+
+        _setter("additional_statistics", additional_statistics)
+        _setter("include_metrics", include_metrics)
 
     @property
     @pulumi.getter(name="additionalStatistics")
@@ -2443,8 +3339,27 @@ class MetricStreamStatisticsConfigurationIncludeMetricArgs:
         :param pulumi.Input[str] metric_name: The name of the metric.
         :param pulumi.Input[str] namespace: Name of the metric namespace in the filter.
         """
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "namespace", namespace)
+        MetricStreamStatisticsConfigurationIncludeMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+
+        _setter("metric_name", metric_name)
+        _setter("namespace", namespace)
 
     @property
     @pulumi.getter(name="metricName")
@@ -2482,10 +3397,31 @@ class GetLogDataProtectionPolicyDocumentStatementArgs:
         :param 'GetLogDataProtectionPolicyDocumentStatementOperationArgs' operation: Configures the data protection operation applied by this statement.
         :param str sid: Name of this statement.
         """
-        pulumi.set(__self__, "data_identifiers", data_identifiers)
-        pulumi.set(__self__, "operation", operation)
+        GetLogDataProtectionPolicyDocumentStatementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_identifiers=data_identifiers,
+            operation=operation,
+            sid=sid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_identifiers: Optional[Sequence[str]] = None,
+             operation: Optional['GetLogDataProtectionPolicyDocumentStatementOperationArgs'] = None,
+             sid: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_identifiers is None and 'dataIdentifiers' in kwargs:
+            data_identifiers = kwargs['dataIdentifiers']
+        if data_identifiers is None:
+            raise TypeError("Missing 'data_identifiers' argument")
+        if operation is None:
+            raise TypeError("Missing 'operation' argument")
+
+        _setter("data_identifiers", data_identifiers)
+        _setter("operation", operation)
         if sid is not None:
-            pulumi.set(__self__, "sid", sid)
+            _setter("sid", sid)
 
     @property
     @pulumi.getter(name="dataIdentifiers")
@@ -2535,10 +3471,23 @@ class GetLogDataProtectionPolicyDocumentStatementOperationArgs:
                
                > Every policy statement must specify exactly one operation.
         """
+        GetLogDataProtectionPolicyDocumentStatementOperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audit=audit,
+            deidentify=deidentify,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audit: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs'] = None,
+             deidentify: Optional['GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if audit is not None:
-            pulumi.set(__self__, "audit", audit)
+            _setter("audit", audit)
         if deidentify is not None:
-            pulumi.set(__self__, "deidentify", deidentify)
+            _setter("deidentify", deidentify)
 
     @property
     @pulumi.getter
@@ -2574,7 +3523,22 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs:
         """
         :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs' findings_destination: Configures destinations to send audit findings to.
         """
-        pulumi.set(__self__, "findings_destination", findings_destination)
+        GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            findings_destination=findings_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             findings_destination: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if findings_destination is None and 'findingsDestination' in kwargs:
+            findings_destination = kwargs['findingsDestination']
+        if findings_destination is None:
+            raise TypeError("Missing 'findings_destination' argument")
+
+        _setter("findings_destination", findings_destination)
 
     @property
     @pulumi.getter(name="findingsDestination")
@@ -2600,12 +3564,29 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
         :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs' firehose: Configures Kinesis Firehose as a findings destination.
         :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args' s3: Configures S3 as a findings destination.
         """
+        GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_logs=cloudwatch_logs,
+            firehose=firehose,
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_logs: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs'] = None,
+             firehose: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs'] = None,
+             s3: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloudwatch_logs is None and 'cloudwatchLogs' in kwargs:
+            cloudwatch_logs = kwargs['cloudwatchLogs']
+
         if cloudwatch_logs is not None:
-            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+            _setter("cloudwatch_logs", cloudwatch_logs)
         if firehose is not None:
-            pulumi.set(__self__, "firehose", firehose)
+            _setter("firehose", firehose)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
@@ -2651,7 +3632,22 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
         """
         :param str log_group: Name of the CloudWatch Log Group to send findings to.
         """
-        pulumi.set(__self__, "log_group", log_group)
+        GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group=log_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group is None and 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+        if log_group is None:
+            raise TypeError("Missing 'log_group' argument")
+
+        _setter("log_group", log_group)
 
     @property
     @pulumi.getter(name="logGroup")
@@ -2673,7 +3669,22 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
         """
         :param str delivery_stream: Name of the Kinesis Firehose Delivery Stream to send findings to.
         """
-        pulumi.set(__self__, "delivery_stream", delivery_stream)
+        GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_stream=delivery_stream,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_stream: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_stream is None and 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+        if delivery_stream is None:
+            raise TypeError("Missing 'delivery_stream' argument")
+
+        _setter("delivery_stream", delivery_stream)
 
     @property
     @pulumi.getter(name="deliveryStream")
@@ -2695,7 +3706,20 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
         """
         :param str bucket: Name of the S3 Bucket to send findings to.
         """
-        pulumi.set(__self__, "bucket", bucket)
+        GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+
+        _setter("bucket", bucket)
 
     @property
     @pulumi.getter
@@ -2717,7 +3741,22 @@ class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs:
         """
         :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs' mask_config: An empty object that configures masking.
         """
-        pulumi.set(__self__, "mask_config", mask_config)
+        GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mask_config=mask_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mask_config: Optional['GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mask_config is None and 'maskConfig' in kwargs:
+            mask_config = kwargs['maskConfig']
+        if mask_config is None:
+            raise TypeError("Missing 'mask_config' argument")
+
+        _setter("mask_config", mask_config)
 
     @property
     @pulumi.getter(name="maskConfig")
@@ -2736,5 +3775,12 @@ class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs:
 class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs:
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        pass
+
 
 

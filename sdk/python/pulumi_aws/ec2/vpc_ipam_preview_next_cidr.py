@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcIpamPreviewNextCidrArgs', 'VpcIpamPreviewNextCidr']
@@ -23,11 +23,34 @@ class VpcIpamPreviewNextCidrArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
         """
-        pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
+        VpcIpamPreviewNextCidrArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipam_pool_id=ipam_pool_id,
+            disallowed_cidrs=disallowed_cidrs,
+            netmask_length=netmask_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             netmask_length: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipam_pool_id is None and 'ipamPoolId' in kwargs:
+            ipam_pool_id = kwargs['ipamPoolId']
+        if ipam_pool_id is None:
+            raise TypeError("Missing 'ipam_pool_id' argument")
+        if disallowed_cidrs is None and 'disallowedCidrs' in kwargs:
+            disallowed_cidrs = kwargs['disallowedCidrs']
+        if netmask_length is None and 'netmaskLength' in kwargs:
+            netmask_length = kwargs['netmaskLength']
+
+        _setter("ipam_pool_id", ipam_pool_id)
         if disallowed_cidrs is not None:
-            pulumi.set(__self__, "disallowed_cidrs", disallowed_cidrs)
+            _setter("disallowed_cidrs", disallowed_cidrs)
         if netmask_length is not None:
-            pulumi.set(__self__, "netmask_length", netmask_length)
+            _setter("netmask_length", netmask_length)
 
     @property
     @pulumi.getter(name="ipamPoolId")
@@ -80,14 +103,37 @@ class _VpcIpamPreviewNextCidrState:
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
         """
+        _VpcIpamPreviewNextCidrState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr=cidr,
+            disallowed_cidrs=disallowed_cidrs,
+            ipam_pool_id=ipam_pool_id,
+            netmask_length=netmask_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr: Optional[pulumi.Input[str]] = None,
+             disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             netmask_length: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disallowed_cidrs is None and 'disallowedCidrs' in kwargs:
+            disallowed_cidrs = kwargs['disallowedCidrs']
+        if ipam_pool_id is None and 'ipamPoolId' in kwargs:
+            ipam_pool_id = kwargs['ipamPoolId']
+        if netmask_length is None and 'netmaskLength' in kwargs:
+            netmask_length = kwargs['netmaskLength']
+
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if disallowed_cidrs is not None:
-            pulumi.set(__self__, "disallowed_cidrs", disallowed_cidrs)
+            _setter("disallowed_cidrs", disallowed_cidrs)
         if ipam_pool_id is not None:
-            pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
+            _setter("ipam_pool_id", ipam_pool_id)
         if netmask_length is not None:
-            pulumi.set(__self__, "netmask_length", netmask_length)
+            _setter("netmask_length", netmask_length)
 
     @property
     @pulumi.getter
@@ -227,6 +273,10 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcIpamPreviewNextCidrArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

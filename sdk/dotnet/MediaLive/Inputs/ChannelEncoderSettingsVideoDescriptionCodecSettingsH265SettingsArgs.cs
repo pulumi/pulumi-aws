@@ -55,7 +55,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs>? ColorSpaceSettings { get; set; }
 
         /// <summary>
-        /// Filters to apply to an encode. See H264 Filter Settings for more details.
+        /// Filters to apply to an encode. See H265 Filter Settings for more details.
         /// </summary>
         [Input("filterSettings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs>? FilterSettings { get; set; }
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? GopSizeUnits { get; set; }
 
         /// <summary>
-        /// H264 level.
+        /// H265 level.
         /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }

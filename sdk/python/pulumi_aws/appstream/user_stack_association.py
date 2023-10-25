@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserStackAssociationArgs', 'UserStackAssociation']
@@ -27,11 +27,42 @@ class UserStackAssociationArgs:
                The following arguments are optional:
         :param pulumi.Input[bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         """
-        pulumi.set(__self__, "authentication_type", authentication_type)
-        pulumi.set(__self__, "stack_name", stack_name)
-        pulumi.set(__self__, "user_name", user_name)
+        UserStackAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            stack_name=stack_name,
+            user_name=user_name,
+            send_email_notification=send_email_notification,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             stack_name: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             send_email_notification: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if stack_name is None and 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+        if stack_name is None:
+            raise TypeError("Missing 'stack_name' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if user_name is None:
+            raise TypeError("Missing 'user_name' argument")
+        if send_email_notification is None and 'sendEmailNotification' in kwargs:
+            send_email_notification = kwargs['sendEmailNotification']
+
+        _setter("authentication_type", authentication_type)
+        _setter("stack_name", stack_name)
+        _setter("user_name", user_name)
         if send_email_notification is not None:
-            pulumi.set(__self__, "send_email_notification", send_email_notification)
+            _setter("send_email_notification", send_email_notification)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -100,14 +131,39 @@ class _UserStackAssociationState:
                
                The following arguments are optional:
         """
+        _UserStackAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            send_email_notification=send_email_notification,
+            stack_name=stack_name,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             send_email_notification: Optional[pulumi.Input[bool]] = None,
+             stack_name: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if send_email_notification is None and 'sendEmailNotification' in kwargs:
+            send_email_notification = kwargs['sendEmailNotification']
+        if stack_name is None and 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if send_email_notification is not None:
-            pulumi.set(__self__, "send_email_notification", send_email_notification)
+            _setter("send_email_notification", send_email_notification)
         if stack_name is not None:
-            pulumi.set(__self__, "stack_name", stack_name)
+            _setter("stack_name", stack_name)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -249,6 +305,10 @@ class UserStackAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserStackAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

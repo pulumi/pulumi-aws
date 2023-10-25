@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,37 @@ class BucketIntelligentTieringConfigurationArgs:
         :param pulumi.Input[str] name: Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
         :param pulumi.Input[str] status: Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "tierings", tierings)
+        BucketIntelligentTieringConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            tierings=tierings,
+            filter=filter,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             tierings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationTieringArgs']]]] = None,
+             filter: Optional[pulumi.Input['BucketIntelligentTieringConfigurationFilterArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if tierings is None:
+            raise TypeError("Missing 'tierings' argument")
+
+        _setter("bucket", bucket)
+        _setter("tierings", tierings)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -115,16 +138,35 @@ class _BucketIntelligentTieringConfigurationState:
         :param pulumi.Input[str] status: Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
         :param pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationTieringArgs']]] tierings: S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
         """
+        _BucketIntelligentTieringConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            filter=filter,
+            name=name,
+            status=status,
+            tierings=tierings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input['BucketIntelligentTieringConfigurationFilterArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tierings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationTieringArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tierings is not None:
-            pulumi.set(__self__, "tierings", tierings)
+            _setter("tierings", tierings)
 
     @property
     @pulumi.getter
@@ -332,6 +374,10 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketIntelligentTieringConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -354,6 +400,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
+            filter = _utilities.configure(filter, BucketIntelligentTieringConfigurationFilterArgs, True)
             __props__.__dict__["filter"] = filter
             __props__.__dict__["name"] = name
             __props__.__dict__["status"] = status

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CustomerGatewayArgs', 'CustomerGateway']
@@ -30,16 +30,49 @@ class CustomerGatewayArgs:
         :param pulumi.Input[str] ip_address: The IPv4 address for the customer gateway device's outside interface.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "bgp_asn", bgp_asn)
-        pulumi.set(__self__, "type", type)
+        CustomerGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bgp_asn=bgp_asn,
+            type=type,
+            certificate_arn=certificate_arn,
+            device_name=device_name,
+            ip_address=ip_address,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bgp_asn: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bgp_asn is None and 'bgpAsn' in kwargs:
+            bgp_asn = kwargs['bgpAsn']
+        if bgp_asn is None:
+            raise TypeError("Missing 'bgp_asn' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
+        _setter("bgp_asn", bgp_asn)
+        _setter("type", type)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="bgpAsn")
@@ -138,25 +171,60 @@ class _CustomerGatewayState:
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
                supports at this time is "ipsec.1".
         """
+        _CustomerGatewayState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            bgp_asn=bgp_asn,
+            certificate_arn=certificate_arn,
+            device_name=device_name,
+            ip_address=ip_address,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             bgp_asn: Optional[pulumi.Input[str]] = None,
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bgp_asn is None and 'bgpAsn' in kwargs:
+            bgp_asn = kwargs['bgpAsn']
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bgp_asn is not None:
-            pulumi.set(__self__, "bgp_asn", bgp_asn)
+            _setter("bgp_asn", bgp_asn)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -349,6 +417,10 @@ class CustomerGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomerGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

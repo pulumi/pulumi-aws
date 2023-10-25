@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CrawlerS3Target {
     /**
-     * @return The name of the connection to use to connect to the JDBC target.
+     * @return The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
      * 
      */
     private @Nullable String connectionName;
     /**
-     * @return The ARN of the dead-letter SQS queue.
+     * @return A valid Amazon SQS ARN.
      * 
      * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
      * 
@@ -28,7 +28,7 @@ public final class CrawlerS3Target {
      */
     private @Nullable String dlqEventQueueArn;
     /**
-     * @return The ARN of the SQS queue to receive S3 notifications from.
+     * @return A valid Amazon SQS ARN.
      * 
      */
     private @Nullable String eventQueueArn;
@@ -50,14 +50,14 @@ public final class CrawlerS3Target {
 
     private CrawlerS3Target() {}
     /**
-     * @return The name of the connection to use to connect to the JDBC target.
+     * @return The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
      * 
      */
     public Optional<String> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
     /**
-     * @return The ARN of the dead-letter SQS queue.
+     * @return A valid Amazon SQS ARN.
      * 
      * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
      * 
@@ -68,7 +68,7 @@ public final class CrawlerS3Target {
         return Optional.ofNullable(this.dlqEventQueueArn);
     }
     /**
-     * @return The ARN of the SQS queue to receive S3 notifications from.
+     * @return A valid Amazon SQS ARN.
      * 
      */
     public Optional<String> eventQueueArn() {

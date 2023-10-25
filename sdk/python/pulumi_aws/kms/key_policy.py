@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['KeyPolicyArgs', 'KeyPolicy']
@@ -27,10 +27,33 @@ class KeyPolicyArgs:
                Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. If this value is set, and the resource is destroyed, a warning will be shown, and the resource will be removed from state.
                For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
         """
-        pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "policy", policy)
+        KeyPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_id=key_id,
+            policy=policy,
+            bypass_policy_lockout_safety_check=bypass_policy_lockout_safety_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_id: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if bypass_policy_lockout_safety_check is None and 'bypassPolicyLockoutSafetyCheck' in kwargs:
+            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
+
+        _setter("key_id", key_id)
+        _setter("policy", policy)
         if bypass_policy_lockout_safety_check is not None:
-            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+            _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
 
     @property
     @pulumi.getter(name="keyId")
@@ -89,12 +112,31 @@ class _KeyPolicyState:
                
                > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         """
+        _KeyPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bypass_policy_lockout_safety_check=bypass_policy_lockout_safety_check,
+            key_id=key_id,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bypass_policy_lockout_safety_check is None and 'bypassPolicyLockoutSafetyCheck' in kwargs:
+            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
         if bypass_policy_lockout_safety_check is not None:
-            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+            _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
@@ -244,6 +286,10 @@ class KeyPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KeyPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourceArgs', 'Resource']
@@ -23,9 +23,36 @@ class ResourceArgs:
         :param pulumi.Input[str] path_part: Last path segment of this API resource.
         :param pulumi.Input[str] rest_api: ID of the associated REST API
         """
-        pulumi.set(__self__, "parent_id", parent_id)
-        pulumi.set(__self__, "path_part", path_part)
-        pulumi.set(__self__, "rest_api", rest_api)
+        ResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parent_id=parent_id,
+            path_part=path_part,
+            rest_api=rest_api,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parent_id: Optional[pulumi.Input[str]] = None,
+             path_part: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parent_id is None and 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+        if parent_id is None:
+            raise TypeError("Missing 'parent_id' argument")
+        if path_part is None and 'pathPart' in kwargs:
+            path_part = kwargs['pathPart']
+        if path_part is None:
+            raise TypeError("Missing 'path_part' argument")
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if rest_api is None:
+            raise TypeError("Missing 'rest_api' argument")
+
+        _setter("parent_id", parent_id)
+        _setter("path_part", path_part)
+        _setter("rest_api", rest_api)
 
     @property
     @pulumi.getter(name="parentId")
@@ -78,14 +105,37 @@ class _ResourceState:
         :param pulumi.Input[str] path_part: Last path segment of this API resource.
         :param pulumi.Input[str] rest_api: ID of the associated REST API
         """
+        _ResourceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parent_id=parent_id,
+            path=path,
+            path_part=path_part,
+            rest_api=rest_api,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parent_id: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             path_part: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parent_id is None and 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+        if path_part is None and 'pathPart' in kwargs:
+            path_part = kwargs['pathPart']
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+
         if parent_id is not None:
-            pulumi.set(__self__, "parent_id", parent_id)
+            _setter("parent_id", parent_id)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if path_part is not None:
-            pulumi.set(__self__, "path_part", path_part)
+            _setter("path_part", path_part)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
 
     @property
     @pulumi.getter(name="parentId")
@@ -215,6 +265,10 @@ class Resource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

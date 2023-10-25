@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ActivationArgs', 'Activation']
@@ -29,17 +29,46 @@ class ActivationArgs:
         :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "iam_role", iam_role)
+        ActivationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iam_role=iam_role,
+            description=description,
+            expiration_date=expiration_date,
+            name=name,
+            registration_limit=registration_limit,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iam_role: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             registration_limit: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iam_role is None and 'iamRole' in kwargs:
+            iam_role = kwargs['iamRole']
+        if iam_role is None:
+            raise TypeError("Missing 'iam_role' argument")
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if registration_limit is None and 'registrationLimit' in kwargs:
+            registration_limit = kwargs['registrationLimit']
+
+        _setter("iam_role", iam_role)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if registration_limit is not None:
-            pulumi.set(__self__, "registration_limit", registration_limit)
+            _setter("registration_limit", registration_limit)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="iamRole")
@@ -140,29 +169,70 @@ class _ActivationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ActivationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activation_code=activation_code,
+            description=description,
+            expiration_date=expiration_date,
+            expired=expired,
+            iam_role=iam_role,
+            name=name,
+            registration_count=registration_count,
+            registration_limit=registration_limit,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activation_code: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             expired: Optional[pulumi.Input[bool]] = None,
+             iam_role: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             registration_count: Optional[pulumi.Input[int]] = None,
+             registration_limit: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if activation_code is None and 'activationCode' in kwargs:
+            activation_code = kwargs['activationCode']
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if iam_role is None and 'iamRole' in kwargs:
+            iam_role = kwargs['iamRole']
+        if registration_count is None and 'registrationCount' in kwargs:
+            registration_count = kwargs['registrationCount']
+        if registration_limit is None and 'registrationLimit' in kwargs:
+            registration_limit = kwargs['registrationLimit']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if activation_code is not None:
-            pulumi.set(__self__, "activation_code", activation_code)
+            _setter("activation_code", activation_code)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if expired is not None:
-            pulumi.set(__self__, "expired", expired)
+            _setter("expired", expired)
         if iam_role is not None:
-            pulumi.set(__self__, "iam_role", iam_role)
+            _setter("iam_role", iam_role)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if registration_count is not None:
-            pulumi.set(__self__, "registration_count", registration_count)
+            _setter("registration_count", registration_count)
         if registration_limit is not None:
-            pulumi.set(__self__, "registration_limit", registration_limit)
+            _setter("registration_limit", registration_limit)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="activationCode")
@@ -399,6 +469,10 @@ class Activation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActivationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

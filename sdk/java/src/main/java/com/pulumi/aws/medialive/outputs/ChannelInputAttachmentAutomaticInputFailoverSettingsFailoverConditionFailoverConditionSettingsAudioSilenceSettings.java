@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
     /**
-     * @return The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn&#39;t create an audio selector in this input, leave blank.
+     * @return The name of the audio selector used as the source for this AudioDescription.
      * 
      */
     private String audioSelectorName;
@@ -25,7 +25,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
     private ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings() {}
     /**
-     * @return The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn&#39;t create an audio selector in this input, leave blank.
+     * @return The name of the audio selector used as the source for this AudioDescription.
      * 
      */
     public String audioSelectorName() {

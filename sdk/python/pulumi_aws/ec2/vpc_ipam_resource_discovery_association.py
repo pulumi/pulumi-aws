@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcIpamResourceDiscoveryAssociationArgs', 'VpcIpamResourceDiscoveryAssociation']
@@ -23,10 +23,33 @@ class VpcIpamResourceDiscoveryAssociationArgs:
         :param pulumi.Input[str] ipam_resource_discovery_id: The ID of the Resource Discovery to associate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to add to the IPAM resource discovery association resource.
         """
-        pulumi.set(__self__, "ipam_id", ipam_id)
-        pulumi.set(__self__, "ipam_resource_discovery_id", ipam_resource_discovery_id)
+        VpcIpamResourceDiscoveryAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipam_id=ipam_id,
+            ipam_resource_discovery_id=ipam_resource_discovery_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipam_id: Optional[pulumi.Input[str]] = None,
+             ipam_resource_discovery_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipam_id is None and 'ipamId' in kwargs:
+            ipam_id = kwargs['ipamId']
+        if ipam_id is None:
+            raise TypeError("Missing 'ipam_id' argument")
+        if ipam_resource_discovery_id is None and 'ipamResourceDiscoveryId' in kwargs:
+            ipam_resource_discovery_id = kwargs['ipamResourceDiscoveryId']
+        if ipam_resource_discovery_id is None:
+            raise TypeError("Missing 'ipam_resource_discovery_id' argument")
+
+        _setter("ipam_id", ipam_id)
+        _setter("ipam_resource_discovery_id", ipam_resource_discovery_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="ipamId")
@@ -91,29 +114,72 @@ class _VpcIpamResourceDiscoveryAssociationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to add to the IPAM resource discovery association resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _VpcIpamResourceDiscoveryAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            ipam_arn=ipam_arn,
+            ipam_id=ipam_id,
+            ipam_region=ipam_region,
+            ipam_resource_discovery_id=ipam_resource_discovery_id,
+            is_default=is_default,
+            owner_id=owner_id,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             ipam_arn: Optional[pulumi.Input[str]] = None,
+             ipam_id: Optional[pulumi.Input[str]] = None,
+             ipam_region: Optional[pulumi.Input[str]] = None,
+             ipam_resource_discovery_id: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipam_arn is None and 'ipamArn' in kwargs:
+            ipam_arn = kwargs['ipamArn']
+        if ipam_id is None and 'ipamId' in kwargs:
+            ipam_id = kwargs['ipamId']
+        if ipam_region is None and 'ipamRegion' in kwargs:
+            ipam_region = kwargs['ipamRegion']
+        if ipam_resource_discovery_id is None and 'ipamResourceDiscoveryId' in kwargs:
+            ipam_resource_discovery_id = kwargs['ipamResourceDiscoveryId']
+        if is_default is None and 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if ipam_arn is not None:
-            pulumi.set(__self__, "ipam_arn", ipam_arn)
+            _setter("ipam_arn", ipam_arn)
         if ipam_id is not None:
-            pulumi.set(__self__, "ipam_id", ipam_id)
+            _setter("ipam_id", ipam_id)
         if ipam_region is not None:
-            pulumi.set(__self__, "ipam_region", ipam_region)
+            _setter("ipam_region", ipam_region)
         if ipam_resource_discovery_id is not None:
-            pulumi.set(__self__, "ipam_resource_discovery_id", ipam_resource_discovery_id)
+            _setter("ipam_resource_discovery_id", ipam_resource_discovery_id)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -328,6 +394,10 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcIpamResourceDiscoveryAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

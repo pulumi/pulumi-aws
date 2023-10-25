@@ -17,7 +17,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
      */
     private @Nullable String name;
     /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
      * 
      */
     private @Nullable String value;
@@ -31,7 +31,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
      * 
      */
     public Optional<String> value() {

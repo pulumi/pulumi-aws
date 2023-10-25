@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,34 +49,95 @@ class ProvisionedProductArgs:
         :param pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs'] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        ProvisionedProductArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_language=accept_language,
+            ignore_errors=ignore_errors,
+            name=name,
+            notification_arns=notification_arns,
+            path_id=path_id,
+            path_name=path_name,
+            product_id=product_id,
+            product_name=product_name,
+            provisioning_artifact_id=provisioning_artifact_id,
+            provisioning_artifact_name=provisioning_artifact_name,
+            provisioning_parameters=provisioning_parameters,
+            retain_physical_resources=retain_physical_resources,
+            stack_set_provisioning_preferences=stack_set_provisioning_preferences,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             ignore_errors: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             path_id: Optional[pulumi.Input[str]] = None,
+             path_name: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             product_name: Optional[pulumi.Input[str]] = None,
+             provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
+             provisioning_artifact_name: Optional[pulumi.Input[str]] = None,
+             provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]] = None,
+             retain_physical_resources: Optional[pulumi.Input[bool]] = None,
+             stack_set_provisioning_preferences: Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if ignore_errors is None and 'ignoreErrors' in kwargs:
+            ignore_errors = kwargs['ignoreErrors']
+        if notification_arns is None and 'notificationArns' in kwargs:
+            notification_arns = kwargs['notificationArns']
+        if path_id is None and 'pathId' in kwargs:
+            path_id = kwargs['pathId']
+        if path_name is None and 'pathName' in kwargs:
+            path_name = kwargs['pathName']
+        if product_id is None and 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if product_name is None and 'productName' in kwargs:
+            product_name = kwargs['productName']
+        if provisioning_artifact_id is None and 'provisioningArtifactId' in kwargs:
+            provisioning_artifact_id = kwargs['provisioningArtifactId']
+        if provisioning_artifact_name is None and 'provisioningArtifactName' in kwargs:
+            provisioning_artifact_name = kwargs['provisioningArtifactName']
+        if provisioning_parameters is None and 'provisioningParameters' in kwargs:
+            provisioning_parameters = kwargs['provisioningParameters']
+        if retain_physical_resources is None and 'retainPhysicalResources' in kwargs:
+            retain_physical_resources = kwargs['retainPhysicalResources']
+        if stack_set_provisioning_preferences is None and 'stackSetProvisioningPreferences' in kwargs:
+            stack_set_provisioning_preferences = kwargs['stackSetProvisioningPreferences']
+
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if ignore_errors is not None:
-            pulumi.set(__self__, "ignore_errors", ignore_errors)
+            _setter("ignore_errors", ignore_errors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_arns is not None:
-            pulumi.set(__self__, "notification_arns", notification_arns)
+            _setter("notification_arns", notification_arns)
         if path_id is not None:
-            pulumi.set(__self__, "path_id", path_id)
+            _setter("path_id", path_id)
         if path_name is not None:
-            pulumi.set(__self__, "path_name", path_name)
+            _setter("path_name", path_name)
         if product_id is not None:
-            pulumi.set(__self__, "product_id", product_id)
+            _setter("product_id", product_id)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
         if provisioning_artifact_id is not None:
-            pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
+            _setter("provisioning_artifact_id", provisioning_artifact_id)
         if provisioning_artifact_name is not None:
-            pulumi.set(__self__, "provisioning_artifact_name", provisioning_artifact_name)
+            _setter("provisioning_artifact_name", provisioning_artifact_name)
         if provisioning_parameters is not None:
-            pulumi.set(__self__, "provisioning_parameters", provisioning_parameters)
+            _setter("provisioning_parameters", provisioning_parameters)
         if retain_physical_resources is not None:
-            pulumi.set(__self__, "retain_physical_resources", retain_physical_resources)
+            _setter("retain_physical_resources", retain_physical_resources)
         if stack_set_provisioning_preferences is not None:
-            pulumi.set(__self__, "stack_set_provisioning_preferences", stack_set_provisioning_preferences)
+            _setter("stack_set_provisioning_preferences", stack_set_provisioning_preferences)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -309,61 +370,162 @@ class _ProvisionedProductState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
         """
+        _ProvisionedProductState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_language=accept_language,
+            arn=arn,
+            cloudwatch_dashboard_names=cloudwatch_dashboard_names,
+            created_time=created_time,
+            ignore_errors=ignore_errors,
+            last_provisioning_record_id=last_provisioning_record_id,
+            last_record_id=last_record_id,
+            last_successful_provisioning_record_id=last_successful_provisioning_record_id,
+            launch_role_arn=launch_role_arn,
+            name=name,
+            notification_arns=notification_arns,
+            outputs=outputs,
+            path_id=path_id,
+            path_name=path_name,
+            product_id=product_id,
+            product_name=product_name,
+            provisioning_artifact_id=provisioning_artifact_id,
+            provisioning_artifact_name=provisioning_artifact_name,
+            provisioning_parameters=provisioning_parameters,
+            retain_physical_resources=retain_physical_resources,
+            stack_set_provisioning_preferences=stack_set_provisioning_preferences,
+            status=status,
+            status_message=status_message,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             cloudwatch_dashboard_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             ignore_errors: Optional[pulumi.Input[bool]] = None,
+             last_provisioning_record_id: Optional[pulumi.Input[str]] = None,
+             last_record_id: Optional[pulumi.Input[str]] = None,
+             last_successful_provisioning_record_id: Optional[pulumi.Input[str]] = None,
+             launch_role_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductOutputArgs']]]] = None,
+             path_id: Optional[pulumi.Input[str]] = None,
+             path_name: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             product_name: Optional[pulumi.Input[str]] = None,
+             provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
+             provisioning_artifact_name: Optional[pulumi.Input[str]] = None,
+             provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisionedProductProvisioningParameterArgs']]]] = None,
+             retain_physical_resources: Optional[pulumi.Input[bool]] = None,
+             stack_set_provisioning_preferences: Optional[pulumi.Input['ProvisionedProductStackSetProvisioningPreferencesArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             status_message: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if cloudwatch_dashboard_names is None and 'cloudwatchDashboardNames' in kwargs:
+            cloudwatch_dashboard_names = kwargs['cloudwatchDashboardNames']
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if ignore_errors is None and 'ignoreErrors' in kwargs:
+            ignore_errors = kwargs['ignoreErrors']
+        if last_provisioning_record_id is None and 'lastProvisioningRecordId' in kwargs:
+            last_provisioning_record_id = kwargs['lastProvisioningRecordId']
+        if last_record_id is None and 'lastRecordId' in kwargs:
+            last_record_id = kwargs['lastRecordId']
+        if last_successful_provisioning_record_id is None and 'lastSuccessfulProvisioningRecordId' in kwargs:
+            last_successful_provisioning_record_id = kwargs['lastSuccessfulProvisioningRecordId']
+        if launch_role_arn is None and 'launchRoleArn' in kwargs:
+            launch_role_arn = kwargs['launchRoleArn']
+        if notification_arns is None and 'notificationArns' in kwargs:
+            notification_arns = kwargs['notificationArns']
+        if path_id is None and 'pathId' in kwargs:
+            path_id = kwargs['pathId']
+        if path_name is None and 'pathName' in kwargs:
+            path_name = kwargs['pathName']
+        if product_id is None and 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if product_name is None and 'productName' in kwargs:
+            product_name = kwargs['productName']
+        if provisioning_artifact_id is None and 'provisioningArtifactId' in kwargs:
+            provisioning_artifact_id = kwargs['provisioningArtifactId']
+        if provisioning_artifact_name is None and 'provisioningArtifactName' in kwargs:
+            provisioning_artifact_name = kwargs['provisioningArtifactName']
+        if provisioning_parameters is None and 'provisioningParameters' in kwargs:
+            provisioning_parameters = kwargs['provisioningParameters']
+        if retain_physical_resources is None and 'retainPhysicalResources' in kwargs:
+            retain_physical_resources = kwargs['retainPhysicalResources']
+        if stack_set_provisioning_preferences is None and 'stackSetProvisioningPreferences' in kwargs:
+            stack_set_provisioning_preferences = kwargs['stackSetProvisioningPreferences']
+        if status_message is None and 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cloudwatch_dashboard_names is not None:
-            pulumi.set(__self__, "cloudwatch_dashboard_names", cloudwatch_dashboard_names)
+            _setter("cloudwatch_dashboard_names", cloudwatch_dashboard_names)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if ignore_errors is not None:
-            pulumi.set(__self__, "ignore_errors", ignore_errors)
+            _setter("ignore_errors", ignore_errors)
         if last_provisioning_record_id is not None:
-            pulumi.set(__self__, "last_provisioning_record_id", last_provisioning_record_id)
+            _setter("last_provisioning_record_id", last_provisioning_record_id)
         if last_record_id is not None:
-            pulumi.set(__self__, "last_record_id", last_record_id)
+            _setter("last_record_id", last_record_id)
         if last_successful_provisioning_record_id is not None:
-            pulumi.set(__self__, "last_successful_provisioning_record_id", last_successful_provisioning_record_id)
+            _setter("last_successful_provisioning_record_id", last_successful_provisioning_record_id)
         if launch_role_arn is not None:
-            pulumi.set(__self__, "launch_role_arn", launch_role_arn)
+            _setter("launch_role_arn", launch_role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_arns is not None:
-            pulumi.set(__self__, "notification_arns", notification_arns)
+            _setter("notification_arns", notification_arns)
         if outputs is not None:
-            pulumi.set(__self__, "outputs", outputs)
+            _setter("outputs", outputs)
         if path_id is not None:
-            pulumi.set(__self__, "path_id", path_id)
+            _setter("path_id", path_id)
         if path_name is not None:
-            pulumi.set(__self__, "path_name", path_name)
+            _setter("path_name", path_name)
         if product_id is not None:
-            pulumi.set(__self__, "product_id", product_id)
+            _setter("product_id", product_id)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
         if provisioning_artifact_id is not None:
-            pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
+            _setter("provisioning_artifact_id", provisioning_artifact_id)
         if provisioning_artifact_name is not None:
-            pulumi.set(__self__, "provisioning_artifact_name", provisioning_artifact_name)
+            _setter("provisioning_artifact_name", provisioning_artifact_name)
         if provisioning_parameters is not None:
-            pulumi.set(__self__, "provisioning_parameters", provisioning_parameters)
+            _setter("provisioning_parameters", provisioning_parameters)
         if retain_physical_resources is not None:
-            pulumi.set(__self__, "retain_physical_resources", retain_physical_resources)
+            _setter("retain_physical_resources", retain_physical_resources)
         if stack_set_provisioning_preferences is not None:
-            pulumi.set(__self__, "stack_set_provisioning_preferences", stack_set_provisioning_preferences)
+            _setter("stack_set_provisioning_preferences", stack_set_provisioning_preferences)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if status_message is not None:
-            pulumi.set(__self__, "status_message", status_message)
+            _setter("status_message", status_message)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -814,6 +976,10 @@ class ProvisionedProduct(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProvisionedProductArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -854,6 +1020,7 @@ class ProvisionedProduct(pulumi.CustomResource):
             __props__.__dict__["provisioning_artifact_name"] = provisioning_artifact_name
             __props__.__dict__["provisioning_parameters"] = provisioning_parameters
             __props__.__dict__["retain_physical_resources"] = retain_physical_resources
+            stack_set_provisioning_preferences = _utilities.configure(stack_set_provisioning_preferences, ProvisionedProductStackSetProvisioningPreferencesArgs, True)
             __props__.__dict__["stack_set_provisioning_preferences"] = stack_set_provisioning_preferences
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

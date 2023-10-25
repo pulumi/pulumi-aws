@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -47,13 +47,42 @@ class TriggerTrigger(dict):
         :param Sequence[str] branches: The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
         :param str custom_data: Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
         """
-        pulumi.set(__self__, "destination_arn", destination_arn)
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "name", name)
+        TriggerTrigger._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_arn=destination_arn,
+            events=events,
+            name=name,
+            branches=branches,
+            custom_data=custom_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_arn: Optional[str] = None,
+             events: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             branches: Optional[Sequence[str]] = None,
+             custom_data: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if destination_arn is None:
+            raise TypeError("Missing 'destination_arn' argument")
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if custom_data is None and 'customData' in kwargs:
+            custom_data = kwargs['customData']
+
+        _setter("destination_arn", destination_arn)
+        _setter("events", events)
+        _setter("name", name)
         if branches is not None:
-            pulumi.set(__self__, "branches", branches)
+            _setter("branches", branches)
         if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
+            _setter("custom_data", custom_data)
 
     @property
     @pulumi.getter(name="destinationArn")

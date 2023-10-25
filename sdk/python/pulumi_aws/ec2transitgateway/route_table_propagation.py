@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteTablePropagationArgs', 'RouteTablePropagation']
@@ -21,8 +21,29 @@ class RouteTablePropagationArgs:
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
-        pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
-        pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+        RouteTablePropagationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+            transit_gateway_route_table_id=transit_gateway_route_table_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if transit_gateway_attachment_id is None:
+            raise TypeError("Missing 'transit_gateway_attachment_id' argument")
+        if transit_gateway_route_table_id is None and 'transitGatewayRouteTableId' in kwargs:
+            transit_gateway_route_table_id = kwargs['transitGatewayRouteTableId']
+        if transit_gateway_route_table_id is None:
+            raise TypeError("Missing 'transit_gateway_route_table_id' argument")
+
+        _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
+        _setter("transit_gateway_route_table_id", transit_gateway_route_table_id)
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
@@ -63,14 +84,39 @@ class _RouteTablePropagationState:
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
+        _RouteTablePropagationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            resource_type=resource_type,
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+            transit_gateway_route_table_id=transit_gateway_route_table_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if transit_gateway_route_table_id is None and 'transitGatewayRouteTableId' in kwargs:
+            transit_gateway_route_table_id = kwargs['transitGatewayRouteTableId']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if transit_gateway_attachment_id is not None:
-            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_route_table_id is not None:
-            pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+            _setter("transit_gateway_route_table_id", transit_gateway_route_table_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -194,6 +240,10 @@ class RouteTablePropagation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteTablePropagationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

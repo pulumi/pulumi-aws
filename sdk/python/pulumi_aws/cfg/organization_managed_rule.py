@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OrganizationManagedRuleArgs', 'OrganizationManagedRule']
@@ -37,25 +37,72 @@ class OrganizationManagedRuleArgs:
         :param pulumi.Input[str] tag_key_scope: Tag key of AWS resources to evaluate
         :param pulumi.Input[str] tag_value_scope: Tag value of AWS resources to evaluate
         """
-        pulumi.set(__self__, "rule_identifier", rule_identifier)
+        OrganizationManagedRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_identifier=rule_identifier,
+            description=description,
+            excluded_accounts=excluded_accounts,
+            input_parameters=input_parameters,
+            maximum_execution_frequency=maximum_execution_frequency,
+            name=name,
+            resource_id_scope=resource_id_scope,
+            resource_types_scopes=resource_types_scopes,
+            tag_key_scope=tag_key_scope,
+            tag_value_scope=tag_value_scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_identifier: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             input_parameters: Optional[pulumi.Input[str]] = None,
+             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_id_scope: Optional[pulumi.Input[str]] = None,
+             resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tag_key_scope: Optional[pulumi.Input[str]] = None,
+             tag_value_scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_identifier is None and 'ruleIdentifier' in kwargs:
+            rule_identifier = kwargs['ruleIdentifier']
+        if rule_identifier is None:
+            raise TypeError("Missing 'rule_identifier' argument")
+        if excluded_accounts is None and 'excludedAccounts' in kwargs:
+            excluded_accounts = kwargs['excludedAccounts']
+        if input_parameters is None and 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if maximum_execution_frequency is None and 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+        if resource_id_scope is None and 'resourceIdScope' in kwargs:
+            resource_id_scope = kwargs['resourceIdScope']
+        if resource_types_scopes is None and 'resourceTypesScopes' in kwargs:
+            resource_types_scopes = kwargs['resourceTypesScopes']
+        if tag_key_scope is None and 'tagKeyScope' in kwargs:
+            tag_key_scope = kwargs['tagKeyScope']
+        if tag_value_scope is None and 'tagValueScope' in kwargs:
+            tag_value_scope = kwargs['tagValueScope']
+
+        _setter("rule_identifier", rule_identifier)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if excluded_accounts is not None:
-            pulumi.set(__self__, "excluded_accounts", excluded_accounts)
+            _setter("excluded_accounts", excluded_accounts)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if maximum_execution_frequency is not None:
-            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+            _setter("maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_id_scope is not None:
-            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+            _setter("resource_id_scope", resource_id_scope)
         if resource_types_scopes is not None:
-            pulumi.set(__self__, "resource_types_scopes", resource_types_scopes)
+            _setter("resource_types_scopes", resource_types_scopes)
         if tag_key_scope is not None:
-            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+            _setter("tag_key_scope", tag_key_scope)
         if tag_value_scope is not None:
-            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+            _setter("tag_value_scope", tag_value_scope)
 
     @property
     @pulumi.getter(name="ruleIdentifier")
@@ -206,28 +253,75 @@ class _OrganizationManagedRuleState:
         :param pulumi.Input[str] tag_key_scope: Tag key of AWS resources to evaluate
         :param pulumi.Input[str] tag_value_scope: Tag value of AWS resources to evaluate
         """
+        _OrganizationManagedRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            excluded_accounts=excluded_accounts,
+            input_parameters=input_parameters,
+            maximum_execution_frequency=maximum_execution_frequency,
+            name=name,
+            resource_id_scope=resource_id_scope,
+            resource_types_scopes=resource_types_scopes,
+            rule_identifier=rule_identifier,
+            tag_key_scope=tag_key_scope,
+            tag_value_scope=tag_value_scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             input_parameters: Optional[pulumi.Input[str]] = None,
+             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_id_scope: Optional[pulumi.Input[str]] = None,
+             resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rule_identifier: Optional[pulumi.Input[str]] = None,
+             tag_key_scope: Optional[pulumi.Input[str]] = None,
+             tag_value_scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excluded_accounts is None and 'excludedAccounts' in kwargs:
+            excluded_accounts = kwargs['excludedAccounts']
+        if input_parameters is None and 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if maximum_execution_frequency is None and 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+        if resource_id_scope is None and 'resourceIdScope' in kwargs:
+            resource_id_scope = kwargs['resourceIdScope']
+        if resource_types_scopes is None and 'resourceTypesScopes' in kwargs:
+            resource_types_scopes = kwargs['resourceTypesScopes']
+        if rule_identifier is None and 'ruleIdentifier' in kwargs:
+            rule_identifier = kwargs['ruleIdentifier']
+        if tag_key_scope is None and 'tagKeyScope' in kwargs:
+            tag_key_scope = kwargs['tagKeyScope']
+        if tag_value_scope is None and 'tagValueScope' in kwargs:
+            tag_value_scope = kwargs['tagValueScope']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if excluded_accounts is not None:
-            pulumi.set(__self__, "excluded_accounts", excluded_accounts)
+            _setter("excluded_accounts", excluded_accounts)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if maximum_execution_frequency is not None:
-            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+            _setter("maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_id_scope is not None:
-            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+            _setter("resource_id_scope", resource_id_scope)
         if resource_types_scopes is not None:
-            pulumi.set(__self__, "resource_types_scopes", resource_types_scopes)
+            _setter("resource_types_scopes", resource_types_scopes)
         if rule_identifier is not None:
-            pulumi.set(__self__, "rule_identifier", rule_identifier)
+            _setter("rule_identifier", rule_identifier)
         if tag_key_scope is not None:
-            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+            _setter("tag_key_scope", tag_key_scope)
         if tag_value_scope is not None:
-            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+            _setter("tag_value_scope", tag_value_scope)
 
     @property
     @pulumi.getter
@@ -463,6 +557,10 @@ class OrganizationManagedRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationManagedRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

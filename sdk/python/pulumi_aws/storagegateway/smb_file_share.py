@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -69,53 +69,164 @@ class SmbFileShareArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 private link.
         """
-        pulumi.set(__self__, "gateway_arn", gateway_arn)
-        pulumi.set(__self__, "location_arn", location_arn)
-        pulumi.set(__self__, "role_arn", role_arn)
+        SmbFileShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_arn=gateway_arn,
+            location_arn=location_arn,
+            role_arn=role_arn,
+            access_based_enumeration=access_based_enumeration,
+            admin_user_lists=admin_user_lists,
+            audit_destination_arn=audit_destination_arn,
+            authentication=authentication,
+            bucket_region=bucket_region,
+            cache_attributes=cache_attributes,
+            case_sensitivity=case_sensitivity,
+            default_storage_class=default_storage_class,
+            file_share_name=file_share_name,
+            guess_mime_type_enabled=guess_mime_type_enabled,
+            invalid_user_lists=invalid_user_lists,
+            kms_encrypted=kms_encrypted,
+            kms_key_arn=kms_key_arn,
+            notification_policy=notification_policy,
+            object_acl=object_acl,
+            oplocks_enabled=oplocks_enabled,
+            read_only=read_only,
+            requester_pays=requester_pays,
+            smb_acl_enabled=smb_acl_enabled,
+            tags=tags,
+            valid_user_lists=valid_user_lists,
+            vpc_endpoint_dns_name=vpc_endpoint_dns_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_arn: Optional[pulumi.Input[str]] = None,
+             location_arn: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             access_based_enumeration: Optional[pulumi.Input[bool]] = None,
+             admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             audit_destination_arn: Optional[pulumi.Input[str]] = None,
+             authentication: Optional[pulumi.Input[str]] = None,
+             bucket_region: Optional[pulumi.Input[str]] = None,
+             cache_attributes: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']] = None,
+             case_sensitivity: Optional[pulumi.Input[str]] = None,
+             default_storage_class: Optional[pulumi.Input[str]] = None,
+             file_share_name: Optional[pulumi.Input[str]] = None,
+             guess_mime_type_enabled: Optional[pulumi.Input[bool]] = None,
+             invalid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kms_encrypted: Optional[pulumi.Input[bool]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             notification_policy: Optional[pulumi.Input[str]] = None,
+             object_acl: Optional[pulumi.Input[str]] = None,
+             oplocks_enabled: Optional[pulumi.Input[bool]] = None,
+             read_only: Optional[pulumi.Input[bool]] = None,
+             requester_pays: Optional[pulumi.Input[bool]] = None,
+             smb_acl_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_arn is None and 'gatewayArn' in kwargs:
+            gateway_arn = kwargs['gatewayArn']
+        if gateway_arn is None:
+            raise TypeError("Missing 'gateway_arn' argument")
+        if location_arn is None and 'locationArn' in kwargs:
+            location_arn = kwargs['locationArn']
+        if location_arn is None:
+            raise TypeError("Missing 'location_arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if access_based_enumeration is None and 'accessBasedEnumeration' in kwargs:
+            access_based_enumeration = kwargs['accessBasedEnumeration']
+        if admin_user_lists is None and 'adminUserLists' in kwargs:
+            admin_user_lists = kwargs['adminUserLists']
+        if audit_destination_arn is None and 'auditDestinationArn' in kwargs:
+            audit_destination_arn = kwargs['auditDestinationArn']
+        if bucket_region is None and 'bucketRegion' in kwargs:
+            bucket_region = kwargs['bucketRegion']
+        if cache_attributes is None and 'cacheAttributes' in kwargs:
+            cache_attributes = kwargs['cacheAttributes']
+        if case_sensitivity is None and 'caseSensitivity' in kwargs:
+            case_sensitivity = kwargs['caseSensitivity']
+        if default_storage_class is None and 'defaultStorageClass' in kwargs:
+            default_storage_class = kwargs['defaultStorageClass']
+        if file_share_name is None and 'fileShareName' in kwargs:
+            file_share_name = kwargs['fileShareName']
+        if guess_mime_type_enabled is None and 'guessMimeTypeEnabled' in kwargs:
+            guess_mime_type_enabled = kwargs['guessMimeTypeEnabled']
+        if invalid_user_lists is None and 'invalidUserLists' in kwargs:
+            invalid_user_lists = kwargs['invalidUserLists']
+        if kms_encrypted is None and 'kmsEncrypted' in kwargs:
+            kms_encrypted = kwargs['kmsEncrypted']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if notification_policy is None and 'notificationPolicy' in kwargs:
+            notification_policy = kwargs['notificationPolicy']
+        if object_acl is None and 'objectAcl' in kwargs:
+            object_acl = kwargs['objectAcl']
+        if oplocks_enabled is None and 'oplocksEnabled' in kwargs:
+            oplocks_enabled = kwargs['oplocksEnabled']
+        if read_only is None and 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if requester_pays is None and 'requesterPays' in kwargs:
+            requester_pays = kwargs['requesterPays']
+        if smb_acl_enabled is None and 'smbAclEnabled' in kwargs:
+            smb_acl_enabled = kwargs['smbAclEnabled']
+        if valid_user_lists is None and 'validUserLists' in kwargs:
+            valid_user_lists = kwargs['validUserLists']
+        if vpc_endpoint_dns_name is None and 'vpcEndpointDnsName' in kwargs:
+            vpc_endpoint_dns_name = kwargs['vpcEndpointDnsName']
+
+        _setter("gateway_arn", gateway_arn)
+        _setter("location_arn", location_arn)
+        _setter("role_arn", role_arn)
         if access_based_enumeration is not None:
-            pulumi.set(__self__, "access_based_enumeration", access_based_enumeration)
+            _setter("access_based_enumeration", access_based_enumeration)
         if admin_user_lists is not None:
-            pulumi.set(__self__, "admin_user_lists", admin_user_lists)
+            _setter("admin_user_lists", admin_user_lists)
         if audit_destination_arn is not None:
-            pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
+            _setter("audit_destination_arn", audit_destination_arn)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if bucket_region is not None:
-            pulumi.set(__self__, "bucket_region", bucket_region)
+            _setter("bucket_region", bucket_region)
         if cache_attributes is not None:
-            pulumi.set(__self__, "cache_attributes", cache_attributes)
+            _setter("cache_attributes", cache_attributes)
         if case_sensitivity is not None:
-            pulumi.set(__self__, "case_sensitivity", case_sensitivity)
+            _setter("case_sensitivity", case_sensitivity)
         if default_storage_class is not None:
-            pulumi.set(__self__, "default_storage_class", default_storage_class)
+            _setter("default_storage_class", default_storage_class)
         if file_share_name is not None:
-            pulumi.set(__self__, "file_share_name", file_share_name)
+            _setter("file_share_name", file_share_name)
         if guess_mime_type_enabled is not None:
-            pulumi.set(__self__, "guess_mime_type_enabled", guess_mime_type_enabled)
+            _setter("guess_mime_type_enabled", guess_mime_type_enabled)
         if invalid_user_lists is not None:
-            pulumi.set(__self__, "invalid_user_lists", invalid_user_lists)
+            _setter("invalid_user_lists", invalid_user_lists)
         if kms_encrypted is not None:
-            pulumi.set(__self__, "kms_encrypted", kms_encrypted)
+            _setter("kms_encrypted", kms_encrypted)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if notification_policy is not None:
-            pulumi.set(__self__, "notification_policy", notification_policy)
+            _setter("notification_policy", notification_policy)
         if object_acl is not None:
-            pulumi.set(__self__, "object_acl", object_acl)
+            _setter("object_acl", object_acl)
         if oplocks_enabled is not None:
-            pulumi.set(__self__, "oplocks_enabled", oplocks_enabled)
+            _setter("oplocks_enabled", oplocks_enabled)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
         if requester_pays is not None:
-            pulumi.set(__self__, "requester_pays", requester_pays)
+            _setter("requester_pays", requester_pays)
         if smb_acl_enabled is not None:
-            pulumi.set(__self__, "smb_acl_enabled", smb_acl_enabled)
+            _setter("smb_acl_enabled", smb_acl_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if valid_user_lists is not None:
-            pulumi.set(__self__, "valid_user_lists", valid_user_lists)
+            _setter("valid_user_lists", valid_user_lists)
         if vpc_endpoint_dns_name is not None:
-            pulumi.set(__self__, "vpc_endpoint_dns_name", vpc_endpoint_dns_name)
+            _setter("vpc_endpoint_dns_name", vpc_endpoint_dns_name)
 
     @property
     @pulumi.getter(name="gatewayArn")
@@ -482,67 +593,184 @@ class _SmbFileShareState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 private link.
         """
+        _SmbFileShareState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_based_enumeration=access_based_enumeration,
+            admin_user_lists=admin_user_lists,
+            arn=arn,
+            audit_destination_arn=audit_destination_arn,
+            authentication=authentication,
+            bucket_region=bucket_region,
+            cache_attributes=cache_attributes,
+            case_sensitivity=case_sensitivity,
+            default_storage_class=default_storage_class,
+            file_share_name=file_share_name,
+            fileshare_id=fileshare_id,
+            gateway_arn=gateway_arn,
+            guess_mime_type_enabled=guess_mime_type_enabled,
+            invalid_user_lists=invalid_user_lists,
+            kms_encrypted=kms_encrypted,
+            kms_key_arn=kms_key_arn,
+            location_arn=location_arn,
+            notification_policy=notification_policy,
+            object_acl=object_acl,
+            oplocks_enabled=oplocks_enabled,
+            path=path,
+            read_only=read_only,
+            requester_pays=requester_pays,
+            role_arn=role_arn,
+            smb_acl_enabled=smb_acl_enabled,
+            tags=tags,
+            tags_all=tags_all,
+            valid_user_lists=valid_user_lists,
+            vpc_endpoint_dns_name=vpc_endpoint_dns_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_based_enumeration: Optional[pulumi.Input[bool]] = None,
+             admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             audit_destination_arn: Optional[pulumi.Input[str]] = None,
+             authentication: Optional[pulumi.Input[str]] = None,
+             bucket_region: Optional[pulumi.Input[str]] = None,
+             cache_attributes: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']] = None,
+             case_sensitivity: Optional[pulumi.Input[str]] = None,
+             default_storage_class: Optional[pulumi.Input[str]] = None,
+             file_share_name: Optional[pulumi.Input[str]] = None,
+             fileshare_id: Optional[pulumi.Input[str]] = None,
+             gateway_arn: Optional[pulumi.Input[str]] = None,
+             guess_mime_type_enabled: Optional[pulumi.Input[bool]] = None,
+             invalid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kms_encrypted: Optional[pulumi.Input[bool]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             location_arn: Optional[pulumi.Input[str]] = None,
+             notification_policy: Optional[pulumi.Input[str]] = None,
+             object_acl: Optional[pulumi.Input[str]] = None,
+             oplocks_enabled: Optional[pulumi.Input[bool]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             read_only: Optional[pulumi.Input[bool]] = None,
+             requester_pays: Optional[pulumi.Input[bool]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             smb_acl_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_based_enumeration is None and 'accessBasedEnumeration' in kwargs:
+            access_based_enumeration = kwargs['accessBasedEnumeration']
+        if admin_user_lists is None and 'adminUserLists' in kwargs:
+            admin_user_lists = kwargs['adminUserLists']
+        if audit_destination_arn is None and 'auditDestinationArn' in kwargs:
+            audit_destination_arn = kwargs['auditDestinationArn']
+        if bucket_region is None and 'bucketRegion' in kwargs:
+            bucket_region = kwargs['bucketRegion']
+        if cache_attributes is None and 'cacheAttributes' in kwargs:
+            cache_attributes = kwargs['cacheAttributes']
+        if case_sensitivity is None and 'caseSensitivity' in kwargs:
+            case_sensitivity = kwargs['caseSensitivity']
+        if default_storage_class is None and 'defaultStorageClass' in kwargs:
+            default_storage_class = kwargs['defaultStorageClass']
+        if file_share_name is None and 'fileShareName' in kwargs:
+            file_share_name = kwargs['fileShareName']
+        if fileshare_id is None and 'fileshareId' in kwargs:
+            fileshare_id = kwargs['fileshareId']
+        if gateway_arn is None and 'gatewayArn' in kwargs:
+            gateway_arn = kwargs['gatewayArn']
+        if guess_mime_type_enabled is None and 'guessMimeTypeEnabled' in kwargs:
+            guess_mime_type_enabled = kwargs['guessMimeTypeEnabled']
+        if invalid_user_lists is None and 'invalidUserLists' in kwargs:
+            invalid_user_lists = kwargs['invalidUserLists']
+        if kms_encrypted is None and 'kmsEncrypted' in kwargs:
+            kms_encrypted = kwargs['kmsEncrypted']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if location_arn is None and 'locationArn' in kwargs:
+            location_arn = kwargs['locationArn']
+        if notification_policy is None and 'notificationPolicy' in kwargs:
+            notification_policy = kwargs['notificationPolicy']
+        if object_acl is None and 'objectAcl' in kwargs:
+            object_acl = kwargs['objectAcl']
+        if oplocks_enabled is None and 'oplocksEnabled' in kwargs:
+            oplocks_enabled = kwargs['oplocksEnabled']
+        if read_only is None and 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if requester_pays is None and 'requesterPays' in kwargs:
+            requester_pays = kwargs['requesterPays']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if smb_acl_enabled is None and 'smbAclEnabled' in kwargs:
+            smb_acl_enabled = kwargs['smbAclEnabled']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if valid_user_lists is None and 'validUserLists' in kwargs:
+            valid_user_lists = kwargs['validUserLists']
+        if vpc_endpoint_dns_name is None and 'vpcEndpointDnsName' in kwargs:
+            vpc_endpoint_dns_name = kwargs['vpcEndpointDnsName']
+
         if access_based_enumeration is not None:
-            pulumi.set(__self__, "access_based_enumeration", access_based_enumeration)
+            _setter("access_based_enumeration", access_based_enumeration)
         if admin_user_lists is not None:
-            pulumi.set(__self__, "admin_user_lists", admin_user_lists)
+            _setter("admin_user_lists", admin_user_lists)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if audit_destination_arn is not None:
-            pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
+            _setter("audit_destination_arn", audit_destination_arn)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if bucket_region is not None:
-            pulumi.set(__self__, "bucket_region", bucket_region)
+            _setter("bucket_region", bucket_region)
         if cache_attributes is not None:
-            pulumi.set(__self__, "cache_attributes", cache_attributes)
+            _setter("cache_attributes", cache_attributes)
         if case_sensitivity is not None:
-            pulumi.set(__self__, "case_sensitivity", case_sensitivity)
+            _setter("case_sensitivity", case_sensitivity)
         if default_storage_class is not None:
-            pulumi.set(__self__, "default_storage_class", default_storage_class)
+            _setter("default_storage_class", default_storage_class)
         if file_share_name is not None:
-            pulumi.set(__self__, "file_share_name", file_share_name)
+            _setter("file_share_name", file_share_name)
         if fileshare_id is not None:
-            pulumi.set(__self__, "fileshare_id", fileshare_id)
+            _setter("fileshare_id", fileshare_id)
         if gateway_arn is not None:
-            pulumi.set(__self__, "gateway_arn", gateway_arn)
+            _setter("gateway_arn", gateway_arn)
         if guess_mime_type_enabled is not None:
-            pulumi.set(__self__, "guess_mime_type_enabled", guess_mime_type_enabled)
+            _setter("guess_mime_type_enabled", guess_mime_type_enabled)
         if invalid_user_lists is not None:
-            pulumi.set(__self__, "invalid_user_lists", invalid_user_lists)
+            _setter("invalid_user_lists", invalid_user_lists)
         if kms_encrypted is not None:
-            pulumi.set(__self__, "kms_encrypted", kms_encrypted)
+            _setter("kms_encrypted", kms_encrypted)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if location_arn is not None:
-            pulumi.set(__self__, "location_arn", location_arn)
+            _setter("location_arn", location_arn)
         if notification_policy is not None:
-            pulumi.set(__self__, "notification_policy", notification_policy)
+            _setter("notification_policy", notification_policy)
         if object_acl is not None:
-            pulumi.set(__self__, "object_acl", object_acl)
+            _setter("object_acl", object_acl)
         if oplocks_enabled is not None:
-            pulumi.set(__self__, "oplocks_enabled", oplocks_enabled)
+            _setter("oplocks_enabled", oplocks_enabled)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
         if requester_pays is not None:
-            pulumi.set(__self__, "requester_pays", requester_pays)
+            _setter("requester_pays", requester_pays)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if smb_acl_enabled is not None:
-            pulumi.set(__self__, "smb_acl_enabled", smb_acl_enabled)
+            _setter("smb_acl_enabled", smb_acl_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if valid_user_lists is not None:
-            pulumi.set(__self__, "valid_user_lists", valid_user_lists)
+            _setter("valid_user_lists", valid_user_lists)
         if vpc_endpoint_dns_name is not None:
-            pulumi.set(__self__, "vpc_endpoint_dns_name", vpc_endpoint_dns_name)
+            _setter("vpc_endpoint_dns_name", vpc_endpoint_dns_name)
 
     @property
     @pulumi.getter(name="accessBasedEnumeration")
@@ -1053,6 +1281,10 @@ class SmbFileShare(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SmbFileShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1097,6 +1329,7 @@ class SmbFileShare(pulumi.CustomResource):
             __props__.__dict__["audit_destination_arn"] = audit_destination_arn
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["bucket_region"] = bucket_region
+            cache_attributes = _utilities.configure(cache_attributes, SmbFileShareCacheAttributesArgs, True)
             __props__.__dict__["cache_attributes"] = cache_attributes
             __props__.__dict__["case_sensitivity"] = case_sensitivity
             __props__.__dict__["default_storage_class"] = default_storage_class

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FindingAggregatorArgs', 'FindingAggregator']
@@ -21,9 +21,28 @@ class FindingAggregatorArgs:
         :param pulumi.Input[str] linking_mode: Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] specified_regions: List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         """
-        pulumi.set(__self__, "linking_mode", linking_mode)
+        FindingAggregatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linking_mode=linking_mode,
+            specified_regions=specified_regions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linking_mode: Optional[pulumi.Input[str]] = None,
+             specified_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if linking_mode is None and 'linkingMode' in kwargs:
+            linking_mode = kwargs['linkingMode']
+        if linking_mode is None:
+            raise TypeError("Missing 'linking_mode' argument")
+        if specified_regions is None and 'specifiedRegions' in kwargs:
+            specified_regions = kwargs['specifiedRegions']
+
+        _setter("linking_mode", linking_mode)
         if specified_regions is not None:
-            pulumi.set(__self__, "specified_regions", specified_regions)
+            _setter("specified_regions", specified_regions)
 
     @property
     @pulumi.getter(name="linkingMode")
@@ -60,10 +79,27 @@ class _FindingAggregatorState:
         :param pulumi.Input[str] linking_mode: Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] specified_regions: List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         """
+        _FindingAggregatorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linking_mode=linking_mode,
+            specified_regions=specified_regions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linking_mode: Optional[pulumi.Input[str]] = None,
+             specified_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if linking_mode is None and 'linkingMode' in kwargs:
+            linking_mode = kwargs['linkingMode']
+        if specified_regions is None and 'specifiedRegions' in kwargs:
+            specified_regions = kwargs['specifiedRegions']
+
         if linking_mode is not None:
-            pulumi.set(__self__, "linking_mode", linking_mode)
+            _setter("linking_mode", linking_mode)
         if specified_regions is not None:
-            pulumi.set(__self__, "specified_regions", specified_regions)
+            _setter("specified_regions", specified_regions)
 
     @property
     @pulumi.getter(name="linkingMode")
@@ -237,6 +273,10 @@ class FindingAggregator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FindingAggregatorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

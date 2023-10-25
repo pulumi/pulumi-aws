@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -61,25 +61,66 @@ class ProjectArtifactsArgs:
         :param pulumi.Input[str] packaging: Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
         :param pulumi.Input[str] path: If `type` is set to `S3`, this is the path to the output artifact.
         """
-        pulumi.set(__self__, "type", type)
+        ProjectArtifactsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            artifact_identifier=artifact_identifier,
+            bucket_owner_access=bucket_owner_access,
+            encryption_disabled=encryption_disabled,
+            location=location,
+            name=name,
+            namespace_type=namespace_type,
+            override_artifact_name=override_artifact_name,
+            packaging=packaging,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             artifact_identifier: Optional[pulumi.Input[str]] = None,
+             bucket_owner_access: Optional[pulumi.Input[str]] = None,
+             encryption_disabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace_type: Optional[pulumi.Input[str]] = None,
+             override_artifact_name: Optional[pulumi.Input[bool]] = None,
+             packaging: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if artifact_identifier is None and 'artifactIdentifier' in kwargs:
+            artifact_identifier = kwargs['artifactIdentifier']
+        if bucket_owner_access is None and 'bucketOwnerAccess' in kwargs:
+            bucket_owner_access = kwargs['bucketOwnerAccess']
+        if encryption_disabled is None and 'encryptionDisabled' in kwargs:
+            encryption_disabled = kwargs['encryptionDisabled']
+        if namespace_type is None and 'namespaceType' in kwargs:
+            namespace_type = kwargs['namespaceType']
+        if override_artifact_name is None and 'overrideArtifactName' in kwargs:
+            override_artifact_name = kwargs['overrideArtifactName']
+
+        _setter("type", type)
         if artifact_identifier is not None:
-            pulumi.set(__self__, "artifact_identifier", artifact_identifier)
+            _setter("artifact_identifier", artifact_identifier)
         if bucket_owner_access is not None:
-            pulumi.set(__self__, "bucket_owner_access", bucket_owner_access)
+            _setter("bucket_owner_access", bucket_owner_access)
         if encryption_disabled is not None:
-            pulumi.set(__self__, "encryption_disabled", encryption_disabled)
+            _setter("encryption_disabled", encryption_disabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace_type is not None:
-            pulumi.set(__self__, "namespace_type", namespace_type)
+            _setter("namespace_type", namespace_type)
         if override_artifact_name is not None:
-            pulumi.set(__self__, "override_artifact_name", override_artifact_name)
+            _setter("override_artifact_name", override_artifact_name)
         if packaging is not None:
-            pulumi.set(__self__, "packaging", packaging)
+            _setter("packaging", packaging)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -215,13 +256,38 @@ class ProjectBuildBatchConfigArgs:
         :param pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs'] restrictions: Configuration block specifying the restrictions for the batch build. Detailed below.
         :param pulumi.Input[int] timeout_in_mins: Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
         """
-        pulumi.set(__self__, "service_role", service_role)
+        ProjectBuildBatchConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_role=service_role,
+            combine_artifacts=combine_artifacts,
+            restrictions=restrictions,
+            timeout_in_mins=timeout_in_mins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_role: Optional[pulumi.Input[str]] = None,
+             combine_artifacts: Optional[pulumi.Input[bool]] = None,
+             restrictions: Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs']] = None,
+             timeout_in_mins: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_role is None and 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if service_role is None:
+            raise TypeError("Missing 'service_role' argument")
+        if combine_artifacts is None and 'combineArtifacts' in kwargs:
+            combine_artifacts = kwargs['combineArtifacts']
+        if timeout_in_mins is None and 'timeoutInMins' in kwargs:
+            timeout_in_mins = kwargs['timeoutInMins']
+
+        _setter("service_role", service_role)
         if combine_artifacts is not None:
-            pulumi.set(__self__, "combine_artifacts", combine_artifacts)
+            _setter("combine_artifacts", combine_artifacts)
         if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+            _setter("restrictions", restrictions)
         if timeout_in_mins is not None:
-            pulumi.set(__self__, "timeout_in_mins", timeout_in_mins)
+            _setter("timeout_in_mins", timeout_in_mins)
 
     @property
     @pulumi.getter(name="serviceRole")
@@ -281,10 +347,27 @@ class ProjectBuildBatchConfigRestrictionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_types_alloweds: An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
         :param pulumi.Input[int] maximum_builds_allowed: Specifies the maximum number of builds allowed.
         """
+        ProjectBuildBatchConfigRestrictionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_types_alloweds=compute_types_alloweds,
+            maximum_builds_allowed=maximum_builds_allowed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_types_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             maximum_builds_allowed: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_types_alloweds is None and 'computeTypesAlloweds' in kwargs:
+            compute_types_alloweds = kwargs['computeTypesAlloweds']
+        if maximum_builds_allowed is None and 'maximumBuildsAllowed' in kwargs:
+            maximum_builds_allowed = kwargs['maximumBuildsAllowed']
+
         if compute_types_alloweds is not None:
-            pulumi.set(__self__, "compute_types_alloweds", compute_types_alloweds)
+            _setter("compute_types_alloweds", compute_types_alloweds)
         if maximum_builds_allowed is not None:
-            pulumi.set(__self__, "maximum_builds_allowed", maximum_builds_allowed)
+            _setter("maximum_builds_allowed", maximum_builds_allowed)
 
     @property
     @pulumi.getter(name="computeTypesAlloweds")
@@ -322,12 +405,27 @@ class ProjectCacheArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modes: Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
         :param pulumi.Input[str] type: Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`, `LOCAL`, `S3`. Defaults to `NO_CACHE`.
         """
+        ProjectCacheArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            modes=modes,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if modes is not None:
-            pulumi.set(__self__, "modes", modes)
+            _setter("modes", modes)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -387,19 +485,60 @@ class ProjectEnvironmentArgs:
         :param pulumi.Input[bool] privileged_mode: Whether to enable running the Docker daemon inside a Docker container. Defaults to `false`.
         :param pulumi.Input['ProjectEnvironmentRegistryCredentialArgs'] registry_credential: Configuration block. Detailed below.
         """
-        pulumi.set(__self__, "compute_type", compute_type)
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "type", type)
+        ProjectEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            image=image,
+            type=type,
+            certificate=certificate,
+            environment_variables=environment_variables,
+            image_pull_credentials_type=image_pull_credentials_type,
+            privileged_mode=privileged_mode,
+            registry_credential=registry_credential,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: Optional[pulumi.Input[str]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             certificate: Optional[pulumi.Input[str]] = None,
+             environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]] = None,
+             image_pull_credentials_type: Optional[pulumi.Input[str]] = None,
+             privileged_mode: Optional[pulumi.Input[bool]] = None,
+             registry_credential: Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_type is None and 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if compute_type is None:
+            raise TypeError("Missing 'compute_type' argument")
+        if image is None:
+            raise TypeError("Missing 'image' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if image_pull_credentials_type is None and 'imagePullCredentialsType' in kwargs:
+            image_pull_credentials_type = kwargs['imagePullCredentialsType']
+        if privileged_mode is None and 'privilegedMode' in kwargs:
+            privileged_mode = kwargs['privilegedMode']
+        if registry_credential is None and 'registryCredential' in kwargs:
+            registry_credential = kwargs['registryCredential']
+
+        _setter("compute_type", compute_type)
+        _setter("image", image)
+        _setter("type", type)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if image_pull_credentials_type is not None:
-            pulumi.set(__self__, "image_pull_credentials_type", image_pull_credentials_type)
+            _setter("image_pull_credentials_type", image_pull_credentials_type)
         if privileged_mode is not None:
-            pulumi.set(__self__, "privileged_mode", privileged_mode)
+            _setter("privileged_mode", privileged_mode)
         if registry_credential is not None:
-            pulumi.set(__self__, "registry_credential", registry_credential)
+            _setter("registry_credential", registry_credential)
 
     @property
     @pulumi.getter(name="computeType")
@@ -509,10 +648,29 @@ class ProjectEnvironmentEnvironmentVariableArgs:
         :param pulumi.Input[str] value: Environment variable's value.
         :param pulumi.Input[str] type: Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ProjectEnvironmentEnvironmentVariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -560,8 +718,27 @@ class ProjectEnvironmentRegistryCredentialArgs:
         :param pulumi.Input[str] credential: ARN or name of credentials created using AWS Secrets Manager.
         :param pulumi.Input[str] credential_provider: Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
         """
-        pulumi.set(__self__, "credential", credential)
-        pulumi.set(__self__, "credential_provider", credential_provider)
+        ProjectEnvironmentRegistryCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credential=credential,
+            credential_provider=credential_provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credential: Optional[pulumi.Input[str]] = None,
+             credential_provider: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credential is None:
+            raise TypeError("Missing 'credential' argument")
+        if credential_provider is None and 'credentialProvider' in kwargs:
+            credential_provider = kwargs['credentialProvider']
+        if credential_provider is None:
+            raise TypeError("Missing 'credential_provider' argument")
+
+        _setter("credential", credential)
+        _setter("credential_provider", credential_provider)
 
     @property
     @pulumi.getter
@@ -603,16 +780,39 @@ class ProjectFileSystemLocationArgs:
         :param pulumi.Input[str] mount_point: The location in the container where you mount the file system.
         :param pulumi.Input[str] type: The type of the file system. The one supported type is `EFS`.
         """
+        ProjectFileSystemLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identifier=identifier,
+            location=location,
+            mount_options=mount_options,
+            mount_point=mount_point,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identifier: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mount_options: Optional[pulumi.Input[str]] = None,
+             mount_point: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mount_options is None and 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+        if mount_point is None and 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mount_options is not None:
-            pulumi.set(__self__, "mount_options", mount_options)
+            _setter("mount_options", mount_options)
         if mount_point is not None:
-            pulumi.set(__self__, "mount_point", mount_point)
+            _setter("mount_point", mount_point)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -684,10 +884,27 @@ class ProjectLogsConfigArgs:
         :param pulumi.Input['ProjectLogsConfigCloudwatchLogsArgs'] cloudwatch_logs: Configuration block. Detailed below.
         :param pulumi.Input['ProjectLogsConfigS3LogsArgs'] s3_logs: Configuration block. Detailed below.
         """
+        ProjectLogsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_logs=cloudwatch_logs,
+            s3_logs=s3_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_logs: Optional[pulumi.Input['ProjectLogsConfigCloudwatchLogsArgs']] = None,
+             s3_logs: Optional[pulumi.Input['ProjectLogsConfigS3LogsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloudwatch_logs is None and 'cloudwatchLogs' in kwargs:
+            cloudwatch_logs = kwargs['cloudwatchLogs']
+        if s3_logs is None and 's3Logs' in kwargs:
+            s3_logs = kwargs['s3Logs']
+
         if cloudwatch_logs is not None:
-            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+            _setter("cloudwatch_logs", cloudwatch_logs)
         if s3_logs is not None:
-            pulumi.set(__self__, "s3_logs", s3_logs)
+            _setter("s3_logs", s3_logs)
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
@@ -722,15 +939,34 @@ class ProjectLogsConfigCloudwatchLogsArgs:
                  stream_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] group_name: Group name of the logs in CloudWatch Logs.
-        :param pulumi.Input[str] status: Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+        :param pulumi.Input[str] status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
         :param pulumi.Input[str] stream_name: Stream name of the logs in CloudWatch Logs.
         """
+        ProjectLogsConfigCloudwatchLogsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            status=status,
+            stream_name=stream_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             stream_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if stream_name is None and 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if stream_name is not None:
-            pulumi.set(__self__, "stream_name", stream_name)
+            _setter("stream_name", stream_name)
 
     @property
     @pulumi.getter(name="groupName")
@@ -748,7 +984,7 @@ class ProjectLogsConfigCloudwatchLogsArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+        Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -780,16 +1016,37 @@ class ProjectLogsConfigS3LogsArgs:
         :param pulumi.Input[str] bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
         :param pulumi.Input[bool] encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
         :param pulumi.Input[str] location: Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored. If `type` is set to `S3`, this is the name of the output bucket.
-        :param pulumi.Input[str] status: Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+        :param pulumi.Input[str] status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
         """
+        ProjectLogsConfigS3LogsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_owner_access=bucket_owner_access,
+            encryption_disabled=encryption_disabled,
+            location=location,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_owner_access: Optional[pulumi.Input[str]] = None,
+             encryption_disabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_owner_access is None and 'bucketOwnerAccess' in kwargs:
+            bucket_owner_access = kwargs['bucketOwnerAccess']
+        if encryption_disabled is None and 'encryptionDisabled' in kwargs:
+            encryption_disabled = kwargs['encryptionDisabled']
+
         if bucket_owner_access is not None:
-            pulumi.set(__self__, "bucket_owner_access", bucket_owner_access)
+            _setter("bucket_owner_access", bucket_owner_access)
         if encryption_disabled is not None:
-            pulumi.set(__self__, "encryption_disabled", encryption_disabled)
+            _setter("encryption_disabled", encryption_disabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="bucketOwnerAccess")
@@ -831,7 +1088,7 @@ class ProjectLogsConfigS3LogsArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+        Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -865,24 +1122,67 @@ class ProjectSecondaryArtifactArgs:
         :param pulumi.Input[str] packaging: Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
         :param pulumi.Input[str] path: Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the path to the output artifact.
         """
-        pulumi.set(__self__, "artifact_identifier", artifact_identifier)
-        pulumi.set(__self__, "type", type)
+        ProjectSecondaryArtifactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            artifact_identifier=artifact_identifier,
+            type=type,
+            bucket_owner_access=bucket_owner_access,
+            encryption_disabled=encryption_disabled,
+            location=location,
+            name=name,
+            namespace_type=namespace_type,
+            override_artifact_name=override_artifact_name,
+            packaging=packaging,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             artifact_identifier: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             bucket_owner_access: Optional[pulumi.Input[str]] = None,
+             encryption_disabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace_type: Optional[pulumi.Input[str]] = None,
+             override_artifact_name: Optional[pulumi.Input[bool]] = None,
+             packaging: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if artifact_identifier is None and 'artifactIdentifier' in kwargs:
+            artifact_identifier = kwargs['artifactIdentifier']
+        if artifact_identifier is None:
+            raise TypeError("Missing 'artifact_identifier' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if bucket_owner_access is None and 'bucketOwnerAccess' in kwargs:
+            bucket_owner_access = kwargs['bucketOwnerAccess']
+        if encryption_disabled is None and 'encryptionDisabled' in kwargs:
+            encryption_disabled = kwargs['encryptionDisabled']
+        if namespace_type is None and 'namespaceType' in kwargs:
+            namespace_type = kwargs['namespaceType']
+        if override_artifact_name is None and 'overrideArtifactName' in kwargs:
+            override_artifact_name = kwargs['overrideArtifactName']
+
+        _setter("artifact_identifier", artifact_identifier)
+        _setter("type", type)
         if bucket_owner_access is not None:
-            pulumi.set(__self__, "bucket_owner_access", bucket_owner_access)
+            _setter("bucket_owner_access", bucket_owner_access)
         if encryption_disabled is not None:
-            pulumi.set(__self__, "encryption_disabled", encryption_disabled)
+            _setter("encryption_disabled", encryption_disabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace_type is not None:
-            pulumi.set(__self__, "namespace_type", namespace_type)
+            _setter("namespace_type", namespace_type)
         if override_artifact_name is not None:
-            pulumi.set(__self__, "override_artifact_name", override_artifact_name)
+            _setter("override_artifact_name", override_artifact_name)
         if packaging is not None:
-            pulumi.set(__self__, "packaging", packaging)
+            _setter("packaging", packaging)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="artifactIdentifier")
@@ -1028,22 +1328,65 @@ class ProjectSecondarySourceArgs:
         :param pulumi.Input[str] location: Location of the source code from git or s3.
         :param pulumi.Input[bool] report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
         """
-        pulumi.set(__self__, "source_identifier", source_identifier)
-        pulumi.set(__self__, "type", type)
+        ProjectSecondarySourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_identifier=source_identifier,
+            type=type,
+            build_status_config=build_status_config,
+            buildspec=buildspec,
+            git_clone_depth=git_clone_depth,
+            git_submodules_config=git_submodules_config,
+            insecure_ssl=insecure_ssl,
+            location=location,
+            report_build_status=report_build_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_identifier: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             build_status_config: Optional[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs']] = None,
+             buildspec: Optional[pulumi.Input[str]] = None,
+             git_clone_depth: Optional[pulumi.Input[int]] = None,
+             git_submodules_config: Optional[pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs']] = None,
+             insecure_ssl: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             report_build_status: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_identifier is None and 'sourceIdentifier' in kwargs:
+            source_identifier = kwargs['sourceIdentifier']
+        if source_identifier is None:
+            raise TypeError("Missing 'source_identifier' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if build_status_config is None and 'buildStatusConfig' in kwargs:
+            build_status_config = kwargs['buildStatusConfig']
+        if git_clone_depth is None and 'gitCloneDepth' in kwargs:
+            git_clone_depth = kwargs['gitCloneDepth']
+        if git_submodules_config is None and 'gitSubmodulesConfig' in kwargs:
+            git_submodules_config = kwargs['gitSubmodulesConfig']
+        if insecure_ssl is None and 'insecureSsl' in kwargs:
+            insecure_ssl = kwargs['insecureSsl']
+        if report_build_status is None and 'reportBuildStatus' in kwargs:
+            report_build_status = kwargs['reportBuildStatus']
+
+        _setter("source_identifier", source_identifier)
+        _setter("type", type)
         if build_status_config is not None:
-            pulumi.set(__self__, "build_status_config", build_status_config)
+            _setter("build_status_config", build_status_config)
         if buildspec is not None:
-            pulumi.set(__self__, "buildspec", buildspec)
+            _setter("buildspec", buildspec)
         if git_clone_depth is not None:
-            pulumi.set(__self__, "git_clone_depth", git_clone_depth)
+            _setter("git_clone_depth", git_clone_depth)
         if git_submodules_config is not None:
-            pulumi.set(__self__, "git_submodules_config", git_submodules_config)
+            _setter("git_submodules_config", git_submodules_config)
         if insecure_ssl is not None:
-            pulumi.set(__self__, "insecure_ssl", insecure_ssl)
+            _setter("insecure_ssl", insecure_ssl)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if report_build_status is not None:
-            pulumi.set(__self__, "report_build_status", report_build_status)
+            _setter("report_build_status", report_build_status)
 
     @property
     @pulumi.getter(name="sourceIdentifier")
@@ -1163,10 +1506,25 @@ class ProjectSecondarySourceBuildStatusConfigArgs:
         :param pulumi.Input[str] context: Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
         :param pulumi.Input[str] target_url: Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
         """
+        ProjectSecondarySourceBuildStatusConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            context=context,
+            target_url=target_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             context: Optional[pulumi.Input[str]] = None,
+             target_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_url is None and 'targetUrl' in kwargs:
+            target_url = kwargs['targetUrl']
+
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if target_url is not None:
-            pulumi.set(__self__, "target_url", target_url)
+            _setter("target_url", target_url)
 
     @property
     @pulumi.getter
@@ -1200,7 +1558,22 @@ class ProjectSecondarySourceGitSubmodulesConfigArgs:
         """
         :param pulumi.Input[bool] fetch_submodules: Whether to fetch Git submodules for the AWS CodeBuild build project.
         """
-        pulumi.set(__self__, "fetch_submodules", fetch_submodules)
+        ProjectSecondarySourceGitSubmodulesConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fetch_submodules=fetch_submodules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fetch_submodules: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fetch_submodules is None and 'fetchSubmodules' in kwargs:
+            fetch_submodules = kwargs['fetchSubmodules']
+        if fetch_submodules is None:
+            raise TypeError("Missing 'fetch_submodules' argument")
+
+        _setter("fetch_submodules", fetch_submodules)
 
     @property
     @pulumi.getter(name="fetchSubmodules")
@@ -1224,8 +1597,29 @@ class ProjectSecondarySourceVersionArgs:
         :param pulumi.Input[str] source_identifier: An identifier for a source in the build project.
         :param pulumi.Input[str] source_version: The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
         """
-        pulumi.set(__self__, "source_identifier", source_identifier)
-        pulumi.set(__self__, "source_version", source_version)
+        ProjectSecondarySourceVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_identifier=source_identifier,
+            source_version=source_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_identifier: Optional[pulumi.Input[str]] = None,
+             source_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_identifier is None and 'sourceIdentifier' in kwargs:
+            source_identifier = kwargs['sourceIdentifier']
+        if source_identifier is None:
+            raise TypeError("Missing 'source_identifier' argument")
+        if source_version is None and 'sourceVersion' in kwargs:
+            source_version = kwargs['sourceVersion']
+        if source_version is None:
+            raise TypeError("Missing 'source_version' argument")
+
+        _setter("source_identifier", source_identifier)
+        _setter("source_version", source_version)
 
     @property
     @pulumi.getter(name="sourceIdentifier")
@@ -1273,21 +1667,58 @@ class ProjectSourceArgs:
         :param pulumi.Input[str] location: Location of the source code from git or s3.
         :param pulumi.Input[bool] report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
         """
-        pulumi.set(__self__, "type", type)
+        ProjectSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            build_status_config=build_status_config,
+            buildspec=buildspec,
+            git_clone_depth=git_clone_depth,
+            git_submodules_config=git_submodules_config,
+            insecure_ssl=insecure_ssl,
+            location=location,
+            report_build_status=report_build_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             build_status_config: Optional[pulumi.Input['ProjectSourceBuildStatusConfigArgs']] = None,
+             buildspec: Optional[pulumi.Input[str]] = None,
+             git_clone_depth: Optional[pulumi.Input[int]] = None,
+             git_submodules_config: Optional[pulumi.Input['ProjectSourceGitSubmodulesConfigArgs']] = None,
+             insecure_ssl: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             report_build_status: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if build_status_config is None and 'buildStatusConfig' in kwargs:
+            build_status_config = kwargs['buildStatusConfig']
+        if git_clone_depth is None and 'gitCloneDepth' in kwargs:
+            git_clone_depth = kwargs['gitCloneDepth']
+        if git_submodules_config is None and 'gitSubmodulesConfig' in kwargs:
+            git_submodules_config = kwargs['gitSubmodulesConfig']
+        if insecure_ssl is None and 'insecureSsl' in kwargs:
+            insecure_ssl = kwargs['insecureSsl']
+        if report_build_status is None and 'reportBuildStatus' in kwargs:
+            report_build_status = kwargs['reportBuildStatus']
+
+        _setter("type", type)
         if build_status_config is not None:
-            pulumi.set(__self__, "build_status_config", build_status_config)
+            _setter("build_status_config", build_status_config)
         if buildspec is not None:
-            pulumi.set(__self__, "buildspec", buildspec)
+            _setter("buildspec", buildspec)
         if git_clone_depth is not None:
-            pulumi.set(__self__, "git_clone_depth", git_clone_depth)
+            _setter("git_clone_depth", git_clone_depth)
         if git_submodules_config is not None:
-            pulumi.set(__self__, "git_submodules_config", git_submodules_config)
+            _setter("git_submodules_config", git_submodules_config)
         if insecure_ssl is not None:
-            pulumi.set(__self__, "insecure_ssl", insecure_ssl)
+            _setter("insecure_ssl", insecure_ssl)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if report_build_status is not None:
-            pulumi.set(__self__, "report_build_status", report_build_status)
+            _setter("report_build_status", report_build_status)
 
     @property
     @pulumi.getter
@@ -1395,10 +1826,25 @@ class ProjectSourceBuildStatusConfigArgs:
         :param pulumi.Input[str] context: Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
         :param pulumi.Input[str] target_url: Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
         """
+        ProjectSourceBuildStatusConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            context=context,
+            target_url=target_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             context: Optional[pulumi.Input[str]] = None,
+             target_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_url is None and 'targetUrl' in kwargs:
+            target_url = kwargs['targetUrl']
+
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if target_url is not None:
-            pulumi.set(__self__, "target_url", target_url)
+            _setter("target_url", target_url)
 
     @property
     @pulumi.getter
@@ -1432,7 +1878,22 @@ class ProjectSourceGitSubmodulesConfigArgs:
         """
         :param pulumi.Input[bool] fetch_submodules: Whether to fetch Git submodules for the AWS CodeBuild build project.
         """
-        pulumi.set(__self__, "fetch_submodules", fetch_submodules)
+        ProjectSourceGitSubmodulesConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fetch_submodules=fetch_submodules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fetch_submodules: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fetch_submodules is None and 'fetchSubmodules' in kwargs:
+            fetch_submodules = kwargs['fetchSubmodules']
+        if fetch_submodules is None:
+            raise TypeError("Missing 'fetch_submodules' argument")
+
+        _setter("fetch_submodules", fetch_submodules)
 
     @property
     @pulumi.getter(name="fetchSubmodules")
@@ -1458,9 +1919,34 @@ class ProjectVpcConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: Subnet IDs within which to run builds.
         :param pulumi.Input[str] vpc_id: ID of the VPC within which to run builds.
         """
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnets", subnets)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        ProjectVpcConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnets=subnets,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if security_group_ids is None:
+            raise TypeError("Missing 'security_group_ids' argument")
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
+        _setter("security_group_ids", security_group_ids)
+        _setter("subnets", subnets)
+        _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -1508,9 +1994,26 @@ class ReportGroupExportConfigArgs:
         :param pulumi.Input[str] type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
         :param pulumi.Input['ReportGroupExportConfigS3DestinationArgs'] s3_destination: contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
         """
-        pulumi.set(__self__, "type", type)
+        ReportGroupExportConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            s3_destination=s3_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             s3_destination: Optional[pulumi.Input['ReportGroupExportConfigS3DestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if s3_destination is None and 's3Destination' in kwargs:
+            s3_destination = kwargs['s3Destination']
+
+        _setter("type", type)
         if s3_destination is not None:
-            pulumi.set(__self__, "s3_destination", s3_destination)
+            _setter("s3_destination", s3_destination)
 
     @property
     @pulumi.getter
@@ -1553,14 +2056,41 @@ class ReportGroupExportConfigS3DestinationArgs:
         :param pulumi.Input[str] packaging: The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
         :param pulumi.Input[str] path: The path to the exported report's raw data results.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "encryption_key", encryption_key)
+        ReportGroupExportConfigS3DestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            encryption_key=encryption_key,
+            encryption_disabled=encryption_disabled,
+            packaging=packaging,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             encryption_key: Optional[pulumi.Input[str]] = None,
+             encryption_disabled: Optional[pulumi.Input[bool]] = None,
+             packaging: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if encryption_key is None and 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if encryption_key is None:
+            raise TypeError("Missing 'encryption_key' argument")
+        if encryption_disabled is None and 'encryptionDisabled' in kwargs:
+            encryption_disabled = kwargs['encryptionDisabled']
+
+        _setter("bucket", bucket)
+        _setter("encryption_key", encryption_key)
         if encryption_disabled is not None:
-            pulumi.set(__self__, "encryption_disabled", encryption_disabled)
+            _setter("encryption_disabled", encryption_disabled)
         if packaging is not None:
-            pulumi.set(__self__, "packaging", packaging)
+            _setter("packaging", packaging)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1631,8 +2161,19 @@ class WebhookFilterGroupArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]] filters: A webhook filter for the group. Filter blocks are documented below.
         """
+        WebhookFilterGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filters=filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
 
     @property
     @pulumi.getter
@@ -1658,10 +2199,31 @@ class WebhookFilterGroupFilterArgs:
         :param pulumi.Input[str] type: The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`. At least one filter group must specify `EVENT` as its type.
         :param pulumi.Input[bool] exclude_matched_pattern: If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
         """
-        pulumi.set(__self__, "pattern", pattern)
-        pulumi.set(__self__, "type", type)
+        WebhookFilterGroupFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pattern=pattern,
+            type=type,
+            exclude_matched_pattern=exclude_matched_pattern,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pattern: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             exclude_matched_pattern: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if exclude_matched_pattern is None and 'excludeMatchedPattern' in kwargs:
+            exclude_matched_pattern = kwargs['excludeMatchedPattern']
+
+        _setter("pattern", pattern)
+        _setter("type", type)
         if exclude_matched_pattern is not None:
-            pulumi.set(__self__, "exclude_matched_pattern", exclude_matched_pattern)
+            _setter("exclude_matched_pattern", exclude_matched_pattern)
 
     @property
     @pulumi.getter

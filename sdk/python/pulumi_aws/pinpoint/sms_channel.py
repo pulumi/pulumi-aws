@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SmsChannelArgs', 'SmsChannel']
@@ -25,13 +25,38 @@ class SmsChannelArgs:
         :param pulumi.Input[str] sender_id: Identifier of the sender for your messages.
         :param pulumi.Input[str] short_code: Short Code registered with the phone provider.
         """
-        pulumi.set(__self__, "application_id", application_id)
+        SmsChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            enabled=enabled,
+            sender_id=sender_id,
+            short_code=short_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             sender_id: Optional[pulumi.Input[str]] = None,
+             short_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if sender_id is None and 'senderId' in kwargs:
+            sender_id = kwargs['senderId']
+        if short_code is None and 'shortCode' in kwargs:
+            short_code = kwargs['shortCode']
+
+        _setter("application_id", application_id)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if sender_id is not None:
-            pulumi.set(__self__, "sender_id", sender_id)
+            _setter("sender_id", sender_id)
         if short_code is not None:
-            pulumi.set(__self__, "short_code", short_code)
+            _setter("short_code", short_code)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -100,18 +125,49 @@ class _SmsChannelState:
         :param pulumi.Input[str] short_code: Short Code registered with the phone provider.
         :param pulumi.Input[int] transactional_messages_per_second: Maximum number of transactional messages per second that can be sent.
         """
+        _SmsChannelState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            enabled=enabled,
+            promotional_messages_per_second=promotional_messages_per_second,
+            sender_id=sender_id,
+            short_code=short_code,
+            transactional_messages_per_second=transactional_messages_per_second,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             promotional_messages_per_second: Optional[pulumi.Input[int]] = None,
+             sender_id: Optional[pulumi.Input[str]] = None,
+             short_code: Optional[pulumi.Input[str]] = None,
+             transactional_messages_per_second: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if promotional_messages_per_second is None and 'promotionalMessagesPerSecond' in kwargs:
+            promotional_messages_per_second = kwargs['promotionalMessagesPerSecond']
+        if sender_id is None and 'senderId' in kwargs:
+            sender_id = kwargs['senderId']
+        if short_code is None and 'shortCode' in kwargs:
+            short_code = kwargs['shortCode']
+        if transactional_messages_per_second is None and 'transactionalMessagesPerSecond' in kwargs:
+            transactional_messages_per_second = kwargs['transactionalMessagesPerSecond']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if promotional_messages_per_second is not None:
-            pulumi.set(__self__, "promotional_messages_per_second", promotional_messages_per_second)
+            _setter("promotional_messages_per_second", promotional_messages_per_second)
         if sender_id is not None:
-            pulumi.set(__self__, "sender_id", sender_id)
+            _setter("sender_id", sender_id)
         if short_code is not None:
-            pulumi.set(__self__, "short_code", short_code)
+            _setter("short_code", short_code)
         if transactional_messages_per_second is not None:
-            pulumi.set(__self__, "transactional_messages_per_second", transactional_messages_per_second)
+            _setter("transactional_messages_per_second", transactional_messages_per_second)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -261,6 +317,10 @@ class SmsChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SmsChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

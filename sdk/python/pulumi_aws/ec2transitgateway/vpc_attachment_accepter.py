@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcAttachmentAccepterArgs', 'VpcAttachmentAccepter']
@@ -25,13 +25,38 @@ class VpcAttachmentAccepterArgs:
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
         :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
         """
-        pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+        VpcAttachmentAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+            tags=tags,
+            transit_gateway_default_route_table_association=transit_gateway_default_route_table_association,
+            transit_gateway_default_route_table_propagation=transit_gateway_default_route_table_propagation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_gateway_default_route_table_association: Optional[pulumi.Input[bool]] = None,
+             transit_gateway_default_route_table_propagation: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if transit_gateway_attachment_id is None:
+            raise TypeError("Missing 'transit_gateway_attachment_id' argument")
+        if transit_gateway_default_route_table_association is None and 'transitGatewayDefaultRouteTableAssociation' in kwargs:
+            transit_gateway_default_route_table_association = kwargs['transitGatewayDefaultRouteTableAssociation']
+        if transit_gateway_default_route_table_propagation is None and 'transitGatewayDefaultRouteTablePropagation' in kwargs:
+            transit_gateway_default_route_table_propagation = kwargs['transitGatewayDefaultRouteTablePropagation']
+
+        _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transit_gateway_default_route_table_association is not None:
-            pulumi.set(__self__, "transit_gateway_default_route_table_association", transit_gateway_default_route_table_association)
+            _setter("transit_gateway_default_route_table_association", transit_gateway_default_route_table_association)
         if transit_gateway_default_route_table_propagation is not None:
-            pulumi.set(__self__, "transit_gateway_default_route_table_propagation", transit_gateway_default_route_table_propagation)
+            _setter("transit_gateway_default_route_table_propagation", transit_gateway_default_route_table_propagation)
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
@@ -112,33 +137,88 @@ class _VpcAttachmentAccepterState:
         :param pulumi.Input[str] vpc_id: Identifier of EC2 VPC.
         :param pulumi.Input[str] vpc_owner_id: Identifier of the AWS account that owns the EC2 VPC.
         """
+        _VpcAttachmentAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            appliance_mode_support=appliance_mode_support,
+            dns_support=dns_support,
+            ipv6_support=ipv6_support,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            tags_all=tags_all,
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+            transit_gateway_default_route_table_association=transit_gateway_default_route_table_association,
+            transit_gateway_default_route_table_propagation=transit_gateway_default_route_table_propagation,
+            transit_gateway_id=transit_gateway_id,
+            vpc_id=vpc_id,
+            vpc_owner_id=vpc_owner_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             appliance_mode_support: Optional[pulumi.Input[str]] = None,
+             dns_support: Optional[pulumi.Input[str]] = None,
+             ipv6_support: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_default_route_table_association: Optional[pulumi.Input[bool]] = None,
+             transit_gateway_default_route_table_propagation: Optional[pulumi.Input[bool]] = None,
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             vpc_owner_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if appliance_mode_support is None and 'applianceModeSupport' in kwargs:
+            appliance_mode_support = kwargs['applianceModeSupport']
+        if dns_support is None and 'dnsSupport' in kwargs:
+            dns_support = kwargs['dnsSupport']
+        if ipv6_support is None and 'ipv6Support' in kwargs:
+            ipv6_support = kwargs['ipv6Support']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if transit_gateway_default_route_table_association is None and 'transitGatewayDefaultRouteTableAssociation' in kwargs:
+            transit_gateway_default_route_table_association = kwargs['transitGatewayDefaultRouteTableAssociation']
+        if transit_gateway_default_route_table_propagation is None and 'transitGatewayDefaultRouteTablePropagation' in kwargs:
+            transit_gateway_default_route_table_propagation = kwargs['transitGatewayDefaultRouteTablePropagation']
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_owner_id is None and 'vpcOwnerId' in kwargs:
+            vpc_owner_id = kwargs['vpcOwnerId']
+
         if appliance_mode_support is not None:
-            pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
+            _setter("appliance_mode_support", appliance_mode_support)
         if dns_support is not None:
-            pulumi.set(__self__, "dns_support", dns_support)
+            _setter("dns_support", dns_support)
         if ipv6_support is not None:
-            pulumi.set(__self__, "ipv6_support", ipv6_support)
+            _setter("ipv6_support", ipv6_support)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if transit_gateway_attachment_id is not None:
-            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_default_route_table_association is not None:
-            pulumi.set(__self__, "transit_gateway_default_route_table_association", transit_gateway_default_route_table_association)
+            _setter("transit_gateway_default_route_table_association", transit_gateway_default_route_table_association)
         if transit_gateway_default_route_table_propagation is not None:
-            pulumi.set(__self__, "transit_gateway_default_route_table_propagation", transit_gateway_default_route_table_propagation)
+            _setter("transit_gateway_default_route_table_propagation", transit_gateway_default_route_table_propagation)
         if transit_gateway_id is not None:
-            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+            _setter("transit_gateway_id", transit_gateway_id)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
         if vpc_owner_id is not None:
-            pulumi.set(__self__, "vpc_owner_id", vpc_owner_id)
+            _setter("vpc_owner_id", vpc_owner_id)
 
     @property
     @pulumi.getter(name="applianceModeSupport")
@@ -381,6 +461,10 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcAttachmentAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

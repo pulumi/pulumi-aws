@@ -29,7 +29,7 @@ public final class RuleGroupActivatedRule {
      */
     private String ruleId;
     /**
-     * @return e.g., `BLOCK`, `ALLOW`, or `COUNT`
+     * @return The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
      * 
      */
     private @Nullable String type;
@@ -57,7 +57,7 @@ public final class RuleGroupActivatedRule {
         return this.ruleId;
     }
     /**
-     * @return e.g., `BLOCK`, `ALLOW`, or `COUNT`
+     * @return The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
      * 
      */
     public Optional<String> type() {

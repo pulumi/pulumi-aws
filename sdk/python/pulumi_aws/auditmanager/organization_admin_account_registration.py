@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OrganizationAdminAccountRegistrationArgs', 'OrganizationAdminAccountRegistration']
@@ -19,7 +19,22 @@ class OrganizationAdminAccountRegistrationArgs:
         The set of arguments for constructing a OrganizationAdminAccountRegistration resource.
         :param pulumi.Input[str] admin_account_id: Identifier for the organization administrator account.
         """
-        pulumi.set(__self__, "admin_account_id", admin_account_id)
+        OrganizationAdminAccountRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_account_id=admin_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_account_id is None and 'adminAccountId' in kwargs:
+            admin_account_id = kwargs['adminAccountId']
+        if admin_account_id is None:
+            raise TypeError("Missing 'admin_account_id' argument")
+
+        _setter("admin_account_id", admin_account_id)
 
     @property
     @pulumi.getter(name="adminAccountId")
@@ -44,10 +59,27 @@ class _OrganizationAdminAccountRegistrationState:
         :param pulumi.Input[str] admin_account_id: Identifier for the organization administrator account.
         :param pulumi.Input[str] organization_id: Identifier for the organization.
         """
+        _OrganizationAdminAccountRegistrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_account_id=admin_account_id,
+            organization_id=organization_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_account_id: Optional[pulumi.Input[str]] = None,
+             organization_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_account_id is None and 'adminAccountId' in kwargs:
+            admin_account_id = kwargs['adminAccountId']
+        if organization_id is None and 'organizationId' in kwargs:
+            organization_id = kwargs['organizationId']
+
         if admin_account_id is not None:
-            pulumi.set(__self__, "admin_account_id", admin_account_id)
+            _setter("admin_account_id", admin_account_id)
         if organization_id is not None:
-            pulumi.set(__self__, "organization_id", organization_id)
+            _setter("organization_id", organization_id)
 
     @property
     @pulumi.getter(name="adminAccountId")
@@ -143,6 +175,10 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationAdminAccountRegistrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

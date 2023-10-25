@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// </summary>
         public readonly Outputs.WorkflowOnExceptionStepTagStepDetails? TagStepDetails;
         /// <summary>
-        /// One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+        /// The type of encryption used. Currently, this value must be `"PGP"`.
         /// </summary>
         public readonly string Type;
 

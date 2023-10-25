@@ -17,17 +17,27 @@ public final class BotAbortStatementArgs extends com.pulumi.resources.ResourceAr
 
     public static final BotAbortStatementArgs Empty = new BotAbortStatementArgs();
 
+    /**
+     * A set of messages, each of which provides a message string and its type.
+     * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+     * Attributes are documented under message.
+     * 
+     */
     @Import(name="messages", required=true)
     private Output<List<BotAbortStatementMessageArgs>> messages;
 
+    /**
+     * @return A set of messages, each of which provides a message string and its type.
+     * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+     * Attributes are documented under message.
+     * 
+     */
     public Output<List<BotAbortStatementMessageArgs>> messages() {
         return this.messages;
     }
 
     /**
      * The response card. Amazon Lex will substitute session attributes and
-     * slot values into the response card. For more information, see
-     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
      * slot values into the response card. For more information, see
      * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
      * 
@@ -37,8 +47,6 @@ public final class BotAbortStatementArgs extends com.pulumi.resources.ResourceAr
 
     /**
      * @return The response card. Amazon Lex will substitute session attributes and
-     * slot values into the response card. For more information, see
-     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
      * slot values into the response card. For more information, see
      * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
      * 
@@ -72,23 +80,45 @@ public final class BotAbortStatementArgs extends com.pulumi.resources.ResourceAr
             $ = new BotAbortStatementArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param messages A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messages(Output<List<BotAbortStatementMessageArgs>> messages) {
             $.messages = messages;
             return this;
         }
 
+        /**
+         * @param messages A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messages(List<BotAbortStatementMessageArgs> messages) {
             return messages(Output.of(messages));
         }
 
+        /**
+         * @param messages A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messages(BotAbortStatementMessageArgs... messages) {
             return messages(List.of(messages));
         }
 
         /**
          * @param responseCard The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
          * 
@@ -102,8 +132,6 @@ public final class BotAbortStatementArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param responseCard The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
          * 

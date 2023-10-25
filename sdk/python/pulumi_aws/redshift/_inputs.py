@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -33,12 +33,33 @@ class ClusterClusterNodeArgs:
         :param pulumi.Input[str] private_ip_address: The private IP address of a node within a cluster
         :param pulumi.Input[str] public_ip_address: The public IP address of a node within a cluster
         """
+        ClusterClusterNodeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_role=node_role,
+            private_ip_address=private_ip_address,
+            public_ip_address=public_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_role: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             public_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if node_role is None and 'nodeRole' in kwargs:
+            node_role = kwargs['nodeRole']
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
+            public_ip_address = kwargs['publicIpAddress']
+
         if node_role is not None:
-            pulumi.set(__self__, "node_role", node_role)
+            _setter("node_role", node_role)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
+            _setter("public_ip_address", public_ip_address)
 
     @property
     @pulumi.getter(name="nodeRole")
@@ -93,15 +114,44 @@ class ClusterLoggingArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_exports: The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
         :param pulumi.Input[str] s3_key_prefix: The prefix applied to the log file names.
         """
-        pulumi.set(__self__, "enable", enable)
+        ClusterLoggingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable=enable,
+            bucket_name=bucket_name,
+            log_destination_type=log_destination_type,
+            log_exports=log_exports,
+            s3_key_prefix=s3_key_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable: Optional[pulumi.Input[bool]] = None,
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             log_destination_type: Optional[pulumi.Input[str]] = None,
+             log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             s3_key_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable is None:
+            raise TypeError("Missing 'enable' argument")
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if log_destination_type is None and 'logDestinationType' in kwargs:
+            log_destination_type = kwargs['logDestinationType']
+        if log_exports is None and 'logExports' in kwargs:
+            log_exports = kwargs['logExports']
+        if s3_key_prefix is None and 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+
+        _setter("enable", enable)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if log_destination_type is not None:
-            pulumi.set(__self__, "log_destination_type", log_destination_type)
+            _setter("log_destination_type", log_destination_type)
         if log_exports is not None:
-            pulumi.set(__self__, "log_exports", log_exports)
+            _setter("log_exports", log_exports)
         if s3_key_prefix is not None:
-            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+            _setter("s3_key_prefix", s3_key_prefix)
 
     @property
     @pulumi.getter
@@ -176,11 +226,34 @@ class ClusterSnapshotCopyArgs:
         :param pulumi.Input[str] grant_name: The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         :param pulumi.Input[int] retention_period: The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
         """
-        pulumi.set(__self__, "destination_region", destination_region)
+        ClusterSnapshotCopyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_region=destination_region,
+            grant_name=grant_name,
+            retention_period=retention_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_region: Optional[pulumi.Input[str]] = None,
+             grant_name: Optional[pulumi.Input[str]] = None,
+             retention_period: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_region is None and 'destinationRegion' in kwargs:
+            destination_region = kwargs['destinationRegion']
+        if destination_region is None:
+            raise TypeError("Missing 'destination_region' argument")
+        if grant_name is None and 'grantName' in kwargs:
+            grant_name = kwargs['grantName']
+        if retention_period is None and 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+
+        _setter("destination_region", destination_region)
         if grant_name is not None:
-            pulumi.set(__self__, "grant_name", grant_name)
+            _setter("grant_name", grant_name)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
 
     @property
     @pulumi.getter(name="destinationRegion")
@@ -230,12 +303,33 @@ class EndpointAccessVpcEndpointArgs:
         :param pulumi.Input[str] vpc_endpoint_id: The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
         :param pulumi.Input[str] vpc_id: The VPC identifier that the endpoint is associated.
         """
+        EndpointAccessVpcEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interfaces=network_interfaces,
+            vpc_endpoint_id=vpc_endpoint_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]] = None,
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="networkInterfaces")
@@ -287,14 +381,39 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
         :param pulumi.Input[str] private_ip_address: The IPv4 address of the network interface within the subnet.
         :param pulumi.Input[str] subnet_id: The subnet identifier.
         """
+        EndpointAccessVpcEndpointNetworkInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            network_interface_id=network_interface_id,
+            private_ip_address=private_ip_address,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -354,8 +473,25 @@ class ParameterGroupParameterArgs:
         :param pulumi.Input[str] name: The name of the Redshift parameter.
         :param pulumi.Input[str] value: The value of the Redshift parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ParameterGroupParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -393,12 +529,33 @@ class ScheduledActionTargetActionArgs:
         :param pulumi.Input['ScheduledActionTargetActionResizeClusterArgs'] resize_cluster: An action that runs a `ResizeCluster` API operation. Documented below.
         :param pulumi.Input['ScheduledActionTargetActionResumeClusterArgs'] resume_cluster: An action that runs a `ResumeCluster` API operation. Documented below.
         """
+        ScheduledActionTargetActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pause_cluster=pause_cluster,
+            resize_cluster=resize_cluster,
+            resume_cluster=resume_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pause_cluster: Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']] = None,
+             resize_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']] = None,
+             resume_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pause_cluster is None and 'pauseCluster' in kwargs:
+            pause_cluster = kwargs['pauseCluster']
+        if resize_cluster is None and 'resizeCluster' in kwargs:
+            resize_cluster = kwargs['resizeCluster']
+        if resume_cluster is None and 'resumeCluster' in kwargs:
+            resume_cluster = kwargs['resumeCluster']
+
         if pause_cluster is not None:
-            pulumi.set(__self__, "pause_cluster", pause_cluster)
+            _setter("pause_cluster", pause_cluster)
         if resize_cluster is not None:
-            pulumi.set(__self__, "resize_cluster", resize_cluster)
+            _setter("resize_cluster", resize_cluster)
         if resume_cluster is not None:
-            pulumi.set(__self__, "resume_cluster", resume_cluster)
+            _setter("resume_cluster", resume_cluster)
 
     @property
     @pulumi.getter(name="pauseCluster")
@@ -444,7 +601,22 @@ class ScheduledActionTargetActionPauseClusterArgs:
         """
         :param pulumi.Input[str] cluster_identifier: The identifier of the cluster to be paused.
         """
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        ScheduledActionTargetActionPauseClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_identifier=cluster_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_identifier is None:
+            raise TypeError("Missing 'cluster_identifier' argument")
+
+        _setter("cluster_identifier", cluster_identifier)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -474,15 +646,44 @@ class ScheduledActionTargetActionResizeClusterArgs:
         :param pulumi.Input[str] node_type: The new node type for the nodes you are adding.
         :param pulumi.Input[int] number_of_nodes: The new number of nodes for the cluster.
         """
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        ScheduledActionTargetActionResizeClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_identifier=cluster_identifier,
+            classic=classic,
+            cluster_type=cluster_type,
+            node_type=node_type,
+            number_of_nodes=number_of_nodes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             classic: Optional[pulumi.Input[bool]] = None,
+             cluster_type: Optional[pulumi.Input[str]] = None,
+             node_type: Optional[pulumi.Input[str]] = None,
+             number_of_nodes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_identifier is None:
+            raise TypeError("Missing 'cluster_identifier' argument")
+        if cluster_type is None and 'clusterType' in kwargs:
+            cluster_type = kwargs['clusterType']
+        if node_type is None and 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if number_of_nodes is None and 'numberOfNodes' in kwargs:
+            number_of_nodes = kwargs['numberOfNodes']
+
+        _setter("cluster_identifier", cluster_identifier)
         if classic is not None:
-            pulumi.set(__self__, "classic", classic)
+            _setter("classic", classic)
         if cluster_type is not None:
-            pulumi.set(__self__, "cluster_type", cluster_type)
+            _setter("cluster_type", cluster_type)
         if node_type is not None:
-            pulumi.set(__self__, "node_type", node_type)
+            _setter("node_type", node_type)
         if number_of_nodes is not None:
-            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+            _setter("number_of_nodes", number_of_nodes)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -552,7 +753,22 @@ class ScheduledActionTargetActionResumeClusterArgs:
         """
         :param pulumi.Input[str] cluster_identifier: The identifier of the cluster to be resumed.
         """
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        ScheduledActionTargetActionResumeClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_identifier=cluster_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_identifier is None:
+            raise TypeError("Missing 'cluster_identifier' argument")
+
+        _setter("cluster_identifier", cluster_identifier)
 
     @property
     @pulumi.getter(name="clusterIdentifier")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,30 @@ class FieldLevelEncryptionProfileArgs:
         :param pulumi.Input[str] comment: An optional comment about the Field Level Encryption Profile.
         :param pulumi.Input[str] name: The name of the Field Level Encryption Profile.
         """
-        pulumi.set(__self__, "encryption_entities", encryption_entities)
+        FieldLevelEncryptionProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_entities=encryption_entities,
+            comment=comment,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_entities: Optional[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs']] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_entities is None and 'encryptionEntities' in kwargs:
+            encryption_entities = kwargs['encryptionEntities']
+        if encryption_entities is None:
+            raise TypeError("Missing 'encryption_entities' argument")
+
+        _setter("encryption_entities", encryption_entities)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="encryptionEntities")
@@ -84,16 +103,39 @@ class _FieldLevelEncryptionProfileState:
         :param pulumi.Input[str] etag: The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
         :param pulumi.Input[str] name: The name of the Field Level Encryption Profile.
         """
+        _FieldLevelEncryptionProfileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            caller_reference=caller_reference,
+            comment=comment,
+            encryption_entities=encryption_entities,
+            etag=etag,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             caller_reference: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             encryption_entities: Optional[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs']] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if caller_reference is None and 'callerReference' in kwargs:
+            caller_reference = kwargs['callerReference']
+        if encryption_entities is None and 'encryptionEntities' in kwargs:
+            encryption_entities = kwargs['encryptionEntities']
+
         if caller_reference is not None:
-            pulumi.set(__self__, "caller_reference", caller_reference)
+            _setter("caller_reference", caller_reference)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if encryption_entities is not None:
-            pulumi.set(__self__, "encryption_entities", encryption_entities)
+            _setter("encryption_entities", encryption_entities)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="callerReference")
@@ -253,6 +295,10 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FieldLevelEncryptionProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -271,6 +317,7 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
             __props__ = FieldLevelEncryptionProfileArgs.__new__(FieldLevelEncryptionProfileArgs)
 
             __props__.__dict__["comment"] = comment
+            encryption_entities = _utilities.configure(encryption_entities, FieldLevelEncryptionProfileEncryptionEntitiesArgs, True)
             if encryption_entities is None and not opts.urn:
                 raise TypeError("Missing required property 'encryption_entities'")
             __props__.__dict__["encryption_entities"] = encryption_entities

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -58,16 +58,43 @@ class InstanceLoggingConfigurationAccessLogs(dict):
         :param str log_version: The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
         :param 'InstanceLoggingConfigurationAccessLogsS3Args' s3: A block that specifies configures sending Verified Access logs to S3. Detailed below.
         """
+        InstanceLoggingConfigurationAccessLogs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_logs=cloudwatch_logs,
+            include_trust_context=include_trust_context,
+            kinesis_data_firehose=kinesis_data_firehose,
+            log_version=log_version,
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_logs: Optional['outputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogs'] = None,
+             include_trust_context: Optional[bool] = None,
+             kinesis_data_firehose: Optional['outputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose'] = None,
+             log_version: Optional[str] = None,
+             s3: Optional['outputs.InstanceLoggingConfigurationAccessLogsS3'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloudwatch_logs is None and 'cloudwatchLogs' in kwargs:
+            cloudwatch_logs = kwargs['cloudwatchLogs']
+        if include_trust_context is None and 'includeTrustContext' in kwargs:
+            include_trust_context = kwargs['includeTrustContext']
+        if kinesis_data_firehose is None and 'kinesisDataFirehose' in kwargs:
+            kinesis_data_firehose = kwargs['kinesisDataFirehose']
+        if log_version is None and 'logVersion' in kwargs:
+            log_version = kwargs['logVersion']
+
         if cloudwatch_logs is not None:
-            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+            _setter("cloudwatch_logs", cloudwatch_logs)
         if include_trust_context is not None:
-            pulumi.set(__self__, "include_trust_context", include_trust_context)
+            _setter("include_trust_context", include_trust_context)
         if kinesis_data_firehose is not None:
-            pulumi.set(__self__, "kinesis_data_firehose", kinesis_data_firehose)
+            _setter("kinesis_data_firehose", kinesis_data_firehose)
         if log_version is not None:
-            pulumi.set(__self__, "log_version", log_version)
+            _setter("log_version", log_version)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
@@ -136,9 +163,26 @@ class InstanceLoggingConfigurationAccessLogsCloudwatchLogs(dict):
         :param bool enabled: Indicates whether logging is enabled.
         :param str log_group: The name of the CloudWatch Logs Log Group.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        InstanceLoggingConfigurationAccessLogsCloudwatchLogs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_group=log_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_group: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if log_group is None and 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
+        _setter("enabled", enabled)
         if log_group is not None:
-            pulumi.set(__self__, "log_group", log_group)
+            _setter("log_group", log_group)
 
     @property
     @pulumi.getter
@@ -183,9 +227,26 @@ class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose(dict):
         :param bool enabled: Indicates whether logging is enabled.
         :param str delivery_stream: The name of the delivery stream.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        InstanceLoggingConfigurationAccessLogsKinesisDataFirehose._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            delivery_stream=delivery_stream,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             delivery_stream: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if delivery_stream is None and 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+
+        _setter("enabled", enabled)
         if delivery_stream is not None:
-            pulumi.set(__self__, "delivery_stream", delivery_stream)
+            _setter("delivery_stream", delivery_stream)
 
     @property
     @pulumi.getter
@@ -236,13 +297,36 @@ class InstanceLoggingConfigurationAccessLogsS3(dict):
         :param str bucket_owner: The ID of the AWS account that owns the Amazon S3 bucket.
         :param str prefix: The bucket prefix.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        InstanceLoggingConfigurationAccessLogsS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            bucket_name=bucket_name,
+            bucket_owner=bucket_owner,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             bucket_name: Optional[str] = None,
+             bucket_owner: Optional[str] = None,
+             prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_owner is None and 'bucketOwner' in kwargs:
+            bucket_owner = kwargs['bucketOwner']
+
+        _setter("enabled", enabled)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if bucket_owner is not None:
-            pulumi.set(__self__, "bucket_owner", bucket_owner)
+            _setter("bucket_owner", bucket_owner)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -315,16 +399,43 @@ class InstanceVerifiedAccessTrustProvider(dict):
         :param str user_trust_provider_type: The type of user-based trust provider.
         :param str verified_access_trust_provider_id: The ID of the trust provider.
         """
+        InstanceVerifiedAccessTrustProvider._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            device_trust_provider_type=device_trust_provider_type,
+            trust_provider_type=trust_provider_type,
+            user_trust_provider_type=user_trust_provider_type,
+            verified_access_trust_provider_id=verified_access_trust_provider_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             device_trust_provider_type: Optional[str] = None,
+             trust_provider_type: Optional[str] = None,
+             user_trust_provider_type: Optional[str] = None,
+             verified_access_trust_provider_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_trust_provider_type is None and 'deviceTrustProviderType' in kwargs:
+            device_trust_provider_type = kwargs['deviceTrustProviderType']
+        if trust_provider_type is None and 'trustProviderType' in kwargs:
+            trust_provider_type = kwargs['trustProviderType']
+        if user_trust_provider_type is None and 'userTrustProviderType' in kwargs:
+            user_trust_provider_type = kwargs['userTrustProviderType']
+        if verified_access_trust_provider_id is None and 'verifiedAccessTrustProviderId' in kwargs:
+            verified_access_trust_provider_id = kwargs['verifiedAccessTrustProviderId']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if device_trust_provider_type is not None:
-            pulumi.set(__self__, "device_trust_provider_type", device_trust_provider_type)
+            _setter("device_trust_provider_type", device_trust_provider_type)
         if trust_provider_type is not None:
-            pulumi.set(__self__, "trust_provider_type", trust_provider_type)
+            _setter("trust_provider_type", trust_provider_type)
         if user_trust_provider_type is not None:
-            pulumi.set(__self__, "user_trust_provider_type", user_trust_provider_type)
+            _setter("user_trust_provider_type", user_trust_provider_type)
         if verified_access_trust_provider_id is not None:
-            pulumi.set(__self__, "verified_access_trust_provider_id", verified_access_trust_provider_id)
+            _setter("verified_access_trust_provider_id", verified_access_trust_provider_id)
 
     @property
     @pulumi.getter
@@ -388,8 +499,21 @@ class TrustProviderDeviceOptions(dict):
 
     def __init__(__self__, *,
                  tenant_id: Optional[str] = None):
+        TrustProviderDeviceOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="tenantId")
@@ -432,19 +556,54 @@ class TrustProviderOidcOptions(dict):
                  scope: Optional[str] = None,
                  token_endpoint: Optional[str] = None,
                  user_info_endpoint: Optional[str] = None):
-        pulumi.set(__self__, "client_secret", client_secret)
+        TrustProviderOidcOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_secret=client_secret,
+            authorization_endpoint=authorization_endpoint,
+            client_id=client_id,
+            issuer=issuer,
+            scope=scope,
+            token_endpoint=token_endpoint,
+            user_info_endpoint=user_info_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_secret: Optional[str] = None,
+             authorization_endpoint: Optional[str] = None,
+             client_id: Optional[str] = None,
+             issuer: Optional[str] = None,
+             scope: Optional[str] = None,
+             token_endpoint: Optional[str] = None,
+             user_info_endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if authorization_endpoint is None and 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+        if user_info_endpoint is None and 'userInfoEndpoint' in kwargs:
+            user_info_endpoint = kwargs['userInfoEndpoint']
+
+        _setter("client_secret", client_secret)
         if authorization_endpoint is not None:
-            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+            _setter("authorization_endpoint", authorization_endpoint)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if token_endpoint is not None:
-            pulumi.set(__self__, "token_endpoint", token_endpoint)
+            _setter("token_endpoint", token_endpoint)
         if user_info_endpoint is not None:
-            pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+            _setter("user_info_endpoint", user_info_endpoint)
 
     @property
     @pulumi.getter(name="clientSecret")

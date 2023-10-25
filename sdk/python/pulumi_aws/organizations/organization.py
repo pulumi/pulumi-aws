@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,12 +25,33 @@ class OrganizationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         :param pulumi.Input[str] feature_set: Specify "ALL" (default) or "CONSOLIDATED_BILLING".
         """
+        OrganizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_service_access_principals=aws_service_access_principals,
+            enabled_policy_types=enabled_policy_types,
+            feature_set=feature_set,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_service_access_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled_policy_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             feature_set: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_service_access_principals is None and 'awsServiceAccessPrincipals' in kwargs:
+            aws_service_access_principals = kwargs['awsServiceAccessPrincipals']
+        if enabled_policy_types is None and 'enabledPolicyTypes' in kwargs:
+            enabled_policy_types = kwargs['enabledPolicyTypes']
+        if feature_set is None and 'featureSet' in kwargs:
+            feature_set = kwargs['featureSet']
+
         if aws_service_access_principals is not None:
-            pulumi.set(__self__, "aws_service_access_principals", aws_service_access_principals)
+            _setter("aws_service_access_principals", aws_service_access_principals)
         if enabled_policy_types is not None:
-            pulumi.set(__self__, "enabled_policy_types", enabled_policy_types)
+            _setter("enabled_policy_types", enabled_policy_types)
         if feature_set is not None:
-            pulumi.set(__self__, "feature_set", feature_set)
+            _setter("feature_set", feature_set)
 
     @property
     @pulumi.getter(name="awsServiceAccessPrincipals")
@@ -95,26 +116,69 @@ class _OrganizationState:
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationNonMasterAccountArgs']]] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRootArgs']]] roots: List of organization roots. All elements have these attributes:
         """
+        _OrganizationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accounts=accounts,
+            arn=arn,
+            aws_service_access_principals=aws_service_access_principals,
+            enabled_policy_types=enabled_policy_types,
+            feature_set=feature_set,
+            master_account_arn=master_account_arn,
+            master_account_email=master_account_email,
+            master_account_id=master_account_id,
+            non_master_accounts=non_master_accounts,
+            roots=roots,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accounts: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationAccountArgs']]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_service_access_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled_policy_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             feature_set: Optional[pulumi.Input[str]] = None,
+             master_account_arn: Optional[pulumi.Input[str]] = None,
+             master_account_email: Optional[pulumi.Input[str]] = None,
+             master_account_id: Optional[pulumi.Input[str]] = None,
+             non_master_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationNonMasterAccountArgs']]]] = None,
+             roots: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_service_access_principals is None and 'awsServiceAccessPrincipals' in kwargs:
+            aws_service_access_principals = kwargs['awsServiceAccessPrincipals']
+        if enabled_policy_types is None and 'enabledPolicyTypes' in kwargs:
+            enabled_policy_types = kwargs['enabledPolicyTypes']
+        if feature_set is None and 'featureSet' in kwargs:
+            feature_set = kwargs['featureSet']
+        if master_account_arn is None and 'masterAccountArn' in kwargs:
+            master_account_arn = kwargs['masterAccountArn']
+        if master_account_email is None and 'masterAccountEmail' in kwargs:
+            master_account_email = kwargs['masterAccountEmail']
+        if master_account_id is None and 'masterAccountId' in kwargs:
+            master_account_id = kwargs['masterAccountId']
+        if non_master_accounts is None and 'nonMasterAccounts' in kwargs:
+            non_master_accounts = kwargs['nonMasterAccounts']
+
         if accounts is not None:
-            pulumi.set(__self__, "accounts", accounts)
+            _setter("accounts", accounts)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_service_access_principals is not None:
-            pulumi.set(__self__, "aws_service_access_principals", aws_service_access_principals)
+            _setter("aws_service_access_principals", aws_service_access_principals)
         if enabled_policy_types is not None:
-            pulumi.set(__self__, "enabled_policy_types", enabled_policy_types)
+            _setter("enabled_policy_types", enabled_policy_types)
         if feature_set is not None:
-            pulumi.set(__self__, "feature_set", feature_set)
+            _setter("feature_set", feature_set)
         if master_account_arn is not None:
-            pulumi.set(__self__, "master_account_arn", master_account_arn)
+            _setter("master_account_arn", master_account_arn)
         if master_account_email is not None:
-            pulumi.set(__self__, "master_account_email", master_account_email)
+            _setter("master_account_email", master_account_email)
         if master_account_id is not None:
-            pulumi.set(__self__, "master_account_id", master_account_id)
+            _setter("master_account_id", master_account_id)
         if non_master_accounts is not None:
-            pulumi.set(__self__, "non_master_accounts", non_master_accounts)
+            _setter("non_master_accounts", non_master_accounts)
         if roots is not None:
-            pulumi.set(__self__, "roots", roots)
+            _setter("roots", roots)
 
     @property
     @pulumi.getter
@@ -326,6 +390,10 @@ class Organization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -4,8 +4,12 @@
 package ecrpublic
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
@@ -57,4 +61,65 @@ type GetAuthorizationTokenResult struct {
 	Password string `pulumi:"password"`
 	// User name decoded from the authorization token.
 	UserName string `pulumi:"userName"`
+}
+
+func GetAuthorizationTokenOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetAuthorizationTokenResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetAuthorizationTokenResult, error) {
+		r, err := GetAuthorizationToken(ctx, opts...)
+		var s GetAuthorizationTokenResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetAuthorizationTokenResultOutput)
+}
+
+// A collection of values returned by getAuthorizationToken.
+type GetAuthorizationTokenResultOutput struct{ *pulumi.OutputState }
+
+func (GetAuthorizationTokenResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthorizationTokenResult)(nil)).Elem()
+}
+
+func (o GetAuthorizationTokenResultOutput) ToGetAuthorizationTokenResultOutput() GetAuthorizationTokenResultOutput {
+	return o
+}
+
+func (o GetAuthorizationTokenResultOutput) ToGetAuthorizationTokenResultOutputWithContext(ctx context.Context) GetAuthorizationTokenResultOutput {
+	return o
+}
+
+func (o GetAuthorizationTokenResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAuthorizationTokenResult] {
+	return pulumix.Output[GetAuthorizationTokenResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
+func (o GetAuthorizationTokenResultOutput) AuthorizationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.AuthorizationToken }).(pulumi.StringOutput)
+}
+
+// Time in UTC RFC3339 format when the authorization token expires.
+func (o GetAuthorizationTokenResultOutput) ExpiresAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.ExpiresAt }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetAuthorizationTokenResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Password decoded from the authorization token.
+func (o GetAuthorizationTokenResultOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// User name decoded from the authorization token.
+func (o GetAuthorizationTokenResultOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAuthorizationTokenResultOutput{})
 }

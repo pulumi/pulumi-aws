@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -60,39 +60,106 @@ class LoadBalancerArgs:
                Exactly one of `availability_zones` or `subnets` must be specified: this
                determines if the ELB exists in a VPC or in EC2-classic.
         """
-        pulumi.set(__self__, "listeners", listeners)
+        LoadBalancerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            listeners=listeners,
+            access_logs=access_logs,
+            availability_zones=availability_zones,
+            connection_draining=connection_draining,
+            connection_draining_timeout=connection_draining_timeout,
+            cross_zone_load_balancing=cross_zone_load_balancing,
+            desync_mitigation_mode=desync_mitigation_mode,
+            health_check=health_check,
+            idle_timeout=idle_timeout,
+            instances=instances,
+            internal=internal,
+            name=name,
+            name_prefix=name_prefix,
+            security_groups=security_groups,
+            source_security_group=source_security_group,
+            subnets=subnets,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             listeners: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerListenerArgs']]]] = None,
+             access_logs: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_draining: Optional[pulumi.Input[bool]] = None,
+             connection_draining_timeout: Optional[pulumi.Input[int]] = None,
+             cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
+             desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
+             health_check: Optional[pulumi.Input['LoadBalancerHealthCheckArgs']] = None,
+             idle_timeout: Optional[pulumi.Input[int]] = None,
+             instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             internal: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_security_group: Optional[pulumi.Input[str]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if listeners is None:
+            raise TypeError("Missing 'listeners' argument")
+        if access_logs is None and 'accessLogs' in kwargs:
+            access_logs = kwargs['accessLogs']
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if connection_draining is None and 'connectionDraining' in kwargs:
+            connection_draining = kwargs['connectionDraining']
+        if connection_draining_timeout is None and 'connectionDrainingTimeout' in kwargs:
+            connection_draining_timeout = kwargs['connectionDrainingTimeout']
+        if cross_zone_load_balancing is None and 'crossZoneLoadBalancing' in kwargs:
+            cross_zone_load_balancing = kwargs['crossZoneLoadBalancing']
+        if desync_mitigation_mode is None and 'desyncMitigationMode' in kwargs:
+            desync_mitigation_mode = kwargs['desyncMitigationMode']
+        if health_check is None and 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if source_security_group is None and 'sourceSecurityGroup' in kwargs:
+            source_security_group = kwargs['sourceSecurityGroup']
+
+        _setter("listeners", listeners)
         if access_logs is not None:
-            pulumi.set(__self__, "access_logs", access_logs)
+            _setter("access_logs", access_logs)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if connection_draining is not None:
-            pulumi.set(__self__, "connection_draining", connection_draining)
+            _setter("connection_draining", connection_draining)
         if connection_draining_timeout is not None:
-            pulumi.set(__self__, "connection_draining_timeout", connection_draining_timeout)
+            _setter("connection_draining_timeout", connection_draining_timeout)
         if cross_zone_load_balancing is not None:
-            pulumi.set(__self__, "cross_zone_load_balancing", cross_zone_load_balancing)
+            _setter("cross_zone_load_balancing", cross_zone_load_balancing)
         if desync_mitigation_mode is not None:
-            pulumi.set(__self__, "desync_mitigation_mode", desync_mitigation_mode)
+            _setter("desync_mitigation_mode", desync_mitigation_mode)
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
         if idle_timeout is not None:
-            pulumi.set(__self__, "idle_timeout", idle_timeout)
+            _setter("idle_timeout", idle_timeout)
         if instances is not None:
-            pulumi.set(__self__, "instances", instances)
+            _setter("instances", instances)
         if internal is not None:
-            pulumi.set(__self__, "internal", internal)
+            _setter("internal", internal)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if source_security_group is not None:
-            pulumi.set(__self__, "source_security_group", source_security_group)
+            _setter("source_security_group", source_security_group)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -365,53 +432,136 @@ class _LoadBalancerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
         """
+        _LoadBalancerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_logs=access_logs,
+            arn=arn,
+            availability_zones=availability_zones,
+            connection_draining=connection_draining,
+            connection_draining_timeout=connection_draining_timeout,
+            cross_zone_load_balancing=cross_zone_load_balancing,
+            desync_mitigation_mode=desync_mitigation_mode,
+            dns_name=dns_name,
+            health_check=health_check,
+            idle_timeout=idle_timeout,
+            instances=instances,
+            internal=internal,
+            listeners=listeners,
+            name=name,
+            name_prefix=name_prefix,
+            security_groups=security_groups,
+            source_security_group=source_security_group,
+            source_security_group_id=source_security_group_id,
+            subnets=subnets,
+            tags=tags,
+            tags_all=tags_all,
+            zone_id=zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_logs: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_draining: Optional[pulumi.Input[bool]] = None,
+             connection_draining_timeout: Optional[pulumi.Input[int]] = None,
+             cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
+             desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             health_check: Optional[pulumi.Input['LoadBalancerHealthCheckArgs']] = None,
+             idle_timeout: Optional[pulumi.Input[int]] = None,
+             instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             internal: Optional[pulumi.Input[bool]] = None,
+             listeners: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerListenerArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_security_group: Optional[pulumi.Input[str]] = None,
+             source_security_group_id: Optional[pulumi.Input[str]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_logs is None and 'accessLogs' in kwargs:
+            access_logs = kwargs['accessLogs']
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if connection_draining is None and 'connectionDraining' in kwargs:
+            connection_draining = kwargs['connectionDraining']
+        if connection_draining_timeout is None and 'connectionDrainingTimeout' in kwargs:
+            connection_draining_timeout = kwargs['connectionDrainingTimeout']
+        if cross_zone_load_balancing is None and 'crossZoneLoadBalancing' in kwargs:
+            cross_zone_load_balancing = kwargs['crossZoneLoadBalancing']
+        if desync_mitigation_mode is None and 'desyncMitigationMode' in kwargs:
+            desync_mitigation_mode = kwargs['desyncMitigationMode']
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if health_check is None and 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if source_security_group is None and 'sourceSecurityGroup' in kwargs:
+            source_security_group = kwargs['sourceSecurityGroup']
+        if source_security_group_id is None and 'sourceSecurityGroupId' in kwargs:
+            source_security_group_id = kwargs['sourceSecurityGroupId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if zone_id is None and 'zoneId' in kwargs:
+            zone_id = kwargs['zoneId']
+
         if access_logs is not None:
-            pulumi.set(__self__, "access_logs", access_logs)
+            _setter("access_logs", access_logs)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if connection_draining is not None:
-            pulumi.set(__self__, "connection_draining", connection_draining)
+            _setter("connection_draining", connection_draining)
         if connection_draining_timeout is not None:
-            pulumi.set(__self__, "connection_draining_timeout", connection_draining_timeout)
+            _setter("connection_draining_timeout", connection_draining_timeout)
         if cross_zone_load_balancing is not None:
-            pulumi.set(__self__, "cross_zone_load_balancing", cross_zone_load_balancing)
+            _setter("cross_zone_load_balancing", cross_zone_load_balancing)
         if desync_mitigation_mode is not None:
-            pulumi.set(__self__, "desync_mitigation_mode", desync_mitigation_mode)
+            _setter("desync_mitigation_mode", desync_mitigation_mode)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
         if idle_timeout is not None:
-            pulumi.set(__self__, "idle_timeout", idle_timeout)
+            _setter("idle_timeout", idle_timeout)
         if instances is not None:
-            pulumi.set(__self__, "instances", instances)
+            _setter("instances", instances)
         if internal is not None:
-            pulumi.set(__self__, "internal", internal)
+            _setter("internal", internal)
         if listeners is not None:
-            pulumi.set(__self__, "listeners", listeners)
+            _setter("listeners", listeners)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if source_security_group is not None:
-            pulumi.set(__self__, "source_security_group", source_security_group)
+            _setter("source_security_group", source_security_group)
         if source_security_group_id is not None:
-            pulumi.set(__self__, "source_security_group_id", source_security_group_id)
+            _setter("source_security_group_id", source_security_group_id)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if zone_id is not None:
-            pulumi.set(__self__, "zone_id", zone_id)
+            _setter("zone_id", zone_id)
 
     @property
     @pulumi.getter(name="accessLogs")
@@ -910,6 +1060,10 @@ class LoadBalancer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoadBalancerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -941,12 +1095,14 @@ class LoadBalancer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LoadBalancerArgs.__new__(LoadBalancerArgs)
 
+            access_logs = _utilities.configure(access_logs, LoadBalancerAccessLogsArgs, True)
             __props__.__dict__["access_logs"] = access_logs
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["connection_draining"] = connection_draining
             __props__.__dict__["connection_draining_timeout"] = connection_draining_timeout
             __props__.__dict__["cross_zone_load_balancing"] = cross_zone_load_balancing
             __props__.__dict__["desync_mitigation_mode"] = desync_mitigation_mode
+            health_check = _utilities.configure(health_check, LoadBalancerHealthCheckArgs, True)
             __props__.__dict__["health_check"] = health_check
             __props__.__dict__["idle_timeout"] = idle_timeout
             __props__.__dict__["instances"] = instances

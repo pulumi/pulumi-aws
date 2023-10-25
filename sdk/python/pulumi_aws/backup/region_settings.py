@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RegionSettingsArgs', 'RegionSettings']
@@ -21,9 +21,28 @@ class RegionSettingsArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
         :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         """
-        pulumi.set(__self__, "resource_type_opt_in_preference", resource_type_opt_in_preference)
+        RegionSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type_opt_in_preference=resource_type_opt_in_preference,
+            resource_type_management_preference=resource_type_management_preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type_opt_in_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
+             resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_type_opt_in_preference is None and 'resourceTypeOptInPreference' in kwargs:
+            resource_type_opt_in_preference = kwargs['resourceTypeOptInPreference']
+        if resource_type_opt_in_preference is None:
+            raise TypeError("Missing 'resource_type_opt_in_preference' argument")
+        if resource_type_management_preference is None and 'resourceTypeManagementPreference' in kwargs:
+            resource_type_management_preference = kwargs['resourceTypeManagementPreference']
+
+        _setter("resource_type_opt_in_preference", resource_type_opt_in_preference)
         if resource_type_management_preference is not None:
-            pulumi.set(__self__, "resource_type_management_preference", resource_type_management_preference)
+            _setter("resource_type_management_preference", resource_type_management_preference)
 
     @property
     @pulumi.getter(name="resourceTypeOptInPreference")
@@ -60,10 +79,27 @@ class _RegionSettingsState:
         :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
         """
+        _RegionSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type_management_preference=resource_type_management_preference,
+            resource_type_opt_in_preference=resource_type_opt_in_preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
+             resource_type_opt_in_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_type_management_preference is None and 'resourceTypeManagementPreference' in kwargs:
+            resource_type_management_preference = kwargs['resourceTypeManagementPreference']
+        if resource_type_opt_in_preference is None and 'resourceTypeOptInPreference' in kwargs:
+            resource_type_opt_in_preference = kwargs['resourceTypeOptInPreference']
+
         if resource_type_management_preference is not None:
-            pulumi.set(__self__, "resource_type_management_preference", resource_type_management_preference)
+            _setter("resource_type_management_preference", resource_type_management_preference)
         if resource_type_opt_in_preference is not None:
-            pulumi.set(__self__, "resource_type_opt_in_preference", resource_type_opt_in_preference)
+            _setter("resource_type_opt_in_preference", resource_type_opt_in_preference)
 
     @property
     @pulumi.getter(name="resourceTypeManagementPreference")
@@ -193,6 +229,10 @@ class RegionSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegionSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

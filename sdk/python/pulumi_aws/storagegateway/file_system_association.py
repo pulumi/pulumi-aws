@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,16 +33,55 @@ class FileSystemAssociationArgs:
         :param pulumi.Input['FileSystemAssociationCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "gateway_arn", gateway_arn)
-        pulumi.set(__self__, "location_arn", location_arn)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        FileSystemAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_arn=gateway_arn,
+            location_arn=location_arn,
+            password=password,
+            username=username,
+            audit_destination_arn=audit_destination_arn,
+            cache_attributes=cache_attributes,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_arn: Optional[pulumi.Input[str]] = None,
+             location_arn: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             audit_destination_arn: Optional[pulumi.Input[str]] = None,
+             cache_attributes: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_arn is None and 'gatewayArn' in kwargs:
+            gateway_arn = kwargs['gatewayArn']
+        if gateway_arn is None:
+            raise TypeError("Missing 'gateway_arn' argument")
+        if location_arn is None and 'locationArn' in kwargs:
+            location_arn = kwargs['locationArn']
+        if location_arn is None:
+            raise TypeError("Missing 'location_arn' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if audit_destination_arn is None and 'auditDestinationArn' in kwargs:
+            audit_destination_arn = kwargs['auditDestinationArn']
+        if cache_attributes is None and 'cacheAttributes' in kwargs:
+            cache_attributes = kwargs['cacheAttributes']
+
+        _setter("gateway_arn", gateway_arn)
+        _setter("location_arn", location_arn)
+        _setter("password", password)
+        _setter("username", username)
         if audit_destination_arn is not None:
-            pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
+            _setter("audit_destination_arn", audit_destination_arn)
         if cache_attributes is not None:
-            pulumi.set(__self__, "cache_attributes", cache_attributes)
+            _setter("cache_attributes", cache_attributes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="gatewayArn")
@@ -153,27 +192,64 @@ class _FileSystemAssociationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] username: The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
         """
+        _FileSystemAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            audit_destination_arn=audit_destination_arn,
+            cache_attributes=cache_attributes,
+            gateway_arn=gateway_arn,
+            location_arn=location_arn,
+            password=password,
+            tags=tags,
+            tags_all=tags_all,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             audit_destination_arn: Optional[pulumi.Input[str]] = None,
+             cache_attributes: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']] = None,
+             gateway_arn: Optional[pulumi.Input[str]] = None,
+             location_arn: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if audit_destination_arn is None and 'auditDestinationArn' in kwargs:
+            audit_destination_arn = kwargs['auditDestinationArn']
+        if cache_attributes is None and 'cacheAttributes' in kwargs:
+            cache_attributes = kwargs['cacheAttributes']
+        if gateway_arn is None and 'gatewayArn' in kwargs:
+            gateway_arn = kwargs['gatewayArn']
+        if location_arn is None and 'locationArn' in kwargs:
+            location_arn = kwargs['locationArn']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if audit_destination_arn is not None:
-            pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
+            _setter("audit_destination_arn", audit_destination_arn)
         if cache_attributes is not None:
-            pulumi.set(__self__, "cache_attributes", cache_attributes)
+            _setter("cache_attributes", cache_attributes)
         if gateway_arn is not None:
-            pulumi.set(__self__, "gateway_arn", gateway_arn)
+            _setter("gateway_arn", gateway_arn)
         if location_arn is not None:
-            pulumi.set(__self__, "location_arn", location_arn)
+            _setter("location_arn", location_arn)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -468,6 +544,10 @@ class FileSystemAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileSystemAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -490,6 +570,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             __props__ = FileSystemAssociationArgs.__new__(FileSystemAssociationArgs)
 
             __props__.__dict__["audit_destination_arn"] = audit_destination_arn
+            cache_attributes = _utilities.configure(cache_attributes, FileSystemAssociationCacheAttributesArgs, True)
             __props__.__dict__["cache_attributes"] = cache_attributes
             if gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_arn'")

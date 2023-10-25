@@ -18,14 +18,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     public static final CrawlerS3TargetArgs Empty = new CrawlerS3TargetArgs();
 
     /**
-     * The name of the connection to use to connect to the JDBC target.
+     * The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
      * 
      */
     @Import(name="connectionName")
     private @Nullable Output<String> connectionName;
 
     /**
-     * @return The name of the connection to use to connect to the JDBC target.
+     * @return The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
      * 
      */
     public Optional<Output<String>> connectionName() {
@@ -33,7 +33,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ARN of the dead-letter SQS queue.
+     * A valid Amazon SQS ARN.
      * 
      * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
      * 
@@ -44,7 +44,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<String> dlqEventQueueArn;
 
     /**
-     * @return The ARN of the dead-letter SQS queue.
+     * @return A valid Amazon SQS ARN.
      * 
      * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
      * 
@@ -56,14 +56,14 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ARN of the SQS queue to receive S3 notifications from.
+     * A valid Amazon SQS ARN.
      * 
      */
     @Import(name="eventQueueArn")
     private @Nullable Output<String> eventQueueArn;
 
     /**
-     * @return The ARN of the SQS queue to receive S3 notifications from.
+     * @return A valid Amazon SQS ARN.
      * 
      */
     public Optional<Output<String>> eventQueueArn() {
@@ -145,7 +145,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the JDBC target.
+         * @param connectionName The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param connectionName The name of the connection to use to connect to the JDBC target.
+         * @param connectionName The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dlqEventQueueArn The ARN of the dead-letter SQS queue.
+         * @param dlqEventQueueArn A valid Amazon SQS ARN.
          * 
          * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
          * 
@@ -181,7 +181,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dlqEventQueueArn The ARN of the dead-letter SQS queue.
+         * @param dlqEventQueueArn A valid Amazon SQS ARN.
          * 
          * &gt; **Note:** `deletion_behavior` of catalog target doesn&#39;t support `DEPRECATE_IN_DATABASE`.
          * 
@@ -195,7 +195,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventQueueArn The ARN of the SQS queue to receive S3 notifications from.
+         * @param eventQueueArn A valid Amazon SQS ARN.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class CrawlerS3TargetArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventQueueArn The ARN of the SQS queue to receive S3 notifications from.
+         * @param eventQueueArn A valid Amazon SQS ARN.
          * 
          * @return builder
          * 

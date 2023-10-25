@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FrameworkShareArgs', 'FrameworkShare']
@@ -27,11 +27,40 @@ class FrameworkShareArgs:
                The following arguments are optional:
         :param pulumi.Input[str] comment: Comment from the sender about the share request.
         """
-        pulumi.set(__self__, "destination_account", destination_account)
-        pulumi.set(__self__, "destination_region", destination_region)
-        pulumi.set(__self__, "framework_id", framework_id)
+        FrameworkShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_account=destination_account,
+            destination_region=destination_region,
+            framework_id=framework_id,
+            comment=comment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_account: Optional[pulumi.Input[str]] = None,
+             destination_region: Optional[pulumi.Input[str]] = None,
+             framework_id: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_account is None and 'destinationAccount' in kwargs:
+            destination_account = kwargs['destinationAccount']
+        if destination_account is None:
+            raise TypeError("Missing 'destination_account' argument")
+        if destination_region is None and 'destinationRegion' in kwargs:
+            destination_region = kwargs['destinationRegion']
+        if destination_region is None:
+            raise TypeError("Missing 'destination_region' argument")
+        if framework_id is None and 'frameworkId' in kwargs:
+            framework_id = kwargs['frameworkId']
+        if framework_id is None:
+            raise TypeError("Missing 'framework_id' argument")
+
+        _setter("destination_account", destination_account)
+        _setter("destination_region", destination_region)
+        _setter("framework_id", framework_id)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
 
     @property
     @pulumi.getter(name="destinationAccount")
@@ -102,16 +131,41 @@ class _FrameworkShareState:
                The following arguments are optional:
         :param pulumi.Input[str] status: Status of the share request.
         """
+        _FrameworkShareState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            destination_account=destination_account,
+            destination_region=destination_region,
+            framework_id=framework_id,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             destination_account: Optional[pulumi.Input[str]] = None,
+             destination_region: Optional[pulumi.Input[str]] = None,
+             framework_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_account is None and 'destinationAccount' in kwargs:
+            destination_account = kwargs['destinationAccount']
+        if destination_region is None and 'destinationRegion' in kwargs:
+            destination_region = kwargs['destinationRegion']
+        if framework_id is None and 'frameworkId' in kwargs:
+            framework_id = kwargs['frameworkId']
+
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if destination_account is not None:
-            pulumi.set(__self__, "destination_account", destination_account)
+            _setter("destination_account", destination_account)
         if destination_region is not None:
-            pulumi.set(__self__, "destination_region", destination_region)
+            _setter("destination_region", destination_region)
         if framework_id is not None:
-            pulumi.set(__self__, "framework_id", framework_id)
+            _setter("framework_id", framework_id)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -259,6 +313,10 @@ class FrameworkShare(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FrameworkShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

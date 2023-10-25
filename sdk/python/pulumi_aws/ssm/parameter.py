@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -46,32 +46,75 @@ class ParameterArgs:
                
                > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
-        pulumi.set(__self__, "type", type)
+        ParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            allowed_pattern=allowed_pattern,
+            arn=arn,
+            data_type=data_type,
+            description=description,
+            insecure_value=insecure_value,
+            key_id=key_id,
+            name=name,
+            overwrite=overwrite,
+            tags=tags,
+            tier=tier,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ParameterType']]] = None,
+             allowed_pattern: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             data_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             insecure_value: Optional[pulumi.Input[str]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             overwrite: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if allowed_pattern is None and 'allowedPattern' in kwargs:
+            allowed_pattern = kwargs['allowedPattern']
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if insecure_value is None and 'insecureValue' in kwargs:
+            insecure_value = kwargs['insecureValue']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
+        _setter("type", type)
         if allowed_pattern is not None:
-            pulumi.set(__self__, "allowed_pattern", allowed_pattern)
+            _setter("allowed_pattern", allowed_pattern)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if insecure_value is not None:
-            pulumi.set(__self__, "insecure_value", insecure_value)
+            _setter("insecure_value", insecure_value)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if overwrite is not None:
             warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
             pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
         if overwrite is not None:
-            pulumi.set(__self__, "overwrite", overwrite)
+            _setter("overwrite", overwrite)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -263,40 +306,87 @@ class _ParameterState:
                > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         :param pulumi.Input[int] version: Version of the parameter.
         """
+        _ParameterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_pattern=allowed_pattern,
+            arn=arn,
+            data_type=data_type,
+            description=description,
+            insecure_value=insecure_value,
+            key_id=key_id,
+            name=name,
+            overwrite=overwrite,
+            tags=tags,
+            tags_all=tags_all,
+            tier=tier,
+            type=type,
+            value=value,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_pattern: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             data_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             insecure_value: Optional[pulumi.Input[str]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             overwrite: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ParameterType']]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_pattern is None and 'allowedPattern' in kwargs:
+            allowed_pattern = kwargs['allowedPattern']
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if insecure_value is None and 'insecureValue' in kwargs:
+            insecure_value = kwargs['insecureValue']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if allowed_pattern is not None:
-            pulumi.set(__self__, "allowed_pattern", allowed_pattern)
+            _setter("allowed_pattern", allowed_pattern)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if insecure_value is not None:
-            pulumi.set(__self__, "insecure_value", insecure_value)
+            _setter("insecure_value", insecure_value)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if overwrite is not None:
             warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
             pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
         if overwrite is not None:
-            pulumi.set(__self__, "overwrite", overwrite)
+            _setter("overwrite", overwrite)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="allowedPattern")
@@ -630,6 +720,10 @@ class Parameter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ParameterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -663,9 +757,6 @@ class Parameter(pulumi.CustomResource):
             __props__.__dict__["insecure_value"] = insecure_value
             __props__.__dict__["key_id"] = key_id
             __props__.__dict__["name"] = name
-            if overwrite is not None and not opts.urn:
-                warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
-                pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
             __props__.__dict__["overwrite"] = overwrite
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tier"] = tier

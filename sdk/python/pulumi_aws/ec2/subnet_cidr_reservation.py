@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SubnetCidrReservationArgs', 'SubnetCidrReservation']
@@ -25,11 +25,40 @@ class SubnetCidrReservationArgs:
         :param pulumi.Input[str] subnet_id: The ID of the subnet to create the reservation for.
         :param pulumi.Input[str] description: A brief description of the reservation.
         """
-        pulumi.set(__self__, "cidr_block", cidr_block)
-        pulumi.set(__self__, "reservation_type", reservation_type)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        SubnetCidrReservationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr_block=cidr_block,
+            reservation_type=reservation_type,
+            subnet_id=subnet_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             reservation_type: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cidr_block is None and 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if cidr_block is None:
+            raise TypeError("Missing 'cidr_block' argument")
+        if reservation_type is None and 'reservationType' in kwargs:
+            reservation_type = kwargs['reservationType']
+        if reservation_type is None:
+            raise TypeError("Missing 'reservation_type' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
+        _setter("cidr_block", cidr_block)
+        _setter("reservation_type", reservation_type)
+        _setter("subnet_id", subnet_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="cidrBlock")
@@ -96,16 +125,43 @@ class _SubnetCidrReservationState:
         :param pulumi.Input[str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
         :param pulumi.Input[str] subnet_id: The ID of the subnet to create the reservation for.
         """
+        _SubnetCidrReservationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr_block=cidr_block,
+            description=description,
+            owner_id=owner_id,
+            reservation_type=reservation_type,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             reservation_type: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cidr_block is None and 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if reservation_type is None and 'reservationType' in kwargs:
+            reservation_type = kwargs['reservationType']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if cidr_block is not None:
-            pulumi.set(__self__, "cidr_block", cidr_block)
+            _setter("cidr_block", cidr_block)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if reservation_type is not None:
-            pulumi.set(__self__, "reservation_type", reservation_type)
+            _setter("reservation_type", reservation_type)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="cidrBlock")
@@ -247,6 +303,10 @@ class SubnetCidrReservation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubnetCidrReservationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

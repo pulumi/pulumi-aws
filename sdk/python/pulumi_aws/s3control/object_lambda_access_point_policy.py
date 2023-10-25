@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ObjectLambdaAccessPointPolicyArgs', 'ObjectLambdaAccessPointPolicy']
@@ -23,11 +23,30 @@ class ObjectLambdaAccessPointPolicyArgs:
         :param pulumi.Input[str] account_id: The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[str] name: The name of the Object Lambda Access Point.
         """
-        pulumi.set(__self__, "policy", policy)
+        ObjectLambdaAccessPointPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            account_id=account_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             account_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
+        _setter("policy", policy)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -80,14 +99,35 @@ class _ObjectLambdaAccessPointPolicyState:
         :param pulumi.Input[str] name: The name of the Object Lambda Access Point.
         :param pulumi.Input[str] policy: The Object Lambda Access Point resource policy document.
         """
+        _ObjectLambdaAccessPointPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            has_public_access_policy=has_public_access_policy,
+            name=name,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             has_public_access_policy: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if has_public_access_policy is None and 'hasPublicAccessPolicy' in kwargs:
+            has_public_access_policy = kwargs['hasPublicAccessPolicy']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if has_public_access_policy is not None:
-            pulumi.set(__self__, "has_public_access_policy", has_public_access_policy)
+            _setter("has_public_access_policy", has_public_access_policy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter(name="accountId")
@@ -257,6 +297,10 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ObjectLambdaAccessPointPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

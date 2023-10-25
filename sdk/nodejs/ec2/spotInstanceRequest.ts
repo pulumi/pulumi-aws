@@ -173,7 +173,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string>;
     /**
-     * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      */
     public readonly instanceInterruptionBehavior!: pulumi.Output<string | undefined>;
     public /*out*/ readonly instanceState!: pulumi.Output<string>;
@@ -331,7 +331,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly validFrom!: pulumi.Output<string>;
     /**
-     * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      */
     public readonly validUntil!: pulumi.Output<string>;
     /**
@@ -602,7 +602,7 @@ export interface SpotInstanceRequestState {
      */
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     /**
-     * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      */
     instanceInterruptionBehavior?: pulumi.Input<string>;
     instanceState?: pulumi.Input<string>;
@@ -760,7 +760,7 @@ export interface SpotInstanceRequestState {
      */
     validFrom?: pulumi.Input<string>;
     /**
-     * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      */
     validUntil?: pulumi.Input<string>;
     /**
@@ -878,7 +878,7 @@ export interface SpotInstanceRequestArgs {
      */
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     /**
-     * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      */
     instanceInterruptionBehavior?: pulumi.Input<string>;
     /**
@@ -994,7 +994,7 @@ export interface SpotInstanceRequestArgs {
      */
     validFrom?: pulumi.Input<string>;
     /**
-     * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      */
     validUntil?: pulumi.Input<string>;
     /**

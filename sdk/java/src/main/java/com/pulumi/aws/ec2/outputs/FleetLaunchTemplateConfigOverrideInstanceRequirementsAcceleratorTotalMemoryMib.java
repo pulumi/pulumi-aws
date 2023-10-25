@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
     /**
-     * @return Maximum. Set to `0` to exclude instance types with accelerators.
+     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
      * 
      */
     private @Nullable Integer max;
     /**
-     * @return Minimum.
+     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
      * 
      */
     private @Nullable Integer min;
 
     private FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib() {}
     /**
-     * @return Maximum. Set to `0` to exclude instance types with accelerators.
+     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
      * 
      */
     public Optional<Integer> max() {
         return Optional.ofNullable(this.max);
     }
     /**
-     * @return Minimum.
+     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
      * 
      */
     public Optional<Integer> min() {

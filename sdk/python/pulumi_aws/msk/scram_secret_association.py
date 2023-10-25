@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ScramSecretAssociationArgs', 'ScramSecretAssociation']
@@ -21,8 +21,29 @@ class ScramSecretAssociationArgs:
         :param pulumi.Input[str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
         """
-        pulumi.set(__self__, "cluster_arn", cluster_arn)
-        pulumi.set(__self__, "secret_arn_lists", secret_arn_lists)
+        ScramSecretAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_arn=cluster_arn,
+            secret_arn_lists=secret_arn_lists,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_arn: Optional[pulumi.Input[str]] = None,
+             secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_arn is None and 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+        if cluster_arn is None:
+            raise TypeError("Missing 'cluster_arn' argument")
+        if secret_arn_lists is None and 'secretArnLists' in kwargs:
+            secret_arn_lists = kwargs['secretArnLists']
+        if secret_arn_lists is None:
+            raise TypeError("Missing 'secret_arn_lists' argument")
+
+        _setter("cluster_arn", cluster_arn)
+        _setter("secret_arn_lists", secret_arn_lists)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -59,10 +80,27 @@ class _ScramSecretAssociationState:
         :param pulumi.Input[str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
         """
+        _ScramSecretAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_arn=cluster_arn,
+            secret_arn_lists=secret_arn_lists,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_arn: Optional[pulumi.Input[str]] = None,
+             secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_arn is None and 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+        if secret_arn_lists is None and 'secretArnLists' in kwargs:
+            secret_arn_lists = kwargs['secretArnLists']
+
         if cluster_arn is not None:
-            pulumi.set(__self__, "cluster_arn", cluster_arn)
+            _setter("cluster_arn", cluster_arn)
         if secret_arn_lists is not None:
-            pulumi.set(__self__, "secret_arn_lists", secret_arn_lists)
+            _setter("secret_arn_lists", secret_arn_lists)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -238,6 +276,10 @@ class ScramSecretAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScramSecretAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

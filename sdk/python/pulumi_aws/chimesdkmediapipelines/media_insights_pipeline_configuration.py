@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,41 @@ class MediaInsightsPipelineConfigurationArgs:
         :param pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs'] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the resource.
         """
-        pulumi.set(__self__, "elements", elements)
-        pulumi.set(__self__, "resource_access_role_arn", resource_access_role_arn)
+        MediaInsightsPipelineConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elements=elements,
+            resource_access_role_arn=resource_access_role_arn,
+            name=name,
+            real_time_alert_configuration=real_time_alert_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elements: Optional[pulumi.Input[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationElementArgs']]]] = None,
+             resource_access_role_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             real_time_alert_configuration: Optional[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if elements is None:
+            raise TypeError("Missing 'elements' argument")
+        if resource_access_role_arn is None and 'resourceAccessRoleArn' in kwargs:
+            resource_access_role_arn = kwargs['resourceAccessRoleArn']
+        if resource_access_role_arn is None:
+            raise TypeError("Missing 'resource_access_role_arn' argument")
+        if real_time_alert_configuration is None and 'realTimeAlertConfiguration' in kwargs:
+            real_time_alert_configuration = kwargs['realTimeAlertConfiguration']
+
+        _setter("elements", elements)
+        _setter("resource_access_role_arn", resource_access_role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if real_time_alert_configuration is not None:
-            pulumi.set(__self__, "real_time_alert_configuration", real_time_alert_configuration)
+            _setter("real_time_alert_configuration", real_time_alert_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -118,23 +145,52 @@ class _MediaInsightsPipelineConfigurationState:
         :param pulumi.Input[str] resource_access_role_arn: ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the resource.
         """
+        _MediaInsightsPipelineConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            elements=elements,
+            name=name,
+            real_time_alert_configuration=real_time_alert_configuration,
+            resource_access_role_arn=resource_access_role_arn,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             elements: Optional[pulumi.Input[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationElementArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             real_time_alert_configuration: Optional[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']] = None,
+             resource_access_role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if real_time_alert_configuration is None and 'realTimeAlertConfiguration' in kwargs:
+            real_time_alert_configuration = kwargs['realTimeAlertConfiguration']
+        if resource_access_role_arn is None and 'resourceAccessRoleArn' in kwargs:
+            resource_access_role_arn = kwargs['resourceAccessRoleArn']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if elements is not None:
-            pulumi.set(__self__, "elements", elements)
+            _setter("elements", elements)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if real_time_alert_configuration is not None:
-            pulumi.set(__self__, "real_time_alert_configuration", real_time_alert_configuration)
+            _setter("real_time_alert_configuration", real_time_alert_configuration)
         if resource_access_role_arn is not None:
-            pulumi.set(__self__, "resource_access_role_arn", resource_access_role_arn)
+            _setter("resource_access_role_arn", resource_access_role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -750,6 +806,10 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MediaInsightsPipelineConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -773,6 +833,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'elements'")
             __props__.__dict__["elements"] = elements
             __props__.__dict__["name"] = name
+            real_time_alert_configuration = _utilities.configure(real_time_alert_configuration, MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs, True)
             __props__.__dict__["real_time_alert_configuration"] = real_time_alert_configuration
             if resource_access_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_access_role_arn'")

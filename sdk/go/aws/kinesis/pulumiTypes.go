@@ -5969,7 +5969,6 @@ type FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
@@ -5982,7 +5981,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -6003,7 +6002,6 @@ type FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs struct 
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
@@ -6016,7 +6014,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs struct 
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -6128,7 +6126,6 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) B
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
@@ -6165,7 +6162,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) P
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -6221,7 +6218,6 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *int {
 		if v == nil {
@@ -6282,7 +6278,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration) *string {
 		if v == nil {
@@ -6717,7 +6713,6 @@ type FirehoseDeliveryStreamExtendedS3Configuration struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
@@ -6736,11 +6731,11 @@ type FirehoseDeliveryStreamExtendedS3Configuration struct {
 	Prefix *string `pulumi:"prefix"`
 	// The data processing configuration.  More details are given below.
 	ProcessingConfiguration *FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn string `pulumi:"roleArn"`
 	// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
 	S3BackupConfiguration *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration `pulumi:"s3BackupConfiguration"`
-	// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
 }
 
@@ -6761,7 +6756,6 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationArgs struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
@@ -6780,11 +6774,11 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationArgs struct {
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// The data processing configuration.  More details are given below.
 	ProcessingConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
 	S3BackupConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrInput `pulumi:"s3BackupConfiguration"`
-	// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
 }
 
@@ -6894,7 +6888,6 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) BufferingInterval()
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
@@ -6948,7 +6941,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) ProcessingConfigura
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -6960,7 +6953,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) S3BackupConfigurati
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput)
 }
 
-// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
@@ -7016,7 +7009,6 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) BufferingInterva
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *int {
 		if v == nil {
@@ -7107,7 +7099,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) ProcessingConfig
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {
@@ -7127,7 +7119,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) S3BackupConfigur
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput)
 }
 
-// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {
@@ -10170,7 +10162,6 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
@@ -10183,7 +10174,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -10204,7 +10195,6 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs stru
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
@@ -10217,7 +10207,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs stru
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -10329,7 +10319,6 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *int {
 		return v.BufferingSize
@@ -10368,7 +10357,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -10424,7 +10413,6 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *int {
 		if v == nil {
@@ -10485,7 +10473,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -12063,7 +12051,6 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
@@ -12076,7 +12063,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -12097,7 +12084,6 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
@@ -12110,7 +12096,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs struct {
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -12222,7 +12208,6 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) Bu
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
@@ -12259,7 +12244,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) Pr
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -12315,7 +12300,6 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *int {
 		if v == nil {
@@ -12376,7 +12360,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration) *string {
 		if v == nil {
@@ -14237,7 +14221,6 @@ type FirehoseDeliveryStreamOpensearchConfigurationS3Configuration struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
@@ -14250,7 +14233,7 @@ type FirehoseDeliveryStreamOpensearchConfigurationS3Configuration struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -14271,7 +14254,6 @@ type FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
@@ -14284,7 +14266,7 @@ type FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs struct {
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -14394,7 +14376,6 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) Buff
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
@@ -14431,7 +14412,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) Pref
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -14487,7 +14468,6 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) B
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *int {
 		if v == nil {
@@ -14548,7 +14528,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) P
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationS3Configuration) *string {
 		if v == nil {
@@ -16005,7 +15985,6 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration stru
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
@@ -16018,7 +15997,7 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration stru
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -16039,7 +16018,6 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs 
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
@@ -16052,7 +16030,7 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs 
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -16166,7 +16144,6 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOu
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *int {
 		return v.BufferingSize
@@ -16209,7 +16186,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) string {
 		return v.RoleArn
@@ -16267,7 +16244,6 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPt
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *int {
 		if v == nil {
@@ -16328,7 +16304,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
 		if v == nil {
@@ -17821,7 +17797,6 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
@@ -17834,7 +17809,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -17855,7 +17830,6 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs struct
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
@@ -17868,7 +17842,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs struct
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -17980,7 +17954,6 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) 
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
@@ -18017,7 +17990,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) 
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -18073,7 +18046,6 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *int {
 		if v == nil {
@@ -18134,7 +18106,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -18355,7 +18327,6 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3Configuration struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
@@ -18368,7 +18339,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3Configuration struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -18389,7 +18360,6 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
@@ -18402,7 +18372,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs struct {
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -18512,7 +18482,6 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) Buffer
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
@@ -18545,7 +18514,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) Prefix
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -18601,7 +18570,6 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) Buf
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *int {
 		if v == nil {
@@ -18662,7 +18630,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) Pre
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3Configuration) *string {
 		if v == nil {
@@ -20068,7 +20036,6 @@ type FirehoseDeliveryStreamSplunkConfigurationS3Configuration struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize *int `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
@@ -20081,7 +20048,7 @@ type FirehoseDeliveryStreamSplunkConfigurationS3Configuration struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix *string `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -20102,7 +20069,6 @@ type FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
 	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
@@ -20115,7 +20081,7 @@ type FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs struct {
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The ARN of the role that provides access to the source Kinesis stream.
+	// The ARN of the role used to access the Amazon MSK cluster.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -20225,7 +20191,6 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) Bufferin
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
@@ -20258,7 +20223,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) Prefix()
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -20314,7 +20279,6 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) Buffe
 }
 
 // Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *int {
 		if v == nil {
@@ -20375,7 +20339,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) Prefi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that provides access to the source Kinesis stream.
+// The ARN of the role used to access the Amazon MSK cluster.
 func (o FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationS3Configuration) *string {
 		if v == nil {

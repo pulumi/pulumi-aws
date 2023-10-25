@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DomainNameArgs', 'DomainName']
@@ -23,10 +23,33 @@ class DomainNameArgs:
         :param pulumi.Input[str] domain_name: Domain name.
         :param pulumi.Input[str] description: A description of the Domain Name.
         """
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
-        pulumi.set(__self__, "domain_name", domain_name)
+        DomainNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            domain_name=domain_name,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if certificate_arn is None:
+            raise TypeError("Missing 'certificate_arn' argument")
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+
+        _setter("certificate_arn", certificate_arn)
+        _setter("domain_name", domain_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -81,16 +104,43 @@ class _DomainNameState:
         :param pulumi.Input[str] domain_name: Domain name.
         :param pulumi.Input[str] hosted_zone_id: ID of your Amazon Route 53 hosted zone.
         """
+        _DomainNameState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            appsync_domain_name=appsync_domain_name,
+            certificate_arn=certificate_arn,
+            description=description,
+            domain_name=domain_name,
+            hosted_zone_id=hosted_zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             appsync_domain_name: Optional[pulumi.Input[str]] = None,
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if appsync_domain_name is None and 'appsyncDomainName' in kwargs:
+            appsync_domain_name = kwargs['appsyncDomainName']
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+
         if appsync_domain_name is not None:
-            pulumi.set(__self__, "appsync_domain_name", appsync_domain_name)
+            _setter("appsync_domain_name", appsync_domain_name)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
 
     @property
     @pulumi.getter(name="appsyncDomainName")
@@ -228,6 +278,10 @@ class DomainName(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainNameArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

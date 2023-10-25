@@ -23,7 +23,6 @@ namespace Pulumi.Aws.Kinesis.Outputs
         public readonly int? BufferingInterval;
         /// <summary>
         /// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-        /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
@@ -48,7 +47,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// The ARN of the role that provides access to the source Kinesis stream.
+        /// The ARN of the role used to access the Amazon MSK cluster.
         /// </summary>
         public readonly string RoleArn;
 

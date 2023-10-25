@@ -378,14 +378,14 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      * 
      */
     @Import(name="instanceInterruptionBehavior")
     private @Nullable Output<String> instanceInterruptionBehavior;
 
     /**
-     * @return The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+     * @return Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      * 
      */
     public Optional<Output<String>> instanceInterruptionBehavior() {
@@ -963,14 +963,14 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      * 
      */
     @Import(name="validUntil")
     private @Nullable Output<String> validUntil;
 
     /**
-     * @return The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+     * @return The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      * 
      */
     public Optional<Output<String>> validUntil() {
@@ -1613,7 +1613,7 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param instanceInterruptionBehavior The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+         * @param instanceInterruptionBehavior Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
          * 
          * @return builder
          * 
@@ -1624,7 +1624,7 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param instanceInterruptionBehavior The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+         * @param instanceInterruptionBehavior Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
          * 
          * @return builder
          * 
@@ -2458,7 +2458,7 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param validUntil The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+         * @param validUntil The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
          * 
          * @return builder
          * 
@@ -2469,7 +2469,7 @@ public final class SpotInstanceRequestState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param validUntil The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+         * @param validUntil The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
          * 
          * @return builder
          * 

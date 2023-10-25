@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps
     {
         /// <summary>
-        /// Maximum. Set to `0` to exclude instance types with accelerators.
+        /// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
         /// </summary>
         public readonly double? Max;
         /// <summary>
-        /// Minimum.
+        /// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
         /// </summary>
         public readonly double? Min;
 

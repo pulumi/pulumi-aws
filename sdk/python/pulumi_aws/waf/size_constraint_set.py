@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,10 +23,25 @@ class SizeConstraintSetArgs:
         :param pulumi.Input[str] name: The name or description of the Size Constraint Set.
         :param pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]] size_constraints: Specifies the parts of web requests that you want to inspect the size of.
         """
+        SizeConstraintSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            size_constraints=size_constraints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size_constraints is None and 'sizeConstraints' in kwargs:
+            size_constraints = kwargs['sizeConstraints']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if size_constraints is not None:
-            pulumi.set(__self__, "size_constraints", size_constraints)
+            _setter("size_constraints", size_constraints)
 
     @property
     @pulumi.getter
@@ -65,12 +80,29 @@ class _SizeConstraintSetState:
         :param pulumi.Input[str] name: The name or description of the Size Constraint Set.
         :param pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]] size_constraints: Specifies the parts of web requests that you want to inspect the size of.
         """
+        _SizeConstraintSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            name=name,
+            size_constraints=size_constraints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size_constraints is None and 'sizeConstraints' in kwargs:
+            size_constraints = kwargs['sizeConstraints']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if size_constraints is not None:
-            pulumi.set(__self__, "size_constraints", size_constraints)
+            _setter("size_constraints", size_constraints)
 
     @property
     @pulumi.getter
@@ -192,6 +224,10 @@ class SizeConstraintSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SizeConstraintSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,52 @@ class AnomalySubscriptionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['AnomalySubscriptionThresholdExpressionArgs'] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         """
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "monitor_arn_lists", monitor_arn_lists)
-        pulumi.set(__self__, "subscribers", subscribers)
+        AnomalySubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frequency=frequency,
+            monitor_arn_lists=monitor_arn_lists,
+            subscribers=subscribers,
+            account_id=account_id,
+            name=name,
+            tags=tags,
+            threshold_expression=threshold_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frequency: Optional[pulumi.Input[str]] = None,
+             monitor_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]]] = None,
+             account_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threshold_expression: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if monitor_arn_lists is None and 'monitorArnLists' in kwargs:
+            monitor_arn_lists = kwargs['monitorArnLists']
+        if monitor_arn_lists is None:
+            raise TypeError("Missing 'monitor_arn_lists' argument")
+        if subscribers is None:
+            raise TypeError("Missing 'subscribers' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if threshold_expression is None and 'thresholdExpression' in kwargs:
+            threshold_expression = kwargs['thresholdExpression']
+
+        _setter("frequency", frequency)
+        _setter("monitor_arn_lists", monitor_arn_lists)
+        _setter("subscribers", subscribers)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threshold_expression is not None:
-            pulumi.set(__self__, "threshold_expression", threshold_expression)
+            _setter("threshold_expression", threshold_expression)
 
     @property
     @pulumi.getter
@@ -154,27 +189,62 @@ class _AnomalySubscriptionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['AnomalySubscriptionThresholdExpressionArgs'] threshold_expression: An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         """
+        _AnomalySubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            arn=arn,
+            frequency=frequency,
+            monitor_arn_lists=monitor_arn_lists,
+            name=name,
+            subscribers=subscribers,
+            tags=tags,
+            tags_all=tags_all,
+            threshold_expression=threshold_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             monitor_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threshold_expression: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if monitor_arn_lists is None and 'monitorArnLists' in kwargs:
+            monitor_arn_lists = kwargs['monitorArnLists']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if threshold_expression is None and 'thresholdExpression' in kwargs:
+            threshold_expression = kwargs['thresholdExpression']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if monitor_arn_lists is not None:
-            pulumi.set(__self__, "monitor_arn_lists", monitor_arn_lists)
+            _setter("monitor_arn_lists", monitor_arn_lists)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subscribers is not None:
-            pulumi.set(__self__, "subscribers", subscribers)
+            _setter("subscribers", subscribers)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if threshold_expression is not None:
-            pulumi.set(__self__, "threshold_expression", threshold_expression)
+            _setter("threshold_expression", threshold_expression)
 
     @property
     @pulumi.getter(name="accountId")
@@ -463,6 +533,10 @@ class AnomalySubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AnomalySubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -496,6 +570,7 @@ class AnomalySubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subscribers'")
             __props__.__dict__["subscribers"] = subscribers
             __props__.__dict__["tags"] = tags
+            threshold_expression = _utilities.configure(threshold_expression, AnomalySubscriptionThresholdExpressionArgs, True)
             __props__.__dict__["threshold_expression"] = threshold_expression
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None

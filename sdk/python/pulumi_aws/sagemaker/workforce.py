@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,15 +29,46 @@ class WorkforceArgs:
         :param pulumi.Input['WorkforceSourceIpConfigArgs'] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         :param pulumi.Input['WorkforceWorkforceVpcConfigArgs'] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
-        pulumi.set(__self__, "workforce_name", workforce_name)
+        WorkforceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            workforce_name=workforce_name,
+            cognito_config=cognito_config,
+            oidc_config=oidc_config,
+            source_ip_config=source_ip_config,
+            workforce_vpc_config=workforce_vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             workforce_name: Optional[pulumi.Input[str]] = None,
+             cognito_config: Optional[pulumi.Input['WorkforceCognitoConfigArgs']] = None,
+             oidc_config: Optional[pulumi.Input['WorkforceOidcConfigArgs']] = None,
+             source_ip_config: Optional[pulumi.Input['WorkforceSourceIpConfigArgs']] = None,
+             workforce_vpc_config: Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if workforce_name is None and 'workforceName' in kwargs:
+            workforce_name = kwargs['workforceName']
+        if workforce_name is None:
+            raise TypeError("Missing 'workforce_name' argument")
+        if cognito_config is None and 'cognitoConfig' in kwargs:
+            cognito_config = kwargs['cognitoConfig']
+        if oidc_config is None and 'oidcConfig' in kwargs:
+            oidc_config = kwargs['oidcConfig']
+        if source_ip_config is None and 'sourceIpConfig' in kwargs:
+            source_ip_config = kwargs['sourceIpConfig']
+        if workforce_vpc_config is None and 'workforceVpcConfig' in kwargs:
+            workforce_vpc_config = kwargs['workforceVpcConfig']
+
+        _setter("workforce_name", workforce_name)
         if cognito_config is not None:
-            pulumi.set(__self__, "cognito_config", cognito_config)
+            _setter("cognito_config", cognito_config)
         if oidc_config is not None:
-            pulumi.set(__self__, "oidc_config", oidc_config)
+            _setter("oidc_config", oidc_config)
         if source_ip_config is not None:
-            pulumi.set(__self__, "source_ip_config", source_ip_config)
+            _setter("source_ip_config", source_ip_config)
         if workforce_vpc_config is not None:
-            pulumi.set(__self__, "workforce_vpc_config", workforce_vpc_config)
+            _setter("workforce_vpc_config", workforce_vpc_config)
 
     @property
     @pulumi.getter(name="workforceName")
@@ -121,20 +152,53 @@ class _WorkforceState:
         :param pulumi.Input[str] workforce_name: The name of the Workforce (must be unique).
         :param pulumi.Input['WorkforceWorkforceVpcConfigArgs'] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
+        _WorkforceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cognito_config=cognito_config,
+            oidc_config=oidc_config,
+            source_ip_config=source_ip_config,
+            subdomain=subdomain,
+            workforce_name=workforce_name,
+            workforce_vpc_config=workforce_vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cognito_config: Optional[pulumi.Input['WorkforceCognitoConfigArgs']] = None,
+             oidc_config: Optional[pulumi.Input['WorkforceOidcConfigArgs']] = None,
+             source_ip_config: Optional[pulumi.Input['WorkforceSourceIpConfigArgs']] = None,
+             subdomain: Optional[pulumi.Input[str]] = None,
+             workforce_name: Optional[pulumi.Input[str]] = None,
+             workforce_vpc_config: Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cognito_config is None and 'cognitoConfig' in kwargs:
+            cognito_config = kwargs['cognitoConfig']
+        if oidc_config is None and 'oidcConfig' in kwargs:
+            oidc_config = kwargs['oidcConfig']
+        if source_ip_config is None and 'sourceIpConfig' in kwargs:
+            source_ip_config = kwargs['sourceIpConfig']
+        if workforce_name is None and 'workforceName' in kwargs:
+            workforce_name = kwargs['workforceName']
+        if workforce_vpc_config is None and 'workforceVpcConfig' in kwargs:
+            workforce_vpc_config = kwargs['workforceVpcConfig']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cognito_config is not None:
-            pulumi.set(__self__, "cognito_config", cognito_config)
+            _setter("cognito_config", cognito_config)
         if oidc_config is not None:
-            pulumi.set(__self__, "oidc_config", oidc_config)
+            _setter("oidc_config", oidc_config)
         if source_ip_config is not None:
-            pulumi.set(__self__, "source_ip_config", source_ip_config)
+            _setter("source_ip_config", source_ip_config)
         if subdomain is not None:
-            pulumi.set(__self__, "subdomain", subdomain)
+            _setter("subdomain", subdomain)
         if workforce_name is not None:
-            pulumi.set(__self__, "workforce_name", workforce_name)
+            _setter("workforce_name", workforce_name)
         if workforce_vpc_config is not None:
-            pulumi.set(__self__, "workforce_vpc_config", workforce_vpc_config)
+            _setter("workforce_vpc_config", workforce_vpc_config)
 
     @property
     @pulumi.getter
@@ -361,6 +425,10 @@ class Workforce(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkforceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -380,12 +448,16 @@ class Workforce(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkforceArgs.__new__(WorkforceArgs)
 
+            cognito_config = _utilities.configure(cognito_config, WorkforceCognitoConfigArgs, True)
             __props__.__dict__["cognito_config"] = cognito_config
+            oidc_config = _utilities.configure(oidc_config, WorkforceOidcConfigArgs, True)
             __props__.__dict__["oidc_config"] = oidc_config
+            source_ip_config = _utilities.configure(source_ip_config, WorkforceSourceIpConfigArgs, True)
             __props__.__dict__["source_ip_config"] = source_ip_config
             if workforce_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workforce_name'")
             __props__.__dict__["workforce_name"] = workforce_name
+            workforce_vpc_config = _utilities.configure(workforce_vpc_config, WorkforceWorkforceVpcConfigArgs, True)
             __props__.__dict__["workforce_vpc_config"] = workforce_vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["subdomain"] = None

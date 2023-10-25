@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,29 @@ class CustomRoutingListenerArgs:
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of a custom routing accelerator.
         :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         """
-        pulumi.set(__self__, "accelerator_arn", accelerator_arn)
-        pulumi.set(__self__, "port_ranges", port_ranges)
+        CustomRoutingListenerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accelerator_arn=accelerator_arn,
+            port_ranges=port_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accelerator_arn: Optional[pulumi.Input[str]] = None,
+             port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accelerator_arn is None and 'acceleratorArn' in kwargs:
+            accelerator_arn = kwargs['acceleratorArn']
+        if accelerator_arn is None:
+            raise TypeError("Missing 'accelerator_arn' argument")
+        if port_ranges is None and 'portRanges' in kwargs:
+            port_ranges = kwargs['portRanges']
+        if port_ranges is None:
+            raise TypeError("Missing 'port_ranges' argument")
+
+        _setter("accelerator_arn", accelerator_arn)
+        _setter("port_ranges", port_ranges)
 
     @property
     @pulumi.getter(name="acceleratorArn")
@@ -61,10 +82,27 @@ class _CustomRoutingListenerState:
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of a custom routing accelerator.
         :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         """
+        _CustomRoutingListenerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accelerator_arn=accelerator_arn,
+            port_ranges=port_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accelerator_arn: Optional[pulumi.Input[str]] = None,
+             port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accelerator_arn is None and 'acceleratorArn' in kwargs:
+            accelerator_arn = kwargs['acceleratorArn']
+        if port_ranges is None and 'portRanges' in kwargs:
+            port_ranges = kwargs['portRanges']
+
         if accelerator_arn is not None:
-            pulumi.set(__self__, "accelerator_arn", accelerator_arn)
+            _setter("accelerator_arn", accelerator_arn)
         if port_ranges is not None:
-            pulumi.set(__self__, "port_ranges", port_ranges)
+            _setter("port_ranges", port_ranges)
 
     @property
     @pulumi.getter(name="acceleratorArn")
@@ -186,6 +224,10 @@ class CustomRoutingListener(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomRoutingListenerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,27 +41,74 @@ class GraphQLApiArgs:
         :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
-        pulumi.set(__self__, "authentication_type", authentication_type)
+        GraphQLApiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            additional_authentication_providers=additional_authentication_providers,
+            lambda_authorizer_config=lambda_authorizer_config,
+            log_config=log_config,
+            name=name,
+            openid_connect_config=openid_connect_config,
+            schema=schema,
+            tags=tags,
+            user_pool_config=user_pool_config,
+            visibility=visibility,
+            xray_enabled=xray_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
+             lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
+             log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
+             xray_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if additional_authentication_providers is None and 'additionalAuthenticationProviders' in kwargs:
+            additional_authentication_providers = kwargs['additionalAuthenticationProviders']
+        if lambda_authorizer_config is None and 'lambdaAuthorizerConfig' in kwargs:
+            lambda_authorizer_config = kwargs['lambdaAuthorizerConfig']
+        if log_config is None and 'logConfig' in kwargs:
+            log_config = kwargs['logConfig']
+        if openid_connect_config is None and 'openidConnectConfig' in kwargs:
+            openid_connect_config = kwargs['openidConnectConfig']
+        if user_pool_config is None and 'userPoolConfig' in kwargs:
+            user_pool_config = kwargs['userPoolConfig']
+        if xray_enabled is None and 'xrayEnabled' in kwargs:
+            xray_enabled = kwargs['xrayEnabled']
+
+        _setter("authentication_type", authentication_type)
         if additional_authentication_providers is not None:
-            pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
+            _setter("additional_authentication_providers", additional_authentication_providers)
         if lambda_authorizer_config is not None:
-            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
+            _setter("lambda_authorizer_config", lambda_authorizer_config)
         if log_config is not None:
-            pulumi.set(__self__, "log_config", log_config)
+            _setter("log_config", log_config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if openid_connect_config is not None:
-            pulumi.set(__self__, "openid_connect_config", openid_connect_config)
+            _setter("openid_connect_config", openid_connect_config)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_pool_config is not None:
-            pulumi.set(__self__, "user_pool_config", user_pool_config)
+            _setter("user_pool_config", user_pool_config)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
         if xray_enabled is not None:
-            pulumi.set(__self__, "xray_enabled", xray_enabled)
+            _setter("xray_enabled", xray_enabled)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -230,37 +277,90 @@ class _GraphQLApiState:
         :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
+        _GraphQLApiState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_authentication_providers=additional_authentication_providers,
+            arn=arn,
+            authentication_type=authentication_type,
+            lambda_authorizer_config=lambda_authorizer_config,
+            log_config=log_config,
+            name=name,
+            openid_connect_config=openid_connect_config,
+            schema=schema,
+            tags=tags,
+            tags_all=tags_all,
+            uris=uris,
+            user_pool_config=user_pool_config,
+            visibility=visibility,
+            xray_enabled=xray_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
+             log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
+             xray_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_authentication_providers is None and 'additionalAuthenticationProviders' in kwargs:
+            additional_authentication_providers = kwargs['additionalAuthenticationProviders']
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if lambda_authorizer_config is None and 'lambdaAuthorizerConfig' in kwargs:
+            lambda_authorizer_config = kwargs['lambdaAuthorizerConfig']
+        if log_config is None and 'logConfig' in kwargs:
+            log_config = kwargs['logConfig']
+        if openid_connect_config is None and 'openidConnectConfig' in kwargs:
+            openid_connect_config = kwargs['openidConnectConfig']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if user_pool_config is None and 'userPoolConfig' in kwargs:
+            user_pool_config = kwargs['userPoolConfig']
+        if xray_enabled is None and 'xrayEnabled' in kwargs:
+            xray_enabled = kwargs['xrayEnabled']
+
         if additional_authentication_providers is not None:
-            pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
+            _setter("additional_authentication_providers", additional_authentication_providers)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if lambda_authorizer_config is not None:
-            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
+            _setter("lambda_authorizer_config", lambda_authorizer_config)
         if log_config is not None:
-            pulumi.set(__self__, "log_config", log_config)
+            _setter("log_config", log_config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if openid_connect_config is not None:
-            pulumi.set(__self__, "openid_connect_config", openid_connect_config)
+            _setter("openid_connect_config", openid_connect_config)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if uris is not None:
-            pulumi.set(__self__, "uris", uris)
+            _setter("uris", uris)
         if user_pool_config is not None:
-            pulumi.set(__self__, "user_pool_config", user_pool_config)
+            _setter("user_pool_config", user_pool_config)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
         if xray_enabled is not None:
-            pulumi.set(__self__, "xray_enabled", xray_enabled)
+            _setter("xray_enabled", xray_enabled)
 
     @property
     @pulumi.getter(name="additionalAuthenticationProviders")
@@ -485,6 +585,10 @@ class GraphQLApi(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GraphQLApiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -514,12 +618,16 @@ class GraphQLApi(pulumi.CustomResource):
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__.__dict__["authentication_type"] = authentication_type
+            lambda_authorizer_config = _utilities.configure(lambda_authorizer_config, GraphQLApiLambdaAuthorizerConfigArgs, True)
             __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
+            log_config = _utilities.configure(log_config, GraphQLApiLogConfigArgs, True)
             __props__.__dict__["log_config"] = log_config
             __props__.__dict__["name"] = name
+            openid_connect_config = _utilities.configure(openid_connect_config, GraphQLApiOpenidConnectConfigArgs, True)
             __props__.__dict__["openid_connect_config"] = openid_connect_config
             __props__.__dict__["schema"] = schema
             __props__.__dict__["tags"] = tags
+            user_pool_config = _utilities.configure(user_pool_config, GraphQLApiUserPoolConfigArgs, True)
             __props__.__dict__["user_pool_config"] = user_pool_config
             __props__.__dict__["visibility"] = visibility
             __props__.__dict__["xray_enabled"] = xray_enabled

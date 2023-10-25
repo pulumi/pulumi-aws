@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -44,25 +44,90 @@ class DomainArgs:
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "auth_mode", auth_mode)
-        pulumi.set(__self__, "default_user_settings", default_user_settings)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        DomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_mode=auth_mode,
+            default_user_settings=default_user_settings,
+            domain_name=domain_name,
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+            app_network_access_type=app_network_access_type,
+            app_security_group_management=app_security_group_management,
+            default_space_settings=default_space_settings,
+            domain_settings=domain_settings,
+            kms_key_id=kms_key_id,
+            retention_policy=retention_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_mode: Optional[pulumi.Input[str]] = None,
+             default_user_settings: Optional[pulumi.Input['DomainDefaultUserSettingsArgs']] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             app_network_access_type: Optional[pulumi.Input[str]] = None,
+             app_security_group_management: Optional[pulumi.Input[str]] = None,
+             default_space_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']] = None,
+             domain_settings: Optional[pulumi.Input['DomainDomainSettingsArgs']] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             retention_policy: Optional[pulumi.Input['DomainRetentionPolicyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_mode is None and 'authMode' in kwargs:
+            auth_mode = kwargs['authMode']
+        if auth_mode is None:
+            raise TypeError("Missing 'auth_mode' argument")
+        if default_user_settings is None and 'defaultUserSettings' in kwargs:
+            default_user_settings = kwargs['defaultUserSettings']
+        if default_user_settings is None:
+            raise TypeError("Missing 'default_user_settings' argument")
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if app_network_access_type is None and 'appNetworkAccessType' in kwargs:
+            app_network_access_type = kwargs['appNetworkAccessType']
+        if app_security_group_management is None and 'appSecurityGroupManagement' in kwargs:
+            app_security_group_management = kwargs['appSecurityGroupManagement']
+        if default_space_settings is None and 'defaultSpaceSettings' in kwargs:
+            default_space_settings = kwargs['defaultSpaceSettings']
+        if domain_settings is None and 'domainSettings' in kwargs:
+            domain_settings = kwargs['domainSettings']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if retention_policy is None and 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+
+        _setter("auth_mode", auth_mode)
+        _setter("default_user_settings", default_user_settings)
+        _setter("domain_name", domain_name)
+        _setter("subnet_ids", subnet_ids)
+        _setter("vpc_id", vpc_id)
         if app_network_access_type is not None:
-            pulumi.set(__self__, "app_network_access_type", app_network_access_type)
+            _setter("app_network_access_type", app_network_access_type)
         if app_security_group_management is not None:
-            pulumi.set(__self__, "app_security_group_management", app_security_group_management)
+            _setter("app_security_group_management", app_security_group_management)
         if default_space_settings is not None:
-            pulumi.set(__self__, "default_space_settings", default_space_settings)
+            _setter("default_space_settings", default_space_settings)
         if domain_settings is not None:
-            pulumi.set(__self__, "domain_settings", domain_settings)
+            _setter("domain_settings", domain_settings)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="authMode")
@@ -251,45 +316,120 @@ class _DomainState:
                
                The following arguments are optional:
         """
+        _DomainState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_network_access_type=app_network_access_type,
+            app_security_group_management=app_security_group_management,
+            arn=arn,
+            auth_mode=auth_mode,
+            default_space_settings=default_space_settings,
+            default_user_settings=default_user_settings,
+            domain_name=domain_name,
+            domain_settings=domain_settings,
+            home_efs_file_system_id=home_efs_file_system_id,
+            kms_key_id=kms_key_id,
+            retention_policy=retention_policy,
+            security_group_id_for_domain_boundary=security_group_id_for_domain_boundary,
+            single_sign_on_managed_application_instance_id=single_sign_on_managed_application_instance_id,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            tags_all=tags_all,
+            url=url,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_network_access_type: Optional[pulumi.Input[str]] = None,
+             app_security_group_management: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             auth_mode: Optional[pulumi.Input[str]] = None,
+             default_space_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']] = None,
+             default_user_settings: Optional[pulumi.Input['DomainDefaultUserSettingsArgs']] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             domain_settings: Optional[pulumi.Input['DomainDomainSettingsArgs']] = None,
+             home_efs_file_system_id: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             retention_policy: Optional[pulumi.Input['DomainRetentionPolicyArgs']] = None,
+             security_group_id_for_domain_boundary: Optional[pulumi.Input[str]] = None,
+             single_sign_on_managed_application_instance_id: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_network_access_type is None and 'appNetworkAccessType' in kwargs:
+            app_network_access_type = kwargs['appNetworkAccessType']
+        if app_security_group_management is None and 'appSecurityGroupManagement' in kwargs:
+            app_security_group_management = kwargs['appSecurityGroupManagement']
+        if auth_mode is None and 'authMode' in kwargs:
+            auth_mode = kwargs['authMode']
+        if default_space_settings is None and 'defaultSpaceSettings' in kwargs:
+            default_space_settings = kwargs['defaultSpaceSettings']
+        if default_user_settings is None and 'defaultUserSettings' in kwargs:
+            default_user_settings = kwargs['defaultUserSettings']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_settings is None and 'domainSettings' in kwargs:
+            domain_settings = kwargs['domainSettings']
+        if home_efs_file_system_id is None and 'homeEfsFileSystemId' in kwargs:
+            home_efs_file_system_id = kwargs['homeEfsFileSystemId']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if retention_policy is None and 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if security_group_id_for_domain_boundary is None and 'securityGroupIdForDomainBoundary' in kwargs:
+            security_group_id_for_domain_boundary = kwargs['securityGroupIdForDomainBoundary']
+        if single_sign_on_managed_application_instance_id is None and 'singleSignOnManagedApplicationInstanceId' in kwargs:
+            single_sign_on_managed_application_instance_id = kwargs['singleSignOnManagedApplicationInstanceId']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if app_network_access_type is not None:
-            pulumi.set(__self__, "app_network_access_type", app_network_access_type)
+            _setter("app_network_access_type", app_network_access_type)
         if app_security_group_management is not None:
-            pulumi.set(__self__, "app_security_group_management", app_security_group_management)
+            _setter("app_security_group_management", app_security_group_management)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auth_mode is not None:
-            pulumi.set(__self__, "auth_mode", auth_mode)
+            _setter("auth_mode", auth_mode)
         if default_space_settings is not None:
-            pulumi.set(__self__, "default_space_settings", default_space_settings)
+            _setter("default_space_settings", default_space_settings)
         if default_user_settings is not None:
-            pulumi.set(__self__, "default_user_settings", default_user_settings)
+            _setter("default_user_settings", default_user_settings)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if domain_settings is not None:
-            pulumi.set(__self__, "domain_settings", domain_settings)
+            _setter("domain_settings", domain_settings)
         if home_efs_file_system_id is not None:
-            pulumi.set(__self__, "home_efs_file_system_id", home_efs_file_system_id)
+            _setter("home_efs_file_system_id", home_efs_file_system_id)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if security_group_id_for_domain_boundary is not None:
-            pulumi.set(__self__, "security_group_id_for_domain_boundary", security_group_id_for_domain_boundary)
+            _setter("security_group_id_for_domain_boundary", security_group_id_for_domain_boundary)
         if single_sign_on_managed_application_instance_id is not None:
-            pulumi.set(__self__, "single_sign_on_managed_application_instance_id", single_sign_on_managed_application_instance_id)
+            _setter("single_sign_on_managed_application_instance_id", single_sign_on_managed_application_instance_id)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="appNetworkAccessType")
@@ -704,6 +844,10 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -735,15 +879,19 @@ class Domain(pulumi.CustomResource):
             if auth_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_mode'")
             __props__.__dict__["auth_mode"] = auth_mode
+            default_space_settings = _utilities.configure(default_space_settings, DomainDefaultSpaceSettingsArgs, True)
             __props__.__dict__["default_space_settings"] = default_space_settings
+            default_user_settings = _utilities.configure(default_user_settings, DomainDefaultUserSettingsArgs, True)
             if default_user_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'default_user_settings'")
             __props__.__dict__["default_user_settings"] = default_user_settings
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            domain_settings = _utilities.configure(domain_settings, DomainDomainSettingsArgs, True)
             __props__.__dict__["domain_settings"] = domain_settings
             __props__.__dict__["kms_key_id"] = kms_key_id
+            retention_policy = _utilities.configure(retention_policy, DomainRetentionPolicyArgs, True)
             __props__.__dict__["retention_policy"] = retention_policy
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HostedConnectionArgs', 'HostedConnection']
@@ -27,12 +27,43 @@ class HostedConnectionArgs:
         :param pulumi.Input[int] vlan: The dedicated VLAN provisioned to the hosted connection.
         :param pulumi.Input[str] name: The name of the connection.
         """
-        pulumi.set(__self__, "bandwidth", bandwidth)
-        pulumi.set(__self__, "connection_id", connection_id)
-        pulumi.set(__self__, "owner_account_id", owner_account_id)
-        pulumi.set(__self__, "vlan", vlan)
+        HostedConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bandwidth=bandwidth,
+            connection_id=connection_id,
+            owner_account_id=owner_account_id,
+            vlan=vlan,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bandwidth: Optional[pulumi.Input[str]] = None,
+             connection_id: Optional[pulumi.Input[str]] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             vlan: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bandwidth is None:
+            raise TypeError("Missing 'bandwidth' argument")
+        if connection_id is None and 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if connection_id is None:
+            raise TypeError("Missing 'connection_id' argument")
+        if owner_account_id is None and 'ownerAccountId' in kwargs:
+            owner_account_id = kwargs['ownerAccountId']
+        if owner_account_id is None:
+            raise TypeError("Missing 'owner_account_id' argument")
+        if vlan is None:
+            raise TypeError("Missing 'vlan' argument")
+
+        _setter("bandwidth", bandwidth)
+        _setter("connection_id", connection_id)
+        _setter("owner_account_id", owner_account_id)
+        _setter("vlan", vlan)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -131,36 +162,93 @@ class _HostedConnectionState:
         :param pulumi.Input[str] state: The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
         :param pulumi.Input[int] vlan: The dedicated VLAN provisioned to the hosted connection.
         """
+        _HostedConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_device=aws_device,
+            bandwidth=bandwidth,
+            connection_id=connection_id,
+            has_logical_redundancy=has_logical_redundancy,
+            jumbo_frame_capable=jumbo_frame_capable,
+            lag_id=lag_id,
+            loa_issue_time=loa_issue_time,
+            location=location,
+            name=name,
+            owner_account_id=owner_account_id,
+            partner_name=partner_name,
+            provider_name=provider_name,
+            region=region,
+            state=state,
+            vlan=vlan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_device: Optional[pulumi.Input[str]] = None,
+             bandwidth: Optional[pulumi.Input[str]] = None,
+             connection_id: Optional[pulumi.Input[str]] = None,
+             has_logical_redundancy: Optional[pulumi.Input[str]] = None,
+             jumbo_frame_capable: Optional[pulumi.Input[bool]] = None,
+             lag_id: Optional[pulumi.Input[str]] = None,
+             loa_issue_time: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             partner_name: Optional[pulumi.Input[str]] = None,
+             provider_name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             vlan: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_device is None and 'awsDevice' in kwargs:
+            aws_device = kwargs['awsDevice']
+        if connection_id is None and 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if has_logical_redundancy is None and 'hasLogicalRedundancy' in kwargs:
+            has_logical_redundancy = kwargs['hasLogicalRedundancy']
+        if jumbo_frame_capable is None and 'jumboFrameCapable' in kwargs:
+            jumbo_frame_capable = kwargs['jumboFrameCapable']
+        if lag_id is None and 'lagId' in kwargs:
+            lag_id = kwargs['lagId']
+        if loa_issue_time is None and 'loaIssueTime' in kwargs:
+            loa_issue_time = kwargs['loaIssueTime']
+        if owner_account_id is None and 'ownerAccountId' in kwargs:
+            owner_account_id = kwargs['ownerAccountId']
+        if partner_name is None and 'partnerName' in kwargs:
+            partner_name = kwargs['partnerName']
+        if provider_name is None and 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+
         if aws_device is not None:
-            pulumi.set(__self__, "aws_device", aws_device)
+            _setter("aws_device", aws_device)
         if bandwidth is not None:
-            pulumi.set(__self__, "bandwidth", bandwidth)
+            _setter("bandwidth", bandwidth)
         if connection_id is not None:
-            pulumi.set(__self__, "connection_id", connection_id)
+            _setter("connection_id", connection_id)
         if has_logical_redundancy is not None:
-            pulumi.set(__self__, "has_logical_redundancy", has_logical_redundancy)
+            _setter("has_logical_redundancy", has_logical_redundancy)
         if jumbo_frame_capable is not None:
-            pulumi.set(__self__, "jumbo_frame_capable", jumbo_frame_capable)
+            _setter("jumbo_frame_capable", jumbo_frame_capable)
         if lag_id is not None:
-            pulumi.set(__self__, "lag_id", lag_id)
+            _setter("lag_id", lag_id)
         if loa_issue_time is not None:
-            pulumi.set(__self__, "loa_issue_time", loa_issue_time)
+            _setter("loa_issue_time", loa_issue_time)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_account_id is not None:
-            pulumi.set(__self__, "owner_account_id", owner_account_id)
+            _setter("owner_account_id", owner_account_id)
         if partner_name is not None:
-            pulumi.set(__self__, "partner_name", partner_name)
+            _setter("partner_name", partner_name)
         if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
+            _setter("provider_name", provider_name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if vlan is not None:
-            pulumi.set(__self__, "vlan", vlan)
+            _setter("vlan", vlan)
 
     @property
     @pulumi.getter(name="awsDevice")
@@ -410,6 +498,10 @@ class HostedConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HostedConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

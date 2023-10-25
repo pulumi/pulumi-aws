@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -61,36 +61,115 @@ class IntegrationArgs:
                For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
                e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
         """
-        pulumi.set(__self__, "http_method", http_method)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "rest_api", rest_api)
-        pulumi.set(__self__, "type", type)
+        IntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_method=http_method,
+            resource_id=resource_id,
+            rest_api=rest_api,
+            type=type,
+            cache_key_parameters=cache_key_parameters,
+            cache_namespace=cache_namespace,
+            connection_id=connection_id,
+            connection_type=connection_type,
+            content_handling=content_handling,
+            credentials=credentials,
+            integration_http_method=integration_http_method,
+            passthrough_behavior=passthrough_behavior,
+            request_parameters=request_parameters,
+            request_templates=request_templates,
+            timeout_milliseconds=timeout_milliseconds,
+            tls_config=tls_config,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_method: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             cache_key_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cache_namespace: Optional[pulumi.Input[str]] = None,
+             connection_id: Optional[pulumi.Input[str]] = None,
+             connection_type: Optional[pulumi.Input[str]] = None,
+             content_handling: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input[str]] = None,
+             integration_http_method: Optional[pulumi.Input[str]] = None,
+             passthrough_behavior: Optional[pulumi.Input[str]] = None,
+             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout_milliseconds: Optional[pulumi.Input[int]] = None,
+             tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if http_method is None:
+            raise TypeError("Missing 'http_method' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if rest_api is None:
+            raise TypeError("Missing 'rest_api' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if cache_key_parameters is None and 'cacheKeyParameters' in kwargs:
+            cache_key_parameters = kwargs['cacheKeyParameters']
+        if cache_namespace is None and 'cacheNamespace' in kwargs:
+            cache_namespace = kwargs['cacheNamespace']
+        if connection_id is None and 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if connection_type is None and 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if content_handling is None and 'contentHandling' in kwargs:
+            content_handling = kwargs['contentHandling']
+        if integration_http_method is None and 'integrationHttpMethod' in kwargs:
+            integration_http_method = kwargs['integrationHttpMethod']
+        if passthrough_behavior is None and 'passthroughBehavior' in kwargs:
+            passthrough_behavior = kwargs['passthroughBehavior']
+        if request_parameters is None and 'requestParameters' in kwargs:
+            request_parameters = kwargs['requestParameters']
+        if request_templates is None and 'requestTemplates' in kwargs:
+            request_templates = kwargs['requestTemplates']
+        if timeout_milliseconds is None and 'timeoutMilliseconds' in kwargs:
+            timeout_milliseconds = kwargs['timeoutMilliseconds']
+        if tls_config is None and 'tlsConfig' in kwargs:
+            tls_config = kwargs['tlsConfig']
+
+        _setter("http_method", http_method)
+        _setter("resource_id", resource_id)
+        _setter("rest_api", rest_api)
+        _setter("type", type)
         if cache_key_parameters is not None:
-            pulumi.set(__self__, "cache_key_parameters", cache_key_parameters)
+            _setter("cache_key_parameters", cache_key_parameters)
         if cache_namespace is not None:
-            pulumi.set(__self__, "cache_namespace", cache_namespace)
+            _setter("cache_namespace", cache_namespace)
         if connection_id is not None:
-            pulumi.set(__self__, "connection_id", connection_id)
+            _setter("connection_id", connection_id)
         if connection_type is not None:
-            pulumi.set(__self__, "connection_type", connection_type)
+            _setter("connection_type", connection_type)
         if content_handling is not None:
-            pulumi.set(__self__, "content_handling", content_handling)
+            _setter("content_handling", content_handling)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if integration_http_method is not None:
-            pulumi.set(__self__, "integration_http_method", integration_http_method)
+            _setter("integration_http_method", integration_http_method)
         if passthrough_behavior is not None:
-            pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
+            _setter("passthrough_behavior", passthrough_behavior)
         if request_parameters is not None:
-            pulumi.set(__self__, "request_parameters", request_parameters)
+            _setter("request_parameters", request_parameters)
         if request_templates is not None:
-            pulumi.set(__self__, "request_templates", request_templates)
+            _setter("request_templates", request_templates)
         if timeout_milliseconds is not None:
-            pulumi.set(__self__, "timeout_milliseconds", timeout_milliseconds)
+            _setter("timeout_milliseconds", timeout_milliseconds)
         if tls_config is not None:
-            pulumi.set(__self__, "tls_config", tls_config)
+            _setter("tls_config", tls_config)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="httpMethod")
@@ -353,40 +432,111 @@ class _IntegrationState:
                For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
                e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
         """
+        _IntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_key_parameters=cache_key_parameters,
+            cache_namespace=cache_namespace,
+            connection_id=connection_id,
+            connection_type=connection_type,
+            content_handling=content_handling,
+            credentials=credentials,
+            http_method=http_method,
+            integration_http_method=integration_http_method,
+            passthrough_behavior=passthrough_behavior,
+            request_parameters=request_parameters,
+            request_templates=request_templates,
+            resource_id=resource_id,
+            rest_api=rest_api,
+            timeout_milliseconds=timeout_milliseconds,
+            tls_config=tls_config,
+            type=type,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_key_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cache_namespace: Optional[pulumi.Input[str]] = None,
+             connection_id: Optional[pulumi.Input[str]] = None,
+             connection_type: Optional[pulumi.Input[str]] = None,
+             content_handling: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input[str]] = None,
+             http_method: Optional[pulumi.Input[str]] = None,
+             integration_http_method: Optional[pulumi.Input[str]] = None,
+             passthrough_behavior: Optional[pulumi.Input[str]] = None,
+             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             timeout_milliseconds: Optional[pulumi.Input[int]] = None,
+             tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cache_key_parameters is None and 'cacheKeyParameters' in kwargs:
+            cache_key_parameters = kwargs['cacheKeyParameters']
+        if cache_namespace is None and 'cacheNamespace' in kwargs:
+            cache_namespace = kwargs['cacheNamespace']
+        if connection_id is None and 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if connection_type is None and 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if content_handling is None and 'contentHandling' in kwargs:
+            content_handling = kwargs['contentHandling']
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if integration_http_method is None and 'integrationHttpMethod' in kwargs:
+            integration_http_method = kwargs['integrationHttpMethod']
+        if passthrough_behavior is None and 'passthroughBehavior' in kwargs:
+            passthrough_behavior = kwargs['passthroughBehavior']
+        if request_parameters is None and 'requestParameters' in kwargs:
+            request_parameters = kwargs['requestParameters']
+        if request_templates is None and 'requestTemplates' in kwargs:
+            request_templates = kwargs['requestTemplates']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if timeout_milliseconds is None and 'timeoutMilliseconds' in kwargs:
+            timeout_milliseconds = kwargs['timeoutMilliseconds']
+        if tls_config is None and 'tlsConfig' in kwargs:
+            tls_config = kwargs['tlsConfig']
+
         if cache_key_parameters is not None:
-            pulumi.set(__self__, "cache_key_parameters", cache_key_parameters)
+            _setter("cache_key_parameters", cache_key_parameters)
         if cache_namespace is not None:
-            pulumi.set(__self__, "cache_namespace", cache_namespace)
+            _setter("cache_namespace", cache_namespace)
         if connection_id is not None:
-            pulumi.set(__self__, "connection_id", connection_id)
+            _setter("connection_id", connection_id)
         if connection_type is not None:
-            pulumi.set(__self__, "connection_type", connection_type)
+            _setter("connection_type", connection_type)
         if content_handling is not None:
-            pulumi.set(__self__, "content_handling", content_handling)
+            _setter("content_handling", content_handling)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if http_method is not None:
-            pulumi.set(__self__, "http_method", http_method)
+            _setter("http_method", http_method)
         if integration_http_method is not None:
-            pulumi.set(__self__, "integration_http_method", integration_http_method)
+            _setter("integration_http_method", integration_http_method)
         if passthrough_behavior is not None:
-            pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
+            _setter("passthrough_behavior", passthrough_behavior)
         if request_parameters is not None:
-            pulumi.set(__self__, "request_parameters", request_parameters)
+            _setter("request_parameters", request_parameters)
         if request_templates is not None:
-            pulumi.set(__self__, "request_templates", request_templates)
+            _setter("request_templates", request_templates)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
         if timeout_milliseconds is not None:
-            pulumi.set(__self__, "timeout_milliseconds", timeout_milliseconds)
+            _setter("timeout_milliseconds", timeout_milliseconds)
         if tls_config is not None:
-            pulumi.set(__self__, "tls_config", tls_config)
+            _setter("tls_config", tls_config)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="cacheKeyParameters")
@@ -856,6 +1006,10 @@ class Integration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -907,6 +1061,7 @@ class Integration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
             __props__.__dict__["timeout_milliseconds"] = timeout_milliseconds
+            tls_config = _utilities.configure(tls_config, IntegrationTlsConfigArgs, True)
             __props__.__dict__["tls_config"] = tls_config
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

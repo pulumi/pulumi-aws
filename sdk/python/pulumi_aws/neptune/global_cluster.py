@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,17 +32,50 @@ class GlobalClusterArgs:
         :param pulumi.Input[str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """
-        pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        GlobalClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_cluster_identifier=global_cluster_identifier,
+            deletion_protection=deletion_protection,
+            engine=engine,
+            engine_version=engine_version,
+            source_db_cluster_identifier=source_db_cluster_identifier,
+            storage_encrypted=storage_encrypted,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             deletion_protection: Optional[pulumi.Input[bool]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             storage_encrypted: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_cluster_identifier is None and 'globalClusterIdentifier' in kwargs:
+            global_cluster_identifier = kwargs['globalClusterIdentifier']
+        if global_cluster_identifier is None:
+            raise TypeError("Missing 'global_cluster_identifier' argument")
+        if deletion_protection is None and 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if source_db_cluster_identifier is None and 'sourceDbClusterIdentifier' in kwargs:
+            source_db_cluster_identifier = kwargs['sourceDbClusterIdentifier']
+        if storage_encrypted is None and 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+
+        _setter("global_cluster_identifier", global_cluster_identifier)
         if deletion_protection is not None:
-            pulumi.set(__self__, "deletion_protection", deletion_protection)
+            _setter("deletion_protection", deletion_protection)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if source_db_cluster_identifier is not None:
-            pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
+            _setter("source_db_cluster_identifier", source_db_cluster_identifier)
         if storage_encrypted is not None:
-            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+            _setter("storage_encrypted", storage_encrypted)
 
     @property
     @pulumi.getter(name="globalClusterIdentifier")
@@ -144,26 +177,69 @@ class _GlobalClusterState:
         :param pulumi.Input[str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         """
+        _GlobalClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            deletion_protection=deletion_protection,
+            engine=engine,
+            engine_version=engine_version,
+            global_cluster_identifier=global_cluster_identifier,
+            global_cluster_members=global_cluster_members,
+            global_cluster_resource_id=global_cluster_resource_id,
+            source_db_cluster_identifier=source_db_cluster_identifier,
+            status=status,
+            storage_encrypted=storage_encrypted,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             deletion_protection: Optional[pulumi.Input[bool]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             global_cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]] = None,
+             global_cluster_resource_id: Optional[pulumi.Input[str]] = None,
+             source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             storage_encrypted: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deletion_protection is None and 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if global_cluster_identifier is None and 'globalClusterIdentifier' in kwargs:
+            global_cluster_identifier = kwargs['globalClusterIdentifier']
+        if global_cluster_members is None and 'globalClusterMembers' in kwargs:
+            global_cluster_members = kwargs['globalClusterMembers']
+        if global_cluster_resource_id is None and 'globalClusterResourceId' in kwargs:
+            global_cluster_resource_id = kwargs['globalClusterResourceId']
+        if source_db_cluster_identifier is None and 'sourceDbClusterIdentifier' in kwargs:
+            source_db_cluster_identifier = kwargs['sourceDbClusterIdentifier']
+        if storage_encrypted is None and 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if deletion_protection is not None:
-            pulumi.set(__self__, "deletion_protection", deletion_protection)
+            _setter("deletion_protection", deletion_protection)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if global_cluster_identifier is not None:
-            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+            _setter("global_cluster_identifier", global_cluster_identifier)
         if global_cluster_members is not None:
-            pulumi.set(__self__, "global_cluster_members", global_cluster_members)
+            _setter("global_cluster_members", global_cluster_members)
         if global_cluster_resource_id is not None:
-            pulumi.set(__self__, "global_cluster_resource_id", global_cluster_resource_id)
+            _setter("global_cluster_resource_id", global_cluster_resource_id)
         if source_db_cluster_identifier is not None:
-            pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
+            _setter("source_db_cluster_identifier", source_db_cluster_identifier)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if storage_encrypted is not None:
-            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+            _setter("storage_encrypted", storage_encrypted)
 
     @property
     @pulumi.getter
@@ -466,6 +542,10 @@ class GlobalCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GlobalClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

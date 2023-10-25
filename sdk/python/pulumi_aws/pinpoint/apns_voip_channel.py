@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApnsVoipChannelArgs', 'ApnsVoipChannel']
@@ -44,23 +44,66 @@ class ApnsVoipChannelArgs:
         :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
         :param pulumi.Input[str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         """
-        pulumi.set(__self__, "application_id", application_id)
+        ApnsVoipChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            bundle_id=bundle_id,
+            certificate=certificate,
+            default_authentication_method=default_authentication_method,
+            enabled=enabled,
+            private_key=private_key,
+            team_id=team_id,
+            token_key=token_key,
+            token_key_id=token_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             bundle_id: Optional[pulumi.Input[str]] = None,
+             certificate: Optional[pulumi.Input[str]] = None,
+             default_authentication_method: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             token_key: Optional[pulumi.Input[str]] = None,
+             token_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if bundle_id is None and 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if default_authentication_method is None and 'defaultAuthenticationMethod' in kwargs:
+            default_authentication_method = kwargs['defaultAuthenticationMethod']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if token_key is None and 'tokenKey' in kwargs:
+            token_key = kwargs['tokenKey']
+        if token_key_id is None and 'tokenKeyId' in kwargs:
+            token_key_id = kwargs['tokenKeyId']
+
+        _setter("application_id", application_id)
         if bundle_id is not None:
-            pulumi.set(__self__, "bundle_id", bundle_id)
+            _setter("bundle_id", bundle_id)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if default_authentication_method is not None:
-            pulumi.set(__self__, "default_authentication_method", default_authentication_method)
+            _setter("default_authentication_method", default_authentication_method)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
         if token_key is not None:
-            pulumi.set(__self__, "token_key", token_key)
+            _setter("token_key", token_key)
         if token_key_id is not None:
-            pulumi.set(__self__, "token_key_id", token_key_id)
+            _setter("token_key_id", token_key_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -213,24 +256,65 @@ class _ApnsVoipChannelState:
         :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
         :param pulumi.Input[str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         """
+        _ApnsVoipChannelState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            bundle_id=bundle_id,
+            certificate=certificate,
+            default_authentication_method=default_authentication_method,
+            enabled=enabled,
+            private_key=private_key,
+            team_id=team_id,
+            token_key=token_key,
+            token_key_id=token_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             bundle_id: Optional[pulumi.Input[str]] = None,
+             certificate: Optional[pulumi.Input[str]] = None,
+             default_authentication_method: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             token_key: Optional[pulumi.Input[str]] = None,
+             token_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if bundle_id is None and 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if default_authentication_method is None and 'defaultAuthenticationMethod' in kwargs:
+            default_authentication_method = kwargs['defaultAuthenticationMethod']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if token_key is None and 'tokenKey' in kwargs:
+            token_key = kwargs['tokenKey']
+        if token_key_id is None and 'tokenKeyId' in kwargs:
+            token_key_id = kwargs['tokenKeyId']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if bundle_id is not None:
-            pulumi.set(__self__, "bundle_id", bundle_id)
+            _setter("bundle_id", bundle_id)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if default_authentication_method is not None:
-            pulumi.set(__self__, "default_authentication_method", default_authentication_method)
+            _setter("default_authentication_method", default_authentication_method)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
         if token_key is not None:
-            pulumi.set(__self__, "token_key", token_key)
+            _setter("token_key", token_key)
         if token_key_id is not None:
-            pulumi.set(__self__, "token_key_id", token_key_id)
+            _setter("token_key_id", token_key_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -452,6 +536,10 @@ class ApnsVoipChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApnsVoipChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

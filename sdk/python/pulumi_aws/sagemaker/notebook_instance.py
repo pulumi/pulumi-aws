@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -52,36 +52,109 @@ class NotebookInstanceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] volume_size: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
-        pulumi.set(__self__, "role_arn", role_arn)
+        NotebookInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            role_arn=role_arn,
+            accelerator_types=accelerator_types,
+            additional_code_repositories=additional_code_repositories,
+            default_code_repository=default_code_repository,
+            direct_internet_access=direct_internet_access,
+            instance_metadata_service_configuration=instance_metadata_service_configuration,
+            kms_key_id=kms_key_id,
+            lifecycle_config_name=lifecycle_config_name,
+            name=name,
+            platform_identifier=platform_identifier,
+            root_access=root_access,
+            security_groups=security_groups,
+            subnet_id=subnet_id,
+            tags=tags,
+            volume_size=volume_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_code_repository: Optional[pulumi.Input[str]] = None,
+             direct_internet_access: Optional[pulumi.Input[str]] = None,
+             instance_metadata_service_configuration: Optional[pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs']] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             platform_identifier: Optional[pulumi.Input[str]] = None,
+             root_access: Optional[pulumi.Input[str]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             volume_size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if accelerator_types is None and 'acceleratorTypes' in kwargs:
+            accelerator_types = kwargs['acceleratorTypes']
+        if additional_code_repositories is None and 'additionalCodeRepositories' in kwargs:
+            additional_code_repositories = kwargs['additionalCodeRepositories']
+        if default_code_repository is None and 'defaultCodeRepository' in kwargs:
+            default_code_repository = kwargs['defaultCodeRepository']
+        if direct_internet_access is None and 'directInternetAccess' in kwargs:
+            direct_internet_access = kwargs['directInternetAccess']
+        if instance_metadata_service_configuration is None and 'instanceMetadataServiceConfiguration' in kwargs:
+            instance_metadata_service_configuration = kwargs['instanceMetadataServiceConfiguration']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if lifecycle_config_name is None and 'lifecycleConfigName' in kwargs:
+            lifecycle_config_name = kwargs['lifecycleConfigName']
+        if platform_identifier is None and 'platformIdentifier' in kwargs:
+            platform_identifier = kwargs['platformIdentifier']
+        if root_access is None and 'rootAccess' in kwargs:
+            root_access = kwargs['rootAccess']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+
+        _setter("instance_type", instance_type)
+        _setter("role_arn", role_arn)
         if accelerator_types is not None:
-            pulumi.set(__self__, "accelerator_types", accelerator_types)
+            _setter("accelerator_types", accelerator_types)
         if additional_code_repositories is not None:
-            pulumi.set(__self__, "additional_code_repositories", additional_code_repositories)
+            _setter("additional_code_repositories", additional_code_repositories)
         if default_code_repository is not None:
-            pulumi.set(__self__, "default_code_repository", default_code_repository)
+            _setter("default_code_repository", default_code_repository)
         if direct_internet_access is not None:
-            pulumi.set(__self__, "direct_internet_access", direct_internet_access)
+            _setter("direct_internet_access", direct_internet_access)
         if instance_metadata_service_configuration is not None:
-            pulumi.set(__self__, "instance_metadata_service_configuration", instance_metadata_service_configuration)
+            _setter("instance_metadata_service_configuration", instance_metadata_service_configuration)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if lifecycle_config_name is not None:
-            pulumi.set(__self__, "lifecycle_config_name", lifecycle_config_name)
+            _setter("lifecycle_config_name", lifecycle_config_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if platform_identifier is not None:
-            pulumi.set(__self__, "platform_identifier", platform_identifier)
+            _setter("platform_identifier", platform_identifier)
         if root_access is not None:
-            pulumi.set(__self__, "root_access", root_access)
+            _setter("root_access", root_access)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if volume_size is not None:
-            pulumi.set(__self__, "volume_size", volume_size)
+            _setter("volume_size", volume_size)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -324,49 +397,130 @@ class _NotebookInstanceState:
         :param pulumi.Input[str] url: The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
         :param pulumi.Input[int] volume_size: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         """
+        _NotebookInstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accelerator_types=accelerator_types,
+            additional_code_repositories=additional_code_repositories,
+            arn=arn,
+            default_code_repository=default_code_repository,
+            direct_internet_access=direct_internet_access,
+            instance_metadata_service_configuration=instance_metadata_service_configuration,
+            instance_type=instance_type,
+            kms_key_id=kms_key_id,
+            lifecycle_config_name=lifecycle_config_name,
+            name=name,
+            network_interface_id=network_interface_id,
+            platform_identifier=platform_identifier,
+            role_arn=role_arn,
+            root_access=root_access,
+            security_groups=security_groups,
+            subnet_id=subnet_id,
+            tags=tags,
+            tags_all=tags_all,
+            url=url,
+            volume_size=volume_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             default_code_repository: Optional[pulumi.Input[str]] = None,
+             direct_internet_access: Optional[pulumi.Input[str]] = None,
+             instance_metadata_service_configuration: Optional[pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs']] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             platform_identifier: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             root_access: Optional[pulumi.Input[str]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             volume_size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accelerator_types is None and 'acceleratorTypes' in kwargs:
+            accelerator_types = kwargs['acceleratorTypes']
+        if additional_code_repositories is None and 'additionalCodeRepositories' in kwargs:
+            additional_code_repositories = kwargs['additionalCodeRepositories']
+        if default_code_repository is None and 'defaultCodeRepository' in kwargs:
+            default_code_repository = kwargs['defaultCodeRepository']
+        if direct_internet_access is None and 'directInternetAccess' in kwargs:
+            direct_internet_access = kwargs['directInternetAccess']
+        if instance_metadata_service_configuration is None and 'instanceMetadataServiceConfiguration' in kwargs:
+            instance_metadata_service_configuration = kwargs['instanceMetadataServiceConfiguration']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if lifecycle_config_name is None and 'lifecycleConfigName' in kwargs:
+            lifecycle_config_name = kwargs['lifecycleConfigName']
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if platform_identifier is None and 'platformIdentifier' in kwargs:
+            platform_identifier = kwargs['platformIdentifier']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if root_access is None and 'rootAccess' in kwargs:
+            root_access = kwargs['rootAccess']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+
         if accelerator_types is not None:
-            pulumi.set(__self__, "accelerator_types", accelerator_types)
+            _setter("accelerator_types", accelerator_types)
         if additional_code_repositories is not None:
-            pulumi.set(__self__, "additional_code_repositories", additional_code_repositories)
+            _setter("additional_code_repositories", additional_code_repositories)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if default_code_repository is not None:
-            pulumi.set(__self__, "default_code_repository", default_code_repository)
+            _setter("default_code_repository", default_code_repository)
         if direct_internet_access is not None:
-            pulumi.set(__self__, "direct_internet_access", direct_internet_access)
+            _setter("direct_internet_access", direct_internet_access)
         if instance_metadata_service_configuration is not None:
-            pulumi.set(__self__, "instance_metadata_service_configuration", instance_metadata_service_configuration)
+            _setter("instance_metadata_service_configuration", instance_metadata_service_configuration)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if lifecycle_config_name is not None:
-            pulumi.set(__self__, "lifecycle_config_name", lifecycle_config_name)
+            _setter("lifecycle_config_name", lifecycle_config_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if platform_identifier is not None:
-            pulumi.set(__self__, "platform_identifier", platform_identifier)
+            _setter("platform_identifier", platform_identifier)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if root_access is not None:
-            pulumi.set(__self__, "root_access", root_access)
+            _setter("root_access", root_access)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if volume_size is not None:
-            pulumi.set(__self__, "volume_size", volume_size)
+            _setter("volume_size", volume_size)
 
     @property
     @pulumi.getter(name="acceleratorTypes")
@@ -761,6 +915,10 @@ class NotebookInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotebookInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -795,6 +953,7 @@ class NotebookInstance(pulumi.CustomResource):
             __props__.__dict__["additional_code_repositories"] = additional_code_repositories
             __props__.__dict__["default_code_repository"] = default_code_repository
             __props__.__dict__["direct_internet_access"] = direct_internet_access
+            instance_metadata_service_configuration = _utilities.configure(instance_metadata_service_configuration, NotebookInstanceInstanceMetadataServiceConfigurationArgs, True)
             __props__.__dict__["instance_metadata_service_configuration"] = instance_metadata_service_configuration
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -39,11 +39,30 @@ class FrameworkControlArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArgs']]] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
         :param pulumi.Input['FrameworkControlScopeArgs'] scope: The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         """
-        pulumi.set(__self__, "name", name)
+        FrameworkControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            input_parameters=input_parameters,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArgs']]]] = None,
+             scope: Optional[pulumi.Input['FrameworkControlScopeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if input_parameters is None and 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+
+        _setter("name", name)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -91,10 +110,23 @@ class FrameworkControlInputParameterArgs:
         :param pulumi.Input[str] name: The name of a parameter, for example, BackupPlanFrequency.
         :param pulumi.Input[str] value: The value of parameter, for example, hourly.
         """
+        FrameworkControlInputParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -132,12 +164,31 @@ class FrameworkControlScopeArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compliance_resource_types: Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         """
+        FrameworkControlScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_resource_ids=compliance_resource_ids,
+            compliance_resource_types=compliance_resource_types,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             compliance_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compliance_resource_ids is None and 'complianceResourceIds' in kwargs:
+            compliance_resource_ids = kwargs['complianceResourceIds']
+        if compliance_resource_types is None and 'complianceResourceTypes' in kwargs:
+            compliance_resource_types = kwargs['complianceResourceTypes']
+
         if compliance_resource_ids is not None:
-            pulumi.set(__self__, "compliance_resource_ids", compliance_resource_ids)
+            _setter("compliance_resource_ids", compliance_resource_ids)
         if compliance_resource_types is not None:
-            pulumi.set(__self__, "compliance_resource_types", compliance_resource_types)
+            _setter("compliance_resource_types", compliance_resource_types)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="complianceResourceIds")
@@ -185,8 +236,29 @@ class PlanAdvancedBackupSettingArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_options: Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
         :param pulumi.Input[str] resource_type: The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
         """
-        pulumi.set(__self__, "backup_options", backup_options)
-        pulumi.set(__self__, "resource_type", resource_type)
+        PlanAdvancedBackupSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_options=backup_options,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_options is None and 'backupOptions' in kwargs:
+            backup_options = kwargs['backupOptions']
+        if backup_options is None:
+            raise TypeError("Missing 'backup_options' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+
+        _setter("backup_options", backup_options)
+        _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter(name="backupOptions")
@@ -236,22 +308,67 @@ class PlanRuleArgs:
         :param pulumi.Input[str] schedule: A CRON expression specifying when AWS Backup initiates a backup job.
         :param pulumi.Input[int] start_window: The amount of time in minutes before beginning a backup.
         """
-        pulumi.set(__self__, "rule_name", rule_name)
-        pulumi.set(__self__, "target_vault_name", target_vault_name)
+        PlanRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_name=rule_name,
+            target_vault_name=target_vault_name,
+            completion_window=completion_window,
+            copy_actions=copy_actions,
+            enable_continuous_backup=enable_continuous_backup,
+            lifecycle=lifecycle,
+            recovery_point_tags=recovery_point_tags,
+            schedule=schedule,
+            start_window=start_window,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_name: Optional[pulumi.Input[str]] = None,
+             target_vault_name: Optional[pulumi.Input[str]] = None,
+             completion_window: Optional[pulumi.Input[int]] = None,
+             copy_actions: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArgs']]]] = None,
+             enable_continuous_backup: Optional[pulumi.Input[bool]] = None,
+             lifecycle: Optional[pulumi.Input['PlanRuleLifecycleArgs']] = None,
+             recovery_point_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
+             start_window: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if rule_name is None:
+            raise TypeError("Missing 'rule_name' argument")
+        if target_vault_name is None and 'targetVaultName' in kwargs:
+            target_vault_name = kwargs['targetVaultName']
+        if target_vault_name is None:
+            raise TypeError("Missing 'target_vault_name' argument")
+        if completion_window is None and 'completionWindow' in kwargs:
+            completion_window = kwargs['completionWindow']
+        if copy_actions is None and 'copyActions' in kwargs:
+            copy_actions = kwargs['copyActions']
+        if enable_continuous_backup is None and 'enableContinuousBackup' in kwargs:
+            enable_continuous_backup = kwargs['enableContinuousBackup']
+        if recovery_point_tags is None and 'recoveryPointTags' in kwargs:
+            recovery_point_tags = kwargs['recoveryPointTags']
+        if start_window is None and 'startWindow' in kwargs:
+            start_window = kwargs['startWindow']
+
+        _setter("rule_name", rule_name)
+        _setter("target_vault_name", target_vault_name)
         if completion_window is not None:
-            pulumi.set(__self__, "completion_window", completion_window)
+            _setter("completion_window", completion_window)
         if copy_actions is not None:
-            pulumi.set(__self__, "copy_actions", copy_actions)
+            _setter("copy_actions", copy_actions)
         if enable_continuous_backup is not None:
-            pulumi.set(__self__, "enable_continuous_backup", enable_continuous_backup)
+            _setter("enable_continuous_backup", enable_continuous_backup)
         if lifecycle is not None:
-            pulumi.set(__self__, "lifecycle", lifecycle)
+            _setter("lifecycle", lifecycle)
         if recovery_point_tags is not None:
-            pulumi.set(__self__, "recovery_point_tags", recovery_point_tags)
+            _setter("recovery_point_tags", recovery_point_tags)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if start_window is not None:
-            pulumi.set(__self__, "start_window", start_window)
+            _setter("start_window", start_window)
 
     @property
     @pulumi.getter(name="ruleName")
@@ -371,9 +488,26 @@ class PlanRuleCopyActionArgs:
         :param pulumi.Input[str] destination_vault_arn: An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
         :param pulumi.Input['PlanRuleCopyActionLifecycleArgs'] lifecycle: The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         """
-        pulumi.set(__self__, "destination_vault_arn", destination_vault_arn)
+        PlanRuleCopyActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_vault_arn=destination_vault_arn,
+            lifecycle=lifecycle,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_vault_arn: Optional[pulumi.Input[str]] = None,
+             lifecycle: Optional[pulumi.Input['PlanRuleCopyActionLifecycleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_vault_arn is None and 'destinationVaultArn' in kwargs:
+            destination_vault_arn = kwargs['destinationVaultArn']
+        if destination_vault_arn is None:
+            raise TypeError("Missing 'destination_vault_arn' argument")
+
+        _setter("destination_vault_arn", destination_vault_arn)
         if lifecycle is not None:
-            pulumi.set(__self__, "lifecycle", lifecycle)
+            _setter("lifecycle", lifecycle)
 
     @property
     @pulumi.getter(name="destinationVaultArn")
@@ -409,10 +543,27 @@ class PlanRuleCopyActionLifecycleArgs:
         :param pulumi.Input[int] cold_storage_after: Specifies the number of days after creation that a recovery point is moved to cold storage.
         :param pulumi.Input[int] delete_after: Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         """
+        PlanRuleCopyActionLifecycleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cold_storage_after=cold_storage_after,
+            delete_after=delete_after,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cold_storage_after: Optional[pulumi.Input[int]] = None,
+             delete_after: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cold_storage_after is None and 'coldStorageAfter' in kwargs:
+            cold_storage_after = kwargs['coldStorageAfter']
+        if delete_after is None and 'deleteAfter' in kwargs:
+            delete_after = kwargs['deleteAfter']
+
         if cold_storage_after is not None:
-            pulumi.set(__self__, "cold_storage_after", cold_storage_after)
+            _setter("cold_storage_after", cold_storage_after)
         if delete_after is not None:
-            pulumi.set(__self__, "delete_after", delete_after)
+            _setter("delete_after", delete_after)
 
     @property
     @pulumi.getter(name="coldStorageAfter")
@@ -448,10 +599,27 @@ class PlanRuleLifecycleArgs:
         :param pulumi.Input[int] cold_storage_after: Specifies the number of days after creation that a recovery point is moved to cold storage.
         :param pulumi.Input[int] delete_after: Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
         """
+        PlanRuleLifecycleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cold_storage_after=cold_storage_after,
+            delete_after=delete_after,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cold_storage_after: Optional[pulumi.Input[int]] = None,
+             delete_after: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cold_storage_after is None and 'coldStorageAfter' in kwargs:
+            cold_storage_after = kwargs['coldStorageAfter']
+        if delete_after is None and 'deleteAfter' in kwargs:
+            delete_after = kwargs['deleteAfter']
+
         if cold_storage_after is not None:
-            pulumi.set(__self__, "cold_storage_after", cold_storage_after)
+            _setter("cold_storage_after", cold_storage_after)
         if delete_after is not None:
-            pulumi.set(__self__, "delete_after", delete_after)
+            _setter("delete_after", delete_after)
 
     @property
     @pulumi.getter(name="coldStorageAfter")
@@ -489,11 +657,32 @@ class ReportPlanReportDeliveryChannelArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] formats: A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
         :param pulumi.Input[str] s3_key_prefix: The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
         """
-        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        ReportPlanReportDeliveryChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket_name=s3_bucket_name,
+            formats=formats,
+            s3_key_prefix=s3_key_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket_name: Optional[pulumi.Input[str]] = None,
+             formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             s3_key_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_bucket_name is None and 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if s3_bucket_name is None:
+            raise TypeError("Missing 's3_bucket_name' argument")
+        if s3_key_prefix is None and 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+
+        _setter("s3_bucket_name", s3_bucket_name)
         if formats is not None:
-            pulumi.set(__self__, "formats", formats)
+            _setter("formats", formats)
         if s3_key_prefix is not None:
-            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+            _setter("s3_key_prefix", s3_key_prefix)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -549,17 +738,48 @@ class ReportPlanReportSettingArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organization_units: Specifies the list of Organizational Units a report covers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: Specifies the list of regions a report covers.
         """
-        pulumi.set(__self__, "report_template", report_template)
+        ReportPlanReportSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            report_template=report_template,
+            accounts=accounts,
+            framework_arns=framework_arns,
+            number_of_frameworks=number_of_frameworks,
+            organization_units=organization_units,
+            regions=regions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             report_template: Optional[pulumi.Input[str]] = None,
+             accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             framework_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             number_of_frameworks: Optional[pulumi.Input[int]] = None,
+             organization_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if report_template is None and 'reportTemplate' in kwargs:
+            report_template = kwargs['reportTemplate']
+        if report_template is None:
+            raise TypeError("Missing 'report_template' argument")
+        if framework_arns is None and 'frameworkArns' in kwargs:
+            framework_arns = kwargs['frameworkArns']
+        if number_of_frameworks is None and 'numberOfFrameworks' in kwargs:
+            number_of_frameworks = kwargs['numberOfFrameworks']
+        if organization_units is None and 'organizationUnits' in kwargs:
+            organization_units = kwargs['organizationUnits']
+
+        _setter("report_template", report_template)
         if accounts is not None:
-            pulumi.set(__self__, "accounts", accounts)
+            _setter("accounts", accounts)
         if framework_arns is not None:
-            pulumi.set(__self__, "framework_arns", framework_arns)
+            _setter("framework_arns", framework_arns)
         if number_of_frameworks is not None:
-            pulumi.set(__self__, "number_of_frameworks", number_of_frameworks)
+            _setter("number_of_frameworks", number_of_frameworks)
         if organization_units is not None:
-            pulumi.set(__self__, "organization_units", organization_units)
+            _setter("organization_units", organization_units)
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
 
     @property
     @pulumi.getter(name="reportTemplate")
@@ -641,14 +861,39 @@ class SelectionConditionArgs:
                  string_likes: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArgs']]]] = None,
                  string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgs']]]] = None,
                  string_not_likes: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgs']]]] = None):
+        SelectionConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            string_equals=string_equals,
+            string_likes=string_likes,
+            string_not_equals=string_not_equals,
+            string_not_likes=string_not_likes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             string_equals: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArgs']]]] = None,
+             string_likes: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArgs']]]] = None,
+             string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgs']]]] = None,
+             string_not_likes: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if string_equals is None and 'stringEquals' in kwargs:
+            string_equals = kwargs['stringEquals']
+        if string_likes is None and 'stringLikes' in kwargs:
+            string_likes = kwargs['stringLikes']
+        if string_not_equals is None and 'stringNotEquals' in kwargs:
+            string_not_equals = kwargs['stringNotEquals']
+        if string_not_likes is None and 'stringNotLikes' in kwargs:
+            string_not_likes = kwargs['stringNotLikes']
+
         if string_equals is not None:
-            pulumi.set(__self__, "string_equals", string_equals)
+            _setter("string_equals", string_equals)
         if string_likes is not None:
-            pulumi.set(__self__, "string_likes", string_likes)
+            _setter("string_likes", string_likes)
         if string_not_equals is not None:
-            pulumi.set(__self__, "string_not_equals", string_not_equals)
+            _setter("string_not_equals", string_not_equals)
         if string_not_likes is not None:
-            pulumi.set(__self__, "string_not_likes", string_not_likes)
+            _setter("string_not_likes", string_not_likes)
 
     @property
     @pulumi.getter(name="stringEquals")
@@ -696,8 +941,25 @@ class SelectionConditionStringEqualArgs:
         :param pulumi.Input[str] key: The key in a key-value pair.
         :param pulumi.Input[str] value: The value in a key-value pair.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SelectionConditionStringEqualArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -733,8 +995,25 @@ class SelectionConditionStringLikeArgs:
         :param pulumi.Input[str] key: The key in a key-value pair.
         :param pulumi.Input[str] value: The value in a key-value pair.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SelectionConditionStringLikeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -770,8 +1049,25 @@ class SelectionConditionStringNotEqualArgs:
         :param pulumi.Input[str] key: The key in a key-value pair.
         :param pulumi.Input[str] value: The value in a key-value pair.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SelectionConditionStringNotEqualArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -807,8 +1103,25 @@ class SelectionConditionStringNotLikeArgs:
         :param pulumi.Input[str] key: The key in a key-value pair.
         :param pulumi.Input[str] value: The value in a key-value pair.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        SelectionConditionStringNotLikeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -846,9 +1159,30 @@ class SelectionSelectionTagArgs:
         :param pulumi.Input[str] type: An operation, such as `StringEquals`, that is applied to a key-value pair used to filter resources in a selection.
         :param pulumi.Input[str] value: The value in a key-value pair.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        SelectionSelectionTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("key", key)
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter

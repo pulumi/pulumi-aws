@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EmailChannelArgs', 'EmailChannel']
@@ -29,15 +29,50 @@ class EmailChannelArgs:
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "from_address", from_address)
-        pulumi.set(__self__, "identity", identity)
+        EmailChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            from_address=from_address,
+            identity=identity,
+            configuration_set=configuration_set,
+            enabled=enabled,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             from_address: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input[str]] = None,
+             configuration_set: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if from_address is None and 'fromAddress' in kwargs:
+            from_address = kwargs['fromAddress']
+        if from_address is None:
+            raise TypeError("Missing 'from_address' argument")
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if configuration_set is None and 'configurationSet' in kwargs:
+            configuration_set = kwargs['configurationSet']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
+        _setter("application_id", application_id)
+        _setter("from_address", from_address)
+        _setter("identity", identity)
         if configuration_set is not None:
-            pulumi.set(__self__, "configuration_set", configuration_set)
+            _setter("configuration_set", configuration_set)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -132,20 +167,53 @@ class _EmailChannelState:
         :param pulumi.Input[int] messages_per_second: Messages per second that can be sent.
         :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
+        _EmailChannelState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            configuration_set=configuration_set,
+            enabled=enabled,
+            from_address=from_address,
+            identity=identity,
+            messages_per_second=messages_per_second,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             configuration_set: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             from_address: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input[str]] = None,
+             messages_per_second: Optional[pulumi.Input[int]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if configuration_set is None and 'configurationSet' in kwargs:
+            configuration_set = kwargs['configurationSet']
+        if from_address is None and 'fromAddress' in kwargs:
+            from_address = kwargs['fromAddress']
+        if messages_per_second is None and 'messagesPerSecond' in kwargs:
+            messages_per_second = kwargs['messagesPerSecond']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if configuration_set is not None:
-            pulumi.set(__self__, "configuration_set", configuration_set)
+            _setter("configuration_set", configuration_set)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if from_address is not None:
-            pulumi.set(__self__, "from_address", from_address)
+            _setter("from_address", from_address)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if messages_per_second is not None:
-            pulumi.set(__self__, "messages_per_second", messages_per_second)
+            _setter("messages_per_second", messages_per_second)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -359,6 +427,10 @@ class EmailChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EmailChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

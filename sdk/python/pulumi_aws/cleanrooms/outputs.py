@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -45,10 +45,43 @@ class CollaborationDataEncryptionMetadata(dict):
                  allow_duplicates: bool,
                  allow_joins_on_columns_with_different_names: bool,
                  preserve_nulls: bool):
-        pulumi.set(__self__, "allow_clear_text", allow_clear_text)
-        pulumi.set(__self__, "allow_duplicates", allow_duplicates)
-        pulumi.set(__self__, "allow_joins_on_columns_with_different_names", allow_joins_on_columns_with_different_names)
-        pulumi.set(__self__, "preserve_nulls", preserve_nulls)
+        CollaborationDataEncryptionMetadata._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_clear_text=allow_clear_text,
+            allow_duplicates=allow_duplicates,
+            allow_joins_on_columns_with_different_names=allow_joins_on_columns_with_different_names,
+            preserve_nulls=preserve_nulls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_clear_text: Optional[bool] = None,
+             allow_duplicates: Optional[bool] = None,
+             allow_joins_on_columns_with_different_names: Optional[bool] = None,
+             preserve_nulls: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_clear_text is None and 'allowClearText' in kwargs:
+            allow_clear_text = kwargs['allowClearText']
+        if allow_clear_text is None:
+            raise TypeError("Missing 'allow_clear_text' argument")
+        if allow_duplicates is None and 'allowDuplicates' in kwargs:
+            allow_duplicates = kwargs['allowDuplicates']
+        if allow_duplicates is None:
+            raise TypeError("Missing 'allow_duplicates' argument")
+        if allow_joins_on_columns_with_different_names is None and 'allowJoinsOnColumnsWithDifferentNames' in kwargs:
+            allow_joins_on_columns_with_different_names = kwargs['allowJoinsOnColumnsWithDifferentNames']
+        if allow_joins_on_columns_with_different_names is None:
+            raise TypeError("Missing 'allow_joins_on_columns_with_different_names' argument")
+        if preserve_nulls is None and 'preserveNulls' in kwargs:
+            preserve_nulls = kwargs['preserveNulls']
+        if preserve_nulls is None:
+            raise TypeError("Missing 'preserve_nulls' argument")
+
+        _setter("allow_clear_text", allow_clear_text)
+        _setter("allow_duplicates", allow_duplicates)
+        _setter("allow_joins_on_columns_with_different_names", allow_joins_on_columns_with_different_names)
+        _setter("preserve_nulls", preserve_nulls)
 
     @property
     @pulumi.getter(name="allowClearText")
@@ -99,11 +132,40 @@ class CollaborationMember(dict):
                  display_name: str,
                  member_abilities: Sequence[str],
                  status: Optional[str] = None):
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "member_abilities", member_abilities)
+        CollaborationMember._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            display_name=display_name,
+            member_abilities=member_abilities,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             display_name: Optional[str] = None,
+             member_abilities: Optional[Sequence[str]] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if member_abilities is None and 'memberAbilities' in kwargs:
+            member_abilities = kwargs['memberAbilities']
+        if member_abilities is None:
+            raise TypeError("Missing 'member_abilities' argument")
+
+        _setter("account_id", account_id)
+        _setter("display_name", display_name)
+        _setter("member_abilities", member_abilities)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="accountId")
@@ -150,8 +212,29 @@ class ConfiguredTableTableReference(dict):
     def __init__(__self__, *,
                  database_name: str,
                  table_name: str):
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "table_name", table_name)
+        ConfiguredTableTableReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             table_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+
+        _setter("database_name", database_name)
+        _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="databaseName")

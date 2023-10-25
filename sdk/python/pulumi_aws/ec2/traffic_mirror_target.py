@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TrafficMirrorTargetArgs', 'TrafficMirrorTarget']
@@ -29,16 +29,41 @@ class TrafficMirrorTargetArgs:
                
                **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
         """
+        TrafficMirrorTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            gateway_load_balancer_endpoint_id=gateway_load_balancer_endpoint_id,
+            network_interface_id=network_interface_id,
+            network_load_balancer_arn=network_load_balancer_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             gateway_load_balancer_endpoint_id: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_load_balancer_endpoint_id is None and 'gatewayLoadBalancerEndpointId' in kwargs:
+            gateway_load_balancer_endpoint_id = kwargs['gatewayLoadBalancerEndpointId']
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if network_load_balancer_arn is None and 'networkLoadBalancerArn' in kwargs:
+            network_load_balancer_arn = kwargs['networkLoadBalancerArn']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if gateway_load_balancer_endpoint_id is not None:
-            pulumi.set(__self__, "gateway_load_balancer_endpoint_id", gateway_load_balancer_endpoint_id)
+            _setter("gateway_load_balancer_endpoint_id", gateway_load_balancer_endpoint_id)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if network_load_balancer_arn is not None:
-            pulumi.set(__self__, "network_load_balancer_arn", network_load_balancer_arn)
+            _setter("network_load_balancer_arn", network_load_balancer_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -127,25 +152,60 @@ class _TrafficMirrorTargetState:
                **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _TrafficMirrorTargetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            gateway_load_balancer_endpoint_id=gateway_load_balancer_endpoint_id,
+            network_interface_id=network_interface_id,
+            network_load_balancer_arn=network_load_balancer_arn,
+            owner_id=owner_id,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             gateway_load_balancer_endpoint_id: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_load_balancer_endpoint_id is None and 'gatewayLoadBalancerEndpointId' in kwargs:
+            gateway_load_balancer_endpoint_id = kwargs['gatewayLoadBalancerEndpointId']
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if network_load_balancer_arn is None and 'networkLoadBalancerArn' in kwargs:
+            network_load_balancer_arn = kwargs['networkLoadBalancerArn']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if gateway_load_balancer_endpoint_id is not None:
-            pulumi.set(__self__, "gateway_load_balancer_endpoint_id", gateway_load_balancer_endpoint_id)
+            _setter("gateway_load_balancer_endpoint_id", gateway_load_balancer_endpoint_id)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if network_load_balancer_arn is not None:
-            pulumi.set(__self__, "network_load_balancer_arn", network_load_balancer_arn)
+            _setter("network_load_balancer_arn", network_load_balancer_arn)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -348,6 +408,10 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrafficMirrorTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

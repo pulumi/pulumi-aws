@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InvocationArgs', 'Invocation']
@@ -30,16 +30,47 @@ class InvocationArgs:
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
-        pulumi.set(__self__, "function_name", function_name)
-        pulumi.set(__self__, "input", input)
+        InvocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_name=function_name,
+            input=input,
+            lifecycle_scope=lifecycle_scope,
+            qualifier=qualifier,
+            terraform_key=terraform_key,
+            triggers=triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_name: Optional[pulumi.Input[str]] = None,
+             input: Optional[pulumi.Input[str]] = None,
+             lifecycle_scope: Optional[pulumi.Input[str]] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
+             terraform_key: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if input is None:
+            raise TypeError("Missing 'input' argument")
+        if lifecycle_scope is None and 'lifecycleScope' in kwargs:
+            lifecycle_scope = kwargs['lifecycleScope']
+        if terraform_key is None and 'terraformKey' in kwargs:
+            terraform_key = kwargs['terraformKey']
+
+        _setter("function_name", function_name)
+        _setter("input", input)
         if lifecycle_scope is not None:
-            pulumi.set(__self__, "lifecycle_scope", lifecycle_scope)
+            _setter("lifecycle_scope", lifecycle_scope)
         if qualifier is not None:
-            pulumi.set(__self__, "qualifier", qualifier)
+            _setter("qualifier", qualifier)
         if terraform_key is not None:
-            pulumi.set(__self__, "terraform_key", terraform_key)
+            _setter("terraform_key", terraform_key)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
 
     @property
     @pulumi.getter(name="functionName")
@@ -134,20 +165,49 @@ class _InvocationState:
         :param pulumi.Input[str] result: String result of the lambda function invocation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
+        _InvocationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_name=function_name,
+            input=input,
+            lifecycle_scope=lifecycle_scope,
+            qualifier=qualifier,
+            result=result,
+            terraform_key=terraform_key,
+            triggers=triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_name: Optional[pulumi.Input[str]] = None,
+             input: Optional[pulumi.Input[str]] = None,
+             lifecycle_scope: Optional[pulumi.Input[str]] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
+             result: Optional[pulumi.Input[str]] = None,
+             terraform_key: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if lifecycle_scope is None and 'lifecycleScope' in kwargs:
+            lifecycle_scope = kwargs['lifecycleScope']
+        if terraform_key is None and 'terraformKey' in kwargs:
+            terraform_key = kwargs['terraformKey']
+
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if lifecycle_scope is not None:
-            pulumi.set(__self__, "lifecycle_scope", lifecycle_scope)
+            _setter("lifecycle_scope", lifecycle_scope)
         if qualifier is not None:
-            pulumi.set(__self__, "qualifier", qualifier)
+            _setter("qualifier", qualifier)
         if result is not None:
-            pulumi.set(__self__, "result", result)
+            _setter("result", result)
         if terraform_key is not None:
-            pulumi.set(__self__, "terraform_key", terraform_key)
+            _setter("terraform_key", terraform_key)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
 
     @property
     @pulumi.getter(name="functionName")
@@ -405,6 +465,10 @@ class Invocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InvocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

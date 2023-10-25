@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,16 +27,41 @@ class OrganizationConfigurationArgs:
         :param pulumi.Input[str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources.
         """
-        pulumi.set(__self__, "detector_id", detector_id)
+        OrganizationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            detector_id=detector_id,
+            auto_enable=auto_enable,
+            auto_enable_organization_members=auto_enable_organization_members,
+            datasources=datasources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             detector_id: Optional[pulumi.Input[str]] = None,
+             auto_enable: Optional[pulumi.Input[bool]] = None,
+             auto_enable_organization_members: Optional[pulumi.Input[str]] = None,
+             datasources: Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detector_id is None and 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if detector_id is None:
+            raise TypeError("Missing 'detector_id' argument")
+        if auto_enable is None and 'autoEnable' in kwargs:
+            auto_enable = kwargs['autoEnable']
+        if auto_enable_organization_members is None and 'autoEnableOrganizationMembers' in kwargs:
+            auto_enable_organization_members = kwargs['autoEnableOrganizationMembers']
+
+        _setter("detector_id", detector_id)
         if auto_enable is not None:
             warnings.warn("""Use auto_enable_organization_members instead""", DeprecationWarning)
             pulumi.log.warn("""auto_enable is deprecated: Use auto_enable_organization_members instead""")
         if auto_enable is not None:
-            pulumi.set(__self__, "auto_enable", auto_enable)
+            _setter("auto_enable", auto_enable)
         if auto_enable_organization_members is not None:
-            pulumi.set(__self__, "auto_enable_organization_members", auto_enable_organization_members)
+            _setter("auto_enable_organization_members", auto_enable_organization_members)
         if datasources is not None:
-            pulumi.set(__self__, "datasources", datasources)
+            _setter("datasources", datasources)
 
     @property
     @pulumi.getter(name="detectorId")
@@ -104,17 +129,40 @@ class _OrganizationConfigurationState:
         :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
         """
+        _OrganizationConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_enable=auto_enable,
+            auto_enable_organization_members=auto_enable_organization_members,
+            datasources=datasources,
+            detector_id=detector_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_enable: Optional[pulumi.Input[bool]] = None,
+             auto_enable_organization_members: Optional[pulumi.Input[str]] = None,
+             datasources: Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']] = None,
+             detector_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_enable is None and 'autoEnable' in kwargs:
+            auto_enable = kwargs['autoEnable']
+        if auto_enable_organization_members is None and 'autoEnableOrganizationMembers' in kwargs:
+            auto_enable_organization_members = kwargs['autoEnableOrganizationMembers']
+        if detector_id is None and 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+
         if auto_enable is not None:
             warnings.warn("""Use auto_enable_organization_members instead""", DeprecationWarning)
             pulumi.log.warn("""auto_enable is deprecated: Use auto_enable_organization_members instead""")
         if auto_enable is not None:
-            pulumi.set(__self__, "auto_enable", auto_enable)
+            _setter("auto_enable", auto_enable)
         if auto_enable_organization_members is not None:
-            pulumi.set(__self__, "auto_enable_organization_members", auto_enable_organization_members)
+            _setter("auto_enable_organization_members", auto_enable_organization_members)
         if datasources is not None:
-            pulumi.set(__self__, "datasources", datasources)
+            _setter("datasources", datasources)
         if detector_id is not None:
-            pulumi.set(__self__, "detector_id", detector_id)
+            _setter("detector_id", detector_id)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -285,6 +333,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -303,11 +355,9 @@ class OrganizationConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrganizationConfigurationArgs.__new__(OrganizationConfigurationArgs)
 
-            if auto_enable is not None and not opts.urn:
-                warnings.warn("""Use auto_enable_organization_members instead""", DeprecationWarning)
-                pulumi.log.warn("""auto_enable is deprecated: Use auto_enable_organization_members instead""")
             __props__.__dict__["auto_enable"] = auto_enable
             __props__.__dict__["auto_enable_organization_members"] = auto_enable_organization_members
+            datasources = _utilities.configure(datasources, OrganizationConfigurationDatasourcesArgs, True)
             __props__.__dict__["datasources"] = datasources
             if detector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_id'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,10 +23,27 @@ class IndexingConfigurationArgs:
         :param pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs'] thing_group_indexing_configuration: Thing group indexing configuration. See below.
         :param pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs'] thing_indexing_configuration: Thing indexing configuration. See below.
         """
+        IndexingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            thing_group_indexing_configuration=thing_group_indexing_configuration,
+            thing_indexing_configuration=thing_indexing_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             thing_group_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']] = None,
+             thing_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if thing_group_indexing_configuration is None and 'thingGroupIndexingConfiguration' in kwargs:
+            thing_group_indexing_configuration = kwargs['thingGroupIndexingConfiguration']
+        if thing_indexing_configuration is None and 'thingIndexingConfiguration' in kwargs:
+            thing_indexing_configuration = kwargs['thingIndexingConfiguration']
+
         if thing_group_indexing_configuration is not None:
-            pulumi.set(__self__, "thing_group_indexing_configuration", thing_group_indexing_configuration)
+            _setter("thing_group_indexing_configuration", thing_group_indexing_configuration)
         if thing_indexing_configuration is not None:
-            pulumi.set(__self__, "thing_indexing_configuration", thing_indexing_configuration)
+            _setter("thing_indexing_configuration", thing_indexing_configuration)
 
     @property
     @pulumi.getter(name="thingGroupIndexingConfiguration")
@@ -63,10 +80,27 @@ class _IndexingConfigurationState:
         :param pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs'] thing_group_indexing_configuration: Thing group indexing configuration. See below.
         :param pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs'] thing_indexing_configuration: Thing indexing configuration. See below.
         """
+        _IndexingConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            thing_group_indexing_configuration=thing_group_indexing_configuration,
+            thing_indexing_configuration=thing_indexing_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             thing_group_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']] = None,
+             thing_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if thing_group_indexing_configuration is None and 'thingGroupIndexingConfiguration' in kwargs:
+            thing_group_indexing_configuration = kwargs['thingGroupIndexingConfiguration']
+        if thing_indexing_configuration is None and 'thingIndexingConfiguration' in kwargs:
+            thing_indexing_configuration = kwargs['thingIndexingConfiguration']
+
         if thing_group_indexing_configuration is not None:
-            pulumi.set(__self__, "thing_group_indexing_configuration", thing_group_indexing_configuration)
+            _setter("thing_group_indexing_configuration", thing_group_indexing_configuration)
         if thing_indexing_configuration is not None:
-            pulumi.set(__self__, "thing_indexing_configuration", thing_indexing_configuration)
+            _setter("thing_indexing_configuration", thing_indexing_configuration)
 
     @property
     @pulumi.getter(name="thingGroupIndexingConfiguration")
@@ -192,6 +226,10 @@ class IndexingConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IndexingConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -208,7 +246,9 @@ class IndexingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IndexingConfigurationArgs.__new__(IndexingConfigurationArgs)
 
+            thing_group_indexing_configuration = _utilities.configure(thing_group_indexing_configuration, IndexingConfigurationThingGroupIndexingConfigurationArgs, True)
             __props__.__dict__["thing_group_indexing_configuration"] = thing_group_indexing_configuration
+            thing_indexing_configuration = _utilities.configure(thing_indexing_configuration, IndexingConfigurationThingIndexingConfigurationArgs, True)
             __props__.__dict__["thing_indexing_configuration"] = thing_indexing_configuration
         super(IndexingConfiguration, __self__).__init__(
             'aws:iot/indexingConfiguration:IndexingConfiguration',

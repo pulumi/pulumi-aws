@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
@@ -21,9 +21,26 @@ class ResourcePolicyArgs:
         :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.
         :param pulumi.Input[str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
         """
-        pulumi.set(__self__, "policy", policy)
+        ResourcePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            enable_hybrid=enable_hybrid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             enable_hybrid: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if enable_hybrid is None and 'enableHybrid' in kwargs:
+            enable_hybrid = kwargs['enableHybrid']
+
+        _setter("policy", policy)
         if enable_hybrid is not None:
-            pulumi.set(__self__, "enable_hybrid", enable_hybrid)
+            _setter("enable_hybrid", enable_hybrid)
 
     @property
     @pulumi.getter
@@ -60,10 +77,25 @@ class _ResourcePolicyState:
         :param pulumi.Input[str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
         :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.
         """
+        _ResourcePolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_hybrid=enable_hybrid,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_hybrid: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_hybrid is None and 'enableHybrid' in kwargs:
+            enable_hybrid = kwargs['enableHybrid']
+
         if enable_hybrid is not None:
-            pulumi.set(__self__, "enable_hybrid", enable_hybrid)
+            _setter("enable_hybrid", enable_hybrid)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter(name="enableHybrid")
@@ -181,6 +213,10 @@ class ResourcePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourcePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

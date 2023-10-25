@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecHttpRouteMatchHeaderMatch
     {
         /// <summary>
-        /// Value used to replace matched path.
+        /// Header value sent by the client must match the specified value exactly.
         /// </summary>
         public readonly string? Exact;
         /// <summary>
-        /// Specified beginning characters to rewrite.
+        /// Header value sent by the client must begin with the specified characters.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>

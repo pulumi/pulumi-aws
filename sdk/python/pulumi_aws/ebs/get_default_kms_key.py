@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetDefaultKmsKeyResult',
     'AwaitableGetDefaultKmsKeyResult',
     'get_default_kms_key',
+    'get_default_kms_key_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,24 @@ def get_default_kms_key(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     return AwaitableGetDefaultKmsKeyResult(
         id=pulumi.get(__ret__, 'id'),
         key_arn=pulumi.get(__ret__, 'key_arn'))
+
+
+@_utilities.lift_output_func(get_default_kms_key)
+def get_default_kms_key_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultKmsKeyResult]:
+    """
+    Use this data source to get the default EBS encryption KMS key in the current region.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.ebs.get_default_kms_key()
+    example = aws.ebs.Volume("example",
+        availability_zone="us-west-2a",
+        encrypted=True,
+        kms_key_id=current.key_arn)
+    ```
+    """
+    ...

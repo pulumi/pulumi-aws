@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ImageBlockPublicAccessArgs', 'ImageBlockPublicAccess']
@@ -19,7 +19,20 @@ class ImageBlockPublicAccessArgs:
         The set of arguments for constructing a ImageBlockPublicAccess resource.
         :param pulumi.Input[str] state: The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
         """
-        pulumi.set(__self__, "state", state)
+        ImageBlockPublicAccessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("state", state)
 
     @property
     @pulumi.getter
@@ -42,8 +55,19 @@ class _ImageBlockPublicAccessState:
         Input properties used for looking up and filtering ImageBlockPublicAccess resources.
         :param pulumi.Input[str] state: The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
         """
+        _ImageBlockPublicAccessState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -125,6 +149,10 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ImageBlockPublicAccessArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

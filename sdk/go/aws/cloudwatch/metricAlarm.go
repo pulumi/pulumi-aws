@@ -34,7 +34,7 @@ import (
 //				AlarmDescription:        pulumi.String("This metric monitors ec2 cpu utilization"),
 //				ComparisonOperator:      pulumi.String("GreaterThanOrEqualToThreshold"),
 //				EvaluationPeriods:       pulumi.Int(2),
-//				InsufficientDataActions: pulumi.AnyArray{},
+//				InsufficientDataActions: pulumi.Array{},
 //				MetricName:              pulumi.String("CPUUtilization"),
 //				Namespace:               pulumi.String("AWS/EC2"),
 //				Period:                  pulumi.Int(120),
@@ -86,7 +86,7 @@ import (
 //					"AutoScalingGroupName": pulumi.Any(aws_autoscaling_group.Bar.Name),
 //				},
 //				AlarmDescription: pulumi.String("This metric monitors ec2 cpu utilization"),
-//				AlarmActions: pulumi.AnyArray{
+//				AlarmActions: pulumi.Array{
 //					batPolicy.Arn,
 //				},
 //			})
@@ -118,7 +118,7 @@ import (
 //				AlarmDescription:        pulumi.String("Request error rate has exceeded 10%"),
 //				ComparisonOperator:      pulumi.String("GreaterThanOrEqualToThreshold"),
 //				EvaluationPeriods:       pulumi.Int(2),
-//				InsufficientDataActions: pulumi.AnyArray{},
+//				InsufficientDataActions: pulumi.Array{},
 //				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Expression: pulumi.String("m2/m1*100"),
@@ -181,7 +181,7 @@ import (
 //				AlarmDescription:        pulumi.String("This metric monitors ec2 cpu utilization"),
 //				ComparisonOperator:      pulumi.String("GreaterThanUpperThreshold"),
 //				EvaluationPeriods:       pulumi.Int(2),
-//				InsufficientDataActions: pulumi.AnyArray{},
+//				InsufficientDataActions: pulumi.Array{},
 //				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Expression: pulumi.String("ANOMALY_DETECTION_BAND(m1)"),
@@ -240,10 +240,10 @@ import (
 //				Threshold:          pulumi.Any(_var.Logstash_servers_count),
 //				AlarmDescription:   pulumi.String("Number of healthy nodes in Target Group"),
 //				ActionsEnabled:     pulumi.Bool(true),
-//				AlarmActions: pulumi.AnyArray{
+//				AlarmActions: pulumi.Array{
 //					aws_sns_topic.Sns.Arn,
 //				},
-//				OkActions: pulumi.AnyArray{
+//				OkActions: pulumi.Array{
 //					aws_sns_topic.Sns.Arn,
 //				},
 //				Dimensions: pulumi.StringMap{
