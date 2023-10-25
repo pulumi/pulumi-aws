@@ -1,0 +1,43 @@
+* Profile building go
+
+** Profile existing code
+#+BEGIN_SRC sh :results output verbatim
+cd /Users/ianwahbe/go/src/github.com/pulumi/pulumi-aws/sdk
+/opt/homebrew/bin/go build -a -gcflags '-memprofile=build-s3.prof' github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3
+/opt/homebrew/bin/go tool pprof -text 'build-s3.prof'
+#+END_SRC
+
+#+RESULTS:
+: Type: inuse_space
+: Showing nodes accounting for 965.75MB, 100% of 965.75MB total
+:       flat  flat%   sum%        cum   cum%
+:   965.75MB   100%   100%   965.75MB   100%  <unknown>
+
+** Without pulumix
+
+
+Modify our code to remove any mention of pulumix
+#+BEGIN_SRC sh
+cd /Users/ianwahbe/go/src/github.com/pulumi/pulumi-aws/sdk/go/aws/s3
+for f in *.go; do
+    gsed -i 's@	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"@@g' $f
+    rg -N --multiline "^func (.*?) ToOutput\(.*?\{\n.*\n.*\n.*\n}" $f --replace "" --passthru > tmp.go
+    mv tmp.go $f
+done
+#+END_SRC
+
+#+RESULTS:
+
+We then run the same profile process to see the impact:
+
+#+BEGIN_SRC sh :results output verbatim
+cd /Users/ianwahbe/go/src/github.com/pulumi/pulumi-aws/sdk
+/opt/homebrew/bin/go build -a -gcflags '-memprofile=build-s3.prof' github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3
+/opt/homebrew/bin/go tool pprof -text 'build-s3.prof'
+#+END_SRC
+
+#+RESULTS:
+: Type: inuse_space
+: Showing nodes accounting for 475.26MB, 100% of 475.26MB total
+:       flat  flat%   sum%        cum   cum%
+:   475.26MB   100%   100%   475.26MB   100%  <unknown>
