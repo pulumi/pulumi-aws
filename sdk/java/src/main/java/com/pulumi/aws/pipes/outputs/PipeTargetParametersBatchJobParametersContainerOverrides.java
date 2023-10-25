@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeTargetParametersBatchJobParametersContainerOverrides {
     /**
-     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
      * 
      */
     private @Nullable List<String> commands;
     /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with &#34; AWS Batch &#34;. This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
      * 
      */
     private @Nullable List<PipeTargetParametersBatchJobParametersContainerOverridesEnvironment> environments;
@@ -30,21 +30,21 @@ public final class PipeTargetParametersBatchJobParametersContainerOverrides {
      */
     private @Nullable String instanceType;
     /**
-     * @return The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
      * 
      */
     private @Nullable List<PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement> resourceRequirements;
 
     private PipeTargetParametersBatchJobParametersContainerOverrides() {}
     /**
-     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
      * 
      */
     public List<String> commands() {
         return this.commands == null ? List.of() : this.commands;
     }
     /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with &#34; AWS Batch &#34;. This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
      * 
      */
     public List<PipeTargetParametersBatchJobParametersContainerOverridesEnvironment> environments() {
@@ -58,7 +58,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverrides {
         return Optional.ofNullable(this.instanceType);
     }
     /**
-     * @return The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
      * 
      */
     public List<PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement> resourceRequirements() {

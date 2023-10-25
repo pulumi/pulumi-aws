@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BucketRequestPaymentConfigurationV2Args', 'BucketRequestPaymentConfigurationV2']
@@ -23,10 +23,31 @@ class BucketRequestPaymentConfigurationV2Args:
         :param pulumi.Input[str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "payer", payer)
+        BucketRequestPaymentConfigurationV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            payer=payer,
+            expected_bucket_owner=expected_bucket_owner,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             payer: Optional[pulumi.Input[str]] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if payer is None:
+            raise TypeError("Missing 'payer' argument")
+        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+
+        _setter("bucket", bucket)
+        _setter("payer", payer)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
 
     @property
     @pulumi.getter
@@ -77,12 +98,29 @@ class _BucketRequestPaymentConfigurationV2State:
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] payer: Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         """
+        _BucketRequestPaymentConfigurationV2State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            expected_bucket_owner=expected_bucket_owner,
+            payer=payer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             payer: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if payer is not None:
-            pulumi.set(__self__, "payer", payer)
+            _setter("payer", payer)
 
     @property
     @pulumi.getter
@@ -218,6 +256,10 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketRequestPaymentConfigurationV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

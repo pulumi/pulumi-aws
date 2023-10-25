@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PublishingDestinationArgs', 'PublishingDestination']
@@ -27,11 +27,42 @@ class PublishingDestinationArgs:
                
                > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         """
-        pulumi.set(__self__, "destination_arn", destination_arn)
-        pulumi.set(__self__, "detector_id", detector_id)
-        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        PublishingDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_arn=destination_arn,
+            detector_id=detector_id,
+            kms_key_arn=kms_key_arn,
+            destination_type=destination_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_arn: Optional[pulumi.Input[str]] = None,
+             detector_id: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             destination_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if destination_arn is None:
+            raise TypeError("Missing 'destination_arn' argument")
+        if detector_id is None and 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if detector_id is None:
+            raise TypeError("Missing 'detector_id' argument")
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if kms_key_arn is None:
+            raise TypeError("Missing 'kms_key_arn' argument")
+        if destination_type is None and 'destinationType' in kwargs:
+            destination_type = kwargs['destinationType']
+
+        _setter("destination_arn", destination_arn)
+        _setter("detector_id", detector_id)
+        _setter("kms_key_arn", kms_key_arn)
         if destination_type is not None:
-            pulumi.set(__self__, "destination_type", destination_type)
+            _setter("destination_type", destination_type)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -100,14 +131,39 @@ class _PublishingDestinationState:
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         """
+        _PublishingDestinationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_arn=destination_arn,
+            destination_type=destination_type,
+            detector_id=detector_id,
+            kms_key_arn=kms_key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_arn: Optional[pulumi.Input[str]] = None,
+             destination_type: Optional[pulumi.Input[str]] = None,
+             detector_id: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if destination_type is None and 'destinationType' in kwargs:
+            destination_type = kwargs['destinationType']
+        if detector_id is None and 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if destination_arn is not None:
-            pulumi.set(__self__, "destination_arn", destination_arn)
+            _setter("destination_arn", destination_arn)
         if destination_type is not None:
-            pulumi.set(__self__, "destination_type", destination_type)
+            _setter("destination_type", destination_type)
         if detector_id is not None:
-            pulumi.set(__self__, "detector_id", detector_id)
+            _setter("detector_id", detector_id)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -355,6 +411,10 @@ class PublishingDestination(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PublishingDestinationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserArgs', 'User']
@@ -33,19 +33,62 @@ class UserArgs:
         :param pulumi.Input[str] session_name: The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
         :param pulumi.Input[str] user_name: The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
         """
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "identity_type", identity_type)
-        pulumi.set(__self__, "user_role", user_role)
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            identity_type=identity_type,
+            user_role=user_role,
+            aws_account_id=aws_account_id,
+            iam_arn=iam_arn,
+            namespace=namespace,
+            session_name=session_name,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[pulumi.Input[str]] = None,
+             identity_type: Optional[pulumi.Input[str]] = None,
+             user_role: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             iam_arn: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             session_name: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if identity_type is None and 'identityType' in kwargs:
+            identity_type = kwargs['identityType']
+        if identity_type is None:
+            raise TypeError("Missing 'identity_type' argument")
+        if user_role is None and 'userRole' in kwargs:
+            user_role = kwargs['userRole']
+        if user_role is None:
+            raise TypeError("Missing 'user_role' argument")
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if iam_arn is None and 'iamArn' in kwargs:
+            iam_arn = kwargs['iamArn']
+        if session_name is None and 'sessionName' in kwargs:
+            session_name = kwargs['sessionName']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("email", email)
+        _setter("identity_type", identity_type)
+        _setter("user_role", user_role)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if iam_arn is not None:
-            pulumi.set(__self__, "iam_arn", iam_arn)
+            _setter("iam_arn", iam_arn)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if session_name is not None:
-            pulumi.set(__self__, "session_name", session_name)
+            _setter("session_name", session_name)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -168,24 +211,63 @@ class _UserState:
         :param pulumi.Input[str] user_name: The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
         :param pulumi.Input[str] user_role: The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
         """
+        _UserState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            aws_account_id=aws_account_id,
+            email=email,
+            iam_arn=iam_arn,
+            identity_type=identity_type,
+            namespace=namespace,
+            session_name=session_name,
+            user_name=user_name,
+            user_role=user_role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             iam_arn: Optional[pulumi.Input[str]] = None,
+             identity_type: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             session_name: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             user_role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if iam_arn is None and 'iamArn' in kwargs:
+            iam_arn = kwargs['iamArn']
+        if identity_type is None and 'identityType' in kwargs:
+            identity_type = kwargs['identityType']
+        if session_name is None and 'sessionName' in kwargs:
+            session_name = kwargs['sessionName']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if user_role is None and 'userRole' in kwargs:
+            user_role = kwargs['userRole']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if iam_arn is not None:
-            pulumi.set(__self__, "iam_arn", iam_arn)
+            _setter("iam_arn", iam_arn)
         if identity_type is not None:
-            pulumi.set(__self__, "identity_type", identity_type)
+            _setter("identity_type", identity_type)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if session_name is not None:
-            pulumi.set(__self__, "session_name", session_name)
+            _setter("session_name", session_name)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
         if user_role is not None:
-            pulumi.set(__self__, "user_role", user_role)
+            _setter("user_role", user_role)
 
     @property
     @pulumi.getter
@@ -381,6 +463,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

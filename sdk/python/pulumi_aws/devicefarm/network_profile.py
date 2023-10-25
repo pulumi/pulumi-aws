@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkProfileArgs', 'NetworkProfile']
@@ -43,31 +43,86 @@ class NetworkProfileArgs:
         :param pulumi.Input[int] uplink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         :param pulumi.Input[int] uplink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
         """
-        pulumi.set(__self__, "project_arn", project_arn)
+        NetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_arn=project_arn,
+            description=description,
+            downlink_bandwidth_bits=downlink_bandwidth_bits,
+            downlink_delay_ms=downlink_delay_ms,
+            downlink_jitter_ms=downlink_jitter_ms,
+            downlink_loss_percent=downlink_loss_percent,
+            name=name,
+            tags=tags,
+            type=type,
+            uplink_bandwidth_bits=uplink_bandwidth_bits,
+            uplink_delay_ms=uplink_delay_ms,
+            uplink_jitter_ms=uplink_jitter_ms,
+            uplink_loss_percent=uplink_loss_percent,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             downlink_bandwidth_bits: Optional[pulumi.Input[int]] = None,
+             downlink_delay_ms: Optional[pulumi.Input[int]] = None,
+             downlink_jitter_ms: Optional[pulumi.Input[int]] = None,
+             downlink_loss_percent: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             uplink_bandwidth_bits: Optional[pulumi.Input[int]] = None,
+             uplink_delay_ms: Optional[pulumi.Input[int]] = None,
+             uplink_jitter_ms: Optional[pulumi.Input[int]] = None,
+             uplink_loss_percent: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_arn is None and 'projectArn' in kwargs:
+            project_arn = kwargs['projectArn']
+        if project_arn is None:
+            raise TypeError("Missing 'project_arn' argument")
+        if downlink_bandwidth_bits is None and 'downlinkBandwidthBits' in kwargs:
+            downlink_bandwidth_bits = kwargs['downlinkBandwidthBits']
+        if downlink_delay_ms is None and 'downlinkDelayMs' in kwargs:
+            downlink_delay_ms = kwargs['downlinkDelayMs']
+        if downlink_jitter_ms is None and 'downlinkJitterMs' in kwargs:
+            downlink_jitter_ms = kwargs['downlinkJitterMs']
+        if downlink_loss_percent is None and 'downlinkLossPercent' in kwargs:
+            downlink_loss_percent = kwargs['downlinkLossPercent']
+        if uplink_bandwidth_bits is None and 'uplinkBandwidthBits' in kwargs:
+            uplink_bandwidth_bits = kwargs['uplinkBandwidthBits']
+        if uplink_delay_ms is None and 'uplinkDelayMs' in kwargs:
+            uplink_delay_ms = kwargs['uplinkDelayMs']
+        if uplink_jitter_ms is None and 'uplinkJitterMs' in kwargs:
+            uplink_jitter_ms = kwargs['uplinkJitterMs']
+        if uplink_loss_percent is None and 'uplinkLossPercent' in kwargs:
+            uplink_loss_percent = kwargs['uplinkLossPercent']
+
+        _setter("project_arn", project_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if downlink_bandwidth_bits is not None:
-            pulumi.set(__self__, "downlink_bandwidth_bits", downlink_bandwidth_bits)
+            _setter("downlink_bandwidth_bits", downlink_bandwidth_bits)
         if downlink_delay_ms is not None:
-            pulumi.set(__self__, "downlink_delay_ms", downlink_delay_ms)
+            _setter("downlink_delay_ms", downlink_delay_ms)
         if downlink_jitter_ms is not None:
-            pulumi.set(__self__, "downlink_jitter_ms", downlink_jitter_ms)
+            _setter("downlink_jitter_ms", downlink_jitter_ms)
         if downlink_loss_percent is not None:
-            pulumi.set(__self__, "downlink_loss_percent", downlink_loss_percent)
+            _setter("downlink_loss_percent", downlink_loss_percent)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if uplink_bandwidth_bits is not None:
-            pulumi.set(__self__, "uplink_bandwidth_bits", uplink_bandwidth_bits)
+            _setter("uplink_bandwidth_bits", uplink_bandwidth_bits)
         if uplink_delay_ms is not None:
-            pulumi.set(__self__, "uplink_delay_ms", uplink_delay_ms)
+            _setter("uplink_delay_ms", uplink_delay_ms)
         if uplink_jitter_ms is not None:
-            pulumi.set(__self__, "uplink_jitter_ms", uplink_jitter_ms)
+            _setter("uplink_jitter_ms", uplink_jitter_ms)
         if uplink_loss_percent is not None:
-            pulumi.set(__self__, "uplink_loss_percent", uplink_loss_percent)
+            _setter("uplink_loss_percent", uplink_loss_percent)
 
     @property
     @pulumi.getter(name="projectArn")
@@ -262,39 +317,98 @@ class _NetworkProfileState:
         :param pulumi.Input[int] uplink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         :param pulumi.Input[int] uplink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
         """
+        _NetworkProfileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            downlink_bandwidth_bits=downlink_bandwidth_bits,
+            downlink_delay_ms=downlink_delay_ms,
+            downlink_jitter_ms=downlink_jitter_ms,
+            downlink_loss_percent=downlink_loss_percent,
+            name=name,
+            project_arn=project_arn,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+            uplink_bandwidth_bits=uplink_bandwidth_bits,
+            uplink_delay_ms=uplink_delay_ms,
+            uplink_jitter_ms=uplink_jitter_ms,
+            uplink_loss_percent=uplink_loss_percent,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             downlink_bandwidth_bits: Optional[pulumi.Input[int]] = None,
+             downlink_delay_ms: Optional[pulumi.Input[int]] = None,
+             downlink_jitter_ms: Optional[pulumi.Input[int]] = None,
+             downlink_loss_percent: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             project_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             uplink_bandwidth_bits: Optional[pulumi.Input[int]] = None,
+             uplink_delay_ms: Optional[pulumi.Input[int]] = None,
+             uplink_jitter_ms: Optional[pulumi.Input[int]] = None,
+             uplink_loss_percent: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if downlink_bandwidth_bits is None and 'downlinkBandwidthBits' in kwargs:
+            downlink_bandwidth_bits = kwargs['downlinkBandwidthBits']
+        if downlink_delay_ms is None and 'downlinkDelayMs' in kwargs:
+            downlink_delay_ms = kwargs['downlinkDelayMs']
+        if downlink_jitter_ms is None and 'downlinkJitterMs' in kwargs:
+            downlink_jitter_ms = kwargs['downlinkJitterMs']
+        if downlink_loss_percent is None and 'downlinkLossPercent' in kwargs:
+            downlink_loss_percent = kwargs['downlinkLossPercent']
+        if project_arn is None and 'projectArn' in kwargs:
+            project_arn = kwargs['projectArn']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if uplink_bandwidth_bits is None and 'uplinkBandwidthBits' in kwargs:
+            uplink_bandwidth_bits = kwargs['uplinkBandwidthBits']
+        if uplink_delay_ms is None and 'uplinkDelayMs' in kwargs:
+            uplink_delay_ms = kwargs['uplinkDelayMs']
+        if uplink_jitter_ms is None and 'uplinkJitterMs' in kwargs:
+            uplink_jitter_ms = kwargs['uplinkJitterMs']
+        if uplink_loss_percent is None and 'uplinkLossPercent' in kwargs:
+            uplink_loss_percent = kwargs['uplinkLossPercent']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if downlink_bandwidth_bits is not None:
-            pulumi.set(__self__, "downlink_bandwidth_bits", downlink_bandwidth_bits)
+            _setter("downlink_bandwidth_bits", downlink_bandwidth_bits)
         if downlink_delay_ms is not None:
-            pulumi.set(__self__, "downlink_delay_ms", downlink_delay_ms)
+            _setter("downlink_delay_ms", downlink_delay_ms)
         if downlink_jitter_ms is not None:
-            pulumi.set(__self__, "downlink_jitter_ms", downlink_jitter_ms)
+            _setter("downlink_jitter_ms", downlink_jitter_ms)
         if downlink_loss_percent is not None:
-            pulumi.set(__self__, "downlink_loss_percent", downlink_loss_percent)
+            _setter("downlink_loss_percent", downlink_loss_percent)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if project_arn is not None:
-            pulumi.set(__self__, "project_arn", project_arn)
+            _setter("project_arn", project_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if uplink_bandwidth_bits is not None:
-            pulumi.set(__self__, "uplink_bandwidth_bits", uplink_bandwidth_bits)
+            _setter("uplink_bandwidth_bits", uplink_bandwidth_bits)
         if uplink_delay_ms is not None:
-            pulumi.set(__self__, "uplink_delay_ms", uplink_delay_ms)
+            _setter("uplink_delay_ms", uplink_delay_ms)
         if uplink_jitter_ms is not None:
-            pulumi.set(__self__, "uplink_jitter_ms", uplink_jitter_ms)
+            _setter("uplink_jitter_ms", uplink_jitter_ms)
         if uplink_loss_percent is not None:
-            pulumi.set(__self__, "uplink_loss_percent", uplink_loss_percent)
+            _setter("uplink_loss_percent", uplink_loss_percent)
 
     @property
     @pulumi.getter
@@ -577,6 +691,10 @@ class NetworkProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

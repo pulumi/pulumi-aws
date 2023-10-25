@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,7 +21,20 @@ class MapConfigurationArgs:
         """
         :param pulumi.Input[str] style: Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
         """
-        pulumi.set(__self__, "style", style)
+        MapConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            style=style,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             style: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if style is None:
+            raise TypeError("Missing 'style' argument")
+
+        _setter("style", style)
 
     @property
     @pulumi.getter
@@ -43,8 +56,21 @@ class PlaceIndexDataSourceConfigurationArgs:
         """
         :param pulumi.Input[str] intended_use: Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
         """
+        PlaceIndexDataSourceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            intended_use=intended_use,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             intended_use: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if intended_use is None and 'intendedUse' in kwargs:
+            intended_use = kwargs['intendedUse']
+
         if intended_use is not None:
-            pulumi.set(__self__, "intended_use", intended_use)
+            _setter("intended_use", intended_use)
 
     @property
     @pulumi.getter(name="intendedUse")

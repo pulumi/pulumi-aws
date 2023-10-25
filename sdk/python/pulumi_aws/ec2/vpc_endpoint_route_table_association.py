@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcEndpointRouteTableAssociationArgs', 'VpcEndpointRouteTableAssociation']
@@ -21,8 +21,29 @@ class VpcEndpointRouteTableAssociationArgs:
         :param pulumi.Input[str] route_table_id: Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
         :param pulumi.Input[str] vpc_endpoint_id: Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
         """
-        pulumi.set(__self__, "route_table_id", route_table_id)
-        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+        VpcEndpointRouteTableAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            route_table_id=route_table_id,
+            vpc_endpoint_id=vpc_endpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             route_table_id: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if route_table_id is None and 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if route_table_id is None:
+            raise TypeError("Missing 'route_table_id' argument")
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if vpc_endpoint_id is None:
+            raise TypeError("Missing 'vpc_endpoint_id' argument")
+
+        _setter("route_table_id", route_table_id)
+        _setter("vpc_endpoint_id", vpc_endpoint_id)
 
     @property
     @pulumi.getter(name="routeTableId")
@@ -59,10 +80,27 @@ class _VpcEndpointRouteTableAssociationState:
         :param pulumi.Input[str] route_table_id: Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
         :param pulumi.Input[str] vpc_endpoint_id: Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
         """
+        _VpcEndpointRouteTableAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            route_table_id=route_table_id,
+            vpc_endpoint_id=vpc_endpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             route_table_id: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if route_table_id is None and 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+
         if route_table_id is not None:
-            pulumi.set(__self__, "route_table_id", route_table_id)
+            _setter("route_table_id", route_table_id)
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
 
     @property
     @pulumi.getter(name="routeTableId")
@@ -162,6 +200,10 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcEndpointRouteTableAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,16 +29,37 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            name=name,
+            service_connect_defaults=service_connect_defaults,
+            settings=settings,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']] = None,
+             settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_connect_defaults is None and 'serviceConnectDefaults' in kwargs:
+            service_connect_defaults = kwargs['serviceConnectDefaults']
+
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if service_connect_defaults is not None:
-            pulumi.set(__self__, "service_connect_defaults", service_connect_defaults)
+            _setter("service_connect_defaults", service_connect_defaults)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -121,23 +142,50 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            configuration=configuration,
+            name=name,
+            service_connect_defaults=service_connect_defaults,
+            settings=settings,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']] = None,
+             settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_connect_defaults is None and 'serviceConnectDefaults' in kwargs:
+            service_connect_defaults = kwargs['serviceConnectDefaults']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if service_connect_defaults is not None:
-            pulumi.set(__self__, "service_connect_defaults", service_connect_defaults)
+            _setter("service_connect_defaults", service_connect_defaults)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -350,6 +398,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -369,8 +421,10 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
+            configuration = _utilities.configure(configuration, ClusterConfigurationArgs, True)
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["name"] = name
+            service_connect_defaults = _utilities.configure(service_connect_defaults, ClusterServiceConnectDefaultsArgs, True)
             __props__.__dict__["service_connect_defaults"] = service_connect_defaults
             __props__.__dict__["settings"] = settings
             __props__.__dict__["tags"] = tags

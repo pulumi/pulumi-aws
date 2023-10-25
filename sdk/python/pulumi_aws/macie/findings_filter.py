@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,49 @@ class FindingsFilterArgs:
         :param pulumi.Input[int] position: The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the filter.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "finding_criteria", finding_criteria)
+        FindingsFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            finding_criteria=finding_criteria,
+            description=description,
+            name=name,
+            name_prefix=name_prefix,
+            position=position,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             finding_criteria: Optional[pulumi.Input['FindingsFilterFindingCriteriaArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             position: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if finding_criteria is None and 'findingCriteria' in kwargs:
+            finding_criteria = kwargs['findingCriteria']
+        if finding_criteria is None:
+            raise TypeError("Missing 'finding_criteria' argument")
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+
+        _setter("action", action)
+        _setter("finding_criteria", finding_criteria)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -154,27 +185,60 @@ class _FindingsFilterState:
         :param pulumi.Input[int] position: The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the filter.
         """
+        _FindingsFilterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            arn=arn,
+            description=description,
+            finding_criteria=finding_criteria,
+            name=name,
+            name_prefix=name_prefix,
+            position=position,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             finding_criteria: Optional[pulumi.Input['FindingsFilterFindingCriteriaArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             position: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if finding_criteria is None and 'findingCriteria' in kwargs:
+            finding_criteria = kwargs['findingCriteria']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if finding_criteria is not None:
-            pulumi.set(__self__, "finding_criteria", finding_criteria)
+            _setter("finding_criteria", finding_criteria)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -386,6 +450,10 @@ class FindingsFilter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FindingsFilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -411,6 +479,7 @@ class FindingsFilter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
             __props__.__dict__["description"] = description
+            finding_criteria = _utilities.configure(finding_criteria, FindingsFilterFindingCriteriaArgs, True)
             if finding_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'finding_criteria'")
             __props__.__dict__["finding_criteria"] = finding_criteria

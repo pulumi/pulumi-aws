@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class GatewayRouteSpecGrpcRouteMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+        /// The port number to match from the request.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

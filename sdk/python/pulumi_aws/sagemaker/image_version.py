@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ImageVersionArgs', 'ImageVersion']
@@ -21,8 +21,29 @@ class ImageVersionArgs:
         :param pulumi.Input[str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
         """
-        pulumi.set(__self__, "base_image", base_image)
-        pulumi.set(__self__, "image_name", image_name)
+        ImageVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_image=base_image,
+            image_name=image_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_image: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_image is None and 'baseImage' in kwargs:
+            base_image = kwargs['baseImage']
+        if base_image is None:
+            raise TypeError("Missing 'base_image' argument")
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if image_name is None:
+            raise TypeError("Missing 'image_name' argument")
+
+        _setter("base_image", base_image)
+        _setter("image_name", image_name)
 
     @property
     @pulumi.getter(name="baseImage")
@@ -66,18 +87,47 @@ class _ImageVersionState:
         :param pulumi.Input[str] image_arn: The Amazon Resource Name (ARN) of the image the version is based on.
         :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
         """
+        _ImageVersionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            base_image=base_image,
+            container_image=container_image,
+            image_arn=image_arn,
+            image_name=image_name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             base_image: Optional[pulumi.Input[str]] = None,
+             container_image: Optional[pulumi.Input[str]] = None,
+             image_arn: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_image is None and 'baseImage' in kwargs:
+            base_image = kwargs['baseImage']
+        if container_image is None and 'containerImage' in kwargs:
+            container_image = kwargs['containerImage']
+        if image_arn is None and 'imageArn' in kwargs:
+            image_arn = kwargs['imageArn']
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if base_image is not None:
-            pulumi.set(__self__, "base_image", base_image)
+            _setter("base_image", base_image)
         if container_image is not None:
-            pulumi.set(__self__, "container_image", container_image)
+            _setter("container_image", container_image)
         if image_arn is not None:
-            pulumi.set(__self__, "image_arn", image_arn)
+            _setter("image_arn", image_arn)
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -224,6 +274,10 @@ class ImageVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ImageVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

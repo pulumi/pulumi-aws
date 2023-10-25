@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,19 +33,56 @@ class VpcEndpointServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "acceptance_required", acceptance_required)
+        VpcEndpointServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acceptance_required=acceptance_required,
+            allowed_principals=allowed_principals,
+            gateway_load_balancer_arns=gateway_load_balancer_arns,
+            network_load_balancer_arns=network_load_balancer_arns,
+            private_dns_name=private_dns_name,
+            supported_ip_address_types=supported_ip_address_types,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acceptance_required: Optional[pulumi.Input[bool]] = None,
+             allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_dns_name: Optional[pulumi.Input[str]] = None,
+             supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acceptance_required is None and 'acceptanceRequired' in kwargs:
+            acceptance_required = kwargs['acceptanceRequired']
+        if acceptance_required is None:
+            raise TypeError("Missing 'acceptance_required' argument")
+        if allowed_principals is None and 'allowedPrincipals' in kwargs:
+            allowed_principals = kwargs['allowedPrincipals']
+        if gateway_load_balancer_arns is None and 'gatewayLoadBalancerArns' in kwargs:
+            gateway_load_balancer_arns = kwargs['gatewayLoadBalancerArns']
+        if network_load_balancer_arns is None and 'networkLoadBalancerArns' in kwargs:
+            network_load_balancer_arns = kwargs['networkLoadBalancerArns']
+        if private_dns_name is None and 'privateDnsName' in kwargs:
+            private_dns_name = kwargs['privateDnsName']
+        if supported_ip_address_types is None and 'supportedIpAddressTypes' in kwargs:
+            supported_ip_address_types = kwargs['supportedIpAddressTypes']
+
+        _setter("acceptance_required", acceptance_required)
         if allowed_principals is not None:
-            pulumi.set(__self__, "allowed_principals", allowed_principals)
+            _setter("allowed_principals", allowed_principals)
         if gateway_load_balancer_arns is not None:
-            pulumi.set(__self__, "gateway_load_balancer_arns", gateway_load_balancer_arns)
+            _setter("gateway_load_balancer_arns", gateway_load_balancer_arns)
         if network_load_balancer_arns is not None:
-            pulumi.set(__self__, "network_load_balancer_arns", network_load_balancer_arns)
+            _setter("network_load_balancer_arns", network_load_balancer_arns)
         if private_dns_name is not None:
-            pulumi.set(__self__, "private_dns_name", private_dns_name)
+            _setter("private_dns_name", private_dns_name)
         if supported_ip_address_types is not None:
-            pulumi.set(__self__, "supported_ip_address_types", supported_ip_address_types)
+            _setter("supported_ip_address_types", supported_ip_address_types)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="acceptanceRequired")
@@ -170,41 +207,108 @@ class _VpcEndpointServiceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _VpcEndpointServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acceptance_required=acceptance_required,
+            allowed_principals=allowed_principals,
+            arn=arn,
+            availability_zones=availability_zones,
+            base_endpoint_dns_names=base_endpoint_dns_names,
+            gateway_load_balancer_arns=gateway_load_balancer_arns,
+            manages_vpc_endpoints=manages_vpc_endpoints,
+            network_load_balancer_arns=network_load_balancer_arns,
+            private_dns_name=private_dns_name,
+            private_dns_name_configurations=private_dns_name_configurations,
+            service_name=service_name,
+            service_type=service_type,
+            state=state,
+            supported_ip_address_types=supported_ip_address_types,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acceptance_required: Optional[pulumi.Input[bool]] = None,
+             allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             base_endpoint_dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             manages_vpc_endpoints: Optional[pulumi.Input[bool]] = None,
+             network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_dns_name: Optional[pulumi.Input[str]] = None,
+             private_dns_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArgs']]]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             service_type: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acceptance_required is None and 'acceptanceRequired' in kwargs:
+            acceptance_required = kwargs['acceptanceRequired']
+        if allowed_principals is None and 'allowedPrincipals' in kwargs:
+            allowed_principals = kwargs['allowedPrincipals']
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if base_endpoint_dns_names is None and 'baseEndpointDnsNames' in kwargs:
+            base_endpoint_dns_names = kwargs['baseEndpointDnsNames']
+        if gateway_load_balancer_arns is None and 'gatewayLoadBalancerArns' in kwargs:
+            gateway_load_balancer_arns = kwargs['gatewayLoadBalancerArns']
+        if manages_vpc_endpoints is None and 'managesVpcEndpoints' in kwargs:
+            manages_vpc_endpoints = kwargs['managesVpcEndpoints']
+        if network_load_balancer_arns is None and 'networkLoadBalancerArns' in kwargs:
+            network_load_balancer_arns = kwargs['networkLoadBalancerArns']
+        if private_dns_name is None and 'privateDnsName' in kwargs:
+            private_dns_name = kwargs['privateDnsName']
+        if private_dns_name_configurations is None and 'privateDnsNameConfigurations' in kwargs:
+            private_dns_name_configurations = kwargs['privateDnsNameConfigurations']
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_type is None and 'serviceType' in kwargs:
+            service_type = kwargs['serviceType']
+        if supported_ip_address_types is None and 'supportedIpAddressTypes' in kwargs:
+            supported_ip_address_types = kwargs['supportedIpAddressTypes']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if acceptance_required is not None:
-            pulumi.set(__self__, "acceptance_required", acceptance_required)
+            _setter("acceptance_required", acceptance_required)
         if allowed_principals is not None:
-            pulumi.set(__self__, "allowed_principals", allowed_principals)
+            _setter("allowed_principals", allowed_principals)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if base_endpoint_dns_names is not None:
-            pulumi.set(__self__, "base_endpoint_dns_names", base_endpoint_dns_names)
+            _setter("base_endpoint_dns_names", base_endpoint_dns_names)
         if gateway_load_balancer_arns is not None:
-            pulumi.set(__self__, "gateway_load_balancer_arns", gateway_load_balancer_arns)
+            _setter("gateway_load_balancer_arns", gateway_load_balancer_arns)
         if manages_vpc_endpoints is not None:
-            pulumi.set(__self__, "manages_vpc_endpoints", manages_vpc_endpoints)
+            _setter("manages_vpc_endpoints", manages_vpc_endpoints)
         if network_load_balancer_arns is not None:
-            pulumi.set(__self__, "network_load_balancer_arns", network_load_balancer_arns)
+            _setter("network_load_balancer_arns", network_load_balancer_arns)
         if private_dns_name is not None:
-            pulumi.set(__self__, "private_dns_name", private_dns_name)
+            _setter("private_dns_name", private_dns_name)
         if private_dns_name_configurations is not None:
-            pulumi.set(__self__, "private_dns_name_configurations", private_dns_name_configurations)
+            _setter("private_dns_name_configurations", private_dns_name_configurations)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if service_type is not None:
-            pulumi.set(__self__, "service_type", service_type)
+            _setter("service_type", service_type)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if supported_ip_address_types is not None:
-            pulumi.set(__self__, "supported_ip_address_types", supported_ip_address_types)
+            _setter("supported_ip_address_types", supported_ip_address_types)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="acceptanceRequired")
@@ -521,6 +625,10 @@ class VpcEndpointService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcEndpointServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? Format { get; set; }
 
         /// <summary>
-        /// Object prefix for filtering.
+        /// Prefix to append to exported analytics data.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

@@ -123,14 +123,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:scheduler/schedule:Schedule")
 public class Schedule extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+     * ARN of the SQS queue specified as the destination for the dead-letter queue.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+     * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
      * 
      */
     public Output<String> arn() {

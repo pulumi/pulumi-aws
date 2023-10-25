@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkingStorageArgs', 'WorkingStorage']
@@ -21,8 +21,29 @@ class WorkingStorageArgs:
         :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         """
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "gateway_arn", gateway_arn)
+        WorkingStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_id=disk_id,
+            gateway_arn=gateway_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_id: Optional[pulumi.Input[str]] = None,
+             gateway_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if disk_id is None:
+            raise TypeError("Missing 'disk_id' argument")
+        if gateway_arn is None and 'gatewayArn' in kwargs:
+            gateway_arn = kwargs['gatewayArn']
+        if gateway_arn is None:
+            raise TypeError("Missing 'gateway_arn' argument")
+
+        _setter("disk_id", disk_id)
+        _setter("gateway_arn", gateway_arn)
 
     @property
     @pulumi.getter(name="diskId")
@@ -59,10 +80,27 @@ class _WorkingStorageState:
         :param pulumi.Input[str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         """
+        _WorkingStorageState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_id=disk_id,
+            gateway_arn=gateway_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_id: Optional[pulumi.Input[str]] = None,
+             gateway_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if gateway_arn is None and 'gatewayArn' in kwargs:
+            gateway_arn = kwargs['gatewayArn']
+
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if gateway_arn is not None:
-            pulumi.set(__self__, "gateway_arn", gateway_arn)
+            _setter("gateway_arn", gateway_arn)
 
     @property
     @pulumi.getter(name="diskId")
@@ -166,6 +204,10 @@ class WorkingStorage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkingStorageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

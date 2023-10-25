@@ -18,14 +18,14 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
     public static final PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs Empty = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs();
 
     /**
-     * Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+     * Dimensions of the metric.
      * 
      */
     @Import(name="dimensions")
     private @Nullable Output<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs>> dimensions;
 
     /**
-     * @return Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+     * @return Dimensions of the metric.
      * 
      */
     public Optional<Output<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs>>> dimensions() {
@@ -89,7 +89,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param dimensions Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+         * @param dimensions Dimensions of the metric.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param dimensions Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+         * @param dimensions Dimensions of the metric.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param dimensions Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+         * @param dimensions Dimensions of the metric.
          * 
          * @return builder
          * 

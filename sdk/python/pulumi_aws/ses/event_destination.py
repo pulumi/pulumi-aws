@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,18 +35,55 @@ class EventDestinationArgs:
                
                > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         """
-        pulumi.set(__self__, "configuration_set_name", configuration_set_name)
-        pulumi.set(__self__, "matching_types", matching_types)
+        EventDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_set_name=configuration_set_name,
+            matching_types=matching_types,
+            cloudwatch_destinations=cloudwatch_destinations,
+            enabled=enabled,
+            kinesis_destination=kinesis_destination,
+            name=name,
+            sns_destination=sns_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_set_name: Optional[pulumi.Input[str]] = None,
+             matching_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cloudwatch_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             kinesis_destination: Optional[pulumi.Input['EventDestinationKinesisDestinationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sns_destination: Optional[pulumi.Input['EventDestinationSnsDestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_set_name is None and 'configurationSetName' in kwargs:
+            configuration_set_name = kwargs['configurationSetName']
+        if configuration_set_name is None:
+            raise TypeError("Missing 'configuration_set_name' argument")
+        if matching_types is None and 'matchingTypes' in kwargs:
+            matching_types = kwargs['matchingTypes']
+        if matching_types is None:
+            raise TypeError("Missing 'matching_types' argument")
+        if cloudwatch_destinations is None and 'cloudwatchDestinations' in kwargs:
+            cloudwatch_destinations = kwargs['cloudwatchDestinations']
+        if kinesis_destination is None and 'kinesisDestination' in kwargs:
+            kinesis_destination = kwargs['kinesisDestination']
+        if sns_destination is None and 'snsDestination' in kwargs:
+            sns_destination = kwargs['snsDestination']
+
+        _setter("configuration_set_name", configuration_set_name)
+        _setter("matching_types", matching_types)
         if cloudwatch_destinations is not None:
-            pulumi.set(__self__, "cloudwatch_destinations", cloudwatch_destinations)
+            _setter("cloudwatch_destinations", cloudwatch_destinations)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if kinesis_destination is not None:
-            pulumi.set(__self__, "kinesis_destination", kinesis_destination)
+            _setter("kinesis_destination", kinesis_destination)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sns_destination is not None:
-            pulumi.set(__self__, "sns_destination", sns_destination)
+            _setter("sns_destination", sns_destination)
 
     @property
     @pulumi.getter(name="configurationSetName")
@@ -159,22 +196,57 @@ class _EventDestinationState:
                
                > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         """
+        _EventDestinationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cloudwatch_destinations=cloudwatch_destinations,
+            configuration_set_name=configuration_set_name,
+            enabled=enabled,
+            kinesis_destination=kinesis_destination,
+            matching_types=matching_types,
+            name=name,
+            sns_destination=sns_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cloudwatch_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]] = None,
+             configuration_set_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             kinesis_destination: Optional[pulumi.Input['EventDestinationKinesisDestinationArgs']] = None,
+             matching_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sns_destination: Optional[pulumi.Input['EventDestinationSnsDestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloudwatch_destinations is None and 'cloudwatchDestinations' in kwargs:
+            cloudwatch_destinations = kwargs['cloudwatchDestinations']
+        if configuration_set_name is None and 'configurationSetName' in kwargs:
+            configuration_set_name = kwargs['configurationSetName']
+        if kinesis_destination is None and 'kinesisDestination' in kwargs:
+            kinesis_destination = kwargs['kinesisDestination']
+        if matching_types is None and 'matchingTypes' in kwargs:
+            matching_types = kwargs['matchingTypes']
+        if sns_destination is None and 'snsDestination' in kwargs:
+            sns_destination = kwargs['snsDestination']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cloudwatch_destinations is not None:
-            pulumi.set(__self__, "cloudwatch_destinations", cloudwatch_destinations)
+            _setter("cloudwatch_destinations", cloudwatch_destinations)
         if configuration_set_name is not None:
-            pulumi.set(__self__, "configuration_set_name", configuration_set_name)
+            _setter("configuration_set_name", configuration_set_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if kinesis_destination is not None:
-            pulumi.set(__self__, "kinesis_destination", kinesis_destination)
+            _setter("kinesis_destination", kinesis_destination)
         if matching_types is not None:
-            pulumi.set(__self__, "matching_types", matching_types)
+            _setter("matching_types", matching_types)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sns_destination is not None:
-            pulumi.set(__self__, "sns_destination", sns_destination)
+            _setter("sns_destination", sns_destination)
 
     @property
     @pulumi.getter
@@ -450,6 +522,10 @@ class EventDestination(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventDestinationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -476,11 +552,13 @@ class EventDestination(pulumi.CustomResource):
                 raise TypeError("Missing required property 'configuration_set_name'")
             __props__.__dict__["configuration_set_name"] = configuration_set_name
             __props__.__dict__["enabled"] = enabled
+            kinesis_destination = _utilities.configure(kinesis_destination, EventDestinationKinesisDestinationArgs, True)
             __props__.__dict__["kinesis_destination"] = kinesis_destination
             if matching_types is None and not opts.urn:
                 raise TypeError("Missing required property 'matching_types'")
             __props__.__dict__["matching_types"] = matching_types
             __props__.__dict__["name"] = name
+            sns_destination = _utilities.configure(sns_destination, EventDestinationSnsDestinationArgs, True)
             __props__.__dict__["sns_destination"] = sns_destination
             __props__.__dict__["arn"] = None
         super(EventDestination, __self__).__init__(

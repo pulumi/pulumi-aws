@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,48 @@ class AssessmentTemplateArgs:
         :param pulumi.Input[str] name: The name of the assessment template.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "rules_package_arns", rules_package_arns)
-        pulumi.set(__self__, "target_arn", target_arn)
+        AssessmentTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            rules_package_arns=rules_package_arns,
+            target_arn=target_arn,
+            event_subscriptions=event_subscriptions,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: Optional[pulumi.Input[int]] = None,
+             rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_arn: Optional[pulumi.Input[str]] = None,
+             event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if rules_package_arns is None and 'rulesPackageArns' in kwargs:
+            rules_package_arns = kwargs['rulesPackageArns']
+        if rules_package_arns is None:
+            raise TypeError("Missing 'rules_package_arns' argument")
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if target_arn is None:
+            raise TypeError("Missing 'target_arn' argument")
+        if event_subscriptions is None and 'eventSubscriptions' in kwargs:
+            event_subscriptions = kwargs['eventSubscriptions']
+
+        _setter("duration", duration)
+        _setter("rules_package_arns", rules_package_arns)
+        _setter("target_arn", target_arn)
         if event_subscriptions is not None:
-            pulumi.set(__self__, "event_subscriptions", event_subscriptions)
+            _setter("event_subscriptions", event_subscriptions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -136,25 +169,58 @@ class _AssessmentTemplateState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_arn: The assessment target ARN to attach the template to.
         """
+        _AssessmentTemplateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            duration=duration,
+            event_subscriptions=event_subscriptions,
+            name=name,
+            rules_package_arns=rules_package_arns,
+            tags=tags,
+            tags_all=tags_all,
+            target_arn=target_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             duration: Optional[pulumi.Input[int]] = None,
+             event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateEventSubscriptionArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_subscriptions is None and 'eventSubscriptions' in kwargs:
+            event_subscriptions = kwargs['eventSubscriptions']
+        if rules_package_arns is None and 'rulesPackageArns' in kwargs:
+            rules_package_arns = kwargs['rulesPackageArns']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if event_subscriptions is not None:
-            pulumi.set(__self__, "event_subscriptions", event_subscriptions)
+            _setter("event_subscriptions", event_subscriptions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rules_package_arns is not None:
-            pulumi.set(__self__, "rules_package_arns", rules_package_arns)
+            _setter("rules_package_arns", rules_package_arns)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target_arn is not None:
-            pulumi.set(__self__, "target_arn", target_arn)
+            _setter("target_arn", target_arn)
 
     @property
     @pulumi.getter
@@ -357,6 +423,10 @@ class AssessmentTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssessmentTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

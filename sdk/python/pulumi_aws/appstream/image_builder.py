@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,31 +47,88 @@ class ImageBuilderArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        ImageBuilderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            access_endpoints=access_endpoints,
+            appstream_agent_version=appstream_agent_version,
+            description=description,
+            display_name=display_name,
+            domain_join_info=domain_join_info,
+            enable_default_internet_access=enable_default_internet_access,
+            iam_role_arn=iam_role_arn,
+            image_arn=image_arn,
+            image_name=image_name,
+            name=name,
+            tags=tags,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
+             appstream_agent_version: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             domain_join_info: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']] = None,
+             enable_default_internet_access: Optional[pulumi.Input[bool]] = None,
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             image_arn: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if access_endpoints is None and 'accessEndpoints' in kwargs:
+            access_endpoints = kwargs['accessEndpoints']
+        if appstream_agent_version is None and 'appstreamAgentVersion' in kwargs:
+            appstream_agent_version = kwargs['appstreamAgentVersion']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if domain_join_info is None and 'domainJoinInfo' in kwargs:
+            domain_join_info = kwargs['domainJoinInfo']
+        if enable_default_internet_access is None and 'enableDefaultInternetAccess' in kwargs:
+            enable_default_internet_access = kwargs['enableDefaultInternetAccess']
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if image_arn is None and 'imageArn' in kwargs:
+            image_arn = kwargs['imageArn']
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
+        _setter("instance_type", instance_type)
         if access_endpoints is not None:
-            pulumi.set(__self__, "access_endpoints", access_endpoints)
+            _setter("access_endpoints", access_endpoints)
         if appstream_agent_version is not None:
-            pulumi.set(__self__, "appstream_agent_version", appstream_agent_version)
+            _setter("appstream_agent_version", appstream_agent_version)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if domain_join_info is not None:
-            pulumi.set(__self__, "domain_join_info", domain_join_info)
+            _setter("domain_join_info", domain_join_info)
         if enable_default_internet_access is not None:
-            pulumi.set(__self__, "enable_default_internet_access", enable_default_internet_access)
+            _setter("enable_default_internet_access", enable_default_internet_access)
         if iam_role_arn is not None:
-            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+            _setter("iam_role_arn", iam_role_arn)
         if image_arn is not None:
-            pulumi.set(__self__, "image_arn", image_arn)
+            _setter("image_arn", image_arn)
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -274,43 +331,110 @@ class _ImageBuilderState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
+        _ImageBuilderState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_endpoints=access_endpoints,
+            appstream_agent_version=appstream_agent_version,
+            arn=arn,
+            created_time=created_time,
+            description=description,
+            display_name=display_name,
+            domain_join_info=domain_join_info,
+            enable_default_internet_access=enable_default_internet_access,
+            iam_role_arn=iam_role_arn,
+            image_arn=image_arn,
+            image_name=image_name,
+            instance_type=instance_type,
+            name=name,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
+             appstream_agent_version: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             domain_join_info: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']] = None,
+             enable_default_internet_access: Optional[pulumi.Input[bool]] = None,
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             image_arn: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_endpoints is None and 'accessEndpoints' in kwargs:
+            access_endpoints = kwargs['accessEndpoints']
+        if appstream_agent_version is None and 'appstreamAgentVersion' in kwargs:
+            appstream_agent_version = kwargs['appstreamAgentVersion']
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if domain_join_info is None and 'domainJoinInfo' in kwargs:
+            domain_join_info = kwargs['domainJoinInfo']
+        if enable_default_internet_access is None and 'enableDefaultInternetAccess' in kwargs:
+            enable_default_internet_access = kwargs['enableDefaultInternetAccess']
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if image_arn is None and 'imageArn' in kwargs:
+            image_arn = kwargs['imageArn']
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if access_endpoints is not None:
-            pulumi.set(__self__, "access_endpoints", access_endpoints)
+            _setter("access_endpoints", access_endpoints)
         if appstream_agent_version is not None:
-            pulumi.set(__self__, "appstream_agent_version", appstream_agent_version)
+            _setter("appstream_agent_version", appstream_agent_version)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if domain_join_info is not None:
-            pulumi.set(__self__, "domain_join_info", domain_join_info)
+            _setter("domain_join_info", domain_join_info)
         if enable_default_internet_access is not None:
-            pulumi.set(__self__, "enable_default_internet_access", enable_default_internet_access)
+            _setter("enable_default_internet_access", enable_default_internet_access)
         if iam_role_arn is not None:
-            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+            _setter("iam_role_arn", iam_role_arn)
         if image_arn is not None:
-            pulumi.set(__self__, "image_arn", image_arn)
+            _setter("image_arn", image_arn)
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="accessEndpoints")
@@ -637,6 +761,10 @@ class ImageBuilder(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ImageBuilderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -668,6 +796,7 @@ class ImageBuilder(pulumi.CustomResource):
             __props__.__dict__["appstream_agent_version"] = appstream_agent_version
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
+            domain_join_info = _utilities.configure(domain_join_info, ImageBuilderDomainJoinInfoArgs, True)
             __props__.__dict__["domain_join_info"] = domain_join_info
             __props__.__dict__["enable_default_internet_access"] = enable_default_internet_access
             __props__.__dict__["iam_role_arn"] = iam_role_arn
@@ -678,6 +807,7 @@ class ImageBuilder(pulumi.CustomResource):
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            vpc_config = _utilities.configure(vpc_config, ImageBuilderVpcConfigArgs, True)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None

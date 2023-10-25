@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,23 +41,66 @@ class DataSourceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['DataSourceVpcConnectionPropertiesArgs'] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
-        pulumi.set(__self__, "data_source_id", data_source_id)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "type", type)
+        DataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source_id=data_source_id,
+            parameters=parameters,
+            type=type,
+            aws_account_id=aws_account_id,
+            credentials=credentials,
+            name=name,
+            permissions=permissions,
+            ssl_properties=ssl_properties,
+            tags=tags,
+            vpc_connection_properties=vpc_connection_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source_id: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input['DataSourceParametersArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['DataSourceCredentialsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]]] = None,
+             ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source_id is None and 'dataSourceId' in kwargs:
+            data_source_id = kwargs['dataSourceId']
+        if data_source_id is None:
+            raise TypeError("Missing 'data_source_id' argument")
+        if parameters is None:
+            raise TypeError("Missing 'parameters' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if ssl_properties is None and 'sslProperties' in kwargs:
+            ssl_properties = kwargs['sslProperties']
+        if vpc_connection_properties is None and 'vpcConnectionProperties' in kwargs:
+            vpc_connection_properties = kwargs['vpcConnectionProperties']
+
+        _setter("data_source_id", data_source_id)
+        _setter("parameters", parameters)
+        _setter("type", type)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if ssl_properties is not None:
-            pulumi.set(__self__, "ssl_properties", ssl_properties)
+            _setter("ssl_properties", ssl_properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_connection_properties is not None:
-            pulumi.set(__self__, "vpc_connection_properties", vpc_connection_properties)
+            _setter("vpc_connection_properties", vpc_connection_properties)
 
     @property
     @pulumi.getter(name="dataSourceId")
@@ -214,33 +257,76 @@ class _DataSourceState:
                The following arguments are optional:
         :param pulumi.Input['DataSourceVpcConnectionPropertiesArgs'] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
+        _DataSourceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            aws_account_id=aws_account_id,
+            credentials=credentials,
+            data_source_id=data_source_id,
+            name=name,
+            parameters=parameters,
+            permissions=permissions,
+            ssl_properties=ssl_properties,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+            vpc_connection_properties=vpc_connection_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['DataSourceCredentialsArgs']] = None,
+             data_source_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input['DataSourceParametersArgs']] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]]] = None,
+             ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if data_source_id is None and 'dataSourceId' in kwargs:
+            data_source_id = kwargs['dataSourceId']
+        if ssl_properties is None and 'sslProperties' in kwargs:
+            ssl_properties = kwargs['sslProperties']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_connection_properties is None and 'vpcConnectionProperties' in kwargs:
+            vpc_connection_properties = kwargs['vpcConnectionProperties']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if data_source_id is not None:
-            pulumi.set(__self__, "data_source_id", data_source_id)
+            _setter("data_source_id", data_source_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if ssl_properties is not None:
-            pulumi.set(__self__, "ssl_properties", ssl_properties)
+            _setter("ssl_properties", ssl_properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if vpc_connection_properties is not None:
-            pulumi.set(__self__, "vpc_connection_properties", vpc_connection_properties)
+            _setter("vpc_connection_properties", vpc_connection_properties)
 
     @property
     @pulumi.getter
@@ -499,6 +585,10 @@ class DataSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataSourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -524,20 +614,24 @@ class DataSource(pulumi.CustomResource):
             __props__ = DataSourceArgs.__new__(DataSourceArgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
+            credentials = _utilities.configure(credentials, DataSourceCredentialsArgs, True)
             __props__.__dict__["credentials"] = credentials
             if data_source_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source_id'")
             __props__.__dict__["data_source_id"] = data_source_id
             __props__.__dict__["name"] = name
+            parameters = _utilities.configure(parameters, DataSourceParametersArgs, True)
             if parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'parameters'")
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
+            ssl_properties = _utilities.configure(ssl_properties, DataSourceSslPropertiesArgs, True)
             __props__.__dict__["ssl_properties"] = ssl_properties
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            vpc_connection_properties = _utilities.configure(vpc_connection_properties, DataSourceVpcConnectionPropertiesArgs, True)
             __props__.__dict__["vpc_connection_properties"] = vpc_connection_properties
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None

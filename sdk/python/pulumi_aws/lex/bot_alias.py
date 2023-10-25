@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,43 @@ class BotAliasArgs:
         :param pulumi.Input[str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         """
-        pulumi.set(__self__, "bot_name", bot_name)
-        pulumi.set(__self__, "bot_version", bot_version)
+        BotAliasArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            bot_version=bot_version,
+            conversation_logs=conversation_logs,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             bot_version: Optional[pulumi.Input[str]] = None,
+             conversation_logs: Optional[pulumi.Input['BotAliasConversationLogsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bot_name is None and 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if bot_version is None and 'botVersion' in kwargs:
+            bot_version = kwargs['botVersion']
+        if bot_version is None:
+            raise TypeError("Missing 'bot_version' argument")
+        if conversation_logs is None and 'conversationLogs' in kwargs:
+            conversation_logs = kwargs['conversationLogs']
+
+        _setter("bot_name", bot_name)
+        _setter("bot_version", bot_version)
         if conversation_logs is not None:
-            pulumi.set(__self__, "conversation_logs", conversation_logs)
+            _setter("conversation_logs", conversation_logs)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="botName")
@@ -123,24 +152,61 @@ class _BotAliasState:
         :param pulumi.Input[str] last_updated_date: The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
         :param pulumi.Input[str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         """
+        _BotAliasState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            bot_name=bot_name,
+            bot_version=bot_version,
+            checksum=checksum,
+            conversation_logs=conversation_logs,
+            created_date=created_date,
+            description=description,
+            last_updated_date=last_updated_date,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             bot_name: Optional[pulumi.Input[str]] = None,
+             bot_version: Optional[pulumi.Input[str]] = None,
+             checksum: Optional[pulumi.Input[str]] = None,
+             conversation_logs: Optional[pulumi.Input['BotAliasConversationLogsArgs']] = None,
+             created_date: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             last_updated_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bot_name is None and 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if bot_version is None and 'botVersion' in kwargs:
+            bot_version = kwargs['botVersion']
+        if conversation_logs is None and 'conversationLogs' in kwargs:
+            conversation_logs = kwargs['conversationLogs']
+        if created_date is None and 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if last_updated_date is None and 'lastUpdatedDate' in kwargs:
+            last_updated_date = kwargs['lastUpdatedDate']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bot_name is not None:
-            pulumi.set(__self__, "bot_name", bot_name)
+            _setter("bot_name", bot_name)
         if bot_version is not None:
-            pulumi.set(__self__, "bot_version", bot_version)
+            _setter("bot_version", bot_version)
         if checksum is not None:
-            pulumi.set(__self__, "checksum", checksum)
+            _setter("checksum", checksum)
         if conversation_logs is not None:
-            pulumi.set(__self__, "conversation_logs", conversation_logs)
+            _setter("conversation_logs", conversation_logs)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if last_updated_date is not None:
-            pulumi.set(__self__, "last_updated_date", last_updated_date)
+            _setter("last_updated_date", last_updated_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -336,6 +402,10 @@ class BotAlias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BotAliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -361,6 +431,7 @@ class BotAlias(pulumi.CustomResource):
             if bot_version is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_version'")
             __props__.__dict__["bot_version"] = bot_version
+            conversation_logs = _utilities.configure(conversation_logs, BotAliasConversationLogsArgs, True)
             __props__.__dict__["conversation_logs"] = conversation_logs
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

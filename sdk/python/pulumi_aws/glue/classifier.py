@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,16 +29,43 @@ class ClassifierArgs:
         :param pulumi.Input[str] name: The name of the classifier.
         :param pulumi.Input['ClassifierXmlClassifierArgs'] xml_classifier: A classifier for XML content. Defined below.
         """
+        ClassifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            csv_classifier=csv_classifier,
+            grok_classifier=grok_classifier,
+            json_classifier=json_classifier,
+            name=name,
+            xml_classifier=xml_classifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             csv_classifier: Optional[pulumi.Input['ClassifierCsvClassifierArgs']] = None,
+             grok_classifier: Optional[pulumi.Input['ClassifierGrokClassifierArgs']] = None,
+             json_classifier: Optional[pulumi.Input['ClassifierJsonClassifierArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             xml_classifier: Optional[pulumi.Input['ClassifierXmlClassifierArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if csv_classifier is None and 'csvClassifier' in kwargs:
+            csv_classifier = kwargs['csvClassifier']
+        if grok_classifier is None and 'grokClassifier' in kwargs:
+            grok_classifier = kwargs['grokClassifier']
+        if json_classifier is None and 'jsonClassifier' in kwargs:
+            json_classifier = kwargs['jsonClassifier']
+        if xml_classifier is None and 'xmlClassifier' in kwargs:
+            xml_classifier = kwargs['xmlClassifier']
+
         if csv_classifier is not None:
-            pulumi.set(__self__, "csv_classifier", csv_classifier)
+            _setter("csv_classifier", csv_classifier)
         if grok_classifier is not None:
-            pulumi.set(__self__, "grok_classifier", grok_classifier)
+            _setter("grok_classifier", grok_classifier)
         if json_classifier is not None:
-            pulumi.set(__self__, "json_classifier", json_classifier)
+            _setter("json_classifier", json_classifier)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if xml_classifier is not None:
-            pulumi.set(__self__, "xml_classifier", xml_classifier)
+            _setter("xml_classifier", xml_classifier)
 
     @property
     @pulumi.getter(name="csvClassifier")
@@ -117,16 +144,43 @@ class _ClassifierState:
         :param pulumi.Input[str] name: The name of the classifier.
         :param pulumi.Input['ClassifierXmlClassifierArgs'] xml_classifier: A classifier for XML content. Defined below.
         """
+        _ClassifierState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            csv_classifier=csv_classifier,
+            grok_classifier=grok_classifier,
+            json_classifier=json_classifier,
+            name=name,
+            xml_classifier=xml_classifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             csv_classifier: Optional[pulumi.Input['ClassifierCsvClassifierArgs']] = None,
+             grok_classifier: Optional[pulumi.Input['ClassifierGrokClassifierArgs']] = None,
+             json_classifier: Optional[pulumi.Input['ClassifierJsonClassifierArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             xml_classifier: Optional[pulumi.Input['ClassifierXmlClassifierArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if csv_classifier is None and 'csvClassifier' in kwargs:
+            csv_classifier = kwargs['csvClassifier']
+        if grok_classifier is None and 'grokClassifier' in kwargs:
+            grok_classifier = kwargs['grokClassifier']
+        if json_classifier is None and 'jsonClassifier' in kwargs:
+            json_classifier = kwargs['jsonClassifier']
+        if xml_classifier is None and 'xmlClassifier' in kwargs:
+            xml_classifier = kwargs['xmlClassifier']
+
         if csv_classifier is not None:
-            pulumi.set(__self__, "csv_classifier", csv_classifier)
+            _setter("csv_classifier", csv_classifier)
         if grok_classifier is not None:
-            pulumi.set(__self__, "grok_classifier", grok_classifier)
+            _setter("grok_classifier", grok_classifier)
         if json_classifier is not None:
-            pulumi.set(__self__, "json_classifier", json_classifier)
+            _setter("json_classifier", json_classifier)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if xml_classifier is not None:
-            pulumi.set(__self__, "xml_classifier", xml_classifier)
+            _setter("xml_classifier", xml_classifier)
 
     @property
     @pulumi.getter(name="csvClassifier")
@@ -354,6 +408,10 @@ class Classifier(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClassifierArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -373,10 +431,14 @@ class Classifier(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClassifierArgs.__new__(ClassifierArgs)
 
+            csv_classifier = _utilities.configure(csv_classifier, ClassifierCsvClassifierArgs, True)
             __props__.__dict__["csv_classifier"] = csv_classifier
+            grok_classifier = _utilities.configure(grok_classifier, ClassifierGrokClassifierArgs, True)
             __props__.__dict__["grok_classifier"] = grok_classifier
+            json_classifier = _utilities.configure(json_classifier, ClassifierJsonClassifierArgs, True)
             __props__.__dict__["json_classifier"] = json_classifier
             __props__.__dict__["name"] = name
+            xml_classifier = _utilities.configure(xml_classifier, ClassifierXmlClassifierArgs, True)
             __props__.__dict__["xml_classifier"] = xml_classifier
         super(Classifier, __self__).__init__(
             'aws:glue/classifier:Classifier',

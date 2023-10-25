@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -42,22 +42,77 @@ class FileCacheArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "file_cache_type", file_cache_type)
-        pulumi.set(__self__, "file_cache_type_version", file_cache_type_version)
-        pulumi.set(__self__, "storage_capacity", storage_capacity)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        FileCacheArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_cache_type=file_cache_type,
+            file_cache_type_version=file_cache_type_version,
+            storage_capacity=storage_capacity,
+            subnet_ids=subnet_ids,
+            copy_tags_to_data_repository_associations=copy_tags_to_data_repository_associations,
+            data_repository_associations=data_repository_associations,
+            kms_key_id=kms_key_id,
+            lustre_configurations=lustre_configurations,
+            security_group_ids=security_group_ids,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_cache_type: Optional[pulumi.Input[str]] = None,
+             file_cache_type_version: Optional[pulumi.Input[str]] = None,
+             storage_capacity: Optional[pulumi.Input[int]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             copy_tags_to_data_repository_associations: Optional[pulumi.Input[bool]] = None,
+             data_repository_associations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_cache_type is None and 'fileCacheType' in kwargs:
+            file_cache_type = kwargs['fileCacheType']
+        if file_cache_type is None:
+            raise TypeError("Missing 'file_cache_type' argument")
+        if file_cache_type_version is None and 'fileCacheTypeVersion' in kwargs:
+            file_cache_type_version = kwargs['fileCacheTypeVersion']
+        if file_cache_type_version is None:
+            raise TypeError("Missing 'file_cache_type_version' argument")
+        if storage_capacity is None and 'storageCapacity' in kwargs:
+            storage_capacity = kwargs['storageCapacity']
+        if storage_capacity is None:
+            raise TypeError("Missing 'storage_capacity' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if copy_tags_to_data_repository_associations is None and 'copyTagsToDataRepositoryAssociations' in kwargs:
+            copy_tags_to_data_repository_associations = kwargs['copyTagsToDataRepositoryAssociations']
+        if data_repository_associations is None and 'dataRepositoryAssociations' in kwargs:
+            data_repository_associations = kwargs['dataRepositoryAssociations']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if lustre_configurations is None and 'lustreConfigurations' in kwargs:
+            lustre_configurations = kwargs['lustreConfigurations']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
+        _setter("file_cache_type", file_cache_type)
+        _setter("file_cache_type_version", file_cache_type_version)
+        _setter("storage_capacity", storage_capacity)
+        _setter("subnet_ids", subnet_ids)
         if copy_tags_to_data_repository_associations is not None:
-            pulumi.set(__self__, "copy_tags_to_data_repository_associations", copy_tags_to_data_repository_associations)
+            _setter("copy_tags_to_data_repository_associations", copy_tags_to_data_repository_associations)
         if data_repository_associations is not None:
-            pulumi.set(__self__, "data_repository_associations", data_repository_associations)
+            _setter("data_repository_associations", data_repository_associations)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if lustre_configurations is not None:
-            pulumi.set(__self__, "lustre_configurations", lustre_configurations)
+            _setter("lustre_configurations", lustre_configurations)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="fileCacheType")
@@ -226,45 +281,122 @@ class _FileCacheState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of your virtual private cloud (VPC).
         """
+        _FileCacheState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            copy_tags_to_data_repository_associations=copy_tags_to_data_repository_associations,
+            data_repository_association_ids=data_repository_association_ids,
+            data_repository_associations=data_repository_associations,
+            dns_name=dns_name,
+            file_cache_id=file_cache_id,
+            file_cache_type=file_cache_type,
+            file_cache_type_version=file_cache_type_version,
+            kms_key_id=kms_key_id,
+            lustre_configurations=lustre_configurations,
+            network_interface_ids=network_interface_ids,
+            owner_id=owner_id,
+            security_group_ids=security_group_ids,
+            storage_capacity=storage_capacity,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             copy_tags_to_data_repository_associations: Optional[pulumi.Input[bool]] = None,
+             data_repository_association_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             data_repository_associations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             file_cache_id: Optional[pulumi.Input[str]] = None,
+             file_cache_type: Optional[pulumi.Input[str]] = None,
+             file_cache_type_version: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             lustre_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]] = None,
+             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             storage_capacity: Optional[pulumi.Input[int]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if copy_tags_to_data_repository_associations is None and 'copyTagsToDataRepositoryAssociations' in kwargs:
+            copy_tags_to_data_repository_associations = kwargs['copyTagsToDataRepositoryAssociations']
+        if data_repository_association_ids is None and 'dataRepositoryAssociationIds' in kwargs:
+            data_repository_association_ids = kwargs['dataRepositoryAssociationIds']
+        if data_repository_associations is None and 'dataRepositoryAssociations' in kwargs:
+            data_repository_associations = kwargs['dataRepositoryAssociations']
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if file_cache_id is None and 'fileCacheId' in kwargs:
+            file_cache_id = kwargs['fileCacheId']
+        if file_cache_type is None and 'fileCacheType' in kwargs:
+            file_cache_type = kwargs['fileCacheType']
+        if file_cache_type_version is None and 'fileCacheTypeVersion' in kwargs:
+            file_cache_type_version = kwargs['fileCacheTypeVersion']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if lustre_configurations is None and 'lustreConfigurations' in kwargs:
+            lustre_configurations = kwargs['lustreConfigurations']
+        if network_interface_ids is None and 'networkInterfaceIds' in kwargs:
+            network_interface_ids = kwargs['networkInterfaceIds']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if storage_capacity is None and 'storageCapacity' in kwargs:
+            storage_capacity = kwargs['storageCapacity']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if copy_tags_to_data_repository_associations is not None:
-            pulumi.set(__self__, "copy_tags_to_data_repository_associations", copy_tags_to_data_repository_associations)
+            _setter("copy_tags_to_data_repository_associations", copy_tags_to_data_repository_associations)
         if data_repository_association_ids is not None:
-            pulumi.set(__self__, "data_repository_association_ids", data_repository_association_ids)
+            _setter("data_repository_association_ids", data_repository_association_ids)
         if data_repository_associations is not None:
-            pulumi.set(__self__, "data_repository_associations", data_repository_associations)
+            _setter("data_repository_associations", data_repository_associations)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if file_cache_id is not None:
-            pulumi.set(__self__, "file_cache_id", file_cache_id)
+            _setter("file_cache_id", file_cache_id)
         if file_cache_type is not None:
-            pulumi.set(__self__, "file_cache_type", file_cache_type)
+            _setter("file_cache_type", file_cache_type)
         if file_cache_type_version is not None:
-            pulumi.set(__self__, "file_cache_type_version", file_cache_type_version)
+            _setter("file_cache_type_version", file_cache_type_version)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if lustre_configurations is not None:
-            pulumi.set(__self__, "lustre_configurations", lustre_configurations)
+            _setter("lustre_configurations", lustre_configurations)
         if network_interface_ids is not None:
-            pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+            _setter("network_interface_ids", network_interface_ids)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if storage_capacity is not None:
-            pulumi.set(__self__, "storage_capacity", storage_capacity)
+            _setter("storage_capacity", storage_capacity)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -627,6 +759,10 @@ class FileCache(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileCacheArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

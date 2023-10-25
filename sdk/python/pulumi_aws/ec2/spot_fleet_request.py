@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -97,54 +97,163 @@ class SpotFleetRequestArgs:
                wait for the Spot Request to be fulfilled, and will throw an error if the
                timeout of 10m is reached.
         """
-        pulumi.set(__self__, "iam_fleet_role", iam_fleet_role)
-        pulumi.set(__self__, "target_capacity", target_capacity)
+        SpotFleetRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iam_fleet_role=iam_fleet_role,
+            target_capacity=target_capacity,
+            allocation_strategy=allocation_strategy,
+            context=context,
+            excess_capacity_termination_policy=excess_capacity_termination_policy,
+            fleet_type=fleet_type,
+            instance_interruption_behaviour=instance_interruption_behaviour,
+            instance_pools_to_use_count=instance_pools_to_use_count,
+            launch_specifications=launch_specifications,
+            launch_template_configs=launch_template_configs,
+            load_balancers=load_balancers,
+            on_demand_allocation_strategy=on_demand_allocation_strategy,
+            on_demand_max_total_price=on_demand_max_total_price,
+            on_demand_target_capacity=on_demand_target_capacity,
+            replace_unhealthy_instances=replace_unhealthy_instances,
+            spot_maintenance_strategies=spot_maintenance_strategies,
+            spot_price=spot_price,
+            tags=tags,
+            target_capacity_unit_type=target_capacity_unit_type,
+            target_group_arns=target_group_arns,
+            terminate_instances_on_delete=terminate_instances_on_delete,
+            terminate_instances_with_expiration=terminate_instances_with_expiration,
+            valid_from=valid_from,
+            valid_until=valid_until,
+            wait_for_fulfillment=wait_for_fulfillment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iam_fleet_role: Optional[pulumi.Input[str]] = None,
+             target_capacity: Optional[pulumi.Input[int]] = None,
+             allocation_strategy: Optional[pulumi.Input[str]] = None,
+             context: Optional[pulumi.Input[str]] = None,
+             excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
+             fleet_type: Optional[pulumi.Input[str]] = None,
+             instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
+             instance_pools_to_use_count: Optional[pulumi.Input[int]] = None,
+             launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationArgs']]]] = None,
+             launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]]] = None,
+             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             on_demand_allocation_strategy: Optional[pulumi.Input[str]] = None,
+             on_demand_max_total_price: Optional[pulumi.Input[str]] = None,
+             on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
+             replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
+             spot_maintenance_strategies: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs']] = None,
+             spot_price: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_capacity_unit_type: Optional[pulumi.Input[str]] = None,
+             target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
+             terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
+             valid_from: Optional[pulumi.Input[str]] = None,
+             valid_until: Optional[pulumi.Input[str]] = None,
+             wait_for_fulfillment: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iam_fleet_role is None and 'iamFleetRole' in kwargs:
+            iam_fleet_role = kwargs['iamFleetRole']
+        if iam_fleet_role is None:
+            raise TypeError("Missing 'iam_fleet_role' argument")
+        if target_capacity is None and 'targetCapacity' in kwargs:
+            target_capacity = kwargs['targetCapacity']
+        if target_capacity is None:
+            raise TypeError("Missing 'target_capacity' argument")
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if excess_capacity_termination_policy is None and 'excessCapacityTerminationPolicy' in kwargs:
+            excess_capacity_termination_policy = kwargs['excessCapacityTerminationPolicy']
+        if fleet_type is None and 'fleetType' in kwargs:
+            fleet_type = kwargs['fleetType']
+        if instance_interruption_behaviour is None and 'instanceInterruptionBehaviour' in kwargs:
+            instance_interruption_behaviour = kwargs['instanceInterruptionBehaviour']
+        if instance_pools_to_use_count is None and 'instancePoolsToUseCount' in kwargs:
+            instance_pools_to_use_count = kwargs['instancePoolsToUseCount']
+        if launch_specifications is None and 'launchSpecifications' in kwargs:
+            launch_specifications = kwargs['launchSpecifications']
+        if launch_template_configs is None and 'launchTemplateConfigs' in kwargs:
+            launch_template_configs = kwargs['launchTemplateConfigs']
+        if load_balancers is None and 'loadBalancers' in kwargs:
+            load_balancers = kwargs['loadBalancers']
+        if on_demand_allocation_strategy is None and 'onDemandAllocationStrategy' in kwargs:
+            on_demand_allocation_strategy = kwargs['onDemandAllocationStrategy']
+        if on_demand_max_total_price is None and 'onDemandMaxTotalPrice' in kwargs:
+            on_demand_max_total_price = kwargs['onDemandMaxTotalPrice']
+        if on_demand_target_capacity is None and 'onDemandTargetCapacity' in kwargs:
+            on_demand_target_capacity = kwargs['onDemandTargetCapacity']
+        if replace_unhealthy_instances is None and 'replaceUnhealthyInstances' in kwargs:
+            replace_unhealthy_instances = kwargs['replaceUnhealthyInstances']
+        if spot_maintenance_strategies is None and 'spotMaintenanceStrategies' in kwargs:
+            spot_maintenance_strategies = kwargs['spotMaintenanceStrategies']
+        if spot_price is None and 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if target_capacity_unit_type is None and 'targetCapacityUnitType' in kwargs:
+            target_capacity_unit_type = kwargs['targetCapacityUnitType']
+        if target_group_arns is None and 'targetGroupArns' in kwargs:
+            target_group_arns = kwargs['targetGroupArns']
+        if terminate_instances_on_delete is None and 'terminateInstancesOnDelete' in kwargs:
+            terminate_instances_on_delete = kwargs['terminateInstancesOnDelete']
+        if terminate_instances_with_expiration is None and 'terminateInstancesWithExpiration' in kwargs:
+            terminate_instances_with_expiration = kwargs['terminateInstancesWithExpiration']
+        if valid_from is None and 'validFrom' in kwargs:
+            valid_from = kwargs['validFrom']
+        if valid_until is None and 'validUntil' in kwargs:
+            valid_until = kwargs['validUntil']
+        if wait_for_fulfillment is None and 'waitForFulfillment' in kwargs:
+            wait_for_fulfillment = kwargs['waitForFulfillment']
+
+        _setter("iam_fleet_role", iam_fleet_role)
+        _setter("target_capacity", target_capacity)
         if allocation_strategy is not None:
-            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+            _setter("allocation_strategy", allocation_strategy)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if excess_capacity_termination_policy is not None:
-            pulumi.set(__self__, "excess_capacity_termination_policy", excess_capacity_termination_policy)
+            _setter("excess_capacity_termination_policy", excess_capacity_termination_policy)
         if fleet_type is not None:
-            pulumi.set(__self__, "fleet_type", fleet_type)
+            _setter("fleet_type", fleet_type)
         if instance_interruption_behaviour is not None:
-            pulumi.set(__self__, "instance_interruption_behaviour", instance_interruption_behaviour)
+            _setter("instance_interruption_behaviour", instance_interruption_behaviour)
         if instance_pools_to_use_count is not None:
-            pulumi.set(__self__, "instance_pools_to_use_count", instance_pools_to_use_count)
+            _setter("instance_pools_to_use_count", instance_pools_to_use_count)
         if launch_specifications is not None:
-            pulumi.set(__self__, "launch_specifications", launch_specifications)
+            _setter("launch_specifications", launch_specifications)
         if launch_template_configs is not None:
-            pulumi.set(__self__, "launch_template_configs", launch_template_configs)
+            _setter("launch_template_configs", launch_template_configs)
         if load_balancers is not None:
-            pulumi.set(__self__, "load_balancers", load_balancers)
+            _setter("load_balancers", load_balancers)
         if on_demand_allocation_strategy is not None:
-            pulumi.set(__self__, "on_demand_allocation_strategy", on_demand_allocation_strategy)
+            _setter("on_demand_allocation_strategy", on_demand_allocation_strategy)
         if on_demand_max_total_price is not None:
-            pulumi.set(__self__, "on_demand_max_total_price", on_demand_max_total_price)
+            _setter("on_demand_max_total_price", on_demand_max_total_price)
         if on_demand_target_capacity is not None:
-            pulumi.set(__self__, "on_demand_target_capacity", on_demand_target_capacity)
+            _setter("on_demand_target_capacity", on_demand_target_capacity)
         if replace_unhealthy_instances is not None:
-            pulumi.set(__self__, "replace_unhealthy_instances", replace_unhealthy_instances)
+            _setter("replace_unhealthy_instances", replace_unhealthy_instances)
         if spot_maintenance_strategies is not None:
-            pulumi.set(__self__, "spot_maintenance_strategies", spot_maintenance_strategies)
+            _setter("spot_maintenance_strategies", spot_maintenance_strategies)
         if spot_price is not None:
-            pulumi.set(__self__, "spot_price", spot_price)
+            _setter("spot_price", spot_price)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_capacity_unit_type is not None:
-            pulumi.set(__self__, "target_capacity_unit_type", target_capacity_unit_type)
+            _setter("target_capacity_unit_type", target_capacity_unit_type)
         if target_group_arns is not None:
-            pulumi.set(__self__, "target_group_arns", target_group_arns)
+            _setter("target_group_arns", target_group_arns)
         if terminate_instances_on_delete is not None:
-            pulumi.set(__self__, "terminate_instances_on_delete", terminate_instances_on_delete)
+            _setter("terminate_instances_on_delete", terminate_instances_on_delete)
         if terminate_instances_with_expiration is not None:
-            pulumi.set(__self__, "terminate_instances_with_expiration", terminate_instances_with_expiration)
+            _setter("terminate_instances_with_expiration", terminate_instances_with_expiration)
         if valid_from is not None:
-            pulumi.set(__self__, "valid_from", valid_from)
+            _setter("valid_from", valid_from)
         if valid_until is not None:
-            pulumi.set(__self__, "valid_until", valid_until)
+            _setter("valid_until", valid_until)
         if wait_for_fulfillment is not None:
-            pulumi.set(__self__, "wait_for_fulfillment", wait_for_fulfillment)
+            _setter("wait_for_fulfillment", wait_for_fulfillment)
 
     @property
     @pulumi.getter(name="iamFleetRole")
@@ -564,65 +673,182 @@ class _SpotFleetRequestState:
                wait for the Spot Request to be fulfilled, and will throw an error if the
                timeout of 10m is reached.
         """
+        _SpotFleetRequestState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_strategy=allocation_strategy,
+            client_token=client_token,
+            context=context,
+            excess_capacity_termination_policy=excess_capacity_termination_policy,
+            fleet_type=fleet_type,
+            iam_fleet_role=iam_fleet_role,
+            instance_interruption_behaviour=instance_interruption_behaviour,
+            instance_pools_to_use_count=instance_pools_to_use_count,
+            launch_specifications=launch_specifications,
+            launch_template_configs=launch_template_configs,
+            load_balancers=load_balancers,
+            on_demand_allocation_strategy=on_demand_allocation_strategy,
+            on_demand_max_total_price=on_demand_max_total_price,
+            on_demand_target_capacity=on_demand_target_capacity,
+            replace_unhealthy_instances=replace_unhealthy_instances,
+            spot_maintenance_strategies=spot_maintenance_strategies,
+            spot_price=spot_price,
+            spot_request_state=spot_request_state,
+            tags=tags,
+            tags_all=tags_all,
+            target_capacity=target_capacity,
+            target_capacity_unit_type=target_capacity_unit_type,
+            target_group_arns=target_group_arns,
+            terminate_instances_on_delete=terminate_instances_on_delete,
+            terminate_instances_with_expiration=terminate_instances_with_expiration,
+            valid_from=valid_from,
+            valid_until=valid_until,
+            wait_for_fulfillment=wait_for_fulfillment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_strategy: Optional[pulumi.Input[str]] = None,
+             client_token: Optional[pulumi.Input[str]] = None,
+             context: Optional[pulumi.Input[str]] = None,
+             excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
+             fleet_type: Optional[pulumi.Input[str]] = None,
+             iam_fleet_role: Optional[pulumi.Input[str]] = None,
+             instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
+             instance_pools_to_use_count: Optional[pulumi.Input[int]] = None,
+             launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationArgs']]]] = None,
+             launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]]] = None,
+             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             on_demand_allocation_strategy: Optional[pulumi.Input[str]] = None,
+             on_demand_max_total_price: Optional[pulumi.Input[str]] = None,
+             on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
+             replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
+             spot_maintenance_strategies: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs']] = None,
+             spot_price: Optional[pulumi.Input[str]] = None,
+             spot_request_state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_capacity: Optional[pulumi.Input[int]] = None,
+             target_capacity_unit_type: Optional[pulumi.Input[str]] = None,
+             target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
+             terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
+             valid_from: Optional[pulumi.Input[str]] = None,
+             valid_until: Optional[pulumi.Input[str]] = None,
+             wait_for_fulfillment: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if client_token is None and 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if excess_capacity_termination_policy is None and 'excessCapacityTerminationPolicy' in kwargs:
+            excess_capacity_termination_policy = kwargs['excessCapacityTerminationPolicy']
+        if fleet_type is None and 'fleetType' in kwargs:
+            fleet_type = kwargs['fleetType']
+        if iam_fleet_role is None and 'iamFleetRole' in kwargs:
+            iam_fleet_role = kwargs['iamFleetRole']
+        if instance_interruption_behaviour is None and 'instanceInterruptionBehaviour' in kwargs:
+            instance_interruption_behaviour = kwargs['instanceInterruptionBehaviour']
+        if instance_pools_to_use_count is None and 'instancePoolsToUseCount' in kwargs:
+            instance_pools_to_use_count = kwargs['instancePoolsToUseCount']
+        if launch_specifications is None and 'launchSpecifications' in kwargs:
+            launch_specifications = kwargs['launchSpecifications']
+        if launch_template_configs is None and 'launchTemplateConfigs' in kwargs:
+            launch_template_configs = kwargs['launchTemplateConfigs']
+        if load_balancers is None and 'loadBalancers' in kwargs:
+            load_balancers = kwargs['loadBalancers']
+        if on_demand_allocation_strategy is None and 'onDemandAllocationStrategy' in kwargs:
+            on_demand_allocation_strategy = kwargs['onDemandAllocationStrategy']
+        if on_demand_max_total_price is None and 'onDemandMaxTotalPrice' in kwargs:
+            on_demand_max_total_price = kwargs['onDemandMaxTotalPrice']
+        if on_demand_target_capacity is None and 'onDemandTargetCapacity' in kwargs:
+            on_demand_target_capacity = kwargs['onDemandTargetCapacity']
+        if replace_unhealthy_instances is None and 'replaceUnhealthyInstances' in kwargs:
+            replace_unhealthy_instances = kwargs['replaceUnhealthyInstances']
+        if spot_maintenance_strategies is None and 'spotMaintenanceStrategies' in kwargs:
+            spot_maintenance_strategies = kwargs['spotMaintenanceStrategies']
+        if spot_price is None and 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if spot_request_state is None and 'spotRequestState' in kwargs:
+            spot_request_state = kwargs['spotRequestState']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if target_capacity is None and 'targetCapacity' in kwargs:
+            target_capacity = kwargs['targetCapacity']
+        if target_capacity_unit_type is None and 'targetCapacityUnitType' in kwargs:
+            target_capacity_unit_type = kwargs['targetCapacityUnitType']
+        if target_group_arns is None and 'targetGroupArns' in kwargs:
+            target_group_arns = kwargs['targetGroupArns']
+        if terminate_instances_on_delete is None and 'terminateInstancesOnDelete' in kwargs:
+            terminate_instances_on_delete = kwargs['terminateInstancesOnDelete']
+        if terminate_instances_with_expiration is None and 'terminateInstancesWithExpiration' in kwargs:
+            terminate_instances_with_expiration = kwargs['terminateInstancesWithExpiration']
+        if valid_from is None and 'validFrom' in kwargs:
+            valid_from = kwargs['validFrom']
+        if valid_until is None and 'validUntil' in kwargs:
+            valid_until = kwargs['validUntil']
+        if wait_for_fulfillment is None and 'waitForFulfillment' in kwargs:
+            wait_for_fulfillment = kwargs['waitForFulfillment']
+
         if allocation_strategy is not None:
-            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+            _setter("allocation_strategy", allocation_strategy)
         if client_token is not None:
-            pulumi.set(__self__, "client_token", client_token)
+            _setter("client_token", client_token)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if excess_capacity_termination_policy is not None:
-            pulumi.set(__self__, "excess_capacity_termination_policy", excess_capacity_termination_policy)
+            _setter("excess_capacity_termination_policy", excess_capacity_termination_policy)
         if fleet_type is not None:
-            pulumi.set(__self__, "fleet_type", fleet_type)
+            _setter("fleet_type", fleet_type)
         if iam_fleet_role is not None:
-            pulumi.set(__self__, "iam_fleet_role", iam_fleet_role)
+            _setter("iam_fleet_role", iam_fleet_role)
         if instance_interruption_behaviour is not None:
-            pulumi.set(__self__, "instance_interruption_behaviour", instance_interruption_behaviour)
+            _setter("instance_interruption_behaviour", instance_interruption_behaviour)
         if instance_pools_to_use_count is not None:
-            pulumi.set(__self__, "instance_pools_to_use_count", instance_pools_to_use_count)
+            _setter("instance_pools_to_use_count", instance_pools_to_use_count)
         if launch_specifications is not None:
-            pulumi.set(__self__, "launch_specifications", launch_specifications)
+            _setter("launch_specifications", launch_specifications)
         if launch_template_configs is not None:
-            pulumi.set(__self__, "launch_template_configs", launch_template_configs)
+            _setter("launch_template_configs", launch_template_configs)
         if load_balancers is not None:
-            pulumi.set(__self__, "load_balancers", load_balancers)
+            _setter("load_balancers", load_balancers)
         if on_demand_allocation_strategy is not None:
-            pulumi.set(__self__, "on_demand_allocation_strategy", on_demand_allocation_strategy)
+            _setter("on_demand_allocation_strategy", on_demand_allocation_strategy)
         if on_demand_max_total_price is not None:
-            pulumi.set(__self__, "on_demand_max_total_price", on_demand_max_total_price)
+            _setter("on_demand_max_total_price", on_demand_max_total_price)
         if on_demand_target_capacity is not None:
-            pulumi.set(__self__, "on_demand_target_capacity", on_demand_target_capacity)
+            _setter("on_demand_target_capacity", on_demand_target_capacity)
         if replace_unhealthy_instances is not None:
-            pulumi.set(__self__, "replace_unhealthy_instances", replace_unhealthy_instances)
+            _setter("replace_unhealthy_instances", replace_unhealthy_instances)
         if spot_maintenance_strategies is not None:
-            pulumi.set(__self__, "spot_maintenance_strategies", spot_maintenance_strategies)
+            _setter("spot_maintenance_strategies", spot_maintenance_strategies)
         if spot_price is not None:
-            pulumi.set(__self__, "spot_price", spot_price)
+            _setter("spot_price", spot_price)
         if spot_request_state is not None:
-            pulumi.set(__self__, "spot_request_state", spot_request_state)
+            _setter("spot_request_state", spot_request_state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target_capacity is not None:
-            pulumi.set(__self__, "target_capacity", target_capacity)
+            _setter("target_capacity", target_capacity)
         if target_capacity_unit_type is not None:
-            pulumi.set(__self__, "target_capacity_unit_type", target_capacity_unit_type)
+            _setter("target_capacity_unit_type", target_capacity_unit_type)
         if target_group_arns is not None:
-            pulumi.set(__self__, "target_group_arns", target_group_arns)
+            _setter("target_group_arns", target_group_arns)
         if terminate_instances_on_delete is not None:
-            pulumi.set(__self__, "terminate_instances_on_delete", terminate_instances_on_delete)
+            _setter("terminate_instances_on_delete", terminate_instances_on_delete)
         if terminate_instances_with_expiration is not None:
-            pulumi.set(__self__, "terminate_instances_with_expiration", terminate_instances_with_expiration)
+            _setter("terminate_instances_with_expiration", terminate_instances_with_expiration)
         if valid_from is not None:
-            pulumi.set(__self__, "valid_from", valid_from)
+            _setter("valid_from", valid_from)
         if valid_until is not None:
-            pulumi.set(__self__, "valid_until", valid_until)
+            _setter("valid_until", valid_until)
         if wait_for_fulfillment is not None:
-            pulumi.set(__self__, "wait_for_fulfillment", wait_for_fulfillment)
+            _setter("wait_for_fulfillment", wait_for_fulfillment)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -1334,6 +1560,10 @@ class SpotFleetRequest(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpotFleetRequestArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1389,6 +1619,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             __props__.__dict__["on_demand_max_total_price"] = on_demand_max_total_price
             __props__.__dict__["on_demand_target_capacity"] = on_demand_target_capacity
             __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
+            spot_maintenance_strategies = _utilities.configure(spot_maintenance_strategies, SpotFleetRequestSpotMaintenanceStrategiesArgs, True)
             __props__.__dict__["spot_maintenance_strategies"] = spot_maintenance_strategies
             __props__.__dict__["spot_price"] = spot_price
             __props__.__dict__["tags"] = tags

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,47 @@ class WebAclArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Configuration blocks containing rules to associate with the web ACL and the settings for each rule. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "default_action", default_action)
-        pulumi.set(__self__, "metric_name", metric_name)
+        WebAclArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            metric_name=metric_name,
+            logging_configuration=logging_configuration,
+            name=name,
+            rules=rules,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[pulumi.Input['WebAclDefaultActionArgs']] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             logging_configuration: Optional[pulumi.Input['WebAclLoggingConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if logging_configuration is None and 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+
+        _setter("default_action", default_action)
+        _setter("metric_name", metric_name)
         if logging_configuration is not None:
-            pulumi.set(__self__, "logging_configuration", logging_configuration)
+            _setter("logging_configuration", logging_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -137,25 +168,58 @@ class _WebAclState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _WebAclState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            default_action=default_action,
+            logging_configuration=logging_configuration,
+            metric_name=metric_name,
+            name=name,
+            rules=rules,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             default_action: Optional[pulumi.Input['WebAclDefaultActionArgs']] = None,
+             logging_configuration: Optional[pulumi.Input['WebAclLoggingConfigurationArgs']] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if logging_configuration is None and 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if logging_configuration is not None:
-            pulumi.set(__self__, "logging_configuration", logging_configuration)
+            _setter("logging_configuration", logging_configuration)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -440,6 +504,10 @@ class WebAcl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAclArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -460,9 +528,11 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAclArgs.__new__(WebAclArgs)
 
+            default_action = _utilities.configure(default_action, WebAclDefaultActionArgs, True)
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action
+            logging_configuration = _utilities.configure(logging_configuration, WebAclLoggingConfigurationArgs, True)
             __props__.__dict__["logging_configuration"] = logging_configuration
             if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")

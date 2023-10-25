@@ -4,8 +4,12 @@
 package ebs
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the default EBS encryption KMS key in the current region.
@@ -57,4 +61,50 @@ type LookupDefaultKmsKeyResult struct {
 	Id string `pulumi:"id"`
 	// ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
 	KeyArn string `pulumi:"keyArn"`
+}
+
+func LookupDefaultKmsKeyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupDefaultKmsKeyResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (LookupDefaultKmsKeyResult, error) {
+		r, err := LookupDefaultKmsKey(ctx, opts...)
+		var s LookupDefaultKmsKeyResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(LookupDefaultKmsKeyResultOutput)
+}
+
+// A collection of values returned by getDefaultKmsKey.
+type LookupDefaultKmsKeyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDefaultKmsKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDefaultKmsKeyResult)(nil)).Elem()
+}
+
+func (o LookupDefaultKmsKeyResultOutput) ToLookupDefaultKmsKeyResultOutput() LookupDefaultKmsKeyResultOutput {
+	return o
+}
+
+func (o LookupDefaultKmsKeyResultOutput) ToLookupDefaultKmsKeyResultOutputWithContext(ctx context.Context) LookupDefaultKmsKeyResultOutput {
+	return o
+}
+
+func (o LookupDefaultKmsKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDefaultKmsKeyResult] {
+	return pulumix.Output[LookupDefaultKmsKeyResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupDefaultKmsKeyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultKmsKeyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
+func (o LookupDefaultKmsKeyResultOutput) KeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDefaultKmsKeyResult) string { return v.KeyArn }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDefaultKmsKeyResultOutput{})
 }

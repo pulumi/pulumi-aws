@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,29 +49,94 @@ class ContainerRecipeArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
-        pulumi.set(__self__, "components", components)
-        pulumi.set(__self__, "container_type", container_type)
-        pulumi.set(__self__, "parent_image", parent_image)
-        pulumi.set(__self__, "target_repository", target_repository)
-        pulumi.set(__self__, "version", version)
+        ContainerRecipeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            components=components,
+            container_type=container_type,
+            parent_image=parent_image,
+            target_repository=target_repository,
+            version=version,
+            description=description,
+            dockerfile_template_data=dockerfile_template_data,
+            dockerfile_template_uri=dockerfile_template_uri,
+            instance_configuration=instance_configuration,
+            kms_key_id=kms_key_id,
+            name=name,
+            platform_override=platform_override,
+            tags=tags,
+            working_directory=working_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             components: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentArgs']]]] = None,
+             container_type: Optional[pulumi.Input[str]] = None,
+             parent_image: Optional[pulumi.Input[str]] = None,
+             target_repository: Optional[pulumi.Input['ContainerRecipeTargetRepositoryArgs']] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dockerfile_template_data: Optional[pulumi.Input[str]] = None,
+             dockerfile_template_uri: Optional[pulumi.Input[str]] = None,
+             instance_configuration: Optional[pulumi.Input['ContainerRecipeInstanceConfigurationArgs']] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             platform_override: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             working_directory: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if components is None:
+            raise TypeError("Missing 'components' argument")
+        if container_type is None and 'containerType' in kwargs:
+            container_type = kwargs['containerType']
+        if container_type is None:
+            raise TypeError("Missing 'container_type' argument")
+        if parent_image is None and 'parentImage' in kwargs:
+            parent_image = kwargs['parentImage']
+        if parent_image is None:
+            raise TypeError("Missing 'parent_image' argument")
+        if target_repository is None and 'targetRepository' in kwargs:
+            target_repository = kwargs['targetRepository']
+        if target_repository is None:
+            raise TypeError("Missing 'target_repository' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if dockerfile_template_data is None and 'dockerfileTemplateData' in kwargs:
+            dockerfile_template_data = kwargs['dockerfileTemplateData']
+        if dockerfile_template_uri is None and 'dockerfileTemplateUri' in kwargs:
+            dockerfile_template_uri = kwargs['dockerfileTemplateUri']
+        if instance_configuration is None and 'instanceConfiguration' in kwargs:
+            instance_configuration = kwargs['instanceConfiguration']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if platform_override is None and 'platformOverride' in kwargs:
+            platform_override = kwargs['platformOverride']
+        if working_directory is None and 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
+        _setter("components", components)
+        _setter("container_type", container_type)
+        _setter("parent_image", parent_image)
+        _setter("target_repository", target_repository)
+        _setter("version", version)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dockerfile_template_data is not None:
-            pulumi.set(__self__, "dockerfile_template_data", dockerfile_template_data)
+            _setter("dockerfile_template_data", dockerfile_template_data)
         if dockerfile_template_uri is not None:
-            pulumi.set(__self__, "dockerfile_template_uri", dockerfile_template_uri)
+            _setter("dockerfile_template_uri", dockerfile_template_uri)
         if instance_configuration is not None:
-            pulumi.set(__self__, "instance_configuration", instance_configuration)
+            _setter("instance_configuration", instance_configuration)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if platform_override is not None:
-            pulumi.set(__self__, "platform_override", platform_override)
+            _setter("platform_override", platform_override)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if working_directory is not None:
-            pulumi.set(__self__, "working_directory", working_directory)
+            _setter("working_directory", working_directory)
 
     @property
     @pulumi.getter
@@ -292,49 +357,120 @@ class _ContainerRecipeState:
                The following attributes are optional:
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
+        _ContainerRecipeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            components=components,
+            container_type=container_type,
+            date_created=date_created,
+            description=description,
+            dockerfile_template_data=dockerfile_template_data,
+            dockerfile_template_uri=dockerfile_template_uri,
+            encrypted=encrypted,
+            instance_configuration=instance_configuration,
+            kms_key_id=kms_key_id,
+            name=name,
+            owner=owner,
+            parent_image=parent_image,
+            platform=platform,
+            platform_override=platform_override,
+            tags=tags,
+            tags_all=tags_all,
+            target_repository=target_repository,
+            version=version,
+            working_directory=working_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             components: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentArgs']]]] = None,
+             container_type: Optional[pulumi.Input[str]] = None,
+             date_created: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dockerfile_template_data: Optional[pulumi.Input[str]] = None,
+             dockerfile_template_uri: Optional[pulumi.Input[str]] = None,
+             encrypted: Optional[pulumi.Input[bool]] = None,
+             instance_configuration: Optional[pulumi.Input['ContainerRecipeInstanceConfigurationArgs']] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             parent_image: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input[str]] = None,
+             platform_override: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_repository: Optional[pulumi.Input['ContainerRecipeTargetRepositoryArgs']] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             working_directory: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_type is None and 'containerType' in kwargs:
+            container_type = kwargs['containerType']
+        if date_created is None and 'dateCreated' in kwargs:
+            date_created = kwargs['dateCreated']
+        if dockerfile_template_data is None and 'dockerfileTemplateData' in kwargs:
+            dockerfile_template_data = kwargs['dockerfileTemplateData']
+        if dockerfile_template_uri is None and 'dockerfileTemplateUri' in kwargs:
+            dockerfile_template_uri = kwargs['dockerfileTemplateUri']
+        if instance_configuration is None and 'instanceConfiguration' in kwargs:
+            instance_configuration = kwargs['instanceConfiguration']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if parent_image is None and 'parentImage' in kwargs:
+            parent_image = kwargs['parentImage']
+        if platform_override is None and 'platformOverride' in kwargs:
+            platform_override = kwargs['platformOverride']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if target_repository is None and 'targetRepository' in kwargs:
+            target_repository = kwargs['targetRepository']
+        if working_directory is None and 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if components is not None:
-            pulumi.set(__self__, "components", components)
+            _setter("components", components)
         if container_type is not None:
-            pulumi.set(__self__, "container_type", container_type)
+            _setter("container_type", container_type)
         if date_created is not None:
-            pulumi.set(__self__, "date_created", date_created)
+            _setter("date_created", date_created)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dockerfile_template_data is not None:
-            pulumi.set(__self__, "dockerfile_template_data", dockerfile_template_data)
+            _setter("dockerfile_template_data", dockerfile_template_data)
         if dockerfile_template_uri is not None:
-            pulumi.set(__self__, "dockerfile_template_uri", dockerfile_template_uri)
+            _setter("dockerfile_template_uri", dockerfile_template_uri)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if instance_configuration is not None:
-            pulumi.set(__self__, "instance_configuration", instance_configuration)
+            _setter("instance_configuration", instance_configuration)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if parent_image is not None:
-            pulumi.set(__self__, "parent_image", parent_image)
+            _setter("parent_image", parent_image)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if platform_override is not None:
-            pulumi.set(__self__, "platform_override", platform_override)
+            _setter("platform_override", platform_override)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target_repository is not None:
-            pulumi.set(__self__, "target_repository", target_repository)
+            _setter("target_repository", target_repository)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if working_directory is not None:
-            pulumi.set(__self__, "working_directory", working_directory)
+            _setter("working_directory", working_directory)
 
     @property
     @pulumi.getter
@@ -725,6 +861,10 @@ class ContainerRecipe(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerRecipeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -762,6 +902,7 @@ class ContainerRecipe(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["dockerfile_template_data"] = dockerfile_template_data
             __props__.__dict__["dockerfile_template_uri"] = dockerfile_template_uri
+            instance_configuration = _utilities.configure(instance_configuration, ContainerRecipeInstanceConfigurationArgs, True)
             __props__.__dict__["instance_configuration"] = instance_configuration
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
@@ -770,6 +911,7 @@ class ContainerRecipe(pulumi.CustomResource):
             __props__.__dict__["parent_image"] = parent_image
             __props__.__dict__["platform_override"] = platform_override
             __props__.__dict__["tags"] = tags
+            target_repository = _utilities.configure(target_repository, ContainerRecipeTargetRepositoryArgs, True)
             if target_repository is None and not opts.urn:
                 raise TypeError("Missing required property 'target_repository'")
             __props__.__dict__["target_repository"] = target_repository

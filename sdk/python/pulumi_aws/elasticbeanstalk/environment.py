@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -61,31 +61,80 @@ class EnvironmentArgs:
                wait for an Elastic Beanstalk Environment to be in a ready state before timing
                out.
         """
-        pulumi.set(__self__, "application", application)
+        EnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application=application,
+            cname_prefix=cname_prefix,
+            description=description,
+            name=name,
+            platform_arn=platform_arn,
+            poll_interval=poll_interval,
+            settings=settings,
+            solution_stack_name=solution_stack_name,
+            tags=tags,
+            template_name=template_name,
+            tier=tier,
+            version=version,
+            wait_for_ready_timeout=wait_for_ready_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application: Optional[pulumi.Input[str]] = None,
+             cname_prefix: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             platform_arn: Optional[pulumi.Input[str]] = None,
+             poll_interval: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]]] = None,
+             solution_stack_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             wait_for_ready_timeout: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application is None:
+            raise TypeError("Missing 'application' argument")
+        if cname_prefix is None and 'cnamePrefix' in kwargs:
+            cname_prefix = kwargs['cnamePrefix']
+        if platform_arn is None and 'platformArn' in kwargs:
+            platform_arn = kwargs['platformArn']
+        if poll_interval is None and 'pollInterval' in kwargs:
+            poll_interval = kwargs['pollInterval']
+        if solution_stack_name is None and 'solutionStackName' in kwargs:
+            solution_stack_name = kwargs['solutionStackName']
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if wait_for_ready_timeout is None and 'waitForReadyTimeout' in kwargs:
+            wait_for_ready_timeout = kwargs['waitForReadyTimeout']
+
+        _setter("application", application)
         if cname_prefix is not None:
-            pulumi.set(__self__, "cname_prefix", cname_prefix)
+            _setter("cname_prefix", cname_prefix)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if platform_arn is not None:
-            pulumi.set(__self__, "platform_arn", platform_arn)
+            _setter("platform_arn", platform_arn)
         if poll_interval is not None:
-            pulumi.set(__self__, "poll_interval", poll_interval)
+            _setter("poll_interval", poll_interval)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if solution_stack_name is not None:
-            pulumi.set(__self__, "solution_stack_name", solution_stack_name)
+            _setter("solution_stack_name", solution_stack_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
+            _setter("template_name", template_name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if wait_for_ready_timeout is not None:
-            pulumi.set(__self__, "wait_for_ready_timeout", wait_for_ready_timeout)
+            _setter("wait_for_ready_timeout", wait_for_ready_timeout)
 
     @property
     @pulumi.getter
@@ -331,57 +380,138 @@ class _EnvironmentState:
                wait for an Elastic Beanstalk Environment to be in a ready state before timing
                out.
         """
+        _EnvironmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_settings=all_settings,
+            application=application,
+            arn=arn,
+            autoscaling_groups=autoscaling_groups,
+            cname=cname,
+            cname_prefix=cname_prefix,
+            description=description,
+            endpoint_url=endpoint_url,
+            instances=instances,
+            launch_configurations=launch_configurations,
+            load_balancers=load_balancers,
+            name=name,
+            platform_arn=platform_arn,
+            poll_interval=poll_interval,
+            queues=queues,
+            settings=settings,
+            solution_stack_name=solution_stack_name,
+            tags=tags,
+            tags_all=tags_all,
+            template_name=template_name,
+            tier=tier,
+            triggers=triggers,
+            version=version,
+            wait_for_ready_timeout=wait_for_ready_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentAllSettingArgs']]]] = None,
+             application: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             autoscaling_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cname: Optional[pulumi.Input[str]] = None,
+             cname_prefix: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             endpoint_url: Optional[pulumi.Input[str]] = None,
+             instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             launch_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             platform_arn: Optional[pulumi.Input[str]] = None,
+             poll_interval: Optional[pulumi.Input[str]] = None,
+             queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]]] = None,
+             solution_stack_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             wait_for_ready_timeout: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if all_settings is None and 'allSettings' in kwargs:
+            all_settings = kwargs['allSettings']
+        if autoscaling_groups is None and 'autoscalingGroups' in kwargs:
+            autoscaling_groups = kwargs['autoscalingGroups']
+        if cname_prefix is None and 'cnamePrefix' in kwargs:
+            cname_prefix = kwargs['cnamePrefix']
+        if endpoint_url is None and 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+        if launch_configurations is None and 'launchConfigurations' in kwargs:
+            launch_configurations = kwargs['launchConfigurations']
+        if load_balancers is None and 'loadBalancers' in kwargs:
+            load_balancers = kwargs['loadBalancers']
+        if platform_arn is None and 'platformArn' in kwargs:
+            platform_arn = kwargs['platformArn']
+        if poll_interval is None and 'pollInterval' in kwargs:
+            poll_interval = kwargs['pollInterval']
+        if solution_stack_name is None and 'solutionStackName' in kwargs:
+            solution_stack_name = kwargs['solutionStackName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if wait_for_ready_timeout is None and 'waitForReadyTimeout' in kwargs:
+            wait_for_ready_timeout = kwargs['waitForReadyTimeout']
+
         if all_settings is not None:
-            pulumi.set(__self__, "all_settings", all_settings)
+            _setter("all_settings", all_settings)
         if application is not None:
-            pulumi.set(__self__, "application", application)
+            _setter("application", application)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if autoscaling_groups is not None:
-            pulumi.set(__self__, "autoscaling_groups", autoscaling_groups)
+            _setter("autoscaling_groups", autoscaling_groups)
         if cname is not None:
-            pulumi.set(__self__, "cname", cname)
+            _setter("cname", cname)
         if cname_prefix is not None:
-            pulumi.set(__self__, "cname_prefix", cname_prefix)
+            _setter("cname_prefix", cname_prefix)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if endpoint_url is not None:
-            pulumi.set(__self__, "endpoint_url", endpoint_url)
+            _setter("endpoint_url", endpoint_url)
         if instances is not None:
-            pulumi.set(__self__, "instances", instances)
+            _setter("instances", instances)
         if launch_configurations is not None:
-            pulumi.set(__self__, "launch_configurations", launch_configurations)
+            _setter("launch_configurations", launch_configurations)
         if load_balancers is not None:
-            pulumi.set(__self__, "load_balancers", load_balancers)
+            _setter("load_balancers", load_balancers)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if platform_arn is not None:
-            pulumi.set(__self__, "platform_arn", platform_arn)
+            _setter("platform_arn", platform_arn)
         if poll_interval is not None:
-            pulumi.set(__self__, "poll_interval", poll_interval)
+            _setter("poll_interval", poll_interval)
         if queues is not None:
-            pulumi.set(__self__, "queues", queues)
+            _setter("queues", queues)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if solution_stack_name is not None:
-            pulumi.set(__self__, "solution_stack_name", solution_stack_name)
+            _setter("solution_stack_name", solution_stack_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
+            _setter("template_name", template_name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if wait_for_ready_timeout is not None:
-            pulumi.set(__self__, "wait_for_ready_timeout", wait_for_ready_timeout)
+            _setter("wait_for_ready_timeout", wait_for_ready_timeout)
 
     @property
     @pulumi.getter(name="allSettings")
@@ -883,6 +1013,10 @@ class Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

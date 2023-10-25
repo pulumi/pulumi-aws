@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,13 +26,38 @@ class RepositoryArgs:
         :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "repository_name", repository_name)
+        RepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_name=repository_name,
+            catalog_data=catalog_data,
+            force_destroy=force_destroy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_name: Optional[pulumi.Input[str]] = None,
+             catalog_data: Optional[pulumi.Input['RepositoryCatalogDataArgs']] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if catalog_data is None and 'catalogData' in kwargs:
+            catalog_data = kwargs['catalogData']
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+
+        _setter("repository_name", repository_name)
         if catalog_data is not None:
-            pulumi.set(__self__, "catalog_data", catalog_data)
+            _setter("catalog_data", catalog_data)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -101,25 +126,62 @@ class _RepositoryState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _RepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            catalog_data=catalog_data,
+            force_destroy=force_destroy,
+            registry_id=registry_id,
+            repository_name=repository_name,
+            repository_uri=repository_uri,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             catalog_data: Optional[pulumi.Input['RepositoryCatalogDataArgs']] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             registry_id: Optional[pulumi.Input[str]] = None,
+             repository_name: Optional[pulumi.Input[str]] = None,
+             repository_uri: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_data is None and 'catalogData' in kwargs:
+            catalog_data = kwargs['catalogData']
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if registry_id is None and 'registryId' in kwargs:
+            registry_id = kwargs['registryId']
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_uri is None and 'repositoryUri' in kwargs:
+            repository_uri = kwargs['repositoryUri']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if catalog_data is not None:
-            pulumi.set(__self__, "catalog_data", catalog_data)
+            _setter("catalog_data", catalog_data)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if registry_id is not None:
-            pulumi.set(__self__, "registry_id", registry_id)
+            _setter("registry_id", registry_id)
         if repository_name is not None:
-            pulumi.set(__self__, "repository_name", repository_name)
+            _setter("repository_name", repository_name)
         if repository_uri is not None:
-            pulumi.set(__self__, "repository_uri", repository_uri)
+            _setter("repository_uri", repository_uri)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -324,6 +386,10 @@ class Repository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -342,6 +408,7 @@ class Repository(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
+            catalog_data = _utilities.configure(catalog_data, RepositoryCatalogDataArgs, True)
             __props__.__dict__["catalog_data"] = catalog_data
             __props__.__dict__["force_destroy"] = force_destroy
             if repository_name is None and not opts.urn:

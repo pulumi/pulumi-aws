@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,20 +31,45 @@ class ZoneArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         """
+        ZoneArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            delegation_set_id=delegation_set_id,
+            force_destroy=force_destroy,
+            name=name,
+            tags=tags,
+            vpcs=vpcs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             delegation_set_id: Optional[pulumi.Input[str]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delegation_set_id is None and 'delegationSetId' in kwargs:
+            delegation_set_id = kwargs['delegationSetId']
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+
         if comment is None:
             comment = 'Managed by Pulumi'
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if delegation_set_id is not None:
-            pulumi.set(__self__, "delegation_set_id", delegation_set_id)
+            _setter("delegation_set_id", delegation_set_id)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpcs is not None:
-            pulumi.set(__self__, "vpcs", vpcs)
+            _setter("vpcs", vpcs)
 
     @property
     @pulumi.getter
@@ -148,33 +173,76 @@ class _ZoneState:
         :param pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         :param pulumi.Input[str] zone_id: The Hosted Zone ID. This can be referenced by zone records.
         """
+        _ZoneState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            comment=comment,
+            delegation_set_id=delegation_set_id,
+            force_destroy=force_destroy,
+            name=name,
+            name_servers=name_servers,
+            primary_name_server=primary_name_server,
+            tags=tags,
+            tags_all=tags_all,
+            vpcs=vpcs,
+            zone_id=zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             delegation_set_id: Optional[pulumi.Input[str]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             primary_name_server: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]]] = None,
+             zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delegation_set_id is None and 'delegationSetId' in kwargs:
+            delegation_set_id = kwargs['delegationSetId']
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if name_servers is None and 'nameServers' in kwargs:
+            name_servers = kwargs['nameServers']
+        if primary_name_server is None and 'primaryNameServer' in kwargs:
+            primary_name_server = kwargs['primaryNameServer']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if zone_id is None and 'zoneId' in kwargs:
+            zone_id = kwargs['zoneId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if comment is None:
             comment = 'Managed by Pulumi'
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if delegation_set_id is not None:
-            pulumi.set(__self__, "delegation_set_id", delegation_set_id)
+            _setter("delegation_set_id", delegation_set_id)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_servers is not None:
-            pulumi.set(__self__, "name_servers", name_servers)
+            _setter("name_servers", name_servers)
         if primary_name_server is not None:
-            pulumi.set(__self__, "primary_name_server", primary_name_server)
+            _setter("primary_name_server", primary_name_server)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpcs is not None:
-            pulumi.set(__self__, "vpcs", vpcs)
+            _setter("vpcs", vpcs)
         if zone_id is not None:
-            pulumi.set(__self__, "zone_id", zone_id)
+            _setter("zone_id", zone_id)
 
     @property
     @pulumi.getter
@@ -462,6 +530,10 @@ class Zone(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ZoneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,42 @@ class EndpointAccessArgs:
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: An array of security group IDs to associate with the workgroup.
         """
-        pulumi.set(__self__, "endpoint_name", endpoint_name)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "workgroup_name", workgroup_name)
+        EndpointAccessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_name=endpoint_name,
+            subnet_ids=subnet_ids,
+            workgroup_name=workgroup_name,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_name: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             workgroup_name: Optional[pulumi.Input[str]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_name is None and 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if endpoint_name is None:
+            raise TypeError("Missing 'endpoint_name' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if workgroup_name is None and 'workgroupName' in kwargs:
+            workgroup_name = kwargs['workgroupName']
+        if workgroup_name is None:
+            raise TypeError("Missing 'workgroup_name' argument")
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
+        _setter("endpoint_name", endpoint_name)
+        _setter("subnet_ids", subnet_ids)
+        _setter("workgroup_name", workgroup_name)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -104,22 +135,57 @@ class _EndpointAccessState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """
+        _EndpointAccessState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            arn=arn,
+            endpoint_name=endpoint_name,
+            port=port,
+            subnet_ids=subnet_ids,
+            vpc_endpoints=vpc_endpoints,
+            vpc_security_group_ids=vpc_security_group_ids,
+            workgroup_name=workgroup_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             endpoint_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             workgroup_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_name is None and 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if vpc_endpoints is None and 'vpcEndpoints' in kwargs:
+            vpc_endpoints = kwargs['vpcEndpoints']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+        if workgroup_name is None and 'workgroupName' in kwargs:
+            workgroup_name = kwargs['workgroupName']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
+            _setter("endpoint_name", endpoint_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if vpc_endpoints is not None:
-            pulumi.set(__self__, "vpc_endpoints", vpc_endpoints)
+            _setter("vpc_endpoints", vpc_endpoints)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
         if workgroup_name is not None:
-            pulumi.set(__self__, "workgroup_name", workgroup_name)
+            _setter("workgroup_name", workgroup_name)
 
     @property
     @pulumi.getter
@@ -295,6 +361,10 @@ class EndpointAccess(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointAccessArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

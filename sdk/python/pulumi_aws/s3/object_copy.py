@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -98,81 +98,236 @@ class ObjectCopyArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] website_redirect: Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "source", source)
+        ObjectCopyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+            source=source,
+            acl=acl,
+            bucket_key_enabled=bucket_key_enabled,
+            cache_control=cache_control,
+            checksum_algorithm=checksum_algorithm,
+            content_disposition=content_disposition,
+            content_encoding=content_encoding,
+            content_language=content_language,
+            content_type=content_type,
+            copy_if_match=copy_if_match,
+            copy_if_modified_since=copy_if_modified_since,
+            copy_if_none_match=copy_if_none_match,
+            copy_if_unmodified_since=copy_if_unmodified_since,
+            customer_algorithm=customer_algorithm,
+            customer_key=customer_key,
+            customer_key_md5=customer_key_md5,
+            expected_bucket_owner=expected_bucket_owner,
+            expected_source_bucket_owner=expected_source_bucket_owner,
+            expires=expires,
+            force_destroy=force_destroy,
+            grants=grants,
+            kms_encryption_context=kms_encryption_context,
+            kms_key_id=kms_key_id,
+            metadata=metadata,
+            metadata_directive=metadata_directive,
+            object_lock_legal_hold_status=object_lock_legal_hold_status,
+            object_lock_mode=object_lock_mode,
+            object_lock_retain_until_date=object_lock_retain_until_date,
+            request_payer=request_payer,
+            server_side_encryption=server_side_encryption,
+            source_customer_algorithm=source_customer_algorithm,
+            source_customer_key=source_customer_key,
+            source_customer_key_md5=source_customer_key_md5,
+            storage_class=storage_class,
+            tagging_directive=tagging_directive,
+            tags=tags,
+            website_redirect=website_redirect,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             acl: Optional[pulumi.Input[str]] = None,
+             bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
+             cache_control: Optional[pulumi.Input[str]] = None,
+             checksum_algorithm: Optional[pulumi.Input[str]] = None,
+             content_disposition: Optional[pulumi.Input[str]] = None,
+             content_encoding: Optional[pulumi.Input[str]] = None,
+             content_language: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             copy_if_match: Optional[pulumi.Input[str]] = None,
+             copy_if_modified_since: Optional[pulumi.Input[str]] = None,
+             copy_if_none_match: Optional[pulumi.Input[str]] = None,
+             copy_if_unmodified_since: Optional[pulumi.Input[str]] = None,
+             customer_algorithm: Optional[pulumi.Input[str]] = None,
+             customer_key: Optional[pulumi.Input[str]] = None,
+             customer_key_md5: Optional[pulumi.Input[str]] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             expected_source_bucket_owner: Optional[pulumi.Input[str]] = None,
+             expires: Optional[pulumi.Input[str]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             grants: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]] = None,
+             kms_encryption_context: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             metadata_directive: Optional[pulumi.Input[str]] = None,
+             object_lock_legal_hold_status: Optional[pulumi.Input[str]] = None,
+             object_lock_mode: Optional[pulumi.Input[str]] = None,
+             object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
+             request_payer: Optional[pulumi.Input[str]] = None,
+             server_side_encryption: Optional[pulumi.Input[str]] = None,
+             source_customer_algorithm: Optional[pulumi.Input[str]] = None,
+             source_customer_key: Optional[pulumi.Input[str]] = None,
+             source_customer_key_md5: Optional[pulumi.Input[str]] = None,
+             storage_class: Optional[pulumi.Input[str]] = None,
+             tagging_directive: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             website_redirect: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if bucket_key_enabled is None and 'bucketKeyEnabled' in kwargs:
+            bucket_key_enabled = kwargs['bucketKeyEnabled']
+        if cache_control is None and 'cacheControl' in kwargs:
+            cache_control = kwargs['cacheControl']
+        if checksum_algorithm is None and 'checksumAlgorithm' in kwargs:
+            checksum_algorithm = kwargs['checksumAlgorithm']
+        if content_disposition is None and 'contentDisposition' in kwargs:
+            content_disposition = kwargs['contentDisposition']
+        if content_encoding is None and 'contentEncoding' in kwargs:
+            content_encoding = kwargs['contentEncoding']
+        if content_language is None and 'contentLanguage' in kwargs:
+            content_language = kwargs['contentLanguage']
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if copy_if_match is None and 'copyIfMatch' in kwargs:
+            copy_if_match = kwargs['copyIfMatch']
+        if copy_if_modified_since is None and 'copyIfModifiedSince' in kwargs:
+            copy_if_modified_since = kwargs['copyIfModifiedSince']
+        if copy_if_none_match is None and 'copyIfNoneMatch' in kwargs:
+            copy_if_none_match = kwargs['copyIfNoneMatch']
+        if copy_if_unmodified_since is None and 'copyIfUnmodifiedSince' in kwargs:
+            copy_if_unmodified_since = kwargs['copyIfUnmodifiedSince']
+        if customer_algorithm is None and 'customerAlgorithm' in kwargs:
+            customer_algorithm = kwargs['customerAlgorithm']
+        if customer_key is None and 'customerKey' in kwargs:
+            customer_key = kwargs['customerKey']
+        if customer_key_md5 is None and 'customerKeyMd5' in kwargs:
+            customer_key_md5 = kwargs['customerKeyMd5']
+        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+        if expected_source_bucket_owner is None and 'expectedSourceBucketOwner' in kwargs:
+            expected_source_bucket_owner = kwargs['expectedSourceBucketOwner']
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if kms_encryption_context is None and 'kmsEncryptionContext' in kwargs:
+            kms_encryption_context = kwargs['kmsEncryptionContext']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if metadata_directive is None and 'metadataDirective' in kwargs:
+            metadata_directive = kwargs['metadataDirective']
+        if object_lock_legal_hold_status is None and 'objectLockLegalHoldStatus' in kwargs:
+            object_lock_legal_hold_status = kwargs['objectLockLegalHoldStatus']
+        if object_lock_mode is None and 'objectLockMode' in kwargs:
+            object_lock_mode = kwargs['objectLockMode']
+        if object_lock_retain_until_date is None and 'objectLockRetainUntilDate' in kwargs:
+            object_lock_retain_until_date = kwargs['objectLockRetainUntilDate']
+        if request_payer is None and 'requestPayer' in kwargs:
+            request_payer = kwargs['requestPayer']
+        if server_side_encryption is None and 'serverSideEncryption' in kwargs:
+            server_side_encryption = kwargs['serverSideEncryption']
+        if source_customer_algorithm is None and 'sourceCustomerAlgorithm' in kwargs:
+            source_customer_algorithm = kwargs['sourceCustomerAlgorithm']
+        if source_customer_key is None and 'sourceCustomerKey' in kwargs:
+            source_customer_key = kwargs['sourceCustomerKey']
+        if source_customer_key_md5 is None and 'sourceCustomerKeyMd5' in kwargs:
+            source_customer_key_md5 = kwargs['sourceCustomerKeyMd5']
+        if storage_class is None and 'storageClass' in kwargs:
+            storage_class = kwargs['storageClass']
+        if tagging_directive is None and 'taggingDirective' in kwargs:
+            tagging_directive = kwargs['taggingDirective']
+        if website_redirect is None and 'websiteRedirect' in kwargs:
+            website_redirect = kwargs['websiteRedirect']
+
+        _setter("bucket", bucket)
+        _setter("key", key)
+        _setter("source", source)
         if acl is not None:
-            pulumi.set(__self__, "acl", acl)
+            _setter("acl", acl)
         if bucket_key_enabled is not None:
-            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
+            _setter("bucket_key_enabled", bucket_key_enabled)
         if cache_control is not None:
-            pulumi.set(__self__, "cache_control", cache_control)
+            _setter("cache_control", cache_control)
         if checksum_algorithm is not None:
-            pulumi.set(__self__, "checksum_algorithm", checksum_algorithm)
+            _setter("checksum_algorithm", checksum_algorithm)
         if content_disposition is not None:
-            pulumi.set(__self__, "content_disposition", content_disposition)
+            _setter("content_disposition", content_disposition)
         if content_encoding is not None:
-            pulumi.set(__self__, "content_encoding", content_encoding)
+            _setter("content_encoding", content_encoding)
         if content_language is not None:
-            pulumi.set(__self__, "content_language", content_language)
+            _setter("content_language", content_language)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if copy_if_match is not None:
-            pulumi.set(__self__, "copy_if_match", copy_if_match)
+            _setter("copy_if_match", copy_if_match)
         if copy_if_modified_since is not None:
-            pulumi.set(__self__, "copy_if_modified_since", copy_if_modified_since)
+            _setter("copy_if_modified_since", copy_if_modified_since)
         if copy_if_none_match is not None:
-            pulumi.set(__self__, "copy_if_none_match", copy_if_none_match)
+            _setter("copy_if_none_match", copy_if_none_match)
         if copy_if_unmodified_since is not None:
-            pulumi.set(__self__, "copy_if_unmodified_since", copy_if_unmodified_since)
+            _setter("copy_if_unmodified_since", copy_if_unmodified_since)
         if customer_algorithm is not None:
-            pulumi.set(__self__, "customer_algorithm", customer_algorithm)
+            _setter("customer_algorithm", customer_algorithm)
         if customer_key is not None:
-            pulumi.set(__self__, "customer_key", customer_key)
+            _setter("customer_key", customer_key)
         if customer_key_md5 is not None:
-            pulumi.set(__self__, "customer_key_md5", customer_key_md5)
+            _setter("customer_key_md5", customer_key_md5)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if expected_source_bucket_owner is not None:
-            pulumi.set(__self__, "expected_source_bucket_owner", expected_source_bucket_owner)
+            _setter("expected_source_bucket_owner", expected_source_bucket_owner)
         if expires is not None:
-            pulumi.set(__self__, "expires", expires)
+            _setter("expires", expires)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if grants is not None:
-            pulumi.set(__self__, "grants", grants)
+            _setter("grants", grants)
         if kms_encryption_context is not None:
-            pulumi.set(__self__, "kms_encryption_context", kms_encryption_context)
+            _setter("kms_encryption_context", kms_encryption_context)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if metadata_directive is not None:
-            pulumi.set(__self__, "metadata_directive", metadata_directive)
+            _setter("metadata_directive", metadata_directive)
         if object_lock_legal_hold_status is not None:
-            pulumi.set(__self__, "object_lock_legal_hold_status", object_lock_legal_hold_status)
+            _setter("object_lock_legal_hold_status", object_lock_legal_hold_status)
         if object_lock_mode is not None:
-            pulumi.set(__self__, "object_lock_mode", object_lock_mode)
+            _setter("object_lock_mode", object_lock_mode)
         if object_lock_retain_until_date is not None:
-            pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
+            _setter("object_lock_retain_until_date", object_lock_retain_until_date)
         if request_payer is not None:
-            pulumi.set(__self__, "request_payer", request_payer)
+            _setter("request_payer", request_payer)
         if server_side_encryption is not None:
-            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
+            _setter("server_side_encryption", server_side_encryption)
         if source_customer_algorithm is not None:
-            pulumi.set(__self__, "source_customer_algorithm", source_customer_algorithm)
+            _setter("source_customer_algorithm", source_customer_algorithm)
         if source_customer_key is not None:
-            pulumi.set(__self__, "source_customer_key", source_customer_key)
+            _setter("source_customer_key", source_customer_key)
         if source_customer_key_md5 is not None:
-            pulumi.set(__self__, "source_customer_key_md5", source_customer_key_md5)
+            _setter("source_customer_key_md5", source_customer_key_md5)
         if storage_class is not None:
-            pulumi.set(__self__, "storage_class", storage_class)
+            _setter("storage_class", storage_class)
         if tagging_directive is not None:
-            pulumi.set(__self__, "tagging_directive", tagging_directive)
+            _setter("tagging_directive", tagging_directive)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if website_redirect is not None:
-            pulumi.set(__self__, "website_redirect", website_redirect)
+            _setter("website_redirect", website_redirect)
 
     @property
     @pulumi.getter
@@ -749,109 +904,298 @@ class _ObjectCopyState:
         :param pulumi.Input[str] version_id: Version ID of the newly created copy.
         :param pulumi.Input[str] website_redirect: Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
+        _ObjectCopyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acl=acl,
+            bucket=bucket,
+            bucket_key_enabled=bucket_key_enabled,
+            cache_control=cache_control,
+            checksum_algorithm=checksum_algorithm,
+            checksum_crc32=checksum_crc32,
+            checksum_crc32c=checksum_crc32c,
+            checksum_sha1=checksum_sha1,
+            checksum_sha256=checksum_sha256,
+            content_disposition=content_disposition,
+            content_encoding=content_encoding,
+            content_language=content_language,
+            content_type=content_type,
+            copy_if_match=copy_if_match,
+            copy_if_modified_since=copy_if_modified_since,
+            copy_if_none_match=copy_if_none_match,
+            copy_if_unmodified_since=copy_if_unmodified_since,
+            customer_algorithm=customer_algorithm,
+            customer_key=customer_key,
+            customer_key_md5=customer_key_md5,
+            etag=etag,
+            expected_bucket_owner=expected_bucket_owner,
+            expected_source_bucket_owner=expected_source_bucket_owner,
+            expiration=expiration,
+            expires=expires,
+            force_destroy=force_destroy,
+            grants=grants,
+            key=key,
+            kms_encryption_context=kms_encryption_context,
+            kms_key_id=kms_key_id,
+            last_modified=last_modified,
+            metadata=metadata,
+            metadata_directive=metadata_directive,
+            object_lock_legal_hold_status=object_lock_legal_hold_status,
+            object_lock_mode=object_lock_mode,
+            object_lock_retain_until_date=object_lock_retain_until_date,
+            request_charged=request_charged,
+            request_payer=request_payer,
+            server_side_encryption=server_side_encryption,
+            source=source,
+            source_customer_algorithm=source_customer_algorithm,
+            source_customer_key=source_customer_key,
+            source_customer_key_md5=source_customer_key_md5,
+            source_version_id=source_version_id,
+            storage_class=storage_class,
+            tagging_directive=tagging_directive,
+            tags=tags,
+            tags_all=tags_all,
+            version_id=version_id,
+            website_redirect=website_redirect,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acl: Optional[pulumi.Input[str]] = None,
+             bucket: Optional[pulumi.Input[str]] = None,
+             bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
+             cache_control: Optional[pulumi.Input[str]] = None,
+             checksum_algorithm: Optional[pulumi.Input[str]] = None,
+             checksum_crc32: Optional[pulumi.Input[str]] = None,
+             checksum_crc32c: Optional[pulumi.Input[str]] = None,
+             checksum_sha1: Optional[pulumi.Input[str]] = None,
+             checksum_sha256: Optional[pulumi.Input[str]] = None,
+             content_disposition: Optional[pulumi.Input[str]] = None,
+             content_encoding: Optional[pulumi.Input[str]] = None,
+             content_language: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             copy_if_match: Optional[pulumi.Input[str]] = None,
+             copy_if_modified_since: Optional[pulumi.Input[str]] = None,
+             copy_if_none_match: Optional[pulumi.Input[str]] = None,
+             copy_if_unmodified_since: Optional[pulumi.Input[str]] = None,
+             customer_algorithm: Optional[pulumi.Input[str]] = None,
+             customer_key: Optional[pulumi.Input[str]] = None,
+             customer_key_md5: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             expected_source_bucket_owner: Optional[pulumi.Input[str]] = None,
+             expiration: Optional[pulumi.Input[str]] = None,
+             expires: Optional[pulumi.Input[str]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             grants: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectCopyGrantArgs']]]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             kms_encryption_context: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             last_modified: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             metadata_directive: Optional[pulumi.Input[str]] = None,
+             object_lock_legal_hold_status: Optional[pulumi.Input[str]] = None,
+             object_lock_mode: Optional[pulumi.Input[str]] = None,
+             object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
+             request_charged: Optional[pulumi.Input[bool]] = None,
+             request_payer: Optional[pulumi.Input[str]] = None,
+             server_side_encryption: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             source_customer_algorithm: Optional[pulumi.Input[str]] = None,
+             source_customer_key: Optional[pulumi.Input[str]] = None,
+             source_customer_key_md5: Optional[pulumi.Input[str]] = None,
+             source_version_id: Optional[pulumi.Input[str]] = None,
+             storage_class: Optional[pulumi.Input[str]] = None,
+             tagging_directive: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version_id: Optional[pulumi.Input[str]] = None,
+             website_redirect: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_key_enabled is None and 'bucketKeyEnabled' in kwargs:
+            bucket_key_enabled = kwargs['bucketKeyEnabled']
+        if cache_control is None and 'cacheControl' in kwargs:
+            cache_control = kwargs['cacheControl']
+        if checksum_algorithm is None and 'checksumAlgorithm' in kwargs:
+            checksum_algorithm = kwargs['checksumAlgorithm']
+        if checksum_crc32 is None and 'checksumCrc32' in kwargs:
+            checksum_crc32 = kwargs['checksumCrc32']
+        if checksum_crc32c is None and 'checksumCrc32c' in kwargs:
+            checksum_crc32c = kwargs['checksumCrc32c']
+        if checksum_sha1 is None and 'checksumSha1' in kwargs:
+            checksum_sha1 = kwargs['checksumSha1']
+        if checksum_sha256 is None and 'checksumSha256' in kwargs:
+            checksum_sha256 = kwargs['checksumSha256']
+        if content_disposition is None and 'contentDisposition' in kwargs:
+            content_disposition = kwargs['contentDisposition']
+        if content_encoding is None and 'contentEncoding' in kwargs:
+            content_encoding = kwargs['contentEncoding']
+        if content_language is None and 'contentLanguage' in kwargs:
+            content_language = kwargs['contentLanguage']
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if copy_if_match is None and 'copyIfMatch' in kwargs:
+            copy_if_match = kwargs['copyIfMatch']
+        if copy_if_modified_since is None and 'copyIfModifiedSince' in kwargs:
+            copy_if_modified_since = kwargs['copyIfModifiedSince']
+        if copy_if_none_match is None and 'copyIfNoneMatch' in kwargs:
+            copy_if_none_match = kwargs['copyIfNoneMatch']
+        if copy_if_unmodified_since is None and 'copyIfUnmodifiedSince' in kwargs:
+            copy_if_unmodified_since = kwargs['copyIfUnmodifiedSince']
+        if customer_algorithm is None and 'customerAlgorithm' in kwargs:
+            customer_algorithm = kwargs['customerAlgorithm']
+        if customer_key is None and 'customerKey' in kwargs:
+            customer_key = kwargs['customerKey']
+        if customer_key_md5 is None and 'customerKeyMd5' in kwargs:
+            customer_key_md5 = kwargs['customerKeyMd5']
+        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+        if expected_source_bucket_owner is None and 'expectedSourceBucketOwner' in kwargs:
+            expected_source_bucket_owner = kwargs['expectedSourceBucketOwner']
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if kms_encryption_context is None and 'kmsEncryptionContext' in kwargs:
+            kms_encryption_context = kwargs['kmsEncryptionContext']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if last_modified is None and 'lastModified' in kwargs:
+            last_modified = kwargs['lastModified']
+        if metadata_directive is None and 'metadataDirective' in kwargs:
+            metadata_directive = kwargs['metadataDirective']
+        if object_lock_legal_hold_status is None and 'objectLockLegalHoldStatus' in kwargs:
+            object_lock_legal_hold_status = kwargs['objectLockLegalHoldStatus']
+        if object_lock_mode is None and 'objectLockMode' in kwargs:
+            object_lock_mode = kwargs['objectLockMode']
+        if object_lock_retain_until_date is None and 'objectLockRetainUntilDate' in kwargs:
+            object_lock_retain_until_date = kwargs['objectLockRetainUntilDate']
+        if request_charged is None and 'requestCharged' in kwargs:
+            request_charged = kwargs['requestCharged']
+        if request_payer is None and 'requestPayer' in kwargs:
+            request_payer = kwargs['requestPayer']
+        if server_side_encryption is None and 'serverSideEncryption' in kwargs:
+            server_side_encryption = kwargs['serverSideEncryption']
+        if source_customer_algorithm is None and 'sourceCustomerAlgorithm' in kwargs:
+            source_customer_algorithm = kwargs['sourceCustomerAlgorithm']
+        if source_customer_key is None and 'sourceCustomerKey' in kwargs:
+            source_customer_key = kwargs['sourceCustomerKey']
+        if source_customer_key_md5 is None and 'sourceCustomerKeyMd5' in kwargs:
+            source_customer_key_md5 = kwargs['sourceCustomerKeyMd5']
+        if source_version_id is None and 'sourceVersionId' in kwargs:
+            source_version_id = kwargs['sourceVersionId']
+        if storage_class is None and 'storageClass' in kwargs:
+            storage_class = kwargs['storageClass']
+        if tagging_directive is None and 'taggingDirective' in kwargs:
+            tagging_directive = kwargs['taggingDirective']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if version_id is None and 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+        if website_redirect is None and 'websiteRedirect' in kwargs:
+            website_redirect = kwargs['websiteRedirect']
+
         if acl is not None:
-            pulumi.set(__self__, "acl", acl)
+            _setter("acl", acl)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if bucket_key_enabled is not None:
-            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
+            _setter("bucket_key_enabled", bucket_key_enabled)
         if cache_control is not None:
-            pulumi.set(__self__, "cache_control", cache_control)
+            _setter("cache_control", cache_control)
         if checksum_algorithm is not None:
-            pulumi.set(__self__, "checksum_algorithm", checksum_algorithm)
+            _setter("checksum_algorithm", checksum_algorithm)
         if checksum_crc32 is not None:
-            pulumi.set(__self__, "checksum_crc32", checksum_crc32)
+            _setter("checksum_crc32", checksum_crc32)
         if checksum_crc32c is not None:
-            pulumi.set(__self__, "checksum_crc32c", checksum_crc32c)
+            _setter("checksum_crc32c", checksum_crc32c)
         if checksum_sha1 is not None:
-            pulumi.set(__self__, "checksum_sha1", checksum_sha1)
+            _setter("checksum_sha1", checksum_sha1)
         if checksum_sha256 is not None:
-            pulumi.set(__self__, "checksum_sha256", checksum_sha256)
+            _setter("checksum_sha256", checksum_sha256)
         if content_disposition is not None:
-            pulumi.set(__self__, "content_disposition", content_disposition)
+            _setter("content_disposition", content_disposition)
         if content_encoding is not None:
-            pulumi.set(__self__, "content_encoding", content_encoding)
+            _setter("content_encoding", content_encoding)
         if content_language is not None:
-            pulumi.set(__self__, "content_language", content_language)
+            _setter("content_language", content_language)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if copy_if_match is not None:
-            pulumi.set(__self__, "copy_if_match", copy_if_match)
+            _setter("copy_if_match", copy_if_match)
         if copy_if_modified_since is not None:
-            pulumi.set(__self__, "copy_if_modified_since", copy_if_modified_since)
+            _setter("copy_if_modified_since", copy_if_modified_since)
         if copy_if_none_match is not None:
-            pulumi.set(__self__, "copy_if_none_match", copy_if_none_match)
+            _setter("copy_if_none_match", copy_if_none_match)
         if copy_if_unmodified_since is not None:
-            pulumi.set(__self__, "copy_if_unmodified_since", copy_if_unmodified_since)
+            _setter("copy_if_unmodified_since", copy_if_unmodified_since)
         if customer_algorithm is not None:
-            pulumi.set(__self__, "customer_algorithm", customer_algorithm)
+            _setter("customer_algorithm", customer_algorithm)
         if customer_key is not None:
-            pulumi.set(__self__, "customer_key", customer_key)
+            _setter("customer_key", customer_key)
         if customer_key_md5 is not None:
-            pulumi.set(__self__, "customer_key_md5", customer_key_md5)
+            _setter("customer_key_md5", customer_key_md5)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if expected_source_bucket_owner is not None:
-            pulumi.set(__self__, "expected_source_bucket_owner", expected_source_bucket_owner)
+            _setter("expected_source_bucket_owner", expected_source_bucket_owner)
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if expires is not None:
-            pulumi.set(__self__, "expires", expires)
+            _setter("expires", expires)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if grants is not None:
-            pulumi.set(__self__, "grants", grants)
+            _setter("grants", grants)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if kms_encryption_context is not None:
-            pulumi.set(__self__, "kms_encryption_context", kms_encryption_context)
+            _setter("kms_encryption_context", kms_encryption_context)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if last_modified is not None:
-            pulumi.set(__self__, "last_modified", last_modified)
+            _setter("last_modified", last_modified)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if metadata_directive is not None:
-            pulumi.set(__self__, "metadata_directive", metadata_directive)
+            _setter("metadata_directive", metadata_directive)
         if object_lock_legal_hold_status is not None:
-            pulumi.set(__self__, "object_lock_legal_hold_status", object_lock_legal_hold_status)
+            _setter("object_lock_legal_hold_status", object_lock_legal_hold_status)
         if object_lock_mode is not None:
-            pulumi.set(__self__, "object_lock_mode", object_lock_mode)
+            _setter("object_lock_mode", object_lock_mode)
         if object_lock_retain_until_date is not None:
-            pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
+            _setter("object_lock_retain_until_date", object_lock_retain_until_date)
         if request_charged is not None:
-            pulumi.set(__self__, "request_charged", request_charged)
+            _setter("request_charged", request_charged)
         if request_payer is not None:
-            pulumi.set(__self__, "request_payer", request_payer)
+            _setter("request_payer", request_payer)
         if server_side_encryption is not None:
-            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
+            _setter("server_side_encryption", server_side_encryption)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if source_customer_algorithm is not None:
-            pulumi.set(__self__, "source_customer_algorithm", source_customer_algorithm)
+            _setter("source_customer_algorithm", source_customer_algorithm)
         if source_customer_key is not None:
-            pulumi.set(__self__, "source_customer_key", source_customer_key)
+            _setter("source_customer_key", source_customer_key)
         if source_customer_key_md5 is not None:
-            pulumi.set(__self__, "source_customer_key_md5", source_customer_key_md5)
+            _setter("source_customer_key_md5", source_customer_key_md5)
         if source_version_id is not None:
-            pulumi.set(__self__, "source_version_id", source_version_id)
+            _setter("source_version_id", source_version_id)
         if storage_class is not None:
-            pulumi.set(__self__, "storage_class", storage_class)
+            _setter("storage_class", storage_class)
         if tagging_directive is not None:
-            pulumi.set(__self__, "tagging_directive", tagging_directive)
+            _setter("tagging_directive", tagging_directive)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if version_id is not None:
-            pulumi.set(__self__, "version_id", version_id)
+            _setter("version_id", version_id)
         if website_redirect is not None:
-            pulumi.set(__self__, "website_redirect", website_redirect)
+            _setter("website_redirect", website_redirect)
 
     @property
     @pulumi.getter
@@ -1600,6 +1944,10 @@ class ObjectCopy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ObjectCopyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

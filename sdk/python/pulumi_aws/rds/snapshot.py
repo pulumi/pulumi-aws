@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SnapshotArgs', 'Snapshot']
@@ -25,12 +25,39 @@ class SnapshotArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
-        pulumi.set(__self__, "db_snapshot_identifier", db_snapshot_identifier)
+        SnapshotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_instance_identifier=db_instance_identifier,
+            db_snapshot_identifier=db_snapshot_identifier,
+            shared_accounts=shared_accounts,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_instance_identifier: Optional[pulumi.Input[str]] = None,
+             db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_instance_identifier is None and 'dbInstanceIdentifier' in kwargs:
+            db_instance_identifier = kwargs['dbInstanceIdentifier']
+        if db_instance_identifier is None:
+            raise TypeError("Missing 'db_instance_identifier' argument")
+        if db_snapshot_identifier is None and 'dbSnapshotIdentifier' in kwargs:
+            db_snapshot_identifier = kwargs['dbSnapshotIdentifier']
+        if db_snapshot_identifier is None:
+            raise TypeError("Missing 'db_snapshot_identifier' argument")
+        if shared_accounts is None and 'sharedAccounts' in kwargs:
+            shared_accounts = kwargs['sharedAccounts']
+
+        _setter("db_instance_identifier", db_instance_identifier)
+        _setter("db_snapshot_identifier", db_snapshot_identifier)
         if shared_accounts is not None:
-            pulumi.set(__self__, "shared_accounts", shared_accounts)
+            _setter("shared_accounts", shared_accounts)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dbInstanceIdentifier")
@@ -129,53 +156,138 @@ class _SnapshotState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: Provides the VPC ID associated with the DB snapshot.
         """
+        _SnapshotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocated_storage=allocated_storage,
+            availability_zone=availability_zone,
+            db_instance_identifier=db_instance_identifier,
+            db_snapshot_arn=db_snapshot_arn,
+            db_snapshot_identifier=db_snapshot_identifier,
+            encrypted=encrypted,
+            engine=engine,
+            engine_version=engine_version,
+            iops=iops,
+            kms_key_id=kms_key_id,
+            license_model=license_model,
+            option_group_name=option_group_name,
+            port=port,
+            shared_accounts=shared_accounts,
+            snapshot_type=snapshot_type,
+            source_db_snapshot_identifier=source_db_snapshot_identifier,
+            source_region=source_region,
+            status=status,
+            storage_type=storage_type,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocated_storage: Optional[pulumi.Input[int]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             db_instance_identifier: Optional[pulumi.Input[str]] = None,
+             db_snapshot_arn: Optional[pulumi.Input[str]] = None,
+             db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             encrypted: Optional[pulumi.Input[bool]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             iops: Optional[pulumi.Input[int]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             license_model: Optional[pulumi.Input[str]] = None,
+             option_group_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_type: Optional[pulumi.Input[str]] = None,
+             source_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             source_region: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocated_storage is None and 'allocatedStorage' in kwargs:
+            allocated_storage = kwargs['allocatedStorage']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if db_instance_identifier is None and 'dbInstanceIdentifier' in kwargs:
+            db_instance_identifier = kwargs['dbInstanceIdentifier']
+        if db_snapshot_arn is None and 'dbSnapshotArn' in kwargs:
+            db_snapshot_arn = kwargs['dbSnapshotArn']
+        if db_snapshot_identifier is None and 'dbSnapshotIdentifier' in kwargs:
+            db_snapshot_identifier = kwargs['dbSnapshotIdentifier']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if license_model is None and 'licenseModel' in kwargs:
+            license_model = kwargs['licenseModel']
+        if option_group_name is None and 'optionGroupName' in kwargs:
+            option_group_name = kwargs['optionGroupName']
+        if shared_accounts is None and 'sharedAccounts' in kwargs:
+            shared_accounts = kwargs['sharedAccounts']
+        if snapshot_type is None and 'snapshotType' in kwargs:
+            snapshot_type = kwargs['snapshotType']
+        if source_db_snapshot_identifier is None and 'sourceDbSnapshotIdentifier' in kwargs:
+            source_db_snapshot_identifier = kwargs['sourceDbSnapshotIdentifier']
+        if source_region is None and 'sourceRegion' in kwargs:
+            source_region = kwargs['sourceRegion']
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if allocated_storage is not None:
-            pulumi.set(__self__, "allocated_storage", allocated_storage)
+            _setter("allocated_storage", allocated_storage)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if db_instance_identifier is not None:
-            pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+            _setter("db_instance_identifier", db_instance_identifier)
         if db_snapshot_arn is not None:
-            pulumi.set(__self__, "db_snapshot_arn", db_snapshot_arn)
+            _setter("db_snapshot_arn", db_snapshot_arn)
         if db_snapshot_identifier is not None:
-            pulumi.set(__self__, "db_snapshot_identifier", db_snapshot_identifier)
+            _setter("db_snapshot_identifier", db_snapshot_identifier)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if license_model is not None:
-            pulumi.set(__self__, "license_model", license_model)
+            _setter("license_model", license_model)
         if option_group_name is not None:
-            pulumi.set(__self__, "option_group_name", option_group_name)
+            _setter("option_group_name", option_group_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if shared_accounts is not None:
-            pulumi.set(__self__, "shared_accounts", shared_accounts)
+            _setter("shared_accounts", shared_accounts)
         if snapshot_type is not None:
-            pulumi.set(__self__, "snapshot_type", snapshot_type)
+            _setter("snapshot_type", snapshot_type)
         if source_db_snapshot_identifier is not None:
-            pulumi.set(__self__, "source_db_snapshot_identifier", source_db_snapshot_identifier)
+            _setter("source_db_snapshot_identifier", source_db_snapshot_identifier)
         if source_region is not None:
-            pulumi.set(__self__, "source_region", source_region)
+            _setter("source_region", source_region)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="allocatedStorage")
@@ -538,6 +650,10 @@ class Snapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

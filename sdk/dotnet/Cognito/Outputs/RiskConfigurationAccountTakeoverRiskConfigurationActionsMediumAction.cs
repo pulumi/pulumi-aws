@@ -17,6 +17,9 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
         /// </summary>
         public readonly string EventAction;
+        /// <summary>
+        /// Whether to send a notification.
+        /// </summary>
         public readonly bool Notify;
 
         [OutputConstructor]

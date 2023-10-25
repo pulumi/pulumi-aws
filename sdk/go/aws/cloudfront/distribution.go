@@ -341,7 +341,7 @@ type Distribution struct {
 	DefaultRootObject pulumi.StringPtrOutput `pulumi:"defaultRootObject"`
 	// DNS domain name of either the S3 bucket, or web site of your custom origin.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Whether the distribution is enabled to accept end user requests for content.
+	// Whether Origin Shield is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
 	Etag pulumi.StringOutput `pulumi:"etag"`
@@ -458,7 +458,7 @@ type distributionState struct {
 	DefaultRootObject *string `pulumi:"defaultRootObject"`
 	// DNS domain name of either the S3 bucket, or web site of your custom origin.
 	DomainName *string `pulumi:"domainName"`
-	// Whether the distribution is enabled to accept end user requests for content.
+	// Whether Origin Shield is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
 	Etag *string `pulumi:"etag"`
@@ -527,7 +527,7 @@ type DistributionState struct {
 	DefaultRootObject pulumi.StringPtrInput
 	// DNS domain name of either the S3 bucket, or web site of your custom origin.
 	DomainName pulumi.StringPtrInput
-	// Whether the distribution is enabled to accept end user requests for content.
+	// Whether Origin Shield is enabled.
 	Enabled pulumi.BoolPtrInput
 	// Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
 	Etag pulumi.StringPtrInput
@@ -594,7 +594,7 @@ type distributionArgs struct {
 	DefaultCacheBehavior DistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
 	// Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
 	DefaultRootObject *string `pulumi:"defaultRootObject"`
-	// Whether the distribution is enabled to accept end user requests for content.
+	// Whether Origin Shield is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
 	HttpVersion *string `pulumi:"httpVersion"`
@@ -640,7 +640,7 @@ type DistributionArgs struct {
 	DefaultCacheBehavior DistributionDefaultCacheBehaviorInput
 	// Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
 	DefaultRootObject pulumi.StringPtrInput
-	// Whether the distribution is enabled to accept end user requests for content.
+	// Whether Origin Shield is enabled.
 	Enabled pulumi.BoolInput
 	// Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
 	HttpVersion pulumi.StringPtrInput
@@ -828,7 +828,7 @@ func (o DistributionOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Whether the distribution is enabled to accept end user requests for content.
+// Whether Origin Shield is enabled.
 func (o DistributionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }

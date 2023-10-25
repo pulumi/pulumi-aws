@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,14 +31,51 @@ class WorkteamArgs:
         :param pulumi.Input['WorkteamNotificationConfigurationArgs'] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "member_definitions", member_definitions)
-        pulumi.set(__self__, "workforce_name", workforce_name)
-        pulumi.set(__self__, "workteam_name", workteam_name)
+        WorkteamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            member_definitions=member_definitions,
+            workforce_name=workforce_name,
+            workteam_name=workteam_name,
+            notification_configuration=notification_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]]] = None,
+             workforce_name: Optional[pulumi.Input[str]] = None,
+             workteam_name: Optional[pulumi.Input[str]] = None,
+             notification_configuration: Optional[pulumi.Input['WorkteamNotificationConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if member_definitions is None and 'memberDefinitions' in kwargs:
+            member_definitions = kwargs['memberDefinitions']
+        if member_definitions is None:
+            raise TypeError("Missing 'member_definitions' argument")
+        if workforce_name is None and 'workforceName' in kwargs:
+            workforce_name = kwargs['workforceName']
+        if workforce_name is None:
+            raise TypeError("Missing 'workforce_name' argument")
+        if workteam_name is None and 'workteamName' in kwargs:
+            workteam_name = kwargs['workteamName']
+        if workteam_name is None:
+            raise TypeError("Missing 'workteam_name' argument")
+        if notification_configuration is None and 'notificationConfiguration' in kwargs:
+            notification_configuration = kwargs['notificationConfiguration']
+
+        _setter("description", description)
+        _setter("member_definitions", member_definitions)
+        _setter("workforce_name", workforce_name)
+        _setter("workteam_name", workteam_name)
         if notification_configuration is not None:
-            pulumi.set(__self__, "notification_configuration", notification_configuration)
+            _setter("notification_configuration", notification_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -137,27 +174,64 @@ class _WorkteamState:
         :param pulumi.Input[str] workforce_name: The name of the Workteam (must be unique).
         :param pulumi.Input[str] workteam_name: The name of the workforce.
         """
+        _WorkteamState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            member_definitions=member_definitions,
+            notification_configuration=notification_configuration,
+            subdomain=subdomain,
+            tags=tags,
+            tags_all=tags_all,
+            workforce_name=workforce_name,
+            workteam_name=workteam_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]]] = None,
+             notification_configuration: Optional[pulumi.Input['WorkteamNotificationConfigurationArgs']] = None,
+             subdomain: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workforce_name: Optional[pulumi.Input[str]] = None,
+             workteam_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if member_definitions is None and 'memberDefinitions' in kwargs:
+            member_definitions = kwargs['memberDefinitions']
+        if notification_configuration is None and 'notificationConfiguration' in kwargs:
+            notification_configuration = kwargs['notificationConfiguration']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if workforce_name is None and 'workforceName' in kwargs:
+            workforce_name = kwargs['workforceName']
+        if workteam_name is None and 'workteamName' in kwargs:
+            workteam_name = kwargs['workteamName']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if member_definitions is not None:
-            pulumi.set(__self__, "member_definitions", member_definitions)
+            _setter("member_definitions", member_definitions)
         if notification_configuration is not None:
-            pulumi.set(__self__, "notification_configuration", notification_configuration)
+            _setter("notification_configuration", notification_configuration)
         if subdomain is not None:
-            pulumi.set(__self__, "subdomain", subdomain)
+            _setter("subdomain", subdomain)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if workforce_name is not None:
-            pulumi.set(__self__, "workforce_name", workforce_name)
+            _setter("workforce_name", workforce_name)
         if workteam_name is not None:
-            pulumi.set(__self__, "workteam_name", workteam_name)
+            _setter("workteam_name", workteam_name)
 
     @property
     @pulumi.getter
@@ -402,6 +476,10 @@ class Workteam(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkteamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -428,6 +506,7 @@ class Workteam(pulumi.CustomResource):
             if member_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'member_definitions'")
             __props__.__dict__["member_definitions"] = member_definitions
+            notification_configuration = _utilities.configure(notification_configuration, WorkteamNotificationConfigurationArgs, True)
             __props__.__dict__["notification_configuration"] = notification_configuration
             __props__.__dict__["tags"] = tags
             if workforce_name is None and not opts.urn:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ControlTowerControlArgs', 'ControlTowerControl']
@@ -21,8 +21,29 @@ class ControlTowerControlArgs:
         :param pulumi.Input[str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         :param pulumi.Input[str] target_identifier: The ARN of the organizational unit.
         """
-        pulumi.set(__self__, "control_identifier", control_identifier)
-        pulumi.set(__self__, "target_identifier", target_identifier)
+        ControlTowerControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_identifier=control_identifier,
+            target_identifier=target_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_identifier: Optional[pulumi.Input[str]] = None,
+             target_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if control_identifier is None and 'controlIdentifier' in kwargs:
+            control_identifier = kwargs['controlIdentifier']
+        if control_identifier is None:
+            raise TypeError("Missing 'control_identifier' argument")
+        if target_identifier is None and 'targetIdentifier' in kwargs:
+            target_identifier = kwargs['targetIdentifier']
+        if target_identifier is None:
+            raise TypeError("Missing 'target_identifier' argument")
+
+        _setter("control_identifier", control_identifier)
+        _setter("target_identifier", target_identifier)
 
     @property
     @pulumi.getter(name="controlIdentifier")
@@ -59,10 +80,27 @@ class _ControlTowerControlState:
         :param pulumi.Input[str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         :param pulumi.Input[str] target_identifier: The ARN of the organizational unit.
         """
+        _ControlTowerControlState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_identifier=control_identifier,
+            target_identifier=target_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_identifier: Optional[pulumi.Input[str]] = None,
+             target_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if control_identifier is None and 'controlIdentifier' in kwargs:
+            control_identifier = kwargs['controlIdentifier']
+        if target_identifier is None and 'targetIdentifier' in kwargs:
+            target_identifier = kwargs['targetIdentifier']
+
         if control_identifier is not None:
-            pulumi.set(__self__, "control_identifier", control_identifier)
+            _setter("control_identifier", control_identifier)
         if target_identifier is not None:
-            pulumi.set(__self__, "target_identifier", target_identifier)
+            _setter("target_identifier", target_identifier)
 
     @property
     @pulumi.getter(name="controlIdentifier")
@@ -170,6 +208,10 @@ class ControlTowerControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ControlTowerControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

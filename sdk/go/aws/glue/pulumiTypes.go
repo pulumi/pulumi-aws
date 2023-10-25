@@ -5369,15 +5369,15 @@ func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput 
 }
 
 type CrawlerS3Target struct {
-	// The name of the connection to use to connect to the JDBC target.
+	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
 	ConnectionName *string `pulumi:"connectionName"`
-	// The ARN of the dead-letter SQS queue.
+	// A valid Amazon SQS ARN.
 	//
 	// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
 	//
 	// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
 	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
-	// The ARN of the SQS queue to receive S3 notifications from.
+	// A valid Amazon SQS ARN.
 	EventQueueArn *string `pulumi:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
@@ -5399,15 +5399,15 @@ type CrawlerS3TargetInput interface {
 }
 
 type CrawlerS3TargetArgs struct {
-	// The name of the connection to use to connect to the JDBC target.
+	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
-	// The ARN of the dead-letter SQS queue.
+	// A valid Amazon SQS ARN.
 	//
 	// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
 	//
 	// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
 	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
-	// The ARN of the SQS queue to receive S3 notifications from.
+	// A valid Amazon SQS ARN.
 	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
@@ -5486,12 +5486,12 @@ func (o CrawlerS3TargetOutput) ToOutput(ctx context.Context) pulumix.Output[Craw
 	}
 }
 
-// The name of the connection to use to connect to the JDBC target.
+// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
 func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the dead-letter SQS queue.
+// A valid Amazon SQS ARN.
 //
 // > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
 //
@@ -5500,7 +5500,7 @@ func (o CrawlerS3TargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the SQS queue to receive S3 notifications from.
+// A valid Amazon SQS ARN.
 func (o CrawlerS3TargetOutput) EventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
 }

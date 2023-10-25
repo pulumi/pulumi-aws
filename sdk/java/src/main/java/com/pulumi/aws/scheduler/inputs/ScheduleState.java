@@ -18,14 +18,14 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     public static final ScheduleState Empty = new ScheduleState();
 
     /**
-     * ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+     * ARN of the SQS queue specified as the destination for the dead-letter queue.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+     * @return ARN of the SQS queue specified as the destination for the dead-letter queue.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -253,7 +253,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+         * @param arn ARN of the SQS queue specified as the destination for the dead-letter queue.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+         * @param arn ARN of the SQS queue specified as the destination for the dead-letter queue.
          * 
          * @return builder
          * 

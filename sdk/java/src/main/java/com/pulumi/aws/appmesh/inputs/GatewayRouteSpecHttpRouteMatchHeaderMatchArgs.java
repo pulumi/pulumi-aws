@@ -17,14 +17,14 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
     public static final GatewayRouteSpecHttpRouteMatchHeaderMatchArgs Empty = new GatewayRouteSpecHttpRouteMatchHeaderMatchArgs();
 
     /**
-     * Value used to replace matched path.
+     * Header value sent by the client must match the specified value exactly.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return Value used to replace matched path.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -32,14 +32,14 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
     }
 
     /**
-     * Specified beginning characters to rewrite.
+     * Header value sent by the client must begin with the specified characters.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Specified beginning characters to rewrite.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -120,7 +120,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
         }
 
         /**
-         * @param exact Value used to replace matched path.
+         * @param exact Header value sent by the client must match the specified value exactly.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
         }
 
         /**
-         * @param exact Value used to replace matched path.
+         * @param exact Header value sent by the client must match the specified value exactly.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
         }
 
         /**
-         * @param prefix Specified beginning characters to rewrite.
+         * @param prefix Header value sent by the client must begin with the specified characters.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
         }
 
         /**
-         * @param prefix Specified beginning characters to rewrite.
+         * @param prefix Header value sent by the client must begin with the specified characters.
          * 
          * @return builder
          * 

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TagOptionResourceAssociationArgs', 'TagOptionResourceAssociation']
@@ -21,8 +21,29 @@ class TagOptionResourceAssociationArgs:
         :param pulumi.Input[str] resource_id: Resource identifier.
         :param pulumi.Input[str] tag_option_id: Tag Option identifier.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "tag_option_id", tag_option_id)
+        TagOptionResourceAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            tag_option_id=tag_option_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             tag_option_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if tag_option_id is None and 'tagOptionId' in kwargs:
+            tag_option_id = kwargs['tagOptionId']
+        if tag_option_id is None:
+            raise TypeError("Missing 'tag_option_id' argument")
+
+        _setter("resource_id", resource_id)
+        _setter("tag_option_id", tag_option_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -67,18 +88,51 @@ class _TagOptionResourceAssociationState:
         :param pulumi.Input[str] resource_name: Description of the resource.
         :param pulumi.Input[str] tag_option_id: Tag Option identifier.
         """
+        _TagOptionResourceAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_arn=resource_arn,
+            resource_created_time=resource_created_time,
+            resource_description=resource_description,
+            resource_id=resource_id,
+            resource_name=resource_name,
+            tag_option_id=tag_option_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             resource_created_time: Optional[pulumi.Input[str]] = None,
+             resource_description: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             tag_option_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_created_time is None and 'resourceCreatedTime' in kwargs:
+            resource_created_time = kwargs['resourceCreatedTime']
+        if resource_description is None and 'resourceDescription' in kwargs:
+            resource_description = kwargs['resourceDescription']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if tag_option_id is None and 'tagOptionId' in kwargs:
+            tag_option_id = kwargs['tagOptionId']
+
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if resource_created_time is not None:
-            pulumi.set(__self__, "resource_created_time", resource_created_time)
+            _setter("resource_created_time", resource_created_time)
         if resource_description is not None:
-            pulumi.set(__self__, "resource_description", resource_description)
+            _setter("resource_description", resource_description)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if tag_option_id is not None:
-            pulumi.set(__self__, "tag_option_id", tag_option_id)
+            _setter("tag_option_id", tag_option_id)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -232,6 +286,10 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagOptionResourceAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

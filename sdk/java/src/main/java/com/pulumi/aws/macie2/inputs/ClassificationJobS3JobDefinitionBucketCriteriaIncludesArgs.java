@@ -17,14 +17,14 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs ex
     public static final ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs Empty = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs();
 
     /**
-     * An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+     * An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
      * 
      */
     @Import(name="ands")
     private @Nullable Output<List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs>> ands;
 
     /**
-     * @return An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+     * @return An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
      * 
      */
     public Optional<Output<List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs>>> ands() {
@@ -56,7 +56,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs ex
         }
 
         /**
-         * @param ands An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+         * @param ands An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs ex
         }
 
         /**
-         * @param ands An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+         * @param ands An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs ex
         }
 
         /**
-         * @param ands An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+         * @param ands An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
          * 
          * @return builder
          * 

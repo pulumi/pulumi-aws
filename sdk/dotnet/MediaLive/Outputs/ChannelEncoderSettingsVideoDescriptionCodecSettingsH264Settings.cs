@@ -39,7 +39,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? EntropyEncoding;
         /// <summary>
-        /// Filters to apply to an encode. See H264 Filter Settings for more details.
+        /// Filters to apply to an encode. See H265 Filter Settings for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings? FilterSettings;
         /// <summary>
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? GopSizeUnits;
         /// <summary>
-        /// H264 level.
+        /// H265 level.
         /// </summary>
         public readonly string? Level;
         /// <summary>

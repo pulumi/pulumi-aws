@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,18 +35,49 @@ class AssessmentArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "framework_id", framework_id)
-        pulumi.set(__self__, "roles", roles)
+        AssessmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            framework_id=framework_id,
+            roles=roles,
+            assessment_reports_destination=assessment_reports_destination,
+            description=description,
+            name=name,
+            scope=scope,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             framework_id: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]] = None,
+             assessment_reports_destination: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if framework_id is None and 'frameworkId' in kwargs:
+            framework_id = kwargs['frameworkId']
+        if framework_id is None:
+            raise TypeError("Missing 'framework_id' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if assessment_reports_destination is None and 'assessmentReportsDestination' in kwargs:
+            assessment_reports_destination = kwargs['assessmentReportsDestination']
+
+        _setter("framework_id", framework_id)
+        _setter("roles", roles)
         if assessment_reports_destination is not None:
-            pulumi.set(__self__, "assessment_reports_destination", assessment_reports_destination)
+            _setter("assessment_reports_destination", assessment_reports_destination)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="frameworkId")
@@ -164,31 +195,70 @@ class _AssessmentState:
         :param pulumi.Input[str] status: Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        _AssessmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            assessment_reports_destination=assessment_reports_destination,
+            description=description,
+            framework_id=framework_id,
+            name=name,
+            roles=roles,
+            roles_alls=roles_alls,
+            scope=scope,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             assessment_reports_destination: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             framework_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]] = None,
+             roles_alls: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRolesAllArgs']]]] = None,
+             scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assessment_reports_destination is None and 'assessmentReportsDestination' in kwargs:
+            assessment_reports_destination = kwargs['assessmentReportsDestination']
+        if framework_id is None and 'frameworkId' in kwargs:
+            framework_id = kwargs['frameworkId']
+        if roles_alls is None and 'rolesAlls' in kwargs:
+            roles_alls = kwargs['rolesAlls']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if assessment_reports_destination is not None:
-            pulumi.set(__self__, "assessment_reports_destination", assessment_reports_destination)
+            _setter("assessment_reports_destination", assessment_reports_destination)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if framework_id is not None:
-            pulumi.set(__self__, "framework_id", framework_id)
+            _setter("framework_id", framework_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if roles_alls is not None:
-            pulumi.set(__self__, "roles_alls", roles_alls)
+            _setter("roles_alls", roles_alls)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -442,6 +512,10 @@ class Assessment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssessmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -463,6 +537,7 @@ class Assessment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
+            assessment_reports_destination = _utilities.configure(assessment_reports_destination, AssessmentAssessmentReportsDestinationArgs, True)
             __props__.__dict__["assessment_reports_destination"] = assessment_reports_destination
             __props__.__dict__["description"] = description
             if framework_id is None and not opts.urn:
@@ -472,6 +547,7 @@ class Assessment(pulumi.CustomResource):
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
             __props__.__dict__["roles"] = roles
+            scope = _utilities.configure(scope, AssessmentScopeArgs, True)
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

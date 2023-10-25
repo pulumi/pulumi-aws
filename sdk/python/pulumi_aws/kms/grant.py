@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,19 +36,60 @@ class GrantArgs:
                See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         :param pulumi.Input[str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         """
-        pulumi.set(__self__, "grantee_principal", grantee_principal)
-        pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "operations", operations)
+        GrantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grantee_principal=grantee_principal,
+            key_id=key_id,
+            operations=operations,
+            constraints=constraints,
+            grant_creation_tokens=grant_creation_tokens,
+            name=name,
+            retire_on_delete=retire_on_delete,
+            retiring_principal=retiring_principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grantee_principal: Optional[pulumi.Input[str]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             operations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]] = None,
+             grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             retire_on_delete: Optional[pulumi.Input[bool]] = None,
+             retiring_principal: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if grantee_principal is None and 'granteePrincipal' in kwargs:
+            grantee_principal = kwargs['granteePrincipal']
+        if grantee_principal is None:
+            raise TypeError("Missing 'grantee_principal' argument")
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+        if operations is None:
+            raise TypeError("Missing 'operations' argument")
+        if grant_creation_tokens is None and 'grantCreationTokens' in kwargs:
+            grant_creation_tokens = kwargs['grantCreationTokens']
+        if retire_on_delete is None and 'retireOnDelete' in kwargs:
+            retire_on_delete = kwargs['retireOnDelete']
+        if retiring_principal is None and 'retiringPrincipal' in kwargs:
+            retiring_principal = kwargs['retiringPrincipal']
+
+        _setter("grantee_principal", grantee_principal)
+        _setter("key_id", key_id)
+        _setter("operations", operations)
         if constraints is not None:
-            pulumi.set(__self__, "constraints", constraints)
+            _setter("constraints", constraints)
         if grant_creation_tokens is not None:
-            pulumi.set(__self__, "grant_creation_tokens", grant_creation_tokens)
+            _setter("grant_creation_tokens", grant_creation_tokens)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if retire_on_delete is not None:
-            pulumi.set(__self__, "retire_on_delete", retire_on_delete)
+            _setter("retire_on_delete", retire_on_delete)
         if retiring_principal is not None:
-            pulumi.set(__self__, "retiring_principal", retiring_principal)
+            _setter("retiring_principal", retiring_principal)
 
     @property
     @pulumi.getter(name="granteePrincipal")
@@ -175,26 +216,69 @@ class _GrantState:
                See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         :param pulumi.Input[str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         """
+        _GrantState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            constraints=constraints,
+            grant_creation_tokens=grant_creation_tokens,
+            grant_id=grant_id,
+            grant_token=grant_token,
+            grantee_principal=grantee_principal,
+            key_id=key_id,
+            name=name,
+            operations=operations,
+            retire_on_delete=retire_on_delete,
+            retiring_principal=retiring_principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]] = None,
+             grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             grant_id: Optional[pulumi.Input[str]] = None,
+             grant_token: Optional[pulumi.Input[str]] = None,
+             grantee_principal: Optional[pulumi.Input[str]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             operations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             retire_on_delete: Optional[pulumi.Input[bool]] = None,
+             retiring_principal: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if grant_creation_tokens is None and 'grantCreationTokens' in kwargs:
+            grant_creation_tokens = kwargs['grantCreationTokens']
+        if grant_id is None and 'grantId' in kwargs:
+            grant_id = kwargs['grantId']
+        if grant_token is None and 'grantToken' in kwargs:
+            grant_token = kwargs['grantToken']
+        if grantee_principal is None and 'granteePrincipal' in kwargs:
+            grantee_principal = kwargs['granteePrincipal']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if retire_on_delete is None and 'retireOnDelete' in kwargs:
+            retire_on_delete = kwargs['retireOnDelete']
+        if retiring_principal is None and 'retiringPrincipal' in kwargs:
+            retiring_principal = kwargs['retiringPrincipal']
+
         if constraints is not None:
-            pulumi.set(__self__, "constraints", constraints)
+            _setter("constraints", constraints)
         if grant_creation_tokens is not None:
-            pulumi.set(__self__, "grant_creation_tokens", grant_creation_tokens)
+            _setter("grant_creation_tokens", grant_creation_tokens)
         if grant_id is not None:
-            pulumi.set(__self__, "grant_id", grant_id)
+            _setter("grant_id", grant_id)
         if grant_token is not None:
-            pulumi.set(__self__, "grant_token", grant_token)
+            _setter("grant_token", grant_token)
         if grantee_principal is not None:
-            pulumi.set(__self__, "grantee_principal", grantee_principal)
+            _setter("grantee_principal", grantee_principal)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if operations is not None:
-            pulumi.set(__self__, "operations", operations)
+            _setter("operations", operations)
         if retire_on_delete is not None:
-            pulumi.set(__self__, "retire_on_delete", retire_on_delete)
+            _setter("retire_on_delete", retire_on_delete)
         if retiring_principal is not None:
-            pulumi.set(__self__, "retiring_principal", retiring_principal)
+            _setter("retiring_principal", retiring_principal)
 
     @property
     @pulumi.getter
@@ -382,6 +466,10 @@ class Grant(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GrantArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

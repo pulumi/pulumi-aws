@@ -16,14 +16,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelera
     public static final FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs Empty = new FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs();
 
     /**
-     * Maximum. Set to `0` to exclude instance types with accelerators.
+     * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
      * 
      */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
     /**
-     * @return Maximum. Set to `0` to exclude instance types with accelerators.
+     * @return The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
      * 
      */
     public Optional<Output<Integer>> max() {
@@ -31,14 +31,14 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelera
     }
 
     /**
-     * Minimum.
+     * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
      * 
      */
     @Import(name="min")
     private @Nullable Output<Integer> min;
 
     /**
-     * @return Minimum.
+     * @return The minimum number of vCPUs. To specify no minimum limit, specify `0`.
      * 
      */
     public Optional<Output<Integer>> min() {
@@ -71,7 +71,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelera
         }
 
         /**
-         * @param max Maximum. Set to `0` to exclude instance types with accelerators.
+         * @param max The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelera
         }
 
         /**
-         * @param max Maximum. Set to `0` to exclude instance types with accelerators.
+         * @param max The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelera
         }
 
         /**
-         * @param min Minimum.
+         * @param min The minimum number of vCPUs. To specify no minimum limit, specify `0`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelera
         }
 
         /**
-         * @param min Minimum.
+         * @param min The minimum number of vCPUs. To specify no minimum limit, specify `0`.
          * 
          * @return builder
          * 

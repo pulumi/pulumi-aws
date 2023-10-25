@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,16 +34,55 @@ class RoutingProfileArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Routing Profile. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "default_outbound_queue_id", default_outbound_queue_id)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "media_concurrencies", media_concurrencies)
+        RoutingProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_outbound_queue_id=default_outbound_queue_id,
+            description=description,
+            instance_id=instance_id,
+            media_concurrencies=media_concurrencies,
+            name=name,
+            queue_configs=queue_configs,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_outbound_queue_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_outbound_queue_id is None and 'defaultOutboundQueueId' in kwargs:
+            default_outbound_queue_id = kwargs['defaultOutboundQueueId']
+        if default_outbound_queue_id is None:
+            raise TypeError("Missing 'default_outbound_queue_id' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if instance_id is None:
+            raise TypeError("Missing 'instance_id' argument")
+        if media_concurrencies is None and 'mediaConcurrencies' in kwargs:
+            media_concurrencies = kwargs['mediaConcurrencies']
+        if media_concurrencies is None:
+            raise TypeError("Missing 'media_concurrencies' argument")
+        if queue_configs is None and 'queueConfigs' in kwargs:
+            queue_configs = kwargs['queueConfigs']
+
+        _setter("default_outbound_queue_id", default_outbound_queue_id)
+        _setter("description", description)
+        _setter("instance_id", instance_id)
+        _setter("media_concurrencies", media_concurrencies)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if queue_configs is not None:
-            pulumi.set(__self__, "queue_configs", queue_configs)
+            _setter("queue_configs", queue_configs)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="defaultOutboundQueueId")
@@ -158,29 +197,70 @@ class _RoutingProfileState:
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _RoutingProfileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            default_outbound_queue_id=default_outbound_queue_id,
+            description=description,
+            instance_id=instance_id,
+            media_concurrencies=media_concurrencies,
+            name=name,
+            queue_configs=queue_configs,
+            routing_profile_id=routing_profile_id,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             default_outbound_queue_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]] = None,
+             routing_profile_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_outbound_queue_id is None and 'defaultOutboundQueueId' in kwargs:
+            default_outbound_queue_id = kwargs['defaultOutboundQueueId']
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if media_concurrencies is None and 'mediaConcurrencies' in kwargs:
+            media_concurrencies = kwargs['mediaConcurrencies']
+        if queue_configs is None and 'queueConfigs' in kwargs:
+            queue_configs = kwargs['queueConfigs']
+        if routing_profile_id is None and 'routingProfileId' in kwargs:
+            routing_profile_id = kwargs['routingProfileId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if default_outbound_queue_id is not None:
-            pulumi.set(__self__, "default_outbound_queue_id", default_outbound_queue_id)
+            _setter("default_outbound_queue_id", default_outbound_queue_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if media_concurrencies is not None:
-            pulumi.set(__self__, "media_concurrencies", media_concurrencies)
+            _setter("media_concurrencies", media_concurrencies)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if queue_configs is not None:
-            pulumi.set(__self__, "queue_configs", queue_configs)
+            _setter("queue_configs", queue_configs)
         if routing_profile_id is not None:
-            pulumi.set(__self__, "routing_profile_id", routing_profile_id)
+            _setter("routing_profile_id", routing_profile_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -421,6 +501,10 @@ class RoutingProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoutingProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

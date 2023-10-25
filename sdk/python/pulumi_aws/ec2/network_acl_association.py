@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkAclAssociationArgs', 'NetworkAclAssociation']
@@ -21,8 +21,29 @@ class NetworkAclAssociationArgs:
         :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
         :param pulumi.Input[str] subnet_id: The ID of the associated Subnet.
         """
-        pulumi.set(__self__, "network_acl_id", network_acl_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        NetworkAclAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_acl_id=network_acl_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_acl_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_acl_id is None and 'networkAclId' in kwargs:
+            network_acl_id = kwargs['networkAclId']
+        if network_acl_id is None:
+            raise TypeError("Missing 'network_acl_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
+        _setter("network_acl_id", network_acl_id)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="networkAclId")
@@ -59,10 +80,27 @@ class _NetworkAclAssociationState:
         :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
         :param pulumi.Input[str] subnet_id: The ID of the associated Subnet.
         """
+        _NetworkAclAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_acl_id=network_acl_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_acl_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_acl_id is None and 'networkAclId' in kwargs:
+            network_acl_id = kwargs['networkAclId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if network_acl_id is not None:
-            pulumi.set(__self__, "network_acl_id", network_acl_id)
+            _setter("network_acl_id", network_acl_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="networkAclId")
@@ -154,6 +192,10 @@ class NetworkAclAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkAclAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

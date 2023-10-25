@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StudioLifecycleConfigArgs', 'StudioLifecycleConfig']
@@ -25,11 +25,40 @@ class StudioLifecycleConfigArgs:
         :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "studio_lifecycle_config_app_type", studio_lifecycle_config_app_type)
-        pulumi.set(__self__, "studio_lifecycle_config_content", studio_lifecycle_config_content)
-        pulumi.set(__self__, "studio_lifecycle_config_name", studio_lifecycle_config_name)
+        StudioLifecycleConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            studio_lifecycle_config_app_type=studio_lifecycle_config_app_type,
+            studio_lifecycle_config_content=studio_lifecycle_config_content,
+            studio_lifecycle_config_name=studio_lifecycle_config_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             studio_lifecycle_config_app_type: Optional[pulumi.Input[str]] = None,
+             studio_lifecycle_config_content: Optional[pulumi.Input[str]] = None,
+             studio_lifecycle_config_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if studio_lifecycle_config_app_type is None and 'studioLifecycleConfigAppType' in kwargs:
+            studio_lifecycle_config_app_type = kwargs['studioLifecycleConfigAppType']
+        if studio_lifecycle_config_app_type is None:
+            raise TypeError("Missing 'studio_lifecycle_config_app_type' argument")
+        if studio_lifecycle_config_content is None and 'studioLifecycleConfigContent' in kwargs:
+            studio_lifecycle_config_content = kwargs['studioLifecycleConfigContent']
+        if studio_lifecycle_config_content is None:
+            raise TypeError("Missing 'studio_lifecycle_config_content' argument")
+        if studio_lifecycle_config_name is None and 'studioLifecycleConfigName' in kwargs:
+            studio_lifecycle_config_name = kwargs['studioLifecycleConfigName']
+        if studio_lifecycle_config_name is None:
+            raise TypeError("Missing 'studio_lifecycle_config_name' argument")
+
+        _setter("studio_lifecycle_config_app_type", studio_lifecycle_config_app_type)
+        _setter("studio_lifecycle_config_content", studio_lifecycle_config_content)
+        _setter("studio_lifecycle_config_name", studio_lifecycle_config_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="studioLifecycleConfigAppType")
@@ -98,21 +127,50 @@ class _StudioLifecycleConfigState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _StudioLifecycleConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            studio_lifecycle_config_app_type=studio_lifecycle_config_app_type,
+            studio_lifecycle_config_content=studio_lifecycle_config_content,
+            studio_lifecycle_config_name=studio_lifecycle_config_name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             studio_lifecycle_config_app_type: Optional[pulumi.Input[str]] = None,
+             studio_lifecycle_config_content: Optional[pulumi.Input[str]] = None,
+             studio_lifecycle_config_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if studio_lifecycle_config_app_type is None and 'studioLifecycleConfigAppType' in kwargs:
+            studio_lifecycle_config_app_type = kwargs['studioLifecycleConfigAppType']
+        if studio_lifecycle_config_content is None and 'studioLifecycleConfigContent' in kwargs:
+            studio_lifecycle_config_content = kwargs['studioLifecycleConfigContent']
+        if studio_lifecycle_config_name is None and 'studioLifecycleConfigName' in kwargs:
+            studio_lifecycle_config_name = kwargs['studioLifecycleConfigName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if studio_lifecycle_config_app_type is not None:
-            pulumi.set(__self__, "studio_lifecycle_config_app_type", studio_lifecycle_config_app_type)
+            _setter("studio_lifecycle_config_app_type", studio_lifecycle_config_app_type)
         if studio_lifecycle_config_content is not None:
-            pulumi.set(__self__, "studio_lifecycle_config_content", studio_lifecycle_config_content)
+            _setter("studio_lifecycle_config_content", studio_lifecycle_config_content)
         if studio_lifecycle_config_name is not None:
-            pulumi.set(__self__, "studio_lifecycle_config_name", studio_lifecycle_config_name)
+            _setter("studio_lifecycle_config_name", studio_lifecycle_config_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -249,6 +307,10 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StudioLifecycleConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

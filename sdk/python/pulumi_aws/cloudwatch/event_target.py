@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -58,40 +58,119 @@ class EventTargetArgs:
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "rule", rule)
+        EventTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            rule=rule,
+            batch_target=batch_target,
+            dead_letter_config=dead_letter_config,
+            ecs_target=ecs_target,
+            event_bus_name=event_bus_name,
+            http_target=http_target,
+            input=input,
+            input_path=input_path,
+            input_transformer=input_transformer,
+            kinesis_target=kinesis_target,
+            redshift_target=redshift_target,
+            retry_policy=retry_policy,
+            role_arn=role_arn,
+            run_command_targets=run_command_targets,
+            sagemaker_pipeline_target=sagemaker_pipeline_target,
+            sqs_target=sqs_target,
+            target_id=target_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             rule: Optional[pulumi.Input[str]] = None,
+             batch_target: Optional[pulumi.Input['EventTargetBatchTargetArgs']] = None,
+             dead_letter_config: Optional[pulumi.Input['EventTargetDeadLetterConfigArgs']] = None,
+             ecs_target: Optional[pulumi.Input['EventTargetEcsTargetArgs']] = None,
+             event_bus_name: Optional[pulumi.Input[str]] = None,
+             http_target: Optional[pulumi.Input['EventTargetHttpTargetArgs']] = None,
+             input: Optional[pulumi.Input[str]] = None,
+             input_path: Optional[pulumi.Input[str]] = None,
+             input_transformer: Optional[pulumi.Input['EventTargetInputTransformerArgs']] = None,
+             kinesis_target: Optional[pulumi.Input['EventTargetKinesisTargetArgs']] = None,
+             redshift_target: Optional[pulumi.Input['EventTargetRedshiftTargetArgs']] = None,
+             retry_policy: Optional[pulumi.Input['EventTargetRetryPolicyArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             run_command_targets: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]]] = None,
+             sagemaker_pipeline_target: Optional[pulumi.Input['EventTargetSagemakerPipelineTargetArgs']] = None,
+             sqs_target: Optional[pulumi.Input['EventTargetSqsTargetArgs']] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if rule is None:
+            raise TypeError("Missing 'rule' argument")
+        if batch_target is None and 'batchTarget' in kwargs:
+            batch_target = kwargs['batchTarget']
+        if dead_letter_config is None and 'deadLetterConfig' in kwargs:
+            dead_letter_config = kwargs['deadLetterConfig']
+        if ecs_target is None and 'ecsTarget' in kwargs:
+            ecs_target = kwargs['ecsTarget']
+        if event_bus_name is None and 'eventBusName' in kwargs:
+            event_bus_name = kwargs['eventBusName']
+        if http_target is None and 'httpTarget' in kwargs:
+            http_target = kwargs['httpTarget']
+        if input_path is None and 'inputPath' in kwargs:
+            input_path = kwargs['inputPath']
+        if input_transformer is None and 'inputTransformer' in kwargs:
+            input_transformer = kwargs['inputTransformer']
+        if kinesis_target is None and 'kinesisTarget' in kwargs:
+            kinesis_target = kwargs['kinesisTarget']
+        if redshift_target is None and 'redshiftTarget' in kwargs:
+            redshift_target = kwargs['redshiftTarget']
+        if retry_policy is None and 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if run_command_targets is None and 'runCommandTargets' in kwargs:
+            run_command_targets = kwargs['runCommandTargets']
+        if sagemaker_pipeline_target is None and 'sagemakerPipelineTarget' in kwargs:
+            sagemaker_pipeline_target = kwargs['sagemakerPipelineTarget']
+        if sqs_target is None and 'sqsTarget' in kwargs:
+            sqs_target = kwargs['sqsTarget']
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+
+        _setter("arn", arn)
+        _setter("rule", rule)
         if batch_target is not None:
-            pulumi.set(__self__, "batch_target", batch_target)
+            _setter("batch_target", batch_target)
         if dead_letter_config is not None:
-            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
+            _setter("dead_letter_config", dead_letter_config)
         if ecs_target is not None:
-            pulumi.set(__self__, "ecs_target", ecs_target)
+            _setter("ecs_target", ecs_target)
         if event_bus_name is not None:
-            pulumi.set(__self__, "event_bus_name", event_bus_name)
+            _setter("event_bus_name", event_bus_name)
         if http_target is not None:
-            pulumi.set(__self__, "http_target", http_target)
+            _setter("http_target", http_target)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if input_path is not None:
-            pulumi.set(__self__, "input_path", input_path)
+            _setter("input_path", input_path)
         if input_transformer is not None:
-            pulumi.set(__self__, "input_transformer", input_transformer)
+            _setter("input_transformer", input_transformer)
         if kinesis_target is not None:
-            pulumi.set(__self__, "kinesis_target", kinesis_target)
+            _setter("kinesis_target", kinesis_target)
         if redshift_target is not None:
-            pulumi.set(__self__, "redshift_target", redshift_target)
+            _setter("redshift_target", redshift_target)
         if retry_policy is not None:
-            pulumi.set(__self__, "retry_policy", retry_policy)
+            _setter("retry_policy", retry_policy)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if run_command_targets is not None:
-            pulumi.set(__self__, "run_command_targets", run_command_targets)
+            _setter("run_command_targets", run_command_targets)
         if sagemaker_pipeline_target is not None:
-            pulumi.set(__self__, "sagemaker_pipeline_target", sagemaker_pipeline_target)
+            _setter("sagemaker_pipeline_target", sagemaker_pipeline_target)
         if sqs_target is not None:
-            pulumi.set(__self__, "sqs_target", sqs_target)
+            _setter("sqs_target", sqs_target)
         if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+            _setter("target_id", target_id)
 
     @property
     @pulumi.getter
@@ -358,42 +437,117 @@ class _EventTargetState:
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
+        _EventTargetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            batch_target=batch_target,
+            dead_letter_config=dead_letter_config,
+            ecs_target=ecs_target,
+            event_bus_name=event_bus_name,
+            http_target=http_target,
+            input=input,
+            input_path=input_path,
+            input_transformer=input_transformer,
+            kinesis_target=kinesis_target,
+            redshift_target=redshift_target,
+            retry_policy=retry_policy,
+            role_arn=role_arn,
+            rule=rule,
+            run_command_targets=run_command_targets,
+            sagemaker_pipeline_target=sagemaker_pipeline_target,
+            sqs_target=sqs_target,
+            target_id=target_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             batch_target: Optional[pulumi.Input['EventTargetBatchTargetArgs']] = None,
+             dead_letter_config: Optional[pulumi.Input['EventTargetDeadLetterConfigArgs']] = None,
+             ecs_target: Optional[pulumi.Input['EventTargetEcsTargetArgs']] = None,
+             event_bus_name: Optional[pulumi.Input[str]] = None,
+             http_target: Optional[pulumi.Input['EventTargetHttpTargetArgs']] = None,
+             input: Optional[pulumi.Input[str]] = None,
+             input_path: Optional[pulumi.Input[str]] = None,
+             input_transformer: Optional[pulumi.Input['EventTargetInputTransformerArgs']] = None,
+             kinesis_target: Optional[pulumi.Input['EventTargetKinesisTargetArgs']] = None,
+             redshift_target: Optional[pulumi.Input['EventTargetRedshiftTargetArgs']] = None,
+             retry_policy: Optional[pulumi.Input['EventTargetRetryPolicyArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             rule: Optional[pulumi.Input[str]] = None,
+             run_command_targets: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]]] = None,
+             sagemaker_pipeline_target: Optional[pulumi.Input['EventTargetSagemakerPipelineTargetArgs']] = None,
+             sqs_target: Optional[pulumi.Input['EventTargetSqsTargetArgs']] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if batch_target is None and 'batchTarget' in kwargs:
+            batch_target = kwargs['batchTarget']
+        if dead_letter_config is None and 'deadLetterConfig' in kwargs:
+            dead_letter_config = kwargs['deadLetterConfig']
+        if ecs_target is None and 'ecsTarget' in kwargs:
+            ecs_target = kwargs['ecsTarget']
+        if event_bus_name is None and 'eventBusName' in kwargs:
+            event_bus_name = kwargs['eventBusName']
+        if http_target is None and 'httpTarget' in kwargs:
+            http_target = kwargs['httpTarget']
+        if input_path is None and 'inputPath' in kwargs:
+            input_path = kwargs['inputPath']
+        if input_transformer is None and 'inputTransformer' in kwargs:
+            input_transformer = kwargs['inputTransformer']
+        if kinesis_target is None and 'kinesisTarget' in kwargs:
+            kinesis_target = kwargs['kinesisTarget']
+        if redshift_target is None and 'redshiftTarget' in kwargs:
+            redshift_target = kwargs['redshiftTarget']
+        if retry_policy is None and 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if run_command_targets is None and 'runCommandTargets' in kwargs:
+            run_command_targets = kwargs['runCommandTargets']
+        if sagemaker_pipeline_target is None and 'sagemakerPipelineTarget' in kwargs:
+            sagemaker_pipeline_target = kwargs['sagemakerPipelineTarget']
+        if sqs_target is None and 'sqsTarget' in kwargs:
+            sqs_target = kwargs['sqsTarget']
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if batch_target is not None:
-            pulumi.set(__self__, "batch_target", batch_target)
+            _setter("batch_target", batch_target)
         if dead_letter_config is not None:
-            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
+            _setter("dead_letter_config", dead_letter_config)
         if ecs_target is not None:
-            pulumi.set(__self__, "ecs_target", ecs_target)
+            _setter("ecs_target", ecs_target)
         if event_bus_name is not None:
-            pulumi.set(__self__, "event_bus_name", event_bus_name)
+            _setter("event_bus_name", event_bus_name)
         if http_target is not None:
-            pulumi.set(__self__, "http_target", http_target)
+            _setter("http_target", http_target)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if input_path is not None:
-            pulumi.set(__self__, "input_path", input_path)
+            _setter("input_path", input_path)
         if input_transformer is not None:
-            pulumi.set(__self__, "input_transformer", input_transformer)
+            _setter("input_transformer", input_transformer)
         if kinesis_target is not None:
-            pulumi.set(__self__, "kinesis_target", kinesis_target)
+            _setter("kinesis_target", kinesis_target)
         if redshift_target is not None:
-            pulumi.set(__self__, "redshift_target", redshift_target)
+            _setter("redshift_target", redshift_target)
         if retry_policy is not None:
-            pulumi.set(__self__, "retry_policy", retry_policy)
+            _setter("retry_policy", retry_policy)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if rule is not None:
-            pulumi.set(__self__, "rule", rule)
+            _setter("rule", rule)
         if run_command_targets is not None:
-            pulumi.set(__self__, "run_command_targets", run_command_targets)
+            _setter("run_command_targets", run_command_targets)
         if sagemaker_pipeline_target is not None:
-            pulumi.set(__self__, "sagemaker_pipeline_target", sagemaker_pipeline_target)
+            _setter("sagemaker_pipeline_target", sagemaker_pipeline_target)
         if sqs_target is not None:
-            pulumi.set(__self__, "sqs_target", sqs_target)
+            _setter("sqs_target", sqs_target)
         if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+            _setter("target_id", target_id)
 
     @property
     @pulumi.getter
@@ -1247,6 +1401,10 @@ class EventTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1282,23 +1440,33 @@ class EventTarget(pulumi.CustomResource):
             if arn is None and not opts.urn:
                 raise TypeError("Missing required property 'arn'")
             __props__.__dict__["arn"] = arn
+            batch_target = _utilities.configure(batch_target, EventTargetBatchTargetArgs, True)
             __props__.__dict__["batch_target"] = batch_target
+            dead_letter_config = _utilities.configure(dead_letter_config, EventTargetDeadLetterConfigArgs, True)
             __props__.__dict__["dead_letter_config"] = dead_letter_config
+            ecs_target = _utilities.configure(ecs_target, EventTargetEcsTargetArgs, True)
             __props__.__dict__["ecs_target"] = ecs_target
             __props__.__dict__["event_bus_name"] = event_bus_name
+            http_target = _utilities.configure(http_target, EventTargetHttpTargetArgs, True)
             __props__.__dict__["http_target"] = http_target
             __props__.__dict__["input"] = input
             __props__.__dict__["input_path"] = input_path
+            input_transformer = _utilities.configure(input_transformer, EventTargetInputTransformerArgs, True)
             __props__.__dict__["input_transformer"] = input_transformer
+            kinesis_target = _utilities.configure(kinesis_target, EventTargetKinesisTargetArgs, True)
             __props__.__dict__["kinesis_target"] = kinesis_target
+            redshift_target = _utilities.configure(redshift_target, EventTargetRedshiftTargetArgs, True)
             __props__.__dict__["redshift_target"] = redshift_target
+            retry_policy = _utilities.configure(retry_policy, EventTargetRetryPolicyArgs, True)
             __props__.__dict__["retry_policy"] = retry_policy
             __props__.__dict__["role_arn"] = role_arn
             if rule is None and not opts.urn:
                 raise TypeError("Missing required property 'rule'")
             __props__.__dict__["rule"] = rule
             __props__.__dict__["run_command_targets"] = run_command_targets
+            sagemaker_pipeline_target = _utilities.configure(sagemaker_pipeline_target, EventTargetSagemakerPipelineTargetArgs, True)
             __props__.__dict__["sagemaker_pipeline_target"] = sagemaker_pipeline_target
+            sqs_target = _utilities.configure(sqs_target, EventTargetSqsTargetArgs, True)
             __props__.__dict__["sqs_target"] = sqs_target
             __props__.__dict__["target_id"] = target_id
         super(EventTarget, __self__).__init__(

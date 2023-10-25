@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,22 +35,57 @@ class ResponseHeadersPolicyArgs:
         :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs'] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         :param pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs'] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
+        ResponseHeadersPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            cors_config=cors_config,
+            custom_headers_config=custom_headers_config,
+            etag=etag,
+            name=name,
+            remove_headers_config=remove_headers_config,
+            security_headers_config=security_headers_config,
+            server_timing_headers_config=server_timing_headers_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             cors_config: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']] = None,
+             custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remove_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']] = None,
+             security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
+             server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cors_config is None and 'corsConfig' in kwargs:
+            cors_config = kwargs['corsConfig']
+        if custom_headers_config is None and 'customHeadersConfig' in kwargs:
+            custom_headers_config = kwargs['customHeadersConfig']
+        if remove_headers_config is None and 'removeHeadersConfig' in kwargs:
+            remove_headers_config = kwargs['removeHeadersConfig']
+        if security_headers_config is None and 'securityHeadersConfig' in kwargs:
+            security_headers_config = kwargs['securityHeadersConfig']
+        if server_timing_headers_config is None and 'serverTimingHeadersConfig' in kwargs:
+            server_timing_headers_config = kwargs['serverTimingHeadersConfig']
+
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if cors_config is not None:
-            pulumi.set(__self__, "cors_config", cors_config)
+            _setter("cors_config", cors_config)
         if custom_headers_config is not None:
-            pulumi.set(__self__, "custom_headers_config", custom_headers_config)
+            _setter("custom_headers_config", custom_headers_config)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remove_headers_config is not None:
-            pulumi.set(__self__, "remove_headers_config", remove_headers_config)
+            _setter("remove_headers_config", remove_headers_config)
         if security_headers_config is not None:
-            pulumi.set(__self__, "security_headers_config", security_headers_config)
+            _setter("security_headers_config", security_headers_config)
         if server_timing_headers_config is not None:
-            pulumi.set(__self__, "server_timing_headers_config", server_timing_headers_config)
+            _setter("server_timing_headers_config", server_timing_headers_config)
 
     @property
     @pulumi.getter
@@ -171,22 +206,57 @@ class _ResponseHeadersPolicyState:
         :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs'] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         :param pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs'] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
+        _ResponseHeadersPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            cors_config=cors_config,
+            custom_headers_config=custom_headers_config,
+            etag=etag,
+            name=name,
+            remove_headers_config=remove_headers_config,
+            security_headers_config=security_headers_config,
+            server_timing_headers_config=server_timing_headers_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             cors_config: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']] = None,
+             custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remove_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']] = None,
+             security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
+             server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cors_config is None and 'corsConfig' in kwargs:
+            cors_config = kwargs['corsConfig']
+        if custom_headers_config is None and 'customHeadersConfig' in kwargs:
+            custom_headers_config = kwargs['customHeadersConfig']
+        if remove_headers_config is None and 'removeHeadersConfig' in kwargs:
+            remove_headers_config = kwargs['removeHeadersConfig']
+        if security_headers_config is None and 'securityHeadersConfig' in kwargs:
+            security_headers_config = kwargs['securityHeadersConfig']
+        if server_timing_headers_config is None and 'serverTimingHeadersConfig' in kwargs:
+            server_timing_headers_config = kwargs['serverTimingHeadersConfig']
+
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if cors_config is not None:
-            pulumi.set(__self__, "cors_config", cors_config)
+            _setter("cors_config", cors_config)
         if custom_headers_config is not None:
-            pulumi.set(__self__, "custom_headers_config", custom_headers_config)
+            _setter("custom_headers_config", custom_headers_config)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remove_headers_config is not None:
-            pulumi.set(__self__, "remove_headers_config", remove_headers_config)
+            _setter("remove_headers_config", remove_headers_config)
         if security_headers_config is not None:
-            pulumi.set(__self__, "security_headers_config", security_headers_config)
+            _setter("security_headers_config", security_headers_config)
         if server_timing_headers_config is not None:
-            pulumi.set(__self__, "server_timing_headers_config", server_timing_headers_config)
+            _setter("server_timing_headers_config", server_timing_headers_config)
 
     @property
     @pulumi.getter
@@ -488,6 +558,10 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResponseHeadersPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -511,12 +585,17 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             __props__ = ResponseHeadersPolicyArgs.__new__(ResponseHeadersPolicyArgs)
 
             __props__.__dict__["comment"] = comment
+            cors_config = _utilities.configure(cors_config, ResponseHeadersPolicyCorsConfigArgs, True)
             __props__.__dict__["cors_config"] = cors_config
+            custom_headers_config = _utilities.configure(custom_headers_config, ResponseHeadersPolicyCustomHeadersConfigArgs, True)
             __props__.__dict__["custom_headers_config"] = custom_headers_config
             __props__.__dict__["etag"] = etag
             __props__.__dict__["name"] = name
+            remove_headers_config = _utilities.configure(remove_headers_config, ResponseHeadersPolicyRemoveHeadersConfigArgs, True)
             __props__.__dict__["remove_headers_config"] = remove_headers_config
+            security_headers_config = _utilities.configure(security_headers_config, ResponseHeadersPolicySecurityHeadersConfigArgs, True)
             __props__.__dict__["security_headers_config"] = security_headers_config
+            server_timing_headers_config = _utilities.configure(server_timing_headers_config, ResponseHeadersPolicyServerTimingHeadersConfigArgs, True)
             __props__.__dict__["server_timing_headers_config"] = server_timing_headers_config
         super(ResponseHeadersPolicy, __self__).__init__(
             'aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy',

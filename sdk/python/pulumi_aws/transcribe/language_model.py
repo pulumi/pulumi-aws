@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,47 @@ class LanguageModelArgs:
         :param pulumi.Input[str] model_name: The model name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "base_model_name", base_model_name)
-        pulumi.set(__self__, "input_data_config", input_data_config)
-        pulumi.set(__self__, "language_code", language_code)
-        pulumi.set(__self__, "model_name", model_name)
+        LanguageModelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_model_name=base_model_name,
+            input_data_config=input_data_config,
+            language_code=language_code,
+            model_name=model_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_model_name: Optional[pulumi.Input[str]] = None,
+             input_data_config: Optional[pulumi.Input['LanguageModelInputDataConfigArgs']] = None,
+             language_code: Optional[pulumi.Input[str]] = None,
+             model_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_model_name is None and 'baseModelName' in kwargs:
+            base_model_name = kwargs['baseModelName']
+        if base_model_name is None:
+            raise TypeError("Missing 'base_model_name' argument")
+        if input_data_config is None and 'inputDataConfig' in kwargs:
+            input_data_config = kwargs['inputDataConfig']
+        if input_data_config is None:
+            raise TypeError("Missing 'input_data_config' argument")
+        if language_code is None and 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if language_code is None:
+            raise TypeError("Missing 'language_code' argument")
+        if model_name is None and 'modelName' in kwargs:
+            model_name = kwargs['modelName']
+        if model_name is None:
+            raise TypeError("Missing 'model_name' argument")
+
+        _setter("base_model_name", base_model_name)
+        _setter("input_data_config", input_data_config)
+        _setter("language_code", language_code)
+        _setter("model_name", model_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="baseModelName")
@@ -116,23 +151,56 @@ class _LanguageModelState:
         :param pulumi.Input[str] model_name: The model name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        _LanguageModelState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            base_model_name=base_model_name,
+            input_data_config=input_data_config,
+            language_code=language_code,
+            model_name=model_name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             base_model_name: Optional[pulumi.Input[str]] = None,
+             input_data_config: Optional[pulumi.Input['LanguageModelInputDataConfigArgs']] = None,
+             language_code: Optional[pulumi.Input[str]] = None,
+             model_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_model_name is None and 'baseModelName' in kwargs:
+            base_model_name = kwargs['baseModelName']
+        if input_data_config is None and 'inputDataConfig' in kwargs:
+            input_data_config = kwargs['inputDataConfig']
+        if language_code is None and 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if model_name is None and 'modelName' in kwargs:
+            model_name = kwargs['modelName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if base_model_name is not None:
-            pulumi.set(__self__, "base_model_name", base_model_name)
+            _setter("base_model_name", base_model_name)
         if input_data_config is not None:
-            pulumi.set(__self__, "input_data_config", input_data_config)
+            _setter("input_data_config", input_data_config)
         if language_code is not None:
-            pulumi.set(__self__, "language_code", language_code)
+            _setter("language_code", language_code)
         if model_name is not None:
-            pulumi.set(__self__, "model_name", model_name)
+            _setter("model_name", model_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -374,6 +442,10 @@ class LanguageModel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LanguageModelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -396,6 +468,7 @@ class LanguageModel(pulumi.CustomResource):
             if base_model_name is None and not opts.urn:
                 raise TypeError("Missing required property 'base_model_name'")
             __props__.__dict__["base_model_name"] = base_model_name
+            input_data_config = _utilities.configure(input_data_config, LanguageModelInputDataConfigArgs, True)
             if input_data_config is None and not opts.urn:
                 raise TypeError("Missing required property 'input_data_config'")
             __props__.__dict__["input_data_config"] = input_data_config

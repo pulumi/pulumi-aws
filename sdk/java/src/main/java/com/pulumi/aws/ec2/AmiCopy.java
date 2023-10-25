@@ -185,14 +185,14 @@ public class AmiCopy extends com.pulumi.resources.CustomResource {
         return this.enaSupport;
     }
     /**
-     * Boolean controlling whether the created EBS volumes will be encrypted. Can&#39;t be used with `snapshot_id`.
+     * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      * 
      */
     @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> encrypted;
 
     /**
-     * @return Boolean controlling whether the created EBS volumes will be encrypted. Can&#39;t be used with `snapshot_id`.
+     * @return Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      * 
      */
     public Output<Optional<Boolean>> encrypted() {

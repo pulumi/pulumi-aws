@@ -410,14 +410,14 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.instanceInitiatedShutdownBehavior;
     }
     /**
-     * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      * 
      */
     @Export(name="instanceInterruptionBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceInterruptionBehavior;
 
     /**
-     * @return The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+     * @return Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      * 
      */
     public Output<Optional<String>> instanceInterruptionBehavior() {
@@ -952,14 +952,14 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.validFrom;
     }
     /**
-     * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+     * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      * 
      */
     @Export(name="validUntil", refs={String.class}, tree="[0]")
     private Output<String> validUntil;
 
     /**
-     * @return The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+     * @return The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      * 
      */
     public Output<String> validUntil() {

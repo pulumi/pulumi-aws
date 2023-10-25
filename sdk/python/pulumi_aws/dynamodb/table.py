@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -67,50 +67,137 @@ class TableArgs:
         :param pulumi.Input['TableTtlArgs'] ttl: Configuration block for TTL. See below.
         :param pulumi.Input[int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
+        TableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            billing_mode=billing_mode,
+            deletion_protection_enabled=deletion_protection_enabled,
+            global_secondary_indexes=global_secondary_indexes,
+            hash_key=hash_key,
+            import_table=import_table,
+            local_secondary_indexes=local_secondary_indexes,
+            name=name,
+            point_in_time_recovery=point_in_time_recovery,
+            range_key=range_key,
+            read_capacity=read_capacity,
+            replicas=replicas,
+            restore_date_time=restore_date_time,
+            restore_source_name=restore_source_name,
+            restore_to_latest_time=restore_to_latest_time,
+            server_side_encryption=server_side_encryption,
+            stream_enabled=stream_enabled,
+            stream_view_type=stream_view_type,
+            table_class=table_class,
+            tags=tags,
+            ttl=ttl,
+            write_capacity=write_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]]] = None,
+             billing_mode: Optional[pulumi.Input[str]] = None,
+             deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
+             global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
+             hash_key: Optional[pulumi.Input[str]] = None,
+             import_table: Optional[pulumi.Input['TableImportTableArgs']] = None,
+             local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
+             range_key: Optional[pulumi.Input[str]] = None,
+             read_capacity: Optional[pulumi.Input[int]] = None,
+             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]] = None,
+             restore_date_time: Optional[pulumi.Input[str]] = None,
+             restore_source_name: Optional[pulumi.Input[str]] = None,
+             restore_to_latest_time: Optional[pulumi.Input[bool]] = None,
+             server_side_encryption: Optional[pulumi.Input['TableServerSideEncryptionArgs']] = None,
+             stream_enabled: Optional[pulumi.Input[bool]] = None,
+             stream_view_type: Optional[pulumi.Input[str]] = None,
+             table_class: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ttl: Optional[pulumi.Input['TableTtlArgs']] = None,
+             write_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_mode is None and 'billingMode' in kwargs:
+            billing_mode = kwargs['billingMode']
+        if deletion_protection_enabled is None and 'deletionProtectionEnabled' in kwargs:
+            deletion_protection_enabled = kwargs['deletionProtectionEnabled']
+        if global_secondary_indexes is None and 'globalSecondaryIndexes' in kwargs:
+            global_secondary_indexes = kwargs['globalSecondaryIndexes']
+        if hash_key is None and 'hashKey' in kwargs:
+            hash_key = kwargs['hashKey']
+        if import_table is None and 'importTable' in kwargs:
+            import_table = kwargs['importTable']
+        if local_secondary_indexes is None and 'localSecondaryIndexes' in kwargs:
+            local_secondary_indexes = kwargs['localSecondaryIndexes']
+        if point_in_time_recovery is None and 'pointInTimeRecovery' in kwargs:
+            point_in_time_recovery = kwargs['pointInTimeRecovery']
+        if range_key is None and 'rangeKey' in kwargs:
+            range_key = kwargs['rangeKey']
+        if read_capacity is None and 'readCapacity' in kwargs:
+            read_capacity = kwargs['readCapacity']
+        if restore_date_time is None and 'restoreDateTime' in kwargs:
+            restore_date_time = kwargs['restoreDateTime']
+        if restore_source_name is None and 'restoreSourceName' in kwargs:
+            restore_source_name = kwargs['restoreSourceName']
+        if restore_to_latest_time is None and 'restoreToLatestTime' in kwargs:
+            restore_to_latest_time = kwargs['restoreToLatestTime']
+        if server_side_encryption is None and 'serverSideEncryption' in kwargs:
+            server_side_encryption = kwargs['serverSideEncryption']
+        if stream_enabled is None and 'streamEnabled' in kwargs:
+            stream_enabled = kwargs['streamEnabled']
+        if stream_view_type is None and 'streamViewType' in kwargs:
+            stream_view_type = kwargs['streamViewType']
+        if table_class is None and 'tableClass' in kwargs:
+            table_class = kwargs['tableClass']
+        if write_capacity is None and 'writeCapacity' in kwargs:
+            write_capacity = kwargs['writeCapacity']
+
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if billing_mode is not None:
-            pulumi.set(__self__, "billing_mode", billing_mode)
+            _setter("billing_mode", billing_mode)
         if deletion_protection_enabled is not None:
-            pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
+            _setter("deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes is not None:
-            pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+            _setter("global_secondary_indexes", global_secondary_indexes)
         if hash_key is not None:
-            pulumi.set(__self__, "hash_key", hash_key)
+            _setter("hash_key", hash_key)
         if import_table is not None:
-            pulumi.set(__self__, "import_table", import_table)
+            _setter("import_table", import_table)
         if local_secondary_indexes is not None:
-            pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
+            _setter("local_secondary_indexes", local_secondary_indexes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if point_in_time_recovery is not None:
-            pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+            _setter("point_in_time_recovery", point_in_time_recovery)
         if range_key is not None:
-            pulumi.set(__self__, "range_key", range_key)
+            _setter("range_key", range_key)
         if read_capacity is not None:
-            pulumi.set(__self__, "read_capacity", read_capacity)
+            _setter("read_capacity", read_capacity)
         if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
+            _setter("replicas", replicas)
         if restore_date_time is not None:
-            pulumi.set(__self__, "restore_date_time", restore_date_time)
+            _setter("restore_date_time", restore_date_time)
         if restore_source_name is not None:
-            pulumi.set(__self__, "restore_source_name", restore_source_name)
+            _setter("restore_source_name", restore_source_name)
         if restore_to_latest_time is not None:
-            pulumi.set(__self__, "restore_to_latest_time", restore_to_latest_time)
+            _setter("restore_to_latest_time", restore_to_latest_time)
         if server_side_encryption is not None:
-            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
+            _setter("server_side_encryption", server_side_encryption)
         if stream_enabled is not None:
-            pulumi.set(__self__, "stream_enabled", stream_enabled)
+            _setter("stream_enabled", stream_enabled)
         if stream_view_type is not None:
-            pulumi.set(__self__, "stream_view_type", stream_view_type)
+            _setter("stream_view_type", stream_view_type)
         if table_class is not None:
-            pulumi.set(__self__, "table_class", table_class)
+            _setter("table_class", table_class)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if write_capacity is not None:
-            pulumi.set(__self__, "write_capacity", write_capacity)
+            _setter("write_capacity", write_capacity)
 
     @property
     @pulumi.getter
@@ -443,61 +530,162 @@ class _TableState:
         :param pulumi.Input['TableTtlArgs'] ttl: Configuration block for TTL. See below.
         :param pulumi.Input[int] write_capacity: Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         """
+        _TableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            attributes=attributes,
+            billing_mode=billing_mode,
+            deletion_protection_enabled=deletion_protection_enabled,
+            global_secondary_indexes=global_secondary_indexes,
+            hash_key=hash_key,
+            import_table=import_table,
+            local_secondary_indexes=local_secondary_indexes,
+            name=name,
+            point_in_time_recovery=point_in_time_recovery,
+            range_key=range_key,
+            read_capacity=read_capacity,
+            replicas=replicas,
+            restore_date_time=restore_date_time,
+            restore_source_name=restore_source_name,
+            restore_to_latest_time=restore_to_latest_time,
+            server_side_encryption=server_side_encryption,
+            stream_arn=stream_arn,
+            stream_enabled=stream_enabled,
+            stream_label=stream_label,
+            stream_view_type=stream_view_type,
+            table_class=table_class,
+            tags=tags,
+            tags_all=tags_all,
+            ttl=ttl,
+            write_capacity=write_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             attributes: Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]]] = None,
+             billing_mode: Optional[pulumi.Input[str]] = None,
+             deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
+             global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
+             hash_key: Optional[pulumi.Input[str]] = None,
+             import_table: Optional[pulumi.Input['TableImportTableArgs']] = None,
+             local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
+             range_key: Optional[pulumi.Input[str]] = None,
+             read_capacity: Optional[pulumi.Input[int]] = None,
+             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]] = None,
+             restore_date_time: Optional[pulumi.Input[str]] = None,
+             restore_source_name: Optional[pulumi.Input[str]] = None,
+             restore_to_latest_time: Optional[pulumi.Input[bool]] = None,
+             server_side_encryption: Optional[pulumi.Input['TableServerSideEncryptionArgs']] = None,
+             stream_arn: Optional[pulumi.Input[str]] = None,
+             stream_enabled: Optional[pulumi.Input[bool]] = None,
+             stream_label: Optional[pulumi.Input[str]] = None,
+             stream_view_type: Optional[pulumi.Input[str]] = None,
+             table_class: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ttl: Optional[pulumi.Input['TableTtlArgs']] = None,
+             write_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_mode is None and 'billingMode' in kwargs:
+            billing_mode = kwargs['billingMode']
+        if deletion_protection_enabled is None and 'deletionProtectionEnabled' in kwargs:
+            deletion_protection_enabled = kwargs['deletionProtectionEnabled']
+        if global_secondary_indexes is None and 'globalSecondaryIndexes' in kwargs:
+            global_secondary_indexes = kwargs['globalSecondaryIndexes']
+        if hash_key is None and 'hashKey' in kwargs:
+            hash_key = kwargs['hashKey']
+        if import_table is None and 'importTable' in kwargs:
+            import_table = kwargs['importTable']
+        if local_secondary_indexes is None and 'localSecondaryIndexes' in kwargs:
+            local_secondary_indexes = kwargs['localSecondaryIndexes']
+        if point_in_time_recovery is None and 'pointInTimeRecovery' in kwargs:
+            point_in_time_recovery = kwargs['pointInTimeRecovery']
+        if range_key is None and 'rangeKey' in kwargs:
+            range_key = kwargs['rangeKey']
+        if read_capacity is None and 'readCapacity' in kwargs:
+            read_capacity = kwargs['readCapacity']
+        if restore_date_time is None and 'restoreDateTime' in kwargs:
+            restore_date_time = kwargs['restoreDateTime']
+        if restore_source_name is None and 'restoreSourceName' in kwargs:
+            restore_source_name = kwargs['restoreSourceName']
+        if restore_to_latest_time is None and 'restoreToLatestTime' in kwargs:
+            restore_to_latest_time = kwargs['restoreToLatestTime']
+        if server_side_encryption is None and 'serverSideEncryption' in kwargs:
+            server_side_encryption = kwargs['serverSideEncryption']
+        if stream_arn is None and 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+        if stream_enabled is None and 'streamEnabled' in kwargs:
+            stream_enabled = kwargs['streamEnabled']
+        if stream_label is None and 'streamLabel' in kwargs:
+            stream_label = kwargs['streamLabel']
+        if stream_view_type is None and 'streamViewType' in kwargs:
+            stream_view_type = kwargs['streamViewType']
+        if table_class is None and 'tableClass' in kwargs:
+            table_class = kwargs['tableClass']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if write_capacity is None and 'writeCapacity' in kwargs:
+            write_capacity = kwargs['writeCapacity']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if billing_mode is not None:
-            pulumi.set(__self__, "billing_mode", billing_mode)
+            _setter("billing_mode", billing_mode)
         if deletion_protection_enabled is not None:
-            pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
+            _setter("deletion_protection_enabled", deletion_protection_enabled)
         if global_secondary_indexes is not None:
-            pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+            _setter("global_secondary_indexes", global_secondary_indexes)
         if hash_key is not None:
-            pulumi.set(__self__, "hash_key", hash_key)
+            _setter("hash_key", hash_key)
         if import_table is not None:
-            pulumi.set(__self__, "import_table", import_table)
+            _setter("import_table", import_table)
         if local_secondary_indexes is not None:
-            pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
+            _setter("local_secondary_indexes", local_secondary_indexes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if point_in_time_recovery is not None:
-            pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+            _setter("point_in_time_recovery", point_in_time_recovery)
         if range_key is not None:
-            pulumi.set(__self__, "range_key", range_key)
+            _setter("range_key", range_key)
         if read_capacity is not None:
-            pulumi.set(__self__, "read_capacity", read_capacity)
+            _setter("read_capacity", read_capacity)
         if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
+            _setter("replicas", replicas)
         if restore_date_time is not None:
-            pulumi.set(__self__, "restore_date_time", restore_date_time)
+            _setter("restore_date_time", restore_date_time)
         if restore_source_name is not None:
-            pulumi.set(__self__, "restore_source_name", restore_source_name)
+            _setter("restore_source_name", restore_source_name)
         if restore_to_latest_time is not None:
-            pulumi.set(__self__, "restore_to_latest_time", restore_to_latest_time)
+            _setter("restore_to_latest_time", restore_to_latest_time)
         if server_side_encryption is not None:
-            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
+            _setter("server_side_encryption", server_side_encryption)
         if stream_arn is not None:
-            pulumi.set(__self__, "stream_arn", stream_arn)
+            _setter("stream_arn", stream_arn)
         if stream_enabled is not None:
-            pulumi.set(__self__, "stream_enabled", stream_enabled)
+            _setter("stream_enabled", stream_enabled)
         if stream_label is not None:
-            pulumi.set(__self__, "stream_label", stream_label)
+            _setter("stream_label", stream_label)
         if stream_view_type is not None:
-            pulumi.set(__self__, "stream_view_type", stream_view_type)
+            _setter("stream_view_type", stream_view_type)
         if table_class is not None:
-            pulumi.set(__self__, "table_class", table_class)
+            _setter("table_class", table_class)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if write_capacity is not None:
-            pulumi.set(__self__, "write_capacity", write_capacity)
+            _setter("write_capacity", write_capacity)
 
     @property
     @pulumi.getter
@@ -1092,6 +1280,10 @@ class Table(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1133,9 +1325,11 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
             __props__.__dict__["hash_key"] = hash_key
+            import_table = _utilities.configure(import_table, TableImportTableArgs, True)
             __props__.__dict__["import_table"] = import_table
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
             __props__.__dict__["name"] = name
+            point_in_time_recovery = _utilities.configure(point_in_time_recovery, TablePointInTimeRecoveryArgs, True)
             __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
             __props__.__dict__["range_key"] = range_key
             __props__.__dict__["read_capacity"] = read_capacity
@@ -1143,11 +1337,13 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["restore_date_time"] = restore_date_time
             __props__.__dict__["restore_source_name"] = restore_source_name
             __props__.__dict__["restore_to_latest_time"] = restore_to_latest_time
+            server_side_encryption = _utilities.configure(server_side_encryption, TableServerSideEncryptionArgs, True)
             __props__.__dict__["server_side_encryption"] = server_side_encryption
             __props__.__dict__["stream_enabled"] = stream_enabled
             __props__.__dict__["stream_view_type"] = stream_view_type
             __props__.__dict__["table_class"] = table_class
             __props__.__dict__["tags"] = tags
+            ttl = _utilities.configure(ttl, TableTtlArgs, True)
             __props__.__dict__["ttl"] = ttl
             __props__.__dict__["write_capacity"] = write_capacity
             __props__.__dict__["arn"] = None

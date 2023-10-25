@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,30 @@ class VpcIpamResourceDiscoveryArgs:
         :param pulumi.Input[str] description: A description for the IPAM Resource Discovery.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "operating_regions", operating_regions)
+        VpcIpamResourceDiscoveryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operating_regions=operating_regions,
+            description=description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOperatingRegionArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operating_regions is None and 'operatingRegions' in kwargs:
+            operating_regions = kwargs['operatingRegions']
+        if operating_regions is None:
+            raise TypeError("Missing 'operating_regions' argument")
+
+        _setter("operating_regions", operating_regions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="operatingRegions")
@@ -90,25 +109,60 @@ class _VpcIpamResourceDiscoveryState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _VpcIpamResourceDiscoveryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            ipam_resource_discovery_region=ipam_resource_discovery_region,
+            is_default=is_default,
+            operating_regions=operating_regions,
+            owner_id=owner_id,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             ipam_resource_discovery_region: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOperatingRegionArgs']]]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipam_resource_discovery_region is None and 'ipamResourceDiscoveryRegion' in kwargs:
+            ipam_resource_discovery_region = kwargs['ipamResourceDiscoveryRegion']
+        if is_default is None and 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if operating_regions is None and 'operatingRegions' in kwargs:
+            operating_regions = kwargs['operatingRegions']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if ipam_resource_discovery_region is not None:
-            pulumi.set(__self__, "ipam_resource_discovery_region", ipam_resource_discovery_region)
+            _setter("ipam_resource_discovery_region", ipam_resource_discovery_region)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if operating_regions is not None:
-            pulumi.set(__self__, "operating_regions", operating_regions)
+            _setter("operating_regions", operating_regions)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -301,6 +355,10 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcIpamResourceDiscoveryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

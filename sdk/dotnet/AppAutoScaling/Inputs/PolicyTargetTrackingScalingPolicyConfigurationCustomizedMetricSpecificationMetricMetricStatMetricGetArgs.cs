@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         private InputList<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionGetArgs>? _dimensions;
 
         /// <summary>
-        /// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+        /// Dimensions of the metric.
         /// </summary>
         public InputList<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionGetArgs> Dimensions
         {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -42,16 +42,47 @@ class CustomActionTypeConfigurationProperty(dict):
         :param bool queryable: Indicates that the property will be used in conjunction with PollForJobs.
         :param str type: The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "required", required)
-        pulumi.set(__self__, "secret", secret)
+        CustomActionTypeConfigurationProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            name=name,
+            required=required,
+            secret=secret,
+            description=description,
+            queryable=queryable,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[bool] = None,
+             name: Optional[str] = None,
+             required: Optional[bool] = None,
+             secret: Optional[bool] = None,
+             description: Optional[str] = None,
+             queryable: Optional[bool] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if required is None:
+            raise TypeError("Missing 'required' argument")
+        if secret is None:
+            raise TypeError("Missing 'secret' argument")
+
+        _setter("key", key)
+        _setter("name", name)
+        _setter("required", required)
+        _setter("secret", secret)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if queryable is not None:
-            pulumi.set(__self__, "queryable", queryable)
+            _setter("queryable", queryable)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -138,8 +169,29 @@ class CustomActionTypeInputArtifactDetails(dict):
         :param int maximum_count: The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
         :param int minimum_count: The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
         """
-        pulumi.set(__self__, "maximum_count", maximum_count)
-        pulumi.set(__self__, "minimum_count", minimum_count)
+        CustomActionTypeInputArtifactDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_count=maximum_count,
+            minimum_count=minimum_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_count: Optional[int] = None,
+             minimum_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_count is None and 'maximumCount' in kwargs:
+            maximum_count = kwargs['maximumCount']
+        if maximum_count is None:
+            raise TypeError("Missing 'maximum_count' argument")
+        if minimum_count is None and 'minimumCount' in kwargs:
+            minimum_count = kwargs['minimumCount']
+        if minimum_count is None:
+            raise TypeError("Missing 'minimum_count' argument")
+
+        _setter("maximum_count", maximum_count)
+        _setter("minimum_count", minimum_count)
 
     @property
     @pulumi.getter(name="maximumCount")
@@ -186,8 +238,29 @@ class CustomActionTypeOutputArtifactDetails(dict):
         :param int maximum_count: The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
         :param int minimum_count: The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
         """
-        pulumi.set(__self__, "maximum_count", maximum_count)
-        pulumi.set(__self__, "minimum_count", minimum_count)
+        CustomActionTypeOutputArtifactDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_count=maximum_count,
+            minimum_count=minimum_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_count: Optional[int] = None,
+             minimum_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_count is None and 'maximumCount' in kwargs:
+            maximum_count = kwargs['maximumCount']
+        if maximum_count is None:
+            raise TypeError("Missing 'maximum_count' argument")
+        if minimum_count is None and 'minimumCount' in kwargs:
+            minimum_count = kwargs['minimumCount']
+        if minimum_count is None:
+            raise TypeError("Missing 'minimum_count' argument")
+
+        _setter("maximum_count", maximum_count)
+        _setter("minimum_count", minimum_count)
 
     @property
     @pulumi.getter(name="maximumCount")
@@ -242,14 +315,39 @@ class CustomActionTypeSettings(dict):
         :param str revision_url_template: The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
         :param str third_party_configuration_url: The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
         """
+        CustomActionTypeSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entity_url_template=entity_url_template,
+            execution_url_template=execution_url_template,
+            revision_url_template=revision_url_template,
+            third_party_configuration_url=third_party_configuration_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entity_url_template: Optional[str] = None,
+             execution_url_template: Optional[str] = None,
+             revision_url_template: Optional[str] = None,
+             third_party_configuration_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entity_url_template is None and 'entityUrlTemplate' in kwargs:
+            entity_url_template = kwargs['entityUrlTemplate']
+        if execution_url_template is None and 'executionUrlTemplate' in kwargs:
+            execution_url_template = kwargs['executionUrlTemplate']
+        if revision_url_template is None and 'revisionUrlTemplate' in kwargs:
+            revision_url_template = kwargs['revisionUrlTemplate']
+        if third_party_configuration_url is None and 'thirdPartyConfigurationUrl' in kwargs:
+            third_party_configuration_url = kwargs['thirdPartyConfigurationUrl']
+
         if entity_url_template is not None:
-            pulumi.set(__self__, "entity_url_template", entity_url_template)
+            _setter("entity_url_template", entity_url_template)
         if execution_url_template is not None:
-            pulumi.set(__self__, "execution_url_template", execution_url_template)
+            _setter("execution_url_template", execution_url_template)
         if revision_url_template is not None:
-            pulumi.set(__self__, "revision_url_template", revision_url_template)
+            _setter("revision_url_template", revision_url_template)
         if third_party_configuration_url is not None:
-            pulumi.set(__self__, "third_party_configuration_url", third_party_configuration_url)
+            _setter("third_party_configuration_url", third_party_configuration_url)
 
     @property
     @pulumi.getter(name="entityUrlTemplate")
@@ -314,12 +412,35 @@ class PipelineArtifactStore(dict):
         :param 'PipelineArtifactStoreEncryptionKeyArgs' encryption_key: The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
         :param str region: The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "type", type)
+        PipelineArtifactStore._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            type=type,
+            encryption_key=encryption_key,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[str] = None,
+             type: Optional[str] = None,
+             encryption_key: Optional['outputs.PipelineArtifactStoreEncryptionKey'] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if encryption_key is None and 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+
+        _setter("location", location)
+        _setter("type", type)
         if encryption_key is not None:
-            pulumi.set(__self__, "encryption_key", encryption_key)
+            _setter("encryption_key", encryption_key)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter
@@ -363,8 +484,25 @@ class PipelineArtifactStoreEncryptionKey(dict):
         :param str id: The KMS key ARN or ID
         :param str type: The type of key; currently only `KMS` is supported
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "type", type)
+        PipelineArtifactStoreEncryptionKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -392,8 +530,25 @@ class PipelineStage(dict):
         :param Sequence['PipelineStageActionArgs'] actions: The action(s) to include in the stage. Defined as an `action` block below
         :param str name: The name of the stage.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "name", name)
+        PipelineStage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[Sequence['outputs.PipelineStageAction']] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("actions", actions)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -466,25 +621,76 @@ class PipelineStageAction(dict):
         :param str role_arn: The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
         :param int run_order: The order in which actions are run.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "owner", owner)
-        pulumi.set(__self__, "provider", provider)
-        pulumi.set(__self__, "version", version)
+        PipelineStageAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            name=name,
+            owner=owner,
+            provider=provider,
+            version=version,
+            configuration=configuration,
+            input_artifacts=input_artifacts,
+            namespace=namespace,
+            output_artifacts=output_artifacts,
+            region=region,
+            role_arn=role_arn,
+            run_order=run_order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[str] = None,
+             name: Optional[str] = None,
+             owner: Optional[str] = None,
+             provider: Optional[str] = None,
+             version: Optional[str] = None,
+             configuration: Optional[Mapping[str, str]] = None,
+             input_artifacts: Optional[Sequence[str]] = None,
+             namespace: Optional[str] = None,
+             output_artifacts: Optional[Sequence[str]] = None,
+             region: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             run_order: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if owner is None:
+            raise TypeError("Missing 'owner' argument")
+        if provider is None:
+            raise TypeError("Missing 'provider' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if input_artifacts is None and 'inputArtifacts' in kwargs:
+            input_artifacts = kwargs['inputArtifacts']
+        if output_artifacts is None and 'outputArtifacts' in kwargs:
+            output_artifacts = kwargs['outputArtifacts']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if run_order is None and 'runOrder' in kwargs:
+            run_order = kwargs['runOrder']
+
+        _setter("category", category)
+        _setter("name", name)
+        _setter("owner", owner)
+        _setter("provider", provider)
+        _setter("version", version)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if input_artifacts is not None:
-            pulumi.set(__self__, "input_artifacts", input_artifacts)
+            _setter("input_artifacts", input_artifacts)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if output_artifacts is not None:
-            pulumi.set(__self__, "output_artifacts", output_artifacts)
+            _setter("output_artifacts", output_artifacts)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if run_order is not None:
-            pulumi.set(__self__, "run_order", run_order)
+            _setter("run_order", run_order)
 
     @property
     @pulumi.getter
@@ -613,10 +819,27 @@ class WebhookAuthenticationConfiguration(dict):
         :param str allowed_ip_range: A valid CIDR block for `IP` filtering. Required for `IP`.
         :param str secret_token: The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
         """
+        WebhookAuthenticationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_ip_range=allowed_ip_range,
+            secret_token=secret_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_ip_range: Optional[str] = None,
+             secret_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_ip_range is None and 'allowedIpRange' in kwargs:
+            allowed_ip_range = kwargs['allowedIpRange']
+        if secret_token is None and 'secretToken' in kwargs:
+            secret_token = kwargs['secretToken']
+
         if allowed_ip_range is not None:
-            pulumi.set(__self__, "allowed_ip_range", allowed_ip_range)
+            _setter("allowed_ip_range", allowed_ip_range)
         if secret_token is not None:
-            pulumi.set(__self__, "secret_token", secret_token)
+            _setter("secret_token", secret_token)
 
     @property
     @pulumi.getter(name="allowedIpRange")
@@ -663,8 +886,29 @@ class WebhookFilter(dict):
         :param str json_path: The [JSON path](https://github.com/json-path/JsonPath) to filter on.
         :param str match_equals: The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
         """
-        pulumi.set(__self__, "json_path", json_path)
-        pulumi.set(__self__, "match_equals", match_equals)
+        WebhookFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            json_path=json_path,
+            match_equals=match_equals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             json_path: Optional[str] = None,
+             match_equals: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if json_path is None and 'jsonPath' in kwargs:
+            json_path = kwargs['jsonPath']
+        if json_path is None:
+            raise TypeError("Missing 'json_path' argument")
+        if match_equals is None and 'matchEquals' in kwargs:
+            match_equals = kwargs['matchEquals']
+        if match_equals is None:
+            raise TypeError("Missing 'match_equals' argument")
+
+        _setter("json_path", json_path)
+        _setter("match_equals", match_equals)
 
     @property
     @pulumi.getter(name="jsonPath")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApplicationSnapshotArgs', 'ApplicationSnapshot']
@@ -21,8 +21,29 @@ class ApplicationSnapshotArgs:
         :param pulumi.Input[str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
         """
-        pulumi.set(__self__, "application_name", application_name)
-        pulumi.set(__self__, "snapshot_name", snapshot_name)
+        ApplicationSnapshotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            snapshot_name=snapshot_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: Optional[pulumi.Input[str]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_name is None:
+            raise TypeError("Missing 'application_name' argument")
+        if snapshot_name is None and 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if snapshot_name is None:
+            raise TypeError("Missing 'snapshot_name' argument")
+
+        _setter("application_name", application_name)
+        _setter("snapshot_name", snapshot_name)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -63,14 +84,39 @@ class _ApplicationSnapshotState:
         :param pulumi.Input[str] snapshot_creation_timestamp: The timestamp of the application snapshot.
         :param pulumi.Input[str] snapshot_name: The name of the application snapshot.
         """
+        _ApplicationSnapshotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            application_version_id=application_version_id,
+            snapshot_creation_timestamp=snapshot_creation_timestamp,
+            snapshot_name=snapshot_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: Optional[pulumi.Input[str]] = None,
+             application_version_id: Optional[pulumi.Input[int]] = None,
+             snapshot_creation_timestamp: Optional[pulumi.Input[str]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_version_id is None and 'applicationVersionId' in kwargs:
+            application_version_id = kwargs['applicationVersionId']
+        if snapshot_creation_timestamp is None and 'snapshotCreationTimestamp' in kwargs:
+            snapshot_creation_timestamp = kwargs['snapshotCreationTimestamp']
+        if snapshot_name is None and 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+
         if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
+            _setter("application_name", application_name)
         if application_version_id is not None:
-            pulumi.set(__self__, "application_version_id", application_version_id)
+            _setter("application_version_id", application_version_id)
         if snapshot_creation_timestamp is not None:
-            pulumi.set(__self__, "snapshot_creation_timestamp", snapshot_creation_timestamp)
+            _setter("snapshot_creation_timestamp", snapshot_creation_timestamp)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -196,6 +242,10 @@ class ApplicationSnapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationSnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

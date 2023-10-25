@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecHttp2RouteMatchPath {
     /**
-     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     private @Nullable String exact;
     /**
-     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must include the specified characters.
      * 
      */
     private @Nullable String regex;
 
     private RouteSpecHttp2RouteMatchPath() {}
     /**
-     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     public Optional<String> exact() {
         return Optional.ofNullable(this.exact);
     }
     /**
-     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must include the specified characters.
      * 
      */
     public Optional<String> regex() {

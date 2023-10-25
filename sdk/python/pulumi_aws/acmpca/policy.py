@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PolicyArgs', 'Policy']
@@ -21,8 +21,27 @@ class PolicyArgs:
         :param pulumi.Input[str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
         :param pulumi.Input[str] resource_arn: ARN of the private CA to associate with the policy.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        PolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+
+        _setter("policy", policy)
+        _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter
@@ -59,10 +78,25 @@ class _PolicyState:
         :param pulumi.Input[str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
         :param pulumi.Input[str] resource_arn: ARN of the private CA to associate with the policy.
         """
+        _PolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter
@@ -230,6 +264,10 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

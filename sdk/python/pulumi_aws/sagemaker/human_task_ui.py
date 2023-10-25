@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,33 @@ class HumanTaskUIArgs:
         :param pulumi.Input['HumanTaskUIUiTemplateArgs'] ui_template: The Liquid template for the worker user interface. See UI Template below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "human_task_ui_name", human_task_ui_name)
-        pulumi.set(__self__, "ui_template", ui_template)
+        HumanTaskUIArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            human_task_ui_name=human_task_ui_name,
+            ui_template=ui_template,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             human_task_ui_name: Optional[pulumi.Input[str]] = None,
+             ui_template: Optional[pulumi.Input['HumanTaskUIUiTemplateArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if human_task_ui_name is None and 'humanTaskUiName' in kwargs:
+            human_task_ui_name = kwargs['humanTaskUiName']
+        if human_task_ui_name is None:
+            raise TypeError("Missing 'human_task_ui_name' argument")
+        if ui_template is None and 'uiTemplate' in kwargs:
+            ui_template = kwargs['uiTemplate']
+        if ui_template is None:
+            raise TypeError("Missing 'ui_template' argument")
+
+        _setter("human_task_ui_name", human_task_ui_name)
+        _setter("ui_template", ui_template)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="humanTaskUiName")
@@ -83,19 +106,44 @@ class _HumanTaskUIState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['HumanTaskUIUiTemplateArgs'] ui_template: The Liquid template for the worker user interface. See UI Template below.
         """
+        _HumanTaskUIState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            human_task_ui_name=human_task_ui_name,
+            tags=tags,
+            tags_all=tags_all,
+            ui_template=ui_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             human_task_ui_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ui_template: Optional[pulumi.Input['HumanTaskUIUiTemplateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if human_task_ui_name is None and 'humanTaskUiName' in kwargs:
+            human_task_ui_name = kwargs['humanTaskUiName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if ui_template is None and 'uiTemplate' in kwargs:
+            ui_template = kwargs['uiTemplate']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if human_task_ui_name is not None:
-            pulumi.set(__self__, "human_task_ui_name", human_task_ui_name)
+            _setter("human_task_ui_name", human_task_ui_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if ui_template is not None:
-            pulumi.set(__self__, "ui_template", ui_template)
+            _setter("ui_template", ui_template)
 
     @property
     @pulumi.getter
@@ -240,6 +288,10 @@ class HumanTaskUI(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HumanTaskUIArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -261,6 +313,7 @@ class HumanTaskUI(pulumi.CustomResource):
                 raise TypeError("Missing required property 'human_task_ui_name'")
             __props__.__dict__["human_task_ui_name"] = human_task_ui_name
             __props__.__dict__["tags"] = tags
+            ui_template = _utilities.configure(ui_template, HumanTaskUIUiTemplateArgs, True)
             if ui_template is None and not opts.urn:
                 raise TypeError("Missing required property 'ui_template'")
             __props__.__dict__["ui_template"] = ui_template

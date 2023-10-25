@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResolverFirewallConfigArgs', 'ResolverFirewallConfig']
@@ -21,9 +21,28 @@ class ResolverFirewallConfigArgs:
         :param pulumi.Input[str] resource_id: The ID of the VPC that the configuration is for.
         :param pulumi.Input[str] firewall_fail_open: Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
+        ResolverFirewallConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            firewall_fail_open=firewall_fail_open,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             firewall_fail_open: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if firewall_fail_open is None and 'firewallFailOpen' in kwargs:
+            firewall_fail_open = kwargs['firewallFailOpen']
+
+        _setter("resource_id", resource_id)
         if firewall_fail_open is not None:
-            pulumi.set(__self__, "firewall_fail_open", firewall_fail_open)
+            _setter("firewall_fail_open", firewall_fail_open)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -62,12 +81,33 @@ class _ResolverFirewallConfigState:
         :param pulumi.Input[str] owner_id: The AWS account ID of the owner of the VPC that this firewall configuration applies to.
         :param pulumi.Input[str] resource_id: The ID of the VPC that the configuration is for.
         """
+        _ResolverFirewallConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firewall_fail_open=firewall_fail_open,
+            owner_id=owner_id,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firewall_fail_open: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_fail_open is None and 'firewallFailOpen' in kwargs:
+            firewall_fail_open = kwargs['firewallFailOpen']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if firewall_fail_open is not None:
-            pulumi.set(__self__, "firewall_fail_open", firewall_fail_open)
+            _setter("firewall_fail_open", firewall_fail_open)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="firewallFailOpen")
@@ -187,6 +227,10 @@ class ResolverFirewallConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResolverFirewallConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CustomerGatewayAssociationArgs', 'CustomerGatewayAssociation']
@@ -25,11 +25,42 @@ class CustomerGatewayAssociationArgs:
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] link_id: The ID of the link.
         """
-        pulumi.set(__self__, "customer_gateway_arn", customer_gateway_arn)
-        pulumi.set(__self__, "device_id", device_id)
-        pulumi.set(__self__, "global_network_id", global_network_id)
+        CustomerGatewayAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_gateway_arn=customer_gateway_arn,
+            device_id=device_id,
+            global_network_id=global_network_id,
+            link_id=link_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_gateway_arn: Optional[pulumi.Input[str]] = None,
+             device_id: Optional[pulumi.Input[str]] = None,
+             global_network_id: Optional[pulumi.Input[str]] = None,
+             link_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_gateway_arn is None and 'customerGatewayArn' in kwargs:
+            customer_gateway_arn = kwargs['customerGatewayArn']
+        if customer_gateway_arn is None:
+            raise TypeError("Missing 'customer_gateway_arn' argument")
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if device_id is None:
+            raise TypeError("Missing 'device_id' argument")
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if global_network_id is None:
+            raise TypeError("Missing 'global_network_id' argument")
+        if link_id is None and 'linkId' in kwargs:
+            link_id = kwargs['linkId']
+
+        _setter("customer_gateway_arn", customer_gateway_arn)
+        _setter("device_id", device_id)
+        _setter("global_network_id", global_network_id)
         if link_id is not None:
-            pulumi.set(__self__, "link_id", link_id)
+            _setter("link_id", link_id)
 
     @property
     @pulumi.getter(name="customerGatewayArn")
@@ -94,14 +125,39 @@ class _CustomerGatewayAssociationState:
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] link_id: The ID of the link.
         """
+        _CustomerGatewayAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_gateway_arn=customer_gateway_arn,
+            device_id=device_id,
+            global_network_id=global_network_id,
+            link_id=link_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_gateway_arn: Optional[pulumi.Input[str]] = None,
+             device_id: Optional[pulumi.Input[str]] = None,
+             global_network_id: Optional[pulumi.Input[str]] = None,
+             link_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_gateway_arn is None and 'customerGatewayArn' in kwargs:
+            customer_gateway_arn = kwargs['customerGatewayArn']
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if link_id is None and 'linkId' in kwargs:
+            link_id = kwargs['linkId']
+
         if customer_gateway_arn is not None:
-            pulumi.set(__self__, "customer_gateway_arn", customer_gateway_arn)
+            _setter("customer_gateway_arn", customer_gateway_arn)
         if device_id is not None:
-            pulumi.set(__self__, "device_id", device_id)
+            _setter("device_id", device_id)
         if global_network_id is not None:
-            pulumi.set(__self__, "global_network_id", global_network_id)
+            _setter("global_network_id", global_network_id)
         if link_id is not None:
-            pulumi.set(__self__, "link_id", link_id)
+            _setter("link_id", link_id)
 
     @property
     @pulumi.getter(name="customerGatewayArn")
@@ -273,6 +329,10 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomerGatewayAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

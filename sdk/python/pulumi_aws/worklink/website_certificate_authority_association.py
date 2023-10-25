@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WebsiteCertificateAuthorityAssociationArgs', 'WebsiteCertificateAuthorityAssociation']
@@ -23,10 +23,33 @@ class WebsiteCertificateAuthorityAssociationArgs:
         :param pulumi.Input[str] fleet_arn: The ARN of the fleet.
         :param pulumi.Input[str] display_name: The certificate name to display.
         """
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "fleet_arn", fleet_arn)
+        WebsiteCertificateAuthorityAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            fleet_arn=fleet_arn,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input[str]] = None,
+             fleet_arn: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate is None:
+            raise TypeError("Missing 'certificate' argument")
+        if fleet_arn is None and 'fleetArn' in kwargs:
+            fleet_arn = kwargs['fleetArn']
+        if fleet_arn is None:
+            raise TypeError("Missing 'fleet_arn' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("certificate", certificate)
+        _setter("fleet_arn", fleet_arn)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -79,14 +102,37 @@ class _WebsiteCertificateAuthorityAssociationState:
         :param pulumi.Input[str] fleet_arn: The ARN of the fleet.
         :param pulumi.Input[str] website_ca_id: A unique identifier for the Certificate Authority.
         """
+        _WebsiteCertificateAuthorityAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            display_name=display_name,
+            fleet_arn=fleet_arn,
+            website_ca_id=website_ca_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             fleet_arn: Optional[pulumi.Input[str]] = None,
+             website_ca_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if fleet_arn is None and 'fleetArn' in kwargs:
+            fleet_arn = kwargs['fleetArn']
+        if website_ca_id is None and 'websiteCaId' in kwargs:
+            website_ca_id = kwargs['websiteCaId']
+
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if fleet_arn is not None:
-            pulumi.set(__self__, "fleet_arn", fleet_arn)
+            _setter("fleet_arn", fleet_arn)
         if website_ca_id is not None:
-            pulumi.set(__self__, "website_ca_id", website_ca_id)
+            _setter("website_ca_id", website_ca_id)
 
     @property
     @pulumi.getter
@@ -210,6 +256,10 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebsiteCertificateAuthorityAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

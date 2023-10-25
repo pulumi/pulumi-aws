@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,38 +53,109 @@ class DomainArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['DomainVpcOptionsArgs'] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         """
+        DomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policies=access_policies,
+            advanced_options=advanced_options,
+            advanced_security_options=advanced_security_options,
+            auto_tune_options=auto_tune_options,
+            cluster_config=cluster_config,
+            cognito_options=cognito_options,
+            domain_endpoint_options=domain_endpoint_options,
+            domain_name=domain_name,
+            ebs_options=ebs_options,
+            elasticsearch_version=elasticsearch_version,
+            encrypt_at_rest=encrypt_at_rest,
+            log_publishing_options=log_publishing_options,
+            node_to_node_encryption=node_to_node_encryption,
+            snapshot_options=snapshot_options,
+            tags=tags,
+            vpc_options=vpc_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policies: Optional[pulumi.Input[str]] = None,
+             advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']] = None,
+             auto_tune_options: Optional[pulumi.Input['DomainAutoTuneOptionsArgs']] = None,
+             cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
+             cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
+             domain_endpoint_options: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             ebs_options: Optional[pulumi.Input['DomainEbsOptionsArgs']] = None,
+             elasticsearch_version: Optional[pulumi.Input[str]] = None,
+             encrypt_at_rest: Optional[pulumi.Input['DomainEncryptAtRestArgs']] = None,
+             log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]] = None,
+             node_to_node_encryption: Optional[pulumi.Input['DomainNodeToNodeEncryptionArgs']] = None,
+             snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_policies is None and 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+        if advanced_options is None and 'advancedOptions' in kwargs:
+            advanced_options = kwargs['advancedOptions']
+        if advanced_security_options is None and 'advancedSecurityOptions' in kwargs:
+            advanced_security_options = kwargs['advancedSecurityOptions']
+        if auto_tune_options is None and 'autoTuneOptions' in kwargs:
+            auto_tune_options = kwargs['autoTuneOptions']
+        if cluster_config is None and 'clusterConfig' in kwargs:
+            cluster_config = kwargs['clusterConfig']
+        if cognito_options is None and 'cognitoOptions' in kwargs:
+            cognito_options = kwargs['cognitoOptions']
+        if domain_endpoint_options is None and 'domainEndpointOptions' in kwargs:
+            domain_endpoint_options = kwargs['domainEndpointOptions']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if ebs_options is None and 'ebsOptions' in kwargs:
+            ebs_options = kwargs['ebsOptions']
+        if elasticsearch_version is None and 'elasticsearchVersion' in kwargs:
+            elasticsearch_version = kwargs['elasticsearchVersion']
+        if encrypt_at_rest is None and 'encryptAtRest' in kwargs:
+            encrypt_at_rest = kwargs['encryptAtRest']
+        if log_publishing_options is None and 'logPublishingOptions' in kwargs:
+            log_publishing_options = kwargs['logPublishingOptions']
+        if node_to_node_encryption is None and 'nodeToNodeEncryption' in kwargs:
+            node_to_node_encryption = kwargs['nodeToNodeEncryption']
+        if snapshot_options is None and 'snapshotOptions' in kwargs:
+            snapshot_options = kwargs['snapshotOptions']
+        if vpc_options is None and 'vpcOptions' in kwargs:
+            vpc_options = kwargs['vpcOptions']
+
         if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
+            _setter("access_policies", access_policies)
         if advanced_options is not None:
-            pulumi.set(__self__, "advanced_options", advanced_options)
+            _setter("advanced_options", advanced_options)
         if advanced_security_options is not None:
-            pulumi.set(__self__, "advanced_security_options", advanced_security_options)
+            _setter("advanced_security_options", advanced_security_options)
         if auto_tune_options is not None:
-            pulumi.set(__self__, "auto_tune_options", auto_tune_options)
+            _setter("auto_tune_options", auto_tune_options)
         if cluster_config is not None:
-            pulumi.set(__self__, "cluster_config", cluster_config)
+            _setter("cluster_config", cluster_config)
         if cognito_options is not None:
-            pulumi.set(__self__, "cognito_options", cognito_options)
+            _setter("cognito_options", cognito_options)
         if domain_endpoint_options is not None:
-            pulumi.set(__self__, "domain_endpoint_options", domain_endpoint_options)
+            _setter("domain_endpoint_options", domain_endpoint_options)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if ebs_options is not None:
-            pulumi.set(__self__, "ebs_options", ebs_options)
+            _setter("ebs_options", ebs_options)
         if elasticsearch_version is not None:
-            pulumi.set(__self__, "elasticsearch_version", elasticsearch_version)
+            _setter("elasticsearch_version", elasticsearch_version)
         if encrypt_at_rest is not None:
-            pulumi.set(__self__, "encrypt_at_rest", encrypt_at_rest)
+            _setter("encrypt_at_rest", encrypt_at_rest)
         if log_publishing_options is not None:
-            pulumi.set(__self__, "log_publishing_options", log_publishing_options)
+            _setter("log_publishing_options", log_publishing_options)
         if node_to_node_encryption is not None:
-            pulumi.set(__self__, "node_to_node_encryption", node_to_node_encryption)
+            _setter("node_to_node_encryption", node_to_node_encryption)
         if snapshot_options is not None:
-            pulumi.set(__self__, "snapshot_options", snapshot_options)
+            _setter("snapshot_options", snapshot_options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_options is not None:
-            pulumi.set(__self__, "vpc_options", vpc_options)
+            _setter("vpc_options", vpc_options)
 
     @property
     @pulumi.getter(name="accessPolicies")
@@ -333,51 +404,138 @@ class _DomainState:
                * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
         :param pulumi.Input['DomainVpcOptionsArgs'] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         """
+        _DomainState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policies=access_policies,
+            advanced_options=advanced_options,
+            advanced_security_options=advanced_security_options,
+            arn=arn,
+            auto_tune_options=auto_tune_options,
+            cluster_config=cluster_config,
+            cognito_options=cognito_options,
+            domain_endpoint_options=domain_endpoint_options,
+            domain_id=domain_id,
+            domain_name=domain_name,
+            ebs_options=ebs_options,
+            elasticsearch_version=elasticsearch_version,
+            encrypt_at_rest=encrypt_at_rest,
+            endpoint=endpoint,
+            kibana_endpoint=kibana_endpoint,
+            log_publishing_options=log_publishing_options,
+            node_to_node_encryption=node_to_node_encryption,
+            snapshot_options=snapshot_options,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_options=vpc_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policies: Optional[pulumi.Input[str]] = None,
+             advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_tune_options: Optional[pulumi.Input['DomainAutoTuneOptionsArgs']] = None,
+             cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
+             cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
+             domain_endpoint_options: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']] = None,
+             domain_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             ebs_options: Optional[pulumi.Input['DomainEbsOptionsArgs']] = None,
+             elasticsearch_version: Optional[pulumi.Input[str]] = None,
+             encrypt_at_rest: Optional[pulumi.Input['DomainEncryptAtRestArgs']] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             kibana_endpoint: Optional[pulumi.Input[str]] = None,
+             log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]] = None,
+             node_to_node_encryption: Optional[pulumi.Input['DomainNodeToNodeEncryptionArgs']] = None,
+             snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_policies is None and 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+        if advanced_options is None and 'advancedOptions' in kwargs:
+            advanced_options = kwargs['advancedOptions']
+        if advanced_security_options is None and 'advancedSecurityOptions' in kwargs:
+            advanced_security_options = kwargs['advancedSecurityOptions']
+        if auto_tune_options is None and 'autoTuneOptions' in kwargs:
+            auto_tune_options = kwargs['autoTuneOptions']
+        if cluster_config is None and 'clusterConfig' in kwargs:
+            cluster_config = kwargs['clusterConfig']
+        if cognito_options is None and 'cognitoOptions' in kwargs:
+            cognito_options = kwargs['cognitoOptions']
+        if domain_endpoint_options is None and 'domainEndpointOptions' in kwargs:
+            domain_endpoint_options = kwargs['domainEndpointOptions']
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if ebs_options is None and 'ebsOptions' in kwargs:
+            ebs_options = kwargs['ebsOptions']
+        if elasticsearch_version is None and 'elasticsearchVersion' in kwargs:
+            elasticsearch_version = kwargs['elasticsearchVersion']
+        if encrypt_at_rest is None and 'encryptAtRest' in kwargs:
+            encrypt_at_rest = kwargs['encryptAtRest']
+        if kibana_endpoint is None and 'kibanaEndpoint' in kwargs:
+            kibana_endpoint = kwargs['kibanaEndpoint']
+        if log_publishing_options is None and 'logPublishingOptions' in kwargs:
+            log_publishing_options = kwargs['logPublishingOptions']
+        if node_to_node_encryption is None and 'nodeToNodeEncryption' in kwargs:
+            node_to_node_encryption = kwargs['nodeToNodeEncryption']
+        if snapshot_options is None and 'snapshotOptions' in kwargs:
+            snapshot_options = kwargs['snapshotOptions']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_options is None and 'vpcOptions' in kwargs:
+            vpc_options = kwargs['vpcOptions']
+
         if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
+            _setter("access_policies", access_policies)
         if advanced_options is not None:
-            pulumi.set(__self__, "advanced_options", advanced_options)
+            _setter("advanced_options", advanced_options)
         if advanced_security_options is not None:
-            pulumi.set(__self__, "advanced_security_options", advanced_security_options)
+            _setter("advanced_security_options", advanced_security_options)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_tune_options is not None:
-            pulumi.set(__self__, "auto_tune_options", auto_tune_options)
+            _setter("auto_tune_options", auto_tune_options)
         if cluster_config is not None:
-            pulumi.set(__self__, "cluster_config", cluster_config)
+            _setter("cluster_config", cluster_config)
         if cognito_options is not None:
-            pulumi.set(__self__, "cognito_options", cognito_options)
+            _setter("cognito_options", cognito_options)
         if domain_endpoint_options is not None:
-            pulumi.set(__self__, "domain_endpoint_options", domain_endpoint_options)
+            _setter("domain_endpoint_options", domain_endpoint_options)
         if domain_id is not None:
-            pulumi.set(__self__, "domain_id", domain_id)
+            _setter("domain_id", domain_id)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if ebs_options is not None:
-            pulumi.set(__self__, "ebs_options", ebs_options)
+            _setter("ebs_options", ebs_options)
         if elasticsearch_version is not None:
-            pulumi.set(__self__, "elasticsearch_version", elasticsearch_version)
+            _setter("elasticsearch_version", elasticsearch_version)
         if encrypt_at_rest is not None:
-            pulumi.set(__self__, "encrypt_at_rest", encrypt_at_rest)
+            _setter("encrypt_at_rest", encrypt_at_rest)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if kibana_endpoint is not None:
-            pulumi.set(__self__, "kibana_endpoint", kibana_endpoint)
+            _setter("kibana_endpoint", kibana_endpoint)
         if log_publishing_options is not None:
-            pulumi.set(__self__, "log_publishing_options", log_publishing_options)
+            _setter("log_publishing_options", log_publishing_options)
         if node_to_node_encryption is not None:
-            pulumi.set(__self__, "node_to_node_encryption", node_to_node_encryption)
+            _setter("node_to_node_encryption", node_to_node_encryption)
         if snapshot_options is not None:
-            pulumi.set(__self__, "snapshot_options", snapshot_options)
+            _setter("snapshot_options", snapshot_options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_options is not None:
-            pulumi.set(__self__, "vpc_options", vpc_options)
+            _setter("vpc_options", vpc_options)
 
     @property
     @pulumi.getter(name="accessPolicies")
@@ -1004,6 +1162,10 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1036,19 +1198,29 @@ class Domain(pulumi.CustomResource):
 
             __props__.__dict__["access_policies"] = access_policies
             __props__.__dict__["advanced_options"] = advanced_options
+            advanced_security_options = _utilities.configure(advanced_security_options, DomainAdvancedSecurityOptionsArgs, True)
             __props__.__dict__["advanced_security_options"] = advanced_security_options
+            auto_tune_options = _utilities.configure(auto_tune_options, DomainAutoTuneOptionsArgs, True)
             __props__.__dict__["auto_tune_options"] = auto_tune_options
+            cluster_config = _utilities.configure(cluster_config, DomainClusterConfigArgs, True)
             __props__.__dict__["cluster_config"] = cluster_config
+            cognito_options = _utilities.configure(cognito_options, DomainCognitoOptionsArgs, True)
             __props__.__dict__["cognito_options"] = cognito_options
+            domain_endpoint_options = _utilities.configure(domain_endpoint_options, DomainDomainEndpointOptionsArgs, True)
             __props__.__dict__["domain_endpoint_options"] = domain_endpoint_options
             __props__.__dict__["domain_name"] = domain_name
+            ebs_options = _utilities.configure(ebs_options, DomainEbsOptionsArgs, True)
             __props__.__dict__["ebs_options"] = ebs_options
             __props__.__dict__["elasticsearch_version"] = elasticsearch_version
+            encrypt_at_rest = _utilities.configure(encrypt_at_rest, DomainEncryptAtRestArgs, True)
             __props__.__dict__["encrypt_at_rest"] = encrypt_at_rest
             __props__.__dict__["log_publishing_options"] = log_publishing_options
+            node_to_node_encryption = _utilities.configure(node_to_node_encryption, DomainNodeToNodeEncryptionArgs, True)
             __props__.__dict__["node_to_node_encryption"] = node_to_node_encryption
+            snapshot_options = _utilities.configure(snapshot_options, DomainSnapshotOptionsArgs, True)
             __props__.__dict__["snapshot_options"] = snapshot_options
             __props__.__dict__["tags"] = tags
+            vpc_options = _utilities.configure(vpc_options, DomainVpcOptionsArgs, True)
             __props__.__dict__["vpc_options"] = vpc_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_id"] = None

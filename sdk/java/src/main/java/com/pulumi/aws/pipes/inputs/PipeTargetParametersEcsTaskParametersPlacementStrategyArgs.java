@@ -31,14 +31,14 @@ public final class PipeTargetParametersEcsTaskParametersPlacementStrategyArgs ex
     }
 
     /**
-     * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+     * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+     * @return The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
      * 
      */
     public Optional<Output<String>> type() {
@@ -92,7 +92,7 @@ public final class PipeTargetParametersEcsTaskParametersPlacementStrategyArgs ex
         }
 
         /**
-         * @param type The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         * @param type The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PipeTargetParametersEcsTaskParametersPlacementStrategyArgs ex
         }
 
         /**
-         * @param type The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         * @param type The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
          * 
          * @return builder
          * 

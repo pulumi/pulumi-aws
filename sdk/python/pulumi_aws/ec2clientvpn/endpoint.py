@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,34 +51,111 @@ class EndpointArgs:
         :param pulumi.Input[str] vpc_id: The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
         :param pulumi.Input[int] vpn_port: The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
         """
-        pulumi.set(__self__, "authentication_options", authentication_options)
-        pulumi.set(__self__, "client_cidr_block", client_cidr_block)
-        pulumi.set(__self__, "connection_log_options", connection_log_options)
-        pulumi.set(__self__, "server_certificate_arn", server_certificate_arn)
+        EndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_options=authentication_options,
+            client_cidr_block=client_cidr_block,
+            connection_log_options=connection_log_options,
+            server_certificate_arn=server_certificate_arn,
+            client_connect_options=client_connect_options,
+            client_login_banner_options=client_login_banner_options,
+            description=description,
+            dns_servers=dns_servers,
+            security_group_ids=security_group_ids,
+            self_service_portal=self_service_portal,
+            session_timeout_hours=session_timeout_hours,
+            split_tunnel=split_tunnel,
+            tags=tags,
+            transport_protocol=transport_protocol,
+            vpc_id=vpc_id,
+            vpn_port=vpn_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_options: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]]] = None,
+             client_cidr_block: Optional[pulumi.Input[str]] = None,
+             connection_log_options: Optional[pulumi.Input['EndpointConnectionLogOptionsArgs']] = None,
+             server_certificate_arn: Optional[pulumi.Input[str]] = None,
+             client_connect_options: Optional[pulumi.Input['EndpointClientConnectOptionsArgs']] = None,
+             client_login_banner_options: Optional[pulumi.Input['EndpointClientLoginBannerOptionsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             self_service_portal: Optional[pulumi.Input[str]] = None,
+             session_timeout_hours: Optional[pulumi.Input[int]] = None,
+             split_tunnel: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transport_protocol: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             vpn_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_options is None and 'authenticationOptions' in kwargs:
+            authentication_options = kwargs['authenticationOptions']
+        if authentication_options is None:
+            raise TypeError("Missing 'authentication_options' argument")
+        if client_cidr_block is None and 'clientCidrBlock' in kwargs:
+            client_cidr_block = kwargs['clientCidrBlock']
+        if client_cidr_block is None:
+            raise TypeError("Missing 'client_cidr_block' argument")
+        if connection_log_options is None and 'connectionLogOptions' in kwargs:
+            connection_log_options = kwargs['connectionLogOptions']
+        if connection_log_options is None:
+            raise TypeError("Missing 'connection_log_options' argument")
+        if server_certificate_arn is None and 'serverCertificateArn' in kwargs:
+            server_certificate_arn = kwargs['serverCertificateArn']
+        if server_certificate_arn is None:
+            raise TypeError("Missing 'server_certificate_arn' argument")
+        if client_connect_options is None and 'clientConnectOptions' in kwargs:
+            client_connect_options = kwargs['clientConnectOptions']
+        if client_login_banner_options is None and 'clientLoginBannerOptions' in kwargs:
+            client_login_banner_options = kwargs['clientLoginBannerOptions']
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if self_service_portal is None and 'selfServicePortal' in kwargs:
+            self_service_portal = kwargs['selfServicePortal']
+        if session_timeout_hours is None and 'sessionTimeoutHours' in kwargs:
+            session_timeout_hours = kwargs['sessionTimeoutHours']
+        if split_tunnel is None and 'splitTunnel' in kwargs:
+            split_tunnel = kwargs['splitTunnel']
+        if transport_protocol is None and 'transportProtocol' in kwargs:
+            transport_protocol = kwargs['transportProtocol']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpn_port is None and 'vpnPort' in kwargs:
+            vpn_port = kwargs['vpnPort']
+
+        _setter("authentication_options", authentication_options)
+        _setter("client_cidr_block", client_cidr_block)
+        _setter("connection_log_options", connection_log_options)
+        _setter("server_certificate_arn", server_certificate_arn)
         if client_connect_options is not None:
-            pulumi.set(__self__, "client_connect_options", client_connect_options)
+            _setter("client_connect_options", client_connect_options)
         if client_login_banner_options is not None:
-            pulumi.set(__self__, "client_login_banner_options", client_login_banner_options)
+            _setter("client_login_banner_options", client_login_banner_options)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if self_service_portal is not None:
-            pulumi.set(__self__, "self_service_portal", self_service_portal)
+            _setter("self_service_portal", self_service_portal)
         if session_timeout_hours is not None:
-            pulumi.set(__self__, "session_timeout_hours", session_timeout_hours)
+            _setter("session_timeout_hours", session_timeout_hours)
         if split_tunnel is not None:
-            pulumi.set(__self__, "split_tunnel", split_tunnel)
+            _setter("split_tunnel", split_tunnel)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transport_protocol is not None:
-            pulumi.set(__self__, "transport_protocol", transport_protocol)
+            _setter("transport_protocol", transport_protocol)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
         if vpn_port is not None:
-            pulumi.set(__self__, "vpn_port", vpn_port)
+            _setter("vpn_port", vpn_port)
 
     @property
     @pulumi.getter(name="authenticationOptions")
@@ -317,47 +394,126 @@ class _EndpointState:
         :param pulumi.Input[str] vpc_id: The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
         :param pulumi.Input[int] vpn_port: The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
         """
+        _EndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            authentication_options=authentication_options,
+            client_cidr_block=client_cidr_block,
+            client_connect_options=client_connect_options,
+            client_login_banner_options=client_login_banner_options,
+            connection_log_options=connection_log_options,
+            description=description,
+            dns_name=dns_name,
+            dns_servers=dns_servers,
+            security_group_ids=security_group_ids,
+            self_service_portal=self_service_portal,
+            server_certificate_arn=server_certificate_arn,
+            session_timeout_hours=session_timeout_hours,
+            split_tunnel=split_tunnel,
+            tags=tags,
+            tags_all=tags_all,
+            transport_protocol=transport_protocol,
+            vpc_id=vpc_id,
+            vpn_port=vpn_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             authentication_options: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]]] = None,
+             client_cidr_block: Optional[pulumi.Input[str]] = None,
+             client_connect_options: Optional[pulumi.Input['EndpointClientConnectOptionsArgs']] = None,
+             client_login_banner_options: Optional[pulumi.Input['EndpointClientLoginBannerOptionsArgs']] = None,
+             connection_log_options: Optional[pulumi.Input['EndpointConnectionLogOptionsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             self_service_portal: Optional[pulumi.Input[str]] = None,
+             server_certificate_arn: Optional[pulumi.Input[str]] = None,
+             session_timeout_hours: Optional[pulumi.Input[int]] = None,
+             split_tunnel: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transport_protocol: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             vpn_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_options is None and 'authenticationOptions' in kwargs:
+            authentication_options = kwargs['authenticationOptions']
+        if client_cidr_block is None and 'clientCidrBlock' in kwargs:
+            client_cidr_block = kwargs['clientCidrBlock']
+        if client_connect_options is None and 'clientConnectOptions' in kwargs:
+            client_connect_options = kwargs['clientConnectOptions']
+        if client_login_banner_options is None and 'clientLoginBannerOptions' in kwargs:
+            client_login_banner_options = kwargs['clientLoginBannerOptions']
+        if connection_log_options is None and 'connectionLogOptions' in kwargs:
+            connection_log_options = kwargs['connectionLogOptions']
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if self_service_portal is None and 'selfServicePortal' in kwargs:
+            self_service_portal = kwargs['selfServicePortal']
+        if server_certificate_arn is None and 'serverCertificateArn' in kwargs:
+            server_certificate_arn = kwargs['serverCertificateArn']
+        if session_timeout_hours is None and 'sessionTimeoutHours' in kwargs:
+            session_timeout_hours = kwargs['sessionTimeoutHours']
+        if split_tunnel is None and 'splitTunnel' in kwargs:
+            split_tunnel = kwargs['splitTunnel']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if transport_protocol is None and 'transportProtocol' in kwargs:
+            transport_protocol = kwargs['transportProtocol']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpn_port is None and 'vpnPort' in kwargs:
+            vpn_port = kwargs['vpnPort']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if authentication_options is not None:
-            pulumi.set(__self__, "authentication_options", authentication_options)
+            _setter("authentication_options", authentication_options)
         if client_cidr_block is not None:
-            pulumi.set(__self__, "client_cidr_block", client_cidr_block)
+            _setter("client_cidr_block", client_cidr_block)
         if client_connect_options is not None:
-            pulumi.set(__self__, "client_connect_options", client_connect_options)
+            _setter("client_connect_options", client_connect_options)
         if client_login_banner_options is not None:
-            pulumi.set(__self__, "client_login_banner_options", client_login_banner_options)
+            _setter("client_login_banner_options", client_login_banner_options)
         if connection_log_options is not None:
-            pulumi.set(__self__, "connection_log_options", connection_log_options)
+            _setter("connection_log_options", connection_log_options)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if self_service_portal is not None:
-            pulumi.set(__self__, "self_service_portal", self_service_portal)
+            _setter("self_service_portal", self_service_portal)
         if server_certificate_arn is not None:
-            pulumi.set(__self__, "server_certificate_arn", server_certificate_arn)
+            _setter("server_certificate_arn", server_certificate_arn)
         if session_timeout_hours is not None:
-            pulumi.set(__self__, "session_timeout_hours", session_timeout_hours)
+            _setter("session_timeout_hours", session_timeout_hours)
         if split_tunnel is not None:
-            pulumi.set(__self__, "split_tunnel", split_tunnel)
+            _setter("split_tunnel", split_tunnel)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if transport_protocol is not None:
-            pulumi.set(__self__, "transport_protocol", transport_protocol)
+            _setter("transport_protocol", transport_protocol)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
         if vpn_port is not None:
-            pulumi.set(__self__, "vpn_port", vpn_port)
+            _setter("vpn_port", vpn_port)
 
     @property
     @pulumi.getter
@@ -714,6 +870,10 @@ class Endpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -750,8 +910,11 @@ class Endpoint(pulumi.CustomResource):
             if client_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'client_cidr_block'")
             __props__.__dict__["client_cidr_block"] = client_cidr_block
+            client_connect_options = _utilities.configure(client_connect_options, EndpointClientConnectOptionsArgs, True)
             __props__.__dict__["client_connect_options"] = client_connect_options
+            client_login_banner_options = _utilities.configure(client_login_banner_options, EndpointClientLoginBannerOptionsArgs, True)
             __props__.__dict__["client_login_banner_options"] = client_login_banner_options
+            connection_log_options = _utilities.configure(connection_log_options, EndpointConnectionLogOptionsArgs, True)
             if connection_log_options is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_log_options'")
             __props__.__dict__["connection_log_options"] = connection_log_options

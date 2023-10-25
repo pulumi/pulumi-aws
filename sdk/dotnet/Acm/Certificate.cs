@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Acm
     ///                 range.Value.Record,
     ///             },
     ///             Ttl = 60,
-    ///             Type = System.Enum.Parse&lt;Aws.Route53/RecordType.RecordType&gt;(range.Value.Type),
+    ///             Type = System.Enum.Parse&lt;Aws.Route53.RecordType.RecordType&gt;(range.Value.Type),
     ///             ZoneId = aws_route53_zone.Example.Zone_id,
     ///         }));
     ///     }

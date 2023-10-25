@@ -16,7 +16,7 @@ public final class ResponseHeadersPolicyCustomHeadersConfigItem {
      */
     private String header;
     /**
-     * @return Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+     * @return Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     private Boolean override;
@@ -35,7 +35,7 @@ public final class ResponseHeadersPolicyCustomHeadersConfigItem {
         return this.header;
     }
     /**
-     * @return Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+     * @return Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
     public Boolean override() {

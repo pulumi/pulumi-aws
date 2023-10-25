@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -38,25 +38,62 @@ class PresetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] video_codec_options: Codec options for the video parameters
         :param pulumi.Input[Sequence[pulumi.Input['PresetVideoWatermarkArgs']]] video_watermarks: Watermark parameters for the video parameters (documented below)
         """
-        pulumi.set(__self__, "container", container)
+        PresetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            audio=audio,
+            audio_codec_options=audio_codec_options,
+            description=description,
+            name=name,
+            thumbnails=thumbnails,
+            type=type,
+            video=video,
+            video_codec_options=video_codec_options,
+            video_watermarks=video_watermarks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: Optional[pulumi.Input[str]] = None,
+             audio: Optional[pulumi.Input['PresetAudioArgs']] = None,
+             audio_codec_options: Optional[pulumi.Input['PresetAudioCodecOptionsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             thumbnails: Optional[pulumi.Input['PresetThumbnailsArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             video: Optional[pulumi.Input['PresetVideoArgs']] = None,
+             video_codec_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             video_watermarks: Optional[pulumi.Input[Sequence[pulumi.Input['PresetVideoWatermarkArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container is None:
+            raise TypeError("Missing 'container' argument")
+        if audio_codec_options is None and 'audioCodecOptions' in kwargs:
+            audio_codec_options = kwargs['audioCodecOptions']
+        if video_codec_options is None and 'videoCodecOptions' in kwargs:
+            video_codec_options = kwargs['videoCodecOptions']
+        if video_watermarks is None and 'videoWatermarks' in kwargs:
+            video_watermarks = kwargs['videoWatermarks']
+
+        _setter("container", container)
         if audio is not None:
-            pulumi.set(__self__, "audio", audio)
+            _setter("audio", audio)
         if audio_codec_options is not None:
-            pulumi.set(__self__, "audio_codec_options", audio_codec_options)
+            _setter("audio_codec_options", audio_codec_options)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if thumbnails is not None:
-            pulumi.set(__self__, "thumbnails", thumbnails)
+            _setter("thumbnails", thumbnails)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if video is not None:
-            pulumi.set(__self__, "video", video)
+            _setter("video", video)
         if video_codec_options is not None:
-            pulumi.set(__self__, "video_codec_options", video_codec_options)
+            _setter("video_codec_options", video_codec_options)
         if video_watermarks is not None:
-            pulumi.set(__self__, "video_watermarks", video_watermarks)
+            _setter("video_watermarks", video_watermarks)
 
     @property
     @pulumi.getter
@@ -203,28 +240,65 @@ class _PresetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] video_codec_options: Codec options for the video parameters
         :param pulumi.Input[Sequence[pulumi.Input['PresetVideoWatermarkArgs']]] video_watermarks: Watermark parameters for the video parameters (documented below)
         """
+        _PresetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            audio=audio,
+            audio_codec_options=audio_codec_options,
+            container=container,
+            description=description,
+            name=name,
+            thumbnails=thumbnails,
+            type=type,
+            video=video,
+            video_codec_options=video_codec_options,
+            video_watermarks=video_watermarks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             audio: Optional[pulumi.Input['PresetAudioArgs']] = None,
+             audio_codec_options: Optional[pulumi.Input['PresetAudioCodecOptionsArgs']] = None,
+             container: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             thumbnails: Optional[pulumi.Input['PresetThumbnailsArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             video: Optional[pulumi.Input['PresetVideoArgs']] = None,
+             video_codec_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             video_watermarks: Optional[pulumi.Input[Sequence[pulumi.Input['PresetVideoWatermarkArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if audio_codec_options is None and 'audioCodecOptions' in kwargs:
+            audio_codec_options = kwargs['audioCodecOptions']
+        if video_codec_options is None and 'videoCodecOptions' in kwargs:
+            video_codec_options = kwargs['videoCodecOptions']
+        if video_watermarks is None and 'videoWatermarks' in kwargs:
+            video_watermarks = kwargs['videoWatermarks']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if audio is not None:
-            pulumi.set(__self__, "audio", audio)
+            _setter("audio", audio)
         if audio_codec_options is not None:
-            pulumi.set(__self__, "audio_codec_options", audio_codec_options)
+            _setter("audio_codec_options", audio_codec_options)
         if container is not None:
-            pulumi.set(__self__, "container", container)
+            _setter("container", container)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if thumbnails is not None:
-            pulumi.set(__self__, "thumbnails", thumbnails)
+            _setter("thumbnails", thumbnails)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if video is not None:
-            pulumi.set(__self__, "video", video)
+            _setter("video", video)
         if video_codec_options is not None:
-            pulumi.set(__self__, "video_codec_options", video_codec_options)
+            _setter("video_codec_options", video_codec_options)
         if video_watermarks is not None:
-            pulumi.set(__self__, "video_watermarks", video_watermarks)
+            _setter("video_watermarks", video_watermarks)
 
     @property
     @pulumi.getter
@@ -544,6 +618,10 @@ class Preset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PresetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -568,15 +646,19 @@ class Preset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PresetArgs.__new__(PresetArgs)
 
+            audio = _utilities.configure(audio, PresetAudioArgs, True)
             __props__.__dict__["audio"] = audio
+            audio_codec_options = _utilities.configure(audio_codec_options, PresetAudioCodecOptionsArgs, True)
             __props__.__dict__["audio_codec_options"] = audio_codec_options
             if container is None and not opts.urn:
                 raise TypeError("Missing required property 'container'")
             __props__.__dict__["container"] = container
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            thumbnails = _utilities.configure(thumbnails, PresetThumbnailsArgs, True)
             __props__.__dict__["thumbnails"] = thumbnails
             __props__.__dict__["type"] = type
+            video = _utilities.configure(video, PresetVideoArgs, True)
             __props__.__dict__["video"] = video
             __props__.__dict__["video_codec_options"] = video_codec_options
             __props__.__dict__["video_watermarks"] = video_watermarks

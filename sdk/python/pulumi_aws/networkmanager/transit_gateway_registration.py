@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TransitGatewayRegistrationArgs', 'TransitGatewayRegistration']
@@ -21,8 +21,29 @@ class TransitGatewayRegistrationArgs:
         :param pulumi.Input[str] global_network_id: The ID of the Global Network to register to.
         :param pulumi.Input[str] transit_gateway_arn: The ARN of the Transit Gateway to register.
         """
-        pulumi.set(__self__, "global_network_id", global_network_id)
-        pulumi.set(__self__, "transit_gateway_arn", transit_gateway_arn)
+        TransitGatewayRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_network_id=global_network_id,
+            transit_gateway_arn=transit_gateway_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_network_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if global_network_id is None:
+            raise TypeError("Missing 'global_network_id' argument")
+        if transit_gateway_arn is None and 'transitGatewayArn' in kwargs:
+            transit_gateway_arn = kwargs['transitGatewayArn']
+        if transit_gateway_arn is None:
+            raise TypeError("Missing 'transit_gateway_arn' argument")
+
+        _setter("global_network_id", global_network_id)
+        _setter("transit_gateway_arn", transit_gateway_arn)
 
     @property
     @pulumi.getter(name="globalNetworkId")
@@ -59,10 +80,27 @@ class _TransitGatewayRegistrationState:
         :param pulumi.Input[str] global_network_id: The ID of the Global Network to register to.
         :param pulumi.Input[str] transit_gateway_arn: The ARN of the Transit Gateway to register.
         """
+        _TransitGatewayRegistrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_network_id=global_network_id,
+            transit_gateway_arn=transit_gateway_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_network_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if transit_gateway_arn is None and 'transitGatewayArn' in kwargs:
+            transit_gateway_arn = kwargs['transitGatewayArn']
+
         if global_network_id is not None:
-            pulumi.set(__self__, "global_network_id", global_network_id)
+            _setter("global_network_id", global_network_id)
         if transit_gateway_arn is not None:
-            pulumi.set(__self__, "transit_gateway_arn", transit_gateway_arn)
+            _setter("transit_gateway_arn", transit_gateway_arn)
 
     @property
     @pulumi.getter(name="globalNetworkId")
@@ -170,6 +208,10 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TransitGatewayRegistrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResolverConfigArgs', 'ResolverConfig']
@@ -21,8 +21,29 @@ class ResolverConfigArgs:
         :param pulumi.Input[str] autodefined_reverse_flag: Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
         :param pulumi.Input[str] resource_id: The ID of the VPC that the configuration is for.
         """
-        pulumi.set(__self__, "autodefined_reverse_flag", autodefined_reverse_flag)
-        pulumi.set(__self__, "resource_id", resource_id)
+        ResolverConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autodefined_reverse_flag=autodefined_reverse_flag,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autodefined_reverse_flag: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if autodefined_reverse_flag is None and 'autodefinedReverseFlag' in kwargs:
+            autodefined_reverse_flag = kwargs['autodefinedReverseFlag']
+        if autodefined_reverse_flag is None:
+            raise TypeError("Missing 'autodefined_reverse_flag' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+
+        _setter("autodefined_reverse_flag", autodefined_reverse_flag)
+        _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="autodefinedReverseFlag")
@@ -61,12 +82,33 @@ class _ResolverConfigState:
         :param pulumi.Input[str] owner_id: The AWS account ID of the owner of the VPC that this resolver configuration applies to.
         :param pulumi.Input[str] resource_id: The ID of the VPC that the configuration is for.
         """
+        _ResolverConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autodefined_reverse_flag=autodefined_reverse_flag,
+            owner_id=owner_id,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autodefined_reverse_flag: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if autodefined_reverse_flag is None and 'autodefinedReverseFlag' in kwargs:
+            autodefined_reverse_flag = kwargs['autodefinedReverseFlag']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if autodefined_reverse_flag is not None:
-            pulumi.set(__self__, "autodefined_reverse_flag", autodefined_reverse_flag)
+            _setter("autodefined_reverse_flag", autodefined_reverse_flag)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="autodefinedReverseFlag")
@@ -186,6 +228,10 @@ class ResolverConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResolverConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

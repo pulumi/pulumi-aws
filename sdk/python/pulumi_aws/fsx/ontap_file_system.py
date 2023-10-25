@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,34 +51,113 @@ class OntapFileSystemArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
-        pulumi.set(__self__, "deployment_type", deployment_type)
-        pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "throughput_capacity", throughput_capacity)
+        OntapFileSystemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_type=deployment_type,
+            preferred_subnet_id=preferred_subnet_id,
+            subnet_ids=subnet_ids,
+            throughput_capacity=throughput_capacity,
+            automatic_backup_retention_days=automatic_backup_retention_days,
+            daily_automatic_backup_start_time=daily_automatic_backup_start_time,
+            disk_iops_configuration=disk_iops_configuration,
+            endpoint_ip_address_range=endpoint_ip_address_range,
+            fsx_admin_password=fsx_admin_password,
+            kms_key_id=kms_key_id,
+            route_table_ids=route_table_ids,
+            security_group_ids=security_group_ids,
+            storage_capacity=storage_capacity,
+            storage_type=storage_type,
+            tags=tags,
+            weekly_maintenance_start_time=weekly_maintenance_start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_type: Optional[pulumi.Input[str]] = None,
+             preferred_subnet_id: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             throughput_capacity: Optional[pulumi.Input[int]] = None,
+             automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+             daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
+             disk_iops_configuration: Optional[pulumi.Input['OntapFileSystemDiskIopsConfigurationArgs']] = None,
+             endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
+             fsx_admin_password: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             storage_capacity: Optional[pulumi.Input[int]] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_type is None and 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if deployment_type is None:
+            raise TypeError("Missing 'deployment_type' argument")
+        if preferred_subnet_id is None and 'preferredSubnetId' in kwargs:
+            preferred_subnet_id = kwargs['preferredSubnetId']
+        if preferred_subnet_id is None:
+            raise TypeError("Missing 'preferred_subnet_id' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if throughput_capacity is None and 'throughputCapacity' in kwargs:
+            throughput_capacity = kwargs['throughputCapacity']
+        if throughput_capacity is None:
+            raise TypeError("Missing 'throughput_capacity' argument")
+        if automatic_backup_retention_days is None and 'automaticBackupRetentionDays' in kwargs:
+            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
+        if daily_automatic_backup_start_time is None and 'dailyAutomaticBackupStartTime' in kwargs:
+            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
+        if disk_iops_configuration is None and 'diskIopsConfiguration' in kwargs:
+            disk_iops_configuration = kwargs['diskIopsConfiguration']
+        if endpoint_ip_address_range is None and 'endpointIpAddressRange' in kwargs:
+            endpoint_ip_address_range = kwargs['endpointIpAddressRange']
+        if fsx_admin_password is None and 'fsxAdminPassword' in kwargs:
+            fsx_admin_password = kwargs['fsxAdminPassword']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if route_table_ids is None and 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if storage_capacity is None and 'storageCapacity' in kwargs:
+            storage_capacity = kwargs['storageCapacity']
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if weekly_maintenance_start_time is None and 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
+        _setter("deployment_type", deployment_type)
+        _setter("preferred_subnet_id", preferred_subnet_id)
+        _setter("subnet_ids", subnet_ids)
+        _setter("throughput_capacity", throughput_capacity)
         if automatic_backup_retention_days is not None:
-            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
+            _setter("automatic_backup_retention_days", automatic_backup_retention_days)
         if daily_automatic_backup_start_time is not None:
-            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+            _setter("daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if disk_iops_configuration is not None:
-            pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
+            _setter("disk_iops_configuration", disk_iops_configuration)
         if endpoint_ip_address_range is not None:
-            pulumi.set(__self__, "endpoint_ip_address_range", endpoint_ip_address_range)
+            _setter("endpoint_ip_address_range", endpoint_ip_address_range)
         if fsx_admin_password is not None:
-            pulumi.set(__self__, "fsx_admin_password", fsx_admin_password)
+            _setter("fsx_admin_password", fsx_admin_password)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if route_table_ids is not None:
-            pulumi.set(__self__, "route_table_ids", route_table_ids)
+            _setter("route_table_ids", route_table_ids)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if storage_capacity is not None:
-            pulumi.set(__self__, "storage_capacity", storage_capacity)
+            _setter("storage_capacity", storage_capacity)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if weekly_maintenance_start_time is not None:
-            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+            _setter("weekly_maintenance_start_time", weekly_maintenance_start_time)
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -325,55 +404,150 @@ class _OntapFileSystemState:
         :param pulumi.Input[str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
+        _OntapFileSystemState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            automatic_backup_retention_days=automatic_backup_retention_days,
+            daily_automatic_backup_start_time=daily_automatic_backup_start_time,
+            deployment_type=deployment_type,
+            disk_iops_configuration=disk_iops_configuration,
+            dns_name=dns_name,
+            endpoint_ip_address_range=endpoint_ip_address_range,
+            endpoints=endpoints,
+            fsx_admin_password=fsx_admin_password,
+            kms_key_id=kms_key_id,
+            network_interface_ids=network_interface_ids,
+            owner_id=owner_id,
+            preferred_subnet_id=preferred_subnet_id,
+            route_table_ids=route_table_ids,
+            security_group_ids=security_group_ids,
+            storage_capacity=storage_capacity,
+            storage_type=storage_type,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            tags_all=tags_all,
+            throughput_capacity=throughput_capacity,
+            vpc_id=vpc_id,
+            weekly_maintenance_start_time=weekly_maintenance_start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+             daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
+             deployment_type: Optional[pulumi.Input[str]] = None,
+             disk_iops_configuration: Optional[pulumi.Input['OntapFileSystemDiskIopsConfigurationArgs']] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointArgs']]]] = None,
+             fsx_admin_password: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             preferred_subnet_id: Optional[pulumi.Input[str]] = None,
+             route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             storage_capacity: Optional[pulumi.Input[int]] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             throughput_capacity: Optional[pulumi.Input[int]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if automatic_backup_retention_days is None and 'automaticBackupRetentionDays' in kwargs:
+            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
+        if daily_automatic_backup_start_time is None and 'dailyAutomaticBackupStartTime' in kwargs:
+            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
+        if deployment_type is None and 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if disk_iops_configuration is None and 'diskIopsConfiguration' in kwargs:
+            disk_iops_configuration = kwargs['diskIopsConfiguration']
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if endpoint_ip_address_range is None and 'endpointIpAddressRange' in kwargs:
+            endpoint_ip_address_range = kwargs['endpointIpAddressRange']
+        if fsx_admin_password is None and 'fsxAdminPassword' in kwargs:
+            fsx_admin_password = kwargs['fsxAdminPassword']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if network_interface_ids is None and 'networkInterfaceIds' in kwargs:
+            network_interface_ids = kwargs['networkInterfaceIds']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if preferred_subnet_id is None and 'preferredSubnetId' in kwargs:
+            preferred_subnet_id = kwargs['preferredSubnetId']
+        if route_table_ids is None and 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if storage_capacity is None and 'storageCapacity' in kwargs:
+            storage_capacity = kwargs['storageCapacity']
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if throughput_capacity is None and 'throughputCapacity' in kwargs:
+            throughput_capacity = kwargs['throughputCapacity']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if weekly_maintenance_start_time is None and 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if automatic_backup_retention_days is not None:
-            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
+            _setter("automatic_backup_retention_days", automatic_backup_retention_days)
         if daily_automatic_backup_start_time is not None:
-            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+            _setter("daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if deployment_type is not None:
-            pulumi.set(__self__, "deployment_type", deployment_type)
+            _setter("deployment_type", deployment_type)
         if disk_iops_configuration is not None:
-            pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
+            _setter("disk_iops_configuration", disk_iops_configuration)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if endpoint_ip_address_range is not None:
-            pulumi.set(__self__, "endpoint_ip_address_range", endpoint_ip_address_range)
+            _setter("endpoint_ip_address_range", endpoint_ip_address_range)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if fsx_admin_password is not None:
-            pulumi.set(__self__, "fsx_admin_password", fsx_admin_password)
+            _setter("fsx_admin_password", fsx_admin_password)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if network_interface_ids is not None:
-            pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+            _setter("network_interface_ids", network_interface_ids)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if preferred_subnet_id is not None:
-            pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
+            _setter("preferred_subnet_id", preferred_subnet_id)
         if route_table_ids is not None:
-            pulumi.set(__self__, "route_table_ids", route_table_ids)
+            _setter("route_table_ids", route_table_ids)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if storage_capacity is not None:
-            pulumi.set(__self__, "storage_capacity", storage_capacity)
+            _setter("storage_capacity", storage_capacity)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if throughput_capacity is not None:
-            pulumi.set(__self__, "throughput_capacity", throughput_capacity)
+            _setter("throughput_capacity", throughput_capacity)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
         if weekly_maintenance_start_time is not None:
-            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+            _setter("weekly_maintenance_start_time", weekly_maintenance_start_time)
 
     @property
     @pulumi.getter
@@ -772,6 +946,10 @@ class OntapFileSystem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OntapFileSystemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -807,6 +985,7 @@ class OntapFileSystem(pulumi.CustomResource):
             if deployment_type is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_type'")
             __props__.__dict__["deployment_type"] = deployment_type
+            disk_iops_configuration = _utilities.configure(disk_iops_configuration, OntapFileSystemDiskIopsConfigurationArgs, True)
             __props__.__dict__["disk_iops_configuration"] = disk_iops_configuration
             __props__.__dict__["endpoint_ip_address_range"] = endpoint_ip_address_range
             __props__.__dict__["fsx_admin_password"] = None if fsx_admin_password is None else pulumi.Output.secret(fsx_admin_password)

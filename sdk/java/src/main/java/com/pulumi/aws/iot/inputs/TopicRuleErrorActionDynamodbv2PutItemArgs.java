@@ -16,16 +16,12 @@ public final class TopicRuleErrorActionDynamodbv2PutItemArgs extends com.pulumi.
     /**
      * The name of the DynamoDB table.
      * 
-     * The `dynamodbv2` object takes the following arguments:
-     * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
      * @return The name of the DynamoDB table.
-     * 
-     * The `dynamodbv2` object takes the following arguments:
      * 
      */
     public Output<String> tableName() {
@@ -59,8 +55,6 @@ public final class TopicRuleErrorActionDynamodbv2PutItemArgs extends com.pulumi.
         /**
          * @param tableName The name of the DynamoDB table.
          * 
-         * The `dynamodbv2` object takes the following arguments:
-         * 
          * @return builder
          * 
          */
@@ -71,8 +65,6 @@ public final class TopicRuleErrorActionDynamodbv2PutItemArgs extends com.pulumi.
 
         /**
          * @param tableName The name of the DynamoDB table.
-         * 
-         * The `dynamodbv2` object takes the following arguments:
          * 
          * @return builder
          * 

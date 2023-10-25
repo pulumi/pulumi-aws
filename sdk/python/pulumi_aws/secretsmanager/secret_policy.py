@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SecretPolicyArgs', 'SecretPolicy']
@@ -25,10 +25,33 @@ class SecretPolicyArgs:
                The following arguments are optional:
         :param pulumi.Input[bool] block_public_policy: Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "secret_arn", secret_arn)
+        SecretPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            secret_arn=secret_arn,
+            block_public_policy=block_public_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             block_public_policy: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if secret_arn is None:
+            raise TypeError("Missing 'secret_arn' argument")
+        if block_public_policy is None and 'blockPublicPolicy' in kwargs:
+            block_public_policy = kwargs['blockPublicPolicy']
+
+        _setter("policy", policy)
+        _setter("secret_arn", secret_arn)
         if block_public_policy is not None:
-            pulumi.set(__self__, "block_public_policy", block_public_policy)
+            _setter("block_public_policy", block_public_policy)
 
     @property
     @pulumi.getter
@@ -83,12 +106,31 @@ class _SecretPolicyState:
                
                The following arguments are optional:
         """
+        _SecretPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            block_public_policy=block_public_policy,
+            policy=policy,
+            secret_arn=secret_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             block_public_policy: Optional[pulumi.Input[bool]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if block_public_policy is None and 'blockPublicPolicy' in kwargs:
+            block_public_policy = kwargs['blockPublicPolicy']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         if block_public_policy is not None:
-            pulumi.set(__self__, "block_public_policy", block_public_policy)
+            _setter("block_public_policy", block_public_policy)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
 
     @property
     @pulumi.getter(name="blockPublicPolicy")
@@ -230,6 +272,10 @@ class SecretPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecretPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

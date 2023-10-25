@@ -18,13 +18,12 @@ public final class RouteSpecHttp2RouteMatchHeaderMatch {
      */
     private @Nullable String exact;
     /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     private @Nullable String prefix;
     /**
-     * @return Object that specifies the range of numbers that the value sent by the client must be included in.
+     * @return Object that specifies the range of numbers that the header value sent by the client must be included in.
      * 
      */
     private @Nullable RouteSpecHttp2RouteMatchHeaderMatchRange range;
@@ -34,7 +33,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatch {
      */
     private @Nullable String regex;
     /**
-     * @return Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must end with the specified characters.
      * 
      */
     private @Nullable String suffix;
@@ -48,15 +47,14 @@ public final class RouteSpecHttp2RouteMatchHeaderMatch {
         return Optional.ofNullable(this.exact);
     }
     /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Object that specifies the range of numbers that the value sent by the client must be included in.
+     * @return Object that specifies the range of numbers that the header value sent by the client must be included in.
      * 
      */
     public Optional<RouteSpecHttp2RouteMatchHeaderMatchRange> range() {
@@ -70,7 +68,7 @@ public final class RouteSpecHttp2RouteMatchHeaderMatch {
         return Optional.ofNullable(this.regex);
     }
     /**
-     * @return Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must end with the specified characters.
      * 
      */
     public Optional<String> suffix() {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,24 +41,69 @@ class DashboardArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         """
-        pulumi.set(__self__, "dashboard_id", dashboard_id)
-        pulumi.set(__self__, "version_description", version_description)
+        DashboardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dashboard_id=dashboard_id,
+            version_description=version_description,
+            aws_account_id=aws_account_id,
+            dashboard_publish_options=dashboard_publish_options,
+            name=name,
+            parameters=parameters,
+            permissions=permissions,
+            source_entity=source_entity,
+            tags=tags,
+            theme_arn=theme_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dashboard_id: Optional[pulumi.Input[str]] = None,
+             version_description: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             dashboard_publish_options: Optional[pulumi.Input['DashboardDashboardPublishOptionsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input['DashboardParametersArgs']] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPermissionArgs']]]] = None,
+             source_entity: Optional[pulumi.Input['DashboardSourceEntityArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             theme_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dashboard_id is None and 'dashboardId' in kwargs:
+            dashboard_id = kwargs['dashboardId']
+        if dashboard_id is None:
+            raise TypeError("Missing 'dashboard_id' argument")
+        if version_description is None and 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+        if version_description is None:
+            raise TypeError("Missing 'version_description' argument")
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if dashboard_publish_options is None and 'dashboardPublishOptions' in kwargs:
+            dashboard_publish_options = kwargs['dashboardPublishOptions']
+        if source_entity is None and 'sourceEntity' in kwargs:
+            source_entity = kwargs['sourceEntity']
+        if theme_arn is None and 'themeArn' in kwargs:
+            theme_arn = kwargs['themeArn']
+
+        _setter("dashboard_id", dashboard_id)
+        _setter("version_description", version_description)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if dashboard_publish_options is not None:
-            pulumi.set(__self__, "dashboard_publish_options", dashboard_publish_options)
+            _setter("dashboard_publish_options", dashboard_publish_options)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if source_entity is not None:
-            pulumi.set(__self__, "source_entity", source_entity)
+            _setter("source_entity", source_entity)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if theme_arn is not None:
-            pulumi.set(__self__, "theme_arn", theme_arn)
+            _setter("theme_arn", theme_arn)
 
     @property
     @pulumi.getter(name="dashboardId")
@@ -226,45 +271,114 @@ class _DashboardState:
                The following arguments are optional:
         :param pulumi.Input[int] version_number: The version number of the dashboard version.
         """
+        _DashboardState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            aws_account_id=aws_account_id,
+            created_time=created_time,
+            dashboard_id=dashboard_id,
+            dashboard_publish_options=dashboard_publish_options,
+            last_published_time=last_published_time,
+            last_updated_time=last_updated_time,
+            name=name,
+            parameters=parameters,
+            permissions=permissions,
+            source_entity=source_entity,
+            source_entity_arn=source_entity_arn,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            theme_arn=theme_arn,
+            version_description=version_description,
+            version_number=version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             dashboard_id: Optional[pulumi.Input[str]] = None,
+             dashboard_publish_options: Optional[pulumi.Input['DashboardDashboardPublishOptionsArgs']] = None,
+             last_published_time: Optional[pulumi.Input[str]] = None,
+             last_updated_time: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input['DashboardParametersArgs']] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPermissionArgs']]]] = None,
+             source_entity: Optional[pulumi.Input['DashboardSourceEntityArgs']] = None,
+             source_entity_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             theme_arn: Optional[pulumi.Input[str]] = None,
+             version_description: Optional[pulumi.Input[str]] = None,
+             version_number: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if dashboard_id is None and 'dashboardId' in kwargs:
+            dashboard_id = kwargs['dashboardId']
+        if dashboard_publish_options is None and 'dashboardPublishOptions' in kwargs:
+            dashboard_publish_options = kwargs['dashboardPublishOptions']
+        if last_published_time is None and 'lastPublishedTime' in kwargs:
+            last_published_time = kwargs['lastPublishedTime']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if source_entity is None and 'sourceEntity' in kwargs:
+            source_entity = kwargs['sourceEntity']
+        if source_entity_arn is None and 'sourceEntityArn' in kwargs:
+            source_entity_arn = kwargs['sourceEntityArn']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if theme_arn is None and 'themeArn' in kwargs:
+            theme_arn = kwargs['themeArn']
+        if version_description is None and 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+        if version_number is None and 'versionNumber' in kwargs:
+            version_number = kwargs['versionNumber']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if dashboard_id is not None:
-            pulumi.set(__self__, "dashboard_id", dashboard_id)
+            _setter("dashboard_id", dashboard_id)
         if dashboard_publish_options is not None:
-            pulumi.set(__self__, "dashboard_publish_options", dashboard_publish_options)
+            _setter("dashboard_publish_options", dashboard_publish_options)
         if last_published_time is not None:
-            pulumi.set(__self__, "last_published_time", last_published_time)
+            _setter("last_published_time", last_published_time)
         if last_updated_time is not None:
-            pulumi.set(__self__, "last_updated_time", last_updated_time)
+            _setter("last_updated_time", last_updated_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if source_entity is not None:
-            pulumi.set(__self__, "source_entity", source_entity)
+            _setter("source_entity", source_entity)
         if source_entity_arn is not None:
-            pulumi.set(__self__, "source_entity_arn", source_entity_arn)
+            _setter("source_entity_arn", source_entity_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if theme_arn is not None:
-            pulumi.set(__self__, "theme_arn", theme_arn)
+            _setter("theme_arn", theme_arn)
         if version_description is not None:
-            pulumi.set(__self__, "version_description", version_description)
+            _setter("version_description", version_description)
         if version_number is not None:
-            pulumi.set(__self__, "version_number", version_number)
+            _setter("version_number", version_number)
 
     @property
     @pulumi.getter
@@ -596,6 +710,10 @@ class Dashboard(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DashboardArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -624,10 +742,13 @@ class Dashboard(pulumi.CustomResource):
             if dashboard_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dashboard_id'")
             __props__.__dict__["dashboard_id"] = dashboard_id
+            dashboard_publish_options = _utilities.configure(dashboard_publish_options, DashboardDashboardPublishOptionsArgs, True)
             __props__.__dict__["dashboard_publish_options"] = dashboard_publish_options
             __props__.__dict__["name"] = name
+            parameters = _utilities.configure(parameters, DashboardParametersArgs, True)
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
+            source_entity = _utilities.configure(source_entity, DashboardSourceEntityArgs, True)
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["theme_arn"] = theme_arn

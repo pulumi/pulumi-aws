@@ -117,7 +117,7 @@ import (
 type Schedule struct {
 	pulumi.CustomResourceState
 
-	// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+	// ARN of the SQS queue specified as the destination for the dead-letter queue.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Brief description of the schedule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -186,7 +186,7 @@ func GetSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schedule resources.
 type scheduleState struct {
-	// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+	// ARN of the SQS queue specified as the destination for the dead-letter queue.
 	Arn *string `pulumi:"arn"`
 	// Brief description of the schedule.
 	Description *string `pulumi:"description"`
@@ -217,7 +217,7 @@ type scheduleState struct {
 }
 
 type ScheduleState struct {
-	// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+	// ARN of the SQS queue specified as the destination for the dead-letter queue.
 	Arn pulumi.StringPtrInput
 	// Brief description of the schedule.
 	Description pulumi.StringPtrInput
@@ -421,7 +421,7 @@ func (o ScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*Schedule] 
 	}
 }
 
-// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+// ARN of the SQS queue specified as the destination for the dead-letter queue.
 func (o ScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

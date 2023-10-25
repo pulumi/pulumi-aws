@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -81,64 +81,185 @@ class InstanceArgs:
         :param pulumi.Input[str] tenancy: Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
         """
-        pulumi.set(__self__, "layer_ids", layer_ids)
-        pulumi.set(__self__, "stack_id", stack_id)
+        InstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            layer_ids=layer_ids,
+            stack_id=stack_id,
+            agent_version=agent_version,
+            ami_id=ami_id,
+            architecture=architecture,
+            auto_scaling_type=auto_scaling_type,
+            availability_zone=availability_zone,
+            created_at=created_at,
+            delete_ebs=delete_ebs,
+            delete_eip=delete_eip,
+            ebs_block_devices=ebs_block_devices,
+            ebs_optimized=ebs_optimized,
+            ecs_cluster_arn=ecs_cluster_arn,
+            elastic_ip=elastic_ip,
+            ephemeral_block_devices=ephemeral_block_devices,
+            hostname=hostname,
+            infrastructure_class=infrastructure_class,
+            install_updates_on_boot=install_updates_on_boot,
+            instance_profile_arn=instance_profile_arn,
+            instance_type=instance_type,
+            os=os,
+            root_block_devices=root_block_devices,
+            root_device_type=root_device_type,
+            security_group_ids=security_group_ids,
+            ssh_key_name=ssh_key_name,
+            state=state,
+            status=status,
+            subnet_id=subnet_id,
+            tenancy=tenancy,
+            virtualization_type=virtualization_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             layer_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             stack_id: Optional[pulumi.Input[str]] = None,
+             agent_version: Optional[pulumi.Input[str]] = None,
+             ami_id: Optional[pulumi.Input[str]] = None,
+             architecture: Optional[pulumi.Input[str]] = None,
+             auto_scaling_type: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             delete_ebs: Optional[pulumi.Input[bool]] = None,
+             delete_eip: Optional[pulumi.Input[bool]] = None,
+             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEbsBlockDeviceArgs']]]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             ecs_cluster_arn: Optional[pulumi.Input[str]] = None,
+             elastic_ip: Optional[pulumi.Input[str]] = None,
+             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEphemeralBlockDeviceArgs']]]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             infrastructure_class: Optional[pulumi.Input[str]] = None,
+             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
+             instance_profile_arn: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             os: Optional[pulumi.Input[str]] = None,
+             root_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceRootBlockDeviceArgs']]]] = None,
+             root_device_type: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ssh_key_name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tenancy: Optional[pulumi.Input[str]] = None,
+             virtualization_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if layer_ids is None and 'layerIds' in kwargs:
+            layer_ids = kwargs['layerIds']
+        if layer_ids is None:
+            raise TypeError("Missing 'layer_ids' argument")
+        if stack_id is None and 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if stack_id is None:
+            raise TypeError("Missing 'stack_id' argument")
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if ami_id is None and 'amiId' in kwargs:
+            ami_id = kwargs['amiId']
+        if auto_scaling_type is None and 'autoScalingType' in kwargs:
+            auto_scaling_type = kwargs['autoScalingType']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if delete_ebs is None and 'deleteEbs' in kwargs:
+            delete_ebs = kwargs['deleteEbs']
+        if delete_eip is None and 'deleteEip' in kwargs:
+            delete_eip = kwargs['deleteEip']
+        if ebs_block_devices is None and 'ebsBlockDevices' in kwargs:
+            ebs_block_devices = kwargs['ebsBlockDevices']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if ecs_cluster_arn is None and 'ecsClusterArn' in kwargs:
+            ecs_cluster_arn = kwargs['ecsClusterArn']
+        if elastic_ip is None and 'elasticIp' in kwargs:
+            elastic_ip = kwargs['elasticIp']
+        if ephemeral_block_devices is None and 'ephemeralBlockDevices' in kwargs:
+            ephemeral_block_devices = kwargs['ephemeralBlockDevices']
+        if infrastructure_class is None and 'infrastructureClass' in kwargs:
+            infrastructure_class = kwargs['infrastructureClass']
+        if install_updates_on_boot is None and 'installUpdatesOnBoot' in kwargs:
+            install_updates_on_boot = kwargs['installUpdatesOnBoot']
+        if instance_profile_arn is None and 'instanceProfileArn' in kwargs:
+            instance_profile_arn = kwargs['instanceProfileArn']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if root_block_devices is None and 'rootBlockDevices' in kwargs:
+            root_block_devices = kwargs['rootBlockDevices']
+        if root_device_type is None and 'rootDeviceType' in kwargs:
+            root_device_type = kwargs['rootDeviceType']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if ssh_key_name is None and 'sshKeyName' in kwargs:
+            ssh_key_name = kwargs['sshKeyName']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if virtualization_type is None and 'virtualizationType' in kwargs:
+            virtualization_type = kwargs['virtualizationType']
+
+        _setter("layer_ids", layer_ids)
+        _setter("stack_id", stack_id)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if ami_id is not None:
-            pulumi.set(__self__, "ami_id", ami_id)
+            _setter("ami_id", ami_id)
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if auto_scaling_type is not None:
-            pulumi.set(__self__, "auto_scaling_type", auto_scaling_type)
+            _setter("auto_scaling_type", auto_scaling_type)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if delete_ebs is not None:
-            pulumi.set(__self__, "delete_ebs", delete_ebs)
+            _setter("delete_ebs", delete_ebs)
         if delete_eip is not None:
-            pulumi.set(__self__, "delete_eip", delete_eip)
+            _setter("delete_eip", delete_eip)
         if ebs_block_devices is not None:
-            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+            _setter("ebs_block_devices", ebs_block_devices)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if ecs_cluster_arn is not None:
-            pulumi.set(__self__, "ecs_cluster_arn", ecs_cluster_arn)
+            _setter("ecs_cluster_arn", ecs_cluster_arn)
         if elastic_ip is not None:
-            pulumi.set(__self__, "elastic_ip", elastic_ip)
+            _setter("elastic_ip", elastic_ip)
         if ephemeral_block_devices is not None:
-            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+            _setter("ephemeral_block_devices", ephemeral_block_devices)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if infrastructure_class is not None:
-            pulumi.set(__self__, "infrastructure_class", infrastructure_class)
+            _setter("infrastructure_class", infrastructure_class)
         if install_updates_on_boot is not None:
-            pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
+            _setter("install_updates_on_boot", install_updates_on_boot)
         if instance_profile_arn is not None:
-            pulumi.set(__self__, "instance_profile_arn", instance_profile_arn)
+            _setter("instance_profile_arn", instance_profile_arn)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if os is not None:
-            pulumi.set(__self__, "os", os)
+            _setter("os", os)
         if root_block_devices is not None:
-            pulumi.set(__self__, "root_block_devices", root_block_devices)
+            _setter("root_block_devices", root_block_devices)
         if root_device_type is not None:
-            pulumi.set(__self__, "root_device_type", root_device_type)
+            _setter("root_device_type", root_device_type)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if ssh_key_name is not None:
-            pulumi.set(__self__, "ssh_key_name", ssh_key_name)
+            _setter("ssh_key_name", ssh_key_name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tenancy is not None:
-            pulumi.set(__self__, "tenancy", tenancy)
+            _setter("tenancy", tenancy)
         if virtualization_type is not None:
-            pulumi.set(__self__, "virtualization_type", virtualization_type)
+            _setter("virtualization_type", virtualization_type)
 
     @property
     @pulumi.getter(name="layerIds")
@@ -601,96 +722,271 @@ class _InstanceState:
         :param pulumi.Input[str] tenancy: Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
         """
+        _InstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_version=agent_version,
+            ami_id=ami_id,
+            architecture=architecture,
+            auto_scaling_type=auto_scaling_type,
+            availability_zone=availability_zone,
+            created_at=created_at,
+            delete_ebs=delete_ebs,
+            delete_eip=delete_eip,
+            ebs_block_devices=ebs_block_devices,
+            ebs_optimized=ebs_optimized,
+            ec2_instance_id=ec2_instance_id,
+            ecs_cluster_arn=ecs_cluster_arn,
+            elastic_ip=elastic_ip,
+            ephemeral_block_devices=ephemeral_block_devices,
+            hostname=hostname,
+            infrastructure_class=infrastructure_class,
+            install_updates_on_boot=install_updates_on_boot,
+            instance_profile_arn=instance_profile_arn,
+            instance_type=instance_type,
+            last_service_error_id=last_service_error_id,
+            layer_ids=layer_ids,
+            os=os,
+            platform=platform,
+            private_dns=private_dns,
+            private_ip=private_ip,
+            public_dns=public_dns,
+            public_ip=public_ip,
+            registered_by=registered_by,
+            reported_agent_version=reported_agent_version,
+            reported_os_family=reported_os_family,
+            reported_os_name=reported_os_name,
+            reported_os_version=reported_os_version,
+            root_block_devices=root_block_devices,
+            root_device_type=root_device_type,
+            root_device_volume_id=root_device_volume_id,
+            security_group_ids=security_group_ids,
+            ssh_host_dsa_key_fingerprint=ssh_host_dsa_key_fingerprint,
+            ssh_host_rsa_key_fingerprint=ssh_host_rsa_key_fingerprint,
+            ssh_key_name=ssh_key_name,
+            stack_id=stack_id,
+            state=state,
+            status=status,
+            subnet_id=subnet_id,
+            tenancy=tenancy,
+            virtualization_type=virtualization_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_version: Optional[pulumi.Input[str]] = None,
+             ami_id: Optional[pulumi.Input[str]] = None,
+             architecture: Optional[pulumi.Input[str]] = None,
+             auto_scaling_type: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             delete_ebs: Optional[pulumi.Input[bool]] = None,
+             delete_eip: Optional[pulumi.Input[bool]] = None,
+             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEbsBlockDeviceArgs']]]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             ec2_instance_id: Optional[pulumi.Input[str]] = None,
+             ecs_cluster_arn: Optional[pulumi.Input[str]] = None,
+             elastic_ip: Optional[pulumi.Input[str]] = None,
+             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEphemeralBlockDeviceArgs']]]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             infrastructure_class: Optional[pulumi.Input[str]] = None,
+             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
+             instance_profile_arn: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             last_service_error_id: Optional[pulumi.Input[str]] = None,
+             layer_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             os: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input[str]] = None,
+             private_dns: Optional[pulumi.Input[str]] = None,
+             private_ip: Optional[pulumi.Input[str]] = None,
+             public_dns: Optional[pulumi.Input[str]] = None,
+             public_ip: Optional[pulumi.Input[str]] = None,
+             registered_by: Optional[pulumi.Input[str]] = None,
+             reported_agent_version: Optional[pulumi.Input[str]] = None,
+             reported_os_family: Optional[pulumi.Input[str]] = None,
+             reported_os_name: Optional[pulumi.Input[str]] = None,
+             reported_os_version: Optional[pulumi.Input[str]] = None,
+             root_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceRootBlockDeviceArgs']]]] = None,
+             root_device_type: Optional[pulumi.Input[str]] = None,
+             root_device_volume_id: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ssh_host_dsa_key_fingerprint: Optional[pulumi.Input[str]] = None,
+             ssh_host_rsa_key_fingerprint: Optional[pulumi.Input[str]] = None,
+             ssh_key_name: Optional[pulumi.Input[str]] = None,
+             stack_id: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tenancy: Optional[pulumi.Input[str]] = None,
+             virtualization_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if ami_id is None and 'amiId' in kwargs:
+            ami_id = kwargs['amiId']
+        if auto_scaling_type is None and 'autoScalingType' in kwargs:
+            auto_scaling_type = kwargs['autoScalingType']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if delete_ebs is None and 'deleteEbs' in kwargs:
+            delete_ebs = kwargs['deleteEbs']
+        if delete_eip is None and 'deleteEip' in kwargs:
+            delete_eip = kwargs['deleteEip']
+        if ebs_block_devices is None and 'ebsBlockDevices' in kwargs:
+            ebs_block_devices = kwargs['ebsBlockDevices']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if ec2_instance_id is None and 'ec2InstanceId' in kwargs:
+            ec2_instance_id = kwargs['ec2InstanceId']
+        if ecs_cluster_arn is None and 'ecsClusterArn' in kwargs:
+            ecs_cluster_arn = kwargs['ecsClusterArn']
+        if elastic_ip is None and 'elasticIp' in kwargs:
+            elastic_ip = kwargs['elasticIp']
+        if ephemeral_block_devices is None and 'ephemeralBlockDevices' in kwargs:
+            ephemeral_block_devices = kwargs['ephemeralBlockDevices']
+        if infrastructure_class is None and 'infrastructureClass' in kwargs:
+            infrastructure_class = kwargs['infrastructureClass']
+        if install_updates_on_boot is None and 'installUpdatesOnBoot' in kwargs:
+            install_updates_on_boot = kwargs['installUpdatesOnBoot']
+        if instance_profile_arn is None and 'instanceProfileArn' in kwargs:
+            instance_profile_arn = kwargs['instanceProfileArn']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if last_service_error_id is None and 'lastServiceErrorId' in kwargs:
+            last_service_error_id = kwargs['lastServiceErrorId']
+        if layer_ids is None and 'layerIds' in kwargs:
+            layer_ids = kwargs['layerIds']
+        if private_dns is None and 'privateDns' in kwargs:
+            private_dns = kwargs['privateDns']
+        if private_ip is None and 'privateIp' in kwargs:
+            private_ip = kwargs['privateIp']
+        if public_dns is None and 'publicDns' in kwargs:
+            public_dns = kwargs['publicDns']
+        if public_ip is None and 'publicIp' in kwargs:
+            public_ip = kwargs['publicIp']
+        if registered_by is None and 'registeredBy' in kwargs:
+            registered_by = kwargs['registeredBy']
+        if reported_agent_version is None and 'reportedAgentVersion' in kwargs:
+            reported_agent_version = kwargs['reportedAgentVersion']
+        if reported_os_family is None and 'reportedOsFamily' in kwargs:
+            reported_os_family = kwargs['reportedOsFamily']
+        if reported_os_name is None and 'reportedOsName' in kwargs:
+            reported_os_name = kwargs['reportedOsName']
+        if reported_os_version is None and 'reportedOsVersion' in kwargs:
+            reported_os_version = kwargs['reportedOsVersion']
+        if root_block_devices is None and 'rootBlockDevices' in kwargs:
+            root_block_devices = kwargs['rootBlockDevices']
+        if root_device_type is None and 'rootDeviceType' in kwargs:
+            root_device_type = kwargs['rootDeviceType']
+        if root_device_volume_id is None and 'rootDeviceVolumeId' in kwargs:
+            root_device_volume_id = kwargs['rootDeviceVolumeId']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if ssh_host_dsa_key_fingerprint is None and 'sshHostDsaKeyFingerprint' in kwargs:
+            ssh_host_dsa_key_fingerprint = kwargs['sshHostDsaKeyFingerprint']
+        if ssh_host_rsa_key_fingerprint is None and 'sshHostRsaKeyFingerprint' in kwargs:
+            ssh_host_rsa_key_fingerprint = kwargs['sshHostRsaKeyFingerprint']
+        if ssh_key_name is None and 'sshKeyName' in kwargs:
+            ssh_key_name = kwargs['sshKeyName']
+        if stack_id is None and 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if virtualization_type is None and 'virtualizationType' in kwargs:
+            virtualization_type = kwargs['virtualizationType']
+
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if ami_id is not None:
-            pulumi.set(__self__, "ami_id", ami_id)
+            _setter("ami_id", ami_id)
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if auto_scaling_type is not None:
-            pulumi.set(__self__, "auto_scaling_type", auto_scaling_type)
+            _setter("auto_scaling_type", auto_scaling_type)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if delete_ebs is not None:
-            pulumi.set(__self__, "delete_ebs", delete_ebs)
+            _setter("delete_ebs", delete_ebs)
         if delete_eip is not None:
-            pulumi.set(__self__, "delete_eip", delete_eip)
+            _setter("delete_eip", delete_eip)
         if ebs_block_devices is not None:
-            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+            _setter("ebs_block_devices", ebs_block_devices)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if ec2_instance_id is not None:
-            pulumi.set(__self__, "ec2_instance_id", ec2_instance_id)
+            _setter("ec2_instance_id", ec2_instance_id)
         if ecs_cluster_arn is not None:
-            pulumi.set(__self__, "ecs_cluster_arn", ecs_cluster_arn)
+            _setter("ecs_cluster_arn", ecs_cluster_arn)
         if elastic_ip is not None:
-            pulumi.set(__self__, "elastic_ip", elastic_ip)
+            _setter("elastic_ip", elastic_ip)
         if ephemeral_block_devices is not None:
-            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+            _setter("ephemeral_block_devices", ephemeral_block_devices)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if infrastructure_class is not None:
-            pulumi.set(__self__, "infrastructure_class", infrastructure_class)
+            _setter("infrastructure_class", infrastructure_class)
         if install_updates_on_boot is not None:
-            pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
+            _setter("install_updates_on_boot", install_updates_on_boot)
         if instance_profile_arn is not None:
-            pulumi.set(__self__, "instance_profile_arn", instance_profile_arn)
+            _setter("instance_profile_arn", instance_profile_arn)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if last_service_error_id is not None:
-            pulumi.set(__self__, "last_service_error_id", last_service_error_id)
+            _setter("last_service_error_id", last_service_error_id)
         if layer_ids is not None:
-            pulumi.set(__self__, "layer_ids", layer_ids)
+            _setter("layer_ids", layer_ids)
         if os is not None:
-            pulumi.set(__self__, "os", os)
+            _setter("os", os)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if private_dns is not None:
-            pulumi.set(__self__, "private_dns", private_dns)
+            _setter("private_dns", private_dns)
         if private_ip is not None:
-            pulumi.set(__self__, "private_ip", private_ip)
+            _setter("private_ip", private_ip)
         if public_dns is not None:
-            pulumi.set(__self__, "public_dns", public_dns)
+            _setter("public_dns", public_dns)
         if public_ip is not None:
-            pulumi.set(__self__, "public_ip", public_ip)
+            _setter("public_ip", public_ip)
         if registered_by is not None:
-            pulumi.set(__self__, "registered_by", registered_by)
+            _setter("registered_by", registered_by)
         if reported_agent_version is not None:
-            pulumi.set(__self__, "reported_agent_version", reported_agent_version)
+            _setter("reported_agent_version", reported_agent_version)
         if reported_os_family is not None:
-            pulumi.set(__self__, "reported_os_family", reported_os_family)
+            _setter("reported_os_family", reported_os_family)
         if reported_os_name is not None:
-            pulumi.set(__self__, "reported_os_name", reported_os_name)
+            _setter("reported_os_name", reported_os_name)
         if reported_os_version is not None:
-            pulumi.set(__self__, "reported_os_version", reported_os_version)
+            _setter("reported_os_version", reported_os_version)
         if root_block_devices is not None:
-            pulumi.set(__self__, "root_block_devices", root_block_devices)
+            _setter("root_block_devices", root_block_devices)
         if root_device_type is not None:
-            pulumi.set(__self__, "root_device_type", root_device_type)
+            _setter("root_device_type", root_device_type)
         if root_device_volume_id is not None:
-            pulumi.set(__self__, "root_device_volume_id", root_device_volume_id)
+            _setter("root_device_volume_id", root_device_volume_id)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if ssh_host_dsa_key_fingerprint is not None:
-            pulumi.set(__self__, "ssh_host_dsa_key_fingerprint", ssh_host_dsa_key_fingerprint)
+            _setter("ssh_host_dsa_key_fingerprint", ssh_host_dsa_key_fingerprint)
         if ssh_host_rsa_key_fingerprint is not None:
-            pulumi.set(__self__, "ssh_host_rsa_key_fingerprint", ssh_host_rsa_key_fingerprint)
+            _setter("ssh_host_rsa_key_fingerprint", ssh_host_rsa_key_fingerprint)
         if ssh_key_name is not None:
-            pulumi.set(__self__, "ssh_key_name", ssh_key_name)
+            _setter("ssh_key_name", ssh_key_name)
         if stack_id is not None:
-            pulumi.set(__self__, "stack_id", stack_id)
+            _setter("stack_id", stack_id)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tenancy is not None:
-            pulumi.set(__self__, "tenancy", tenancy)
+            _setter("tenancy", tenancy)
         if virtualization_type is not None:
-            pulumi.set(__self__, "virtualization_type", virtualization_type)
+            _setter("virtualization_type", virtualization_type)
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -1458,6 +1754,10 @@ class Instance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

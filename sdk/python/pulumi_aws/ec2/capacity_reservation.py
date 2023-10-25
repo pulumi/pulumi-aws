@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -44,28 +44,93 @@ class CapacityReservationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
-        pulumi.set(__self__, "availability_zone", availability_zone)
-        pulumi.set(__self__, "instance_count", instance_count)
-        pulumi.set(__self__, "instance_platform", instance_platform)
-        pulumi.set(__self__, "instance_type", instance_type)
+        CapacityReservationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            instance_count=instance_count,
+            instance_platform=instance_platform,
+            instance_type=instance_type,
+            ebs_optimized=ebs_optimized,
+            end_date=end_date,
+            end_date_type=end_date_type,
+            ephemeral_storage=ephemeral_storage,
+            instance_match_criteria=instance_match_criteria,
+            outpost_arn=outpost_arn,
+            placement_group_arn=placement_group_arn,
+            tags=tags,
+            tenancy=tenancy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             instance_platform: Optional[pulumi.Input[Union[str, 'InstancePlatform']]] = None,
+             instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             end_date: Optional[pulumi.Input[str]] = None,
+             end_date_type: Optional[pulumi.Input[str]] = None,
+             ephemeral_storage: Optional[pulumi.Input[bool]] = None,
+             instance_match_criteria: Optional[pulumi.Input[str]] = None,
+             outpost_arn: Optional[pulumi.Input[str]] = None,
+             placement_group_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone is None:
+            raise TypeError("Missing 'availability_zone' argument")
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if instance_count is None:
+            raise TypeError("Missing 'instance_count' argument")
+        if instance_platform is None and 'instancePlatform' in kwargs:
+            instance_platform = kwargs['instancePlatform']
+        if instance_platform is None:
+            raise TypeError("Missing 'instance_platform' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if end_date_type is None and 'endDateType' in kwargs:
+            end_date_type = kwargs['endDateType']
+        if ephemeral_storage is None and 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if instance_match_criteria is None and 'instanceMatchCriteria' in kwargs:
+            instance_match_criteria = kwargs['instanceMatchCriteria']
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if placement_group_arn is None and 'placementGroupArn' in kwargs:
+            placement_group_arn = kwargs['placementGroupArn']
+
+        _setter("availability_zone", availability_zone)
+        _setter("instance_count", instance_count)
+        _setter("instance_platform", instance_platform)
+        _setter("instance_type", instance_type)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if end_date_type is not None:
-            pulumi.set(__self__, "end_date_type", end_date_type)
+            _setter("end_date_type", end_date_type)
         if ephemeral_storage is not None:
-            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+            _setter("ephemeral_storage", ephemeral_storage)
         if instance_match_criteria is not None:
-            pulumi.set(__self__, "instance_match_criteria", instance_match_criteria)
+            _setter("instance_match_criteria", instance_match_criteria)
         if outpost_arn is not None:
-            pulumi.set(__self__, "outpost_arn", outpost_arn)
+            _setter("outpost_arn", outpost_arn)
         if placement_group_arn is not None:
-            pulumi.set(__self__, "placement_group_arn", placement_group_arn)
+            _setter("placement_group_arn", placement_group_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tenancy is not None:
-            pulumi.set(__self__, "tenancy", tenancy)
+            _setter("tenancy", tenancy)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -262,41 +327,108 @@ class _CapacityReservationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
+        _CapacityReservationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            availability_zone=availability_zone,
+            ebs_optimized=ebs_optimized,
+            end_date=end_date,
+            end_date_type=end_date_type,
+            ephemeral_storage=ephemeral_storage,
+            instance_count=instance_count,
+            instance_match_criteria=instance_match_criteria,
+            instance_platform=instance_platform,
+            instance_type=instance_type,
+            outpost_arn=outpost_arn,
+            owner_id=owner_id,
+            placement_group_arn=placement_group_arn,
+            tags=tags,
+            tags_all=tags_all,
+            tenancy=tenancy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             end_date: Optional[pulumi.Input[str]] = None,
+             end_date_type: Optional[pulumi.Input[str]] = None,
+             ephemeral_storage: Optional[pulumi.Input[bool]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             instance_match_criteria: Optional[pulumi.Input[str]] = None,
+             instance_platform: Optional[pulumi.Input[Union[str, 'InstancePlatform']]] = None,
+             instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
+             outpost_arn: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             placement_group_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if end_date_type is None and 'endDateType' in kwargs:
+            end_date_type = kwargs['endDateType']
+        if ephemeral_storage is None and 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if instance_match_criteria is None and 'instanceMatchCriteria' in kwargs:
+            instance_match_criteria = kwargs['instanceMatchCriteria']
+        if instance_platform is None and 'instancePlatform' in kwargs:
+            instance_platform = kwargs['instancePlatform']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if placement_group_arn is None and 'placementGroupArn' in kwargs:
+            placement_group_arn = kwargs['placementGroupArn']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if end_date_type is not None:
-            pulumi.set(__self__, "end_date_type", end_date_type)
+            _setter("end_date_type", end_date_type)
         if ephemeral_storage is not None:
-            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+            _setter("ephemeral_storage", ephemeral_storage)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if instance_match_criteria is not None:
-            pulumi.set(__self__, "instance_match_criteria", instance_match_criteria)
+            _setter("instance_match_criteria", instance_match_criteria)
         if instance_platform is not None:
-            pulumi.set(__self__, "instance_platform", instance_platform)
+            _setter("instance_platform", instance_platform)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if outpost_arn is not None:
-            pulumi.set(__self__, "outpost_arn", outpost_arn)
+            _setter("outpost_arn", outpost_arn)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if placement_group_arn is not None:
-            pulumi.set(__self__, "placement_group_arn", placement_group_arn)
+            _setter("placement_group_arn", placement_group_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tenancy is not None:
-            pulumi.set(__self__, "tenancy", tenancy)
+            _setter("tenancy", tenancy)
 
     @property
     @pulumi.getter
@@ -593,6 +725,10 @@ class CapacityReservation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CapacityReservationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

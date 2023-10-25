@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,30 @@ class CapacityProviderArgs:
         :param pulumi.Input[str] name: Name of the capacity provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "auto_scaling_group_provider", auto_scaling_group_provider)
+        CapacityProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_scaling_group_provider=auto_scaling_group_provider,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_scaling_group_provider: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_scaling_group_provider is None and 'autoScalingGroupProvider' in kwargs:
+            auto_scaling_group_provider = kwargs['autoScalingGroupProvider']
+        if auto_scaling_group_provider is None:
+            raise TypeError("Missing 'auto_scaling_group_provider' argument")
+
+        _setter("auto_scaling_group_provider", auto_scaling_group_provider)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="autoScalingGroupProvider")
@@ -84,19 +103,42 @@ class _CapacityProviderState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _CapacityProviderState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auto_scaling_group_provider=auto_scaling_group_provider,
+            name=name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_scaling_group_provider: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_scaling_group_provider is None and 'autoScalingGroupProvider' in kwargs:
+            auto_scaling_group_provider = kwargs['autoScalingGroupProvider']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_scaling_group_provider is not None:
-            pulumi.set(__self__, "auto_scaling_group_provider", auto_scaling_group_provider)
+            _setter("auto_scaling_group_provider", auto_scaling_group_provider)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -267,6 +309,10 @@ class CapacityProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CapacityProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -284,6 +330,7 @@ class CapacityProvider(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CapacityProviderArgs.__new__(CapacityProviderArgs)
 
+            auto_scaling_group_provider = _utilities.configure(auto_scaling_group_provider, CapacityProviderAutoScalingGroupProviderArgs, True)
             if auto_scaling_group_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_scaling_group_provider'")
             __props__.__dict__["auto_scaling_group_provider"] = auto_scaling_group_provider

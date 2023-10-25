@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class WorkflowStepTagStepDetailsTag {
     /**
-     * @return The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+     * @return The name assigned to the tag that you create.
      * 
      */
     private String key;
@@ -22,7 +22,7 @@ public final class WorkflowStepTagStepDetailsTag {
 
     private WorkflowStepTagStepDetailsTag() {}
     /**
-     * @return The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+     * @return The name assigned to the tag that you create.
      * 
      */
     public String key() {

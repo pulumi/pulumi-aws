@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteArgs', 'Route']
@@ -25,12 +25,39 @@ class RouteArgs:
         :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches this route (default to `false`).
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
         """
-        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
-        pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+        RouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_cidr_block=destination_cidr_block,
+            transit_gateway_route_table_id=transit_gateway_route_table_id,
+            blackhole=blackhole,
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_cidr_block: Optional[pulumi.Input[str]] = None,
+             transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             blackhole: Optional[pulumi.Input[bool]] = None,
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_cidr_block is None and 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if destination_cidr_block is None:
+            raise TypeError("Missing 'destination_cidr_block' argument")
+        if transit_gateway_route_table_id is None and 'transitGatewayRouteTableId' in kwargs:
+            transit_gateway_route_table_id = kwargs['transitGatewayRouteTableId']
+        if transit_gateway_route_table_id is None:
+            raise TypeError("Missing 'transit_gateway_route_table_id' argument")
+        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+
+        _setter("destination_cidr_block", destination_cidr_block)
+        _setter("transit_gateway_route_table_id", transit_gateway_route_table_id)
         if blackhole is not None:
-            pulumi.set(__self__, "blackhole", blackhole)
+            _setter("blackhole", blackhole)
         if transit_gateway_attachment_id is not None:
-            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -95,14 +122,37 @@ class _RouteState:
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
+        _RouteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blackhole=blackhole,
+            destination_cidr_block=destination_cidr_block,
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+            transit_gateway_route_table_id=transit_gateway_route_table_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blackhole: Optional[pulumi.Input[bool]] = None,
+             destination_cidr_block: Optional[pulumi.Input[str]] = None,
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_cidr_block is None and 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if transit_gateway_route_table_id is None and 'transitGatewayRouteTableId' in kwargs:
+            transit_gateway_route_table_id = kwargs['transitGatewayRouteTableId']
+
         if blackhole is not None:
-            pulumi.set(__self__, "blackhole", blackhole)
+            _setter("blackhole", blackhole)
         if destination_cidr_block is not None:
-            pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+            _setter("destination_cidr_block", destination_cidr_block)
         if transit_gateway_attachment_id is not None:
-            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_route_table_id is not None:
-            pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+            _setter("transit_gateway_route_table_id", transit_gateway_route_table_id)
 
     @property
     @pulumi.getter
@@ -256,6 +306,10 @@ class Route(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

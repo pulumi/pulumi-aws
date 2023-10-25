@@ -26,37 +26,34 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			var splat0 []interface{}
-//			for _, val0 := range aws_subnet.Test {
-//				splat0 = append(splat0, val0.Id)
-//			}
-//			_, err := msk.NewVpcConnection(ctx, "test", &msk.VpcConnectionArgs{
-//				Authentication:   pulumi.String("SASL_IAM"),
-//				TargetClusterArn: pulumi.String("aws_msk_cluster.arn"),
-//				VpcId:            pulumi.Any(aws_vpc.Test.Id),
-//				ClientSubnets:    toPulumiAnyArray(splat0),
-//				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Test.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-//	func toPulumiAnyArray(arr []Any) pulumi.AnyArray {
-//		var pulumiArr pulumi.AnyArray
-//		for _, v := range arr {
-//			pulumiArr = append(pulumiArr, pulumi.Any(v))
-//		}
-//		return pulumiArr
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var splat0 []interface{}
+// for _, val0 := range aws_subnet.Test {
+// splat0 = append(splat0, val0.Id)
+// }
+// _, err := msk.NewVpcConnection(ctx, "test", &msk.VpcConnectionArgs{
+// Authentication: pulumi.String("SASL_IAM"),
+// TargetClusterArn: pulumi.String("aws_msk_cluster.arn"),
+// VpcId: pulumi.Any(aws_vpc.Test.Id),
+// ClientSubnets: toPulumiArray(splat0),
+// SecurityGroups: pulumi.StringArray{
+// aws_security_group.Test.Id,
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiArray(arr []) pulumi.Array {
+// var pulumiArr pulumi.Array
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.(v))
+// }
+// return pulumiArr
+// }
 // ```
 //
 // ## Import

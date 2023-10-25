@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,34 +49,103 @@ class OntapVolumeArgs:
         :param pulumi.Input['OntapVolumeTieringPolicyArgs'] tiering_policy: The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
         :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
         """
-        pulumi.set(__self__, "size_in_megabytes", size_in_megabytes)
-        pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
+        OntapVolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size_in_megabytes=size_in_megabytes,
+            storage_virtual_machine_id=storage_virtual_machine_id,
+            bypass_snaplock_enterprise_retention=bypass_snaplock_enterprise_retention,
+            copy_tags_to_backups=copy_tags_to_backups,
+            junction_path=junction_path,
+            name=name,
+            ontap_volume_type=ontap_volume_type,
+            security_style=security_style,
+            skip_final_backup=skip_final_backup,
+            snaplock_configuration=snaplock_configuration,
+            snapshot_policy=snapshot_policy,
+            storage_efficiency_enabled=storage_efficiency_enabled,
+            tags=tags,
+            tiering_policy=tiering_policy,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size_in_megabytes: Optional[pulumi.Input[int]] = None,
+             storage_virtual_machine_id: Optional[pulumi.Input[str]] = None,
+             bypass_snaplock_enterprise_retention: Optional[pulumi.Input[bool]] = None,
+             copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
+             junction_path: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             ontap_volume_type: Optional[pulumi.Input[str]] = None,
+             security_style: Optional[pulumi.Input[str]] = None,
+             skip_final_backup: Optional[pulumi.Input[bool]] = None,
+             snaplock_configuration: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationArgs']] = None,
+             snapshot_policy: Optional[pulumi.Input[str]] = None,
+             storage_efficiency_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tiering_policy: Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size_in_megabytes is None and 'sizeInMegabytes' in kwargs:
+            size_in_megabytes = kwargs['sizeInMegabytes']
+        if size_in_megabytes is None:
+            raise TypeError("Missing 'size_in_megabytes' argument")
+        if storage_virtual_machine_id is None and 'storageVirtualMachineId' in kwargs:
+            storage_virtual_machine_id = kwargs['storageVirtualMachineId']
+        if storage_virtual_machine_id is None:
+            raise TypeError("Missing 'storage_virtual_machine_id' argument")
+        if bypass_snaplock_enterprise_retention is None and 'bypassSnaplockEnterpriseRetention' in kwargs:
+            bypass_snaplock_enterprise_retention = kwargs['bypassSnaplockEnterpriseRetention']
+        if copy_tags_to_backups is None and 'copyTagsToBackups' in kwargs:
+            copy_tags_to_backups = kwargs['copyTagsToBackups']
+        if junction_path is None and 'junctionPath' in kwargs:
+            junction_path = kwargs['junctionPath']
+        if ontap_volume_type is None and 'ontapVolumeType' in kwargs:
+            ontap_volume_type = kwargs['ontapVolumeType']
+        if security_style is None and 'securityStyle' in kwargs:
+            security_style = kwargs['securityStyle']
+        if skip_final_backup is None and 'skipFinalBackup' in kwargs:
+            skip_final_backup = kwargs['skipFinalBackup']
+        if snaplock_configuration is None and 'snaplockConfiguration' in kwargs:
+            snaplock_configuration = kwargs['snaplockConfiguration']
+        if snapshot_policy is None and 'snapshotPolicy' in kwargs:
+            snapshot_policy = kwargs['snapshotPolicy']
+        if storage_efficiency_enabled is None and 'storageEfficiencyEnabled' in kwargs:
+            storage_efficiency_enabled = kwargs['storageEfficiencyEnabled']
+        if tiering_policy is None and 'tieringPolicy' in kwargs:
+            tiering_policy = kwargs['tieringPolicy']
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
+        _setter("size_in_megabytes", size_in_megabytes)
+        _setter("storage_virtual_machine_id", storage_virtual_machine_id)
         if bypass_snaplock_enterprise_retention is not None:
-            pulumi.set(__self__, "bypass_snaplock_enterprise_retention", bypass_snaplock_enterprise_retention)
+            _setter("bypass_snaplock_enterprise_retention", bypass_snaplock_enterprise_retention)
         if copy_tags_to_backups is not None:
-            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
+            _setter("copy_tags_to_backups", copy_tags_to_backups)
         if junction_path is not None:
-            pulumi.set(__self__, "junction_path", junction_path)
+            _setter("junction_path", junction_path)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ontap_volume_type is not None:
-            pulumi.set(__self__, "ontap_volume_type", ontap_volume_type)
+            _setter("ontap_volume_type", ontap_volume_type)
         if security_style is not None:
-            pulumi.set(__self__, "security_style", security_style)
+            _setter("security_style", security_style)
         if skip_final_backup is not None:
-            pulumi.set(__self__, "skip_final_backup", skip_final_backup)
+            _setter("skip_final_backup", skip_final_backup)
         if snaplock_configuration is not None:
-            pulumi.set(__self__, "snaplock_configuration", snaplock_configuration)
+            _setter("snaplock_configuration", snaplock_configuration)
         if snapshot_policy is not None:
-            pulumi.set(__self__, "snapshot_policy", snapshot_policy)
+            _setter("snapshot_policy", snapshot_policy)
         if storage_efficiency_enabled is not None:
-            pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
+            _setter("storage_efficiency_enabled", storage_efficiency_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tiering_policy is not None:
-            pulumi.set(__self__, "tiering_policy", tiering_policy)
+            _setter("tiering_policy", tiering_policy)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="sizeInMegabytes")
@@ -305,49 +374,130 @@ class _OntapVolumeState:
         :param pulumi.Input[str] uuid: The Volume's UUID (universally unique identifier).
         :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
         """
+        _OntapVolumeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            bypass_snaplock_enterprise_retention=bypass_snaplock_enterprise_retention,
+            copy_tags_to_backups=copy_tags_to_backups,
+            file_system_id=file_system_id,
+            flexcache_endpoint_type=flexcache_endpoint_type,
+            junction_path=junction_path,
+            name=name,
+            ontap_volume_type=ontap_volume_type,
+            security_style=security_style,
+            size_in_megabytes=size_in_megabytes,
+            skip_final_backup=skip_final_backup,
+            snaplock_configuration=snaplock_configuration,
+            snapshot_policy=snapshot_policy,
+            storage_efficiency_enabled=storage_efficiency_enabled,
+            storage_virtual_machine_id=storage_virtual_machine_id,
+            tags=tags,
+            tags_all=tags_all,
+            tiering_policy=tiering_policy,
+            uuid=uuid,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             bypass_snaplock_enterprise_retention: Optional[pulumi.Input[bool]] = None,
+             copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
+             file_system_id: Optional[pulumi.Input[str]] = None,
+             flexcache_endpoint_type: Optional[pulumi.Input[str]] = None,
+             junction_path: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             ontap_volume_type: Optional[pulumi.Input[str]] = None,
+             security_style: Optional[pulumi.Input[str]] = None,
+             size_in_megabytes: Optional[pulumi.Input[int]] = None,
+             skip_final_backup: Optional[pulumi.Input[bool]] = None,
+             snaplock_configuration: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationArgs']] = None,
+             snapshot_policy: Optional[pulumi.Input[str]] = None,
+             storage_efficiency_enabled: Optional[pulumi.Input[bool]] = None,
+             storage_virtual_machine_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tiering_policy: Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']] = None,
+             uuid: Optional[pulumi.Input[str]] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bypass_snaplock_enterprise_retention is None and 'bypassSnaplockEnterpriseRetention' in kwargs:
+            bypass_snaplock_enterprise_retention = kwargs['bypassSnaplockEnterpriseRetention']
+        if copy_tags_to_backups is None and 'copyTagsToBackups' in kwargs:
+            copy_tags_to_backups = kwargs['copyTagsToBackups']
+        if file_system_id is None and 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if flexcache_endpoint_type is None and 'flexcacheEndpointType' in kwargs:
+            flexcache_endpoint_type = kwargs['flexcacheEndpointType']
+        if junction_path is None and 'junctionPath' in kwargs:
+            junction_path = kwargs['junctionPath']
+        if ontap_volume_type is None and 'ontapVolumeType' in kwargs:
+            ontap_volume_type = kwargs['ontapVolumeType']
+        if security_style is None and 'securityStyle' in kwargs:
+            security_style = kwargs['securityStyle']
+        if size_in_megabytes is None and 'sizeInMegabytes' in kwargs:
+            size_in_megabytes = kwargs['sizeInMegabytes']
+        if skip_final_backup is None and 'skipFinalBackup' in kwargs:
+            skip_final_backup = kwargs['skipFinalBackup']
+        if snaplock_configuration is None and 'snaplockConfiguration' in kwargs:
+            snaplock_configuration = kwargs['snaplockConfiguration']
+        if snapshot_policy is None and 'snapshotPolicy' in kwargs:
+            snapshot_policy = kwargs['snapshotPolicy']
+        if storage_efficiency_enabled is None and 'storageEfficiencyEnabled' in kwargs:
+            storage_efficiency_enabled = kwargs['storageEfficiencyEnabled']
+        if storage_virtual_machine_id is None and 'storageVirtualMachineId' in kwargs:
+            storage_virtual_machine_id = kwargs['storageVirtualMachineId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if tiering_policy is None and 'tieringPolicy' in kwargs:
+            tiering_policy = kwargs['tieringPolicy']
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bypass_snaplock_enterprise_retention is not None:
-            pulumi.set(__self__, "bypass_snaplock_enterprise_retention", bypass_snaplock_enterprise_retention)
+            _setter("bypass_snaplock_enterprise_retention", bypass_snaplock_enterprise_retention)
         if copy_tags_to_backups is not None:
-            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
+            _setter("copy_tags_to_backups", copy_tags_to_backups)
         if file_system_id is not None:
-            pulumi.set(__self__, "file_system_id", file_system_id)
+            _setter("file_system_id", file_system_id)
         if flexcache_endpoint_type is not None:
-            pulumi.set(__self__, "flexcache_endpoint_type", flexcache_endpoint_type)
+            _setter("flexcache_endpoint_type", flexcache_endpoint_type)
         if junction_path is not None:
-            pulumi.set(__self__, "junction_path", junction_path)
+            _setter("junction_path", junction_path)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ontap_volume_type is not None:
-            pulumi.set(__self__, "ontap_volume_type", ontap_volume_type)
+            _setter("ontap_volume_type", ontap_volume_type)
         if security_style is not None:
-            pulumi.set(__self__, "security_style", security_style)
+            _setter("security_style", security_style)
         if size_in_megabytes is not None:
-            pulumi.set(__self__, "size_in_megabytes", size_in_megabytes)
+            _setter("size_in_megabytes", size_in_megabytes)
         if skip_final_backup is not None:
-            pulumi.set(__self__, "skip_final_backup", skip_final_backup)
+            _setter("skip_final_backup", skip_final_backup)
         if snaplock_configuration is not None:
-            pulumi.set(__self__, "snaplock_configuration", snaplock_configuration)
+            _setter("snaplock_configuration", snaplock_configuration)
         if snapshot_policy is not None:
-            pulumi.set(__self__, "snapshot_policy", snapshot_policy)
+            _setter("snapshot_policy", snapshot_policy)
         if storage_efficiency_enabled is not None:
-            pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
+            _setter("storage_efficiency_enabled", storage_efficiency_enabled)
         if storage_virtual_machine_id is not None:
-            pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
+            _setter("storage_virtual_machine_id", storage_virtual_machine_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tiering_policy is not None:
-            pulumi.set(__self__, "tiering_policy", tiering_policy)
+            _setter("tiering_policy", tiering_policy)
         if uuid is not None:
-            pulumi.set(__self__, "uuid", uuid)
+            _setter("uuid", uuid)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter
@@ -736,6 +886,10 @@ class OntapVolume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OntapVolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -775,6 +929,7 @@ class OntapVolume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'size_in_megabytes'")
             __props__.__dict__["size_in_megabytes"] = size_in_megabytes
             __props__.__dict__["skip_final_backup"] = skip_final_backup
+            snaplock_configuration = _utilities.configure(snaplock_configuration, OntapVolumeSnaplockConfigurationArgs, True)
             __props__.__dict__["snaplock_configuration"] = snaplock_configuration
             __props__.__dict__["snapshot_policy"] = snapshot_policy
             __props__.__dict__["storage_efficiency_enabled"] = storage_efficiency_enabled
@@ -782,6 +937,7 @@ class OntapVolume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_virtual_machine_id'")
             __props__.__dict__["storage_virtual_machine_id"] = storage_virtual_machine_id
             __props__.__dict__["tags"] = tags
+            tiering_policy = _utilities.configure(tiering_policy, OntapVolumeTieringPolicyArgs, True)
             __props__.__dict__["tiering_policy"] = tiering_policy
             __props__.__dict__["volume_type"] = volume_type
             __props__.__dict__["arn"] = None

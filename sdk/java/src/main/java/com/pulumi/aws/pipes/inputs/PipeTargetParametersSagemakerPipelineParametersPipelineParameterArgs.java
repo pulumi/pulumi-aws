@@ -29,14 +29,14 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
     }
 
     /**
-     * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
      * 
      */
     public Output<String> value() {
@@ -90,7 +90,7 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
         }
 
         /**
-         * @param value The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
         }
 
         /**
-         * @param value The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
          * 
          * @return builder
          * 

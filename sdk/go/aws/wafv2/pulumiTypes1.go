@@ -34190,9 +34190,9 @@ func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArrayOut
 }
 
 type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse struct {
-	// Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+	// Instructs AWS WAF to allow the web request. See `allow` below for details.
 	Allow *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow `pulumi:"allow"`
-	// Specifies that AWS WAF should block requests by default. See `block` below for details.
+	// Instructs AWS WAF to block the web request. See `block` below for details.
 	Block *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock `pulumi:"block"`
 	// Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
 	Captcha *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha `pulumi:"captcha"`
@@ -34214,9 +34214,9 @@ type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse
 }
 
 type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs struct {
-	// Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+	// Instructs AWS WAF to allow the web request. See `allow` below for details.
 	Allow WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowPtrInput `pulumi:"allow"`
-	// Specifies that AWS WAF should block requests by default. See `block` below for details.
+	// Instructs AWS WAF to block the web request. See `block` below for details.
 	Block WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockPtrInput `pulumi:"block"`
 	// Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
 	Captcha WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaPtrInput `pulumi:"captcha"`
@@ -34264,14 +34264,14 @@ func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionTo
 	}
 }
 
-// Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+// Instructs AWS WAF to allow the web request. See `allow` below for details.
 func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseOutput) Allow() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse) *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow {
 		return v.Allow
 	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowPtrOutput)
 }
 
-// Specifies that AWS WAF should block requests by default. See `block` below for details.
+// Instructs AWS WAF to block the web request. See `block` below for details.
 func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseOutput) Block() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockPtrOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse) *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock {
 		return v.Block

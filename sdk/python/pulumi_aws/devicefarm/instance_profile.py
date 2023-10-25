@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InstanceProfileArgs', 'InstanceProfile']
@@ -29,18 +29,45 @@ class InstanceProfileArgs:
         :param pulumi.Input[bool] reboot_after_use: When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        InstanceProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            exclude_app_packages_from_cleanups=exclude_app_packages_from_cleanups,
+            name=name,
+            package_cleanup=package_cleanup,
+            reboot_after_use=reboot_after_use,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             exclude_app_packages_from_cleanups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             package_cleanup: Optional[pulumi.Input[bool]] = None,
+             reboot_after_use: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exclude_app_packages_from_cleanups is None and 'excludeAppPackagesFromCleanups' in kwargs:
+            exclude_app_packages_from_cleanups = kwargs['excludeAppPackagesFromCleanups']
+        if package_cleanup is None and 'packageCleanup' in kwargs:
+            package_cleanup = kwargs['packageCleanup']
+        if reboot_after_use is None and 'rebootAfterUse' in kwargs:
+            reboot_after_use = kwargs['rebootAfterUse']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if exclude_app_packages_from_cleanups is not None:
-            pulumi.set(__self__, "exclude_app_packages_from_cleanups", exclude_app_packages_from_cleanups)
+            _setter("exclude_app_packages_from_cleanups", exclude_app_packages_from_cleanups)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if package_cleanup is not None:
-            pulumi.set(__self__, "package_cleanup", package_cleanup)
+            _setter("package_cleanup", package_cleanup)
         if reboot_after_use is not None:
-            pulumi.set(__self__, "reboot_after_use", reboot_after_use)
+            _setter("reboot_after_use", reboot_after_use)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -137,25 +164,58 @@ class _InstanceProfileState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _InstanceProfileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            exclude_app_packages_from_cleanups=exclude_app_packages_from_cleanups,
+            name=name,
+            package_cleanup=package_cleanup,
+            reboot_after_use=reboot_after_use,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             exclude_app_packages_from_cleanups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             package_cleanup: Optional[pulumi.Input[bool]] = None,
+             reboot_after_use: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exclude_app_packages_from_cleanups is None and 'excludeAppPackagesFromCleanups' in kwargs:
+            exclude_app_packages_from_cleanups = kwargs['excludeAppPackagesFromCleanups']
+        if package_cleanup is None and 'packageCleanup' in kwargs:
+            package_cleanup = kwargs['packageCleanup']
+        if reboot_after_use is None and 'rebootAfterUse' in kwargs:
+            reboot_after_use = kwargs['rebootAfterUse']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if exclude_app_packages_from_cleanups is not None:
-            pulumi.set(__self__, "exclude_app_packages_from_cleanups", exclude_app_packages_from_cleanups)
+            _setter("exclude_app_packages_from_cleanups", exclude_app_packages_from_cleanups)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if package_cleanup is not None:
-            pulumi.set(__self__, "package_cleanup", package_cleanup)
+            _setter("package_cleanup", package_cleanup)
         if reboot_after_use is not None:
-            pulumi.set(__self__, "reboot_after_use", reboot_after_use)
+            _setter("reboot_after_use", reboot_after_use)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -338,6 +398,10 @@ class InstanceProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

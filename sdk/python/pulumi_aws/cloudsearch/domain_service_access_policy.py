@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DomainServiceAccessPolicyArgs', 'DomainServiceAccessPolicy']
@@ -21,8 +21,29 @@ class DomainServiceAccessPolicyArgs:
         :param pulumi.Input[str] access_policy: The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
         :param pulumi.Input[str] domain_name: The CloudSearch domain name the policy applies to.
         """
-        pulumi.set(__self__, "access_policy", access_policy)
-        pulumi.set(__self__, "domain_name", domain_name)
+        DomainServiceAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policy=access_policy,
+            domain_name=domain_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policy: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_policy is None and 'accessPolicy' in kwargs:
+            access_policy = kwargs['accessPolicy']
+        if access_policy is None:
+            raise TypeError("Missing 'access_policy' argument")
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+
+        _setter("access_policy", access_policy)
+        _setter("domain_name", domain_name)
 
     @property
     @pulumi.getter(name="accessPolicy")
@@ -59,10 +80,27 @@ class _DomainServiceAccessPolicyState:
         :param pulumi.Input[str] access_policy: The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
         :param pulumi.Input[str] domain_name: The CloudSearch domain name the policy applies to.
         """
+        _DomainServiceAccessPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policy=access_policy,
+            domain_name=domain_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policy: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_policy is None and 'accessPolicy' in kwargs:
+            access_policy = kwargs['accessPolicy']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+
         if access_policy is not None:
-            pulumi.set(__self__, "access_policy", access_policy)
+            _setter("access_policy", access_policy)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
 
     @property
     @pulumi.getter(name="accessPolicy")
@@ -202,6 +240,10 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainServiceAccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

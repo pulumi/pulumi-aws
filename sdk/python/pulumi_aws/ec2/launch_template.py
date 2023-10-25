@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -102,80 +102,227 @@ class LaunchTemplateArgs:
         :param pulumi.Input[str] user_data: The base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
+        LaunchTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            block_device_mappings=block_device_mappings,
+            capacity_reservation_specification=capacity_reservation_specification,
+            cpu_options=cpu_options,
+            credit_specification=credit_specification,
+            default_version=default_version,
+            description=description,
+            disable_api_stop=disable_api_stop,
+            disable_api_termination=disable_api_termination,
+            ebs_optimized=ebs_optimized,
+            elastic_gpu_specifications=elastic_gpu_specifications,
+            elastic_inference_accelerator=elastic_inference_accelerator,
+            enclave_options=enclave_options,
+            hibernation_options=hibernation_options,
+            iam_instance_profile=iam_instance_profile,
+            image_id=image_id,
+            instance_initiated_shutdown_behavior=instance_initiated_shutdown_behavior,
+            instance_market_options=instance_market_options,
+            instance_requirements=instance_requirements,
+            instance_type=instance_type,
+            kernel_id=kernel_id,
+            key_name=key_name,
+            license_specifications=license_specifications,
+            maintenance_options=maintenance_options,
+            metadata_options=metadata_options,
+            monitoring=monitoring,
+            name=name,
+            name_prefix=name_prefix,
+            network_interfaces=network_interfaces,
+            placement=placement,
+            private_dns_name_options=private_dns_name_options,
+            ram_disk_id=ram_disk_id,
+            security_group_names=security_group_names,
+            tag_specifications=tag_specifications,
+            tags=tags,
+            update_default_version=update_default_version,
+            user_data=user_data,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]] = None,
+             capacity_reservation_specification: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs']] = None,
+             cpu_options: Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']] = None,
+             credit_specification: Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']] = None,
+             default_version: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_api_stop: Optional[pulumi.Input[bool]] = None,
+             disable_api_termination: Optional[pulumi.Input[bool]] = None,
+             ebs_optimized: Optional[pulumi.Input[str]] = None,
+             elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]] = None,
+             elastic_inference_accelerator: Optional[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']] = None,
+             enclave_options: Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']] = None,
+             hibernation_options: Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']] = None,
+             iam_instance_profile: Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']] = None,
+             image_id: Optional[pulumi.Input[str]] = None,
+             instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+             instance_market_options: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']] = None,
+             instance_requirements: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             kernel_id: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]] = None,
+             maintenance_options: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']] = None,
+             metadata_options: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']] = None,
+             monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
+             placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
+             private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
+             ram_disk_id: Optional[pulumi.Input[str]] = None,
+             security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             update_default_version: Optional[pulumi.Input[bool]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if block_device_mappings is None and 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if capacity_reservation_specification is None and 'capacityReservationSpecification' in kwargs:
+            capacity_reservation_specification = kwargs['capacityReservationSpecification']
+        if cpu_options is None and 'cpuOptions' in kwargs:
+            cpu_options = kwargs['cpuOptions']
+        if credit_specification is None and 'creditSpecification' in kwargs:
+            credit_specification = kwargs['creditSpecification']
+        if default_version is None and 'defaultVersion' in kwargs:
+            default_version = kwargs['defaultVersion']
+        if disable_api_stop is None and 'disableApiStop' in kwargs:
+            disable_api_stop = kwargs['disableApiStop']
+        if disable_api_termination is None and 'disableApiTermination' in kwargs:
+            disable_api_termination = kwargs['disableApiTermination']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if elastic_gpu_specifications is None and 'elasticGpuSpecifications' in kwargs:
+            elastic_gpu_specifications = kwargs['elasticGpuSpecifications']
+        if elastic_inference_accelerator is None and 'elasticInferenceAccelerator' in kwargs:
+            elastic_inference_accelerator = kwargs['elasticInferenceAccelerator']
+        if enclave_options is None and 'enclaveOptions' in kwargs:
+            enclave_options = kwargs['enclaveOptions']
+        if hibernation_options is None and 'hibernationOptions' in kwargs:
+            hibernation_options = kwargs['hibernationOptions']
+        if iam_instance_profile is None and 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if instance_initiated_shutdown_behavior is None and 'instanceInitiatedShutdownBehavior' in kwargs:
+            instance_initiated_shutdown_behavior = kwargs['instanceInitiatedShutdownBehavior']
+        if instance_market_options is None and 'instanceMarketOptions' in kwargs:
+            instance_market_options = kwargs['instanceMarketOptions']
+        if instance_requirements is None and 'instanceRequirements' in kwargs:
+            instance_requirements = kwargs['instanceRequirements']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if kernel_id is None and 'kernelId' in kwargs:
+            kernel_id = kwargs['kernelId']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if license_specifications is None and 'licenseSpecifications' in kwargs:
+            license_specifications = kwargs['licenseSpecifications']
+        if maintenance_options is None and 'maintenanceOptions' in kwargs:
+            maintenance_options = kwargs['maintenanceOptions']
+        if metadata_options is None and 'metadataOptions' in kwargs:
+            metadata_options = kwargs['metadataOptions']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if private_dns_name_options is None and 'privateDnsNameOptions' in kwargs:
+            private_dns_name_options = kwargs['privateDnsNameOptions']
+        if ram_disk_id is None and 'ramDiskId' in kwargs:
+            ram_disk_id = kwargs['ramDiskId']
+        if security_group_names is None and 'securityGroupNames' in kwargs:
+            security_group_names = kwargs['securityGroupNames']
+        if tag_specifications is None and 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if update_default_version is None and 'updateDefaultVersion' in kwargs:
+            update_default_version = kwargs['updateDefaultVersion']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if block_device_mappings is not None:
-            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+            _setter("block_device_mappings", block_device_mappings)
         if capacity_reservation_specification is not None:
-            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
+            _setter("capacity_reservation_specification", capacity_reservation_specification)
         if cpu_options is not None:
-            pulumi.set(__self__, "cpu_options", cpu_options)
+            _setter("cpu_options", cpu_options)
         if credit_specification is not None:
-            pulumi.set(__self__, "credit_specification", credit_specification)
+            _setter("credit_specification", credit_specification)
         if default_version is not None:
-            pulumi.set(__self__, "default_version", default_version)
+            _setter("default_version", default_version)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_api_stop is not None:
-            pulumi.set(__self__, "disable_api_stop", disable_api_stop)
+            _setter("disable_api_stop", disable_api_stop)
         if disable_api_termination is not None:
-            pulumi.set(__self__, "disable_api_termination", disable_api_termination)
+            _setter("disable_api_termination", disable_api_termination)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if elastic_gpu_specifications is not None:
-            pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
+            _setter("elastic_gpu_specifications", elastic_gpu_specifications)
         if elastic_inference_accelerator is not None:
-            pulumi.set(__self__, "elastic_inference_accelerator", elastic_inference_accelerator)
+            _setter("elastic_inference_accelerator", elastic_inference_accelerator)
         if enclave_options is not None:
-            pulumi.set(__self__, "enclave_options", enclave_options)
+            _setter("enclave_options", enclave_options)
         if hibernation_options is not None:
-            pulumi.set(__self__, "hibernation_options", hibernation_options)
+            _setter("hibernation_options", hibernation_options)
         if iam_instance_profile is not None:
-            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+            _setter("iam_instance_profile", iam_instance_profile)
         if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
+            _setter("image_id", image_id)
         if instance_initiated_shutdown_behavior is not None:
-            pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+            _setter("instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
         if instance_market_options is not None:
-            pulumi.set(__self__, "instance_market_options", instance_market_options)
+            _setter("instance_market_options", instance_market_options)
         if instance_requirements is not None:
-            pulumi.set(__self__, "instance_requirements", instance_requirements)
+            _setter("instance_requirements", instance_requirements)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if kernel_id is not None:
-            pulumi.set(__self__, "kernel_id", kernel_id)
+            _setter("kernel_id", kernel_id)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if license_specifications is not None:
-            pulumi.set(__self__, "license_specifications", license_specifications)
+            _setter("license_specifications", license_specifications)
         if maintenance_options is not None:
-            pulumi.set(__self__, "maintenance_options", maintenance_options)
+            _setter("maintenance_options", maintenance_options)
         if metadata_options is not None:
-            pulumi.set(__self__, "metadata_options", metadata_options)
+            _setter("metadata_options", metadata_options)
         if monitoring is not None:
-            pulumi.set(__self__, "monitoring", monitoring)
+            _setter("monitoring", monitoring)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if placement is not None:
-            pulumi.set(__self__, "placement", placement)
+            _setter("placement", placement)
         if private_dns_name_options is not None:
-            pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
+            _setter("private_dns_name_options", private_dns_name_options)
         if ram_disk_id is not None:
-            pulumi.set(__self__, "ram_disk_id", ram_disk_id)
+            _setter("ram_disk_id", ram_disk_id)
         if security_group_names is not None:
-            pulumi.set(__self__, "security_group_names", security_group_names)
+            _setter("security_group_names", security_group_names)
         if tag_specifications is not None:
-            pulumi.set(__self__, "tag_specifications", tag_specifications)
+            _setter("tag_specifications", tag_specifications)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if update_default_version is not None:
-            pulumi.set(__self__, "update_default_version", update_default_version)
+            _setter("update_default_version", update_default_version)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
@@ -726,89 +873,246 @@ class _LaunchTemplateState:
         :param pulumi.Input[str] user_data: The base64-encoded user data to provide when launching the instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
+        _LaunchTemplateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            block_device_mappings=block_device_mappings,
+            capacity_reservation_specification=capacity_reservation_specification,
+            cpu_options=cpu_options,
+            credit_specification=credit_specification,
+            default_version=default_version,
+            description=description,
+            disable_api_stop=disable_api_stop,
+            disable_api_termination=disable_api_termination,
+            ebs_optimized=ebs_optimized,
+            elastic_gpu_specifications=elastic_gpu_specifications,
+            elastic_inference_accelerator=elastic_inference_accelerator,
+            enclave_options=enclave_options,
+            hibernation_options=hibernation_options,
+            iam_instance_profile=iam_instance_profile,
+            image_id=image_id,
+            instance_initiated_shutdown_behavior=instance_initiated_shutdown_behavior,
+            instance_market_options=instance_market_options,
+            instance_requirements=instance_requirements,
+            instance_type=instance_type,
+            kernel_id=kernel_id,
+            key_name=key_name,
+            latest_version=latest_version,
+            license_specifications=license_specifications,
+            maintenance_options=maintenance_options,
+            metadata_options=metadata_options,
+            monitoring=monitoring,
+            name=name,
+            name_prefix=name_prefix,
+            network_interfaces=network_interfaces,
+            placement=placement,
+            private_dns_name_options=private_dns_name_options,
+            ram_disk_id=ram_disk_id,
+            security_group_names=security_group_names,
+            tag_specifications=tag_specifications,
+            tags=tags,
+            tags_all=tags_all,
+            update_default_version=update_default_version,
+            user_data=user_data,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]] = None,
+             capacity_reservation_specification: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs']] = None,
+             cpu_options: Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']] = None,
+             credit_specification: Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']] = None,
+             default_version: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_api_stop: Optional[pulumi.Input[bool]] = None,
+             disable_api_termination: Optional[pulumi.Input[bool]] = None,
+             ebs_optimized: Optional[pulumi.Input[str]] = None,
+             elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]] = None,
+             elastic_inference_accelerator: Optional[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']] = None,
+             enclave_options: Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']] = None,
+             hibernation_options: Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']] = None,
+             iam_instance_profile: Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']] = None,
+             image_id: Optional[pulumi.Input[str]] = None,
+             instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+             instance_market_options: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']] = None,
+             instance_requirements: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             kernel_id: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             latest_version: Optional[pulumi.Input[int]] = None,
+             license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]] = None,
+             maintenance_options: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']] = None,
+             metadata_options: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']] = None,
+             monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
+             placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
+             private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
+             ram_disk_id: Optional[pulumi.Input[str]] = None,
+             security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             update_default_version: Optional[pulumi.Input[bool]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if block_device_mappings is None and 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if capacity_reservation_specification is None and 'capacityReservationSpecification' in kwargs:
+            capacity_reservation_specification = kwargs['capacityReservationSpecification']
+        if cpu_options is None and 'cpuOptions' in kwargs:
+            cpu_options = kwargs['cpuOptions']
+        if credit_specification is None and 'creditSpecification' in kwargs:
+            credit_specification = kwargs['creditSpecification']
+        if default_version is None and 'defaultVersion' in kwargs:
+            default_version = kwargs['defaultVersion']
+        if disable_api_stop is None and 'disableApiStop' in kwargs:
+            disable_api_stop = kwargs['disableApiStop']
+        if disable_api_termination is None and 'disableApiTermination' in kwargs:
+            disable_api_termination = kwargs['disableApiTermination']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if elastic_gpu_specifications is None and 'elasticGpuSpecifications' in kwargs:
+            elastic_gpu_specifications = kwargs['elasticGpuSpecifications']
+        if elastic_inference_accelerator is None and 'elasticInferenceAccelerator' in kwargs:
+            elastic_inference_accelerator = kwargs['elasticInferenceAccelerator']
+        if enclave_options is None and 'enclaveOptions' in kwargs:
+            enclave_options = kwargs['enclaveOptions']
+        if hibernation_options is None and 'hibernationOptions' in kwargs:
+            hibernation_options = kwargs['hibernationOptions']
+        if iam_instance_profile is None and 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if instance_initiated_shutdown_behavior is None and 'instanceInitiatedShutdownBehavior' in kwargs:
+            instance_initiated_shutdown_behavior = kwargs['instanceInitiatedShutdownBehavior']
+        if instance_market_options is None and 'instanceMarketOptions' in kwargs:
+            instance_market_options = kwargs['instanceMarketOptions']
+        if instance_requirements is None and 'instanceRequirements' in kwargs:
+            instance_requirements = kwargs['instanceRequirements']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if kernel_id is None and 'kernelId' in kwargs:
+            kernel_id = kwargs['kernelId']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if latest_version is None and 'latestVersion' in kwargs:
+            latest_version = kwargs['latestVersion']
+        if license_specifications is None and 'licenseSpecifications' in kwargs:
+            license_specifications = kwargs['licenseSpecifications']
+        if maintenance_options is None and 'maintenanceOptions' in kwargs:
+            maintenance_options = kwargs['maintenanceOptions']
+        if metadata_options is None and 'metadataOptions' in kwargs:
+            metadata_options = kwargs['metadataOptions']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if private_dns_name_options is None and 'privateDnsNameOptions' in kwargs:
+            private_dns_name_options = kwargs['privateDnsNameOptions']
+        if ram_disk_id is None and 'ramDiskId' in kwargs:
+            ram_disk_id = kwargs['ramDiskId']
+        if security_group_names is None and 'securityGroupNames' in kwargs:
+            security_group_names = kwargs['securityGroupNames']
+        if tag_specifications is None and 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if update_default_version is None and 'updateDefaultVersion' in kwargs:
+            update_default_version = kwargs['updateDefaultVersion']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if block_device_mappings is not None:
-            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+            _setter("block_device_mappings", block_device_mappings)
         if capacity_reservation_specification is not None:
-            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
+            _setter("capacity_reservation_specification", capacity_reservation_specification)
         if cpu_options is not None:
-            pulumi.set(__self__, "cpu_options", cpu_options)
+            _setter("cpu_options", cpu_options)
         if credit_specification is not None:
-            pulumi.set(__self__, "credit_specification", credit_specification)
+            _setter("credit_specification", credit_specification)
         if default_version is not None:
-            pulumi.set(__self__, "default_version", default_version)
+            _setter("default_version", default_version)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_api_stop is not None:
-            pulumi.set(__self__, "disable_api_stop", disable_api_stop)
+            _setter("disable_api_stop", disable_api_stop)
         if disable_api_termination is not None:
-            pulumi.set(__self__, "disable_api_termination", disable_api_termination)
+            _setter("disable_api_termination", disable_api_termination)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if elastic_gpu_specifications is not None:
-            pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
+            _setter("elastic_gpu_specifications", elastic_gpu_specifications)
         if elastic_inference_accelerator is not None:
-            pulumi.set(__self__, "elastic_inference_accelerator", elastic_inference_accelerator)
+            _setter("elastic_inference_accelerator", elastic_inference_accelerator)
         if enclave_options is not None:
-            pulumi.set(__self__, "enclave_options", enclave_options)
+            _setter("enclave_options", enclave_options)
         if hibernation_options is not None:
-            pulumi.set(__self__, "hibernation_options", hibernation_options)
+            _setter("hibernation_options", hibernation_options)
         if iam_instance_profile is not None:
-            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+            _setter("iam_instance_profile", iam_instance_profile)
         if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
+            _setter("image_id", image_id)
         if instance_initiated_shutdown_behavior is not None:
-            pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+            _setter("instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
         if instance_market_options is not None:
-            pulumi.set(__self__, "instance_market_options", instance_market_options)
+            _setter("instance_market_options", instance_market_options)
         if instance_requirements is not None:
-            pulumi.set(__self__, "instance_requirements", instance_requirements)
+            _setter("instance_requirements", instance_requirements)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if kernel_id is not None:
-            pulumi.set(__self__, "kernel_id", kernel_id)
+            _setter("kernel_id", kernel_id)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if latest_version is not None:
-            pulumi.set(__self__, "latest_version", latest_version)
+            _setter("latest_version", latest_version)
         if license_specifications is not None:
-            pulumi.set(__self__, "license_specifications", license_specifications)
+            _setter("license_specifications", license_specifications)
         if maintenance_options is not None:
-            pulumi.set(__self__, "maintenance_options", maintenance_options)
+            _setter("maintenance_options", maintenance_options)
         if metadata_options is not None:
-            pulumi.set(__self__, "metadata_options", metadata_options)
+            _setter("metadata_options", metadata_options)
         if monitoring is not None:
-            pulumi.set(__self__, "monitoring", monitoring)
+            _setter("monitoring", monitoring)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if placement is not None:
-            pulumi.set(__self__, "placement", placement)
+            _setter("placement", placement)
         if private_dns_name_options is not None:
-            pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
+            _setter("private_dns_name_options", private_dns_name_options)
         if ram_disk_id is not None:
-            pulumi.set(__self__, "ram_disk_id", ram_disk_id)
+            _setter("ram_disk_id", ram_disk_id)
         if security_group_names is not None:
-            pulumi.set(__self__, "security_group_names", security_group_names)
+            _setter("security_group_names", security_group_names)
         if tag_specifications is not None:
-            pulumi.set(__self__, "tag_specifications", tag_specifications)
+            _setter("tag_specifications", tag_specifications)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if update_default_version is not None:
-            pulumi.set(__self__, "update_default_version", update_default_version)
+            _setter("update_default_version", update_default_version)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter
@@ -1579,6 +1883,10 @@ class LaunchTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LaunchTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1631,8 +1939,11 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__ = LaunchTemplateArgs.__new__(LaunchTemplateArgs)
 
             __props__.__dict__["block_device_mappings"] = block_device_mappings
+            capacity_reservation_specification = _utilities.configure(capacity_reservation_specification, LaunchTemplateCapacityReservationSpecificationArgs, True)
             __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
+            cpu_options = _utilities.configure(cpu_options, LaunchTemplateCpuOptionsArgs, True)
             __props__.__dict__["cpu_options"] = cpu_options
+            credit_specification = _utilities.configure(credit_specification, LaunchTemplateCreditSpecificationArgs, True)
             __props__.__dict__["credit_specification"] = credit_specification
             __props__.__dict__["default_version"] = default_version
             __props__.__dict__["description"] = description
@@ -1640,25 +1951,36 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__.__dict__["disable_api_termination"] = disable_api_termination
             __props__.__dict__["ebs_optimized"] = ebs_optimized
             __props__.__dict__["elastic_gpu_specifications"] = elastic_gpu_specifications
+            elastic_inference_accelerator = _utilities.configure(elastic_inference_accelerator, LaunchTemplateElasticInferenceAcceleratorArgs, True)
             __props__.__dict__["elastic_inference_accelerator"] = elastic_inference_accelerator
+            enclave_options = _utilities.configure(enclave_options, LaunchTemplateEnclaveOptionsArgs, True)
             __props__.__dict__["enclave_options"] = enclave_options
+            hibernation_options = _utilities.configure(hibernation_options, LaunchTemplateHibernationOptionsArgs, True)
             __props__.__dict__["hibernation_options"] = hibernation_options
+            iam_instance_profile = _utilities.configure(iam_instance_profile, LaunchTemplateIamInstanceProfileArgs, True)
             __props__.__dict__["iam_instance_profile"] = iam_instance_profile
             __props__.__dict__["image_id"] = image_id
             __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
+            instance_market_options = _utilities.configure(instance_market_options, LaunchTemplateInstanceMarketOptionsArgs, True)
             __props__.__dict__["instance_market_options"] = instance_market_options
+            instance_requirements = _utilities.configure(instance_requirements, LaunchTemplateInstanceRequirementsArgs, True)
             __props__.__dict__["instance_requirements"] = instance_requirements
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["kernel_id"] = kernel_id
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["license_specifications"] = license_specifications
+            maintenance_options = _utilities.configure(maintenance_options, LaunchTemplateMaintenanceOptionsArgs, True)
             __props__.__dict__["maintenance_options"] = maintenance_options
+            metadata_options = _utilities.configure(metadata_options, LaunchTemplateMetadataOptionsArgs, True)
             __props__.__dict__["metadata_options"] = metadata_options
+            monitoring = _utilities.configure(monitoring, LaunchTemplateMonitoringArgs, True)
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["network_interfaces"] = network_interfaces
+            placement = _utilities.configure(placement, LaunchTemplatePlacementArgs, True)
             __props__.__dict__["placement"] = placement
+            private_dns_name_options = _utilities.configure(private_dns_name_options, LaunchTemplatePrivateDnsNameOptionsArgs, True)
             __props__.__dict__["private_dns_name_options"] = private_dns_name_options
             __props__.__dict__["ram_disk_id"] = ram_disk_id
             __props__.__dict__["security_group_names"] = security_group_names

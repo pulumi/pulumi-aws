@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DatabaseArgs', 'Database']
@@ -47,30 +47,109 @@ class DatabaseArgs:
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         """
-        pulumi.set(__self__, "blueprint_id", blueprint_id)
-        pulumi.set(__self__, "bundle_id", bundle_id)
-        pulumi.set(__self__, "master_database_name", master_database_name)
-        pulumi.set(__self__, "master_password", master_password)
-        pulumi.set(__self__, "master_username", master_username)
-        pulumi.set(__self__, "relational_database_name", relational_database_name)
+        DatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blueprint_id=blueprint_id,
+            bundle_id=bundle_id,
+            master_database_name=master_database_name,
+            master_password=master_password,
+            master_username=master_username,
+            relational_database_name=relational_database_name,
+            apply_immediately=apply_immediately,
+            availability_zone=availability_zone,
+            backup_retention_enabled=backup_retention_enabled,
+            final_snapshot_name=final_snapshot_name,
+            preferred_backup_window=preferred_backup_window,
+            preferred_maintenance_window=preferred_maintenance_window,
+            publicly_accessible=publicly_accessible,
+            skip_final_snapshot=skip_final_snapshot,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blueprint_id: Optional[pulumi.Input[str]] = None,
+             bundle_id: Optional[pulumi.Input[str]] = None,
+             master_database_name: Optional[pulumi.Input[str]] = None,
+             master_password: Optional[pulumi.Input[str]] = None,
+             master_username: Optional[pulumi.Input[str]] = None,
+             relational_database_name: Optional[pulumi.Input[str]] = None,
+             apply_immediately: Optional[pulumi.Input[bool]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             backup_retention_enabled: Optional[pulumi.Input[bool]] = None,
+             final_snapshot_name: Optional[pulumi.Input[str]] = None,
+             preferred_backup_window: Optional[pulumi.Input[str]] = None,
+             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+             publicly_accessible: Optional[pulumi.Input[bool]] = None,
+             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if blueprint_id is None and 'blueprintId' in kwargs:
+            blueprint_id = kwargs['blueprintId']
+        if blueprint_id is None:
+            raise TypeError("Missing 'blueprint_id' argument")
+        if bundle_id is None and 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if bundle_id is None:
+            raise TypeError("Missing 'bundle_id' argument")
+        if master_database_name is None and 'masterDatabaseName' in kwargs:
+            master_database_name = kwargs['masterDatabaseName']
+        if master_database_name is None:
+            raise TypeError("Missing 'master_database_name' argument")
+        if master_password is None and 'masterPassword' in kwargs:
+            master_password = kwargs['masterPassword']
+        if master_password is None:
+            raise TypeError("Missing 'master_password' argument")
+        if master_username is None and 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if master_username is None:
+            raise TypeError("Missing 'master_username' argument")
+        if relational_database_name is None and 'relationalDatabaseName' in kwargs:
+            relational_database_name = kwargs['relationalDatabaseName']
+        if relational_database_name is None:
+            raise TypeError("Missing 'relational_database_name' argument")
+        if apply_immediately is None and 'applyImmediately' in kwargs:
+            apply_immediately = kwargs['applyImmediately']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if backup_retention_enabled is None and 'backupRetentionEnabled' in kwargs:
+            backup_retention_enabled = kwargs['backupRetentionEnabled']
+        if final_snapshot_name is None and 'finalSnapshotName' in kwargs:
+            final_snapshot_name = kwargs['finalSnapshotName']
+        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if skip_final_snapshot is None and 'skipFinalSnapshot' in kwargs:
+            skip_final_snapshot = kwargs['skipFinalSnapshot']
+
+        _setter("blueprint_id", blueprint_id)
+        _setter("bundle_id", bundle_id)
+        _setter("master_database_name", master_database_name)
+        _setter("master_password", master_password)
+        _setter("master_username", master_username)
+        _setter("relational_database_name", relational_database_name)
         if apply_immediately is not None:
-            pulumi.set(__self__, "apply_immediately", apply_immediately)
+            _setter("apply_immediately", apply_immediately)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if backup_retention_enabled is not None:
-            pulumi.set(__self__, "backup_retention_enabled", backup_retention_enabled)
+            _setter("backup_retention_enabled", backup_retention_enabled)
         if final_snapshot_name is not None:
-            pulumi.set(__self__, "final_snapshot_name", final_snapshot_name)
+            _setter("final_snapshot_name", final_snapshot_name)
         if preferred_backup_window is not None:
-            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
+            _setter("preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
-            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+            _setter("publicly_accessible", publicly_accessible)
         if skip_final_snapshot is not None:
-            pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
+            _setter("skip_final_snapshot", skip_final_snapshot)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="blueprintId")
@@ -315,65 +394,180 @@ class _DatabaseState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _DatabaseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_immediately=apply_immediately,
+            arn=arn,
+            availability_zone=availability_zone,
+            backup_retention_enabled=backup_retention_enabled,
+            blueprint_id=blueprint_id,
+            bundle_id=bundle_id,
+            ca_certificate_identifier=ca_certificate_identifier,
+            cpu_count=cpu_count,
+            created_at=created_at,
+            disk_size=disk_size,
+            engine=engine,
+            engine_version=engine_version,
+            final_snapshot_name=final_snapshot_name,
+            master_database_name=master_database_name,
+            master_endpoint_address=master_endpoint_address,
+            master_endpoint_port=master_endpoint_port,
+            master_password=master_password,
+            master_username=master_username,
+            preferred_backup_window=preferred_backup_window,
+            preferred_maintenance_window=preferred_maintenance_window,
+            publicly_accessible=publicly_accessible,
+            ram_size=ram_size,
+            relational_database_name=relational_database_name,
+            secondary_availability_zone=secondary_availability_zone,
+            skip_final_snapshot=skip_final_snapshot,
+            support_code=support_code,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_immediately: Optional[pulumi.Input[bool]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             backup_retention_enabled: Optional[pulumi.Input[bool]] = None,
+             blueprint_id: Optional[pulumi.Input[str]] = None,
+             bundle_id: Optional[pulumi.Input[str]] = None,
+             ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
+             cpu_count: Optional[pulumi.Input[int]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             disk_size: Optional[pulumi.Input[float]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             final_snapshot_name: Optional[pulumi.Input[str]] = None,
+             master_database_name: Optional[pulumi.Input[str]] = None,
+             master_endpoint_address: Optional[pulumi.Input[str]] = None,
+             master_endpoint_port: Optional[pulumi.Input[int]] = None,
+             master_password: Optional[pulumi.Input[str]] = None,
+             master_username: Optional[pulumi.Input[str]] = None,
+             preferred_backup_window: Optional[pulumi.Input[str]] = None,
+             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+             publicly_accessible: Optional[pulumi.Input[bool]] = None,
+             ram_size: Optional[pulumi.Input[float]] = None,
+             relational_database_name: Optional[pulumi.Input[str]] = None,
+             secondary_availability_zone: Optional[pulumi.Input[str]] = None,
+             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
+             support_code: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if apply_immediately is None and 'applyImmediately' in kwargs:
+            apply_immediately = kwargs['applyImmediately']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if backup_retention_enabled is None and 'backupRetentionEnabled' in kwargs:
+            backup_retention_enabled = kwargs['backupRetentionEnabled']
+        if blueprint_id is None and 'blueprintId' in kwargs:
+            blueprint_id = kwargs['blueprintId']
+        if bundle_id is None and 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if ca_certificate_identifier is None and 'caCertificateIdentifier' in kwargs:
+            ca_certificate_identifier = kwargs['caCertificateIdentifier']
+        if cpu_count is None and 'cpuCount' in kwargs:
+            cpu_count = kwargs['cpuCount']
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if disk_size is None and 'diskSize' in kwargs:
+            disk_size = kwargs['diskSize']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if final_snapshot_name is None and 'finalSnapshotName' in kwargs:
+            final_snapshot_name = kwargs['finalSnapshotName']
+        if master_database_name is None and 'masterDatabaseName' in kwargs:
+            master_database_name = kwargs['masterDatabaseName']
+        if master_endpoint_address is None and 'masterEndpointAddress' in kwargs:
+            master_endpoint_address = kwargs['masterEndpointAddress']
+        if master_endpoint_port is None and 'masterEndpointPort' in kwargs:
+            master_endpoint_port = kwargs['masterEndpointPort']
+        if master_password is None and 'masterPassword' in kwargs:
+            master_password = kwargs['masterPassword']
+        if master_username is None and 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if ram_size is None and 'ramSize' in kwargs:
+            ram_size = kwargs['ramSize']
+        if relational_database_name is None and 'relationalDatabaseName' in kwargs:
+            relational_database_name = kwargs['relationalDatabaseName']
+        if secondary_availability_zone is None and 'secondaryAvailabilityZone' in kwargs:
+            secondary_availability_zone = kwargs['secondaryAvailabilityZone']
+        if skip_final_snapshot is None and 'skipFinalSnapshot' in kwargs:
+            skip_final_snapshot = kwargs['skipFinalSnapshot']
+        if support_code is None and 'supportCode' in kwargs:
+            support_code = kwargs['supportCode']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if apply_immediately is not None:
-            pulumi.set(__self__, "apply_immediately", apply_immediately)
+            _setter("apply_immediately", apply_immediately)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if backup_retention_enabled is not None:
-            pulumi.set(__self__, "backup_retention_enabled", backup_retention_enabled)
+            _setter("backup_retention_enabled", backup_retention_enabled)
         if blueprint_id is not None:
-            pulumi.set(__self__, "blueprint_id", blueprint_id)
+            _setter("blueprint_id", blueprint_id)
         if bundle_id is not None:
-            pulumi.set(__self__, "bundle_id", bundle_id)
+            _setter("bundle_id", bundle_id)
         if ca_certificate_identifier is not None:
-            pulumi.set(__self__, "ca_certificate_identifier", ca_certificate_identifier)
+            _setter("ca_certificate_identifier", ca_certificate_identifier)
         if cpu_count is not None:
-            pulumi.set(__self__, "cpu_count", cpu_count)
+            _setter("cpu_count", cpu_count)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if disk_size is not None:
-            pulumi.set(__self__, "disk_size", disk_size)
+            _setter("disk_size", disk_size)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if final_snapshot_name is not None:
-            pulumi.set(__self__, "final_snapshot_name", final_snapshot_name)
+            _setter("final_snapshot_name", final_snapshot_name)
         if master_database_name is not None:
-            pulumi.set(__self__, "master_database_name", master_database_name)
+            _setter("master_database_name", master_database_name)
         if master_endpoint_address is not None:
-            pulumi.set(__self__, "master_endpoint_address", master_endpoint_address)
+            _setter("master_endpoint_address", master_endpoint_address)
         if master_endpoint_port is not None:
-            pulumi.set(__self__, "master_endpoint_port", master_endpoint_port)
+            _setter("master_endpoint_port", master_endpoint_port)
         if master_password is not None:
-            pulumi.set(__self__, "master_password", master_password)
+            _setter("master_password", master_password)
         if master_username is not None:
-            pulumi.set(__self__, "master_username", master_username)
+            _setter("master_username", master_username)
         if preferred_backup_window is not None:
-            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
+            _setter("preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
-            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+            _setter("publicly_accessible", publicly_accessible)
         if ram_size is not None:
-            pulumi.set(__self__, "ram_size", ram_size)
+            _setter("ram_size", ram_size)
         if relational_database_name is not None:
-            pulumi.set(__self__, "relational_database_name", relational_database_name)
+            _setter("relational_database_name", relational_database_name)
         if secondary_availability_zone is not None:
-            pulumi.set(__self__, "secondary_availability_zone", secondary_availability_zone)
+            _setter("secondary_availability_zone", secondary_availability_zone)
         if skip_final_snapshot is not None:
-            pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
+            _setter("skip_final_snapshot", skip_final_snapshot)
         if support_code is not None:
-            pulumi.set(__self__, "support_code", support_code)
+            _setter("support_code", support_code)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -1070,6 +1264,10 @@ class Database(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

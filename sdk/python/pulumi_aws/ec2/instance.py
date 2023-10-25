@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -118,107 +118,290 @@ class InstanceArgs:
                > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
+        InstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ami=ami,
+            associate_public_ip_address=associate_public_ip_address,
+            availability_zone=availability_zone,
+            capacity_reservation_specification=capacity_reservation_specification,
+            cpu_core_count=cpu_core_count,
+            cpu_options=cpu_options,
+            cpu_threads_per_core=cpu_threads_per_core,
+            credit_specification=credit_specification,
+            disable_api_stop=disable_api_stop,
+            disable_api_termination=disable_api_termination,
+            ebs_block_devices=ebs_block_devices,
+            ebs_optimized=ebs_optimized,
+            enclave_options=enclave_options,
+            ephemeral_block_devices=ephemeral_block_devices,
+            get_password_data=get_password_data,
+            hibernation=hibernation,
+            host_id=host_id,
+            host_resource_group_arn=host_resource_group_arn,
+            iam_instance_profile=iam_instance_profile,
+            instance_initiated_shutdown_behavior=instance_initiated_shutdown_behavior,
+            instance_market_options=instance_market_options,
+            instance_type=instance_type,
+            ipv6_address_count=ipv6_address_count,
+            ipv6_addresses=ipv6_addresses,
+            key_name=key_name,
+            launch_template=launch_template,
+            maintenance_options=maintenance_options,
+            metadata_options=metadata_options,
+            monitoring=monitoring,
+            network_interfaces=network_interfaces,
+            placement_group=placement_group,
+            placement_partition_number=placement_partition_number,
+            private_dns_name_options=private_dns_name_options,
+            private_ip=private_ip,
+            root_block_device=root_block_device,
+            secondary_private_ips=secondary_private_ips,
+            security_groups=security_groups,
+            source_dest_check=source_dest_check,
+            subnet_id=subnet_id,
+            tags=tags,
+            tenancy=tenancy,
+            user_data=user_data,
+            user_data_base64=user_data_base64,
+            user_data_replace_on_change=user_data_replace_on_change,
+            volume_tags=volume_tags,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ami: Optional[pulumi.Input[str]] = None,
+             associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             capacity_reservation_specification: Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']] = None,
+             cpu_core_count: Optional[pulumi.Input[int]] = None,
+             cpu_options: Optional[pulumi.Input['InstanceCpuOptionsArgs']] = None,
+             cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
+             credit_specification: Optional[pulumi.Input['InstanceCreditSpecificationArgs']] = None,
+             disable_api_stop: Optional[pulumi.Input[bool]] = None,
+             disable_api_termination: Optional[pulumi.Input[bool]] = None,
+             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEbsBlockDeviceArgs']]]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             enclave_options: Optional[pulumi.Input['InstanceEnclaveOptionsArgs']] = None,
+             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEphemeralBlockDeviceArgs']]]] = None,
+             get_password_data: Optional[pulumi.Input[bool]] = None,
+             hibernation: Optional[pulumi.Input[bool]] = None,
+             host_id: Optional[pulumi.Input[str]] = None,
+             host_resource_group_arn: Optional[pulumi.Input[str]] = None,
+             iam_instance_profile: Optional[pulumi.Input[str]] = None,
+             instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+             instance_market_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']] = None,
+             instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
+             ipv6_address_count: Optional[pulumi.Input[int]] = None,
+             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             launch_template: Optional[pulumi.Input['InstanceLaunchTemplateArgs']] = None,
+             maintenance_options: Optional[pulumi.Input['InstanceMaintenanceOptionsArgs']] = None,
+             metadata_options: Optional[pulumi.Input['InstanceMetadataOptionsArgs']] = None,
+             monitoring: Optional[pulumi.Input[bool]] = None,
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]] = None,
+             placement_group: Optional[pulumi.Input[str]] = None,
+             placement_partition_number: Optional[pulumi.Input[int]] = None,
+             private_dns_name_options: Optional[pulumi.Input['InstancePrivateDnsNameOptionsArgs']] = None,
+             private_ip: Optional[pulumi.Input[str]] = None,
+             root_block_device: Optional[pulumi.Input['InstanceRootBlockDeviceArgs']] = None,
+             secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_dest_check: Optional[pulumi.Input[bool]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             user_data_base64: Optional[pulumi.Input[str]] = None,
+             user_data_replace_on_change: Optional[pulumi.Input[bool]] = None,
+             volume_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if associate_public_ip_address is None and 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if capacity_reservation_specification is None and 'capacityReservationSpecification' in kwargs:
+            capacity_reservation_specification = kwargs['capacityReservationSpecification']
+        if cpu_core_count is None and 'cpuCoreCount' in kwargs:
+            cpu_core_count = kwargs['cpuCoreCount']
+        if cpu_options is None and 'cpuOptions' in kwargs:
+            cpu_options = kwargs['cpuOptions']
+        if cpu_threads_per_core is None and 'cpuThreadsPerCore' in kwargs:
+            cpu_threads_per_core = kwargs['cpuThreadsPerCore']
+        if credit_specification is None and 'creditSpecification' in kwargs:
+            credit_specification = kwargs['creditSpecification']
+        if disable_api_stop is None and 'disableApiStop' in kwargs:
+            disable_api_stop = kwargs['disableApiStop']
+        if disable_api_termination is None and 'disableApiTermination' in kwargs:
+            disable_api_termination = kwargs['disableApiTermination']
+        if ebs_block_devices is None and 'ebsBlockDevices' in kwargs:
+            ebs_block_devices = kwargs['ebsBlockDevices']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if enclave_options is None and 'enclaveOptions' in kwargs:
+            enclave_options = kwargs['enclaveOptions']
+        if ephemeral_block_devices is None and 'ephemeralBlockDevices' in kwargs:
+            ephemeral_block_devices = kwargs['ephemeralBlockDevices']
+        if get_password_data is None and 'getPasswordData' in kwargs:
+            get_password_data = kwargs['getPasswordData']
+        if host_id is None and 'hostId' in kwargs:
+            host_id = kwargs['hostId']
+        if host_resource_group_arn is None and 'hostResourceGroupArn' in kwargs:
+            host_resource_group_arn = kwargs['hostResourceGroupArn']
+        if iam_instance_profile is None and 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if instance_initiated_shutdown_behavior is None and 'instanceInitiatedShutdownBehavior' in kwargs:
+            instance_initiated_shutdown_behavior = kwargs['instanceInitiatedShutdownBehavior']
+        if instance_market_options is None and 'instanceMarketOptions' in kwargs:
+            instance_market_options = kwargs['instanceMarketOptions']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if ipv6_address_count is None and 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if ipv6_addresses is None and 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if launch_template is None and 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if maintenance_options is None and 'maintenanceOptions' in kwargs:
+            maintenance_options = kwargs['maintenanceOptions']
+        if metadata_options is None and 'metadataOptions' in kwargs:
+            metadata_options = kwargs['metadataOptions']
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if placement_group is None and 'placementGroup' in kwargs:
+            placement_group = kwargs['placementGroup']
+        if placement_partition_number is None and 'placementPartitionNumber' in kwargs:
+            placement_partition_number = kwargs['placementPartitionNumber']
+        if private_dns_name_options is None and 'privateDnsNameOptions' in kwargs:
+            private_dns_name_options = kwargs['privateDnsNameOptions']
+        if private_ip is None and 'privateIp' in kwargs:
+            private_ip = kwargs['privateIp']
+        if root_block_device is None and 'rootBlockDevice' in kwargs:
+            root_block_device = kwargs['rootBlockDevice']
+        if secondary_private_ips is None and 'secondaryPrivateIps' in kwargs:
+            secondary_private_ips = kwargs['secondaryPrivateIps']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if source_dest_check is None and 'sourceDestCheck' in kwargs:
+            source_dest_check = kwargs['sourceDestCheck']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if user_data_base64 is None and 'userDataBase64' in kwargs:
+            user_data_base64 = kwargs['userDataBase64']
+        if user_data_replace_on_change is None and 'userDataReplaceOnChange' in kwargs:
+            user_data_replace_on_change = kwargs['userDataReplaceOnChange']
+        if volume_tags is None and 'volumeTags' in kwargs:
+            volume_tags = kwargs['volumeTags']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if ami is not None:
-            pulumi.set(__self__, "ami", ami)
+            _setter("ami", ami)
         if associate_public_ip_address is not None:
-            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+            _setter("associate_public_ip_address", associate_public_ip_address)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if capacity_reservation_specification is not None:
-            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
+            _setter("capacity_reservation_specification", capacity_reservation_specification)
         if cpu_core_count is not None:
             warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
             pulumi.log.warn("""cpu_core_count is deprecated: use 'cpu_options' argument instead""")
         if cpu_core_count is not None:
-            pulumi.set(__self__, "cpu_core_count", cpu_core_count)
+            _setter("cpu_core_count", cpu_core_count)
         if cpu_options is not None:
-            pulumi.set(__self__, "cpu_options", cpu_options)
+            _setter("cpu_options", cpu_options)
         if cpu_threads_per_core is not None:
             warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
             pulumi.log.warn("""cpu_threads_per_core is deprecated: use 'cpu_options' argument instead""")
         if cpu_threads_per_core is not None:
-            pulumi.set(__self__, "cpu_threads_per_core", cpu_threads_per_core)
+            _setter("cpu_threads_per_core", cpu_threads_per_core)
         if credit_specification is not None:
-            pulumi.set(__self__, "credit_specification", credit_specification)
+            _setter("credit_specification", credit_specification)
         if disable_api_stop is not None:
-            pulumi.set(__self__, "disable_api_stop", disable_api_stop)
+            _setter("disable_api_stop", disable_api_stop)
         if disable_api_termination is not None:
-            pulumi.set(__self__, "disable_api_termination", disable_api_termination)
+            _setter("disable_api_termination", disable_api_termination)
         if ebs_block_devices is not None:
-            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+            _setter("ebs_block_devices", ebs_block_devices)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if enclave_options is not None:
-            pulumi.set(__self__, "enclave_options", enclave_options)
+            _setter("enclave_options", enclave_options)
         if ephemeral_block_devices is not None:
-            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+            _setter("ephemeral_block_devices", ephemeral_block_devices)
         if get_password_data is not None:
-            pulumi.set(__self__, "get_password_data", get_password_data)
+            _setter("get_password_data", get_password_data)
         if hibernation is not None:
-            pulumi.set(__self__, "hibernation", hibernation)
+            _setter("hibernation", hibernation)
         if host_id is not None:
-            pulumi.set(__self__, "host_id", host_id)
+            _setter("host_id", host_id)
         if host_resource_group_arn is not None:
-            pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
+            _setter("host_resource_group_arn", host_resource_group_arn)
         if iam_instance_profile is not None:
-            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+            _setter("iam_instance_profile", iam_instance_profile)
         if instance_initiated_shutdown_behavior is not None:
-            pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+            _setter("instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
         if instance_market_options is not None:
-            pulumi.set(__self__, "instance_market_options", instance_market_options)
+            _setter("instance_market_options", instance_market_options)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if ipv6_address_count is not None:
-            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+            _setter("ipv6_address_count", ipv6_address_count)
         if ipv6_addresses is not None:
-            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+            _setter("ipv6_addresses", ipv6_addresses)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if launch_template is not None:
-            pulumi.set(__self__, "launch_template", launch_template)
+            _setter("launch_template", launch_template)
         if maintenance_options is not None:
-            pulumi.set(__self__, "maintenance_options", maintenance_options)
+            _setter("maintenance_options", maintenance_options)
         if metadata_options is not None:
-            pulumi.set(__self__, "metadata_options", metadata_options)
+            _setter("metadata_options", metadata_options)
         if monitoring is not None:
-            pulumi.set(__self__, "monitoring", monitoring)
+            _setter("monitoring", monitoring)
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if placement_group is not None:
-            pulumi.set(__self__, "placement_group", placement_group)
+            _setter("placement_group", placement_group)
         if placement_partition_number is not None:
-            pulumi.set(__self__, "placement_partition_number", placement_partition_number)
+            _setter("placement_partition_number", placement_partition_number)
         if private_dns_name_options is not None:
-            pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
+            _setter("private_dns_name_options", private_dns_name_options)
         if private_ip is not None:
-            pulumi.set(__self__, "private_ip", private_ip)
+            _setter("private_ip", private_ip)
         if root_block_device is not None:
-            pulumi.set(__self__, "root_block_device", root_block_device)
+            _setter("root_block_device", root_block_device)
         if secondary_private_ips is not None:
-            pulumi.set(__self__, "secondary_private_ips", secondary_private_ips)
+            _setter("secondary_private_ips", secondary_private_ips)
         if security_groups is not None:
             warnings.warn("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""", DeprecationWarning)
             pulumi.log.warn("""security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if source_dest_check is not None:
-            pulumi.set(__self__, "source_dest_check", source_dest_check)
+            _setter("source_dest_check", source_dest_check)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tenancy is not None:
-            pulumi.set(__self__, "tenancy", tenancy)
+            _setter("tenancy", tenancy)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if user_data_base64 is not None:
-            pulumi.set(__self__, "user_data_base64", user_data_base64)
+            _setter("user_data_base64", user_data_base64)
         if user_data_replace_on_change is not None:
-            pulumi.set(__self__, "user_data_replace_on_change", user_data_replace_on_change)
+            _setter("user_data_replace_on_change", user_data_replace_on_change)
         if volume_tags is not None:
-            pulumi.set(__self__, "volume_tags", volume_tags)
+            _setter("volume_tags", volume_tags)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter
@@ -914,132 +1097,357 @@ class _InstanceState:
                > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
+        _InstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ami=ami,
+            arn=arn,
+            associate_public_ip_address=associate_public_ip_address,
+            availability_zone=availability_zone,
+            capacity_reservation_specification=capacity_reservation_specification,
+            cpu_core_count=cpu_core_count,
+            cpu_options=cpu_options,
+            cpu_threads_per_core=cpu_threads_per_core,
+            credit_specification=credit_specification,
+            disable_api_stop=disable_api_stop,
+            disable_api_termination=disable_api_termination,
+            ebs_block_devices=ebs_block_devices,
+            ebs_optimized=ebs_optimized,
+            enclave_options=enclave_options,
+            ephemeral_block_devices=ephemeral_block_devices,
+            get_password_data=get_password_data,
+            hibernation=hibernation,
+            host_id=host_id,
+            host_resource_group_arn=host_resource_group_arn,
+            iam_instance_profile=iam_instance_profile,
+            instance_initiated_shutdown_behavior=instance_initiated_shutdown_behavior,
+            instance_lifecycle=instance_lifecycle,
+            instance_market_options=instance_market_options,
+            instance_state=instance_state,
+            instance_type=instance_type,
+            ipv6_address_count=ipv6_address_count,
+            ipv6_addresses=ipv6_addresses,
+            key_name=key_name,
+            launch_template=launch_template,
+            maintenance_options=maintenance_options,
+            metadata_options=metadata_options,
+            monitoring=monitoring,
+            network_interfaces=network_interfaces,
+            outpost_arn=outpost_arn,
+            password_data=password_data,
+            placement_group=placement_group,
+            placement_partition_number=placement_partition_number,
+            primary_network_interface_id=primary_network_interface_id,
+            private_dns=private_dns,
+            private_dns_name_options=private_dns_name_options,
+            private_ip=private_ip,
+            public_dns=public_dns,
+            public_ip=public_ip,
+            root_block_device=root_block_device,
+            secondary_private_ips=secondary_private_ips,
+            security_groups=security_groups,
+            source_dest_check=source_dest_check,
+            spot_instance_request_id=spot_instance_request_id,
+            subnet_id=subnet_id,
+            tags=tags,
+            tags_all=tags_all,
+            tenancy=tenancy,
+            user_data=user_data,
+            user_data_base64=user_data_base64,
+            user_data_replace_on_change=user_data_replace_on_change,
+            volume_tags=volume_tags,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ami: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             capacity_reservation_specification: Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']] = None,
+             cpu_core_count: Optional[pulumi.Input[int]] = None,
+             cpu_options: Optional[pulumi.Input['InstanceCpuOptionsArgs']] = None,
+             cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
+             credit_specification: Optional[pulumi.Input['InstanceCreditSpecificationArgs']] = None,
+             disable_api_stop: Optional[pulumi.Input[bool]] = None,
+             disable_api_termination: Optional[pulumi.Input[bool]] = None,
+             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEbsBlockDeviceArgs']]]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             enclave_options: Optional[pulumi.Input['InstanceEnclaveOptionsArgs']] = None,
+             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEphemeralBlockDeviceArgs']]]] = None,
+             get_password_data: Optional[pulumi.Input[bool]] = None,
+             hibernation: Optional[pulumi.Input[bool]] = None,
+             host_id: Optional[pulumi.Input[str]] = None,
+             host_resource_group_arn: Optional[pulumi.Input[str]] = None,
+             iam_instance_profile: Optional[pulumi.Input[str]] = None,
+             instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+             instance_lifecycle: Optional[pulumi.Input[str]] = None,
+             instance_market_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']] = None,
+             instance_state: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
+             ipv6_address_count: Optional[pulumi.Input[int]] = None,
+             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             launch_template: Optional[pulumi.Input['InstanceLaunchTemplateArgs']] = None,
+             maintenance_options: Optional[pulumi.Input['InstanceMaintenanceOptionsArgs']] = None,
+             metadata_options: Optional[pulumi.Input['InstanceMetadataOptionsArgs']] = None,
+             monitoring: Optional[pulumi.Input[bool]] = None,
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]] = None,
+             outpost_arn: Optional[pulumi.Input[str]] = None,
+             password_data: Optional[pulumi.Input[str]] = None,
+             placement_group: Optional[pulumi.Input[str]] = None,
+             placement_partition_number: Optional[pulumi.Input[int]] = None,
+             primary_network_interface_id: Optional[pulumi.Input[str]] = None,
+             private_dns: Optional[pulumi.Input[str]] = None,
+             private_dns_name_options: Optional[pulumi.Input['InstancePrivateDnsNameOptionsArgs']] = None,
+             private_ip: Optional[pulumi.Input[str]] = None,
+             public_dns: Optional[pulumi.Input[str]] = None,
+             public_ip: Optional[pulumi.Input[str]] = None,
+             root_block_device: Optional[pulumi.Input['InstanceRootBlockDeviceArgs']] = None,
+             secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_dest_check: Optional[pulumi.Input[bool]] = None,
+             spot_instance_request_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             user_data_base64: Optional[pulumi.Input[str]] = None,
+             user_data_replace_on_change: Optional[pulumi.Input[bool]] = None,
+             volume_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if associate_public_ip_address is None and 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if capacity_reservation_specification is None and 'capacityReservationSpecification' in kwargs:
+            capacity_reservation_specification = kwargs['capacityReservationSpecification']
+        if cpu_core_count is None and 'cpuCoreCount' in kwargs:
+            cpu_core_count = kwargs['cpuCoreCount']
+        if cpu_options is None and 'cpuOptions' in kwargs:
+            cpu_options = kwargs['cpuOptions']
+        if cpu_threads_per_core is None and 'cpuThreadsPerCore' in kwargs:
+            cpu_threads_per_core = kwargs['cpuThreadsPerCore']
+        if credit_specification is None and 'creditSpecification' in kwargs:
+            credit_specification = kwargs['creditSpecification']
+        if disable_api_stop is None and 'disableApiStop' in kwargs:
+            disable_api_stop = kwargs['disableApiStop']
+        if disable_api_termination is None and 'disableApiTermination' in kwargs:
+            disable_api_termination = kwargs['disableApiTermination']
+        if ebs_block_devices is None and 'ebsBlockDevices' in kwargs:
+            ebs_block_devices = kwargs['ebsBlockDevices']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if enclave_options is None and 'enclaveOptions' in kwargs:
+            enclave_options = kwargs['enclaveOptions']
+        if ephemeral_block_devices is None and 'ephemeralBlockDevices' in kwargs:
+            ephemeral_block_devices = kwargs['ephemeralBlockDevices']
+        if get_password_data is None and 'getPasswordData' in kwargs:
+            get_password_data = kwargs['getPasswordData']
+        if host_id is None and 'hostId' in kwargs:
+            host_id = kwargs['hostId']
+        if host_resource_group_arn is None and 'hostResourceGroupArn' in kwargs:
+            host_resource_group_arn = kwargs['hostResourceGroupArn']
+        if iam_instance_profile is None and 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if instance_initiated_shutdown_behavior is None and 'instanceInitiatedShutdownBehavior' in kwargs:
+            instance_initiated_shutdown_behavior = kwargs['instanceInitiatedShutdownBehavior']
+        if instance_lifecycle is None and 'instanceLifecycle' in kwargs:
+            instance_lifecycle = kwargs['instanceLifecycle']
+        if instance_market_options is None and 'instanceMarketOptions' in kwargs:
+            instance_market_options = kwargs['instanceMarketOptions']
+        if instance_state is None and 'instanceState' in kwargs:
+            instance_state = kwargs['instanceState']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if ipv6_address_count is None and 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if ipv6_addresses is None and 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if launch_template is None and 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if maintenance_options is None and 'maintenanceOptions' in kwargs:
+            maintenance_options = kwargs['maintenanceOptions']
+        if metadata_options is None and 'metadataOptions' in kwargs:
+            metadata_options = kwargs['metadataOptions']
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if password_data is None and 'passwordData' in kwargs:
+            password_data = kwargs['passwordData']
+        if placement_group is None and 'placementGroup' in kwargs:
+            placement_group = kwargs['placementGroup']
+        if placement_partition_number is None and 'placementPartitionNumber' in kwargs:
+            placement_partition_number = kwargs['placementPartitionNumber']
+        if primary_network_interface_id is None and 'primaryNetworkInterfaceId' in kwargs:
+            primary_network_interface_id = kwargs['primaryNetworkInterfaceId']
+        if private_dns is None and 'privateDns' in kwargs:
+            private_dns = kwargs['privateDns']
+        if private_dns_name_options is None and 'privateDnsNameOptions' in kwargs:
+            private_dns_name_options = kwargs['privateDnsNameOptions']
+        if private_ip is None and 'privateIp' in kwargs:
+            private_ip = kwargs['privateIp']
+        if public_dns is None and 'publicDns' in kwargs:
+            public_dns = kwargs['publicDns']
+        if public_ip is None and 'publicIp' in kwargs:
+            public_ip = kwargs['publicIp']
+        if root_block_device is None and 'rootBlockDevice' in kwargs:
+            root_block_device = kwargs['rootBlockDevice']
+        if secondary_private_ips is None and 'secondaryPrivateIps' in kwargs:
+            secondary_private_ips = kwargs['secondaryPrivateIps']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if source_dest_check is None and 'sourceDestCheck' in kwargs:
+            source_dest_check = kwargs['sourceDestCheck']
+        if spot_instance_request_id is None and 'spotInstanceRequestId' in kwargs:
+            spot_instance_request_id = kwargs['spotInstanceRequestId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if user_data_base64 is None and 'userDataBase64' in kwargs:
+            user_data_base64 = kwargs['userDataBase64']
+        if user_data_replace_on_change is None and 'userDataReplaceOnChange' in kwargs:
+            user_data_replace_on_change = kwargs['userDataReplaceOnChange']
+        if volume_tags is None and 'volumeTags' in kwargs:
+            volume_tags = kwargs['volumeTags']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if ami is not None:
-            pulumi.set(__self__, "ami", ami)
+            _setter("ami", ami)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if associate_public_ip_address is not None:
-            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+            _setter("associate_public_ip_address", associate_public_ip_address)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if capacity_reservation_specification is not None:
-            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
+            _setter("capacity_reservation_specification", capacity_reservation_specification)
         if cpu_core_count is not None:
             warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
             pulumi.log.warn("""cpu_core_count is deprecated: use 'cpu_options' argument instead""")
         if cpu_core_count is not None:
-            pulumi.set(__self__, "cpu_core_count", cpu_core_count)
+            _setter("cpu_core_count", cpu_core_count)
         if cpu_options is not None:
-            pulumi.set(__self__, "cpu_options", cpu_options)
+            _setter("cpu_options", cpu_options)
         if cpu_threads_per_core is not None:
             warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
             pulumi.log.warn("""cpu_threads_per_core is deprecated: use 'cpu_options' argument instead""")
         if cpu_threads_per_core is not None:
-            pulumi.set(__self__, "cpu_threads_per_core", cpu_threads_per_core)
+            _setter("cpu_threads_per_core", cpu_threads_per_core)
         if credit_specification is not None:
-            pulumi.set(__self__, "credit_specification", credit_specification)
+            _setter("credit_specification", credit_specification)
         if disable_api_stop is not None:
-            pulumi.set(__self__, "disable_api_stop", disable_api_stop)
+            _setter("disable_api_stop", disable_api_stop)
         if disable_api_termination is not None:
-            pulumi.set(__self__, "disable_api_termination", disable_api_termination)
+            _setter("disable_api_termination", disable_api_termination)
         if ebs_block_devices is not None:
-            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+            _setter("ebs_block_devices", ebs_block_devices)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if enclave_options is not None:
-            pulumi.set(__self__, "enclave_options", enclave_options)
+            _setter("enclave_options", enclave_options)
         if ephemeral_block_devices is not None:
-            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+            _setter("ephemeral_block_devices", ephemeral_block_devices)
         if get_password_data is not None:
-            pulumi.set(__self__, "get_password_data", get_password_data)
+            _setter("get_password_data", get_password_data)
         if hibernation is not None:
-            pulumi.set(__self__, "hibernation", hibernation)
+            _setter("hibernation", hibernation)
         if host_id is not None:
-            pulumi.set(__self__, "host_id", host_id)
+            _setter("host_id", host_id)
         if host_resource_group_arn is not None:
-            pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
+            _setter("host_resource_group_arn", host_resource_group_arn)
         if iam_instance_profile is not None:
-            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+            _setter("iam_instance_profile", iam_instance_profile)
         if instance_initiated_shutdown_behavior is not None:
-            pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+            _setter("instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
         if instance_lifecycle is not None:
-            pulumi.set(__self__, "instance_lifecycle", instance_lifecycle)
+            _setter("instance_lifecycle", instance_lifecycle)
         if instance_market_options is not None:
-            pulumi.set(__self__, "instance_market_options", instance_market_options)
+            _setter("instance_market_options", instance_market_options)
         if instance_state is not None:
-            pulumi.set(__self__, "instance_state", instance_state)
+            _setter("instance_state", instance_state)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if ipv6_address_count is not None:
-            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+            _setter("ipv6_address_count", ipv6_address_count)
         if ipv6_addresses is not None:
-            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+            _setter("ipv6_addresses", ipv6_addresses)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if launch_template is not None:
-            pulumi.set(__self__, "launch_template", launch_template)
+            _setter("launch_template", launch_template)
         if maintenance_options is not None:
-            pulumi.set(__self__, "maintenance_options", maintenance_options)
+            _setter("maintenance_options", maintenance_options)
         if metadata_options is not None:
-            pulumi.set(__self__, "metadata_options", metadata_options)
+            _setter("metadata_options", metadata_options)
         if monitoring is not None:
-            pulumi.set(__self__, "monitoring", monitoring)
+            _setter("monitoring", monitoring)
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if outpost_arn is not None:
-            pulumi.set(__self__, "outpost_arn", outpost_arn)
+            _setter("outpost_arn", outpost_arn)
         if password_data is not None:
-            pulumi.set(__self__, "password_data", password_data)
+            _setter("password_data", password_data)
         if placement_group is not None:
-            pulumi.set(__self__, "placement_group", placement_group)
+            _setter("placement_group", placement_group)
         if placement_partition_number is not None:
-            pulumi.set(__self__, "placement_partition_number", placement_partition_number)
+            _setter("placement_partition_number", placement_partition_number)
         if primary_network_interface_id is not None:
-            pulumi.set(__self__, "primary_network_interface_id", primary_network_interface_id)
+            _setter("primary_network_interface_id", primary_network_interface_id)
         if private_dns is not None:
-            pulumi.set(__self__, "private_dns", private_dns)
+            _setter("private_dns", private_dns)
         if private_dns_name_options is not None:
-            pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
+            _setter("private_dns_name_options", private_dns_name_options)
         if private_ip is not None:
-            pulumi.set(__self__, "private_ip", private_ip)
+            _setter("private_ip", private_ip)
         if public_dns is not None:
-            pulumi.set(__self__, "public_dns", public_dns)
+            _setter("public_dns", public_dns)
         if public_ip is not None:
-            pulumi.set(__self__, "public_ip", public_ip)
+            _setter("public_ip", public_ip)
         if root_block_device is not None:
-            pulumi.set(__self__, "root_block_device", root_block_device)
+            _setter("root_block_device", root_block_device)
         if secondary_private_ips is not None:
-            pulumi.set(__self__, "secondary_private_ips", secondary_private_ips)
+            _setter("secondary_private_ips", secondary_private_ips)
         if security_groups is not None:
             warnings.warn("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""", DeprecationWarning)
             pulumi.log.warn("""security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if source_dest_check is not None:
-            pulumi.set(__self__, "source_dest_check", source_dest_check)
+            _setter("source_dest_check", source_dest_check)
         if spot_instance_request_id is not None:
-            pulumi.set(__self__, "spot_instance_request_id", spot_instance_request_id)
+            _setter("spot_instance_request_id", spot_instance_request_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tenancy is not None:
-            pulumi.set(__self__, "tenancy", tenancy)
+            _setter("tenancy", tenancy)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if user_data_base64 is not None:
-            pulumi.set(__self__, "user_data_base64", user_data_base64)
+            _setter("user_data_base64", user_data_base64)
         if user_data_replace_on_change is not None:
-            pulumi.set(__self__, "user_data_replace_on_change", user_data_replace_on_change)
+            _setter("user_data_replace_on_change", user_data_replace_on_change)
         if volume_tags is not None:
-            pulumi.set(__self__, "volume_tags", volume_tags)
+            _setter("volume_tags", volume_tags)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter
@@ -2177,6 +2585,10 @@ class Instance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2240,21 +2652,19 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["ami"] = ami
             __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
             __props__.__dict__["availability_zone"] = availability_zone
+            capacity_reservation_specification = _utilities.configure(capacity_reservation_specification, InstanceCapacityReservationSpecificationArgs, True)
             __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
-            if cpu_core_count is not None and not opts.urn:
-                warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
-                pulumi.log.warn("""cpu_core_count is deprecated: use 'cpu_options' argument instead""")
             __props__.__dict__["cpu_core_count"] = cpu_core_count
+            cpu_options = _utilities.configure(cpu_options, InstanceCpuOptionsArgs, True)
             __props__.__dict__["cpu_options"] = cpu_options
-            if cpu_threads_per_core is not None and not opts.urn:
-                warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
-                pulumi.log.warn("""cpu_threads_per_core is deprecated: use 'cpu_options' argument instead""")
             __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
+            credit_specification = _utilities.configure(credit_specification, InstanceCreditSpecificationArgs, True)
             __props__.__dict__["credit_specification"] = credit_specification
             __props__.__dict__["disable_api_stop"] = disable_api_stop
             __props__.__dict__["disable_api_termination"] = disable_api_termination
             __props__.__dict__["ebs_block_devices"] = ebs_block_devices
             __props__.__dict__["ebs_optimized"] = ebs_optimized
+            enclave_options = _utilities.configure(enclave_options, InstanceEnclaveOptionsArgs, True)
             __props__.__dict__["enclave_options"] = enclave_options
             __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
             __props__.__dict__["get_password_data"] = get_password_data
@@ -2263,25 +2673,28 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["host_resource_group_arn"] = host_resource_group_arn
             __props__.__dict__["iam_instance_profile"] = iam_instance_profile
             __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
+            instance_market_options = _utilities.configure(instance_market_options, InstanceInstanceMarketOptionsArgs, True)
             __props__.__dict__["instance_market_options"] = instance_market_options
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["ipv6_address_count"] = ipv6_address_count
             __props__.__dict__["ipv6_addresses"] = ipv6_addresses
             __props__.__dict__["key_name"] = key_name
+            launch_template = _utilities.configure(launch_template, InstanceLaunchTemplateArgs, True)
             __props__.__dict__["launch_template"] = launch_template
+            maintenance_options = _utilities.configure(maintenance_options, InstanceMaintenanceOptionsArgs, True)
             __props__.__dict__["maintenance_options"] = maintenance_options
+            metadata_options = _utilities.configure(metadata_options, InstanceMetadataOptionsArgs, True)
             __props__.__dict__["metadata_options"] = metadata_options
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_interfaces"] = network_interfaces
             __props__.__dict__["placement_group"] = placement_group
             __props__.__dict__["placement_partition_number"] = placement_partition_number
+            private_dns_name_options = _utilities.configure(private_dns_name_options, InstancePrivateDnsNameOptionsArgs, True)
             __props__.__dict__["private_dns_name_options"] = private_dns_name_options
             __props__.__dict__["private_ip"] = private_ip
+            root_block_device = _utilities.configure(root_block_device, InstanceRootBlockDeviceArgs, True)
             __props__.__dict__["root_block_device"] = root_block_device
             __props__.__dict__["secondary_private_ips"] = secondary_private_ips
-            if security_groups is not None and not opts.urn:
-                warnings.warn("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""", DeprecationWarning)
-                pulumi.log.warn("""security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
             __props__.__dict__["security_groups"] = security_groups
             __props__.__dict__["source_dest_check"] = source_dest_check
             __props__.__dict__["subnet_id"] = subnet_id

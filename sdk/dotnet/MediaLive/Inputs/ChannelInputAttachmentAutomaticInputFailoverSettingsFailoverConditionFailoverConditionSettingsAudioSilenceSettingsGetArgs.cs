@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
+        /// The name of the audio selector used as the source for this AudioDescription.
         /// </summary>
         [Input("audioSelectorName", required: true)]
         public Input<string> AudioSelectorName { get; set; } = null!;

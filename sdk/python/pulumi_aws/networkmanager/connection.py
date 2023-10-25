@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConnectionArgs', 'Connection']
@@ -31,17 +31,56 @@ class ConnectionArgs:
         :param pulumi.Input[str] link_id: The ID of the link for the first device.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "connected_device_id", connected_device_id)
-        pulumi.set(__self__, "device_id", device_id)
-        pulumi.set(__self__, "global_network_id", global_network_id)
+        ConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connected_device_id=connected_device_id,
+            device_id=device_id,
+            global_network_id=global_network_id,
+            connected_link_id=connected_link_id,
+            description=description,
+            link_id=link_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connected_device_id: Optional[pulumi.Input[str]] = None,
+             device_id: Optional[pulumi.Input[str]] = None,
+             global_network_id: Optional[pulumi.Input[str]] = None,
+             connected_link_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             link_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connected_device_id is None and 'connectedDeviceId' in kwargs:
+            connected_device_id = kwargs['connectedDeviceId']
+        if connected_device_id is None:
+            raise TypeError("Missing 'connected_device_id' argument")
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if device_id is None:
+            raise TypeError("Missing 'device_id' argument")
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if global_network_id is None:
+            raise TypeError("Missing 'global_network_id' argument")
+        if connected_link_id is None and 'connectedLinkId' in kwargs:
+            connected_link_id = kwargs['connectedLinkId']
+        if link_id is None and 'linkId' in kwargs:
+            link_id = kwargs['linkId']
+
+        _setter("connected_device_id", connected_device_id)
+        _setter("device_id", device_id)
+        _setter("global_network_id", global_network_id)
         if connected_link_id is not None:
-            pulumi.set(__self__, "connected_link_id", connected_link_id)
+            _setter("connected_link_id", connected_link_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if link_id is not None:
-            pulumi.set(__self__, "link_id", link_id)
+            _setter("link_id", link_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="connectedDeviceId")
@@ -152,27 +191,66 @@ class _ConnectionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            connected_device_id=connected_device_id,
+            connected_link_id=connected_link_id,
+            description=description,
+            device_id=device_id,
+            global_network_id=global_network_id,
+            link_id=link_id,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             connected_device_id: Optional[pulumi.Input[str]] = None,
+             connected_link_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             device_id: Optional[pulumi.Input[str]] = None,
+             global_network_id: Optional[pulumi.Input[str]] = None,
+             link_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connected_device_id is None and 'connectedDeviceId' in kwargs:
+            connected_device_id = kwargs['connectedDeviceId']
+        if connected_link_id is None and 'connectedLinkId' in kwargs:
+            connected_link_id = kwargs['connectedLinkId']
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if link_id is None and 'linkId' in kwargs:
+            link_id = kwargs['linkId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if connected_device_id is not None:
-            pulumi.set(__self__, "connected_device_id", connected_device_id)
+            _setter("connected_device_id", connected_device_id)
         if connected_link_id is not None:
-            pulumi.set(__self__, "connected_link_id", connected_link_id)
+            _setter("connected_link_id", connected_link_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if device_id is not None:
-            pulumi.set(__self__, "device_id", device_id)
+            _setter("device_id", device_id)
         if global_network_id is not None:
-            pulumi.set(__self__, "global_network_id", global_network_id)
+            _setter("global_network_id", global_network_id)
         if link_id is not None:
-            pulumi.set(__self__, "link_id", link_id)
+            _setter("link_id", link_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -373,6 +451,10 @@ class Connection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

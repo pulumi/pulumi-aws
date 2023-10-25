@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -38,22 +38,65 @@ class StatementArgs:
         :param pulumi.Input[bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         :param pulumi.Input[str] workgroup_name: The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "sql", sql)
+        StatementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            sql=sql,
+            cluster_identifier=cluster_identifier,
+            db_user=db_user,
+            parameters=parameters,
+            secret_arn=secret_arn,
+            statement_name=statement_name,
+            with_event=with_event,
+            workgroup_name=workgroup_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             sql: Optional[pulumi.Input[str]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             db_user: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             statement_name: Optional[pulumi.Input[str]] = None,
+             with_event: Optional[pulumi.Input[bool]] = None,
+             workgroup_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if sql is None:
+            raise TypeError("Missing 'sql' argument")
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if db_user is None and 'dbUser' in kwargs:
+            db_user = kwargs['dbUser']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if statement_name is None and 'statementName' in kwargs:
+            statement_name = kwargs['statementName']
+        if with_event is None and 'withEvent' in kwargs:
+            with_event = kwargs['withEvent']
+        if workgroup_name is None and 'workgroupName' in kwargs:
+            workgroup_name = kwargs['workgroupName']
+
+        _setter("database", database)
+        _setter("sql", sql)
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if db_user is not None:
-            pulumi.set(__self__, "db_user", db_user)
+            _setter("db_user", db_user)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
         if statement_name is not None:
-            pulumi.set(__self__, "statement_name", statement_name)
+            _setter("statement_name", statement_name)
         if with_event is not None:
-            pulumi.set(__self__, "with_event", with_event)
+            _setter("with_event", with_event)
         if workgroup_name is not None:
-            pulumi.set(__self__, "workgroup_name", workgroup_name)
+            _setter("workgroup_name", workgroup_name)
 
     @property
     @pulumi.getter
@@ -188,24 +231,63 @@ class _StatementState:
         :param pulumi.Input[bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         :param pulumi.Input[str] workgroup_name: The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
         """
+        _StatementState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_identifier=cluster_identifier,
+            database=database,
+            db_user=db_user,
+            parameters=parameters,
+            secret_arn=secret_arn,
+            sql=sql,
+            statement_name=statement_name,
+            with_event=with_event,
+            workgroup_name=workgroup_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             db_user: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             sql: Optional[pulumi.Input[str]] = None,
+             statement_name: Optional[pulumi.Input[str]] = None,
+             with_event: Optional[pulumi.Input[bool]] = None,
+             workgroup_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if db_user is None and 'dbUser' in kwargs:
+            db_user = kwargs['dbUser']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if statement_name is None and 'statementName' in kwargs:
+            statement_name = kwargs['statementName']
+        if with_event is None and 'withEvent' in kwargs:
+            with_event = kwargs['withEvent']
+        if workgroup_name is None and 'workgroupName' in kwargs:
+            workgroup_name = kwargs['workgroupName']
+
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if db_user is not None:
-            pulumi.set(__self__, "db_user", db_user)
+            _setter("db_user", db_user)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
         if sql is not None:
-            pulumi.set(__self__, "sql", sql)
+            _setter("sql", sql)
         if statement_name is not None:
-            pulumi.set(__self__, "statement_name", statement_name)
+            _setter("statement_name", statement_name)
         if with_event is not None:
-            pulumi.set(__self__, "with_event", with_event)
+            _setter("with_event", with_event)
         if workgroup_name is not None:
-            pulumi.set(__self__, "workgroup_name", workgroup_name)
+            _setter("workgroup_name", workgroup_name)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -431,6 +513,10 @@ class Statement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StatementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

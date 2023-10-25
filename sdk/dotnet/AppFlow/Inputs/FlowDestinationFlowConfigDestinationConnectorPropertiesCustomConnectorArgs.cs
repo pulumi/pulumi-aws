@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<string> EntityName { get; set; } = null!;
 
         /// <summary>
-        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,17 +35,60 @@ class CustomActionTypeArgs:
         :param pulumi.Input['CustomActionTypeSettingsArgs'] settings: The settings for an action type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "input_artifact_details", input_artifact_details)
-        pulumi.set(__self__, "output_artifact_details", output_artifact_details)
-        pulumi.set(__self__, "provider_name", provider_name)
-        pulumi.set(__self__, "version", version)
+        CustomActionTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            input_artifact_details=input_artifact_details,
+            output_artifact_details=output_artifact_details,
+            provider_name=provider_name,
+            version=version,
+            configuration_properties=configuration_properties,
+            settings=settings,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[pulumi.Input[str]] = None,
+             input_artifact_details: Optional[pulumi.Input['CustomActionTypeInputArtifactDetailsArgs']] = None,
+             output_artifact_details: Optional[pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs']] = None,
+             provider_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]] = None,
+             settings: Optional[pulumi.Input['CustomActionTypeSettingsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if input_artifact_details is None and 'inputArtifactDetails' in kwargs:
+            input_artifact_details = kwargs['inputArtifactDetails']
+        if input_artifact_details is None:
+            raise TypeError("Missing 'input_artifact_details' argument")
+        if output_artifact_details is None and 'outputArtifactDetails' in kwargs:
+            output_artifact_details = kwargs['outputArtifactDetails']
+        if output_artifact_details is None:
+            raise TypeError("Missing 'output_artifact_details' argument")
+        if provider_name is None and 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if provider_name is None:
+            raise TypeError("Missing 'provider_name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if configuration_properties is None and 'configurationProperties' in kwargs:
+            configuration_properties = kwargs['configurationProperties']
+
+        _setter("category", category)
+        _setter("input_artifact_details", input_artifact_details)
+        _setter("output_artifact_details", output_artifact_details)
+        _setter("provider_name", provider_name)
+        _setter("version", version)
         if configuration_properties is not None:
-            pulumi.set(__self__, "configuration_properties", configuration_properties)
+            _setter("configuration_properties", configuration_properties)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -172,31 +215,72 @@ class _CustomActionTypeState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: The version identifier of the custom action.
         """
+        _CustomActionTypeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            category=category,
+            configuration_properties=configuration_properties,
+            input_artifact_details=input_artifact_details,
+            output_artifact_details=output_artifact_details,
+            owner=owner,
+            provider_name=provider_name,
+            settings=settings,
+            tags=tags,
+            tags_all=tags_all,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             category: Optional[pulumi.Input[str]] = None,
+             configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]] = None,
+             input_artifact_details: Optional[pulumi.Input['CustomActionTypeInputArtifactDetailsArgs']] = None,
+             output_artifact_details: Optional[pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs']] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             provider_name: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input['CustomActionTypeSettingsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_properties is None and 'configurationProperties' in kwargs:
+            configuration_properties = kwargs['configurationProperties']
+        if input_artifact_details is None and 'inputArtifactDetails' in kwargs:
+            input_artifact_details = kwargs['inputArtifactDetails']
+        if output_artifact_details is None and 'outputArtifactDetails' in kwargs:
+            output_artifact_details = kwargs['outputArtifactDetails']
+        if provider_name is None and 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if configuration_properties is not None:
-            pulumi.set(__self__, "configuration_properties", configuration_properties)
+            _setter("configuration_properties", configuration_properties)
         if input_artifact_details is not None:
-            pulumi.set(__self__, "input_artifact_details", input_artifact_details)
+            _setter("input_artifact_details", input_artifact_details)
         if output_artifact_details is not None:
-            pulumi.set(__self__, "output_artifact_details", output_artifact_details)
+            _setter("output_artifact_details", output_artifact_details)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
+            _setter("provider_name", provider_name)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -437,6 +521,10 @@ class CustomActionType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomActionTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -463,15 +551,18 @@ class CustomActionType(pulumi.CustomResource):
                 raise TypeError("Missing required property 'category'")
             __props__.__dict__["category"] = category
             __props__.__dict__["configuration_properties"] = configuration_properties
+            input_artifact_details = _utilities.configure(input_artifact_details, CustomActionTypeInputArtifactDetailsArgs, True)
             if input_artifact_details is None and not opts.urn:
                 raise TypeError("Missing required property 'input_artifact_details'")
             __props__.__dict__["input_artifact_details"] = input_artifact_details
+            output_artifact_details = _utilities.configure(output_artifact_details, CustomActionTypeOutputArtifactDetailsArgs, True)
             if output_artifact_details is None and not opts.urn:
                 raise TypeError("Missing required property 'output_artifact_details'")
             __props__.__dict__["output_artifact_details"] = output_artifact_details
             if provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_name'")
             __props__.__dict__["provider_name"] = provider_name
+            settings = _utilities.configure(settings, CustomActionTypeSettingsArgs, True)
             __props__.__dict__["settings"] = settings
             __props__.__dict__["tags"] = tags
             if version is None and not opts.urn:

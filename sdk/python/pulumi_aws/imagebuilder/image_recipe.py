@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,23 +41,68 @@ class ImageRecipeArgs:
         :param pulumi.Input[str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
-        pulumi.set(__self__, "components", components)
-        pulumi.set(__self__, "parent_image", parent_image)
-        pulumi.set(__self__, "version", version)
+        ImageRecipeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            components=components,
+            parent_image=parent_image,
+            version=version,
+            block_device_mappings=block_device_mappings,
+            description=description,
+            name=name,
+            systems_manager_agent=systems_manager_agent,
+            tags=tags,
+            user_data_base64=user_data_base64,
+            working_directory=working_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             components: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]]] = None,
+             parent_image: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             systems_manager_agent: Optional[pulumi.Input['ImageRecipeSystemsManagerAgentArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_data_base64: Optional[pulumi.Input[str]] = None,
+             working_directory: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if components is None:
+            raise TypeError("Missing 'components' argument")
+        if parent_image is None and 'parentImage' in kwargs:
+            parent_image = kwargs['parentImage']
+        if parent_image is None:
+            raise TypeError("Missing 'parent_image' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if block_device_mappings is None and 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if systems_manager_agent is None and 'systemsManagerAgent' in kwargs:
+            systems_manager_agent = kwargs['systemsManagerAgent']
+        if user_data_base64 is None and 'userDataBase64' in kwargs:
+            user_data_base64 = kwargs['userDataBase64']
+        if working_directory is None and 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
+        _setter("components", components)
+        _setter("parent_image", parent_image)
+        _setter("version", version)
         if block_device_mappings is not None:
-            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+            _setter("block_device_mappings", block_device_mappings)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if systems_manager_agent is not None:
-            pulumi.set(__self__, "systems_manager_agent", systems_manager_agent)
+            _setter("systems_manager_agent", systems_manager_agent)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_data_base64 is not None:
-            pulumi.set(__self__, "user_data_base64", user_data_base64)
+            _setter("user_data_base64", user_data_base64)
         if working_directory is not None:
-            pulumi.set(__self__, "working_directory", working_directory)
+            _setter("working_directory", working_directory)
 
     @property
     @pulumi.getter
@@ -220,39 +265,92 @@ class _ImageRecipeState:
                The following attributes are optional:
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
+        _ImageRecipeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            block_device_mappings=block_device_mappings,
+            components=components,
+            date_created=date_created,
+            description=description,
+            name=name,
+            owner=owner,
+            parent_image=parent_image,
+            platform=platform,
+            systems_manager_agent=systems_manager_agent,
+            tags=tags,
+            tags_all=tags_all,
+            user_data_base64=user_data_base64,
+            version=version,
+            working_directory=working_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]]] = None,
+             components: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]]] = None,
+             date_created: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             parent_image: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input[str]] = None,
+             systems_manager_agent: Optional[pulumi.Input['ImageRecipeSystemsManagerAgentArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_data_base64: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             working_directory: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if block_device_mappings is None and 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if date_created is None and 'dateCreated' in kwargs:
+            date_created = kwargs['dateCreated']
+        if parent_image is None and 'parentImage' in kwargs:
+            parent_image = kwargs['parentImage']
+        if systems_manager_agent is None and 'systemsManagerAgent' in kwargs:
+            systems_manager_agent = kwargs['systemsManagerAgent']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if user_data_base64 is None and 'userDataBase64' in kwargs:
+            user_data_base64 = kwargs['userDataBase64']
+        if working_directory is None and 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if block_device_mappings is not None:
-            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+            _setter("block_device_mappings", block_device_mappings)
         if components is not None:
-            pulumi.set(__self__, "components", components)
+            _setter("components", components)
         if date_created is not None:
-            pulumi.set(__self__, "date_created", date_created)
+            _setter("date_created", date_created)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if parent_image is not None:
-            pulumi.set(__self__, "parent_image", parent_image)
+            _setter("parent_image", parent_image)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if systems_manager_agent is not None:
-            pulumi.set(__self__, "systems_manager_agent", systems_manager_agent)
+            _setter("systems_manager_agent", systems_manager_agent)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if user_data_base64 is not None:
-            pulumi.set(__self__, "user_data_base64", user_data_base64)
+            _setter("user_data_base64", user_data_base64)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if working_directory is not None:
-            pulumi.set(__self__, "working_directory", working_directory)
+            _setter("working_directory", working_directory)
 
     @property
     @pulumi.getter
@@ -573,6 +671,10 @@ class ImageRecipe(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ImageRecipeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -606,6 +708,7 @@ class ImageRecipe(pulumi.CustomResource):
             if parent_image is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_image'")
             __props__.__dict__["parent_image"] = parent_image
+            systems_manager_agent = _utilities.configure(systems_manager_agent, ImageRecipeSystemsManagerAgentArgs, True)
             __props__.__dict__["systems_manager_agent"] = systems_manager_agent
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_data_base64"] = user_data_base64

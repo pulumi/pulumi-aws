@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce {
     /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig errorHandlingConfig;
@@ -36,7 +36,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce() {}
     /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig> errorHandlingConfig() {

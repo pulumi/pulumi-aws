@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -66,49 +66,148 @@ class EndpointArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] username: User name to be used to login to the endpoint database.
         """
-        pulumi.set(__self__, "endpoint_id", endpoint_id)
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-        pulumi.set(__self__, "engine_name", engine_name)
+        EndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_id=endpoint_id,
+            endpoint_type=endpoint_type,
+            engine_name=engine_name,
+            certificate_arn=certificate_arn,
+            database_name=database_name,
+            elasticsearch_settings=elasticsearch_settings,
+            extra_connection_attributes=extra_connection_attributes,
+            kafka_settings=kafka_settings,
+            kinesis_settings=kinesis_settings,
+            kms_key_arn=kms_key_arn,
+            mongodb_settings=mongodb_settings,
+            password=password,
+            port=port,
+            redis_settings=redis_settings,
+            redshift_settings=redshift_settings,
+            s3_settings=s3_settings,
+            secrets_manager_access_role_arn=secrets_manager_access_role_arn,
+            secrets_manager_arn=secrets_manager_arn,
+            server_name=server_name,
+            service_access_role=service_access_role,
+            ssl_mode=ssl_mode,
+            tags=tags,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_id: Optional[pulumi.Input[str]] = None,
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             engine_name: Optional[pulumi.Input[str]] = None,
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             elasticsearch_settings: Optional[pulumi.Input['EndpointElasticsearchSettingsArgs']] = None,
+             extra_connection_attributes: Optional[pulumi.Input[str]] = None,
+             kafka_settings: Optional[pulumi.Input['EndpointKafkaSettingsArgs']] = None,
+             kinesis_settings: Optional[pulumi.Input['EndpointKinesisSettingsArgs']] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             mongodb_settings: Optional[pulumi.Input['EndpointMongodbSettingsArgs']] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
+             redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
+             s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
+             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_arn: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             service_access_role: Optional[pulumi.Input[str]] = None,
+             ssl_mode: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_id is None and 'endpointId' in kwargs:
+            endpoint_id = kwargs['endpointId']
+        if endpoint_id is None:
+            raise TypeError("Missing 'endpoint_id' argument")
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if engine_name is None and 'engineName' in kwargs:
+            engine_name = kwargs['engineName']
+        if engine_name is None:
+            raise TypeError("Missing 'engine_name' argument")
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if elasticsearch_settings is None and 'elasticsearchSettings' in kwargs:
+            elasticsearch_settings = kwargs['elasticsearchSettings']
+        if extra_connection_attributes is None and 'extraConnectionAttributes' in kwargs:
+            extra_connection_attributes = kwargs['extraConnectionAttributes']
+        if kafka_settings is None and 'kafkaSettings' in kwargs:
+            kafka_settings = kwargs['kafkaSettings']
+        if kinesis_settings is None and 'kinesisSettings' in kwargs:
+            kinesis_settings = kwargs['kinesisSettings']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if mongodb_settings is None and 'mongodbSettings' in kwargs:
+            mongodb_settings = kwargs['mongodbSettings']
+        if redis_settings is None and 'redisSettings' in kwargs:
+            redis_settings = kwargs['redisSettings']
+        if redshift_settings is None and 'redshiftSettings' in kwargs:
+            redshift_settings = kwargs['redshiftSettings']
+        if s3_settings is None and 's3Settings' in kwargs:
+            s3_settings = kwargs['s3Settings']
+        if secrets_manager_access_role_arn is None and 'secretsManagerAccessRoleArn' in kwargs:
+            secrets_manager_access_role_arn = kwargs['secretsManagerAccessRoleArn']
+        if secrets_manager_arn is None and 'secretsManagerArn' in kwargs:
+            secrets_manager_arn = kwargs['secretsManagerArn']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if service_access_role is None and 'serviceAccessRole' in kwargs:
+            service_access_role = kwargs['serviceAccessRole']
+        if ssl_mode is None and 'sslMode' in kwargs:
+            ssl_mode = kwargs['sslMode']
+
+        _setter("endpoint_id", endpoint_id)
+        _setter("endpoint_type", endpoint_type)
+        _setter("engine_name", engine_name)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if elasticsearch_settings is not None:
-            pulumi.set(__self__, "elasticsearch_settings", elasticsearch_settings)
+            _setter("elasticsearch_settings", elasticsearch_settings)
         if extra_connection_attributes is not None:
-            pulumi.set(__self__, "extra_connection_attributes", extra_connection_attributes)
+            _setter("extra_connection_attributes", extra_connection_attributes)
         if kafka_settings is not None:
-            pulumi.set(__self__, "kafka_settings", kafka_settings)
+            _setter("kafka_settings", kafka_settings)
         if kinesis_settings is not None:
-            pulumi.set(__self__, "kinesis_settings", kinesis_settings)
+            _setter("kinesis_settings", kinesis_settings)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if mongodb_settings is not None:
-            pulumi.set(__self__, "mongodb_settings", mongodb_settings)
+            _setter("mongodb_settings", mongodb_settings)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if redis_settings is not None:
-            pulumi.set(__self__, "redis_settings", redis_settings)
+            _setter("redis_settings", redis_settings)
         if redshift_settings is not None:
-            pulumi.set(__self__, "redshift_settings", redshift_settings)
+            _setter("redshift_settings", redshift_settings)
         if s3_settings is not None:
-            pulumi.set(__self__, "s3_settings", s3_settings)
+            _setter("s3_settings", s3_settings)
         if secrets_manager_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+            _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_arn is not None:
-            pulumi.set(__self__, "secrets_manager_arn", secrets_manager_arn)
+            _setter("secrets_manager_arn", secrets_manager_arn)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if service_access_role is not None:
-            pulumi.set(__self__, "service_access_role", service_access_role)
+            _setter("service_access_role", service_access_role)
         if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
+            _setter("ssl_mode", ssl_mode)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="endpointId")
@@ -443,59 +542,160 @@ class _EndpointState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] username: User name to be used to login to the endpoint database.
         """
+        _EndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            database_name=database_name,
+            elasticsearch_settings=elasticsearch_settings,
+            endpoint_arn=endpoint_arn,
+            endpoint_id=endpoint_id,
+            endpoint_type=endpoint_type,
+            engine_name=engine_name,
+            extra_connection_attributes=extra_connection_attributes,
+            kafka_settings=kafka_settings,
+            kinesis_settings=kinesis_settings,
+            kms_key_arn=kms_key_arn,
+            mongodb_settings=mongodb_settings,
+            password=password,
+            port=port,
+            redis_settings=redis_settings,
+            redshift_settings=redshift_settings,
+            s3_settings=s3_settings,
+            secrets_manager_access_role_arn=secrets_manager_access_role_arn,
+            secrets_manager_arn=secrets_manager_arn,
+            server_name=server_name,
+            service_access_role=service_access_role,
+            ssl_mode=ssl_mode,
+            tags=tags,
+            tags_all=tags_all,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             elasticsearch_settings: Optional[pulumi.Input['EndpointElasticsearchSettingsArgs']] = None,
+             endpoint_arn: Optional[pulumi.Input[str]] = None,
+             endpoint_id: Optional[pulumi.Input[str]] = None,
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             engine_name: Optional[pulumi.Input[str]] = None,
+             extra_connection_attributes: Optional[pulumi.Input[str]] = None,
+             kafka_settings: Optional[pulumi.Input['EndpointKafkaSettingsArgs']] = None,
+             kinesis_settings: Optional[pulumi.Input['EndpointKinesisSettingsArgs']] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             mongodb_settings: Optional[pulumi.Input['EndpointMongodbSettingsArgs']] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
+             redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
+             s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
+             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+             secrets_manager_arn: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             service_access_role: Optional[pulumi.Input[str]] = None,
+             ssl_mode: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if elasticsearch_settings is None and 'elasticsearchSettings' in kwargs:
+            elasticsearch_settings = kwargs['elasticsearchSettings']
+        if endpoint_arn is None and 'endpointArn' in kwargs:
+            endpoint_arn = kwargs['endpointArn']
+        if endpoint_id is None and 'endpointId' in kwargs:
+            endpoint_id = kwargs['endpointId']
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if engine_name is None and 'engineName' in kwargs:
+            engine_name = kwargs['engineName']
+        if extra_connection_attributes is None and 'extraConnectionAttributes' in kwargs:
+            extra_connection_attributes = kwargs['extraConnectionAttributes']
+        if kafka_settings is None and 'kafkaSettings' in kwargs:
+            kafka_settings = kwargs['kafkaSettings']
+        if kinesis_settings is None and 'kinesisSettings' in kwargs:
+            kinesis_settings = kwargs['kinesisSettings']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if mongodb_settings is None and 'mongodbSettings' in kwargs:
+            mongodb_settings = kwargs['mongodbSettings']
+        if redis_settings is None and 'redisSettings' in kwargs:
+            redis_settings = kwargs['redisSettings']
+        if redshift_settings is None and 'redshiftSettings' in kwargs:
+            redshift_settings = kwargs['redshiftSettings']
+        if s3_settings is None and 's3Settings' in kwargs:
+            s3_settings = kwargs['s3Settings']
+        if secrets_manager_access_role_arn is None and 'secretsManagerAccessRoleArn' in kwargs:
+            secrets_manager_access_role_arn = kwargs['secretsManagerAccessRoleArn']
+        if secrets_manager_arn is None and 'secretsManagerArn' in kwargs:
+            secrets_manager_arn = kwargs['secretsManagerArn']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if service_access_role is None and 'serviceAccessRole' in kwargs:
+            service_access_role = kwargs['serviceAccessRole']
+        if ssl_mode is None and 'sslMode' in kwargs:
+            ssl_mode = kwargs['sslMode']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if elasticsearch_settings is not None:
-            pulumi.set(__self__, "elasticsearch_settings", elasticsearch_settings)
+            _setter("elasticsearch_settings", elasticsearch_settings)
         if endpoint_arn is not None:
-            pulumi.set(__self__, "endpoint_arn", endpoint_arn)
+            _setter("endpoint_arn", endpoint_arn)
         if endpoint_id is not None:
-            pulumi.set(__self__, "endpoint_id", endpoint_id)
+            _setter("endpoint_id", endpoint_id)
         if endpoint_type is not None:
-            pulumi.set(__self__, "endpoint_type", endpoint_type)
+            _setter("endpoint_type", endpoint_type)
         if engine_name is not None:
-            pulumi.set(__self__, "engine_name", engine_name)
+            _setter("engine_name", engine_name)
         if extra_connection_attributes is not None:
-            pulumi.set(__self__, "extra_connection_attributes", extra_connection_attributes)
+            _setter("extra_connection_attributes", extra_connection_attributes)
         if kafka_settings is not None:
-            pulumi.set(__self__, "kafka_settings", kafka_settings)
+            _setter("kafka_settings", kafka_settings)
         if kinesis_settings is not None:
-            pulumi.set(__self__, "kinesis_settings", kinesis_settings)
+            _setter("kinesis_settings", kinesis_settings)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if mongodb_settings is not None:
-            pulumi.set(__self__, "mongodb_settings", mongodb_settings)
+            _setter("mongodb_settings", mongodb_settings)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if redis_settings is not None:
-            pulumi.set(__self__, "redis_settings", redis_settings)
+            _setter("redis_settings", redis_settings)
         if redshift_settings is not None:
-            pulumi.set(__self__, "redshift_settings", redshift_settings)
+            _setter("redshift_settings", redshift_settings)
         if s3_settings is not None:
-            pulumi.set(__self__, "s3_settings", s3_settings)
+            _setter("s3_settings", s3_settings)
         if secrets_manager_access_role_arn is not None:
-            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+            _setter("secrets_manager_access_role_arn", secrets_manager_access_role_arn)
         if secrets_manager_arn is not None:
-            pulumi.set(__self__, "secrets_manager_arn", secrets_manager_arn)
+            _setter("secrets_manager_arn", secrets_manager_arn)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if service_access_role is not None:
-            pulumi.set(__self__, "service_access_role", service_access_role)
+            _setter("service_access_role", service_access_role)
         if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
+            _setter("ssl_mode", ssl_mode)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -948,6 +1148,10 @@ class Endpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -987,6 +1191,7 @@ class Endpoint(pulumi.CustomResource):
 
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["database_name"] = database_name
+            elasticsearch_settings = _utilities.configure(elasticsearch_settings, EndpointElasticsearchSettingsArgs, True)
             __props__.__dict__["elasticsearch_settings"] = elasticsearch_settings
             if endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_id'")
@@ -998,14 +1203,20 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'engine_name'")
             __props__.__dict__["engine_name"] = engine_name
             __props__.__dict__["extra_connection_attributes"] = extra_connection_attributes
+            kafka_settings = _utilities.configure(kafka_settings, EndpointKafkaSettingsArgs, True)
             __props__.__dict__["kafka_settings"] = kafka_settings
+            kinesis_settings = _utilities.configure(kinesis_settings, EndpointKinesisSettingsArgs, True)
             __props__.__dict__["kinesis_settings"] = kinesis_settings
             __props__.__dict__["kms_key_arn"] = kms_key_arn
+            mongodb_settings = _utilities.configure(mongodb_settings, EndpointMongodbSettingsArgs, True)
             __props__.__dict__["mongodb_settings"] = mongodb_settings
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["port"] = port
+            redis_settings = _utilities.configure(redis_settings, EndpointRedisSettingsArgs, True)
             __props__.__dict__["redis_settings"] = redis_settings
+            redshift_settings = _utilities.configure(redshift_settings, EndpointRedshiftSettingsArgs, True)
             __props__.__dict__["redshift_settings"] = redshift_settings
+            s3_settings = _utilities.configure(s3_settings, EndpointS3SettingsArgs, True)
             __props__.__dict__["s3_settings"] = s3_settings
             __props__.__dict__["secrets_manager_access_role_arn"] = secrets_manager_access_role_arn
             __props__.__dict__["secrets_manager_arn"] = secrets_manager_arn

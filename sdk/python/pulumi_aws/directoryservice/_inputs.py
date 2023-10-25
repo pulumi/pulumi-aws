@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -32,14 +32,55 @@ class DirectoryConnectSettingsArgs:
         :param pulumi.Input[str] vpc_id: The identifier of the VPC that the directory is in.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connect_ips: The IP addresses of the AD Connector servers.
         """
-        pulumi.set(__self__, "customer_dns_ips", customer_dns_ips)
-        pulumi.set(__self__, "customer_username", customer_username)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        DirectoryConnectSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_dns_ips=customer_dns_ips,
+            customer_username=customer_username,
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+            availability_zones=availability_zones,
+            connect_ips=connect_ips,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             customer_username: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connect_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_dns_ips is None and 'customerDnsIps' in kwargs:
+            customer_dns_ips = kwargs['customerDnsIps']
+        if customer_dns_ips is None:
+            raise TypeError("Missing 'customer_dns_ips' argument")
+        if customer_username is None and 'customerUsername' in kwargs:
+            customer_username = kwargs['customerUsername']
+        if customer_username is None:
+            raise TypeError("Missing 'customer_username' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if connect_ips is None and 'connectIps' in kwargs:
+            connect_ips = kwargs['connectIps']
+
+        _setter("customer_dns_ips", customer_dns_ips)
+        _setter("customer_username", customer_username)
+        _setter("subnet_ids", subnet_ids)
+        _setter("vpc_id", vpc_id)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if connect_ips is not None:
-            pulumi.set(__self__, "connect_ips", connect_ips)
+            _setter("connect_ips", connect_ips)
 
     @property
     @pulumi.getter(name="customerDnsIps")
@@ -121,10 +162,35 @@ class DirectoryVpcSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
         :param pulumi.Input[str] vpc_id: The identifier of the VPC that the directory is in.
         """
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        DirectoryVpcSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+            availability_zones=availability_zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+
+        _setter("subnet_ids", subnet_ids)
+        _setter("vpc_id", vpc_id)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -169,8 +235,29 @@ class ServiceRegionVpcSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The identifiers of the subnets for the directory servers.
         :param pulumi.Input[str] vpc_id: The identifier of the VPC in which to create the directory.
         """
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        ServiceRegionVpcSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
+        _setter("subnet_ids", subnet_ids)
+        _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -206,9 +293,24 @@ class SharedDirectoryTargetArgs:
         :param pulumi.Input[str] id: Identifier of the directory consumer account.
         :param pulumi.Input[str] type: Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
         """
-        pulumi.set(__self__, "id", id)
+        SharedDirectoryTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter

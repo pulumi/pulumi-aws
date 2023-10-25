@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteResponseArgs', 'RouteResponse']
@@ -27,13 +27,48 @@ class RouteResponseArgs:
         :param pulumi.Input[str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: Response models for the route response.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "route_id", route_id)
-        pulumi.set(__self__, "route_response_key", route_response_key)
+        RouteResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            route_id=route_id,
+            route_response_key=route_response_key,
+            model_selection_expression=model_selection_expression,
+            response_models=response_models,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             route_id: Optional[pulumi.Input[str]] = None,
+             route_response_key: Optional[pulumi.Input[str]] = None,
+             model_selection_expression: Optional[pulumi.Input[str]] = None,
+             response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if route_id is None and 'routeId' in kwargs:
+            route_id = kwargs['routeId']
+        if route_id is None:
+            raise TypeError("Missing 'route_id' argument")
+        if route_response_key is None and 'routeResponseKey' in kwargs:
+            route_response_key = kwargs['routeResponseKey']
+        if route_response_key is None:
+            raise TypeError("Missing 'route_response_key' argument")
+        if model_selection_expression is None and 'modelSelectionExpression' in kwargs:
+            model_selection_expression = kwargs['modelSelectionExpression']
+        if response_models is None and 'responseModels' in kwargs:
+            response_models = kwargs['responseModels']
+
+        _setter("api_id", api_id)
+        _setter("route_id", route_id)
+        _setter("route_response_key", route_response_key)
         if model_selection_expression is not None:
-            pulumi.set(__self__, "model_selection_expression", model_selection_expression)
+            _setter("model_selection_expression", model_selection_expression)
         if response_models is not None:
-            pulumi.set(__self__, "response_models", response_models)
+            _setter("response_models", response_models)
 
     @property
     @pulumi.getter(name="apiId")
@@ -112,16 +147,45 @@ class _RouteResponseState:
         :param pulumi.Input[str] route_id: Identifier of the `apigatewayv2.Route`.
         :param pulumi.Input[str] route_response_key: Route response key.
         """
+        _RouteResponseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            model_selection_expression=model_selection_expression,
+            response_models=response_models,
+            route_id=route_id,
+            route_response_key=route_response_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             model_selection_expression: Optional[pulumi.Input[str]] = None,
+             response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             route_id: Optional[pulumi.Input[str]] = None,
+             route_response_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if model_selection_expression is None and 'modelSelectionExpression' in kwargs:
+            model_selection_expression = kwargs['modelSelectionExpression']
+        if response_models is None and 'responseModels' in kwargs:
+            response_models = kwargs['responseModels']
+        if route_id is None and 'routeId' in kwargs:
+            route_id = kwargs['routeId']
+        if route_response_key is None and 'routeResponseKey' in kwargs:
+            route_response_key = kwargs['routeResponseKey']
+
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if model_selection_expression is not None:
-            pulumi.set(__self__, "model_selection_expression", model_selection_expression)
+            _setter("model_selection_expression", model_selection_expression)
         if response_models is not None:
-            pulumi.set(__self__, "response_models", response_models)
+            _setter("response_models", response_models)
         if route_id is not None:
-            pulumi.set(__self__, "route_id", route_id)
+            _setter("route_id", route_id)
         if route_response_key is not None:
-            pulumi.set(__self__, "route_response_key", route_response_key)
+            _setter("route_response_key", route_response_key)
 
     @property
     @pulumi.getter(name="apiId")
@@ -269,6 +333,10 @@ class RouteResponse(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteResponseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

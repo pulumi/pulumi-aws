@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,54 @@ class OutboundConnectionArgs:
         :param pulumi.Input[str] connection_mode: Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
         :param pulumi.Input['OutboundConnectionConnectionPropertiesArgs'] connection_properties: Configuration block for the outbound connection.
         """
-        pulumi.set(__self__, "connection_alias", connection_alias)
-        pulumi.set(__self__, "local_domain_info", local_domain_info)
-        pulumi.set(__self__, "remote_domain_info", remote_domain_info)
+        OutboundConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_alias=connection_alias,
+            local_domain_info=local_domain_info,
+            remote_domain_info=remote_domain_info,
+            accept_connection=accept_connection,
+            connection_mode=connection_mode,
+            connection_properties=connection_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_alias: Optional[pulumi.Input[str]] = None,
+             local_domain_info: Optional[pulumi.Input['OutboundConnectionLocalDomainInfoArgs']] = None,
+             remote_domain_info: Optional[pulumi.Input['OutboundConnectionRemoteDomainInfoArgs']] = None,
+             accept_connection: Optional[pulumi.Input[bool]] = None,
+             connection_mode: Optional[pulumi.Input[str]] = None,
+             connection_properties: Optional[pulumi.Input['OutboundConnectionConnectionPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_alias is None and 'connectionAlias' in kwargs:
+            connection_alias = kwargs['connectionAlias']
+        if connection_alias is None:
+            raise TypeError("Missing 'connection_alias' argument")
+        if local_domain_info is None and 'localDomainInfo' in kwargs:
+            local_domain_info = kwargs['localDomainInfo']
+        if local_domain_info is None:
+            raise TypeError("Missing 'local_domain_info' argument")
+        if remote_domain_info is None and 'remoteDomainInfo' in kwargs:
+            remote_domain_info = kwargs['remoteDomainInfo']
+        if remote_domain_info is None:
+            raise TypeError("Missing 'remote_domain_info' argument")
+        if accept_connection is None and 'acceptConnection' in kwargs:
+            accept_connection = kwargs['acceptConnection']
+        if connection_mode is None and 'connectionMode' in kwargs:
+            connection_mode = kwargs['connectionMode']
+        if connection_properties is None and 'connectionProperties' in kwargs:
+            connection_properties = kwargs['connectionProperties']
+
+        _setter("connection_alias", connection_alias)
+        _setter("local_domain_info", local_domain_info)
+        _setter("remote_domain_info", remote_domain_info)
         if accept_connection is not None:
-            pulumi.set(__self__, "accept_connection", accept_connection)
+            _setter("accept_connection", accept_connection)
         if connection_mode is not None:
-            pulumi.set(__self__, "connection_mode", connection_mode)
+            _setter("connection_mode", connection_mode)
         if connection_properties is not None:
-            pulumi.set(__self__, "connection_properties", connection_properties)
+            _setter("connection_properties", connection_properties)
 
     @property
     @pulumi.getter(name="connectionAlias")
@@ -134,20 +173,57 @@ class _OutboundConnectionState:
         :param pulumi.Input['OutboundConnectionLocalDomainInfoArgs'] local_domain_info: Configuration block for the local Opensearch domain.
         :param pulumi.Input['OutboundConnectionRemoteDomainInfoArgs'] remote_domain_info: Configuration block for the remote Opensearch domain.
         """
+        _OutboundConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_connection=accept_connection,
+            connection_alias=connection_alias,
+            connection_mode=connection_mode,
+            connection_properties=connection_properties,
+            connection_status=connection_status,
+            local_domain_info=local_domain_info,
+            remote_domain_info=remote_domain_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_connection: Optional[pulumi.Input[bool]] = None,
+             connection_alias: Optional[pulumi.Input[str]] = None,
+             connection_mode: Optional[pulumi.Input[str]] = None,
+             connection_properties: Optional[pulumi.Input['OutboundConnectionConnectionPropertiesArgs']] = None,
+             connection_status: Optional[pulumi.Input[str]] = None,
+             local_domain_info: Optional[pulumi.Input['OutboundConnectionLocalDomainInfoArgs']] = None,
+             remote_domain_info: Optional[pulumi.Input['OutboundConnectionRemoteDomainInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accept_connection is None and 'acceptConnection' in kwargs:
+            accept_connection = kwargs['acceptConnection']
+        if connection_alias is None and 'connectionAlias' in kwargs:
+            connection_alias = kwargs['connectionAlias']
+        if connection_mode is None and 'connectionMode' in kwargs:
+            connection_mode = kwargs['connectionMode']
+        if connection_properties is None and 'connectionProperties' in kwargs:
+            connection_properties = kwargs['connectionProperties']
+        if connection_status is None and 'connectionStatus' in kwargs:
+            connection_status = kwargs['connectionStatus']
+        if local_domain_info is None and 'localDomainInfo' in kwargs:
+            local_domain_info = kwargs['localDomainInfo']
+        if remote_domain_info is None and 'remoteDomainInfo' in kwargs:
+            remote_domain_info = kwargs['remoteDomainInfo']
+
         if accept_connection is not None:
-            pulumi.set(__self__, "accept_connection", accept_connection)
+            _setter("accept_connection", accept_connection)
         if connection_alias is not None:
-            pulumi.set(__self__, "connection_alias", connection_alias)
+            _setter("connection_alias", connection_alias)
         if connection_mode is not None:
-            pulumi.set(__self__, "connection_mode", connection_mode)
+            _setter("connection_mode", connection_mode)
         if connection_properties is not None:
-            pulumi.set(__self__, "connection_properties", connection_properties)
+            _setter("connection_properties", connection_properties)
         if connection_status is not None:
-            pulumi.set(__self__, "connection_status", connection_status)
+            _setter("connection_status", connection_status)
         if local_domain_info is not None:
-            pulumi.set(__self__, "local_domain_info", local_domain_info)
+            _setter("local_domain_info", local_domain_info)
         if remote_domain_info is not None:
-            pulumi.set(__self__, "remote_domain_info", remote_domain_info)
+            _setter("remote_domain_info", remote_domain_info)
 
     @property
     @pulumi.getter(name="acceptConnection")
@@ -341,6 +417,10 @@ class OutboundConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OutboundConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -366,10 +446,13 @@ class OutboundConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connection_alias'")
             __props__.__dict__["connection_alias"] = connection_alias
             __props__.__dict__["connection_mode"] = connection_mode
+            connection_properties = _utilities.configure(connection_properties, OutboundConnectionConnectionPropertiesArgs, True)
             __props__.__dict__["connection_properties"] = connection_properties
+            local_domain_info = _utilities.configure(local_domain_info, OutboundConnectionLocalDomainInfoArgs, True)
             if local_domain_info is None and not opts.urn:
                 raise TypeError("Missing required property 'local_domain_info'")
             __props__.__dict__["local_domain_info"] = local_domain_info
+            remote_domain_info = _utilities.configure(remote_domain_info, OutboundConnectionRemoteDomainInfoArgs, True)
             if remote_domain_info is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_domain_info'")
             __props__.__dict__["remote_domain_info"] = remote_domain_info

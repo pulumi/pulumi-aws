@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationResponseArgs', 'IntegrationResponse']
@@ -35,18 +35,67 @@ class IntegrationResponseArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Map of templates used to transform the integration response body.
         :param pulumi.Input[str] selection_pattern: Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         """
-        pulumi.set(__self__, "http_method", http_method)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "rest_api", rest_api)
-        pulumi.set(__self__, "status_code", status_code)
+        IntegrationResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_method=http_method,
+            resource_id=resource_id,
+            rest_api=rest_api,
+            status_code=status_code,
+            content_handling=content_handling,
+            response_parameters=response_parameters,
+            response_templates=response_templates,
+            selection_pattern=selection_pattern,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_method: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             status_code: Optional[pulumi.Input[str]] = None,
+             content_handling: Optional[pulumi.Input[str]] = None,
+             response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             selection_pattern: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if http_method is None:
+            raise TypeError("Missing 'http_method' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if rest_api is None:
+            raise TypeError("Missing 'rest_api' argument")
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+        if status_code is None:
+            raise TypeError("Missing 'status_code' argument")
+        if content_handling is None and 'contentHandling' in kwargs:
+            content_handling = kwargs['contentHandling']
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if response_templates is None and 'responseTemplates' in kwargs:
+            response_templates = kwargs['responseTemplates']
+        if selection_pattern is None and 'selectionPattern' in kwargs:
+            selection_pattern = kwargs['selectionPattern']
+
+        _setter("http_method", http_method)
+        _setter("resource_id", resource_id)
+        _setter("rest_api", rest_api)
+        _setter("status_code", status_code)
         if content_handling is not None:
-            pulumi.set(__self__, "content_handling", content_handling)
+            _setter("content_handling", content_handling)
         if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
+            _setter("response_parameters", response_parameters)
         if response_templates is not None:
-            pulumi.set(__self__, "response_templates", response_templates)
+            _setter("response_templates", response_templates)
         if selection_pattern is not None:
-            pulumi.set(__self__, "selection_pattern", selection_pattern)
+            _setter("selection_pattern", selection_pattern)
 
     @property
     @pulumi.getter(name="httpMethod")
@@ -171,22 +220,63 @@ class _IntegrationResponseState:
                
                The following arguments are optional:
         """
+        _IntegrationResponseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_handling=content_handling,
+            http_method=http_method,
+            resource_id=resource_id,
+            response_parameters=response_parameters,
+            response_templates=response_templates,
+            rest_api=rest_api,
+            selection_pattern=selection_pattern,
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_handling: Optional[pulumi.Input[str]] = None,
+             http_method: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             selection_pattern: Optional[pulumi.Input[str]] = None,
+             status_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_handling is None and 'contentHandling' in kwargs:
+            content_handling = kwargs['contentHandling']
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if response_templates is None and 'responseTemplates' in kwargs:
+            response_templates = kwargs['responseTemplates']
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if selection_pattern is None and 'selectionPattern' in kwargs:
+            selection_pattern = kwargs['selectionPattern']
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         if content_handling is not None:
-            pulumi.set(__self__, "content_handling", content_handling)
+            _setter("content_handling", content_handling)
         if http_method is not None:
-            pulumi.set(__self__, "http_method", http_method)
+            _setter("http_method", http_method)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
+            _setter("response_parameters", response_parameters)
         if response_templates is not None:
-            pulumi.set(__self__, "response_templates", response_templates)
+            _setter("response_templates", response_templates)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
         if selection_pattern is not None:
-            pulumi.set(__self__, "selection_pattern", selection_pattern)
+            _setter("selection_pattern", selection_pattern)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
 
     @property
     @pulumi.getter(name="contentHandling")
@@ -440,6 +530,10 @@ class IntegrationResponse(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationResponseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

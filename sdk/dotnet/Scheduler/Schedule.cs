@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Scheduler
     public partial class Schedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+        /// ARN of the SQS queue specified as the destination for the dead-letter queue.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Scheduler
     public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+        /// ARN of the SQS queue specified as the destination for the dead-letter queue.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

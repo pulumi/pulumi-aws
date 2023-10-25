@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConnectArgs', 'Connect']
@@ -29,16 +29,49 @@ class ConnectArgs:
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         """
-        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
-        pulumi.set(__self__, "transport_attachment_id", transport_attachment_id)
+        ConnectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            transit_gateway_id=transit_gateway_id,
+            transport_attachment_id=transport_attachment_id,
+            protocol=protocol,
+            tags=tags,
+            transit_gateway_default_route_table_association=transit_gateway_default_route_table_association,
+            transit_gateway_default_route_table_propagation=transit_gateway_default_route_table_propagation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
+             transport_attachment_id: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_gateway_default_route_table_association: Optional[pulumi.Input[bool]] = None,
+             transit_gateway_default_route_table_propagation: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if transit_gateway_id is None:
+            raise TypeError("Missing 'transit_gateway_id' argument")
+        if transport_attachment_id is None and 'transportAttachmentId' in kwargs:
+            transport_attachment_id = kwargs['transportAttachmentId']
+        if transport_attachment_id is None:
+            raise TypeError("Missing 'transport_attachment_id' argument")
+        if transit_gateway_default_route_table_association is None and 'transitGatewayDefaultRouteTableAssociation' in kwargs:
+            transit_gateway_default_route_table_association = kwargs['transitGatewayDefaultRouteTableAssociation']
+        if transit_gateway_default_route_table_propagation is None and 'transitGatewayDefaultRouteTablePropagation' in kwargs:
+            transit_gateway_default_route_table_propagation = kwargs['transitGatewayDefaultRouteTablePropagation']
+
+        _setter("transit_gateway_id", transit_gateway_id)
+        _setter("transport_attachment_id", transport_attachment_id)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transit_gateway_default_route_table_association is not None:
-            pulumi.set(__self__, "transit_gateway_default_route_table_association", transit_gateway_default_route_table_association)
+            _setter("transit_gateway_default_route_table_association", transit_gateway_default_route_table_association)
         if transit_gateway_default_route_table_propagation is not None:
-            pulumi.set(__self__, "transit_gateway_default_route_table_propagation", transit_gateway_default_route_table_propagation)
+            _setter("transit_gateway_default_route_table_propagation", transit_gateway_default_route_table_propagation)
 
     @property
     @pulumi.getter(name="transitGatewayId")
@@ -133,23 +166,56 @@ class _ConnectState:
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         :param pulumi.Input[str] transport_attachment_id: The underlaying VPC attachment
         """
+        _ConnectState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol=protocol,
+            tags=tags,
+            tags_all=tags_all,
+            transit_gateway_default_route_table_association=transit_gateway_default_route_table_association,
+            transit_gateway_default_route_table_propagation=transit_gateway_default_route_table_propagation,
+            transit_gateway_id=transit_gateway_id,
+            transport_attachment_id=transport_attachment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_gateway_default_route_table_association: Optional[pulumi.Input[bool]] = None,
+             transit_gateway_default_route_table_propagation: Optional[pulumi.Input[bool]] = None,
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
+             transport_attachment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if transit_gateway_default_route_table_association is None and 'transitGatewayDefaultRouteTableAssociation' in kwargs:
+            transit_gateway_default_route_table_association = kwargs['transitGatewayDefaultRouteTableAssociation']
+        if transit_gateway_default_route_table_propagation is None and 'transitGatewayDefaultRouteTablePropagation' in kwargs:
+            transit_gateway_default_route_table_propagation = kwargs['transitGatewayDefaultRouteTablePropagation']
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if transport_attachment_id is None and 'transportAttachmentId' in kwargs:
+            transport_attachment_id = kwargs['transportAttachmentId']
+
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if transit_gateway_default_route_table_association is not None:
-            pulumi.set(__self__, "transit_gateway_default_route_table_association", transit_gateway_default_route_table_association)
+            _setter("transit_gateway_default_route_table_association", transit_gateway_default_route_table_association)
         if transit_gateway_default_route_table_propagation is not None:
-            pulumi.set(__self__, "transit_gateway_default_route_table_propagation", transit_gateway_default_route_table_propagation)
+            _setter("transit_gateway_default_route_table_propagation", transit_gateway_default_route_table_propagation)
         if transit_gateway_id is not None:
-            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+            _setter("transit_gateway_id", transit_gateway_id)
         if transport_attachment_id is not None:
-            pulumi.set(__self__, "transport_attachment_id", transport_attachment_id)
+            _setter("transport_attachment_id", transport_attachment_id)
 
     @property
     @pulumi.getter
@@ -328,6 +394,10 @@ class Connect(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

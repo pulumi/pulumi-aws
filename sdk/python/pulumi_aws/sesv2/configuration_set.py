@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,21 +35,62 @@ class ConfigurationSetArgs:
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param pulumi.Input['ConfigurationSetVdmOptionsArgs'] vdm_options: An object that defines the VDM settings that apply to emails that you send using the configuration set.
         """
-        pulumi.set(__self__, "configuration_set_name", configuration_set_name)
+        ConfigurationSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_set_name=configuration_set_name,
+            delivery_options=delivery_options,
+            reputation_options=reputation_options,
+            sending_options=sending_options,
+            suppression_options=suppression_options,
+            tags=tags,
+            tracking_options=tracking_options,
+            vdm_options=vdm_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_set_name: Optional[pulumi.Input[str]] = None,
+             delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
+             reputation_options: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']] = None,
+             sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
+             suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
+             vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_set_name is None and 'configurationSetName' in kwargs:
+            configuration_set_name = kwargs['configurationSetName']
+        if configuration_set_name is None:
+            raise TypeError("Missing 'configuration_set_name' argument")
+        if delivery_options is None and 'deliveryOptions' in kwargs:
+            delivery_options = kwargs['deliveryOptions']
+        if reputation_options is None and 'reputationOptions' in kwargs:
+            reputation_options = kwargs['reputationOptions']
+        if sending_options is None and 'sendingOptions' in kwargs:
+            sending_options = kwargs['sendingOptions']
+        if suppression_options is None and 'suppressionOptions' in kwargs:
+            suppression_options = kwargs['suppressionOptions']
+        if tracking_options is None and 'trackingOptions' in kwargs:
+            tracking_options = kwargs['trackingOptions']
+        if vdm_options is None and 'vdmOptions' in kwargs:
+            vdm_options = kwargs['vdmOptions']
+
+        _setter("configuration_set_name", configuration_set_name)
         if delivery_options is not None:
-            pulumi.set(__self__, "delivery_options", delivery_options)
+            _setter("delivery_options", delivery_options)
         if reputation_options is not None:
-            pulumi.set(__self__, "reputation_options", reputation_options)
+            _setter("reputation_options", reputation_options)
         if sending_options is not None:
-            pulumi.set(__self__, "sending_options", sending_options)
+            _setter("sending_options", sending_options)
         if suppression_options is not None:
-            pulumi.set(__self__, "suppression_options", suppression_options)
+            _setter("suppression_options", suppression_options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tracking_options is not None:
-            pulumi.set(__self__, "tracking_options", tracking_options)
+            _setter("tracking_options", tracking_options)
         if vdm_options is not None:
-            pulumi.set(__self__, "vdm_options", vdm_options)
+            _setter("vdm_options", vdm_options)
 
     @property
     @pulumi.getter(name="configurationSetName")
@@ -173,29 +214,74 @@ class _ConfigurationSetState:
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param pulumi.Input['ConfigurationSetVdmOptionsArgs'] vdm_options: An object that defines the VDM settings that apply to emails that you send using the configuration set.
         """
+        _ConfigurationSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            configuration_set_name=configuration_set_name,
+            delivery_options=delivery_options,
+            reputation_options=reputation_options,
+            sending_options=sending_options,
+            suppression_options=suppression_options,
+            tags=tags,
+            tags_all=tags_all,
+            tracking_options=tracking_options,
+            vdm_options=vdm_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             configuration_set_name: Optional[pulumi.Input[str]] = None,
+             delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
+             reputation_options: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']] = None,
+             sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
+             suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
+             vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_set_name is None and 'configurationSetName' in kwargs:
+            configuration_set_name = kwargs['configurationSetName']
+        if delivery_options is None and 'deliveryOptions' in kwargs:
+            delivery_options = kwargs['deliveryOptions']
+        if reputation_options is None and 'reputationOptions' in kwargs:
+            reputation_options = kwargs['reputationOptions']
+        if sending_options is None and 'sendingOptions' in kwargs:
+            sending_options = kwargs['sendingOptions']
+        if suppression_options is None and 'suppressionOptions' in kwargs:
+            suppression_options = kwargs['suppressionOptions']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if tracking_options is None and 'trackingOptions' in kwargs:
+            tracking_options = kwargs['trackingOptions']
+        if vdm_options is None and 'vdmOptions' in kwargs:
+            vdm_options = kwargs['vdmOptions']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if configuration_set_name is not None:
-            pulumi.set(__self__, "configuration_set_name", configuration_set_name)
+            _setter("configuration_set_name", configuration_set_name)
         if delivery_options is not None:
-            pulumi.set(__self__, "delivery_options", delivery_options)
+            _setter("delivery_options", delivery_options)
         if reputation_options is not None:
-            pulumi.set(__self__, "reputation_options", reputation_options)
+            _setter("reputation_options", reputation_options)
         if sending_options is not None:
-            pulumi.set(__self__, "sending_options", sending_options)
+            _setter("sending_options", sending_options)
         if suppression_options is not None:
-            pulumi.set(__self__, "suppression_options", suppression_options)
+            _setter("suppression_options", suppression_options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tracking_options is not None:
-            pulumi.set(__self__, "tracking_options", tracking_options)
+            _setter("tracking_options", tracking_options)
         if vdm_options is not None:
-            pulumi.set(__self__, "vdm_options", vdm_options)
+            _setter("vdm_options", vdm_options)
 
     @property
     @pulumi.getter
@@ -439,6 +525,10 @@ class ConfigurationSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -464,12 +554,18 @@ class ConfigurationSet(pulumi.CustomResource):
             if configuration_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_set_name'")
             __props__.__dict__["configuration_set_name"] = configuration_set_name
+            delivery_options = _utilities.configure(delivery_options, ConfigurationSetDeliveryOptionsArgs, True)
             __props__.__dict__["delivery_options"] = delivery_options
+            reputation_options = _utilities.configure(reputation_options, ConfigurationSetReputationOptionsArgs, True)
             __props__.__dict__["reputation_options"] = reputation_options
+            sending_options = _utilities.configure(sending_options, ConfigurationSetSendingOptionsArgs, True)
             __props__.__dict__["sending_options"] = sending_options
+            suppression_options = _utilities.configure(suppression_options, ConfigurationSetSuppressionOptionsArgs, True)
             __props__.__dict__["suppression_options"] = suppression_options
             __props__.__dict__["tags"] = tags
+            tracking_options = _utilities.configure(tracking_options, ConfigurationSetTrackingOptionsArgs, True)
             __props__.__dict__["tracking_options"] = tracking_options
+            vdm_options = _utilities.configure(vdm_options, ConfigurationSetVdmOptionsArgs, True)
             __props__.__dict__["vdm_options"] = vdm_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,25 +43,78 @@ class TableArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['TableTtlArgs'] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         """
-        pulumi.set(__self__, "keyspace_name", keyspace_name)
-        pulumi.set(__self__, "schema_definition", schema_definition)
-        pulumi.set(__self__, "table_name", table_name)
+        TableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            keyspace_name=keyspace_name,
+            schema_definition=schema_definition,
+            table_name=table_name,
+            capacity_specification=capacity_specification,
+            client_side_timestamps=client_side_timestamps,
+            comment=comment,
+            default_time_to_live=default_time_to_live,
+            encryption_specification=encryption_specification,
+            point_in_time_recovery=point_in_time_recovery,
+            tags=tags,
+            ttl=ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             keyspace_name: Optional[pulumi.Input[str]] = None,
+             schema_definition: Optional[pulumi.Input['TableSchemaDefinitionArgs']] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             capacity_specification: Optional[pulumi.Input['TableCapacitySpecificationArgs']] = None,
+             client_side_timestamps: Optional[pulumi.Input['TableClientSideTimestampsArgs']] = None,
+             comment: Optional[pulumi.Input['TableCommentArgs']] = None,
+             default_time_to_live: Optional[pulumi.Input[int]] = None,
+             encryption_specification: Optional[pulumi.Input['TableEncryptionSpecificationArgs']] = None,
+             point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ttl: Optional[pulumi.Input['TableTtlArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if keyspace_name is None and 'keyspaceName' in kwargs:
+            keyspace_name = kwargs['keyspaceName']
+        if keyspace_name is None:
+            raise TypeError("Missing 'keyspace_name' argument")
+        if schema_definition is None and 'schemaDefinition' in kwargs:
+            schema_definition = kwargs['schemaDefinition']
+        if schema_definition is None:
+            raise TypeError("Missing 'schema_definition' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if capacity_specification is None and 'capacitySpecification' in kwargs:
+            capacity_specification = kwargs['capacitySpecification']
+        if client_side_timestamps is None and 'clientSideTimestamps' in kwargs:
+            client_side_timestamps = kwargs['clientSideTimestamps']
+        if default_time_to_live is None and 'defaultTimeToLive' in kwargs:
+            default_time_to_live = kwargs['defaultTimeToLive']
+        if encryption_specification is None and 'encryptionSpecification' in kwargs:
+            encryption_specification = kwargs['encryptionSpecification']
+        if point_in_time_recovery is None and 'pointInTimeRecovery' in kwargs:
+            point_in_time_recovery = kwargs['pointInTimeRecovery']
+
+        _setter("keyspace_name", keyspace_name)
+        _setter("schema_definition", schema_definition)
+        _setter("table_name", table_name)
         if capacity_specification is not None:
-            pulumi.set(__self__, "capacity_specification", capacity_specification)
+            _setter("capacity_specification", capacity_specification)
         if client_side_timestamps is not None:
-            pulumi.set(__self__, "client_side_timestamps", client_side_timestamps)
+            _setter("client_side_timestamps", client_side_timestamps)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if default_time_to_live is not None:
-            pulumi.set(__self__, "default_time_to_live", default_time_to_live)
+            _setter("default_time_to_live", default_time_to_live)
         if encryption_specification is not None:
-            pulumi.set(__self__, "encryption_specification", encryption_specification)
+            _setter("encryption_specification", encryption_specification)
         if point_in_time_recovery is not None:
-            pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+            _setter("point_in_time_recovery", point_in_time_recovery)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
 
     @property
     @pulumi.getter(name="keyspaceName")
@@ -232,35 +285,88 @@ class _TableState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['TableTtlArgs'] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         """
+        _TableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            capacity_specification=capacity_specification,
+            client_side_timestamps=client_side_timestamps,
+            comment=comment,
+            default_time_to_live=default_time_to_live,
+            encryption_specification=encryption_specification,
+            keyspace_name=keyspace_name,
+            point_in_time_recovery=point_in_time_recovery,
+            schema_definition=schema_definition,
+            table_name=table_name,
+            tags=tags,
+            tags_all=tags_all,
+            ttl=ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             capacity_specification: Optional[pulumi.Input['TableCapacitySpecificationArgs']] = None,
+             client_side_timestamps: Optional[pulumi.Input['TableClientSideTimestampsArgs']] = None,
+             comment: Optional[pulumi.Input['TableCommentArgs']] = None,
+             default_time_to_live: Optional[pulumi.Input[int]] = None,
+             encryption_specification: Optional[pulumi.Input['TableEncryptionSpecificationArgs']] = None,
+             keyspace_name: Optional[pulumi.Input[str]] = None,
+             point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
+             schema_definition: Optional[pulumi.Input['TableSchemaDefinitionArgs']] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ttl: Optional[pulumi.Input['TableTtlArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_specification is None and 'capacitySpecification' in kwargs:
+            capacity_specification = kwargs['capacitySpecification']
+        if client_side_timestamps is None and 'clientSideTimestamps' in kwargs:
+            client_side_timestamps = kwargs['clientSideTimestamps']
+        if default_time_to_live is None and 'defaultTimeToLive' in kwargs:
+            default_time_to_live = kwargs['defaultTimeToLive']
+        if encryption_specification is None and 'encryptionSpecification' in kwargs:
+            encryption_specification = kwargs['encryptionSpecification']
+        if keyspace_name is None and 'keyspaceName' in kwargs:
+            keyspace_name = kwargs['keyspaceName']
+        if point_in_time_recovery is None and 'pointInTimeRecovery' in kwargs:
+            point_in_time_recovery = kwargs['pointInTimeRecovery']
+        if schema_definition is None and 'schemaDefinition' in kwargs:
+            schema_definition = kwargs['schemaDefinition']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if capacity_specification is not None:
-            pulumi.set(__self__, "capacity_specification", capacity_specification)
+            _setter("capacity_specification", capacity_specification)
         if client_side_timestamps is not None:
-            pulumi.set(__self__, "client_side_timestamps", client_side_timestamps)
+            _setter("client_side_timestamps", client_side_timestamps)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if default_time_to_live is not None:
-            pulumi.set(__self__, "default_time_to_live", default_time_to_live)
+            _setter("default_time_to_live", default_time_to_live)
         if encryption_specification is not None:
-            pulumi.set(__self__, "encryption_specification", encryption_specification)
+            _setter("encryption_specification", encryption_specification)
         if keyspace_name is not None:
-            pulumi.set(__self__, "keyspace_name", keyspace_name)
+            _setter("keyspace_name", keyspace_name)
         if point_in_time_recovery is not None:
-            pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+            _setter("point_in_time_recovery", point_in_time_recovery)
         if schema_definition is not None:
-            pulumi.set(__self__, "schema_definition", schema_definition)
+            _setter("schema_definition", schema_definition)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
 
     @property
     @pulumi.getter
@@ -539,6 +645,10 @@ class Table(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -564,15 +674,21 @@ class Table(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TableArgs.__new__(TableArgs)
 
+            capacity_specification = _utilities.configure(capacity_specification, TableCapacitySpecificationArgs, True)
             __props__.__dict__["capacity_specification"] = capacity_specification
+            client_side_timestamps = _utilities.configure(client_side_timestamps, TableClientSideTimestampsArgs, True)
             __props__.__dict__["client_side_timestamps"] = client_side_timestamps
+            comment = _utilities.configure(comment, TableCommentArgs, True)
             __props__.__dict__["comment"] = comment
             __props__.__dict__["default_time_to_live"] = default_time_to_live
+            encryption_specification = _utilities.configure(encryption_specification, TableEncryptionSpecificationArgs, True)
             __props__.__dict__["encryption_specification"] = encryption_specification
             if keyspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'keyspace_name'")
             __props__.__dict__["keyspace_name"] = keyspace_name
+            point_in_time_recovery = _utilities.configure(point_in_time_recovery, TablePointInTimeRecoveryArgs, True)
             __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
+            schema_definition = _utilities.configure(schema_definition, TableSchemaDefinitionArgs, True)
             if schema_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_definition'")
             __props__.__dict__["schema_definition"] = schema_definition
@@ -580,6 +696,7 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags
+            ttl = _utilities.configure(ttl, TableTtlArgs, True)
             __props__.__dict__["ttl"] = ttl
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -44,8 +44,25 @@ class GetLicenseGrantsFilterResult(dict):
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetLicenseGrantsFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -86,9 +103,36 @@ class GetReceivedLicenseConsumptionConfigurationResult(dict):
         :param Sequence['GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArgs'] borrow_configurations: Details about a borrow configuration. Detailed below
         :param Sequence['GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArgs'] provisional_configurations: Details about a provisional configuration. Detailed below
         """
-        pulumi.set(__self__, "borrow_configurations", borrow_configurations)
-        pulumi.set(__self__, "provisional_configurations", provisional_configurations)
-        pulumi.set(__self__, "renew_type", renew_type)
+        GetReceivedLicenseConsumptionConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            borrow_configurations=borrow_configurations,
+            provisional_configurations=provisional_configurations,
+            renew_type=renew_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             borrow_configurations: Optional[Sequence['outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult']] = None,
+             provisional_configurations: Optional[Sequence['outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult']] = None,
+             renew_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if borrow_configurations is None and 'borrowConfigurations' in kwargs:
+            borrow_configurations = kwargs['borrowConfigurations']
+        if borrow_configurations is None:
+            raise TypeError("Missing 'borrow_configurations' argument")
+        if provisional_configurations is None and 'provisionalConfigurations' in kwargs:
+            provisional_configurations = kwargs['provisionalConfigurations']
+        if provisional_configurations is None:
+            raise TypeError("Missing 'provisional_configurations' argument")
+        if renew_type is None and 'renewType' in kwargs:
+            renew_type = kwargs['renewType']
+        if renew_type is None:
+            raise TypeError("Missing 'renew_type' argument")
+
+        _setter("borrow_configurations", borrow_configurations)
+        _setter("provisional_configurations", provisional_configurations)
+        _setter("renew_type", renew_type)
 
     @property
     @pulumi.getter(name="borrowConfigurations")
@@ -121,8 +165,29 @@ class GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult(dict):
         :param bool allow_early_check_in: Indicates whether early check-ins are allowed.
         :param int max_time_to_live_in_minutes: Maximum time for the provisional configuration, in minutes.
         """
-        pulumi.set(__self__, "allow_early_check_in", allow_early_check_in)
-        pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
+        GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_early_check_in=allow_early_check_in,
+            max_time_to_live_in_minutes=max_time_to_live_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_early_check_in: Optional[bool] = None,
+             max_time_to_live_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_early_check_in is None and 'allowEarlyCheckIn' in kwargs:
+            allow_early_check_in = kwargs['allowEarlyCheckIn']
+        if allow_early_check_in is None:
+            raise TypeError("Missing 'allow_early_check_in' argument")
+        if max_time_to_live_in_minutes is None and 'maxTimeToLiveInMinutes' in kwargs:
+            max_time_to_live_in_minutes = kwargs['maxTimeToLiveInMinutes']
+        if max_time_to_live_in_minutes is None:
+            raise TypeError("Missing 'max_time_to_live_in_minutes' argument")
+
+        _setter("allow_early_check_in", allow_early_check_in)
+        _setter("max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="allowEarlyCheckIn")
@@ -148,7 +213,22 @@ class GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult(d
         """
         :param int max_time_to_live_in_minutes: Maximum time for the provisional configuration, in minutes.
         """
-        pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
+        GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_time_to_live_in_minutes=max_time_to_live_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_time_to_live_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_time_to_live_in_minutes is None and 'maxTimeToLiveInMinutes' in kwargs:
+            max_time_to_live_in_minutes = kwargs['maxTimeToLiveInMinutes']
+        if max_time_to_live_in_minutes is None:
+            raise TypeError("Missing 'max_time_to_live_in_minutes' argument")
+
+        _setter("max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="maxTimeToLiveInMinutes")
@@ -174,11 +254,44 @@ class GetReceivedLicenseEntitlementResult(dict):
         :param str unit: Entitlement unit.
         :param str value: The value.
         """
-        pulumi.set(__self__, "allow_check_in", allow_check_in)
-        pulumi.set(__self__, "max_count", max_count)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetReceivedLicenseEntitlementResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_check_in=allow_check_in,
+            max_count=max_count,
+            name=name,
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_check_in: Optional[bool] = None,
+             max_count: Optional[int] = None,
+             name: Optional[str] = None,
+             unit: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_check_in is None and 'allowCheckIn' in kwargs:
+            allow_check_in = kwargs['allowCheckIn']
+        if allow_check_in is None:
+            raise TypeError("Missing 'allow_check_in' argument")
+        if max_count is None and 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+        if max_count is None:
+            raise TypeError("Missing 'max_count' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if unit is None:
+            raise TypeError("Missing 'unit' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("allow_check_in", allow_check_in)
+        _setter("max_count", max_count)
+        _setter("name", name)
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="allowCheckIn")
@@ -232,9 +345,34 @@ class GetReceivedLicenseIssuerResult(dict):
         :param str name: The key name.
         :param str sign_key: Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
         """
-        pulumi.set(__self__, "key_fingerprint", key_fingerprint)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sign_key", sign_key)
+        GetReceivedLicenseIssuerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_fingerprint=key_fingerprint,
+            name=name,
+            sign_key=sign_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_fingerprint: Optional[str] = None,
+             name: Optional[str] = None,
+             sign_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_fingerprint is None and 'keyFingerprint' in kwargs:
+            key_fingerprint = kwargs['keyFingerprint']
+        if key_fingerprint is None:
+            raise TypeError("Missing 'key_fingerprint' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if sign_key is None and 'signKey' in kwargs:
+            sign_key = kwargs['signKey']
+        if sign_key is None:
+            raise TypeError("Missing 'sign_key' argument")
+
+        _setter("key_fingerprint", key_fingerprint)
+        _setter("name", name)
+        _setter("sign_key", sign_key)
 
     @property
     @pulumi.getter(name="keyFingerprint")
@@ -270,8 +408,25 @@ class GetReceivedLicenseLicenseMetadataResult(dict):
         :param str name: The key name.
         :param str value: The value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetReceivedLicenseLicenseMetadataResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -301,9 +456,36 @@ class GetReceivedLicenseReceivedMetadataResult(dict):
         :param str received_status: Received status.
         :param str received_status_reason: Received status reason.
         """
-        pulumi.set(__self__, "allowed_operations", allowed_operations)
-        pulumi.set(__self__, "received_status", received_status)
-        pulumi.set(__self__, "received_status_reason", received_status_reason)
+        GetReceivedLicenseReceivedMetadataResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_operations=allowed_operations,
+            received_status=received_status,
+            received_status_reason=received_status_reason,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_operations: Optional[Sequence[str]] = None,
+             received_status: Optional[str] = None,
+             received_status_reason: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_operations is None and 'allowedOperations' in kwargs:
+            allowed_operations = kwargs['allowedOperations']
+        if allowed_operations is None:
+            raise TypeError("Missing 'allowed_operations' argument")
+        if received_status is None and 'receivedStatus' in kwargs:
+            received_status = kwargs['receivedStatus']
+        if received_status is None:
+            raise TypeError("Missing 'received_status' argument")
+        if received_status_reason is None and 'receivedStatusReason' in kwargs:
+            received_status_reason = kwargs['receivedStatusReason']
+        if received_status_reason is None:
+            raise TypeError("Missing 'received_status_reason' argument")
+
+        _setter("allowed_operations", allowed_operations)
+        _setter("received_status", received_status)
+        _setter("received_status_reason", received_status_reason)
 
     @property
     @pulumi.getter(name="allowedOperations")
@@ -339,8 +521,25 @@ class GetReceivedLicenseValidityResult(dict):
         :param str begin: Start of the validity time range.
         :param str end: End of the validity time range.
         """
-        pulumi.set(__self__, "begin", begin)
-        pulumi.set(__self__, "end", end)
+        GetReceivedLicenseValidityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            begin=begin,
+            end=end,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             begin: Optional[str] = None,
+             end: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if begin is None:
+            raise TypeError("Missing 'begin' argument")
+        if end is None:
+            raise TypeError("Missing 'end' argument")
+
+        _setter("begin", begin)
+        _setter("end", end)
 
     @property
     @pulumi.getter
@@ -380,8 +579,25 @@ class GetReceivedLicensesFilterResult(dict):
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetReceivedLicensesFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter

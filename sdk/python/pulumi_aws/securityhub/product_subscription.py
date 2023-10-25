@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProductSubscriptionArgs', 'ProductSubscription']
@@ -57,7 +57,22 @@ class ProductSubscriptionArgs:
                * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
                * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
         """
-        pulumi.set(__self__, "product_arn", product_arn)
+        ProductSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            product_arn=product_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             product_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if product_arn is None and 'productArn' in kwargs:
+            product_arn = kwargs['productArn']
+        if product_arn is None:
+            raise TypeError("Missing 'product_arn' argument")
+
+        _setter("product_arn", product_arn)
 
     @property
     @pulumi.getter(name="productArn")
@@ -158,10 +173,25 @@ class _ProductSubscriptionState:
                * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
                * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
         """
+        _ProductSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            product_arn=product_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             product_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if product_arn is None and 'productArn' in kwargs:
+            product_arn = kwargs['productArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if product_arn is not None:
-            pulumi.set(__self__, "product_arn", product_arn)
+            _setter("product_arn", product_arn)
 
     @property
     @pulumi.getter
@@ -337,6 +367,10 @@ class ProductSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProductSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

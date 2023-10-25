@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MatchmakingRuleSetArgs', 'MatchmakingRuleSet']
@@ -22,11 +22,30 @@ class MatchmakingRuleSetArgs:
         :param pulumi.Input[str] rule_set_body: JSON encoded string containing rule set data.
         :param pulumi.Input[str] name: Name of the matchmaking rule set.
         """
-        pulumi.set(__self__, "rule_set_body", rule_set_body)
+        MatchmakingRuleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_set_body=rule_set_body,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_set_body: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_set_body is None and 'ruleSetBody' in kwargs:
+            rule_set_body = kwargs['ruleSetBody']
+        if rule_set_body is None:
+            raise TypeError("Missing 'rule_set_body' argument")
+
+        _setter("rule_set_body", rule_set_body)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="ruleSetBody")
@@ -77,19 +96,42 @@ class _MatchmakingRuleSetState:
         :param pulumi.Input[str] rule_set_body: JSON encoded string containing rule set data.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _MatchmakingRuleSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            name=name,
+            rule_set_body=rule_set_body,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rule_set_body: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_set_body is None and 'ruleSetBody' in kwargs:
+            rule_set_body = kwargs['ruleSetBody']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rule_set_body is not None:
-            pulumi.set(__self__, "rule_set_body", rule_set_body)
+            _setter("rule_set_body", rule_set_body)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -208,6 +250,10 @@ class MatchmakingRuleSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MatchmakingRuleSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
