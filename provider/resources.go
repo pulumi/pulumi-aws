@@ -650,6 +650,9 @@ func Provider() *tfbridge.ProviderInfo {
 		UpstreamRepoPath: "./upstream",
 		DocRules:         &tfbridge.DocRuleInfo{EditRules: editRules},
 
+		// See pulumi/pulumi-aws#2880
+		SkipValidateProviderConfigForPluginFramework: true,
+
 		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 
 		Config: map[string]*tfbridge.SchemaInfo{
