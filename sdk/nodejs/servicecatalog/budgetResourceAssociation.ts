@@ -10,17 +10,6 @@ import * as utilities from "../utilities";
  * > **Tip:** A "resource" is either a Service Catalog portfolio or product.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.BudgetResourceAssociation("example", {
- *     budgetName: "budget-pjtvyakdlyo3m",
- *     resourceId: "prod-dnigbtea24ste",
- * });
- * ```
  *
  * ## Import
  *

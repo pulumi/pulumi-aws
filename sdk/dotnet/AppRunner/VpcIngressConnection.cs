@@ -12,33 +12,6 @@ namespace Pulumi.Aws.AppRunner
     /// <summary>
     /// Manages an App Runner VPC Ingress Connection.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppRunner.VpcIngressConnection("example", new()
-    ///     {
-    ///         ServiceArn = aws_apprunner_service.Example.Arn,
-    ///         IngressVpcConfiguration = new Aws.AppRunner.Inputs.VpcIngressConnectionIngressVpcConfigurationArgs
-    ///         {
-    ///             VpcId = aws_default_vpc.Default.Id,
-    ///             VpcEndpointId = aws_vpc_endpoint.Apprunner.Id,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:

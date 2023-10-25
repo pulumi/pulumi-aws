@@ -12,33 +12,6 @@ import * as utilities from "../utilities";
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
  *
  * ## Example Usage
- * ### Basic WebSocket API
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apigatewayv2.Authorizer("example", {
- *     apiId: aws_apigatewayv2_api.example.id,
- *     authorizerType: "REQUEST",
- *     authorizerUri: aws_lambda_function.example.invoke_arn,
- *     identitySources: ["route.request.header.Auth"],
- * });
- * ```
- * ### Basic HTTP API
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apigatewayv2.Authorizer("example", {
- *     apiId: aws_apigatewayv2_api.example.id,
- *     authorizerType: "REQUEST",
- *     authorizerUri: aws_lambda_function.example.invoke_arn,
- *     identitySources: ["$request.header.Authorization"],
- *     authorizerPayloadFormatVersion: "2.0",
- * });
- * ```
  *
  * ## Import
  *

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RepositoryPolicyArgs', 'RepositoryPolicy']
@@ -21,8 +21,27 @@ class RepositoryPolicyArgs:
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] repository_name: Name of the repository to apply the policy.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "repository_name", repository_name)
+        RepositoryPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            repository_name=repository_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             repository_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+
+        _setter("policy", policy)
+        _setter("repository_name", repository_name)
 
     @property
     @pulumi.getter
@@ -61,12 +80,31 @@ class _RepositoryPolicyState:
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository_name: Name of the repository to apply the policy.
         """
+        _RepositoryPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            registry_id=registry_id,
+            repository_name=repository_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             registry_id: Optional[pulumi.Input[str]] = None,
+             repository_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_id is None and 'registryId' in kwargs:
+            registry_id = kwargs['registryId']
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if registry_id is not None:
-            pulumi.set(__self__, "registry_id", registry_id)
+            _setter("registry_id", registry_id)
         if repository_name is not None:
-            pulumi.set(__self__, "repository_name", repository_name)
+            _setter("repository_name", repository_name)
 
     @property
     @pulumi.getter
@@ -120,42 +158,6 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         > **NOTE:** This resource can only be used in the `us-east-1` region.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_repository = aws.ecrpublic.Repository("exampleRepository", repository_name="example")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="new policy",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=[
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:BatchGetImage",
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:PutImage",
-                "ecr:InitiateLayerUpload",
-                "ecr:UploadLayerPart",
-                "ecr:CompleteLayerUpload",
-                "ecr:DescribeRepositories",
-                "ecr:GetRepositoryPolicy",
-                "ecr:ListImages",
-                "ecr:DeleteRepository",
-                "ecr:BatchDeleteImage",
-                "ecr:SetRepositoryPolicy",
-                "ecr:DeleteRepositoryPolicy",
-            ],
-        )])
-        example_repository_policy = aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy",
-            repository_name=example_repository.repository_name,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
@@ -182,42 +184,6 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         > **NOTE:** This resource can only be used in the `us-east-1` region.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_repository = aws.ecrpublic.Repository("exampleRepository", repository_name="example")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="new policy",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=[
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:BatchGetImage",
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:PutImage",
-                "ecr:InitiateLayerUpload",
-                "ecr:UploadLayerPart",
-                "ecr:CompleteLayerUpload",
-                "ecr:DescribeRepositories",
-                "ecr:GetRepositoryPolicy",
-                "ecr:ListImages",
-                "ecr:DeleteRepository",
-                "ecr:BatchDeleteImage",
-                "ecr:SetRepositoryPolicy",
-                "ecr:DeleteRepositoryPolicy",
-            ],
-        )])
-        example_repository_policy = aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy",
-            repository_name=example_repository.repository_name,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
@@ -236,6 +202,10 @@ class RepositoryPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -13,44 +13,6 @@ import * as utilities from "../utilities";
  * > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
  *
  * ## Example Usage
- * ### Basic example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ssm.Parameter("foo", {
- *     type: "String",
- *     value: "bar",
- * });
- * ```
- * ### Encrypted string using default SSM KMS key
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.rds.Instance("default", {
- *     allocatedStorage: 10,
- *     storageType: "gp2",
- *     engine: "mysql",
- *     engineVersion: "5.7.16",
- *     instanceClass: "db.t2.micro",
- *     dbName: "mydb",
- *     username: "foo",
- *     password: _var.database_master_password,
- *     dbSubnetGroupName: "my_database_subnet_group",
- *     parameterGroupName: "default.mysql5.7",
- * });
- * const secret = new aws.ssm.Parameter("secret", {
- *     description: "The parameter description",
- *     type: "SecureString",
- *     value: _var.database_master_password,
- *     tags: {
- *         environment: "production",
- *     },
- * });
- * ```
  *
  * ## Import
  *

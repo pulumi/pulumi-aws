@@ -10,22 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `aws.servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.Constraint("example", {
- *     description: "Back off, man. I'm a scientist.",
- *     portfolioId: aws_servicecatalog_portfolio.example.id,
- *     productId: aws_servicecatalog_product.example.id,
- *     type: "LAUNCH",
- *     parameters: JSON.stringify({
- *         RoleArn: "arn:aws:iam::123456789012:role/LaunchRole",
- *     }),
- * });
- * ```
  *
  * ## Import
  *

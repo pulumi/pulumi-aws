@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,15 +30,40 @@ class BucketObjectLockConfigurationV2Args:
         :param pulumi.Input[str] token: Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
                The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
-        pulumi.set(__self__, "bucket", bucket)
+        BucketObjectLockConfigurationV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            expected_bucket_owner=expected_bucket_owner,
+            object_lock_enabled=object_lock_enabled,
+            rule=rule,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             object_lock_enabled: Optional[pulumi.Input[str]] = None,
+             rule: Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+        if object_lock_enabled is None and 'objectLockEnabled' in kwargs:
+            object_lock_enabled = kwargs['objectLockEnabled']
+
+        _setter("bucket", bucket)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if object_lock_enabled is not None:
-            pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
+            _setter("object_lock_enabled", object_lock_enabled)
         if rule is not None:
-            pulumi.set(__self__, "rule", rule)
+            _setter("rule", rule)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
 
     @property
     @pulumi.getter
@@ -119,16 +144,39 @@ class _BucketObjectLockConfigurationV2State:
         :param pulumi.Input[str] token: Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
                The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
+        _BucketObjectLockConfigurationV2State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            expected_bucket_owner=expected_bucket_owner,
+            object_lock_enabled=object_lock_enabled,
+            rule=rule,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             object_lock_enabled: Optional[pulumi.Input[str]] = None,
+             rule: Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+        if object_lock_enabled is None and 'objectLockEnabled' in kwargs:
+            object_lock_enabled = kwargs['objectLockEnabled']
+
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if object_lock_enabled is not None:
-            pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
+            _setter("object_lock_enabled", object_lock_enabled)
         if rule is not None:
-            pulumi.set(__self__, "rule", rule)
+            _setter("rule", rule)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
 
     @property
     @pulumi.getter
@@ -211,62 +259,6 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         If you want to **enable** Object Lock for an **existing** bucket, contact AWS Support and see the Object Lock configuration for an existing bucket example below.
 
         ## Example Usage
-        ### Object Lock configuration for a new bucket
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", object_lock_enabled=True)
-        example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2",
-            bucket=example_bucket_v2.id,
-            rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
-                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
-                    mode="COMPLIANCE",
-                    days=5,
-                ),
-            ))
-        ```
-        ### Object Lock configuration for an existing bucket
-
-        This is a multistep process that requires AWS Support intervention.
-
-        1. Enable versioning on your S3 bucket, if you have not already done so.
-           Doing so will generate an "Object Lock token" in the back-end.
-
-        <!-- markdownlint-disable MD029 -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
-            bucket=example_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
-        ```
-        <!-- markdownlint-disable MD029 -->
-
-        2. Contact AWS Support to provide you with the "Object Lock token" for the specified bucket and use the token (or token ID) within your new `s3.BucketObjectLockConfigurationV2` resource.
-           Notice the `object_lock_enabled` argument does not need to be specified as it defaults to `Enabled`.
-
-        <!-- markdownlint-disable MD029 -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.BucketObjectLockConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
-            rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
-                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
-                    mode="COMPLIANCE",
-                    days=5,
-                ),
-            ),
-            token="NG2MKsfoLqV3A+aquXneSG4LOu/ekrlXkRXwIPFVfERT7XOPos+/k444d7RIH0E3W3p5QU6ml2exS2F/eYCFmMWHJ3hFZGk6al1sIJkmNhUMYmsv0jYVQyTTZNLM+DnfooA6SATt39mM1VW1yJh4E+XljMlWzaBwHKbss3/EjlGDjOmVhaSs4Z6427mMCaFD0RLwsYY7zX49gEc31YfOMJGxbXCXSeyNwAhhM/A8UH7gQf38RmjHjjAFbbbLtl8arsxTPW8F1IYohqwmKIr9DnotLLj8Tg44U2SPwujVaqmlKKP9s41rfgb4UbIm7khSafDBng0LGfxC4pMlT9Ny2w==")
-        ```
-        <!-- markdownlint-disable MD029 -->
 
         ## Import
 
@@ -314,62 +306,6 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         If you want to **enable** Object Lock for an **existing** bucket, contact AWS Support and see the Object Lock configuration for an existing bucket example below.
 
         ## Example Usage
-        ### Object Lock configuration for a new bucket
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", object_lock_enabled=True)
-        example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2",
-            bucket=example_bucket_v2.id,
-            rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
-                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
-                    mode="COMPLIANCE",
-                    days=5,
-                ),
-            ))
-        ```
-        ### Object Lock configuration for an existing bucket
-
-        This is a multistep process that requires AWS Support intervention.
-
-        1. Enable versioning on your S3 bucket, if you have not already done so.
-           Doing so will generate an "Object Lock token" in the back-end.
-
-        <!-- markdownlint-disable MD029 -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
-            bucket=example_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
-        ```
-        <!-- markdownlint-disable MD029 -->
-
-        2. Contact AWS Support to provide you with the "Object Lock token" for the specified bucket and use the token (or token ID) within your new `s3.BucketObjectLockConfigurationV2` resource.
-           Notice the `object_lock_enabled` argument does not need to be specified as it defaults to `Enabled`.
-
-        <!-- markdownlint-disable MD029 -->
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.BucketObjectLockConfigurationV2("example",
-            bucket=aws_s3_bucket["example"]["id"],
-            rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
-                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
-                    mode="COMPLIANCE",
-                    days=5,
-                ),
-            ),
-            token="NG2MKsfoLqV3A+aquXneSG4LOu/ekrlXkRXwIPFVfERT7XOPos+/k444d7RIH0E3W3p5QU6ml2exS2F/eYCFmMWHJ3hFZGk6al1sIJkmNhUMYmsv0jYVQyTTZNLM+DnfooA6SATt39mM1VW1yJh4E+XljMlWzaBwHKbss3/EjlGDjOmVhaSs4Z6427mMCaFD0RLwsYY7zX49gEc31YfOMJGxbXCXSeyNwAhhM/A8UH7gQf38RmjHjjAFbbbLtl8arsxTPW8F1IYohqwmKIr9DnotLLj8Tg44U2SPwujVaqmlKKP9s41rfgb4UbIm7khSafDBng0LGfxC4pMlT9Ny2w==")
-        ```
-        <!-- markdownlint-disable MD029 -->
 
         ## Import
 
@@ -404,6 +340,10 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketObjectLockConfigurationV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -428,6 +368,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
             __props__.__dict__["object_lock_enabled"] = object_lock_enabled
+            rule = _utilities.configure(rule, BucketObjectLockConfigurationV2RuleArgs, True)
             __props__.__dict__["rule"] = rule
             __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["token"])

@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
  * `aws.route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
  *
  * This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
- *
- * ## Example Usage
- *
- * The following example shows how to get a firewall config using the VPC ID.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverFirewallConfig({
- *     resourceId: "vpc-exampleid",
- * });
- * ```
  */
 export function getResolverFirewallConfig(args: GetResolverFirewallConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallConfigResult> {
 
@@ -58,19 +45,6 @@ export interface GetResolverFirewallConfigResult {
  * `aws.route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
  *
  * This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
- *
- * ## Example Usage
- *
- * The following example shows how to get a firewall config using the VPC ID.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverFirewallConfig({
- *     resourceId: "vpc-exampleid",
- * });
- * ```
  */
 export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallConfigResult> {
     return pulumi.output(args).apply((a: any) => getResolverFirewallConfig(a, opts))

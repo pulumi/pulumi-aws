@@ -11,15 +11,6 @@ import * as utilities from "../utilities";
  * Provides an EC2 placement group. Read more about placement groups
  * in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const web = new aws.ec2.PlacementGroup("web", {strategy: "cluster"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import placement groups using the `name`. For example:

@@ -16,51 +16,6 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// &gt; This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Lifecycle Configurations in an AWS Partition, see the `aws.s3.BucketV2` resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3Control.BucketLifecycleConfiguration("example", new()
-    ///     {
-    ///         Bucket = aws_s3control_bucket.Example.Arn,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
-    ///             {
-    ///                 Expiration = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
-    ///                 {
-    ///                     Days = 365,
-    ///                 },
-    ///                 Filter = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleFilterArgs
-    ///                 {
-    ///                     Prefix = "logs/",
-    ///                 },
-    ///                 Id = "logs",
-    ///             },
-    ///             new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleArgs
-    ///             {
-    ///                 Expiration = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleExpirationArgs
-    ///                 {
-    ///                     Days = 7,
-    ///                 },
-    ///                 Filter = new Aws.S3Control.Inputs.BucketLifecycleConfigurationRuleFilterArgs
-    ///                 {
-    ///                     Prefix = "temp/",
-    ///                 },
-    ///                 Id = "temp",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the Amazon Resource Name (ARN). For example:

@@ -15,28 +15,6 @@ namespace Pulumi.Aws.Kms
         /// Use this data source to get the ARN of a KMS key alias.
         /// By using this data source, you can reference key alias
         /// without having to hard code the ARN as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var s3 = Aws.Kms.GetAlias.Invoke(new()
-        ///     {
-        ///         Name = "alias/aws/s3",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
@@ -45,28 +23,6 @@ namespace Pulumi.Aws.Kms
         /// Use this data source to get the ARN of a KMS key alias.
         /// By using this data source, you can reference key alias
         /// without having to hard code the ARN as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var s3 = Aws.Kms.GetAlias.Invoke(new()
-        ///     {
-        ///         Name = "alias/aws/s3",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());

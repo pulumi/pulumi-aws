@@ -10,15 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Internet Monitor Monitor resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudwatch.InternetMonitor("example", {monitorName: "exmple"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:

@@ -10,39 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Image Builder Image Recipe.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.imagebuilder.ImageRecipe("example", {
- *     blockDeviceMappings: [{
- *         deviceName: "/dev/xvdb",
- *         ebs: {
- *             deleteOnTermination: "true",
- *             volumeSize: 100,
- *             volumeType: "gp2",
- *         },
- *     }],
- *     components: [{
- *         componentArn: aws_imagebuilder_component.example.arn,
- *         parameters: [
- *             {
- *                 name: "Parameter1",
- *                 value: "Value1",
- *             },
- *             {
- *                 name: "Parameter2",
- *                 value: "Value2",
- *             },
- *         ],
- *     }],
- *     parentImage: `arn:${data.aws_partition.current.partition}:imagebuilder:${data.aws_region.current.name}:aws:image/amazon-linux-2-x86/x.x.x`,
- *     version: "1.0.0",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:

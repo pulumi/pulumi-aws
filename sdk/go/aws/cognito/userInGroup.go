@@ -14,59 +14,6 @@ import (
 )
 
 // Adds the specified user to the specified group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUserPool, err := cognito.NewUserPool(ctx, "exampleUserPool", &cognito.UserPoolArgs{
-//				PasswordPolicy: &cognito.UserPoolPasswordPolicyArgs{
-//					TemporaryPasswordValidityDays: pulumi.Int(7),
-//					MinimumLength:                 pulumi.Int(6),
-//					RequireUppercase:              pulumi.Bool(false),
-//					RequireSymbols:                pulumi.Bool(false),
-//					RequireNumbers:                pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUser, err := cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-//				UserPoolId: exampleUserPool.ID(),
-//				Username:   pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserGroup, err := cognito.NewUserGroup(ctx, "exampleUserGroup", &cognito.UserGroupArgs{
-//				UserPoolId: exampleUserPool.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cognito.NewUserInGroup(ctx, "exampleUserInGroup", &cognito.UserInGroupArgs{
-//				UserPoolId: exampleUserPool.ID(),
-//				GroupName:  exampleUserGroup.Name,
-//				Username:   exampleUser.Username,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type UserInGroup struct {
 	pulumi.CustomResourceState
 

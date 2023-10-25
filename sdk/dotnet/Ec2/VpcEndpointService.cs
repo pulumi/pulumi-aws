@@ -20,48 +20,6 @@ namespace Pulumi.Aws.Ec2
     /// and will overwrite the association.
     /// 
     /// ## Example Usage
-    /// ### Network Load Balancers
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.VpcEndpointService("example", new()
-    ///     {
-    ///         AcceptanceRequired = false,
-    ///         NetworkLoadBalancerArns = new[]
-    ///         {
-    ///             aws_lb.Example.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Gateway Load Balancers
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.VpcEndpointService("example", new()
-    ///     {
-    ///         AcceptanceRequired = false,
-    ///         GatewayLoadBalancerArns = new[]
-    ///         {
-    ///             aws_lb.Example.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

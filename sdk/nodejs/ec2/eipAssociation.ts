@@ -13,27 +13,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** `aws.ec2.EipAssociation` is useful in scenarios where EIPs are either
  * pre-existing or distributed to customers or users and therefore cannot be changed.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const web = new aws.ec2.Instance("web", {
- *     ami: "ami-21f78e11",
- *     availabilityZone: "us-west-2a",
- *     instanceType: "t2.micro",
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * const example = new aws.ec2.Eip("example", {domain: "vpc"});
- * const eipAssoc = new aws.ec2.EipAssociation("eipAssoc", {
- *     instanceId: web.id,
- *     allocationId: example.id,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EIP Assocations using their association IDs. For example:

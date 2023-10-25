@@ -10,18 +10,6 @@ import * as utilities from "../utilities";
  * > **Note:** This resource should not be used with a route table that has
  * the `propagatingVgws` argument set. If that argument is set, any route
  * propagation not explicitly listed in its value will be removed.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.VpnGatewayRoutePropagation("example", {
- *     vpnGatewayId: aws_vpn_gateway.example.id,
- *     routeTableId: aws_route_table.example.id,
- * });
- * ```
  */
 export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
     /**

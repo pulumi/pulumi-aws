@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -120,14 +120,6 @@ def get_contact_channel(arn: Optional[str] = None,
     Data source for managing an AWS SSM Contacts Contact Channel.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmcontacts.get_contact_channel(arn="arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example")
-    ```
 
 
     :param str arn: Amazon Resource Name (ARN) of the contact channel.
@@ -154,14 +146,6 @@ def get_contact_channel_output(arn: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS SSM Contacts Contact Channel.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssmcontacts.get_contact_channel(arn="arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example")
-    ```
 
 
     :param str arn: Amazon Resource Name (ARN) of the contact channel.

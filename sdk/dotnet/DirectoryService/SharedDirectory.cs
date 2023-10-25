@@ -12,42 +12,6 @@ namespace Pulumi.Aws.DirectoryService
     /// <summary>
     /// Manages a directory in your account (directory owner) shared with another account (directory consumer).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleDirectory = new Aws.DirectoryService.Directory("exampleDirectory", new()
-    ///     {
-    ///         Name = "tf-example",
-    ///         Password = "SuperSecretPassw0rd",
-    ///         Type = "MicrosoftAD",
-    ///         Edition = "Standard",
-    ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
-    ///         {
-    ///             VpcId = aws_vpc.Example.Id,
-    ///             SubnetIds = aws_subnet.Example.Select(__item =&gt; __item.Id).ToList(),
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("exampleSharedDirectory", new()
-    ///     {
-    ///         DirectoryId = exampleDirectory.Id,
-    ///         Notes = "You wanna have a catch?",
-    ///         Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
-    ///         {
-    ///             Id = data.Aws_caller_identity.Receiver.Account_id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For example:

@@ -1120,7 +1120,7 @@ type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDest
 	BucketArn string `pulumi:"bucketArn"`
 	// Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
 	Format *string `pulumi:"format"`
-	// Object prefix for filtering.
+	// Prefix to append to exported analytics data.
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -1142,7 +1142,7 @@ type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDest
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
 	Format pulumi.StringPtrInput `pulumi:"format"`
-	// Object prefix for filtering.
+	// Prefix to append to exported analytics data.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -1262,7 +1262,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object prefix for filtering.
+// Prefix to append to exported analytics data.
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *string {
 		return v.Prefix
@@ -1329,7 +1329,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object prefix for filtering.
+// Prefix to append to exported analytics data.
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *string {
 		if v == nil {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib
     {
         /// <summary>
-        /// Maximum. Set to `0` to exclude instance types with accelerators.
+        /// Maximum.
         /// </summary>
         public readonly int? Max;
         /// <summary>

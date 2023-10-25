@@ -17,27 +17,6 @@ namespace Pulumi.Aws.Ec2
     /// and a single `security_group_id`) and a VPC Endpoint resource with a `security_group_ids`
     /// attribute. Do not use the same security group ID in both a VPC Endpoint resource and a VPC Endpoint Security
     /// Group Association resource. Doing so will cause a conflict of associations and will overwrite the association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sgEc2 = new Aws.Ec2.SecurityGroupAssociation("sgEc2", new()
-    ///     {
-    ///         VpcEndpointId = aws_vpc_endpoint.Ec2.Id,
-    ///         SecurityGroupId = aws_security_group.Sg.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/securityGroupAssociation:SecurityGroupAssociation")]
     public partial class SecurityGroupAssociation : global::Pulumi.CustomResource

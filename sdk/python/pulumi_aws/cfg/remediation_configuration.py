@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,23 +41,74 @@ class RemediationConfigurationArgs:
         :param pulumi.Input[int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         :param pulumi.Input[str] target_version: Version of the target. For example, version of the SSM document
         """
-        pulumi.set(__self__, "config_rule_name", config_rule_name)
-        pulumi.set(__self__, "target_id", target_id)
-        pulumi.set(__self__, "target_type", target_type)
+        RemediationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config_rule_name=config_rule_name,
+            target_id=target_id,
+            target_type=target_type,
+            automatic=automatic,
+            execution_controls=execution_controls,
+            maximum_automatic_attempts=maximum_automatic_attempts,
+            parameters=parameters,
+            resource_type=resource_type,
+            retry_attempt_seconds=retry_attempt_seconds,
+            target_version=target_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config_rule_name: Optional[pulumi.Input[str]] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             target_type: Optional[pulumi.Input[str]] = None,
+             automatic: Optional[pulumi.Input[bool]] = None,
+             execution_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']] = None,
+             maximum_automatic_attempts: Optional[pulumi.Input[int]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             retry_attempt_seconds: Optional[pulumi.Input[int]] = None,
+             target_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config_rule_name is None and 'configRuleName' in kwargs:
+            config_rule_name = kwargs['configRuleName']
+        if config_rule_name is None:
+            raise TypeError("Missing 'config_rule_name' argument")
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if target_id is None:
+            raise TypeError("Missing 'target_id' argument")
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if target_type is None:
+            raise TypeError("Missing 'target_type' argument")
+        if execution_controls is None and 'executionControls' in kwargs:
+            execution_controls = kwargs['executionControls']
+        if maximum_automatic_attempts is None and 'maximumAutomaticAttempts' in kwargs:
+            maximum_automatic_attempts = kwargs['maximumAutomaticAttempts']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if retry_attempt_seconds is None and 'retryAttemptSeconds' in kwargs:
+            retry_attempt_seconds = kwargs['retryAttemptSeconds']
+        if target_version is None and 'targetVersion' in kwargs:
+            target_version = kwargs['targetVersion']
+
+        _setter("config_rule_name", config_rule_name)
+        _setter("target_id", target_id)
+        _setter("target_type", target_type)
         if automatic is not None:
-            pulumi.set(__self__, "automatic", automatic)
+            _setter("automatic", automatic)
         if execution_controls is not None:
-            pulumi.set(__self__, "execution_controls", execution_controls)
+            _setter("execution_controls", execution_controls)
         if maximum_automatic_attempts is not None:
-            pulumi.set(__self__, "maximum_automatic_attempts", maximum_automatic_attempts)
+            _setter("maximum_automatic_attempts", maximum_automatic_attempts)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if retry_attempt_seconds is not None:
-            pulumi.set(__self__, "retry_attempt_seconds", retry_attempt_seconds)
+            _setter("retry_attempt_seconds", retry_attempt_seconds)
         if target_version is not None:
-            pulumi.set(__self__, "target_version", target_version)
+            _setter("target_version", target_version)
 
     @property
     @pulumi.getter(name="configRuleName")
@@ -212,28 +263,75 @@ class _RemediationConfigurationState:
                The following arguments are optional:
         :param pulumi.Input[str] target_version: Version of the target. For example, version of the SSM document
         """
+        _RemediationConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            automatic=automatic,
+            config_rule_name=config_rule_name,
+            execution_controls=execution_controls,
+            maximum_automatic_attempts=maximum_automatic_attempts,
+            parameters=parameters,
+            resource_type=resource_type,
+            retry_attempt_seconds=retry_attempt_seconds,
+            target_id=target_id,
+            target_type=target_type,
+            target_version=target_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             automatic: Optional[pulumi.Input[bool]] = None,
+             config_rule_name: Optional[pulumi.Input[str]] = None,
+             execution_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']] = None,
+             maximum_automatic_attempts: Optional[pulumi.Input[int]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             retry_attempt_seconds: Optional[pulumi.Input[int]] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             target_type: Optional[pulumi.Input[str]] = None,
+             target_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config_rule_name is None and 'configRuleName' in kwargs:
+            config_rule_name = kwargs['configRuleName']
+        if execution_controls is None and 'executionControls' in kwargs:
+            execution_controls = kwargs['executionControls']
+        if maximum_automatic_attempts is None and 'maximumAutomaticAttempts' in kwargs:
+            maximum_automatic_attempts = kwargs['maximumAutomaticAttempts']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if retry_attempt_seconds is None and 'retryAttemptSeconds' in kwargs:
+            retry_attempt_seconds = kwargs['retryAttemptSeconds']
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if target_version is None and 'targetVersion' in kwargs:
+            target_version = kwargs['targetVersion']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if automatic is not None:
-            pulumi.set(__self__, "automatic", automatic)
+            _setter("automatic", automatic)
         if config_rule_name is not None:
-            pulumi.set(__self__, "config_rule_name", config_rule_name)
+            _setter("config_rule_name", config_rule_name)
         if execution_controls is not None:
-            pulumi.set(__self__, "execution_controls", execution_controls)
+            _setter("execution_controls", execution_controls)
         if maximum_automatic_attempts is not None:
-            pulumi.set(__self__, "maximum_automatic_attempts", maximum_automatic_attempts)
+            _setter("maximum_automatic_attempts", maximum_automatic_attempts)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if retry_attempt_seconds is not None:
-            pulumi.set(__self__, "retry_attempt_seconds", retry_attempt_seconds)
+            _setter("retry_attempt_seconds", retry_attempt_seconds)
         if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+            _setter("target_id", target_id)
         if target_type is not None:
-            pulumi.set(__self__, "target_type", target_type)
+            _setter("target_type", target_type)
         if target_version is not None:
-            pulumi.set(__self__, "target_version", target_version)
+            _setter("target_version", target_version)
 
     @property
     @pulumi.getter
@@ -391,49 +489,6 @@ class RemediationConfiguration(pulumi.CustomResource):
 
         > **Note:** Config Remediation Configuration requires an existing Config Rule to be present.
 
-        ## Example Usage
-
-        AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        this_rule = aws.cfg.Rule("thisRule", source=aws.cfg.RuleSourceArgs(
-            owner="AWS",
-            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-        ))
-        this_remediation_configuration = aws.cfg.RemediationConfiguration("thisRemediationConfiguration",
-            config_rule_name=this_rule.name,
-            resource_type="AWS::S3::Bucket",
-            target_type="SSM_DOCUMENT",
-            target_id="AWS-EnableS3BucketEncryption",
-            target_version="1",
-            parameters=[
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="AutomationAssumeRole",
-                    static_value="arn:aws:iam::875924563244:role/security_config",
-                ),
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="BucketName",
-                    resource_value="RESOURCE_ID",
-                ),
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="SSEAlgorithm",
-                    static_value="AES256",
-                ),
-            ],
-            automatic=True,
-            maximum_automatic_attempts=10,
-            retry_attempt_seconds=600,
-            execution_controls=aws.cfg.RemediationConfigurationExecutionControlsArgs(
-                ssm_controls=aws.cfg.RemediationConfigurationExecutionControlsSsmControlsArgs(
-                    concurrent_execution_rate_percentage=25,
-                    error_percentage=20,
-                ),
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:
@@ -468,49 +523,6 @@ class RemediationConfiguration(pulumi.CustomResource):
 
         > **Note:** Config Remediation Configuration requires an existing Config Rule to be present.
 
-        ## Example Usage
-
-        AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        this_rule = aws.cfg.Rule("thisRule", source=aws.cfg.RuleSourceArgs(
-            owner="AWS",
-            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-        ))
-        this_remediation_configuration = aws.cfg.RemediationConfiguration("thisRemediationConfiguration",
-            config_rule_name=this_rule.name,
-            resource_type="AWS::S3::Bucket",
-            target_type="SSM_DOCUMENT",
-            target_id="AWS-EnableS3BucketEncryption",
-            target_version="1",
-            parameters=[
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="AutomationAssumeRole",
-                    static_value="arn:aws:iam::875924563244:role/security_config",
-                ),
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="BucketName",
-                    resource_value="RESOURCE_ID",
-                ),
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="SSEAlgorithm",
-                    static_value="AES256",
-                ),
-            ],
-            automatic=True,
-            maximum_automatic_attempts=10,
-            retry_attempt_seconds=600,
-            execution_controls=aws.cfg.RemediationConfigurationExecutionControlsArgs(
-                ssm_controls=aws.cfg.RemediationConfigurationExecutionControlsSsmControlsArgs(
-                    concurrent_execution_rate_percentage=25,
-                    error_percentage=20,
-                ),
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:
@@ -529,6 +541,10 @@ class RemediationConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RemediationConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -557,6 +573,7 @@ class RemediationConfiguration(pulumi.CustomResource):
             if config_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'config_rule_name'")
             __props__.__dict__["config_rule_name"] = config_rule_name
+            execution_controls = _utilities.configure(execution_controls, RemediationConfigurationExecutionControlsArgs, True)
             __props__.__dict__["execution_controls"] = execution_controls
             __props__.__dict__["maximum_automatic_attempts"] = maximum_automatic_attempts
             __props__.__dict__["parameters"] = parameters

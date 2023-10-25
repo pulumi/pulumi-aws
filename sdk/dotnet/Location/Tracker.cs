@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Location
     /// <summary>
     /// Provides a Location Service Tracker.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Location.Tracker("example", new()
-    ///     {
-    ///         TrackerName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:

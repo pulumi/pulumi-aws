@@ -9,58 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const lb = new aws.elb.LoadBalancer("lb", {
- *     availabilityZones: ["us-east-1a"],
- *     listeners: [{
- *         instancePort: 8000,
- *         instanceProtocol: "https",
- *         lbPort: 443,
- *         lbProtocol: "https",
- *         sslCertificateId: "arn:aws:iam::123456789012:server-certificate/certName",
- *     }],
- * });
- * const foo = new aws.elb.SslNegotiationPolicy("foo", {
- *     loadBalancer: lb.id,
- *     lbPort: 443,
- *     attributes: [
- *         {
- *             name: "Protocol-TLSv1",
- *             value: "false",
- *         },
- *         {
- *             name: "Protocol-TLSv1.1",
- *             value: "false",
- *         },
- *         {
- *             name: "Protocol-TLSv1.2",
- *             value: "true",
- *         },
- *         {
- *             name: "Server-Defined-Cipher-Order",
- *             value: "true",
- *         },
- *         {
- *             name: "ECDHE-RSA-AES128-GCM-SHA256",
- *             value: "true",
- *         },
- *         {
- *             name: "AES128-GCM-SHA256",
- *             value: "true",
- *         },
- *         {
- *             name: "EDH-RSA-DES-CBC3-SHA",
- *             value: "false",
- *         },
- *     ],
- * });
- * ```
  */
 export class SslNegotiationPolicy extends pulumi.CustomResource {
     /**

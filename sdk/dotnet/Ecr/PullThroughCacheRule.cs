@@ -15,25 +15,6 @@ namespace Pulumi.Aws.Ecr
     /// More information about pull through cache rules, including the set of supported
     /// upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ecr.PullThroughCacheRule("example", new()
-    ///     {
-    ///         EcrRepositoryPrefix = "ecr-public",
-    ///         UpstreamRegistryUrl = "public.ecr.aws",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:

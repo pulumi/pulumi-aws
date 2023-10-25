@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var elasticbeanstalk = new Aws.Iam.ServiceLinkedRole("elasticbeanstalk", new()
-    ///     {
-    ///         AwsServiceName = "elasticbeanstalk.amazonaws.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM service-linked roles using role ARN. For example:

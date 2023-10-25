@@ -10,59 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// The following example below creates a CloudFront origin request policy.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.OriginRequestPolicy("example", new()
-    ///     {
-    ///         Comment = "example comment",
-    ///         CookiesConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyCookiesConfigArgs
-    ///         {
-    ///             CookieBehavior = "whitelist",
-    ///             Cookies = new Aws.CloudFront.Inputs.OriginRequestPolicyCookiesConfigCookiesArgs
-    ///             {
-    ///                 Items = new[]
-    ///                 {
-    ///                     "example",
-    ///                 },
-    ///             },
-    ///         },
-    ///         HeadersConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyHeadersConfigArgs
-    ///         {
-    ///             HeaderBehavior = "whitelist",
-    ///             Headers = new Aws.CloudFront.Inputs.OriginRequestPolicyHeadersConfigHeadersArgs
-    ///             {
-    ///                 Items = new[]
-    ///                 {
-    ///                     "example",
-    ///                 },
-    ///             },
-    ///         },
-    ///         QueryStringsConfig = new Aws.CloudFront.Inputs.OriginRequestPolicyQueryStringsConfigArgs
-    ///         {
-    ///             QueryStringBehavior = "whitelist",
-    ///             QueryStrings = new Aws.CloudFront.Inputs.OriginRequestPolicyQueryStringsConfigQueryStringsArgs
-    ///             {
-    ///                 Items = new[]
-    ///                 {
-    ///                     "example",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For example:

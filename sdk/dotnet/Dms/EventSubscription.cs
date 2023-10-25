@@ -12,39 +12,6 @@ namespace Pulumi.Aws.Dms
     /// <summary>
     /// Provides a DMS (Data Migration Service) event subscription resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Dms.EventSubscription("example", new()
-    ///     {
-    ///         Enabled = true,
-    ///         EventCategories = new[]
-    ///         {
-    ///             "creation",
-    ///             "failure",
-    ///         },
-    ///         SnsTopicArn = aws_sns_topic.Example.Arn,
-    ///         SourceIds = new[]
-    ///         {
-    ///             aws_dms_replication_task.Example.Replication_task_id,
-    ///         },
-    ///         SourceType = "replication-task",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import event subscriptions using the `name`. For example:

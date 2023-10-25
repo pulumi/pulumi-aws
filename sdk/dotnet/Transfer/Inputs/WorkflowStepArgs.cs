@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Transfer.Inputs
         public Input<Inputs.WorkflowStepTagStepDetailsArgs>? TagStepDetails { get; set; }
 
         /// <summary>
-        /// One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+        /// The type of encryption used. Currently, this value must be `"PGP"`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

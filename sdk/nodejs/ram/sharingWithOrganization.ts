@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Use this resource to manage resource sharing within your organization, **not** the `aws.organizations.Organization` resource with `ram.amazonaws.com` configured in `awsServiceAccessPrincipals`.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ram.SharingWithOrganization("example", {});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import the resource using the current AWS account ID. For example:

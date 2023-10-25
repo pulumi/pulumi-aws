@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,41 @@ class ReportPlanArgs:
         :param pulumi.Input[str] name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "report_delivery_channel", report_delivery_channel)
-        pulumi.set(__self__, "report_setting", report_setting)
+        ReportPlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            report_delivery_channel=report_delivery_channel,
+            report_setting=report_setting,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             report_delivery_channel: Optional[pulumi.Input['ReportPlanReportDeliveryChannelArgs']] = None,
+             report_setting: Optional[pulumi.Input['ReportPlanReportSettingArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if report_delivery_channel is None and 'reportDeliveryChannel' in kwargs:
+            report_delivery_channel = kwargs['reportDeliveryChannel']
+        if report_delivery_channel is None:
+            raise TypeError("Missing 'report_delivery_channel' argument")
+        if report_setting is None and 'reportSetting' in kwargs:
+            report_setting = kwargs['reportSetting']
+        if report_setting is None:
+            raise TypeError("Missing 'report_setting' argument")
+
+        _setter("report_delivery_channel", report_delivery_channel)
+        _setter("report_setting", report_setting)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="reportDeliveryChannel")
@@ -123,27 +150,64 @@ class _ReportPlanState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ReportPlanState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            creation_time=creation_time,
+            deployment_status=deployment_status,
+            description=description,
+            name=name,
+            report_delivery_channel=report_delivery_channel,
+            report_setting=report_setting,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             creation_time: Optional[pulumi.Input[str]] = None,
+             deployment_status: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             report_delivery_channel: Optional[pulumi.Input['ReportPlanReportDeliveryChannelArgs']] = None,
+             report_setting: Optional[pulumi.Input['ReportPlanReportSettingArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if deployment_status is None and 'deploymentStatus' in kwargs:
+            deployment_status = kwargs['deploymentStatus']
+        if report_delivery_channel is None and 'reportDeliveryChannel' in kwargs:
+            report_delivery_channel = kwargs['reportDeliveryChannel']
+        if report_setting is None and 'reportSetting' in kwargs:
+            report_setting = kwargs['reportSetting']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if deployment_status is not None:
-            pulumi.set(__self__, "deployment_status", deployment_status)
+            _setter("deployment_status", deployment_status)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if report_delivery_channel is not None:
-            pulumi.set(__self__, "report_delivery_channel", report_delivery_channel)
+            _setter("report_delivery_channel", report_delivery_channel)
         if report_setting is not None:
-            pulumi.set(__self__, "report_setting", report_setting)
+            _setter("report_setting", report_setting)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -271,29 +335,6 @@ class ReportPlan(pulumi.CustomResource):
         """
         Provides an AWS Backup Report Plan resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.backup.ReportPlan("example",
-            description="example description",
-            report_delivery_channel=aws.backup.ReportPlanReportDeliveryChannelArgs(
-                formats=[
-                    "CSV",
-                    "JSON",
-                ],
-                s3_bucket_name="example-bucket-name",
-            ),
-            report_setting=aws.backup.ReportPlanReportSettingArgs(
-                report_template="RESTORE_JOB_REPORT",
-            ),
-            tags={
-                "Name": "Example Report Plan",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:
@@ -319,29 +360,6 @@ class ReportPlan(pulumi.CustomResource):
         """
         Provides an AWS Backup Report Plan resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.backup.ReportPlan("example",
-            description="example description",
-            report_delivery_channel=aws.backup.ReportPlanReportDeliveryChannelArgs(
-                formats=[
-                    "CSV",
-                    "JSON",
-                ],
-                s3_bucket_name="example-bucket-name",
-            ),
-            report_setting=aws.backup.ReportPlanReportSettingArgs(
-                report_template="RESTORE_JOB_REPORT",
-            ),
-            tags={
-                "Name": "Example Report Plan",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:
@@ -360,6 +378,10 @@ class ReportPlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReportPlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -381,9 +403,11 @@ class ReportPlan(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            report_delivery_channel = _utilities.configure(report_delivery_channel, ReportPlanReportDeliveryChannelArgs, True)
             if report_delivery_channel is None and not opts.urn:
                 raise TypeError("Missing required property 'report_delivery_channel'")
             __props__.__dict__["report_delivery_channel"] = report_delivery_channel
+            report_setting = _utilities.configure(report_setting, ReportPlanReportSettingArgs, True)
             if report_setting is None and not opts.urn:
                 raise TypeError("Missing required property 'report_setting'")
             __props__.__dict__["report_setting"] = report_setting

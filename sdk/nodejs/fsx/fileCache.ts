@@ -11,43 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an Amazon File Cache cache.
  * See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.fsx.FileCache("example", {
- *     dataRepositoryAssociations: [{
- *         dataRepositoryPath: "nfs://filer.domain.com",
- *         dataRepositorySubdirectories: [
- *             "test",
- *             "test2",
- *         ],
- *         fileCachePath: "/ns1",
- *         nfs: [{
- *             dnsIps: [
- *                 "192.168.0.1",
- *                 "192.168.0.2",
- *             ],
- *             version: "NFS3",
- *         }],
- *     }],
- *     fileCacheType: "LUSTRE",
- *     fileCacheTypeVersion: "2.12",
- *     lustreConfigurations: [{
- *         deploymentType: "CACHE_1",
- *         metadataConfigurations: [{
- *             storageCapacity: 2400,
- *         }],
- *         perUnitStorageThroughput: 1000,
- *         weeklyMaintenanceStartTime: "2:05:00",
- *     }],
- *     subnetIds: [aws_subnet.test1.id],
- *     storageCapacity: 1200,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:

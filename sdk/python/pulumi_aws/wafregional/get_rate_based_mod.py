@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -58,15 +58,6 @@ def get_rate_based_mod(name: Optional[str] = None,
     """
     `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.wafregional.get_rate_based_mod(name="tfWAFRegionalRateBasedRule")
-    ```
-
 
     :param str name: Name of the WAF Regional rate based rule.
     """
@@ -85,15 +76,6 @@ def get_rate_based_mod_output(name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRateBasedModResult]:
     """
     `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.wafregional.get_rate_based_mod(name="tfWAFRegionalRateBasedRule")
-    ```
 
 
     :param str name: Name of the WAF Regional rate based rule.

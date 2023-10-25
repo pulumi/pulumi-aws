@@ -12,25 +12,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// <summary>
     /// Provides a resource to create a Service Catalog Portfolio.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var portfolio = new Aws.ServiceCatalog.Portfolio("portfolio", new()
-    ///     {
-    ///         Description = "List of my organizations apps",
-    ///         ProviderName = "Brett",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:

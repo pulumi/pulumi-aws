@@ -12,27 +12,6 @@ import * as utilities from "../utilities";
  *
  * More information about Keyspaces tables can be found in the [Keyspaces Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.keyspaces.Table("example", {
- *     keyspaceName: aws_keyspaces_keyspace.example.name,
- *     tableName: "my_table",
- *     schemaDefinition: {
- *         columns: [{
- *             name: "Message",
- *             type: "ASCII",
- *         }],
- *         partitionKeys: [{
- *             name: "Message",
- *         }],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TrafficPolicyInstanceArgs', 'TrafficPolicyInstance']
@@ -27,12 +27,45 @@ class TrafficPolicyInstanceArgs:
         :param pulumi.Input[int] ttl: TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
         :param pulumi.Input[str] name: Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
         """
-        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
-        pulumi.set(__self__, "traffic_policy_id", traffic_policy_id)
-        pulumi.set(__self__, "traffic_policy_version", traffic_policy_version)
-        pulumi.set(__self__, "ttl", ttl)
+        TrafficPolicyInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hosted_zone_id=hosted_zone_id,
+            traffic_policy_id=traffic_policy_id,
+            traffic_policy_version=traffic_policy_version,
+            ttl=ttl,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             traffic_policy_id: Optional[pulumi.Input[str]] = None,
+             traffic_policy_version: Optional[pulumi.Input[int]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if hosted_zone_id is None:
+            raise TypeError("Missing 'hosted_zone_id' argument")
+        if traffic_policy_id is None and 'trafficPolicyId' in kwargs:
+            traffic_policy_id = kwargs['trafficPolicyId']
+        if traffic_policy_id is None:
+            raise TypeError("Missing 'traffic_policy_id' argument")
+        if traffic_policy_version is None and 'trafficPolicyVersion' in kwargs:
+            traffic_policy_version = kwargs['trafficPolicyVersion']
+        if traffic_policy_version is None:
+            raise TypeError("Missing 'traffic_policy_version' argument")
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+
+        _setter("hosted_zone_id", hosted_zone_id)
+        _setter("traffic_policy_id", traffic_policy_id)
+        _setter("traffic_policy_version", traffic_policy_version)
+        _setter("ttl", ttl)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -111,16 +144,41 @@ class _TrafficPolicyInstanceState:
         :param pulumi.Input[int] traffic_policy_version: Version of the traffic policy
         :param pulumi.Input[int] ttl: TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
         """
+        _TrafficPolicyInstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hosted_zone_id=hosted_zone_id,
+            name=name,
+            traffic_policy_id=traffic_policy_id,
+            traffic_policy_version=traffic_policy_version,
+            ttl=ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             traffic_policy_id: Optional[pulumi.Input[str]] = None,
+             traffic_policy_version: Optional[pulumi.Input[int]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if traffic_policy_id is None and 'trafficPolicyId' in kwargs:
+            traffic_policy_id = kwargs['trafficPolicyId']
+        if traffic_policy_version is None and 'trafficPolicyVersion' in kwargs:
+            traffic_policy_version = kwargs['trafficPolicyVersion']
+
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if traffic_policy_id is not None:
-            pulumi.set(__self__, "traffic_policy_id", traffic_policy_id)
+            _setter("traffic_policy_id", traffic_policy_id)
         if traffic_policy_version is not None:
-            pulumi.set(__self__, "traffic_policy_version", traffic_policy_version)
+            _setter("traffic_policy_version", traffic_policy_version)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -197,19 +255,6 @@ class TrafficPolicyInstance(pulumi.CustomResource):
         """
         Provides a Route53 traffic policy instance resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.route53.TrafficPolicyInstance("test",
-            hosted_zone_id="Z033120931TAQO548OGJC",
-            traffic_policy_id="b3gb108f-ea6f-45a5-baab-9d112d8b4037",
-            traffic_policy_version=1,
-            ttl=360)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route53 traffic policy instance using its id. For example:
@@ -235,19 +280,6 @@ class TrafficPolicyInstance(pulumi.CustomResource):
         """
         Provides a Route53 traffic policy instance resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.route53.TrafficPolicyInstance("test",
-            hosted_zone_id="Z033120931TAQO548OGJC",
-            traffic_policy_id="b3gb108f-ea6f-45a5-baab-9d112d8b4037",
-            traffic_policy_version=1,
-            ttl=360)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route53 traffic policy instance using its id. For example:
@@ -266,6 +298,10 @@ class TrafficPolicyInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrafficPolicyInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

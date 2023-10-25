@@ -16,49 +16,6 @@ import (
 //
 // > **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := guardduty.NewDetector(ctx, "myDetector", &guardduty.DetectorArgs{
-//				Datasources: &guardduty.DetectorDatasourcesArgs{
-//					Kubernetes: &guardduty.DetectorDatasourcesKubernetesArgs{
-//						AuditLogs: &guardduty.DetectorDatasourcesKubernetesAuditLogsArgs{
-//							Enable: pulumi.Bool(false),
-//						},
-//					},
-//					MalwareProtection: &guardduty.DetectorDatasourcesMalwareProtectionArgs{
-//						ScanEc2InstanceWithFindings: &guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{
-//							EbsVolumes: &guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{
-//								Enable: pulumi.Bool(true),
-//							},
-//						},
-//					},
-//					S3Logs: &guardduty.DetectorDatasourcesS3LogsArgs{
-//						Enable: pulumi.Bool(true),
-//					},
-//				},
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import GuardDuty detectors using the detector ID. For example:

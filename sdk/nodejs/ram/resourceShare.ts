@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Resource Access Manager (RAM) Resource Share. To associate principals with the share, see the `aws.ram.PrincipalAssociation` resource. To associate resources with the share, see the `aws.ram.ResourceAssociation` resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ram.ResourceShare("example", {
- *     allowExternalPrincipals: true,
- *     tags: {
- *         Environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import resource shares using the `arn` of the resource share. For example:

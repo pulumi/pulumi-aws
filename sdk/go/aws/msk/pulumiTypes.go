@@ -965,9 +965,9 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl struct {
-	// Enables SASL/IAM authentication for VPC connectivity.
+	// Enables IAM client authentication. Defaults to `false`.
 	Iam *bool `pulumi:"iam"`
-	// Enables SASL/SCRAM authentication for VPC connectivity.
+	// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 	Scram *bool `pulumi:"scram"`
 }
 
@@ -983,9 +983,9 @@ type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticati
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs struct {
-	// Enables SASL/IAM authentication for VPC connectivity.
+	// Enables IAM client authentication. Defaults to `false`.
 	Iam pulumi.BoolPtrInput `pulumi:"iam"`
-	// Enables SASL/SCRAM authentication for VPC connectivity.
+	// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 	Scram pulumi.BoolPtrInput `pulumi:"scram"`
 }
 
@@ -1084,14 +1084,14 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 	}
 }
 
-// Enables SASL/IAM authentication for VPC connectivity.
+// Enables IAM client authentication. Defaults to `false`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) Iam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *bool {
 		return v.Iam
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enables SASL/SCRAM authentication for VPC connectivity.
+// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) Scram() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *bool {
 		return v.Scram
@@ -1128,7 +1128,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput)
 }
 
-// Enables SASL/IAM authentication for VPC connectivity.
+// Enables IAM client authentication. Defaults to `false`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput) Iam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *bool {
 		if v == nil {
@@ -1138,7 +1138,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enables SASL/SCRAM authentication for VPC connectivity.
+// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput) Scram() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *bool {
 		if v == nil {
@@ -1877,9 +1877,9 @@ func (o ClusterClientAuthenticationPtrOutput) Unauthenticated() pulumi.BoolPtrOu
 }
 
 type ClusterClientAuthenticationSasl struct {
-	// Enables SASL/IAM authentication for VPC connectivity.
+	// Enables IAM client authentication. Defaults to `false`.
 	Iam *bool `pulumi:"iam"`
-	// Enables SASL/SCRAM authentication for VPC connectivity.
+	// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 	Scram *bool `pulumi:"scram"`
 }
 
@@ -1895,9 +1895,9 @@ type ClusterClientAuthenticationSaslInput interface {
 }
 
 type ClusterClientAuthenticationSaslArgs struct {
-	// Enables SASL/IAM authentication for VPC connectivity.
+	// Enables IAM client authentication. Defaults to `false`.
 	Iam pulumi.BoolPtrInput `pulumi:"iam"`
-	// Enables SASL/SCRAM authentication for VPC connectivity.
+	// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 	Scram pulumi.BoolPtrInput `pulumi:"scram"`
 }
 
@@ -1996,12 +1996,12 @@ func (o ClusterClientAuthenticationSaslOutput) ToOutput(ctx context.Context) pul
 	}
 }
 
-// Enables SASL/IAM authentication for VPC connectivity.
+// Enables IAM client authentication. Defaults to `false`.
 func (o ClusterClientAuthenticationSaslOutput) Iam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthenticationSasl) *bool { return v.Iam }).(pulumi.BoolPtrOutput)
 }
 
-// Enables SASL/SCRAM authentication for VPC connectivity.
+// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 func (o ClusterClientAuthenticationSaslOutput) Scram() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthenticationSasl) *bool { return v.Scram }).(pulumi.BoolPtrOutput)
 }
@@ -2036,7 +2036,7 @@ func (o ClusterClientAuthenticationSaslPtrOutput) Elem() ClusterClientAuthentica
 	}).(ClusterClientAuthenticationSaslOutput)
 }
 
-// Enables SASL/IAM authentication for VPC connectivity.
+// Enables IAM client authentication. Defaults to `false`.
 func (o ClusterClientAuthenticationSaslPtrOutput) Iam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterClientAuthenticationSasl) *bool {
 		if v == nil {
@@ -2046,7 +2046,7 @@ func (o ClusterClientAuthenticationSaslPtrOutput) Iam() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enables SASL/SCRAM authentication for VPC connectivity.
+// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 func (o ClusterClientAuthenticationSaslPtrOutput) Scram() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterClientAuthenticationSasl) *bool {
 		if v == nil {
@@ -4012,7 +4012,7 @@ func (o ClusterOpenMonitoringPrometheusPtrOutput) NodeExporter() ClusterOpenMoni
 }
 
 type ClusterOpenMonitoringPrometheusJmxExporter struct {
-	// Indicates whether you want to enable or disable the JMX Exporter.
+	// Indicates whether you want to enable or disable the Node Exporter.
 	EnabledInBroker bool `pulumi:"enabledInBroker"`
 }
 
@@ -4028,7 +4028,7 @@ type ClusterOpenMonitoringPrometheusJmxExporterInput interface {
 }
 
 type ClusterOpenMonitoringPrometheusJmxExporterArgs struct {
-	// Indicates whether you want to enable or disable the JMX Exporter.
+	// Indicates whether you want to enable or disable the Node Exporter.
 	EnabledInBroker pulumi.BoolInput `pulumi:"enabledInBroker"`
 }
 
@@ -4127,7 +4127,7 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) ToOutput(ctx context.C
 	}
 }
 
-// Indicates whether you want to enable or disable the JMX Exporter.
+// Indicates whether you want to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) EnabledInBroker() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusJmxExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
 }
@@ -4162,7 +4162,7 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) Elem() ClusterOpenM
 	}).(ClusterOpenMonitoringPrometheusJmxExporterOutput)
 }
 
-// Indicates whether you want to enable or disable the JMX Exporter.
+// Indicates whether you want to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) EnabledInBroker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheusJmxExporter) *bool {
 		if v == nil {
@@ -4173,7 +4173,7 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) EnabledInBroker() p
 }
 
 type ClusterOpenMonitoringPrometheusNodeExporter struct {
-	// Indicates whether you want to enable or disable the JMX Exporter.
+	// Indicates whether you want to enable or disable the Node Exporter.
 	EnabledInBroker bool `pulumi:"enabledInBroker"`
 }
 
@@ -4189,7 +4189,7 @@ type ClusterOpenMonitoringPrometheusNodeExporterInput interface {
 }
 
 type ClusterOpenMonitoringPrometheusNodeExporterArgs struct {
-	// Indicates whether you want to enable or disable the JMX Exporter.
+	// Indicates whether you want to enable or disable the Node Exporter.
 	EnabledInBroker pulumi.BoolInput `pulumi:"enabledInBroker"`
 }
 
@@ -4288,7 +4288,7 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) ToOutput(ctx context.
 	}
 }
 
-// Indicates whether you want to enable or disable the JMX Exporter.
+// Indicates whether you want to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) EnabledInBroker() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusNodeExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
 }
@@ -4323,7 +4323,7 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) Elem() ClusterOpen
 	}).(ClusterOpenMonitoringPrometheusNodeExporterOutput)
 }
 
-// Indicates whether you want to enable or disable the JMX Exporter.
+// Indicates whether you want to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) EnabledInBroker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheusNodeExporter) *bool {
 		if v == nil {

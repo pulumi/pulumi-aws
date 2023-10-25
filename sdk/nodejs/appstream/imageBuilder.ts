@@ -10,27 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppStream image builder.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testFleet = new aws.appstream.ImageBuilder("testFleet", {
- *     description: "Description of a ImageBuilder",
- *     displayName: "Display name of a ImageBuilder",
- *     enableDefaultInternetAccess: false,
- *     imageName: "AppStream-WinServer2019-10-05-2022",
- *     instanceType: "stream.standard.large",
- *     vpcConfig: {
- *         subnetIds: [aws_subnet.example.id],
- *     },
- *     tags: {
- *         Name: "Example Image Builder",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:

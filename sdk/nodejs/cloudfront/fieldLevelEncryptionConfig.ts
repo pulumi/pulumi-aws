@@ -10,35 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CloudFront Field-level Encryption Config resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.cloudfront.FieldLevelEncryptionConfig("test", {
- *     comment: "test comment",
- *     contentTypeProfileConfig: {
- *         forwardWhenContentTypeIsUnknown: true,
- *         contentTypeProfiles: {
- *             items: [{
- *                 contentType: "application/x-www-form-urlencoded",
- *                 format: "URLEncoded",
- *             }],
- *         },
- *     },
- *     queryArgProfileConfig: {
- *         forwardWhenQueryArgProfileIsUnknown: true,
- *         queryArgProfiles: {
- *             items: [{
- *                 profileId: aws_cloudfront_field_level_encryption_profile.test.id,
- *                 queryArg: "Arg1",
- *             }],
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:

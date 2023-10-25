@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// <summary>
     /// Manages an EC2 Instance Connect Endpoint.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.InstanceConnectEndpoint("example", new()
-    ///     {
-    ///         SubnetId = aws_subnet.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:

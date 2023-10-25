@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Removing this resource disables serial console access.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.SerialConsoleAccess("example", {enabled: true});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import serial console access state. For example:

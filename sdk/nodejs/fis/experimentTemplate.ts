@@ -14,38 +14,6 @@ import * as utilities from "../utilities";
  * See [Amazon Fault Injection Simulator](https://docs.aws.amazon.com/fis/index.html)
  * for more information.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.fis.ExperimentTemplate("example", {
- *     description: "example",
- *     roleArn: aws_iam_role.example.arn,
- *     stopConditions: [{
- *         source: "none",
- *     }],
- *     actions: [{
- *         name: "example-action",
- *         actionId: "aws:ec2:terminate-instances",
- *         target: {
- *             key: "Instances",
- *             value: "example-target",
- *         },
- *     }],
- *     targets: [{
- *         name: "example-target",
- *         resourceType: "aws:ec2:instance",
- *         selectionMode: "COUNT(1)",
- *         resourceTags: [{
- *             key: "env",
- *             value: "example",
- *         }],
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:

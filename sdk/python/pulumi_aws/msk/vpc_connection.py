@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcConnectionArgs', 'VpcConnection']
@@ -29,13 +29,52 @@ class VpcConnectionArgs:
         :param pulumi.Input[str] vpc_id: The VPC ID of the remote client.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "authentication", authentication)
-        pulumi.set(__self__, "client_subnets", client_subnets)
-        pulumi.set(__self__, "security_groups", security_groups)
-        pulumi.set(__self__, "target_cluster_arn", target_cluster_arn)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        VpcConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            client_subnets=client_subnets,
+            security_groups=security_groups,
+            target_cluster_arn=target_cluster_arn,
+            vpc_id=vpc_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[pulumi.Input[str]] = None,
+             client_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_cluster_arn: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication is None:
+            raise TypeError("Missing 'authentication' argument")
+        if client_subnets is None and 'clientSubnets' in kwargs:
+            client_subnets = kwargs['clientSubnets']
+        if client_subnets is None:
+            raise TypeError("Missing 'client_subnets' argument")
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if security_groups is None:
+            raise TypeError("Missing 'security_groups' argument")
+        if target_cluster_arn is None and 'targetClusterArn' in kwargs:
+            target_cluster_arn = kwargs['targetClusterArn']
+        if target_cluster_arn is None:
+            raise TypeError("Missing 'target_cluster_arn' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
+        _setter("authentication", authentication)
+        _setter("client_subnets", client_subnets)
+        _setter("security_groups", security_groups)
+        _setter("target_cluster_arn", target_cluster_arn)
+        _setter("vpc_id", vpc_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -132,25 +171,60 @@ class _VpcConnectionState:
         :param pulumi.Input[str] target_cluster_arn: The Amazon Resource Name (ARN) of the cluster.
         :param pulumi.Input[str] vpc_id: The VPC ID of the remote client.
         """
+        _VpcConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            authentication=authentication,
+            client_subnets=client_subnets,
+            security_groups=security_groups,
+            tags=tags,
+            tags_all=tags_all,
+            target_cluster_arn=target_cluster_arn,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             authentication: Optional[pulumi.Input[str]] = None,
+             client_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_cluster_arn: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_subnets is None and 'clientSubnets' in kwargs:
+            client_subnets = kwargs['clientSubnets']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if target_cluster_arn is None and 'targetClusterArn' in kwargs:
+            target_cluster_arn = kwargs['targetClusterArn']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if client_subnets is not None:
-            pulumi.set(__self__, "client_subnets", client_subnets)
+            _setter("client_subnets", client_subnets)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target_cluster_arn is not None:
-            pulumi.set(__self__, "target_cluster_arn", target_cluster_arn)
+            _setter("target_cluster_arn", target_cluster_arn)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -267,20 +341,6 @@ class VpcConnection(pulumi.CustomResource):
         """
         Resource for managing an AWS Managed Streaming for Kafka VPC Connection.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.msk.VpcConnection("test",
-            authentication="SASL_IAM",
-            target_cluster_arn="aws_msk_cluster.arn",
-            vpc_id=aws_vpc["test"]["id"],
-            client_subnets=[__item["id"] for __item in aws_subnet["test"]],
-            security_groups=[aws_security_group["test"]["id"]])
-        ```
-
         ## Import
 
         Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
@@ -307,20 +367,6 @@ class VpcConnection(pulumi.CustomResource):
         """
         Resource for managing an AWS Managed Streaming for Kafka VPC Connection.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.msk.VpcConnection("test",
-            authentication="SASL_IAM",
-            target_cluster_arn="aws_msk_cluster.arn",
-            vpc_id=aws_vpc["test"]["id"],
-            client_subnets=[__item["id"] for __item in aws_subnet["test"]],
-            security_groups=[aws_security_group["test"]["id"]])
-        ```
-
         ## Import
 
         Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
@@ -339,6 +385,10 @@ class VpcConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

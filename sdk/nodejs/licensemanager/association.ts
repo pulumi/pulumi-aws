@@ -9,31 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** License configurations can also be associated with launch templates by specifying the `licenseSpecifications` block for an `aws.ec2.LaunchTemplate`.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAmi = aws.ec2.getAmi({
- *     mostRecent: true,
- *     owners: ["amazon"],
- *     filters: [{
- *         name: "name",
- *         values: ["amzn-ami-vpc-nat*"],
- *     }],
- * });
- * const exampleInstance = new aws.ec2.Instance("exampleInstance", {
- *     ami: exampleAmi.then(exampleAmi => exampleAmi.id),
- *     instanceType: "t2.micro",
- * });
- * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("exampleLicenseConfiguration", {licenseCountingType: "Instance"});
- * const exampleAssociation = new aws.licensemanager.Association("exampleAssociation", {
- *     licenseConfigurationArn: exampleLicenseConfiguration.arn,
- *     resourceArn: exampleInstance.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:

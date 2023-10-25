@@ -12,58 +12,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// <summary>
     /// Manages an Image Builder Image Recipe.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ImageBuilder.ImageRecipe("example", new()
-    ///     {
-    ///         BlockDeviceMappings = new[]
-    ///         {
-    ///             new Aws.ImageBuilder.Inputs.ImageRecipeBlockDeviceMappingArgs
-    ///             {
-    ///                 DeviceName = "/dev/xvdb",
-    ///                 Ebs = new Aws.ImageBuilder.Inputs.ImageRecipeBlockDeviceMappingEbsArgs
-    ///                 {
-    ///                     DeleteOnTermination = "true",
-    ///                     VolumeSize = 100,
-    ///                     VolumeType = "gp2",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Components = new[]
-    ///         {
-    ///             new Aws.ImageBuilder.Inputs.ImageRecipeComponentArgs
-    ///             {
-    ///                 ComponentArn = aws_imagebuilder_component.Example.Arn,
-    ///                 Parameters = new[]
-    ///                 {
-    ///                     new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
-    ///                     {
-    ///                         Name = "Parameter1",
-    ///                         Value = "Value1",
-    ///                     },
-    ///                     new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
-    ///                     {
-    ///                         Name = "Parameter2",
-    ///                         Value = "Value2",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         ParentImage = $"arn:{data.Aws_partition.Current.Partition}:imagebuilder:{data.Aws_region.Current.Name}:aws:image/amazon-linux-2-x86/x.x.x",
-    ///         Version = "1.0.0",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:

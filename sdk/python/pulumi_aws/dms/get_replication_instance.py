@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -248,15 +248,6 @@ def get_replication_instance(replication_instance_id: Optional[str] = None,
     """
     Data source for managing an AWS DMS (Database Migration) Replication Instance.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.dms.get_replication_instance(replication_instance_id=aws_dms_replication_instance["test"]["replication_instance_id"])
-    ```
-
 
     :param str replication_instance_id: The replication instance identifier.
     """
@@ -293,15 +284,6 @@ def get_replication_instance_output(replication_instance_id: Optional[pulumi.Inp
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationInstanceResult]:
     """
     Data source for managing an AWS DMS (Database Migration) Replication Instance.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.dms.get_replication_instance(replication_instance_id=aws_dms_replication_instance["test"]["replication_instance_id"])
-    ```
 
 
     :param str replication_instance_id: The replication instance identifier.

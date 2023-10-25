@@ -14,48 +14,6 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// &gt; **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myDetector = new Aws.GuardDuty.Detector("myDetector", new()
-    ///     {
-    ///         Datasources = new Aws.GuardDuty.Inputs.DetectorDatasourcesArgs
-    ///         {
-    ///             Kubernetes = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesArgs
-    ///             {
-    ///                 AuditLogs = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesAuditLogsArgs
-    ///                 {
-    ///                     Enable = false,
-    ///                 },
-    ///             },
-    ///             MalwareProtection = new Aws.GuardDuty.Inputs.DetectorDatasourcesMalwareProtectionArgs
-    ///             {
-    ///                 ScanEc2InstanceWithFindings = new Aws.GuardDuty.Inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs
-    ///                 {
-    ///                     EbsVolumes = new Aws.GuardDuty.Inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs
-    ///                     {
-    ///                         Enable = true,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             S3Logs = new Aws.GuardDuty.Inputs.DetectorDatasourcesS3LogsArgs
-    ///             {
-    ///                 Enable = true,
-    ///             },
-    ///         },
-    ///         Enable = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GuardDuty detectors using the detector ID. For example:

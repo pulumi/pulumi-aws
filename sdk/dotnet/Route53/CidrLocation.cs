@@ -12,31 +12,6 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Provides a Route53 CIDR location resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCidrCollection = new Aws.Route53.CidrCollection("exampleCidrCollection");
-    /// 
-    ///     var exampleCidrLocation = new Aws.Route53.CidrLocation("exampleCidrLocation", new()
-    ///     {
-    ///         CidrCollectionId = exampleCidrCollection.Id,
-    ///         CidrBlocks = new[]
-    ///         {
-    ///             "200.5.3.0/24",
-    ///             "200.6.3.0/24",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For example:

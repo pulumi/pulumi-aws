@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TableItemArgs', 'TableItem']
@@ -25,11 +25,40 @@ class TableItemArgs:
         :param pulumi.Input[str] table_name: Name of the table to contain the item.
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         """
-        pulumi.set(__self__, "hash_key", hash_key)
-        pulumi.set(__self__, "item", item)
-        pulumi.set(__self__, "table_name", table_name)
+        TableItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hash_key=hash_key,
+            item=item,
+            table_name=table_name,
+            range_key=range_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hash_key: Optional[pulumi.Input[str]] = None,
+             item: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             range_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hash_key is None and 'hashKey' in kwargs:
+            hash_key = kwargs['hashKey']
+        if hash_key is None:
+            raise TypeError("Missing 'hash_key' argument")
+        if item is None:
+            raise TypeError("Missing 'item' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if range_key is None and 'rangeKey' in kwargs:
+            range_key = kwargs['rangeKey']
+
+        _setter("hash_key", hash_key)
+        _setter("item", item)
+        _setter("table_name", table_name)
         if range_key is not None:
-            pulumi.set(__self__, "range_key", range_key)
+            _setter("range_key", range_key)
 
     @property
     @pulumi.getter(name="hashKey")
@@ -94,14 +123,37 @@ class _TableItemState:
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         :param pulumi.Input[str] table_name: Name of the table to contain the item.
         """
+        _TableItemState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hash_key=hash_key,
+            item=item,
+            range_key=range_key,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hash_key: Optional[pulumi.Input[str]] = None,
+             item: Optional[pulumi.Input[str]] = None,
+             range_key: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hash_key is None and 'hashKey' in kwargs:
+            hash_key = kwargs['hashKey']
+        if range_key is None and 'rangeKey' in kwargs:
+            range_key = kwargs['rangeKey']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         if hash_key is not None:
-            pulumi.set(__self__, "hash_key", hash_key)
+            _setter("hash_key", hash_key)
         if item is not None:
-            pulumi.set(__self__, "item", item)
+            _setter("item", item)
         if range_key is not None:
-            pulumi.set(__self__, "range_key", range_key)
+            _setter("range_key", range_key)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="hashKey")
@@ -168,33 +220,6 @@ class TableItem(pulumi.CustomResource):
         > **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
           You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_table = aws.dynamodb.Table("exampleTable",
-            read_capacity=10,
-            write_capacity=10,
-            hash_key="exampleHashKey",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="exampleHashKey",
-                type="S",
-            )])
-        example_table_item = aws.dynamodb.TableItem("exampleTableItem",
-            table_name=example_table.name,
-            hash_key=example_table.hash_key,
-            item=\"\"\"{
-          "exampleHashKey": {"S": "something"},
-          "one": {"N": "11111"},
-          "two": {"N": "22222"},
-          "three": {"N": "33333"},
-          "four": {"N": "44444"}
-        }
-        \"\"\")
-        ```
-
         ## Import
 
         You cannot import DynamoDB table items.
@@ -218,33 +243,6 @@ class TableItem(pulumi.CustomResource):
         > **Note:** This resource is not meant to be used for managing large amounts of data in your table, it is not designed to scale.
           You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_table = aws.dynamodb.Table("exampleTable",
-            read_capacity=10,
-            write_capacity=10,
-            hash_key="exampleHashKey",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="exampleHashKey",
-                type="S",
-            )])
-        example_table_item = aws.dynamodb.TableItem("exampleTableItem",
-            table_name=example_table.name,
-            hash_key=example_table.hash_key,
-            item=\"\"\"{
-          "exampleHashKey": {"S": "something"},
-          "one": {"N": "11111"},
-          "two": {"N": "22222"},
-          "three": {"N": "33333"},
-          "four": {"N": "44444"}
-        }
-        \"\"\")
-        ```
-
         ## Import
 
         You cannot import DynamoDB table items.
@@ -259,6 +257,10 @@ class TableItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

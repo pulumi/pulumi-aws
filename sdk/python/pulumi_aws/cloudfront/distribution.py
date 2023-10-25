@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -40,7 +40,7 @@ class DistributionArgs:
         """
         The set of arguments for constructing a Distribution resource.
         :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end user requests for content.
+        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]] origins: One or more origins for this distribution (multiples allowed).
         :param pulumi.Input['DistributionRestrictionsArgs'] restrictions: The restriction configuration for this distribution (maximum one).
         :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: The SSL configuration for this distribution (maximum one).
@@ -61,43 +61,132 @@ class DistributionArgs:
         :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         :param pulumi.Input[str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
-        pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "origins", origins)
-        pulumi.set(__self__, "restrictions", restrictions)
-        pulumi.set(__self__, "viewer_certificate", viewer_certificate)
+        DistributionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_cache_behavior=default_cache_behavior,
+            enabled=enabled,
+            origins=origins,
+            restrictions=restrictions,
+            viewer_certificate=viewer_certificate,
+            aliases=aliases,
+            comment=comment,
+            continuous_deployment_policy_id=continuous_deployment_policy_id,
+            custom_error_responses=custom_error_responses,
+            default_root_object=default_root_object,
+            http_version=http_version,
+            is_ipv6_enabled=is_ipv6_enabled,
+            logging_config=logging_config,
+            ordered_cache_behaviors=ordered_cache_behaviors,
+            origin_groups=origin_groups,
+            price_class=price_class,
+            retain_on_delete=retain_on_delete,
+            staging=staging,
+            tags=tags,
+            wait_for_deployment=wait_for_deployment,
+            web_acl_id=web_acl_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             origins: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]] = None,
+             restrictions: Optional[pulumi.Input['DistributionRestrictionsArgs']] = None,
+             viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
+             aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
+             custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
+             default_root_object: Optional[pulumi.Input[str]] = None,
+             http_version: Optional[pulumi.Input[str]] = None,
+             is_ipv6_enabled: Optional[pulumi.Input[bool]] = None,
+             logging_config: Optional[pulumi.Input['DistributionLoggingConfigArgs']] = None,
+             ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]] = None,
+             origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None,
+             price_class: Optional[pulumi.Input[str]] = None,
+             retain_on_delete: Optional[pulumi.Input[bool]] = None,
+             staging: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             wait_for_deployment: Optional[pulumi.Input[bool]] = None,
+             web_acl_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_cache_behavior is None and 'defaultCacheBehavior' in kwargs:
+            default_cache_behavior = kwargs['defaultCacheBehavior']
+        if default_cache_behavior is None:
+            raise TypeError("Missing 'default_cache_behavior' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if origins is None:
+            raise TypeError("Missing 'origins' argument")
+        if restrictions is None:
+            raise TypeError("Missing 'restrictions' argument")
+        if viewer_certificate is None and 'viewerCertificate' in kwargs:
+            viewer_certificate = kwargs['viewerCertificate']
+        if viewer_certificate is None:
+            raise TypeError("Missing 'viewer_certificate' argument")
+        if continuous_deployment_policy_id is None and 'continuousDeploymentPolicyId' in kwargs:
+            continuous_deployment_policy_id = kwargs['continuousDeploymentPolicyId']
+        if custom_error_responses is None and 'customErrorResponses' in kwargs:
+            custom_error_responses = kwargs['customErrorResponses']
+        if default_root_object is None and 'defaultRootObject' in kwargs:
+            default_root_object = kwargs['defaultRootObject']
+        if http_version is None and 'httpVersion' in kwargs:
+            http_version = kwargs['httpVersion']
+        if is_ipv6_enabled is None and 'isIpv6Enabled' in kwargs:
+            is_ipv6_enabled = kwargs['isIpv6Enabled']
+        if logging_config is None and 'loggingConfig' in kwargs:
+            logging_config = kwargs['loggingConfig']
+        if ordered_cache_behaviors is None and 'orderedCacheBehaviors' in kwargs:
+            ordered_cache_behaviors = kwargs['orderedCacheBehaviors']
+        if origin_groups is None and 'originGroups' in kwargs:
+            origin_groups = kwargs['originGroups']
+        if price_class is None and 'priceClass' in kwargs:
+            price_class = kwargs['priceClass']
+        if retain_on_delete is None and 'retainOnDelete' in kwargs:
+            retain_on_delete = kwargs['retainOnDelete']
+        if wait_for_deployment is None and 'waitForDeployment' in kwargs:
+            wait_for_deployment = kwargs['waitForDeployment']
+        if web_acl_id is None and 'webAclId' in kwargs:
+            web_acl_id = kwargs['webAclId']
+
+        _setter("default_cache_behavior", default_cache_behavior)
+        _setter("enabled", enabled)
+        _setter("origins", origins)
+        _setter("restrictions", restrictions)
+        _setter("viewer_certificate", viewer_certificate)
         if aliases is not None:
-            pulumi.set(__self__, "aliases", aliases)
+            _setter("aliases", aliases)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if continuous_deployment_policy_id is not None:
-            pulumi.set(__self__, "continuous_deployment_policy_id", continuous_deployment_policy_id)
+            _setter("continuous_deployment_policy_id", continuous_deployment_policy_id)
         if custom_error_responses is not None:
-            pulumi.set(__self__, "custom_error_responses", custom_error_responses)
+            _setter("custom_error_responses", custom_error_responses)
         if default_root_object is not None:
-            pulumi.set(__self__, "default_root_object", default_root_object)
+            _setter("default_root_object", default_root_object)
         if http_version is not None:
-            pulumi.set(__self__, "http_version", http_version)
+            _setter("http_version", http_version)
         if is_ipv6_enabled is not None:
-            pulumi.set(__self__, "is_ipv6_enabled", is_ipv6_enabled)
+            _setter("is_ipv6_enabled", is_ipv6_enabled)
         if logging_config is not None:
-            pulumi.set(__self__, "logging_config", logging_config)
+            _setter("logging_config", logging_config)
         if ordered_cache_behaviors is not None:
-            pulumi.set(__self__, "ordered_cache_behaviors", ordered_cache_behaviors)
+            _setter("ordered_cache_behaviors", ordered_cache_behaviors)
         if origin_groups is not None:
-            pulumi.set(__self__, "origin_groups", origin_groups)
+            _setter("origin_groups", origin_groups)
         if price_class is not None:
-            pulumi.set(__self__, "price_class", price_class)
+            _setter("price_class", price_class)
         if retain_on_delete is not None:
-            pulumi.set(__self__, "retain_on_delete", retain_on_delete)
+            _setter("retain_on_delete", retain_on_delete)
         if staging is not None:
-            pulumi.set(__self__, "staging", staging)
+            _setter("staging", staging)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if wait_for_deployment is not None:
-            pulumi.set(__self__, "wait_for_deployment", wait_for_deployment)
+            _setter("wait_for_deployment", wait_for_deployment)
         if web_acl_id is not None:
-            pulumi.set(__self__, "web_acl_id", web_acl_id)
+            _setter("web_acl_id", web_acl_id)
 
     @property
     @pulumi.getter(name="defaultCacheBehavior")
@@ -115,7 +204,7 @@ class DistributionArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether the distribution is enabled to accept end user requests for content.
+        Whether Origin Shield is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -398,7 +487,7 @@ class _DistributionState:
         :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
         :param pulumi.Input[str] domain_name: DNS domain name of either the S3 bucket, or web site of your custom origin.
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end user requests for content.
+        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
         :param pulumi.Input[str] etag: Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
         :param pulumi.Input[str] hosted_zone_id: CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
         :param pulumi.Input[str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
@@ -422,73 +511,190 @@ class _DistributionState:
         :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         :param pulumi.Input[str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
+        _DistributionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aliases=aliases,
+            arn=arn,
+            caller_reference=caller_reference,
+            comment=comment,
+            continuous_deployment_policy_id=continuous_deployment_policy_id,
+            custom_error_responses=custom_error_responses,
+            default_cache_behavior=default_cache_behavior,
+            default_root_object=default_root_object,
+            domain_name=domain_name,
+            enabled=enabled,
+            etag=etag,
+            hosted_zone_id=hosted_zone_id,
+            http_version=http_version,
+            in_progress_validation_batches=in_progress_validation_batches,
+            is_ipv6_enabled=is_ipv6_enabled,
+            last_modified_time=last_modified_time,
+            logging_config=logging_config,
+            ordered_cache_behaviors=ordered_cache_behaviors,
+            origin_groups=origin_groups,
+            origins=origins,
+            price_class=price_class,
+            restrictions=restrictions,
+            retain_on_delete=retain_on_delete,
+            staging=staging,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            trusted_key_groups=trusted_key_groups,
+            trusted_signers=trusted_signers,
+            viewer_certificate=viewer_certificate,
+            wait_for_deployment=wait_for_deployment,
+            web_acl_id=web_acl_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             caller_reference: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
+             custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
+             default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
+             default_root_object: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             http_version: Optional[pulumi.Input[str]] = None,
+             in_progress_validation_batches: Optional[pulumi.Input[int]] = None,
+             is_ipv6_enabled: Optional[pulumi.Input[bool]] = None,
+             last_modified_time: Optional[pulumi.Input[str]] = None,
+             logging_config: Optional[pulumi.Input['DistributionLoggingConfigArgs']] = None,
+             ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]] = None,
+             origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None,
+             origins: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]] = None,
+             price_class: Optional[pulumi.Input[str]] = None,
+             restrictions: Optional[pulumi.Input['DistributionRestrictionsArgs']] = None,
+             retain_on_delete: Optional[pulumi.Input[bool]] = None,
+             staging: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]] = None,
+             trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]]] = None,
+             viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
+             wait_for_deployment: Optional[pulumi.Input[bool]] = None,
+             web_acl_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if caller_reference is None and 'callerReference' in kwargs:
+            caller_reference = kwargs['callerReference']
+        if continuous_deployment_policy_id is None and 'continuousDeploymentPolicyId' in kwargs:
+            continuous_deployment_policy_id = kwargs['continuousDeploymentPolicyId']
+        if custom_error_responses is None and 'customErrorResponses' in kwargs:
+            custom_error_responses = kwargs['customErrorResponses']
+        if default_cache_behavior is None and 'defaultCacheBehavior' in kwargs:
+            default_cache_behavior = kwargs['defaultCacheBehavior']
+        if default_root_object is None and 'defaultRootObject' in kwargs:
+            default_root_object = kwargs['defaultRootObject']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if http_version is None and 'httpVersion' in kwargs:
+            http_version = kwargs['httpVersion']
+        if in_progress_validation_batches is None and 'inProgressValidationBatches' in kwargs:
+            in_progress_validation_batches = kwargs['inProgressValidationBatches']
+        if is_ipv6_enabled is None and 'isIpv6Enabled' in kwargs:
+            is_ipv6_enabled = kwargs['isIpv6Enabled']
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if logging_config is None and 'loggingConfig' in kwargs:
+            logging_config = kwargs['loggingConfig']
+        if ordered_cache_behaviors is None and 'orderedCacheBehaviors' in kwargs:
+            ordered_cache_behaviors = kwargs['orderedCacheBehaviors']
+        if origin_groups is None and 'originGroups' in kwargs:
+            origin_groups = kwargs['originGroups']
+        if price_class is None and 'priceClass' in kwargs:
+            price_class = kwargs['priceClass']
+        if retain_on_delete is None and 'retainOnDelete' in kwargs:
+            retain_on_delete = kwargs['retainOnDelete']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if trusted_key_groups is None and 'trustedKeyGroups' in kwargs:
+            trusted_key_groups = kwargs['trustedKeyGroups']
+        if trusted_signers is None and 'trustedSigners' in kwargs:
+            trusted_signers = kwargs['trustedSigners']
+        if viewer_certificate is None and 'viewerCertificate' in kwargs:
+            viewer_certificate = kwargs['viewerCertificate']
+        if wait_for_deployment is None and 'waitForDeployment' in kwargs:
+            wait_for_deployment = kwargs['waitForDeployment']
+        if web_acl_id is None and 'webAclId' in kwargs:
+            web_acl_id = kwargs['webAclId']
+
         if aliases is not None:
-            pulumi.set(__self__, "aliases", aliases)
+            _setter("aliases", aliases)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if caller_reference is not None:
-            pulumi.set(__self__, "caller_reference", caller_reference)
+            _setter("caller_reference", caller_reference)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if continuous_deployment_policy_id is not None:
-            pulumi.set(__self__, "continuous_deployment_policy_id", continuous_deployment_policy_id)
+            _setter("continuous_deployment_policy_id", continuous_deployment_policy_id)
         if custom_error_responses is not None:
-            pulumi.set(__self__, "custom_error_responses", custom_error_responses)
+            _setter("custom_error_responses", custom_error_responses)
         if default_cache_behavior is not None:
-            pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
+            _setter("default_cache_behavior", default_cache_behavior)
         if default_root_object is not None:
-            pulumi.set(__self__, "default_root_object", default_root_object)
+            _setter("default_root_object", default_root_object)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if http_version is not None:
-            pulumi.set(__self__, "http_version", http_version)
+            _setter("http_version", http_version)
         if in_progress_validation_batches is not None:
-            pulumi.set(__self__, "in_progress_validation_batches", in_progress_validation_batches)
+            _setter("in_progress_validation_batches", in_progress_validation_batches)
         if is_ipv6_enabled is not None:
-            pulumi.set(__self__, "is_ipv6_enabled", is_ipv6_enabled)
+            _setter("is_ipv6_enabled", is_ipv6_enabled)
         if last_modified_time is not None:
-            pulumi.set(__self__, "last_modified_time", last_modified_time)
+            _setter("last_modified_time", last_modified_time)
         if logging_config is not None:
-            pulumi.set(__self__, "logging_config", logging_config)
+            _setter("logging_config", logging_config)
         if ordered_cache_behaviors is not None:
-            pulumi.set(__self__, "ordered_cache_behaviors", ordered_cache_behaviors)
+            _setter("ordered_cache_behaviors", ordered_cache_behaviors)
         if origin_groups is not None:
-            pulumi.set(__self__, "origin_groups", origin_groups)
+            _setter("origin_groups", origin_groups)
         if origins is not None:
-            pulumi.set(__self__, "origins", origins)
+            _setter("origins", origins)
         if price_class is not None:
-            pulumi.set(__self__, "price_class", price_class)
+            _setter("price_class", price_class)
         if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
+            _setter("restrictions", restrictions)
         if retain_on_delete is not None:
-            pulumi.set(__self__, "retain_on_delete", retain_on_delete)
+            _setter("retain_on_delete", retain_on_delete)
         if staging is not None:
-            pulumi.set(__self__, "staging", staging)
+            _setter("staging", staging)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if trusted_key_groups is not None:
-            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
+            _setter("trusted_key_groups", trusted_key_groups)
         if trusted_signers is not None:
-            pulumi.set(__self__, "trusted_signers", trusted_signers)
+            _setter("trusted_signers", trusted_signers)
         if viewer_certificate is not None:
-            pulumi.set(__self__, "viewer_certificate", viewer_certificate)
+            _setter("viewer_certificate", viewer_certificate)
         if wait_for_deployment is not None:
-            pulumi.set(__self__, "wait_for_deployment", wait_for_deployment)
+            _setter("wait_for_deployment", wait_for_deployment)
         if web_acl_id is not None:
-            pulumi.set(__self__, "web_acl_id", web_acl_id)
+            _setter("web_acl_id", web_acl_id)
 
     @property
     @pulumi.getter
@@ -602,7 +808,7 @@ class _DistributionState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the distribution is enabled to accept end user requests for content.
+        Whether Origin Shield is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -913,232 +1119,6 @@ class Distribution(pulumi.CustomResource):
         > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
 
         ## Example Usage
-        ### S3 Origin
-
-        The example below creates a CloudFront distribution with an S3 origin.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
-            "Name": "My bucket",
-        })
-        b_acl = aws.s3.BucketAclV2("bAcl",
-            bucket=bucket_v2.id,
-            acl="private")
-        s3_origin_id = "myS3Origin"
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
-            origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=bucket_v2.bucket_regional_domain_name,
-                origin_access_control_id=aws_cloudfront_origin_access_control["default"]["id"],
-                origin_id=s3_origin_id,
-            )],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html",
-            logging_config=aws.cloudfront.DistributionLoggingConfigArgs(
-                include_cookies=False,
-                bucket="mylogs.s3.amazonaws.com",
-                prefix="myprefix",
-            ),
-            aliases=[
-                "mysite.example.com",
-                "yoursite.example.com",
-            ],
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                allowed_methods=[
-                    "DELETE",
-                    "GET",
-                    "HEAD",
-                    "OPTIONS",
-                    "PATCH",
-                    "POST",
-                    "PUT",
-                ],
-                cached_methods=[
-                    "GET",
-                    "HEAD",
-                ],
-                target_origin_id=s3_origin_id,
-                forwarded_values=aws.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesArgs(
-                    query_string=False,
-                    cookies=aws.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs(
-                        forward="none",
-                    ),
-                ),
-                viewer_protocol_policy="allow-all",
-                min_ttl=0,
-                default_ttl=3600,
-                max_ttl=86400,
-            ),
-            ordered_cache_behaviors=[
-                aws.cloudfront.DistributionOrderedCacheBehaviorArgs(
-                    path_pattern="/content/immutable/*",
-                    allowed_methods=[
-                        "GET",
-                        "HEAD",
-                        "OPTIONS",
-                    ],
-                    cached_methods=[
-                        "GET",
-                        "HEAD",
-                        "OPTIONS",
-                    ],
-                    target_origin_id=s3_origin_id,
-                    forwarded_values=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs(
-                        query_string=False,
-                        headers=["Origin"],
-                        cookies=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs(
-                            forward="none",
-                        ),
-                    ),
-                    min_ttl=0,
-                    default_ttl=86400,
-                    max_ttl=31536000,
-                    compress=True,
-                    viewer_protocol_policy="redirect-to-https",
-                ),
-                aws.cloudfront.DistributionOrderedCacheBehaviorArgs(
-                    path_pattern="/content/*",
-                    allowed_methods=[
-                        "GET",
-                        "HEAD",
-                        "OPTIONS",
-                    ],
-                    cached_methods=[
-                        "GET",
-                        "HEAD",
-                    ],
-                    target_origin_id=s3_origin_id,
-                    forwarded_values=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs(
-                        query_string=False,
-                        cookies=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs(
-                            forward="none",
-                        ),
-                    ),
-                    min_ttl=0,
-                    default_ttl=3600,
-                    max_ttl=86400,
-                    compress=True,
-                    viewer_protocol_policy="redirect-to-https",
-                ),
-            ],
-            price_class="PriceClass_200",
-            restrictions=aws.cloudfront.DistributionRestrictionsArgs(
-                geo_restriction=aws.cloudfront.DistributionRestrictionsGeoRestrictionArgs(
-                    restriction_type="whitelist",
-                    locations=[
-                        "US",
-                        "CA",
-                        "GB",
-                        "DE",
-                    ],
-                ),
-            ),
-            tags={
-                "Environment": "production",
-            },
-            viewer_certificate=aws.cloudfront.DistributionViewerCertificateArgs(
-                cloudfront_default_certificate=True,
-            ))
-        ```
-        ### With Failover Routing
-
-        The example below creates a CloudFront distribution with an origin group for failover routing.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
-            origin_groups=[aws.cloudfront.DistributionOriginGroupArgs(
-                origin_id="groupS3",
-                failover_criteria=aws.cloudfront.DistributionOriginGroupFailoverCriteriaArgs(
-                    status_codes=[
-                        403,
-                        404,
-                        500,
-                        502,
-                    ],
-                ),
-                members=[
-                    aws.cloudfront.DistributionOriginGroupMemberArgs(
-                        origin_id="primaryS3",
-                    ),
-                    aws.cloudfront.DistributionOriginGroupMemberArgs(
-                        origin_id="failoverS3",
-                    ),
-                ],
-            )],
-            origins=[
-                aws.cloudfront.DistributionOriginArgs(
-                    domain_name=aws_s3_bucket["primary"]["bucket_regional_domain_name"],
-                    origin_id="primaryS3",
-                    s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
-                    ),
-                ),
-                aws.cloudfront.DistributionOriginArgs(
-                    domain_name=aws_s3_bucket["failover"]["bucket_regional_domain_name"],
-                    origin_id="failoverS3",
-                    s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
-                    ),
-                ),
-            ],
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                target_origin_id="groupS3",
-            ))
-        # ... other configuration ...
-        ```
-        ### With Managed Caching Policy
-
-        The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        s3_origin_id = "myS3Origin"
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
-            origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=aws_s3_bucket["primary"]["bucket_regional_domain_name"],
-                origin_id="myS3Origin",
-                s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                    origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
-                ),
-            )],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html",
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                cache_policy_id="4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
-                allowed_methods=[
-                    "GET",
-                    "HEAD",
-                    "OPTIONS",
-                ],
-                target_origin_id=s3_origin_id,
-            ),
-            restrictions=aws.cloudfront.DistributionRestrictionsArgs(
-                geo_restriction=aws.cloudfront.DistributionRestrictionsGeoRestrictionArgs(
-                    restriction_type="whitelist",
-                    locations=[
-                        "US",
-                        "CA",
-                        "GB",
-                        "DE",
-                    ],
-                ),
-            ),
-            viewer_certificate=aws.cloudfront.DistributionViewerCertificateArgs(
-                cloudfront_default_certificate=True,
-            ))
-        # ... other configuration ...
-        ```
 
         ## Import
 
@@ -1156,7 +1136,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
         :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end user requests for content.
+        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
         :param pulumi.Input[str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
         :param pulumi.Input[bool] is_ipv6_enabled: Whether the IPv6 is enabled for the distribution.
         :param pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']] logging_config: The logging configuration that controls how logs are written to your distribution (maximum one).
@@ -1186,232 +1166,6 @@ class Distribution(pulumi.CustomResource):
         > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
 
         ## Example Usage
-        ### S3 Origin
-
-        The example below creates a CloudFront distribution with an S3 origin.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket_v2 = aws.s3.BucketV2("bucketV2", tags={
-            "Name": "My bucket",
-        })
-        b_acl = aws.s3.BucketAclV2("bAcl",
-            bucket=bucket_v2.id,
-            acl="private")
-        s3_origin_id = "myS3Origin"
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
-            origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=bucket_v2.bucket_regional_domain_name,
-                origin_access_control_id=aws_cloudfront_origin_access_control["default"]["id"],
-                origin_id=s3_origin_id,
-            )],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html",
-            logging_config=aws.cloudfront.DistributionLoggingConfigArgs(
-                include_cookies=False,
-                bucket="mylogs.s3.amazonaws.com",
-                prefix="myprefix",
-            ),
-            aliases=[
-                "mysite.example.com",
-                "yoursite.example.com",
-            ],
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                allowed_methods=[
-                    "DELETE",
-                    "GET",
-                    "HEAD",
-                    "OPTIONS",
-                    "PATCH",
-                    "POST",
-                    "PUT",
-                ],
-                cached_methods=[
-                    "GET",
-                    "HEAD",
-                ],
-                target_origin_id=s3_origin_id,
-                forwarded_values=aws.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesArgs(
-                    query_string=False,
-                    cookies=aws.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs(
-                        forward="none",
-                    ),
-                ),
-                viewer_protocol_policy="allow-all",
-                min_ttl=0,
-                default_ttl=3600,
-                max_ttl=86400,
-            ),
-            ordered_cache_behaviors=[
-                aws.cloudfront.DistributionOrderedCacheBehaviorArgs(
-                    path_pattern="/content/immutable/*",
-                    allowed_methods=[
-                        "GET",
-                        "HEAD",
-                        "OPTIONS",
-                    ],
-                    cached_methods=[
-                        "GET",
-                        "HEAD",
-                        "OPTIONS",
-                    ],
-                    target_origin_id=s3_origin_id,
-                    forwarded_values=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs(
-                        query_string=False,
-                        headers=["Origin"],
-                        cookies=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs(
-                            forward="none",
-                        ),
-                    ),
-                    min_ttl=0,
-                    default_ttl=86400,
-                    max_ttl=31536000,
-                    compress=True,
-                    viewer_protocol_policy="redirect-to-https",
-                ),
-                aws.cloudfront.DistributionOrderedCacheBehaviorArgs(
-                    path_pattern="/content/*",
-                    allowed_methods=[
-                        "GET",
-                        "HEAD",
-                        "OPTIONS",
-                    ],
-                    cached_methods=[
-                        "GET",
-                        "HEAD",
-                    ],
-                    target_origin_id=s3_origin_id,
-                    forwarded_values=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs(
-                        query_string=False,
-                        cookies=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs(
-                            forward="none",
-                        ),
-                    ),
-                    min_ttl=0,
-                    default_ttl=3600,
-                    max_ttl=86400,
-                    compress=True,
-                    viewer_protocol_policy="redirect-to-https",
-                ),
-            ],
-            price_class="PriceClass_200",
-            restrictions=aws.cloudfront.DistributionRestrictionsArgs(
-                geo_restriction=aws.cloudfront.DistributionRestrictionsGeoRestrictionArgs(
-                    restriction_type="whitelist",
-                    locations=[
-                        "US",
-                        "CA",
-                        "GB",
-                        "DE",
-                    ],
-                ),
-            ),
-            tags={
-                "Environment": "production",
-            },
-            viewer_certificate=aws.cloudfront.DistributionViewerCertificateArgs(
-                cloudfront_default_certificate=True,
-            ))
-        ```
-        ### With Failover Routing
-
-        The example below creates a CloudFront distribution with an origin group for failover routing.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
-            origin_groups=[aws.cloudfront.DistributionOriginGroupArgs(
-                origin_id="groupS3",
-                failover_criteria=aws.cloudfront.DistributionOriginGroupFailoverCriteriaArgs(
-                    status_codes=[
-                        403,
-                        404,
-                        500,
-                        502,
-                    ],
-                ),
-                members=[
-                    aws.cloudfront.DistributionOriginGroupMemberArgs(
-                        origin_id="primaryS3",
-                    ),
-                    aws.cloudfront.DistributionOriginGroupMemberArgs(
-                        origin_id="failoverS3",
-                    ),
-                ],
-            )],
-            origins=[
-                aws.cloudfront.DistributionOriginArgs(
-                    domain_name=aws_s3_bucket["primary"]["bucket_regional_domain_name"],
-                    origin_id="primaryS3",
-                    s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
-                    ),
-                ),
-                aws.cloudfront.DistributionOriginArgs(
-                    domain_name=aws_s3_bucket["failover"]["bucket_regional_domain_name"],
-                    origin_id="failoverS3",
-                    s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
-                    ),
-                ),
-            ],
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                target_origin_id="groupS3",
-            ))
-        # ... other configuration ...
-        ```
-        ### With Managed Caching Policy
-
-        The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        s3_origin_id = "myS3Origin"
-        s3_distribution = aws.cloudfront.Distribution("s3Distribution",
-            origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=aws_s3_bucket["primary"]["bucket_regional_domain_name"],
-                origin_id="myS3Origin",
-                s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                    origin_access_identity=aws_cloudfront_origin_access_identity["default"]["cloudfront_access_identity_path"],
-                ),
-            )],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html",
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                cache_policy_id="4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
-                allowed_methods=[
-                    "GET",
-                    "HEAD",
-                    "OPTIONS",
-                ],
-                target_origin_id=s3_origin_id,
-            ),
-            restrictions=aws.cloudfront.DistributionRestrictionsArgs(
-                geo_restriction=aws.cloudfront.DistributionRestrictionsGeoRestrictionArgs(
-                    restriction_type="whitelist",
-                    locations=[
-                        "US",
-                        "CA",
-                        "GB",
-                        "DE",
-                    ],
-                ),
-            ),
-            viewer_certificate=aws.cloudfront.DistributionViewerCertificateArgs(
-                cloudfront_default_certificate=True,
-            ))
-        # ... other configuration ...
-        ```
 
         ## Import
 
@@ -1431,6 +1185,10 @@ class Distribution(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DistributionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1470,6 +1228,7 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["comment"] = comment
             __props__.__dict__["continuous_deployment_policy_id"] = continuous_deployment_policy_id
             __props__.__dict__["custom_error_responses"] = custom_error_responses
+            default_cache_behavior = _utilities.configure(default_cache_behavior, DistributionDefaultCacheBehaviorArgs, True)
             if default_cache_behavior is None and not opts.urn:
                 raise TypeError("Missing required property 'default_cache_behavior'")
             __props__.__dict__["default_cache_behavior"] = default_cache_behavior
@@ -1479,6 +1238,7 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["http_version"] = http_version
             __props__.__dict__["is_ipv6_enabled"] = is_ipv6_enabled
+            logging_config = _utilities.configure(logging_config, DistributionLoggingConfigArgs, True)
             __props__.__dict__["logging_config"] = logging_config
             __props__.__dict__["ordered_cache_behaviors"] = ordered_cache_behaviors
             __props__.__dict__["origin_groups"] = origin_groups
@@ -1486,12 +1246,14 @@ class Distribution(pulumi.CustomResource):
                 raise TypeError("Missing required property 'origins'")
             __props__.__dict__["origins"] = origins
             __props__.__dict__["price_class"] = price_class
+            restrictions = _utilities.configure(restrictions, DistributionRestrictionsArgs, True)
             if restrictions is None and not opts.urn:
                 raise TypeError("Missing required property 'restrictions'")
             __props__.__dict__["restrictions"] = restrictions
             __props__.__dict__["retain_on_delete"] = retain_on_delete
             __props__.__dict__["staging"] = staging
             __props__.__dict__["tags"] = tags
+            viewer_certificate = _utilities.configure(viewer_certificate, DistributionViewerCertificateArgs, True)
             if viewer_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'viewer_certificate'")
             __props__.__dict__["viewer_certificate"] = viewer_certificate
@@ -1568,7 +1330,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
         :param pulumi.Input[str] domain_name: DNS domain name of either the S3 bucket, or web site of your custom origin.
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end user requests for content.
+        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
         :param pulumi.Input[str] etag: Current version of the distribution's information. For example: `E2QWRUHAPOMQZL`.
         :param pulumi.Input[str] hosted_zone_id: CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
         :param pulumi.Input[str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
@@ -1706,7 +1468,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
         """
-        Whether the distribution is enabled to accept end user requests for content.
+        Whether Origin Shield is enabled.
         """
         return pulumi.get(self, "enabled")
 

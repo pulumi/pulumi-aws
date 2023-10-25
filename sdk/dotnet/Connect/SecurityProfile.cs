@@ -13,34 +13,6 @@ namespace Pulumi.Aws.Connect
     /// Provides an Amazon Connect Security Profile resource. For more information see
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.SecurityProfile("example", new()
-    ///     {
-    ///         Description = "example description",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         Permissions = new[]
-    ///         {
-    ///             "BasicAgentAccess",
-    ///             "OutboundCallAccess",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Security Profile" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect Security Profiles using the `instance_id` and `security_profile_id` separated by a colon (`:`). For example:

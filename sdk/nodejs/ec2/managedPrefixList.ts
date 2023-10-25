@@ -22,33 +22,6 @@ import * as utilities from "../utilities";
  * of 20 entries and you reference that prefix list in a security group rule, this counts
  * as 20 rules for the security group.
  *
- * ## Example Usage
- *
- * Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.ManagedPrefixList("example", {
- *     addressFamily: "IPv4",
- *     maxEntries: 5,
- *     entries: [
- *         {
- *             cidr: aws_vpc.example.cidr_block,
- *             description: "Primary",
- *         },
- *         {
- *             cidr: aws_vpc_ipv4_cidr_block_association.example.cidr_block,
- *             description: "Secondary",
- *         },
- *     ],
- *     tags: {
- *         Env: "live",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Prefix Lists using the `id`. For example:

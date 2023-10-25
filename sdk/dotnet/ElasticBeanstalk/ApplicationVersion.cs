@@ -21,41 +21,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// Elastic Beanstalk Environments it is possible that an error may be returned
     /// when attempting to delete an Application Version while it is still in use by a different environment.
     /// To work around this you can either create each environment in a separate AWS account or create your `aws.elasticbeanstalk.ApplicationVersion` resources with a unique names in your Elastic Beanstalk Application. For example &amp;lt;revision&amp;gt;-&amp;lt;environment&amp;gt;.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultBucketV2 = new Aws.S3.BucketV2("defaultBucketV2");
-    /// 
-    ///     var defaultBucketObjectv2 = new Aws.S3.BucketObjectv2("defaultBucketObjectv2", new()
-    ///     {
-    ///         Bucket = defaultBucketV2.Id,
-    ///         Key = "beanstalk/go-v1.zip",
-    ///         Source = new FileAsset("go-v1.zip"),
-    ///     });
-    /// 
-    ///     var defaultApplication = new Aws.ElasticBeanstalk.Application("defaultApplication", new()
-    ///     {
-    ///         Description = "tf-test-desc",
-    ///     });
-    /// 
-    ///     var defaultApplicationVersion = new Aws.ElasticBeanstalk.ApplicationVersion("defaultApplicationVersion", new()
-    ///     {
-    ///         Application = "tf-test-name",
-    ///         Description = "application version",
-    ///         Bucket = defaultBucketV2.Id,
-    ///         Key = defaultBucketObjectv2.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:elasticbeanstalk/applicationVersion:ApplicationVersion")]
     public partial class ApplicationVersion : global::Pulumi.CustomResource

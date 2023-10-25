@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,35 +53,106 @@ class WorkspaceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input['WorkspaceVpcConfigurationArgs'] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
-        pulumi.set(__self__, "account_access_type", account_access_type)
-        pulumi.set(__self__, "authentication_providers", authentication_providers)
-        pulumi.set(__self__, "permission_type", permission_type)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_access_type=account_access_type,
+            authentication_providers=authentication_providers,
+            permission_type=permission_type,
+            configuration=configuration,
+            data_sources=data_sources,
+            description=description,
+            grafana_version=grafana_version,
+            name=name,
+            network_access_control=network_access_control,
+            notification_destinations=notification_destinations,
+            organization_role_name=organization_role_name,
+            organizational_units=organizational_units,
+            role_arn=role_arn,
+            stack_set_name=stack_set_name,
+            tags=tags,
+            vpc_configuration=vpc_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_access_type: Optional[pulumi.Input[str]] = None,
+             authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             permission_type: Optional[pulumi.Input[str]] = None,
+             configuration: Optional[pulumi.Input[str]] = None,
+             data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             grafana_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
+             notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             organization_role_name: Optional[pulumi.Input[str]] = None,
+             organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             stack_set_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_access_type is None and 'accountAccessType' in kwargs:
+            account_access_type = kwargs['accountAccessType']
+        if account_access_type is None:
+            raise TypeError("Missing 'account_access_type' argument")
+        if authentication_providers is None and 'authenticationProviders' in kwargs:
+            authentication_providers = kwargs['authenticationProviders']
+        if authentication_providers is None:
+            raise TypeError("Missing 'authentication_providers' argument")
+        if permission_type is None and 'permissionType' in kwargs:
+            permission_type = kwargs['permissionType']
+        if permission_type is None:
+            raise TypeError("Missing 'permission_type' argument")
+        if data_sources is None and 'dataSources' in kwargs:
+            data_sources = kwargs['dataSources']
+        if grafana_version is None and 'grafanaVersion' in kwargs:
+            grafana_version = kwargs['grafanaVersion']
+        if network_access_control is None and 'networkAccessControl' in kwargs:
+            network_access_control = kwargs['networkAccessControl']
+        if notification_destinations is None and 'notificationDestinations' in kwargs:
+            notification_destinations = kwargs['notificationDestinations']
+        if organization_role_name is None and 'organizationRoleName' in kwargs:
+            organization_role_name = kwargs['organizationRoleName']
+        if organizational_units is None and 'organizationalUnits' in kwargs:
+            organizational_units = kwargs['organizationalUnits']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if stack_set_name is None and 'stackSetName' in kwargs:
+            stack_set_name = kwargs['stackSetName']
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
+        _setter("account_access_type", account_access_type)
+        _setter("authentication_providers", authentication_providers)
+        _setter("permission_type", permission_type)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if data_sources is not None:
-            pulumi.set(__self__, "data_sources", data_sources)
+            _setter("data_sources", data_sources)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if grafana_version is not None:
-            pulumi.set(__self__, "grafana_version", grafana_version)
+            _setter("grafana_version", grafana_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_access_control is not None:
-            pulumi.set(__self__, "network_access_control", network_access_control)
+            _setter("network_access_control", network_access_control)
         if notification_destinations is not None:
-            pulumi.set(__self__, "notification_destinations", notification_destinations)
+            _setter("notification_destinations", notification_destinations)
         if organization_role_name is not None:
-            pulumi.set(__self__, "organization_role_name", organization_role_name)
+            _setter("organization_role_name", organization_role_name)
         if organizational_units is not None:
-            pulumi.set(__self__, "organizational_units", organizational_units)
+            _setter("organizational_units", organizational_units)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if stack_set_name is not None:
-            pulumi.set(__self__, "stack_set_name", stack_set_name)
+            _setter("stack_set_name", stack_set_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_configuration is not None:
-            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+            _setter("vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="accountAccessType")
@@ -325,49 +396,126 @@ class _WorkspaceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['WorkspaceVpcConfigurationArgs'] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
+        _WorkspaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_access_type=account_access_type,
+            arn=arn,
+            authentication_providers=authentication_providers,
+            configuration=configuration,
+            data_sources=data_sources,
+            description=description,
+            endpoint=endpoint,
+            grafana_version=grafana_version,
+            name=name,
+            network_access_control=network_access_control,
+            notification_destinations=notification_destinations,
+            organization_role_name=organization_role_name,
+            organizational_units=organizational_units,
+            permission_type=permission_type,
+            role_arn=role_arn,
+            saml_configuration_status=saml_configuration_status,
+            stack_set_name=stack_set_name,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_configuration=vpc_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_access_type: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             configuration: Optional[pulumi.Input[str]] = None,
+             data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             grafana_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
+             notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             organization_role_name: Optional[pulumi.Input[str]] = None,
+             organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             permission_type: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             saml_configuration_status: Optional[pulumi.Input[str]] = None,
+             stack_set_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_access_type is None and 'accountAccessType' in kwargs:
+            account_access_type = kwargs['accountAccessType']
+        if authentication_providers is None and 'authenticationProviders' in kwargs:
+            authentication_providers = kwargs['authenticationProviders']
+        if data_sources is None and 'dataSources' in kwargs:
+            data_sources = kwargs['dataSources']
+        if grafana_version is None and 'grafanaVersion' in kwargs:
+            grafana_version = kwargs['grafanaVersion']
+        if network_access_control is None and 'networkAccessControl' in kwargs:
+            network_access_control = kwargs['networkAccessControl']
+        if notification_destinations is None and 'notificationDestinations' in kwargs:
+            notification_destinations = kwargs['notificationDestinations']
+        if organization_role_name is None and 'organizationRoleName' in kwargs:
+            organization_role_name = kwargs['organizationRoleName']
+        if organizational_units is None and 'organizationalUnits' in kwargs:
+            organizational_units = kwargs['organizationalUnits']
+        if permission_type is None and 'permissionType' in kwargs:
+            permission_type = kwargs['permissionType']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if saml_configuration_status is None and 'samlConfigurationStatus' in kwargs:
+            saml_configuration_status = kwargs['samlConfigurationStatus']
+        if stack_set_name is None and 'stackSetName' in kwargs:
+            stack_set_name = kwargs['stackSetName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         if account_access_type is not None:
-            pulumi.set(__self__, "account_access_type", account_access_type)
+            _setter("account_access_type", account_access_type)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if authentication_providers is not None:
-            pulumi.set(__self__, "authentication_providers", authentication_providers)
+            _setter("authentication_providers", authentication_providers)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if data_sources is not None:
-            pulumi.set(__self__, "data_sources", data_sources)
+            _setter("data_sources", data_sources)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if grafana_version is not None:
-            pulumi.set(__self__, "grafana_version", grafana_version)
+            _setter("grafana_version", grafana_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_access_control is not None:
-            pulumi.set(__self__, "network_access_control", network_access_control)
+            _setter("network_access_control", network_access_control)
         if notification_destinations is not None:
-            pulumi.set(__self__, "notification_destinations", notification_destinations)
+            _setter("notification_destinations", notification_destinations)
         if organization_role_name is not None:
-            pulumi.set(__self__, "organization_role_name", organization_role_name)
+            _setter("organization_role_name", organization_role_name)
         if organizational_units is not None:
-            pulumi.set(__self__, "organizational_units", organizational_units)
+            _setter("organizational_units", organizational_units)
         if permission_type is not None:
-            pulumi.set(__self__, "permission_type", permission_type)
+            _setter("permission_type", permission_type)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if saml_configuration_status is not None:
-            pulumi.set(__self__, "saml_configuration_status", saml_configuration_status)
+            _setter("saml_configuration_status", saml_configuration_status)
         if stack_set_name is not None:
-            pulumi.set(__self__, "stack_set_name", stack_set_name)
+            _setter("stack_set_name", stack_set_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_configuration is not None:
-            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+            _setter("vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="accountAccessType")
@@ -638,30 +786,6 @@ class Workspace(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace resource.
 
         ## Example Usage
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
-        example = aws.grafana.Workspace("example",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
-            role_arn=assume.arn)
-        ```
 
         ## Import
 
@@ -702,30 +826,6 @@ class Workspace(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace resource.
 
         ## Example Usage
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
-        example = aws.grafana.Workspace("example",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
-            role_arn=assume.arn)
-        ```
 
         ## Import
 
@@ -745,6 +845,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -786,6 +890,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["grafana_version"] = grafana_version
             __props__.__dict__["name"] = name
+            network_access_control = _utilities.configure(network_access_control, WorkspaceNetworkAccessControlArgs, True)
             __props__.__dict__["network_access_control"] = network_access_control
             __props__.__dict__["notification_destinations"] = notification_destinations
             __props__.__dict__["organization_role_name"] = organization_role_name
@@ -796,6 +901,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["stack_set_name"] = stack_set_name
             __props__.__dict__["tags"] = tags
+            vpc_configuration = _utilities.configure(vpc_configuration, WorkspaceVpcConfigurationArgs, True)
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None

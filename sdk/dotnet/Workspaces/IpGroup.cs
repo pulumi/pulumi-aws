@@ -12,42 +12,6 @@ namespace Pulumi.Aws.Workspaces
     /// <summary>
     /// Provides an IP access control group in AWS WorkSpaces Service
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var contractors = new Aws.Workspaces.IpGroup("contractors", new()
-    ///     {
-    ///         Description = "Contractors IP access control group",
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
-    ///             {
-    ///                 Description = "NY",
-    ///                 Source = "150.24.14.0/24",
-    ///             },
-    ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
-    ///             {
-    ///                 Description = "LA",
-    ///                 Source = "125.191.14.85/32",
-    ///             },
-    ///             new Aws.Workspaces.Inputs.IpGroupRuleArgs
-    ///             {
-    ///                 Description = "STL",
-    ///                 Source = "44.98.100.0/24",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:

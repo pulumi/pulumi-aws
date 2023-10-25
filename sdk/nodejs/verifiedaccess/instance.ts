@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing a Verified Access Instance.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedaccess.Instance("example", {
- *     description: "example",
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- * ### With `fipsEnabled`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.verifiedaccess.Instance("example", {fipsEnabled: true});
- * ```
  *
  * ## Import
  *

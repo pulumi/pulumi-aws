@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RadiusSettingsArgs', 'RadiusSettings']
@@ -35,16 +35,77 @@ class RadiusSettingsArgs:
         :param pulumi.Input[str] shared_secret: Required for enabling RADIUS on the directory.
         :param pulumi.Input[bool] use_same_username: Not currently used.
         """
-        pulumi.set(__self__, "authentication_protocol", authentication_protocol)
-        pulumi.set(__self__, "directory_id", directory_id)
-        pulumi.set(__self__, "display_label", display_label)
-        pulumi.set(__self__, "radius_port", radius_port)
-        pulumi.set(__self__, "radius_retries", radius_retries)
-        pulumi.set(__self__, "radius_servers", radius_servers)
-        pulumi.set(__self__, "radius_timeout", radius_timeout)
-        pulumi.set(__self__, "shared_secret", shared_secret)
+        RadiusSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_protocol=authentication_protocol,
+            directory_id=directory_id,
+            display_label=display_label,
+            radius_port=radius_port,
+            radius_retries=radius_retries,
+            radius_servers=radius_servers,
+            radius_timeout=radius_timeout,
+            shared_secret=shared_secret,
+            use_same_username=use_same_username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_protocol: Optional[pulumi.Input[str]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             display_label: Optional[pulumi.Input[str]] = None,
+             radius_port: Optional[pulumi.Input[int]] = None,
+             radius_retries: Optional[pulumi.Input[int]] = None,
+             radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             radius_timeout: Optional[pulumi.Input[int]] = None,
+             shared_secret: Optional[pulumi.Input[str]] = None,
+             use_same_username: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_protocol is None and 'authenticationProtocol' in kwargs:
+            authentication_protocol = kwargs['authenticationProtocol']
+        if authentication_protocol is None:
+            raise TypeError("Missing 'authentication_protocol' argument")
+        if directory_id is None and 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if directory_id is None:
+            raise TypeError("Missing 'directory_id' argument")
+        if display_label is None and 'displayLabel' in kwargs:
+            display_label = kwargs['displayLabel']
+        if display_label is None:
+            raise TypeError("Missing 'display_label' argument")
+        if radius_port is None and 'radiusPort' in kwargs:
+            radius_port = kwargs['radiusPort']
+        if radius_port is None:
+            raise TypeError("Missing 'radius_port' argument")
+        if radius_retries is None and 'radiusRetries' in kwargs:
+            radius_retries = kwargs['radiusRetries']
+        if radius_retries is None:
+            raise TypeError("Missing 'radius_retries' argument")
+        if radius_servers is None and 'radiusServers' in kwargs:
+            radius_servers = kwargs['radiusServers']
+        if radius_servers is None:
+            raise TypeError("Missing 'radius_servers' argument")
+        if radius_timeout is None and 'radiusTimeout' in kwargs:
+            radius_timeout = kwargs['radiusTimeout']
+        if radius_timeout is None:
+            raise TypeError("Missing 'radius_timeout' argument")
+        if shared_secret is None and 'sharedSecret' in kwargs:
+            shared_secret = kwargs['sharedSecret']
+        if shared_secret is None:
+            raise TypeError("Missing 'shared_secret' argument")
+        if use_same_username is None and 'useSameUsername' in kwargs:
+            use_same_username = kwargs['useSameUsername']
+
+        _setter("authentication_protocol", authentication_protocol)
+        _setter("directory_id", directory_id)
+        _setter("display_label", display_label)
+        _setter("radius_port", radius_port)
+        _setter("radius_retries", radius_retries)
+        _setter("radius_servers", radius_servers)
+        _setter("radius_timeout", radius_timeout)
+        _setter("shared_secret", shared_secret)
         if use_same_username is not None:
-            pulumi.set(__self__, "use_same_username", use_same_username)
+            _setter("use_same_username", use_same_username)
 
     @property
     @pulumi.getter(name="authenticationProtocol")
@@ -179,24 +240,69 @@ class _RadiusSettingsState:
         :param pulumi.Input[str] shared_secret: Required for enabling RADIUS on the directory.
         :param pulumi.Input[bool] use_same_username: Not currently used.
         """
+        _RadiusSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_protocol=authentication_protocol,
+            directory_id=directory_id,
+            display_label=display_label,
+            radius_port=radius_port,
+            radius_retries=radius_retries,
+            radius_servers=radius_servers,
+            radius_timeout=radius_timeout,
+            shared_secret=shared_secret,
+            use_same_username=use_same_username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_protocol: Optional[pulumi.Input[str]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             display_label: Optional[pulumi.Input[str]] = None,
+             radius_port: Optional[pulumi.Input[int]] = None,
+             radius_retries: Optional[pulumi.Input[int]] = None,
+             radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             radius_timeout: Optional[pulumi.Input[int]] = None,
+             shared_secret: Optional[pulumi.Input[str]] = None,
+             use_same_username: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_protocol is None and 'authenticationProtocol' in kwargs:
+            authentication_protocol = kwargs['authenticationProtocol']
+        if directory_id is None and 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if display_label is None and 'displayLabel' in kwargs:
+            display_label = kwargs['displayLabel']
+        if radius_port is None and 'radiusPort' in kwargs:
+            radius_port = kwargs['radiusPort']
+        if radius_retries is None and 'radiusRetries' in kwargs:
+            radius_retries = kwargs['radiusRetries']
+        if radius_servers is None and 'radiusServers' in kwargs:
+            radius_servers = kwargs['radiusServers']
+        if radius_timeout is None and 'radiusTimeout' in kwargs:
+            radius_timeout = kwargs['radiusTimeout']
+        if shared_secret is None and 'sharedSecret' in kwargs:
+            shared_secret = kwargs['sharedSecret']
+        if use_same_username is None and 'useSameUsername' in kwargs:
+            use_same_username = kwargs['useSameUsername']
+
         if authentication_protocol is not None:
-            pulumi.set(__self__, "authentication_protocol", authentication_protocol)
+            _setter("authentication_protocol", authentication_protocol)
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if display_label is not None:
-            pulumi.set(__self__, "display_label", display_label)
+            _setter("display_label", display_label)
         if radius_port is not None:
-            pulumi.set(__self__, "radius_port", radius_port)
+            _setter("radius_port", radius_port)
         if radius_retries is not None:
-            pulumi.set(__self__, "radius_retries", radius_retries)
+            _setter("radius_retries", radius_retries)
         if radius_servers is not None:
-            pulumi.set(__self__, "radius_servers", radius_servers)
+            _setter("radius_servers", radius_servers)
         if radius_timeout is not None:
-            pulumi.set(__self__, "radius_timeout", radius_timeout)
+            _setter("radius_timeout", radius_timeout)
         if shared_secret is not None:
-            pulumi.set(__self__, "shared_secret", shared_secret)
+            _setter("shared_secret", shared_secret)
         if use_same_username is not None:
-            pulumi.set(__self__, "use_same_username", use_same_username)
+            _setter("use_same_username", use_same_username)
 
     @property
     @pulumi.getter(name="authenticationProtocol")
@@ -325,23 +431,6 @@ class RadiusSettings(pulumi.CustomResource):
         """
         Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directoryservice.RadiusSettings("example",
-            directory_id=aws_directory_service_directory["example"]["id"],
-            authentication_protocol="PAP",
-            display_label="example",
-            radius_port=1812,
-            radius_retries=4,
-            radius_servers=["10.0.1.5"],
-            radius_timeout=1,
-            shared_secret="12345678")
-        ```
-
         ## Import
 
         Using `pulumi import`, import RADIUS settings using the directory ID. For example:
@@ -371,23 +460,6 @@ class RadiusSettings(pulumi.CustomResource):
         """
         Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.directoryservice.RadiusSettings("example",
-            directory_id=aws_directory_service_directory["example"]["id"],
-            authentication_protocol="PAP",
-            display_label="example",
-            radius_port=1812,
-            radius_retries=4,
-            radius_servers=["10.0.1.5"],
-            radius_timeout=1,
-            shared_secret="12345678")
-        ```
-
         ## Import
 
         Using `pulumi import`, import RADIUS settings using the directory ID. For example:
@@ -406,6 +478,10 @@ class RadiusSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RadiusSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

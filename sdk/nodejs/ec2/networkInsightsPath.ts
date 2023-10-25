@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ec2.NetworkInsightsPath("test", {
- *     source: aws_network_interface.source.id,
- *     destination: aws_network_interface.destination.id,
- *     protocol: "tcp",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Network Insights Paths using the `id`. For example:

@@ -14,57 +14,6 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// &gt; **NOTE:** This resource can only be used in the `us-east-1` region.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System;
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	private static string ReadFileBase64(string path) {
-    /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// 	}
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var usEast1 = new Aws.Provider("usEast1", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
-    ///     var foo = new Aws.EcrPublic.Repository("foo", new()
-    ///     {
-    ///         RepositoryName = "bar",
-    ///         CatalogData = new Aws.EcrPublic.Inputs.RepositoryCatalogDataArgs
-    ///         {
-    ///             AboutText = "About Text",
-    ///             Architectures = new[]
-    ///             {
-    ///                 "ARM",
-    ///             },
-    ///             Description = "Description",
-    ///             LogoImageBlob = ReadFileBase64(image.Png),
-    ///             OperatingSystems = new[]
-    ///             {
-    ///                 "Linux",
-    ///             },
-    ///             UsageText = "Usage Text",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "env", "production" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Us_east_1,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:

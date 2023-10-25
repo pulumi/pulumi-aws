@@ -12,35 +12,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// <summary>
     /// Manages an EC2 Transit Gateway Connect.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.VpcAttachment("example", new()
-    ///     {
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Example.Id,
-    ///         },
-    ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-    ///         VpcId = aws_vpc.Example.Id,
-    ///     });
-    /// 
-    ///     var attachment = new Aws.Ec2TransitGateway.Connect("attachment", new()
-    ///     {
-    ///         TransportAttachmentId = example.Id,
-    ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:

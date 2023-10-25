@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Efs
     /// <summary>
     /// Provides an Elastic File System (EFS) access point.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Efs.AccessPoint("test", new()
-    ///     {
-    ///         FileSystemId = aws_efs_file_system.Foo.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the EFS access points using the `id`. For example:

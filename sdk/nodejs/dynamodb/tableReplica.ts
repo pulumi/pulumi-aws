@@ -12,36 +12,6 @@ import * as utilities from "../utilities";
  * > **Note:** Do not use the `replica` configuration block of aws.dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
  *
  * ## Example Usage
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.Provider("main", {region: "us-west-2"});
- * const alt = new aws.Provider("alt", {region: "us-east-2"});
- * const exampleTable = new aws.dynamodb.Table("exampleTable", {
- *     hashKey: "BrodoBaggins",
- *     billingMode: "PAY_PER_REQUEST",
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
- *     attributes: [{
- *         name: "BrodoBaggins",
- *         type: "S",
- *     }],
- * }, {
- *     provider: aws.main,
- * });
- * const exampleTableReplica = new aws.dynamodb.TableReplica("exampleTableReplica", {
- *     globalTableArn: exampleTable.arn,
- *     tags: {
- *         Name: "IZPAWS",
- *         Pozo: "Amargo",
- *     },
- * }, {
- *     provider: aws.alt,
- * });
- * ```
  *
  * ## Import
  *

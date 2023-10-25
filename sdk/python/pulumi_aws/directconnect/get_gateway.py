@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -82,15 +82,6 @@ def get_gateway(name: Optional[str] = None,
     """
     Retrieve information about a Direct Connect Gateway.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_gateway(name="example")
-    ```
-
 
     :param str name: Name of the gateway to retrieve.
     """
@@ -111,15 +102,6 @@ def get_gateway_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Retrieve information about a Direct Connect Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_gateway(name="example")
-    ```
 
 
     :param str name: Name of the gateway to retrieve.

@@ -12,24 +12,6 @@ namespace Pulumi.Aws.NetworkManager
     /// <summary>
     /// Provides a global network resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.GlobalNetwork("example", new()
-    ///     {
-    ///         Description = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_global_network` using the global network ID. For example:

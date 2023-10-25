@@ -85,14 +85,14 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean controlling whether the created EBS volumes will be encrypted. Can&#39;t be used with `snapshot_id`.
+     * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      * 
      */
     @Import(name="encrypted")
     private @Nullable Output<Boolean> encrypted;
 
     /**
-     * @return Boolean controlling whether the created EBS volumes will be encrypted. Can&#39;t be used with `snapshot_id`.
+     * @return Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      * 
      */
     public Optional<Output<Boolean>> encrypted() {
@@ -329,7 +329,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encrypted Boolean controlling whether the created EBS volumes will be encrypted. Can&#39;t be used with `snapshot_id`.
+         * @param encrypted Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class AmiCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encrypted Boolean controlling whether the created EBS volumes will be encrypted. Can&#39;t be used with `snapshot_id`.
+         * @param encrypted Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
          * 
          * @return builder
          * 

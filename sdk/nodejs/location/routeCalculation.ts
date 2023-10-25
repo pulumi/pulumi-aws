@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Location Service Route Calculator.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.location.RouteCalculation("example", {
- *     calculatorName: "example",
- *     dataSource: "Here",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:

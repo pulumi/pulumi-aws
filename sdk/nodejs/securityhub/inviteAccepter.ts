@@ -9,27 +9,6 @@ import * as utilities from "../utilities";
  *
  * Accepts a Security Hub invitation.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleMember = new aws.securityhub.Member("exampleMember", {
- *     accountId: "123456789012",
- *     email: "example@example.com",
- *     invite: true,
- * });
- * const inviteeAccount = new aws.securityhub.Account("inviteeAccount", {}, {
- *     provider: "aws.invitee",
- * });
- * const inviteeInviteAccepter = new aws.securityhub.InviteAccepter("inviteeInviteAccepter", {masterId: exampleMember.masterId}, {
- *     provider: "aws.invitee",
- *     dependsOn: [inviteeAccount],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:

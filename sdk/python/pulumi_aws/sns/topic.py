@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TopicArgs', 'Topic']
@@ -69,58 +69,165 @@ class TopicArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tracing_config: Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
         """
+        TopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_failure_feedback_role_arn=application_failure_feedback_role_arn,
+            application_success_feedback_role_arn=application_success_feedback_role_arn,
+            application_success_feedback_sample_rate=application_success_feedback_sample_rate,
+            content_based_deduplication=content_based_deduplication,
+            delivery_policy=delivery_policy,
+            display_name=display_name,
+            fifo_topic=fifo_topic,
+            firehose_failure_feedback_role_arn=firehose_failure_feedback_role_arn,
+            firehose_success_feedback_role_arn=firehose_success_feedback_role_arn,
+            firehose_success_feedback_sample_rate=firehose_success_feedback_sample_rate,
+            http_failure_feedback_role_arn=http_failure_feedback_role_arn,
+            http_success_feedback_role_arn=http_success_feedback_role_arn,
+            http_success_feedback_sample_rate=http_success_feedback_sample_rate,
+            kms_master_key_id=kms_master_key_id,
+            lambda_failure_feedback_role_arn=lambda_failure_feedback_role_arn,
+            lambda_success_feedback_role_arn=lambda_success_feedback_role_arn,
+            lambda_success_feedback_sample_rate=lambda_success_feedback_sample_rate,
+            name=name,
+            name_prefix=name_prefix,
+            policy=policy,
+            signature_version=signature_version,
+            sqs_failure_feedback_role_arn=sqs_failure_feedback_role_arn,
+            sqs_success_feedback_role_arn=sqs_success_feedback_role_arn,
+            sqs_success_feedback_sample_rate=sqs_success_feedback_sample_rate,
+            tags=tags,
+            tracing_config=tracing_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             application_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             application_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+             content_based_deduplication: Optional[pulumi.Input[bool]] = None,
+             delivery_policy: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             fifo_topic: Optional[pulumi.Input[bool]] = None,
+             firehose_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             firehose_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             firehose_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+             http_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             http_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             http_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+             kms_master_key_id: Optional[pulumi.Input[str]] = None,
+             lambda_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             lambda_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             lambda_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             signature_version: Optional[pulumi.Input[int]] = None,
+             sqs_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             sqs_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             sqs_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tracing_config: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_failure_feedback_role_arn is None and 'applicationFailureFeedbackRoleArn' in kwargs:
+            application_failure_feedback_role_arn = kwargs['applicationFailureFeedbackRoleArn']
+        if application_success_feedback_role_arn is None and 'applicationSuccessFeedbackRoleArn' in kwargs:
+            application_success_feedback_role_arn = kwargs['applicationSuccessFeedbackRoleArn']
+        if application_success_feedback_sample_rate is None and 'applicationSuccessFeedbackSampleRate' in kwargs:
+            application_success_feedback_sample_rate = kwargs['applicationSuccessFeedbackSampleRate']
+        if content_based_deduplication is None and 'contentBasedDeduplication' in kwargs:
+            content_based_deduplication = kwargs['contentBasedDeduplication']
+        if delivery_policy is None and 'deliveryPolicy' in kwargs:
+            delivery_policy = kwargs['deliveryPolicy']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if fifo_topic is None and 'fifoTopic' in kwargs:
+            fifo_topic = kwargs['fifoTopic']
+        if firehose_failure_feedback_role_arn is None and 'firehoseFailureFeedbackRoleArn' in kwargs:
+            firehose_failure_feedback_role_arn = kwargs['firehoseFailureFeedbackRoleArn']
+        if firehose_success_feedback_role_arn is None and 'firehoseSuccessFeedbackRoleArn' in kwargs:
+            firehose_success_feedback_role_arn = kwargs['firehoseSuccessFeedbackRoleArn']
+        if firehose_success_feedback_sample_rate is None and 'firehoseSuccessFeedbackSampleRate' in kwargs:
+            firehose_success_feedback_sample_rate = kwargs['firehoseSuccessFeedbackSampleRate']
+        if http_failure_feedback_role_arn is None and 'httpFailureFeedbackRoleArn' in kwargs:
+            http_failure_feedback_role_arn = kwargs['httpFailureFeedbackRoleArn']
+        if http_success_feedback_role_arn is None and 'httpSuccessFeedbackRoleArn' in kwargs:
+            http_success_feedback_role_arn = kwargs['httpSuccessFeedbackRoleArn']
+        if http_success_feedback_sample_rate is None and 'httpSuccessFeedbackSampleRate' in kwargs:
+            http_success_feedback_sample_rate = kwargs['httpSuccessFeedbackSampleRate']
+        if kms_master_key_id is None and 'kmsMasterKeyId' in kwargs:
+            kms_master_key_id = kwargs['kmsMasterKeyId']
+        if lambda_failure_feedback_role_arn is None and 'lambdaFailureFeedbackRoleArn' in kwargs:
+            lambda_failure_feedback_role_arn = kwargs['lambdaFailureFeedbackRoleArn']
+        if lambda_success_feedback_role_arn is None and 'lambdaSuccessFeedbackRoleArn' in kwargs:
+            lambda_success_feedback_role_arn = kwargs['lambdaSuccessFeedbackRoleArn']
+        if lambda_success_feedback_sample_rate is None and 'lambdaSuccessFeedbackSampleRate' in kwargs:
+            lambda_success_feedback_sample_rate = kwargs['lambdaSuccessFeedbackSampleRate']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if signature_version is None and 'signatureVersion' in kwargs:
+            signature_version = kwargs['signatureVersion']
+        if sqs_failure_feedback_role_arn is None and 'sqsFailureFeedbackRoleArn' in kwargs:
+            sqs_failure_feedback_role_arn = kwargs['sqsFailureFeedbackRoleArn']
+        if sqs_success_feedback_role_arn is None and 'sqsSuccessFeedbackRoleArn' in kwargs:
+            sqs_success_feedback_role_arn = kwargs['sqsSuccessFeedbackRoleArn']
+        if sqs_success_feedback_sample_rate is None and 'sqsSuccessFeedbackSampleRate' in kwargs:
+            sqs_success_feedback_sample_rate = kwargs['sqsSuccessFeedbackSampleRate']
+        if tracing_config is None and 'tracingConfig' in kwargs:
+            tracing_config = kwargs['tracingConfig']
+
         if application_failure_feedback_role_arn is not None:
-            pulumi.set(__self__, "application_failure_feedback_role_arn", application_failure_feedback_role_arn)
+            _setter("application_failure_feedback_role_arn", application_failure_feedback_role_arn)
         if application_success_feedback_role_arn is not None:
-            pulumi.set(__self__, "application_success_feedback_role_arn", application_success_feedback_role_arn)
+            _setter("application_success_feedback_role_arn", application_success_feedback_role_arn)
         if application_success_feedback_sample_rate is not None:
-            pulumi.set(__self__, "application_success_feedback_sample_rate", application_success_feedback_sample_rate)
+            _setter("application_success_feedback_sample_rate", application_success_feedback_sample_rate)
         if content_based_deduplication is not None:
-            pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
+            _setter("content_based_deduplication", content_based_deduplication)
         if delivery_policy is not None:
-            pulumi.set(__self__, "delivery_policy", delivery_policy)
+            _setter("delivery_policy", delivery_policy)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if fifo_topic is not None:
-            pulumi.set(__self__, "fifo_topic", fifo_topic)
+            _setter("fifo_topic", fifo_topic)
         if firehose_failure_feedback_role_arn is not None:
-            pulumi.set(__self__, "firehose_failure_feedback_role_arn", firehose_failure_feedback_role_arn)
+            _setter("firehose_failure_feedback_role_arn", firehose_failure_feedback_role_arn)
         if firehose_success_feedback_role_arn is not None:
-            pulumi.set(__self__, "firehose_success_feedback_role_arn", firehose_success_feedback_role_arn)
+            _setter("firehose_success_feedback_role_arn", firehose_success_feedback_role_arn)
         if firehose_success_feedback_sample_rate is not None:
-            pulumi.set(__self__, "firehose_success_feedback_sample_rate", firehose_success_feedback_sample_rate)
+            _setter("firehose_success_feedback_sample_rate", firehose_success_feedback_sample_rate)
         if http_failure_feedback_role_arn is not None:
-            pulumi.set(__self__, "http_failure_feedback_role_arn", http_failure_feedback_role_arn)
+            _setter("http_failure_feedback_role_arn", http_failure_feedback_role_arn)
         if http_success_feedback_role_arn is not None:
-            pulumi.set(__self__, "http_success_feedback_role_arn", http_success_feedback_role_arn)
+            _setter("http_success_feedback_role_arn", http_success_feedback_role_arn)
         if http_success_feedback_sample_rate is not None:
-            pulumi.set(__self__, "http_success_feedback_sample_rate", http_success_feedback_sample_rate)
+            _setter("http_success_feedback_sample_rate", http_success_feedback_sample_rate)
         if kms_master_key_id is not None:
-            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+            _setter("kms_master_key_id", kms_master_key_id)
         if lambda_failure_feedback_role_arn is not None:
-            pulumi.set(__self__, "lambda_failure_feedback_role_arn", lambda_failure_feedback_role_arn)
+            _setter("lambda_failure_feedback_role_arn", lambda_failure_feedback_role_arn)
         if lambda_success_feedback_role_arn is not None:
-            pulumi.set(__self__, "lambda_success_feedback_role_arn", lambda_success_feedback_role_arn)
+            _setter("lambda_success_feedback_role_arn", lambda_success_feedback_role_arn)
         if lambda_success_feedback_sample_rate is not None:
-            pulumi.set(__self__, "lambda_success_feedback_sample_rate", lambda_success_feedback_sample_rate)
+            _setter("lambda_success_feedback_sample_rate", lambda_success_feedback_sample_rate)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if signature_version is not None:
-            pulumi.set(__self__, "signature_version", signature_version)
+            _setter("signature_version", signature_version)
         if sqs_failure_feedback_role_arn is not None:
-            pulumi.set(__self__, "sqs_failure_feedback_role_arn", sqs_failure_feedback_role_arn)
+            _setter("sqs_failure_feedback_role_arn", sqs_failure_feedback_role_arn)
         if sqs_success_feedback_role_arn is not None:
-            pulumi.set(__self__, "sqs_success_feedback_role_arn", sqs_success_feedback_role_arn)
+            _setter("sqs_success_feedback_role_arn", sqs_success_feedback_role_arn)
         if sqs_success_feedback_sample_rate is not None:
-            pulumi.set(__self__, "sqs_success_feedback_sample_rate", sqs_success_feedback_sample_rate)
+            _setter("sqs_success_feedback_sample_rate", sqs_success_feedback_sample_rate)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tracing_config is not None:
-            pulumi.set(__self__, "tracing_config", tracing_config)
+            _setter("tracing_config", tracing_config)
 
     @property
     @pulumi.getter(name="applicationFailureFeedbackRoleArn")
@@ -499,67 +606,182 @@ class _TopicState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tracing_config: Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
         """
+        _TopicState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_failure_feedback_role_arn=application_failure_feedback_role_arn,
+            application_success_feedback_role_arn=application_success_feedback_role_arn,
+            application_success_feedback_sample_rate=application_success_feedback_sample_rate,
+            arn=arn,
+            content_based_deduplication=content_based_deduplication,
+            delivery_policy=delivery_policy,
+            display_name=display_name,
+            fifo_topic=fifo_topic,
+            firehose_failure_feedback_role_arn=firehose_failure_feedback_role_arn,
+            firehose_success_feedback_role_arn=firehose_success_feedback_role_arn,
+            firehose_success_feedback_sample_rate=firehose_success_feedback_sample_rate,
+            http_failure_feedback_role_arn=http_failure_feedback_role_arn,
+            http_success_feedback_role_arn=http_success_feedback_role_arn,
+            http_success_feedback_sample_rate=http_success_feedback_sample_rate,
+            kms_master_key_id=kms_master_key_id,
+            lambda_failure_feedback_role_arn=lambda_failure_feedback_role_arn,
+            lambda_success_feedback_role_arn=lambda_success_feedback_role_arn,
+            lambda_success_feedback_sample_rate=lambda_success_feedback_sample_rate,
+            name=name,
+            name_prefix=name_prefix,
+            owner=owner,
+            policy=policy,
+            signature_version=signature_version,
+            sqs_failure_feedback_role_arn=sqs_failure_feedback_role_arn,
+            sqs_success_feedback_role_arn=sqs_success_feedback_role_arn,
+            sqs_success_feedback_sample_rate=sqs_success_feedback_sample_rate,
+            tags=tags,
+            tags_all=tags_all,
+            tracing_config=tracing_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             application_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             application_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             content_based_deduplication: Optional[pulumi.Input[bool]] = None,
+             delivery_policy: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             fifo_topic: Optional[pulumi.Input[bool]] = None,
+             firehose_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             firehose_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             firehose_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+             http_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             http_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             http_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+             kms_master_key_id: Optional[pulumi.Input[str]] = None,
+             lambda_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             lambda_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             lambda_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             signature_version: Optional[pulumi.Input[int]] = None,
+             sqs_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             sqs_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             sqs_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tracing_config: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_failure_feedback_role_arn is None and 'applicationFailureFeedbackRoleArn' in kwargs:
+            application_failure_feedback_role_arn = kwargs['applicationFailureFeedbackRoleArn']
+        if application_success_feedback_role_arn is None and 'applicationSuccessFeedbackRoleArn' in kwargs:
+            application_success_feedback_role_arn = kwargs['applicationSuccessFeedbackRoleArn']
+        if application_success_feedback_sample_rate is None and 'applicationSuccessFeedbackSampleRate' in kwargs:
+            application_success_feedback_sample_rate = kwargs['applicationSuccessFeedbackSampleRate']
+        if content_based_deduplication is None and 'contentBasedDeduplication' in kwargs:
+            content_based_deduplication = kwargs['contentBasedDeduplication']
+        if delivery_policy is None and 'deliveryPolicy' in kwargs:
+            delivery_policy = kwargs['deliveryPolicy']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if fifo_topic is None and 'fifoTopic' in kwargs:
+            fifo_topic = kwargs['fifoTopic']
+        if firehose_failure_feedback_role_arn is None and 'firehoseFailureFeedbackRoleArn' in kwargs:
+            firehose_failure_feedback_role_arn = kwargs['firehoseFailureFeedbackRoleArn']
+        if firehose_success_feedback_role_arn is None and 'firehoseSuccessFeedbackRoleArn' in kwargs:
+            firehose_success_feedback_role_arn = kwargs['firehoseSuccessFeedbackRoleArn']
+        if firehose_success_feedback_sample_rate is None and 'firehoseSuccessFeedbackSampleRate' in kwargs:
+            firehose_success_feedback_sample_rate = kwargs['firehoseSuccessFeedbackSampleRate']
+        if http_failure_feedback_role_arn is None and 'httpFailureFeedbackRoleArn' in kwargs:
+            http_failure_feedback_role_arn = kwargs['httpFailureFeedbackRoleArn']
+        if http_success_feedback_role_arn is None and 'httpSuccessFeedbackRoleArn' in kwargs:
+            http_success_feedback_role_arn = kwargs['httpSuccessFeedbackRoleArn']
+        if http_success_feedback_sample_rate is None and 'httpSuccessFeedbackSampleRate' in kwargs:
+            http_success_feedback_sample_rate = kwargs['httpSuccessFeedbackSampleRate']
+        if kms_master_key_id is None and 'kmsMasterKeyId' in kwargs:
+            kms_master_key_id = kwargs['kmsMasterKeyId']
+        if lambda_failure_feedback_role_arn is None and 'lambdaFailureFeedbackRoleArn' in kwargs:
+            lambda_failure_feedback_role_arn = kwargs['lambdaFailureFeedbackRoleArn']
+        if lambda_success_feedback_role_arn is None and 'lambdaSuccessFeedbackRoleArn' in kwargs:
+            lambda_success_feedback_role_arn = kwargs['lambdaSuccessFeedbackRoleArn']
+        if lambda_success_feedback_sample_rate is None and 'lambdaSuccessFeedbackSampleRate' in kwargs:
+            lambda_success_feedback_sample_rate = kwargs['lambdaSuccessFeedbackSampleRate']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if signature_version is None and 'signatureVersion' in kwargs:
+            signature_version = kwargs['signatureVersion']
+        if sqs_failure_feedback_role_arn is None and 'sqsFailureFeedbackRoleArn' in kwargs:
+            sqs_failure_feedback_role_arn = kwargs['sqsFailureFeedbackRoleArn']
+        if sqs_success_feedback_role_arn is None and 'sqsSuccessFeedbackRoleArn' in kwargs:
+            sqs_success_feedback_role_arn = kwargs['sqsSuccessFeedbackRoleArn']
+        if sqs_success_feedback_sample_rate is None and 'sqsSuccessFeedbackSampleRate' in kwargs:
+            sqs_success_feedback_sample_rate = kwargs['sqsSuccessFeedbackSampleRate']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if tracing_config is None and 'tracingConfig' in kwargs:
+            tracing_config = kwargs['tracingConfig']
+
         if application_failure_feedback_role_arn is not None:
-            pulumi.set(__self__, "application_failure_feedback_role_arn", application_failure_feedback_role_arn)
+            _setter("application_failure_feedback_role_arn", application_failure_feedback_role_arn)
         if application_success_feedback_role_arn is not None:
-            pulumi.set(__self__, "application_success_feedback_role_arn", application_success_feedback_role_arn)
+            _setter("application_success_feedback_role_arn", application_success_feedback_role_arn)
         if application_success_feedback_sample_rate is not None:
-            pulumi.set(__self__, "application_success_feedback_sample_rate", application_success_feedback_sample_rate)
+            _setter("application_success_feedback_sample_rate", application_success_feedback_sample_rate)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if content_based_deduplication is not None:
-            pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
+            _setter("content_based_deduplication", content_based_deduplication)
         if delivery_policy is not None:
-            pulumi.set(__self__, "delivery_policy", delivery_policy)
+            _setter("delivery_policy", delivery_policy)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if fifo_topic is not None:
-            pulumi.set(__self__, "fifo_topic", fifo_topic)
+            _setter("fifo_topic", fifo_topic)
         if firehose_failure_feedback_role_arn is not None:
-            pulumi.set(__self__, "firehose_failure_feedback_role_arn", firehose_failure_feedback_role_arn)
+            _setter("firehose_failure_feedback_role_arn", firehose_failure_feedback_role_arn)
         if firehose_success_feedback_role_arn is not None:
-            pulumi.set(__self__, "firehose_success_feedback_role_arn", firehose_success_feedback_role_arn)
+            _setter("firehose_success_feedback_role_arn", firehose_success_feedback_role_arn)
         if firehose_success_feedback_sample_rate is not None:
-            pulumi.set(__self__, "firehose_success_feedback_sample_rate", firehose_success_feedback_sample_rate)
+            _setter("firehose_success_feedback_sample_rate", firehose_success_feedback_sample_rate)
         if http_failure_feedback_role_arn is not None:
-            pulumi.set(__self__, "http_failure_feedback_role_arn", http_failure_feedback_role_arn)
+            _setter("http_failure_feedback_role_arn", http_failure_feedback_role_arn)
         if http_success_feedback_role_arn is not None:
-            pulumi.set(__self__, "http_success_feedback_role_arn", http_success_feedback_role_arn)
+            _setter("http_success_feedback_role_arn", http_success_feedback_role_arn)
         if http_success_feedback_sample_rate is not None:
-            pulumi.set(__self__, "http_success_feedback_sample_rate", http_success_feedback_sample_rate)
+            _setter("http_success_feedback_sample_rate", http_success_feedback_sample_rate)
         if kms_master_key_id is not None:
-            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+            _setter("kms_master_key_id", kms_master_key_id)
         if lambda_failure_feedback_role_arn is not None:
-            pulumi.set(__self__, "lambda_failure_feedback_role_arn", lambda_failure_feedback_role_arn)
+            _setter("lambda_failure_feedback_role_arn", lambda_failure_feedback_role_arn)
         if lambda_success_feedback_role_arn is not None:
-            pulumi.set(__self__, "lambda_success_feedback_role_arn", lambda_success_feedback_role_arn)
+            _setter("lambda_success_feedback_role_arn", lambda_success_feedback_role_arn)
         if lambda_success_feedback_sample_rate is not None:
-            pulumi.set(__self__, "lambda_success_feedback_sample_rate", lambda_success_feedback_sample_rate)
+            _setter("lambda_success_feedback_sample_rate", lambda_success_feedback_sample_rate)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if signature_version is not None:
-            pulumi.set(__self__, "signature_version", signature_version)
+            _setter("signature_version", signature_version)
         if sqs_failure_feedback_role_arn is not None:
-            pulumi.set(__self__, "sqs_failure_feedback_role_arn", sqs_failure_feedback_role_arn)
+            _setter("sqs_failure_feedback_role_arn", sqs_failure_feedback_role_arn)
         if sqs_success_feedback_role_arn is not None:
-            pulumi.set(__self__, "sqs_success_feedback_role_arn", sqs_success_feedback_role_arn)
+            _setter("sqs_success_feedback_role_arn", sqs_success_feedback_role_arn)
         if sqs_success_feedback_sample_rate is not None:
-            pulumi.set(__self__, "sqs_success_feedback_sample_rate", sqs_success_feedback_sample_rate)
+            _setter("sqs_success_feedback_sample_rate", sqs_success_feedback_sample_rate)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tracing_config is not None:
-            pulumi.set(__self__, "tracing_config", tracing_config)
+            _setter("tracing_config", tracing_config)
 
     @property
     @pulumi.getter(name="applicationFailureFeedbackRoleArn")
@@ -948,61 +1170,6 @@ class Topic(pulumi.CustomResource):
         """
         Provides an SNS topic resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates = aws.sns.Topic("userUpdates")
-        ```
-        ## Example with Delivery Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates = aws.sns.Topic("userUpdates", delivery_policy=\"\"\"{
-          "http": {
-            "defaultHealthyRetryPolicy": {
-              "minDelayTarget": 20,
-              "maxDelayTarget": 20,
-              "numRetries": 3,
-              "numMaxDelayRetries": 0,
-              "numNoDelayRetries": 0,
-              "numMinDelayRetries": 0,
-              "backoffFunction": "linear"
-            },
-            "disableSubscriptionOverrides": false,
-            "defaultThrottlePolicy": {
-              "maxReceivesPerSecond": 1
-            }
-          }
-        }
-
-        \"\"\")
-        ```
-
-        ## Example with Server-side encryption (SSE)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates = aws.sns.Topic("userUpdates", kms_master_key_id="alias/aws/sns")
-        ```
-
-        ## Example with First-In-First-Out (FIFO)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates = aws.sns.Topic("userUpdates",
-            content_based_deduplication=True,
-            fifo_topic=True)
-        ```
-
         ## Message Delivery Status Arguments
 
         The `<endpoint>_success_feedback_role_arn` and `<endpoint>_failure_feedback_role_arn` arguments are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `<endpoint>_success_feedback_sample_rate` argument is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the  `<endpoint>_failure_feedback_role_arn` argument, then all failed message deliveries generate CloudWatch Logs.
@@ -1053,61 +1220,6 @@ class Topic(pulumi.CustomResource):
         """
         Provides an SNS topic resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates = aws.sns.Topic("userUpdates")
-        ```
-        ## Example with Delivery Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates = aws.sns.Topic("userUpdates", delivery_policy=\"\"\"{
-          "http": {
-            "defaultHealthyRetryPolicy": {
-              "minDelayTarget": 20,
-              "maxDelayTarget": 20,
-              "numRetries": 3,
-              "numMaxDelayRetries": 0,
-              "numNoDelayRetries": 0,
-              "numMinDelayRetries": 0,
-              "backoffFunction": "linear"
-            },
-            "disableSubscriptionOverrides": false,
-            "defaultThrottlePolicy": {
-              "maxReceivesPerSecond": 1
-            }
-          }
-        }
-
-        \"\"\")
-        ```
-
-        ## Example with Server-side encryption (SSE)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates = aws.sns.Topic("userUpdates", kms_master_key_id="alias/aws/sns")
-        ```
-
-        ## Example with First-In-First-Out (FIFO)
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        user_updates = aws.sns.Topic("userUpdates",
-            content_based_deduplication=True,
-            fifo_topic=True)
-        ```
-
         ## Message Delivery Status Arguments
 
         The `<endpoint>_success_feedback_role_arn` and `<endpoint>_failure_feedback_role_arn` arguments are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `<endpoint>_success_feedback_sample_rate` argument is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the  `<endpoint>_failure_feedback_role_arn` argument, then all failed message deliveries generate CloudWatch Logs.
@@ -1130,6 +1242,10 @@ class Topic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

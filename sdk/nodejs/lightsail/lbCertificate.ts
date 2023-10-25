@@ -10,25 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a Lightsail load balancer Certificate resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testLb = new aws.lightsail.Lb("testLb", {
- *     healthCheckPath: "/",
- *     instancePort: 80,
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * const testLbCertificate = new aws.lightsail.LbCertificate("testLbCertificate", {
- *     lbName: testLb.id,
- *     domainName: "test.com",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:

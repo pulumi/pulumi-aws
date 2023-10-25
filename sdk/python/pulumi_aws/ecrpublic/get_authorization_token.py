@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetAuthorizationTokenResult',
     'AwaitableGetAuthorizationTokenResult',
     'get_authorization_token',
+    'get_authorization_token_output',
 ]
 
 @pulumi.output_type
@@ -96,15 +97,6 @@ def get_authorization_token(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
     The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
 
     > **NOTE:** This data source can only be used in the `us-east-1` region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    token = aws.ecrpublic.get_authorization_token()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -116,3 +108,13 @@ def get_authorization_token(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
         id=pulumi.get(__ret__, 'id'),
         password=pulumi.get(__ret__, 'password'),
         user_name=pulumi.get(__ret__, 'user_name'))
+
+
+@_utilities.lift_output_func(get_authorization_token)
+def get_authorization_token_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
+    """
+    The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
+
+    > **NOTE:** This data source can only be used in the `us-east-1` region.
+    """
+    ...

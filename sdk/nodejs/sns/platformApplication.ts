@@ -8,43 +8,6 @@ import * as utilities from "../utilities";
  * Provides an SNS platform application resource
  *
  * ## Example Usage
- * ### Apple Push Notification Service (APNS) using certificate-based authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const apnsApplication = new aws.sns.PlatformApplication("apnsApplication", {
- *     platform: "APNS",
- *     platformCredential: "<APNS PRIVATE KEY>",
- *     platformPrincipal: "<APNS CERTIFICATE>",
- * });
- * ```
- * ### Apple Push Notification Service (APNS) using token-based authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const apnsApplication = new aws.sns.PlatformApplication("apnsApplication", {
- *     applePlatformBundleId: "<APPLE BUNDLE ID>",
- *     applePlatformTeamId: "<APPLE TEAM ID>",
- *     platform: "APNS",
- *     platformCredential: "<APNS SIGNING KEY>",
- *     platformPrincipal: "<APNS SIGNING KEY ID>",
- * });
- * ```
- * ### Google Cloud Messaging (GCM)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const gcmApplication = new aws.sns.PlatformApplication("gcmApplication", {
- *     platform: "GCM",
- *     platformCredential: "<GCM API KEY>",
- * });
- * ```
  *
  * ## Import
  *

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProxyTargetArgs', 'ProxyTarget']
@@ -27,12 +27,41 @@ class ProxyTargetArgs:
                **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         :param pulumi.Input[str] db_instance_identifier: DB instance identifier.
         """
-        pulumi.set(__self__, "db_proxy_name", db_proxy_name)
-        pulumi.set(__self__, "target_group_name", target_group_name)
+        ProxyTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_proxy_name=db_proxy_name,
+            target_group_name=target_group_name,
+            db_cluster_identifier=db_cluster_identifier,
+            db_instance_identifier=db_instance_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_proxy_name: Optional[pulumi.Input[str]] = None,
+             target_group_name: Optional[pulumi.Input[str]] = None,
+             db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             db_instance_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_proxy_name is None and 'dbProxyName' in kwargs:
+            db_proxy_name = kwargs['dbProxyName']
+        if db_proxy_name is None:
+            raise TypeError("Missing 'db_proxy_name' argument")
+        if target_group_name is None and 'targetGroupName' in kwargs:
+            target_group_name = kwargs['targetGroupName']
+        if target_group_name is None:
+            raise TypeError("Missing 'target_group_name' argument")
+        if db_cluster_identifier is None and 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if db_instance_identifier is None and 'dbInstanceIdentifier' in kwargs:
+            db_instance_identifier = kwargs['dbInstanceIdentifier']
+
+        _setter("db_proxy_name", db_proxy_name)
+        _setter("target_group_name", target_group_name)
         if db_cluster_identifier is not None:
-            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+            _setter("db_cluster_identifier", db_cluster_identifier)
         if db_instance_identifier is not None:
-            pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+            _setter("db_instance_identifier", db_instance_identifier)
 
     @property
     @pulumi.getter(name="dbProxyName")
@@ -113,26 +142,69 @@ class _ProxyTargetState:
         :param pulumi.Input[str] tracked_cluster_id: DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
         :param pulumi.Input[str] type: Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         """
+        _ProxyTargetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_cluster_identifier=db_cluster_identifier,
+            db_instance_identifier=db_instance_identifier,
+            db_proxy_name=db_proxy_name,
+            endpoint=endpoint,
+            port=port,
+            rds_resource_id=rds_resource_id,
+            target_arn=target_arn,
+            target_group_name=target_group_name,
+            tracked_cluster_id=tracked_cluster_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             db_instance_identifier: Optional[pulumi.Input[str]] = None,
+             db_proxy_name: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             rds_resource_id: Optional[pulumi.Input[str]] = None,
+             target_arn: Optional[pulumi.Input[str]] = None,
+             target_group_name: Optional[pulumi.Input[str]] = None,
+             tracked_cluster_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_cluster_identifier is None and 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if db_instance_identifier is None and 'dbInstanceIdentifier' in kwargs:
+            db_instance_identifier = kwargs['dbInstanceIdentifier']
+        if db_proxy_name is None and 'dbProxyName' in kwargs:
+            db_proxy_name = kwargs['dbProxyName']
+        if rds_resource_id is None and 'rdsResourceId' in kwargs:
+            rds_resource_id = kwargs['rdsResourceId']
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if target_group_name is None and 'targetGroupName' in kwargs:
+            target_group_name = kwargs['targetGroupName']
+        if tracked_cluster_id is None and 'trackedClusterId' in kwargs:
+            tracked_cluster_id = kwargs['trackedClusterId']
+
         if db_cluster_identifier is not None:
-            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+            _setter("db_cluster_identifier", db_cluster_identifier)
         if db_instance_identifier is not None:
-            pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+            _setter("db_instance_identifier", db_instance_identifier)
         if db_proxy_name is not None:
-            pulumi.set(__self__, "db_proxy_name", db_proxy_name)
+            _setter("db_proxy_name", db_proxy_name)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if rds_resource_id is not None:
-            pulumi.set(__self__, "rds_resource_id", rds_resource_id)
+            _setter("rds_resource_id", rds_resource_id)
         if target_arn is not None:
-            pulumi.set(__self__, "target_arn", target_arn)
+            _setter("target_arn", target_arn)
         if target_group_name is not None:
-            pulumi.set(__self__, "target_group_name", target_group_name)
+            _setter("target_group_name", target_group_name)
         if tracked_cluster_id is not None:
-            pulumi.set(__self__, "tracked_cluster_id", tracked_cluster_id)
+            _setter("tracked_cluster_id", tracked_cluster_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")
@@ -270,45 +342,6 @@ class ProxyTarget(pulumi.CustomResource):
         """
         Provides an RDS DB proxy target resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_proxy = aws.rds.Proxy("exampleProxy",
-            debug_logging=False,
-            engine_family="MYSQL",
-            idle_client_timeout=1800,
-            require_tls=True,
-            role_arn=aws_iam_role["example"]["arn"],
-            vpc_security_group_ids=[aws_security_group["example"]["id"]],
-            vpc_subnet_ids=[aws_subnet["example"]["id"]],
-            auths=[aws.rds.ProxyAuthArgs(
-                auth_scheme="SECRETS",
-                description="example",
-                iam_auth="DISABLED",
-                secret_arn=aws_secretsmanager_secret["example"]["arn"],
-            )],
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup",
-            db_proxy_name=example_proxy.name,
-            connection_pool_config=aws.rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs(
-                connection_borrow_timeout=120,
-                init_query="SET x=1, y=2",
-                max_connections_percent=100,
-                max_idle_connections_percent=50,
-                session_pinning_filters=["EXCLUDE_VARIABLE_SETS"],
-            ))
-        example_proxy_target = aws.rds.ProxyTarget("exampleProxyTarget",
-            db_instance_identifier=aws_db_instance["example"]["identifier"],
-            db_proxy_name=example_proxy.name,
-            target_group_name=example_proxy_default_target_group.name)
-        ```
-
         ## Import
 
         Provisioned Clusters:
@@ -344,45 +377,6 @@ class ProxyTarget(pulumi.CustomResource):
         """
         Provides an RDS DB proxy target resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_proxy = aws.rds.Proxy("exampleProxy",
-            debug_logging=False,
-            engine_family="MYSQL",
-            idle_client_timeout=1800,
-            require_tls=True,
-            role_arn=aws_iam_role["example"]["arn"],
-            vpc_security_group_ids=[aws_security_group["example"]["id"]],
-            vpc_subnet_ids=[aws_subnet["example"]["id"]],
-            auths=[aws.rds.ProxyAuthArgs(
-                auth_scheme="SECRETS",
-                description="example",
-                iam_auth="DISABLED",
-                secret_arn=aws_secretsmanager_secret["example"]["arn"],
-            )],
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup",
-            db_proxy_name=example_proxy.name,
-            connection_pool_config=aws.rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs(
-                connection_borrow_timeout=120,
-                init_query="SET x=1, y=2",
-                max_connections_percent=100,
-                max_idle_connections_percent=50,
-                session_pinning_filters=["EXCLUDE_VARIABLE_SETS"],
-            ))
-        example_proxy_target = aws.rds.ProxyTarget("exampleProxyTarget",
-            db_instance_identifier=aws_db_instance["example"]["identifier"],
-            db_proxy_name=example_proxy.name,
-            target_group_name=example_proxy_default_target_group.name)
-        ```
-
         ## Import
 
         Provisioned Clusters:
@@ -410,6 +404,10 @@ class ProxyTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProxyTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

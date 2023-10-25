@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.LocalGatewayRoute("example", {
- *     destinationCidrBlock: "172.16.0.0/16",
- *     localGatewayRouteTableId: data.aws_ec2_local_gateway_route_table.example.id,
- *     localGatewayVirtualInterfaceGroupId: data.aws_ec2_local_gateway_virtual_interface_group.example.id,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_local_gateway_route` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For example:

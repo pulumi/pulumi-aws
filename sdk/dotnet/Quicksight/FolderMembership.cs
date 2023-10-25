@@ -13,25 +13,6 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing an AWS QuickSight Folder Membership.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.FolderMembership("example", new()
-    ///     {
-    ///         FolderId = aws_quicksight_folder.Example.Folder_id,
-    ///         MemberType = "DATASET",
-    ///         MemberId = aws_quicksight_data_set.Example.Data_set_id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

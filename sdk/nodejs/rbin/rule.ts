@@ -11,28 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS RBin Rule.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rbin.Rule("example", {
- *     description: "example_rule",
- *     resourceTags: [{
- *         resourceTagKey: "tag_key",
- *         resourceTagValue: "tag_value",
- *     }],
- *     resourceType: "EBS_SNAPSHOT",
- *     retentionPeriod: {
- *         retentionPeriodUnit: "DAYS",
- *         retentionPeriodValue: 10,
- *     },
- *     tags: {
- *         test_tag_key: "test_tag_value",
- *     },
- * });
- * ```
  *
  * ## Import
  *

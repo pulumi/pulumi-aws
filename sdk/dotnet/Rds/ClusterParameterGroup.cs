@@ -15,38 +15,6 @@ namespace Pulumi.Aws.Rds
     /// * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
     /// * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Rds.ClusterParameterGroup("default", new()
-    ///     {
-    ///         Description = "RDS default cluster parameter group",
-    ///         Family = "aurora5.6",
-    ///         Parameters = new[]
-    ///         {
-    ///             new Aws.Rds.Inputs.ClusterParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "character_set_server",
-    ///                 Value = "utf8",
-    ///             },
-    ///             new Aws.Rds.Inputs.ClusterParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "character_set_client",
-    ///                 Value = "utf8",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:

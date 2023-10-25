@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
  * but it must be owned by the same AWS account that owns the global network.
  * You cannot register a transit gateway in more than one global network.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGlobalNetwork = new aws.networkmanager.GlobalNetwork("exampleGlobalNetwork", {description: "example"});
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
- * const exampleTransitGatewayRegistration = new aws.networkmanager.TransitGatewayRegistration("exampleTransitGatewayRegistration", {
- *     globalNetworkId: exampleGlobalNetwork.id,
- *     transitGatewayArn: exampleTransitGateway.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_transit_gateway_registration` using the global network ID and transit gateway ARN. For example:

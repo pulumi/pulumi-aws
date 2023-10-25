@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VirtualMfaDeviceArgs', 'VirtualMfaDevice']
@@ -23,11 +23,30 @@ class VirtualMfaDeviceArgs:
         :param pulumi.Input[str] path: The path for the virtual MFA device.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "virtual_mfa_device_name", virtual_mfa_device_name)
+        VirtualMfaDeviceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_mfa_device_name=virtual_mfa_device_name,
+            path=path,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_mfa_device_name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if virtual_mfa_device_name is None and 'virtualMfaDeviceName' in kwargs:
+            virtual_mfa_device_name = kwargs['virtualMfaDeviceName']
+        if virtual_mfa_device_name is None:
+            raise TypeError("Missing 'virtual_mfa_device_name' argument")
+
+        _setter("virtual_mfa_device_name", virtual_mfa_device_name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="virtualMfaDeviceName")
@@ -90,27 +109,66 @@ class _VirtualMfaDeviceState:
         :param pulumi.Input[str] user_name: The associated IAM User name if the virtual MFA device is enabled.
         :param pulumi.Input[str] virtual_mfa_device_name: The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         """
+        _VirtualMfaDeviceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            base32_string_seed=base32_string_seed,
+            enable_date=enable_date,
+            path=path,
+            qr_code_png=qr_code_png,
+            tags=tags,
+            tags_all=tags_all,
+            user_name=user_name,
+            virtual_mfa_device_name=virtual_mfa_device_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             base32_string_seed: Optional[pulumi.Input[str]] = None,
+             enable_date: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             qr_code_png: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             virtual_mfa_device_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base32_string_seed is None and 'base32StringSeed' in kwargs:
+            base32_string_seed = kwargs['base32StringSeed']
+        if enable_date is None and 'enableDate' in kwargs:
+            enable_date = kwargs['enableDate']
+        if qr_code_png is None and 'qrCodePng' in kwargs:
+            qr_code_png = kwargs['qrCodePng']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if virtual_mfa_device_name is None and 'virtualMfaDeviceName' in kwargs:
+            virtual_mfa_device_name = kwargs['virtualMfaDeviceName']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if base32_string_seed is not None:
-            pulumi.set(__self__, "base32_string_seed", base32_string_seed)
+            _setter("base32_string_seed", base32_string_seed)
         if enable_date is not None:
-            pulumi.set(__self__, "enable_date", enable_date)
+            _setter("enable_date", enable_date)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if qr_code_png is not None:
-            pulumi.set(__self__, "qr_code_png", qr_code_png)
+            _setter("qr_code_png", qr_code_png)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
         if virtual_mfa_device_name is not None:
-            pulumi.set(__self__, "virtual_mfa_device_name", virtual_mfa_device_name)
+            _setter("virtual_mfa_device_name", virtual_mfa_device_name)
 
     @property
     @pulumi.getter
@@ -241,17 +299,6 @@ class VirtualMfaDevice(pulumi.CustomResource):
           To associate the virtual MFA device with a user and enable it, use the code returned in either `base_32_string_seed` or `qr_code_png` to generate TOTP authentication codes.
           The authentication codes can then be used with the AWS CLI command [`aws iam enable-mfa-device`](https://docs.aws.amazon.com/cli/latest/reference/iam/enable-mfa-device.html) or the AWS API call [`EnableMFADevice`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html).
 
-        ## Example Usage
-
-        **Using certs on file:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.VirtualMfaDevice("example", virtual_mfa_device_name="example")
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:
@@ -280,17 +327,6 @@ class VirtualMfaDevice(pulumi.CustomResource):
           To associate the virtual MFA device with a user and enable it, use the code returned in either `base_32_string_seed` or `qr_code_png` to generate TOTP authentication codes.
           The authentication codes can then be used with the AWS CLI command [`aws iam enable-mfa-device`](https://docs.aws.amazon.com/cli/latest/reference/iam/enable-mfa-device.html) or the AWS API call [`EnableMFADevice`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html).
 
-        ## Example Usage
-
-        **Using certs on file:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.VirtualMfaDevice("example", virtual_mfa_device_name="example")
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:
@@ -309,6 +345,10 @@ class VirtualMfaDevice(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMfaDeviceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BucketPublicAccessBlockArgs', 'BucketPublicAccessBlock']
@@ -32,15 +32,44 @@ class BucketPublicAccessBlockArgs:
         :param pulumi.Input[bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
                * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
         """
-        pulumi.set(__self__, "bucket", bucket)
+        BucketPublicAccessBlockArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            block_public_acls=block_public_acls,
+            block_public_policy=block_public_policy,
+            ignore_public_acls=ignore_public_acls,
+            restrict_public_buckets=restrict_public_buckets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             block_public_acls: Optional[pulumi.Input[bool]] = None,
+             block_public_policy: Optional[pulumi.Input[bool]] = None,
+             ignore_public_acls: Optional[pulumi.Input[bool]] = None,
+             restrict_public_buckets: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if block_public_acls is None and 'blockPublicAcls' in kwargs:
+            block_public_acls = kwargs['blockPublicAcls']
+        if block_public_policy is None and 'blockPublicPolicy' in kwargs:
+            block_public_policy = kwargs['blockPublicPolicy']
+        if ignore_public_acls is None and 'ignorePublicAcls' in kwargs:
+            ignore_public_acls = kwargs['ignorePublicAcls']
+        if restrict_public_buckets is None and 'restrictPublicBuckets' in kwargs:
+            restrict_public_buckets = kwargs['restrictPublicBuckets']
+
+        _setter("bucket", bucket)
         if block_public_acls is not None:
-            pulumi.set(__self__, "block_public_acls", block_public_acls)
+            _setter("block_public_acls", block_public_acls)
         if block_public_policy is not None:
-            pulumi.set(__self__, "block_public_policy", block_public_policy)
+            _setter("block_public_policy", block_public_policy)
         if ignore_public_acls is not None:
-            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+            _setter("ignore_public_acls", ignore_public_acls)
         if restrict_public_buckets is not None:
-            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+            _setter("restrict_public_buckets", restrict_public_buckets)
 
     @property
     @pulumi.getter
@@ -129,16 +158,43 @@ class _BucketPublicAccessBlockState:
         :param pulumi.Input[bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
                * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
         """
+        _BucketPublicAccessBlockState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            block_public_acls=block_public_acls,
+            block_public_policy=block_public_policy,
+            bucket=bucket,
+            ignore_public_acls=ignore_public_acls,
+            restrict_public_buckets=restrict_public_buckets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             block_public_acls: Optional[pulumi.Input[bool]] = None,
+             block_public_policy: Optional[pulumi.Input[bool]] = None,
+             bucket: Optional[pulumi.Input[str]] = None,
+             ignore_public_acls: Optional[pulumi.Input[bool]] = None,
+             restrict_public_buckets: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if block_public_acls is None and 'blockPublicAcls' in kwargs:
+            block_public_acls = kwargs['blockPublicAcls']
+        if block_public_policy is None and 'blockPublicPolicy' in kwargs:
+            block_public_policy = kwargs['blockPublicPolicy']
+        if ignore_public_acls is None and 'ignorePublicAcls' in kwargs:
+            ignore_public_acls = kwargs['ignorePublicAcls']
+        if restrict_public_buckets is None and 'restrictPublicBuckets' in kwargs:
+            restrict_public_buckets = kwargs['restrictPublicBuckets']
+
         if block_public_acls is not None:
-            pulumi.set(__self__, "block_public_acls", block_public_acls)
+            _setter("block_public_acls", block_public_acls)
         if block_public_policy is not None:
-            pulumi.set(__self__, "block_public_policy", block_public_policy)
+            _setter("block_public_policy", block_public_policy)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if ignore_public_acls is not None:
-            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+            _setter("ignore_public_acls", ignore_public_acls)
         if restrict_public_buckets is not None:
-            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+            _setter("restrict_public_buckets", restrict_public_buckets)
 
     @property
     @pulumi.getter(name="blockPublicAcls")
@@ -220,21 +276,6 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         """
         Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock",
-            bucket=example_bucket_v2.id,
-            block_public_acls=True,
-            block_public_policy=True,
-            ignore_public_acls=True,
-            restrict_public_buckets=True)
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
@@ -265,21 +306,6 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         """
         Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock",
-            bucket=example_bucket_v2.id,
-            block_public_acls=True,
-            block_public_policy=True,
-            ignore_public_acls=True,
-            restrict_public_buckets=True)
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
@@ -298,6 +324,10 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketPublicAccessBlockArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

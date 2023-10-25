@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
  * Resource for registering an AWS Systems Manager Default Patch Baseline.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePatchBaseline = new aws.ssm.PatchBaseline("examplePatchBaseline", {approvedPatches: ["KB123456"]});
- * const exampleDefaultPatchBaseline = new aws.ssm.DefaultPatchBaseline("exampleDefaultPatchBaseline", {
- *     baselineId: examplePatchBaseline.id,
- *     operatingSystem: examplePatchBaseline.operatingSystem,
- * });
- * ```
  *
  * ## Import
  *

@@ -13,69 +13,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** Deleting a replication set also deletes all Incident Manager related data including response plans, incident records, contacts and escalation plans.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * Create a replication set.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const replicationSetName = new aws.ssmincidents.ReplicationSet("replicationSetName", {
- *     regions: [{
- *         name: "us-west-2",
- *     }],
- *     tags: {
- *         exampleTag: "exampleValue",
- *     },
- * });
- * ```
- *
- * Add a Region to a replication set. (You can add only one Region at a time.)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const replicationSetName = new aws.ssmincidents.ReplicationSet("replicationSetName", {regions: [
- *     {
- *         name: "us-west-2",
- *     },
- *     {
- *         name: "ap-southeast-2",
- *     },
- * ]});
- * ```
- *
- * Delete a Region from a replication set. (You can delete only one Region at a time.)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const replicationSetName = new aws.ssmincidents.ReplicationSet("replicationSetName", {regions: [{
- *     name: "us-west-2",
- * }]});
- * ```
- * ## Basic Usage with an AWS Customer Managed Key
- *
- * Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {});
- * const replicationSetName = new aws.ssmincidents.ReplicationSet("replicationSetName", {
- *     regions: [{
- *         name: "us-west-2",
- *         kmsKeyArn: exampleKey.arn,
- *     }],
- *     tags: {
- *         exampleTag: "exampleValue",
- *     },
- * });
- * ```
  *
  * ## Import
  *

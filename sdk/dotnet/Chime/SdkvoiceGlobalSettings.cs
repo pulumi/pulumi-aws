@@ -13,26 +13,6 @@ namespace Pulumi.Aws.Chime
     /// Resource for managing Amazon Chime SDK Voice Global Settings.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Chime.SdkvoiceGlobalSettings("example", new()
-    ///     {
-    ///         VoiceConnector = new Aws.Chime.Inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs
-    ///         {
-    ///             CdrBucket = "example-bucket-name",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

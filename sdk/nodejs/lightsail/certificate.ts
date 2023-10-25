@@ -10,18 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a lightsail certificate.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lightsail.Certificate("test", {
- *     domainName: "testdomain.com",
- *     subjectAlternativeNames: ["www.testdomain.com"],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:

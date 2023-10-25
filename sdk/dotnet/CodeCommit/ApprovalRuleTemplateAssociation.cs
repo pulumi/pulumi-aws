@@ -12,25 +12,6 @@ namespace Pulumi.Aws.CodeCommit
     /// <summary>
     /// Associates a CodeCommit Approval Rule Template with a Repository.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeCommit.ApprovalRuleTemplateAssociation("example", new()
-    ///     {
-    ///         ApprovalRuleTemplateName = aws_codecommit_approval_rule_template.Example.Name,
-    ///         RepositoryName = aws_codecommit_repository.Example.Repository_name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For example:

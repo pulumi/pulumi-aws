@@ -13,68 +13,6 @@ namespace Pulumi.Aws.S3
     /// Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
     /// 
     /// ## Example Usage
-    /// ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.BucketV2("example");
-    /// 
-    ///     var analytics = new Aws.S3.BucketV2("analytics");
-    /// 
-    ///     var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         StorageClassAnalysis = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisArgs
-    ///         {
-    ///             DataExport = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs
-    ///             {
-    ///                 Destination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs
-    ///                 {
-    ///                     S3BucketDestination = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs
-    ///                     {
-    ///                         BucketArn = analytics.Arn,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Add analytics configuration with S3 object filter
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.BucketV2("example");
-    /// 
-    ///     var example_filtered = new Aws.S3.AnalyticsConfiguration("example-filtered", new()
-    ///     {
-    ///         Bucket = example.Id,
-    ///         Filter = new Aws.S3.Inputs.AnalyticsConfigurationFilterArgs
-    ///         {
-    ///             Prefix = "documents/",
-    ///             Tags = 
-    ///             {
-    ///                 { "priority", "high" },
-    ///                 { "class", "blue" },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

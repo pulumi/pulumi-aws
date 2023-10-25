@@ -15,54 +15,6 @@ import (
 
 // Provides a Route 53 Resolver DNS Firewall rule resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResolverFirewallDomainList, err := route53.NewResolverFirewallDomainList(ctx, "exampleResolverFirewallDomainList", &route53.ResolverFirewallDomainListArgs{
-//				Domains: pulumi.StringArray{
-//					pulumi.String("example.com"),
-//				},
-//				Tags: nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleResolverFirewallRuleGroup, err := route53.NewResolverFirewallRuleGroup(ctx, "exampleResolverFirewallRuleGroup", &route53.ResolverFirewallRuleGroupArgs{
-//				Tags: nil,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewResolverFirewallRule(ctx, "exampleResolverFirewallRule", &route53.ResolverFirewallRuleArgs{
-//				Action:               pulumi.String("BLOCK"),
-//				BlockOverrideDnsType: pulumi.String("CNAME"),
-//				BlockOverrideDomain:  pulumi.String("example.com"),
-//				BlockOverrideTtl:     pulumi.Int(1),
-//				BlockResponse:        pulumi.String("OVERRIDE"),
-//				FirewallDomainListId: exampleResolverFirewallDomainList.ID(),
-//				FirewallRuleGroupId:  exampleResolverFirewallRuleGroup.ID(),
-//				Priority:             pulumi.Int(100),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // # Using `pulumi import`, import

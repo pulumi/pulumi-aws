@@ -12,23 +12,6 @@ import {Group} from "./index";
  *
  * > **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const group = new aws.iam.Group("group", {});
- * const policy = new aws.iam.Policy("policy", {
- *     description: "A test policy",
- *     policy: "{ ... policy JSON ... }",
- * });
- * const test_attach = new aws.iam.GroupPolicyAttachment("test-attach", {
- *     group: group.name,
- *     policyArn: policy.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:

@@ -15,33 +15,6 @@ import (
 
 // Provides an AWS Route 53 Recovery Readiness Readiness Check.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoveryreadiness"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53recoveryreadiness.NewReadinessCheck(ctx, "example", &route53recoveryreadiness.ReadinessCheckArgs{
-//				ReadinessCheckName: pulumi.Any(my_cw_alarm_check),
-//				ResourceSetName:    pulumi.Any(my_cw_alarm_set),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For example:

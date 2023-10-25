@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks permission resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myStackPermission = new aws.opsworks.Permission("myStackPermission", {
- *     allowSsh: true,
- *     allowSudo: true,
- *     level: "iam_only",
- *     userArn: aws_iam_user.user.arn,
- *     stackId: aws_opsworks_stack.stack.id,
- * });
- * ```
  */
 export class Permission extends pulumi.CustomResource {
     /**

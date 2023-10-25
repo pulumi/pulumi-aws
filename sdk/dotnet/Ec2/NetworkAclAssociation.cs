@@ -15,25 +15,6 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource
     /// and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
     /// resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.Ec2.NetworkAclAssociation("main", new()
-    ///     {
-    ///         NetworkAclId = aws_network_acl.Main.Id,
-    ///         SubnetId = aws_subnet.Main.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkAclAssociation:NetworkAclAssociation")]
     public partial class NetworkAclAssociation : global::Pulumi.CustomResource

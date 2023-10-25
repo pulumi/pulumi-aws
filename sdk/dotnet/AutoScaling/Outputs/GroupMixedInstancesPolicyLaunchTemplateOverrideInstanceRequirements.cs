@@ -19,30 +19,10 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         public readonly Outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount? AcceleratorCount;
         /// <summary>
         /// List of accelerator manufacturer names. Default is any manufacturer.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorManufacturers;
         /// <summary>
         /// List of accelerator names. Default is any acclerator.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorNames;
         /// <summary>
@@ -51,16 +31,6 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         public readonly Outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib? AcceleratorTotalMemoryMib;
         /// <summary>
         /// List of accelerator types. Default is any accelerator type.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public readonly ImmutableArray<string> AcceleratorTypes;
         /// <summary>
@@ -85,16 +55,6 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// List of CPU manufacturer names. Default is any manufacturer.
         /// 
         /// &gt; **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public readonly ImmutableArray<string> CpuManufacturers;
         /// <summary>
@@ -105,16 +65,6 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         public readonly ImmutableArray<string> ExcludedInstanceTypes;
         /// <summary>
         /// List of instance generation names. Default is any generation.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public readonly ImmutableArray<string> InstanceGenerations;
         /// <summary>
@@ -123,16 +73,6 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         public readonly string? LocalStorage;
         /// <summary>
         /// List of local storage type names. Default any storage type.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public readonly ImmutableArray<string> LocalStorageTypes;
         /// <summary>

@@ -16,33 +16,6 @@ import (
 // Resource for managing an AWS CodeCatalyst Project.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecatalyst"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecatalyst.NewProject(ctx, "test", &codecatalyst.ProjectArgs{
-//				Description: pulumi.String("My CodeCatalyst Project created using Pulumi"),
-//				DisplayName: pulumi.String("MyProject"),
-//				SpaceName:   pulumi.String("myproject"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

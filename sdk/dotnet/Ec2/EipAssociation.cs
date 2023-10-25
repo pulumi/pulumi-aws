@@ -18,41 +18,6 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE:** `aws.ec2.EipAssociation` is useful in scenarios where EIPs are either
     /// pre-existing or distributed to customers or users and therefore cannot be changed.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var web = new Aws.Ec2.Instance("web", new()
-    ///     {
-    ///         Ami = "ami-21f78e11",
-    ///         AvailabilityZone = "us-west-2a",
-    ///         InstanceType = "t2.micro",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld" },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Ec2.Eip("example", new()
-    ///     {
-    ///         Domain = "vpc",
-    ///     });
-    /// 
-    ///     var eipAssoc = new Aws.Ec2.EipAssociation("eipAssoc", new()
-    ///     {
-    ///         InstanceId = web.Id,
-    ///         AllocationId = example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EIP Assocations using their association IDs. For example:

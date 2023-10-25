@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a MemoryDB User.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getUser({
- *     userName: "my-user",
- * });
- * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
@@ -76,17 +65,6 @@ export interface GetUserResult {
 }
 /**
  * Provides information about a MemoryDB User.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getUser({
- *     userName: "my-user",
- * });
- * ```
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))

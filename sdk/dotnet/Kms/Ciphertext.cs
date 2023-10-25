@@ -14,35 +14,6 @@ namespace Pulumi.Aws.Kms
     /// by using an AWS KMS customer master key. The value returned by this resource
     /// is stable across every apply. For a changing ciphertext value each apply, see
     /// the `aws.kms.Ciphertext` data source.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var oauthConfig = new Aws.Kms.Key("oauthConfig", new()
-    ///     {
-    ///         Description = "oauth config",
-    ///         IsEnabled = true,
-    ///     });
-    /// 
-    ///     var oauth = new Aws.Kms.Ciphertext("oauth", new()
-    ///     {
-    ///         KeyId = oauthConfig.KeyId,
-    ///         Plaintext = @"{
-    ///   ""client_id"": ""e587dbae22222f55da22"",
-    ///   ""client_secret"": ""8289575d00000ace55e1815ec13673955721b8a5""
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:kms/ciphertext:Ciphertext")]
     public partial class Ciphertext : global::Pulumi.CustomResource

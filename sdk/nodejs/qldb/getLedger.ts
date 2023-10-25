@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to fetch information about a Quantum Ledger Database.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.qldb.getLedger({
- *     name: "an_example_ledger",
- * });
- * ```
  */
 export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
 
@@ -55,17 +44,6 @@ export interface GetLedgerResult {
 }
 /**
  * Use this data source to fetch information about a Quantum Ledger Database.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.qldb.getLedger({
- *     name: "an_example_ledger",
- * });
- * ```
  */
 export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
     return pulumi.output(args).apply((a: any) => getLedger(a, opts))

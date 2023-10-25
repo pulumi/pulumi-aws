@@ -13,61 +13,6 @@ namespace Pulumi.Aws.S3Control
     /// Provides a resource to manage an S3 Multi-Region Access Point associated with specified buckets.
     /// 
     /// ## Example Usage
-    /// ### Multiple AWS Buckets in Different Regions
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primaryRegion = new Aws.Provider("primaryRegion", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
-    ///     var secondaryRegion = new Aws.Provider("secondaryRegion", new()
-    ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     var fooBucket = new Aws.S3.BucketV2("fooBucket", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary_region,
-    ///     });
-    /// 
-    ///     var barBucket = new Aws.S3.BucketV2("barBucket", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Secondary_region,
-    ///     });
-    /// 
-    ///     var example = new Aws.S3Control.MultiRegionAccessPoint("example", new()
-    ///     {
-    ///         Details = new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsArgs
-    ///         {
-    ///             Name = "example",
-    ///             Regions = new[]
-    ///             {
-    ///                 new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
-    ///                 {
-    ///                     Bucket = fooBucket.Id,
-    ///                 },
-    ///                 new Aws.S3Control.Inputs.MultiRegionAccessPointDetailsRegionArgs
-    ///                 {
-    ///                     Bucket = barBucket.Id,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

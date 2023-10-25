@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,14 +36,41 @@ class SslNegotiationPolicyArgs:
                
                > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         """
-        pulumi.set(__self__, "lb_port", lb_port)
-        pulumi.set(__self__, "load_balancer", load_balancer)
+        SslNegotiationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lb_port=lb_port,
+            load_balancer=load_balancer,
+            attributes=attributes,
+            name=name,
+            triggers=triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lb_port: Optional[pulumi.Input[int]] = None,
+             load_balancer: Optional[pulumi.Input[str]] = None,
+             attributes: Optional[pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lb_port is None and 'lbPort' in kwargs:
+            lb_port = kwargs['lbPort']
+        if lb_port is None:
+            raise TypeError("Missing 'lb_port' argument")
+        if load_balancer is None and 'loadBalancer' in kwargs:
+            load_balancer = kwargs['loadBalancer']
+        if load_balancer is None:
+            raise TypeError("Missing 'load_balancer' argument")
+
+        _setter("lb_port", lb_port)
+        _setter("load_balancer", load_balancer)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
 
     @property
     @pulumi.getter(name="lbPort")
@@ -136,16 +163,39 @@ class _SslNegotiationPolicyState:
                
                > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         """
+        _SslNegotiationPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            lb_port=lb_port,
+            load_balancer=load_balancer,
+            name=name,
+            triggers=triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]]] = None,
+             lb_port: Optional[pulumi.Input[int]] = None,
+             load_balancer: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lb_port is None and 'lbPort' in kwargs:
+            lb_port = kwargs['lbPort']
+        if load_balancer is None and 'loadBalancer' in kwargs:
+            load_balancer = kwargs['loadBalancer']
+
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if lb_port is not None:
-            pulumi.set(__self__, "lb_port", lb_port)
+            _setter("lb_port", lb_port)
         if load_balancer is not None:
-            pulumi.set(__self__, "load_balancer", load_balancer)
+            _setter("load_balancer", load_balancer)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
 
     @property
     @pulumi.getter
@@ -229,56 +279,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         """
         Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb = aws.elb.LoadBalancer("lb",
-            availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=8000,
-                instance_protocol="https",
-                lb_port=443,
-                lb_protocol="https",
-                ssl_certificate_id="arn:aws:iam::123456789012:server-certificate/certName",
-            )])
-        foo = aws.elb.SslNegotiationPolicy("foo",
-            load_balancer=lb.id,
-            lb_port=443,
-            attributes=[
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Protocol-TLSv1",
-                    value="false",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Protocol-TLSv1.1",
-                    value="false",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Protocol-TLSv1.2",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Server-Defined-Cipher-Order",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="ECDHE-RSA-AES128-GCM-SHA256",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="AES128-GCM-SHA256",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="EDH-RSA-DES-CBC3-SHA",
-                    value="false",
-                ),
-            ])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SslNegotiationPolicyAttributeArgs']]]] attributes: An SSL Negotiation policy attribute. Each has two properties:
@@ -303,56 +303,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         """
         Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb = aws.elb.LoadBalancer("lb",
-            availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=8000,
-                instance_protocol="https",
-                lb_port=443,
-                lb_protocol="https",
-                ssl_certificate_id="arn:aws:iam::123456789012:server-certificate/certName",
-            )])
-        foo = aws.elb.SslNegotiationPolicy("foo",
-            load_balancer=lb.id,
-            lb_port=443,
-            attributes=[
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Protocol-TLSv1",
-                    value="false",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Protocol-TLSv1.1",
-                    value="false",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Protocol-TLSv1.2",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="Server-Defined-Cipher-Order",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="ECDHE-RSA-AES128-GCM-SHA256",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="AES128-GCM-SHA256",
-                    value="true",
-                ),
-                aws.elb.SslNegotiationPolicyAttributeArgs(
-                    name="EDH-RSA-DES-CBC3-SHA",
-                    value="false",
-                ),
-            ])
-        ```
-
         :param str resource_name: The name of the resource.
         :param SslNegotiationPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -363,6 +313,10 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SslNegotiationPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

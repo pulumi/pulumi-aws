@@ -11,17 +11,6 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Space resource.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.Space("example", {
- *     domainId: aws_sagemaker_domain.test.id,
- *     spaceName: "example",
- * });
- * ```
  *
  * ## Import
  *

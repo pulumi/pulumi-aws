@@ -14,30 +14,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Kinesis.VideoStream("default", new()
-    ///     {
-    ///         DataRetentionInHours = 1,
-    ///         DeviceName = "kinesis-video-device-name",
-    ///         MediaType = "video/h264",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "kinesis-video-stream" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Kinesis Streams using the `arn`. For example:

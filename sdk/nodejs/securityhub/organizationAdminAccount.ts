@@ -7,24 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
- *     awsServiceAccessPrincipals: ["securityhub.amazonaws.com"],
- *     featureSet: "ALL",
- * });
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "123456789012"}, {
- *     dependsOn: [exampleOrganization],
- * });
- * // Auto enable security hub in organization member accounts
- * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", {autoEnable: true});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:

@@ -9,26 +9,6 @@ import * as utilities from "../utilities";
  *
  * Domain ownership needs to be confirmed first using sesDomainIdentity Resource
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleDomainIdentity = new aws.ses.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
- * const exampleDomainDkim = new aws.ses.DomainDkim("exampleDomainDkim", {domain: exampleDomainIdentity.domain});
- * const exampleAmazonsesDkimRecord: aws.route53.Record[] = [];
- * for (const range = {value: 0}; range.value < 3; range.value++) {
- *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`exampleAmazonsesDkimRecord-${range.value}`, {
- *         zoneId: "ABCDEFGHIJ123",
- *         name: exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range.value]}._domainkey`),
- *         type: "CNAME",
- *         ttl: 600,
- *         records: [exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range.value]}.dkim.amazonses.com`)],
- *     }));
- * }
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:

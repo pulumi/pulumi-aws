@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EncryptionConfigArgs', 'EncryptionConfig']
@@ -21,9 +21,26 @@ class EncryptionConfigArgs:
         :param pulumi.Input[str] type: The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         :param pulumi.Input[str] key_id: An AWS KMS customer master key (CMK) ARN.
         """
-        pulumi.set(__self__, "type", type)
+        EncryptionConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            key_id=key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
+        _setter("type", type)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
 
     @property
     @pulumi.getter
@@ -60,10 +77,25 @@ class _EncryptionConfigState:
         :param pulumi.Input[str] key_id: An AWS KMS customer master key (CMK) ARN.
         :param pulumi.Input[str] type: The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         """
+        _EncryptionConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_id=key_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="keyId")
@@ -103,40 +135,6 @@ class EncryptionConfig(pulumi.CustomResource):
 
         > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.xray.EncryptionConfig("example", type="NONE")
-        ```
-        ### With KMS Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Enable IAM User Permissions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current.account_id}:root"],
-            )],
-            actions=["kms:*"],
-            resources=["*"],
-        )])
-        example_key = aws.kms.Key("exampleKey",
-            description="Some Key",
-            deletion_window_in_days=7,
-            policy=example_policy_document.json)
-        example_encryption_config = aws.xray.EncryptionConfig("exampleEncryptionConfig",
-            type="KMS",
-            key_id=example_key.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import XRay Encryption Config using the region name. For example:
@@ -161,40 +159,6 @@ class EncryptionConfig(pulumi.CustomResource):
 
         > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.xray.EncryptionConfig("example", type="NONE")
-        ```
-        ### With KMS Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Enable IAM User Permissions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current.account_id}:root"],
-            )],
-            actions=["kms:*"],
-            resources=["*"],
-        )])
-        example_key = aws.kms.Key("exampleKey",
-            description="Some Key",
-            deletion_window_in_days=7,
-            policy=example_policy_document.json)
-        example_encryption_config = aws.xray.EncryptionConfig("exampleEncryptionConfig",
-            type="KMS",
-            key_id=example_key.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import XRay Encryption Config using the region name. For example:
@@ -213,6 +177,10 @@ class EncryptionConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EncryptionConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

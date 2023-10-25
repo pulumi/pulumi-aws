@@ -15,17 +15,7 @@ import * as utilities from "../utilities";
  * > In April 2023, [AWS introduced](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-s3-automatically-enable-block-public-access-disable-access-control-lists-buckets-april-2023/) updated security defaults for new S3 buckets. See this issue for a information on how this affects the `aws.s3.BucketV2` resource.
  *
  * ## Example Usage
- * ### Private Bucket With Tags
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.BucketV2("example", {tags: {
- *     Environment: "Dev",
- *     Name: "My bucket",
- * }});
- * ```
  * ### Static Website Hosting
  *
  * > **NOTE:** The `website` attribute is deprecated.

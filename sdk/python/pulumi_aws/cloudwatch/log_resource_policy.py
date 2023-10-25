@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LogResourcePolicyArgs', 'LogResourcePolicy']
@@ -21,8 +21,29 @@ class LogResourcePolicyArgs:
         :param pulumi.Input[str] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         :param pulumi.Input[str] policy_name: Name of the resource policy.
         """
-        pulumi.set(__self__, "policy_document", policy_document)
-        pulumi.set(__self__, "policy_name", policy_name)
+        LogResourcePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_document=policy_document,
+            policy_name=policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_document: Optional[pulumi.Input[str]] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_document is None:
+            raise TypeError("Missing 'policy_document' argument")
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+
+        _setter("policy_document", policy_document)
+        _setter("policy_name", policy_name)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -59,10 +80,27 @@ class _LogResourcePolicyState:
         :param pulumi.Input[str] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         :param pulumi.Input[str] policy_name: Name of the resource policy.
         """
+        _LogResourcePolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_document=policy_document,
+            policy_name=policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_document: Optional[pulumi.Input[str]] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if policy_document is not None:
-            pulumi.set(__self__, "policy_document", policy_document)
+            _setter("policy_document", policy_document)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -101,49 +139,6 @@ class LogResourcePolicy(pulumi.CustomResource):
         Provides a resource to manage a CloudWatch log resource policy.
 
         ## Example Usage
-        ### Elasticsearch Log Publishing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        elasticsearch_log_publishing_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-                "logs:PutLogEventsBatch",
-            ],
-            resources=["arn:aws:logs:*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["es.amazonaws.com"],
-                type="Service",
-            )],
-        )])
-        elasticsearch_log_publishing_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy",
-            policy_document=elasticsearch_log_publishing_policy_policy_document.json,
-            policy_name="elasticsearch-log-publishing-policy")
-        ```
-        ### Route53 Query Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
-            resources=["arn:aws:logs:*:*:log-group:/aws/route53/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["route53.amazonaws.com"],
-                type="Service",
-            )],
-        )])
-        route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy",
-            policy_document=route53_query_logging_policy_policy_document.json,
-            policy_name="route53-query-logging-policy")
-        ```
 
         ## Import
 
@@ -168,49 +163,6 @@ class LogResourcePolicy(pulumi.CustomResource):
         Provides a resource to manage a CloudWatch log resource policy.
 
         ## Example Usage
-        ### Elasticsearch Log Publishing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        elasticsearch_log_publishing_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-                "logs:PutLogEventsBatch",
-            ],
-            resources=["arn:aws:logs:*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["es.amazonaws.com"],
-                type="Service",
-            )],
-        )])
-        elasticsearch_log_publishing_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy",
-            policy_document=elasticsearch_log_publishing_policy_policy_document.json,
-            policy_name="elasticsearch-log-publishing-policy")
-        ```
-        ### Route53 Query Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
-            resources=["arn:aws:logs:*:*:log-group:/aws/route53/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["route53.amazonaws.com"],
-                type="Service",
-            )],
-        )])
-        route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy",
-            policy_document=route53_query_logging_policy_policy_document.json,
-            policy_name="route53-query-logging-policy")
-        ```
 
         ## Import
 
@@ -230,6 +182,10 @@ class LogResourcePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogResourcePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

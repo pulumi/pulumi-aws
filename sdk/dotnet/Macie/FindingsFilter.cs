@@ -12,48 +12,6 @@ namespace Pulumi.Aws.Macie
     /// <summary>
     /// Provides a resource to manage an [Amazon Macie Findings Filter](https://docs.aws.amazon.com/macie/latest/APIReference/findingsfilters-id.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Macie2.Account("example");
-    /// 
-    ///     var test = new Aws.Macie.FindingsFilter("test", new()
-    ///     {
-    ///         Description = "DESCRIPTION",
-    ///         Position = 1,
-    ///         Action = "ARCHIVE",
-    ///         FindingCriteria = new Aws.Macie.Inputs.FindingsFilterFindingCriteriaArgs
-    ///         {
-    ///             Criterions = new[]
-    ///             {
-    ///                 new Aws.Macie.Inputs.FindingsFilterFindingCriteriaCriterionArgs
-    ///                 {
-    ///                     Field = "region",
-    ///                     Eqs = new[]
-    ///                     {
-    ///                         data.Aws_region.Current.Name,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_macie2_account.Test,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For example:

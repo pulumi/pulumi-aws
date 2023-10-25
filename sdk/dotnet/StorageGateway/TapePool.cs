@@ -12,25 +12,6 @@ namespace Pulumi.Aws.StorageGateway
     /// <summary>
     /// Manages an AWS Storage Gateway Tape Pool.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.StorageGateway.TapePool("example", new()
-    ///     {
-    ///         PoolName = "example",
-    ///         StorageClass = "GLACIER",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_storagegateway_tape_pool` using the volume Amazon Resource Name (ARN). For example:

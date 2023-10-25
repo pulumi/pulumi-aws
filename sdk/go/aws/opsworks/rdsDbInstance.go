@@ -14,35 +14,6 @@ import (
 )
 
 // Provides an OpsWorks RDS DB Instance resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewRdsDbInstance(ctx, "myInstance", &opsworks.RdsDbInstanceArgs{
-//				StackId:          pulumi.Any(aws_opsworks_stack.My_stack.Id),
-//				RdsDbInstanceArn: pulumi.Any(aws_db_instance.My_instance.Arn),
-//				DbUser:           pulumi.String("someUser"),
-//				DbPassword:       pulumi.String("somePass"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type RdsDbInstance struct {
 	pulumi.CustomResourceState
 

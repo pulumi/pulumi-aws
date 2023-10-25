@@ -14,32 +14,6 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// &gt; **NOTE:** When you create a canary, AWS creates supporting implicit resources. See the Amazon CloudWatch Synthetics documentation on [DeleteCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html) for a full list. Neither AWS nor this provider deletes these implicit resources automatically when the canary is deleted. Before deleting a canary, ensure you have all the information about the canary that you need to delete the implicit resources using the AWS Console, or AWS CLI.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var some = new Aws.Synthetics.Canary("some", new()
-    ///     {
-    ///         ArtifactS3Location = "s3://some-bucket/",
-    ///         ExecutionRoleArn = "some-role",
-    ///         Handler = "exports.handler",
-    ///         RuntimeVersion = "syn-1.0",
-    ///         Schedule = new Aws.Synthetics.Inputs.CanaryScheduleArgs
-    ///         {
-    ///             Expression = "rate(0 minute)",
-    ///         },
-    ///         ZipFile = "test-fixtures/lambdatest.zip",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Synthetics Canaries using the `name`. For example:

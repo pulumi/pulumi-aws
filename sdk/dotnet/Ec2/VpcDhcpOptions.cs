@@ -12,65 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a VPC DHCP Options resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptions("dnsResolver", new()
-    ///     {
-    ///         DomainNameServers = new[]
-    ///         {
-    ///             "8.8.8.8",
-    ///             "8.8.4.4",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// Full usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Ec2.VpcDhcpOptions("foo", new()
-    ///     {
-    ///         DomainName = "service.consul",
-    ///         DomainNameServers = new[]
-    ///         {
-    ///             "127.0.0.1",
-    ///             "10.0.0.2",
-    ///         },
-    ///         NetbiosNameServers = new[]
-    ///         {
-    ///             "127.0.0.1",
-    ///         },
-    ///         NetbiosNodeType = "2",
-    ///         NtpServers = new[]
-    ///         {
-    ///             "127.0.0.1",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "foo-name" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Remarks
     /// 
     /// * Notice that all arguments are optional but you have to specify at least one argument.

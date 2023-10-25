@@ -17,38 +17,6 @@ import (
 //
 // > **NOTE:** `autoImportPolicy`, `exportPath`, `importPath` and `importedFileChunkSize` are not supported with the `PERSISTENT_2` deployment type. Use `fsx.DataRepositoryAssociation` instead.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewLustreFileSystem(ctx, "example", &fsx.LustreFileSystemArgs{
-//				ImportPath:      pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Example.Bucket)),
-//				StorageCapacity: pulumi.Int(1200),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Example.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import FSx File Systems using the `id`. For example:

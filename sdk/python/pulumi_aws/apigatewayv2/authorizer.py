@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,24 +51,75 @@ class AuthorizerArgs:
                Supported only for HTTP APIs.
         :param pulumi.Input[str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "authorizer_type", authorizer_type)
+        AuthorizerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            authorizer_type=authorizer_type,
+            authorizer_credentials_arn=authorizer_credentials_arn,
+            authorizer_payload_format_version=authorizer_payload_format_version,
+            authorizer_result_ttl_in_seconds=authorizer_result_ttl_in_seconds,
+            authorizer_uri=authorizer_uri,
+            enable_simple_responses=enable_simple_responses,
+            identity_sources=identity_sources,
+            jwt_configuration=jwt_configuration,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             authorizer_type: Optional[pulumi.Input[str]] = None,
+             authorizer_credentials_arn: Optional[pulumi.Input[str]] = None,
+             authorizer_payload_format_version: Optional[pulumi.Input[str]] = None,
+             authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+             authorizer_uri: Optional[pulumi.Input[str]] = None,
+             enable_simple_responses: Optional[pulumi.Input[bool]] = None,
+             identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if authorizer_type is None and 'authorizerType' in kwargs:
+            authorizer_type = kwargs['authorizerType']
+        if authorizer_type is None:
+            raise TypeError("Missing 'authorizer_type' argument")
+        if authorizer_credentials_arn is None and 'authorizerCredentialsArn' in kwargs:
+            authorizer_credentials_arn = kwargs['authorizerCredentialsArn']
+        if authorizer_payload_format_version is None and 'authorizerPayloadFormatVersion' in kwargs:
+            authorizer_payload_format_version = kwargs['authorizerPayloadFormatVersion']
+        if authorizer_result_ttl_in_seconds is None and 'authorizerResultTtlInSeconds' in kwargs:
+            authorizer_result_ttl_in_seconds = kwargs['authorizerResultTtlInSeconds']
+        if authorizer_uri is None and 'authorizerUri' in kwargs:
+            authorizer_uri = kwargs['authorizerUri']
+        if enable_simple_responses is None and 'enableSimpleResponses' in kwargs:
+            enable_simple_responses = kwargs['enableSimpleResponses']
+        if identity_sources is None and 'identitySources' in kwargs:
+            identity_sources = kwargs['identitySources']
+        if jwt_configuration is None and 'jwtConfiguration' in kwargs:
+            jwt_configuration = kwargs['jwtConfiguration']
+
+        _setter("api_id", api_id)
+        _setter("authorizer_type", authorizer_type)
         if authorizer_credentials_arn is not None:
-            pulumi.set(__self__, "authorizer_credentials_arn", authorizer_credentials_arn)
+            _setter("authorizer_credentials_arn", authorizer_credentials_arn)
         if authorizer_payload_format_version is not None:
-            pulumi.set(__self__, "authorizer_payload_format_version", authorizer_payload_format_version)
+            _setter("authorizer_payload_format_version", authorizer_payload_format_version)
         if authorizer_result_ttl_in_seconds is not None:
-            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+            _setter("authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
         if authorizer_uri is not None:
-            pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+            _setter("authorizer_uri", authorizer_uri)
         if enable_simple_responses is not None:
-            pulumi.set(__self__, "enable_simple_responses", enable_simple_responses)
+            _setter("enable_simple_responses", enable_simple_responses)
         if identity_sources is not None:
-            pulumi.set(__self__, "identity_sources", identity_sources)
+            _setter("identity_sources", identity_sources)
         if jwt_configuration is not None:
-            pulumi.set(__self__, "jwt_configuration", jwt_configuration)
+            _setter("jwt_configuration", jwt_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="apiId")
@@ -241,26 +292,73 @@ class _AuthorizerState:
                Supported only for HTTP APIs.
         :param pulumi.Input[str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
         """
+        _AuthorizerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            authorizer_credentials_arn=authorizer_credentials_arn,
+            authorizer_payload_format_version=authorizer_payload_format_version,
+            authorizer_result_ttl_in_seconds=authorizer_result_ttl_in_seconds,
+            authorizer_type=authorizer_type,
+            authorizer_uri=authorizer_uri,
+            enable_simple_responses=enable_simple_responses,
+            identity_sources=identity_sources,
+            jwt_configuration=jwt_configuration,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             authorizer_credentials_arn: Optional[pulumi.Input[str]] = None,
+             authorizer_payload_format_version: Optional[pulumi.Input[str]] = None,
+             authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+             authorizer_type: Optional[pulumi.Input[str]] = None,
+             authorizer_uri: Optional[pulumi.Input[str]] = None,
+             enable_simple_responses: Optional[pulumi.Input[bool]] = None,
+             identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if authorizer_credentials_arn is None and 'authorizerCredentialsArn' in kwargs:
+            authorizer_credentials_arn = kwargs['authorizerCredentialsArn']
+        if authorizer_payload_format_version is None and 'authorizerPayloadFormatVersion' in kwargs:
+            authorizer_payload_format_version = kwargs['authorizerPayloadFormatVersion']
+        if authorizer_result_ttl_in_seconds is None and 'authorizerResultTtlInSeconds' in kwargs:
+            authorizer_result_ttl_in_seconds = kwargs['authorizerResultTtlInSeconds']
+        if authorizer_type is None and 'authorizerType' in kwargs:
+            authorizer_type = kwargs['authorizerType']
+        if authorizer_uri is None and 'authorizerUri' in kwargs:
+            authorizer_uri = kwargs['authorizerUri']
+        if enable_simple_responses is None and 'enableSimpleResponses' in kwargs:
+            enable_simple_responses = kwargs['enableSimpleResponses']
+        if identity_sources is None and 'identitySources' in kwargs:
+            identity_sources = kwargs['identitySources']
+        if jwt_configuration is None and 'jwtConfiguration' in kwargs:
+            jwt_configuration = kwargs['jwtConfiguration']
+
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if authorizer_credentials_arn is not None:
-            pulumi.set(__self__, "authorizer_credentials_arn", authorizer_credentials_arn)
+            _setter("authorizer_credentials_arn", authorizer_credentials_arn)
         if authorizer_payload_format_version is not None:
-            pulumi.set(__self__, "authorizer_payload_format_version", authorizer_payload_format_version)
+            _setter("authorizer_payload_format_version", authorizer_payload_format_version)
         if authorizer_result_ttl_in_seconds is not None:
-            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+            _setter("authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
         if authorizer_type is not None:
-            pulumi.set(__self__, "authorizer_type", authorizer_type)
+            _setter("authorizer_type", authorizer_type)
         if authorizer_uri is not None:
-            pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+            _setter("authorizer_uri", authorizer_uri)
         if enable_simple_responses is not None:
-            pulumi.set(__self__, "enable_simple_responses", enable_simple_responses)
+            _setter("enable_simple_responses", enable_simple_responses)
         if identity_sources is not None:
-            pulumi.set(__self__, "identity_sources", identity_sources)
+            _setter("identity_sources", identity_sources)
         if jwt_configuration is not None:
-            pulumi.set(__self__, "jwt_configuration", jwt_configuration)
+            _setter("jwt_configuration", jwt_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="apiId")
@@ -416,31 +514,6 @@ class Authorizer(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
         ## Example Usage
-        ### Basic WebSocket API
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Authorizer("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            authorizer_type="REQUEST",
-            authorizer_uri=aws_lambda_function["example"]["invoke_arn"],
-            identity_sources=["route.request.header.Auth"])
-        ```
-        ### Basic HTTP API
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Authorizer("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            authorizer_type="REQUEST",
-            authorizer_uri=aws_lambda_function["example"]["invoke_arn"],
-            identity_sources=["$request.header.Authorization"],
-            authorizer_payload_format_version="2.0")
-        ```
 
         ## Import
 
@@ -486,31 +559,6 @@ class Authorizer(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
         ## Example Usage
-        ### Basic WebSocket API
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Authorizer("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            authorizer_type="REQUEST",
-            authorizer_uri=aws_lambda_function["example"]["invoke_arn"],
-            identity_sources=["route.request.header.Auth"])
-        ```
-        ### Basic HTTP API
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Authorizer("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            authorizer_type="REQUEST",
-            authorizer_uri=aws_lambda_function["example"]["invoke_arn"],
-            identity_sources=["$request.header.Authorization"],
-            authorizer_payload_format_version="2.0")
-        ```
 
         ## Import
 
@@ -530,6 +578,10 @@ class Authorizer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthorizerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -566,6 +618,7 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["authorizer_uri"] = authorizer_uri
             __props__.__dict__["enable_simple_responses"] = enable_simple_responses
             __props__.__dict__["identity_sources"] = identity_sources
+            jwt_configuration = _utilities.configure(jwt_configuration, AuthorizerJwtConfigurationArgs, True)
             __props__.__dict__["jwt_configuration"] = jwt_configuration
             __props__.__dict__["name"] = name
         super(Authorizer, __self__).__init__(

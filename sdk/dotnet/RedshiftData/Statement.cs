@@ -13,45 +13,6 @@ namespace Pulumi.Aws.RedshiftData
     /// Executes a Redshift Data Statement.
     /// 
     /// ## Example Usage
-    /// ### cluster_identifier
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedshiftData.Statement("example", new()
-    ///     {
-    ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
-    ///         Database = aws_redshift_cluster.Example.Database_name,
-    ///         DbUser = aws_redshift_cluster.Example.Master_username,
-    ///         Sql = "CREATE GROUP group_name;",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### workgroup_name
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedshiftData.Statement("example", new()
-    ///     {
-    ///         WorkgroupName = aws_redshiftserverless_workgroup.Example.Workgroup_name,
-    ///         Database = "dev",
-    ///         Sql = "CREATE GROUP group_name;",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

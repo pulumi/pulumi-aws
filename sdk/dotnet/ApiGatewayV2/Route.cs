@@ -14,62 +14,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) for [WebSocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-develop-routes.html) and [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html) APIs.
     /// 
     /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleApi = new Aws.ApiGatewayV2.Api("exampleApi", new()
-    ///     {
-    ///         ProtocolType = "WEBSOCKET",
-    ///         RouteSelectionExpression = "$request.body.action",
-    ///     });
-    /// 
-    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("exampleRoute", new()
-    ///     {
-    ///         ApiId = exampleApi.Id,
-    ///         RouteKey = "$default",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### HTTP Proxy Integration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleApi = new Aws.ApiGatewayV2.Api("exampleApi", new()
-    ///     {
-    ///         ProtocolType = "HTTP",
-    ///     });
-    /// 
-    ///     var exampleIntegration = new Aws.ApiGatewayV2.Integration("exampleIntegration", new()
-    ///     {
-    ///         ApiId = exampleApi.Id,
-    ///         IntegrationType = "HTTP_PROXY",
-    ///         IntegrationMethod = "ANY",
-    ///         IntegrationUri = "https://example.com/{proxy}",
-    ///     });
-    /// 
-    ///     var exampleRoute = new Aws.ApiGatewayV2.Route("exampleRoute", new()
-    ///     {
-    ///         ApiId = exampleApi.Id,
-    ///         RouteKey = "ANY /example/{proxy+}",
-    ///         Target = exampleIntegration.Id.Apply(id =&gt; $"integrations/{id}"),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -13,29 +13,6 @@ namespace Pulumi.Aws.Ivs
     /// Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ivs.RecordingConfiguration("example", new()
-    ///     {
-    ///         DestinationConfiguration = new Aws.Ivs.Inputs.RecordingConfigurationDestinationConfigurationArgs
-    ///         {
-    ///             S3 = new Aws.Ivs.Inputs.RecordingConfigurationDestinationConfigurationS3Args
-    ///             {
-    ///                 BucketName = "ivs-stream-archive",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

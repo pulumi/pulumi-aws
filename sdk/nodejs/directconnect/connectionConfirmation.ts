@@ -6,15 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a confirmation of the creation of the specified hosted connection on an interconnect.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const confirmation = new aws.directconnect.ConnectionConfirmation("confirmation", {connectionId: "dxcon-ffabc123"});
- * ```
  */
 export class ConnectionConfirmation extends pulumi.CustomResource {
     /**

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -92,17 +92,6 @@ def get_application(name: Optional[str] = None,
     """
     Retrieve information about an Elastic Beanstalk Application.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.elasticbeanstalk.get_application(name="example")
-    pulumi.export("arn", example.arn)
-    pulumi.export("description", example.description)
-    ```
-
 
     :param str name: Name of the application
     """
@@ -124,17 +113,6 @@ def get_application_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Retrieve information about an Elastic Beanstalk Application.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.elasticbeanstalk.get_application(name="example")
-    pulumi.export("arn", example.arn)
-    pulumi.export("description", example.description)
-    ```
 
 
     :param str name: Name of the application

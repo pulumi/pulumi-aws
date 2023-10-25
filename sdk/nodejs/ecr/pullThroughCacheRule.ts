@@ -10,18 +10,6 @@ import * as utilities from "../utilities";
  * More information about pull through cache rules, including the set of supported
  * upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ecr.PullThroughCacheRule("example", {
- *     ecrRepositoryPrefix: "ecr-public",
- *     upstreamRegistryUrl: "public.ecr.aws",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:

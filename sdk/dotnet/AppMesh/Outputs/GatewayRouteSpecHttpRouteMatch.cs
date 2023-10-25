@@ -18,19 +18,19 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GatewayRouteSpecHttpRouteMatchHeader> Headers;
         /// <summary>
-        /// Host name to rewrite.
+        /// Host name to match on.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteMatchHostname? Hostname;
         /// <summary>
-        /// Exact path to rewrite.
+        /// Client request path to match on.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteMatchPath? Path;
         /// <summary>
-        /// The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+        /// The port number to match from the request.
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// Specified beginning characters to rewrite.
+        /// Header value sent by the client must begin with the specified characters.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>

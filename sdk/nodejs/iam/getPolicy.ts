@@ -9,26 +9,6 @@ import * as utilities from "../utilities";
  * IAM policy.
  *
  * ## Example Usage
- * ### By ARN
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getPolicy({
- *     arn: "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
- * });
- * ```
- * ### By Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getPolicy({
- *     name: "test_policy",
- * });
- * ```
  */
 export function getPolicy(args?: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     args = args || {};
@@ -108,26 +88,6 @@ export interface GetPolicyResult {
  * IAM policy.
  *
  * ## Example Usage
- * ### By ARN
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getPolicy({
- *     arn: "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials",
- * });
- * ```
- * ### By Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getPolicy({
- *     name: "test_policy",
- * });
- * ```
  */
 export function getPolicyOutput(args?: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))

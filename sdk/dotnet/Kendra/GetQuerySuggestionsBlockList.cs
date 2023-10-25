@@ -13,58 +13,12 @@ namespace Pulumi.Aws.Kendra
     {
         /// <summary>
         /// Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kendra.GetQuerySuggestionsBlockList.Invoke(new()
-        ///     {
-        ///         IndexId = "12345678-1234-1234-1234-123456789123",
-        ///         QuerySuggestionsBlockListId = "87654321-1234-4321-4321-321987654321",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetQuerySuggestionsBlockListResult> InvokeAsync(GetQuerySuggestionsBlockListArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuerySuggestionsBlockListResult>("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args ?? new GetQuerySuggestionsBlockListArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kendra.GetQuerySuggestionsBlockList.Invoke(new()
-        ///     {
-        ///         IndexId = "12345678-1234-1234-1234-123456789123",
-        ///         QuerySuggestionsBlockListId = "87654321-1234-4321-4321-321987654321",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetQuerySuggestionsBlockListResult> Invoke(GetQuerySuggestionsBlockListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuerySuggestionsBlockListResult>("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args ?? new GetQuerySuggestionsBlockListInvokeArgs(), options.WithDefaults());

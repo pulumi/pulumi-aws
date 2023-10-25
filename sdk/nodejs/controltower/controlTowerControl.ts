@@ -8,23 +8,6 @@ import * as utilities from "../utilities";
  * Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
  * [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const exampleOrganization = aws.organizations.getOrganization({});
- * const exampleOrganizationalUnits = exampleOrganization.then(exampleOrganization => aws.organizations.getOrganizationalUnits({
- *     parentId: exampleOrganization.roots?.[0]?.id,
- * }));
- * const exampleControlTowerControl = new aws.controltower.ControlTowerControl("exampleControlTowerControl", {
- *     controlIdentifier: current.then(current => `arn:aws:controltower:${current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK`),
- *     targetIdentifier: exampleOrganizationalUnits.then(exampleOrganizationalUnits => .filter(x => x.name == "Infrastructure").map(x => (x.arn))[0]),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For example:

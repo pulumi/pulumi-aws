@@ -12,35 +12,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// <summary>
     /// Creates a Global Accelerator accelerator.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GlobalAccelerator.Accelerator("example", new()
-    ///     {
-    ///         Attributes = new Aws.GlobalAccelerator.Inputs.AcceleratorAttributesArgs
-    ///         {
-    ///             FlowLogsEnabled = true,
-    ///             FlowLogsS3Bucket = "example-bucket",
-    ///             FlowLogsS3Prefix = "flow-logs/",
-    ///         },
-    ///         Enabled = true,
-    ///         IpAddressType = "IPV4",
-    ///         IpAddresses = new[]
-    ///         {
-    ///             "1.2.3.4",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:

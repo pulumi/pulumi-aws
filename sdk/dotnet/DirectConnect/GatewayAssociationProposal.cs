@@ -12,26 +12,6 @@ namespace Pulumi.Aws.DirectConnect
     /// <summary>
     /// Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the `aws.directconnect.GatewayAssociation` resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DirectConnect.GatewayAssociationProposal("example", new()
-    ///     {
-    ///         DxGatewayId = aws_dx_gateway.Example.Id,
-    ///         DxGatewayOwnerAccountId = aws_dx_gateway.Example.Owner_account_id,
-    ///         AssociatedGatewayId = aws_vpn_gateway.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:

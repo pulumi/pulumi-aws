@@ -12,41 +12,6 @@ namespace Pulumi.Aws.WafV2
     /// <summary>
     /// Provides an AWS WAFv2 Regex Pattern Set Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WafV2.RegexPatternSet("example", new()
-    ///     {
-    ///         Description = "Example regex pattern set",
-    ///         RegularExpressions = new[]
-    ///         {
-    ///             new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
-    ///             {
-    ///                 RegexString = "one",
-    ///             },
-    ///             new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
-    ///             {
-    ///                 RegexString = "two",
-    ///             },
-    ///         },
-    ///         Scope = "REGIONAL",
-    ///         Tags = 
-    ///         {
-    ///             { "Tag1", "Value1" },
-    ///             { "Tag2", "Value2" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For example:

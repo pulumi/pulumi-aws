@@ -19,69 +19,6 @@ namespace Pulumi.Aws.StorageGateway
     /// ## Example Usage
     /// 
     /// &gt; **NOTE:** These examples are referencing the `aws.storagegateway.Cache` resource `gateway_arn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = [aws_storagegateway_cache.example]`) to ensure proper ordering.
-    /// ### Create Empty Cached iSCSI Volume
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.StorageGateway.CachesIscsiVolume("example", new()
-    ///     {
-    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///         TargetName = "example",
-    ///         VolumeSizeInBytes = 5368709120,
-    ///     });
-    /// 
-    ///     // 5 GB
-    /// });
-    /// ```
-    /// ### Create Cached iSCSI Volume From Snapshot
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.StorageGateway.CachesIscsiVolume("example", new()
-    ///     {
-    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///         SnapshotId = aws_ebs_snapshot.Example.Id,
-    ///         TargetName = "example",
-    ///         VolumeSizeInBytes = aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Create Cached iSCSI Volume From Source Volume
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.StorageGateway.CachesIscsiVolume("example", new()
-    ///     {
-    ///         GatewayArn = aws_storagegateway_cache.Example.Gateway_arn,
-    ///         NetworkInterfaceId = aws_instance.Example.Private_ip,
-    ///         SourceVolumeArn = aws_storagegateway_cached_iscsi_volume.Existing.Arn,
-    ///         TargetName = "example",
-    ///         VolumeSizeInBytes = aws_storagegateway_cached_iscsi_volume.Existing.Volume_size_in_bytes,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

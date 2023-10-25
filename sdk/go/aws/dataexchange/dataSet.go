@@ -15,33 +15,6 @@ import (
 
 // Provides a resource to manage AWS Data Exchange DataSets.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dataexchange"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dataexchange.NewDataSet(ctx, "example", &dataexchange.DataSetArgs{
-//				AssetType:   pulumi.String("S3_SNAPSHOT"),
-//				Description: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import DataExchange DataSets using their ARN. For example:

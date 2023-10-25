@@ -11,39 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Comprehend Entity Recognizer.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const documents = new aws.s3.BucketObjectv2("documents", {});
- * // ...
- * const entities = new aws.s3.BucketObjectv2("entities", {});
- * // ...
- * const example = new aws.comprehend.EntityRecognizer("example", {
- *     dataAccessRoleArn: aws_iam_role.example.arn,
- *     languageCode: "en",
- *     inputDataConfig: {
- *         entityTypes: [
- *             {
- *                 type: "ENTITY_1",
- *             },
- *             {
- *                 type: "ENTITY_2",
- *             },
- *         ],
- *         documents: {
- *             s3Uri: pulumi.interpolate`s3://${aws_s3_bucket.documents.bucket}/${documents.id}`,
- *         },
- *         entityList: {
- *             s3Uri: pulumi.interpolate`s3://${aws_s3_bucket.entities.bucket}/${entities.id}`,
- *         },
- *     },
- * }, {
- *     dependsOn: [aws_iam_role_policy.example],
- * });
- * ```
  *
  * ## Import
  *

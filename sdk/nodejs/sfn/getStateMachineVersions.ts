@@ -8,16 +8,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS SFN (Step Functions) State Machine Versions.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.sfn.getStateMachineVersions({
- *     statemachineArn: aws_sfn_state_machine.test.arn,
- * });
- * ```
  */
 export function getStateMachineVersions(args: GetStateMachineVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineVersionsResult> {
 
@@ -55,16 +45,6 @@ export interface GetStateMachineVersionsResult {
  * Data source for managing an AWS SFN (Step Functions) State Machine Versions.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.sfn.getStateMachineVersions({
- *     statemachineArn: aws_sfn_state_machine.test.arn,
- * });
- * ```
  */
 export function getStateMachineVersionsOutput(args: GetStateMachineVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineVersionsResult> {
     return pulumi.output(args).apply((a: any) => getStateMachineVersions(a, opts))

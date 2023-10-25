@@ -12,38 +12,6 @@ namespace Pulumi.Aws.AppConfig
     /// <summary>
     /// Provides an AppConfig Configuration Profile resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppConfig.ConfigurationProfile("example", new()
-    ///     {
-    ///         ApplicationId = aws_appconfig_application.Example.Id,
-    ///         Description = "Example Configuration Profile",
-    ///         LocationUri = "hosted",
-    ///         Validators = new[]
-    ///         {
-    ///             new Aws.AppConfig.Inputs.ConfigurationProfileValidatorArgs
-    ///             {
-    ///                 Content = aws_lambda_function.Example.Arn,
-    ///                 Type = "LAMBDA",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Type", "AppConfig Configuration Profile" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Configuration Profiles using the configuration profile ID and application ID separated by a colon (`:`). For example:

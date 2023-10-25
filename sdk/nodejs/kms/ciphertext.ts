@@ -9,26 +9,6 @@ import * as utilities from "../utilities";
  * by using an AWS KMS customer master key. The value returned by this resource
  * is stable across every apply. For a changing ciphertext value each apply, see
  * the `aws.kms.Ciphertext` data source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const oauthConfig = new aws.kms.Key("oauthConfig", {
- *     description: "oauth config",
- *     isEnabled: true,
- * });
- * const oauth = new aws.kms.Ciphertext("oauth", {
- *     keyId: oauthConfig.keyId,
- *     plaintext: `{
- *   "client_id": "e587dbae22222f55da22",
- *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
- * }
- * `,
- * });
- * ```
  */
 export class Ciphertext extends pulumi.CustomResource {
     /**

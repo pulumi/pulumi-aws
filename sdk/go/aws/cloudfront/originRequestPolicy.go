@@ -13,58 +13,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// ## Example Usage
-//
-// The following example below creates a CloudFront origin request policy.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewOriginRequestPolicy(ctx, "example", &cloudfront.OriginRequestPolicyArgs{
-//				Comment: pulumi.String("example comment"),
-//				CookiesConfig: &cloudfront.OriginRequestPolicyCookiesConfigArgs{
-//					CookieBehavior: pulumi.String("whitelist"),
-//					Cookies: &cloudfront.OriginRequestPolicyCookiesConfigCookiesArgs{
-//						Items: pulumi.StringArray{
-//							pulumi.String("example"),
-//						},
-//					},
-//				},
-//				HeadersConfig: &cloudfront.OriginRequestPolicyHeadersConfigArgs{
-//					HeaderBehavior: pulumi.String("whitelist"),
-//					Headers: &cloudfront.OriginRequestPolicyHeadersConfigHeadersArgs{
-//						Items: pulumi.StringArray{
-//							pulumi.String("example"),
-//						},
-//					},
-//				},
-//				QueryStringsConfig: &cloudfront.OriginRequestPolicyQueryStringsConfigArgs{
-//					QueryStringBehavior: pulumi.String("whitelist"),
-//					QueryStrings: &cloudfront.OriginRequestPolicyQueryStringsConfigQueryStringsArgs{
-//						Items: pulumi.StringArray{
-//							pulumi.String("example"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For example:

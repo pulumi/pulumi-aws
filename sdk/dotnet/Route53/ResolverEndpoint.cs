@@ -12,45 +12,6 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Provides a Route 53 Resolver endpoint resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Route53.ResolverEndpoint("foo", new()
-    ///     {
-    ///         Direction = "INBOUND",
-    ///         SecurityGroupIds = new[]
-    ///         {
-    ///             aws_security_group.Sg1.Id,
-    ///             aws_security_group.Sg2.Id,
-    ///         },
-    ///         IpAddresses = new[]
-    ///         {
-    ///             new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
-    ///             {
-    ///                 SubnetId = aws_subnet.Sn1.Id,
-    ///             },
-    ///             new Aws.Route53.Inputs.ResolverEndpointIpAddressArgs
-    ///             {
-    ///                 SubnetId = aws_subnet.Sn2.Id,
-    ///                 Ip = "10.0.64.4",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Prod" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import

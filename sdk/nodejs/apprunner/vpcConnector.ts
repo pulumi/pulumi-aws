@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Runner VPC Connector.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const connector = new aws.apprunner.VpcConnector("connector", {
- *     securityGroups: [
- *         "sg1",
- *         "sg2",
- *     ],
- *     subnets: [
- *         "subnet1",
- *         "subnet2",
- *     ],
- *     vpcConnectorName: "name",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:

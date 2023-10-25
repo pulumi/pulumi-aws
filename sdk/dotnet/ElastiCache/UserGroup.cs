@@ -12,41 +12,6 @@ namespace Pulumi.Aws.ElastiCache
     /// <summary>
     /// Provides an ElastiCache user group resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testUser = new Aws.ElastiCache.User("testUser", new()
-    ///     {
-    ///         UserId = "testUserId",
-    ///         UserName = "default",
-    ///         AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-    ///         Engine = "REDIS",
-    ///         Passwords = new[]
-    ///         {
-    ///             "password123456789",
-    ///         },
-    ///     });
-    /// 
-    ///     var testUserGroup = new Aws.ElastiCache.UserGroup("testUserGroup", new()
-    ///     {
-    ///         Engine = "REDIS",
-    ///         UserGroupId = "userGroupId",
-    ///         UserIds = new[]
-    ///         {
-    ///             testUser.UserId,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:

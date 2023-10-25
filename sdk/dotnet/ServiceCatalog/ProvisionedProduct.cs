@@ -21,36 +21,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// &gt; **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.ProvisionedProduct("example", new()
-    ///     {
-    ///         ProductName = "Example product",
-    ///         ProvisioningArtifactName = "Example version",
-    ///         ProvisioningParameters = new[]
-    ///         {
-    ///             new Aws.ServiceCatalog.Inputs.ProvisionedProductProvisioningParameterArgs
-    ///             {
-    ///                 Key = "foo",
-    ///                 Value = "bar",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

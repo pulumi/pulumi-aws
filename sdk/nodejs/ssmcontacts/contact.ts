@@ -8,36 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SSM Contact.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssmcontacts.Contact("example", {
- *     alias: "alias",
- *     type: "PERSONAL",
- * }, {
- *     dependsOn: [aws_ssmincidents_replication_set.example],
- * });
- * ```
- * ### Usage With All Fields
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssmcontacts.Contact("example", {
- *     alias: "alias",
- *     displayName: "displayName",
- *     type: "ESCALATION",
- *     tags: {
- *         key: "value",
- *     },
- * }, {
- *     dependsOn: [aws_ssmincidents_replication_set.example],
- * });
- * ```
  *
  * ## Import
  *

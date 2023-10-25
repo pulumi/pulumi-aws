@@ -10,20 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a WAF SQL Injection Match Set Resource
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sqlInjectionMatchSet = new aws.waf.SqlInjectionMatchSet("sqlInjectionMatchSet", {sqlInjectionMatchTuples: [{
- *     fieldToMatch: {
- *         type: "QUERY_STRING",
- *     },
- *     textTransformation: "URL_DECODE",
- * }]});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AWS WAF SQL Injection Match Set using their ID. For example:

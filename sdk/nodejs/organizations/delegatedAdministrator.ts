@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.organizations.DelegatedAdministrator("example", {
- *     accountId: "123456789012",
- *     servicePrincipal: "principal",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:

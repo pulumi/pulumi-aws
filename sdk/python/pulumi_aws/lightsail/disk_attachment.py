@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['Disk_attachmentArgs', 'Disk_attachment']
@@ -23,9 +23,36 @@ class Disk_attachmentArgs:
         :param pulumi.Input[str] disk_path: The disk path to expose to the instance.
         :param pulumi.Input[str] instance_name: The name of the Lightsail Instance to attach to.
         """
-        pulumi.set(__self__, "disk_name", disk_name)
-        pulumi.set(__self__, "disk_path", disk_path)
-        pulumi.set(__self__, "instance_name", instance_name)
+        Disk_attachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_name=disk_name,
+            disk_path=disk_path,
+            instance_name=instance_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_name: Optional[pulumi.Input[str]] = None,
+             disk_path: Optional[pulumi.Input[str]] = None,
+             instance_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_name is None and 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+        if disk_name is None:
+            raise TypeError("Missing 'disk_name' argument")
+        if disk_path is None and 'diskPath' in kwargs:
+            disk_path = kwargs['diskPath']
+        if disk_path is None:
+            raise TypeError("Missing 'disk_path' argument")
+        if instance_name is None and 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+        if instance_name is None:
+            raise TypeError("Missing 'instance_name' argument")
+
+        _setter("disk_name", disk_name)
+        _setter("disk_path", disk_path)
+        _setter("instance_name", instance_name)
 
     @property
     @pulumi.getter(name="diskName")
@@ -76,12 +103,33 @@ class _Disk_attachmentState:
         :param pulumi.Input[str] disk_path: The disk path to expose to the instance.
         :param pulumi.Input[str] instance_name: The name of the Lightsail Instance to attach to.
         """
+        _Disk_attachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_name=disk_name,
+            disk_path=disk_path,
+            instance_name=instance_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_name: Optional[pulumi.Input[str]] = None,
+             disk_path: Optional[pulumi.Input[str]] = None,
+             instance_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_name is None and 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+        if disk_path is None and 'diskPath' in kwargs:
+            disk_path = kwargs['diskPath']
+        if instance_name is None and 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+
         if disk_name is not None:
-            pulumi.set(__self__, "disk_name", disk_name)
+            _setter("disk_name", disk_name)
         if disk_path is not None:
-            pulumi.set(__self__, "disk_path", disk_path)
+            _setter("disk_path", disk_path)
         if instance_name is not None:
-            pulumi.set(__self__, "instance_name", instance_name)
+            _setter("instance_name", instance_name)
 
     @property
     @pulumi.getter(name="diskName")
@@ -132,30 +180,6 @@ class Disk_attachment(pulumi.CustomResource):
         """
         Attaches a Lightsail disk to a Lightsail Instance
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test_disk = aws.lightsail.Disk("testDisk",
-            size_in_gb=8,
-            availability_zone=available.names[0])
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
-        test_disk_attachment = aws.lightsail.Disk_attachment("testDisk_attachment",
-            disk_name=test_disk.name,
-            instance_name=test_instance.name,
-            disk_path="/dev/xvdf")
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
@@ -179,30 +203,6 @@ class Disk_attachment(pulumi.CustomResource):
         """
         Attaches a Lightsail disk to a Lightsail Instance
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test_disk = aws.lightsail.Disk("testDisk",
-            size_in_gb=8,
-            availability_zone=available.names[0])
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
-        test_disk_attachment = aws.lightsail.Disk_attachment("testDisk_attachment",
-            disk_name=test_disk.name,
-            instance_name=test_instance.name,
-            disk_path="/dev/xvdf")
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
@@ -221,6 +221,10 @@ class Disk_attachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            Disk_attachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

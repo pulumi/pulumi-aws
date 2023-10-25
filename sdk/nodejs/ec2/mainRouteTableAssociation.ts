@@ -10,17 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** **Do not** use both `aws.ec2.DefaultRouteTable` to manage a default route table **and** `aws.ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See aws.ec2.DefaultRouteTable documentation for more details.
  * For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in the provider, see `aws.ec2.RouteTable`.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mainRouteTableAssociation = new aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation", {
- *     vpcId: aws_vpc.foo.id,
- *     routeTableId: aws_route_table.bar.id,
- * });
- * ```
  * ## Notes
  *
  * On VPC creation, the AWS API always creates an initial Main Route Table. This

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,33 +47,92 @@ class ReceiptRuleArgs:
         :param pulumi.Input[str] tls_policy: `Require` or `Optional`
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleWorkmailActionArgs']]] workmail_actions: A list of WorkMail Action blocks. Documented below.
         """
-        pulumi.set(__self__, "rule_set_name", rule_set_name)
+        ReceiptRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_set_name=rule_set_name,
+            add_header_actions=add_header_actions,
+            after=after,
+            bounce_actions=bounce_actions,
+            enabled=enabled,
+            lambda_actions=lambda_actions,
+            name=name,
+            recipients=recipients,
+            s3_actions=s3_actions,
+            scan_enabled=scan_enabled,
+            sns_actions=sns_actions,
+            stop_actions=stop_actions,
+            tls_policy=tls_policy,
+            workmail_actions=workmail_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_set_name: Optional[pulumi.Input[str]] = None,
+             add_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleAddHeaderActionArgs']]]] = None,
+             after: Optional[pulumi.Input[str]] = None,
+             bounce_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleBounceActionArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             lambda_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleLambdaActionArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             s3_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleS3ActionArgs']]]] = None,
+             scan_enabled: Optional[pulumi.Input[bool]] = None,
+             sns_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleSnsActionArgs']]]] = None,
+             stop_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleStopActionArgs']]]] = None,
+             tls_policy: Optional[pulumi.Input[str]] = None,
+             workmail_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleWorkmailActionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_set_name is None and 'ruleSetName' in kwargs:
+            rule_set_name = kwargs['ruleSetName']
+        if rule_set_name is None:
+            raise TypeError("Missing 'rule_set_name' argument")
+        if add_header_actions is None and 'addHeaderActions' in kwargs:
+            add_header_actions = kwargs['addHeaderActions']
+        if bounce_actions is None and 'bounceActions' in kwargs:
+            bounce_actions = kwargs['bounceActions']
+        if lambda_actions is None and 'lambdaActions' in kwargs:
+            lambda_actions = kwargs['lambdaActions']
+        if s3_actions is None and 's3Actions' in kwargs:
+            s3_actions = kwargs['s3Actions']
+        if scan_enabled is None and 'scanEnabled' in kwargs:
+            scan_enabled = kwargs['scanEnabled']
+        if sns_actions is None and 'snsActions' in kwargs:
+            sns_actions = kwargs['snsActions']
+        if stop_actions is None and 'stopActions' in kwargs:
+            stop_actions = kwargs['stopActions']
+        if tls_policy is None and 'tlsPolicy' in kwargs:
+            tls_policy = kwargs['tlsPolicy']
+        if workmail_actions is None and 'workmailActions' in kwargs:
+            workmail_actions = kwargs['workmailActions']
+
+        _setter("rule_set_name", rule_set_name)
         if add_header_actions is not None:
-            pulumi.set(__self__, "add_header_actions", add_header_actions)
+            _setter("add_header_actions", add_header_actions)
         if after is not None:
-            pulumi.set(__self__, "after", after)
+            _setter("after", after)
         if bounce_actions is not None:
-            pulumi.set(__self__, "bounce_actions", bounce_actions)
+            _setter("bounce_actions", bounce_actions)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if lambda_actions is not None:
-            pulumi.set(__self__, "lambda_actions", lambda_actions)
+            _setter("lambda_actions", lambda_actions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recipients is not None:
-            pulumi.set(__self__, "recipients", recipients)
+            _setter("recipients", recipients)
         if s3_actions is not None:
-            pulumi.set(__self__, "s3_actions", s3_actions)
+            _setter("s3_actions", s3_actions)
         if scan_enabled is not None:
-            pulumi.set(__self__, "scan_enabled", scan_enabled)
+            _setter("scan_enabled", scan_enabled)
         if sns_actions is not None:
-            pulumi.set(__self__, "sns_actions", sns_actions)
+            _setter("sns_actions", sns_actions)
         if stop_actions is not None:
-            pulumi.set(__self__, "stop_actions", stop_actions)
+            _setter("stop_actions", stop_actions)
         if tls_policy is not None:
-            pulumi.set(__self__, "tls_policy", tls_policy)
+            _setter("tls_policy", tls_policy)
         if workmail_actions is not None:
-            pulumi.set(__self__, "workmail_actions", workmail_actions)
+            _setter("workmail_actions", workmail_actions)
 
     @property
     @pulumi.getter(name="ruleSetName")
@@ -280,36 +339,95 @@ class _ReceiptRuleState:
         :param pulumi.Input[str] tls_policy: `Require` or `Optional`
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleWorkmailActionArgs']]] workmail_actions: A list of WorkMail Action blocks. Documented below.
         """
+        _ReceiptRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_header_actions=add_header_actions,
+            after=after,
+            arn=arn,
+            bounce_actions=bounce_actions,
+            enabled=enabled,
+            lambda_actions=lambda_actions,
+            name=name,
+            recipients=recipients,
+            rule_set_name=rule_set_name,
+            s3_actions=s3_actions,
+            scan_enabled=scan_enabled,
+            sns_actions=sns_actions,
+            stop_actions=stop_actions,
+            tls_policy=tls_policy,
+            workmail_actions=workmail_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleAddHeaderActionArgs']]]] = None,
+             after: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             bounce_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleBounceActionArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             lambda_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleLambdaActionArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rule_set_name: Optional[pulumi.Input[str]] = None,
+             s3_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleS3ActionArgs']]]] = None,
+             scan_enabled: Optional[pulumi.Input[bool]] = None,
+             sns_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleSnsActionArgs']]]] = None,
+             stop_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleStopActionArgs']]]] = None,
+             tls_policy: Optional[pulumi.Input[str]] = None,
+             workmail_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleWorkmailActionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if add_header_actions is None and 'addHeaderActions' in kwargs:
+            add_header_actions = kwargs['addHeaderActions']
+        if bounce_actions is None and 'bounceActions' in kwargs:
+            bounce_actions = kwargs['bounceActions']
+        if lambda_actions is None and 'lambdaActions' in kwargs:
+            lambda_actions = kwargs['lambdaActions']
+        if rule_set_name is None and 'ruleSetName' in kwargs:
+            rule_set_name = kwargs['ruleSetName']
+        if s3_actions is None and 's3Actions' in kwargs:
+            s3_actions = kwargs['s3Actions']
+        if scan_enabled is None and 'scanEnabled' in kwargs:
+            scan_enabled = kwargs['scanEnabled']
+        if sns_actions is None and 'snsActions' in kwargs:
+            sns_actions = kwargs['snsActions']
+        if stop_actions is None and 'stopActions' in kwargs:
+            stop_actions = kwargs['stopActions']
+        if tls_policy is None and 'tlsPolicy' in kwargs:
+            tls_policy = kwargs['tlsPolicy']
+        if workmail_actions is None and 'workmailActions' in kwargs:
+            workmail_actions = kwargs['workmailActions']
+
         if add_header_actions is not None:
-            pulumi.set(__self__, "add_header_actions", add_header_actions)
+            _setter("add_header_actions", add_header_actions)
         if after is not None:
-            pulumi.set(__self__, "after", after)
+            _setter("after", after)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bounce_actions is not None:
-            pulumi.set(__self__, "bounce_actions", bounce_actions)
+            _setter("bounce_actions", bounce_actions)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if lambda_actions is not None:
-            pulumi.set(__self__, "lambda_actions", lambda_actions)
+            _setter("lambda_actions", lambda_actions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recipients is not None:
-            pulumi.set(__self__, "recipients", recipients)
+            _setter("recipients", recipients)
         if rule_set_name is not None:
-            pulumi.set(__self__, "rule_set_name", rule_set_name)
+            _setter("rule_set_name", rule_set_name)
         if s3_actions is not None:
-            pulumi.set(__self__, "s3_actions", s3_actions)
+            _setter("s3_actions", s3_actions)
         if scan_enabled is not None:
-            pulumi.set(__self__, "scan_enabled", scan_enabled)
+            _setter("scan_enabled", scan_enabled)
         if sns_actions is not None:
-            pulumi.set(__self__, "sns_actions", sns_actions)
+            _setter("sns_actions", sns_actions)
         if stop_actions is not None:
-            pulumi.set(__self__, "stop_actions", stop_actions)
+            _setter("stop_actions", stop_actions)
         if tls_policy is not None:
-            pulumi.set(__self__, "tls_policy", tls_policy)
+            _setter("tls_policy", tls_policy)
         if workmail_actions is not None:
-            pulumi.set(__self__, "workmail_actions", workmail_actions)
+            _setter("workmail_actions", workmail_actions)
 
     @property
     @pulumi.getter(name="addHeaderActions")
@@ -515,29 +633,6 @@ class ReceiptRule(pulumi.CustomResource):
         """
         Provides an SES receipt rule resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Add a header to the email and store it in S3
-        store = aws.ses.ReceiptRule("store",
-            add_header_actions=[aws.ses.ReceiptRuleAddHeaderActionArgs(
-                header_name="Custom-Header",
-                header_value="Added by SES",
-                position=1,
-            )],
-            enabled=True,
-            recipients=["karen@example.com"],
-            rule_set_name="default-rule-set",
-            s3_actions=[aws.ses.ReceiptRuleS3ActionArgs(
-                bucket_name="emails",
-                position=2,
-            )],
-            scan_enabled=True)
-        ```
-
         ## Import
 
         Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
@@ -572,29 +667,6 @@ class ReceiptRule(pulumi.CustomResource):
         """
         Provides an SES receipt rule resource
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Add a header to the email and store it in S3
-        store = aws.ses.ReceiptRule("store",
-            add_header_actions=[aws.ses.ReceiptRuleAddHeaderActionArgs(
-                header_name="Custom-Header",
-                header_value="Added by SES",
-                position=1,
-            )],
-            enabled=True,
-            recipients=["karen@example.com"],
-            rule_set_name="default-rule-set",
-            s3_actions=[aws.ses.ReceiptRuleS3ActionArgs(
-                bucket_name="emails",
-                position=2,
-            )],
-            scan_enabled=True)
-        ```
-
         ## Import
 
         Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
@@ -613,6 +685,10 @@ class ReceiptRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReceiptRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

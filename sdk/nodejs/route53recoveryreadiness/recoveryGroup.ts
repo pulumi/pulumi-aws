@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Route 53 Recovery Readiness Recovery Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoveryreadiness.RecoveryGroup("example", {recoveryGroupName: "my-high-availability-app"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:

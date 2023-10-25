@@ -10,31 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.amp.Workspace("example", {
- *     alias: "example",
- *     tags: {
- *         Environment: "production",
- *     },
- * });
- * ```
- * ### CloudWatch Logging
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleWorkspace = new aws.amp.Workspace("exampleWorkspace", {loggingConfiguration: {
- *     logGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AMP Workspaces using the identifier. For example:

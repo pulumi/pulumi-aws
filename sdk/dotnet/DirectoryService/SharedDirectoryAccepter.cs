@@ -14,37 +14,6 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// &gt; **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("exampleSharedDirectory", new()
-    ///     {
-    ///         DirectoryId = aws_directory_service_directory.Example.Id,
-    ///         Notes = "example",
-    ///         Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
-    ///         {
-    ///             Id = data.Aws_caller_identity.Receiver.Account_id,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSharedDirectoryAccepter = new Aws.DirectoryService.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", new()
-    ///     {
-    ///         SharedDirectoryId = exampleSharedDirectory.SharedDirectoryId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:

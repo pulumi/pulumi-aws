@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -56,8 +56,29 @@ class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs:
         :param pulumi.Input[int] max_range: The final port in the range of TCP ports.
         :param pulumi.Input[int] min_range: The first port in the range of TCP ports.
         """
-        pulumi.set(__self__, "max_range", max_range)
-        pulumi.set(__self__, "min_range", min_range)
+        BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_range=max_range,
+            min_range=min_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_range: Optional[pulumi.Input[int]] = None,
+             min_range: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_range is None and 'maxRange' in kwargs:
+            max_range = kwargs['maxRange']
+        if max_range is None:
+            raise TypeError("Missing 'max_range' argument")
+        if min_range is None and 'minRange' in kwargs:
+            min_range = kwargs['minRange']
+        if min_range is None:
+            raise TypeError("Missing 'min_range' argument")
+
+        _setter("max_range", max_range)
+        _setter("min_range", min_range)
 
     @property
     @pulumi.getter(name="maxRange")
@@ -91,8 +112,21 @@ class ClusterAutoTerminationPolicyArgs:
         """
         :param pulumi.Input[int] idle_timeout: Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
         """
+        ClusterAutoTerminationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle_timeout=idle_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle_timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+
         if idle_timeout is not None:
-            pulumi.set(__self__, "idle_timeout", idle_timeout)
+            _setter("idle_timeout", idle_timeout)
 
     @property
     @pulumi.getter(name="idleTimeout")
@@ -118,10 +152,29 @@ class ClusterBootstrapActionArgs:
         :param pulumi.Input[str] path: Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] args: List of command line arguments to pass to the bootstrap action script.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "path", path)
+        ClusterBootstrapActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            path=path,
+            args=args,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+
+        _setter("name", name)
+        _setter("path", path)
         if args is not None:
-            pulumi.set(__self__, "args", args)
+            _setter("args", args)
 
     @property
     @pulumi.getter
@@ -179,22 +232,59 @@ class ClusterCoreInstanceFleetArgs:
         :param pulumi.Input[int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[int] target_spot_capacity: Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
+        ClusterCoreInstanceFleetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            instance_type_configs=instance_type_configs,
+            launch_specifications=launch_specifications,
+            name=name,
+            provisioned_on_demand_capacity=provisioned_on_demand_capacity,
+            provisioned_spot_capacity=provisioned_spot_capacity,
+            target_on_demand_capacity=target_on_demand_capacity,
+            target_spot_capacity=target_spot_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArgs']]]] = None,
+             launch_specifications: Optional[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provisioned_on_demand_capacity: Optional[pulumi.Input[int]] = None,
+             provisioned_spot_capacity: Optional[pulumi.Input[int]] = None,
+             target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
+             target_spot_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type_configs is None and 'instanceTypeConfigs' in kwargs:
+            instance_type_configs = kwargs['instanceTypeConfigs']
+        if launch_specifications is None and 'launchSpecifications' in kwargs:
+            launch_specifications = kwargs['launchSpecifications']
+        if provisioned_on_demand_capacity is None and 'provisionedOnDemandCapacity' in kwargs:
+            provisioned_on_demand_capacity = kwargs['provisionedOnDemandCapacity']
+        if provisioned_spot_capacity is None and 'provisionedSpotCapacity' in kwargs:
+            provisioned_spot_capacity = kwargs['provisionedSpotCapacity']
+        if target_on_demand_capacity is None and 'targetOnDemandCapacity' in kwargs:
+            target_on_demand_capacity = kwargs['targetOnDemandCapacity']
+        if target_spot_capacity is None and 'targetSpotCapacity' in kwargs:
+            target_spot_capacity = kwargs['targetSpotCapacity']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if instance_type_configs is not None:
-            pulumi.set(__self__, "instance_type_configs", instance_type_configs)
+            _setter("instance_type_configs", instance_type_configs)
         if launch_specifications is not None:
-            pulumi.set(__self__, "launch_specifications", launch_specifications)
+            _setter("launch_specifications", launch_specifications)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provisioned_on_demand_capacity is not None:
-            pulumi.set(__self__, "provisioned_on_demand_capacity", provisioned_on_demand_capacity)
+            _setter("provisioned_on_demand_capacity", provisioned_on_demand_capacity)
         if provisioned_spot_capacity is not None:
-            pulumi.set(__self__, "provisioned_spot_capacity", provisioned_spot_capacity)
+            _setter("provisioned_spot_capacity", provisioned_spot_capacity)
         if target_on_demand_capacity is not None:
-            pulumi.set(__self__, "target_on_demand_capacity", target_on_demand_capacity)
+            _setter("target_on_demand_capacity", target_on_demand_capacity)
         if target_spot_capacity is not None:
-            pulumi.set(__self__, "target_spot_capacity", target_spot_capacity)
+            _setter("target_spot_capacity", target_spot_capacity)
 
     @property
     @pulumi.getter
@@ -304,17 +394,50 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[int] weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        ClusterCoreInstanceFleetInstanceTypeConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            bid_price=bid_price,
+            bid_price_as_percentage_of_on_demand_price=bid_price_as_percentage_of_on_demand_price,
+            configurations=configurations,
+            ebs_configs=ebs_configs,
+            weighted_capacity=weighted_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             bid_price: Optional[pulumi.Input[str]] = None,
+             bid_price_as_percentage_of_on_demand_price: Optional[pulumi.Input[float]] = None,
+             configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs']]]] = None,
+             ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs']]]] = None,
+             weighted_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if bid_price is None and 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if bid_price_as_percentage_of_on_demand_price is None and 'bidPriceAsPercentageOfOnDemandPrice' in kwargs:
+            bid_price_as_percentage_of_on_demand_price = kwargs['bidPriceAsPercentageOfOnDemandPrice']
+        if ebs_configs is None and 'ebsConfigs' in kwargs:
+            ebs_configs = kwargs['ebsConfigs']
+        if weighted_capacity is None and 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
+        _setter("instance_type", instance_type)
         if bid_price is not None:
-            pulumi.set(__self__, "bid_price", bid_price)
+            _setter("bid_price", bid_price)
         if bid_price_as_percentage_of_on_demand_price is not None:
-            pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
+            _setter("bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
         if ebs_configs is not None:
-            pulumi.set(__self__, "ebs_configs", ebs_configs)
+            _setter("ebs_configs", ebs_configs)
         if weighted_capacity is not None:
-            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+            _setter("weighted_capacity", weighted_capacity)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -398,10 +521,23 @@ class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs:
         :param pulumi.Input[str] classification: Classification within a configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Map of properties specified within a configuration classification.
         """
+        ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classification=classification,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classification: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if classification is not None:
-            pulumi.set(__self__, "classification", classification)
+            _setter("classification", classification)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -441,12 +577,35 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
         :param pulumi.Input[int] iops: Number of I/O operations per second (IOPS) that the volume supports.
         :param pulumi.Input[int] volumes_per_instance: Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
         """
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "type", type)
+        ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+            type=type,
+            iops=iops,
+            volumes_per_instance=volumes_per_instance,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             iops: Optional[pulumi.Input[int]] = None,
+             volumes_per_instance: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if volumes_per_instance is None and 'volumesPerInstance' in kwargs:
+            volumes_per_instance = kwargs['volumesPerInstance']
+
+        _setter("size", size)
+        _setter("type", type)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if volumes_per_instance is not None:
-            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
+            _setter("volumes_per_instance", volumes_per_instance)
 
     @property
     @pulumi.getter
@@ -506,10 +665,27 @@ class ClusterCoreInstanceFleetLaunchSpecificationsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]] on_demand_specifications: Configuration block for on demand instances launch specifications.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]] spot_specifications: Configuration block for spot instances launch specifications.
         """
+        ClusterCoreInstanceFleetLaunchSpecificationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            on_demand_specifications=on_demand_specifications,
+            spot_specifications=spot_specifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             on_demand_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]] = None,
+             spot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if on_demand_specifications is None and 'onDemandSpecifications' in kwargs:
+            on_demand_specifications = kwargs['onDemandSpecifications']
+        if spot_specifications is None and 'spotSpecifications' in kwargs:
+            spot_specifications = kwargs['spotSpecifications']
+
         if on_demand_specifications is not None:
-            pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
+            _setter("on_demand_specifications", on_demand_specifications)
         if spot_specifications is not None:
-            pulumi.set(__self__, "spot_specifications", spot_specifications)
+            _setter("spot_specifications", spot_specifications)
 
     @property
     @pulumi.getter(name="onDemandSpecifications")
@@ -543,7 +719,22 @@ class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
         """
         :param pulumi.Input[str] allocation_strategy: Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
         """
-        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_strategy=allocation_strategy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_strategy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if allocation_strategy is None:
+            raise TypeError("Missing 'allocation_strategy' argument")
+
+        _setter("allocation_strategy", allocation_strategy)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -571,11 +762,42 @@ class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
         :param pulumi.Input[int] timeout_duration_minutes: Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
         :param pulumi.Input[int] block_duration_minutes: Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
         """
-        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
-        pulumi.set(__self__, "timeout_action", timeout_action)
-        pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
+        ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_strategy=allocation_strategy,
+            timeout_action=timeout_action,
+            timeout_duration_minutes=timeout_duration_minutes,
+            block_duration_minutes=block_duration_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_strategy: Optional[pulumi.Input[str]] = None,
+             timeout_action: Optional[pulumi.Input[str]] = None,
+             timeout_duration_minutes: Optional[pulumi.Input[int]] = None,
+             block_duration_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if allocation_strategy is None:
+            raise TypeError("Missing 'allocation_strategy' argument")
+        if timeout_action is None and 'timeoutAction' in kwargs:
+            timeout_action = kwargs['timeoutAction']
+        if timeout_action is None:
+            raise TypeError("Missing 'timeout_action' argument")
+        if timeout_duration_minutes is None and 'timeoutDurationMinutes' in kwargs:
+            timeout_duration_minutes = kwargs['timeoutDurationMinutes']
+        if timeout_duration_minutes is None:
+            raise TypeError("Missing 'timeout_duration_minutes' argument")
+        if block_duration_minutes is None and 'blockDurationMinutes' in kwargs:
+            block_duration_minutes = kwargs['blockDurationMinutes']
+
+        _setter("allocation_strategy", allocation_strategy)
+        _setter("timeout_action", timeout_action)
+        _setter("timeout_duration_minutes", timeout_duration_minutes)
         if block_duration_minutes is not None:
-            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+            _setter("block_duration_minutes", block_duration_minutes)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -645,19 +867,54 @@ class ClusterCoreInstanceGroupArgs:
         :param pulumi.Input[int] instance_count: Target number of instances for the instance group. Must be at least 1. Defaults to 1.
         :param pulumi.Input[str] name: Friendly name given to the instance group.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        ClusterCoreInstanceGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            autoscaling_policy=autoscaling_policy,
+            bid_price=bid_price,
+            ebs_configs=ebs_configs,
+            id=id,
+            instance_count=instance_count,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             autoscaling_policy: Optional[pulumi.Input[str]] = None,
+             bid_price: Optional[pulumi.Input[str]] = None,
+             ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArgs']]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if autoscaling_policy is None and 'autoscalingPolicy' in kwargs:
+            autoscaling_policy = kwargs['autoscalingPolicy']
+        if bid_price is None and 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if ebs_configs is None and 'ebsConfigs' in kwargs:
+            ebs_configs = kwargs['ebsConfigs']
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+
+        _setter("instance_type", instance_type)
         if autoscaling_policy is not None:
-            pulumi.set(__self__, "autoscaling_policy", autoscaling_policy)
+            _setter("autoscaling_policy", autoscaling_policy)
         if bid_price is not None:
-            pulumi.set(__self__, "bid_price", bid_price)
+            _setter("bid_price", bid_price)
         if ebs_configs is not None:
-            pulumi.set(__self__, "ebs_configs", ebs_configs)
+            _setter("ebs_configs", ebs_configs)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -759,14 +1016,39 @@ class ClusterCoreInstanceGroupEbsConfigArgs:
         :param pulumi.Input[int] throughput: The throughput, in mebibyte per second (MiB/s).
         :param pulumi.Input[int] volumes_per_instance: Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
         """
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "type", type)
+        ClusterCoreInstanceGroupEbsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+            type=type,
+            iops=iops,
+            throughput=throughput,
+            volumes_per_instance=volumes_per_instance,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             iops: Optional[pulumi.Input[int]] = None,
+             throughput: Optional[pulumi.Input[int]] = None,
+             volumes_per_instance: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if volumes_per_instance is None and 'volumesPerInstance' in kwargs:
+            volumes_per_instance = kwargs['volumesPerInstance']
+
+        _setter("size", size)
+        _setter("type", type)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
         if volumes_per_instance is not None:
-            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
+            _setter("volumes_per_instance", volumes_per_instance)
 
     @property
     @pulumi.getter
@@ -854,23 +1136,70 @@ class ClusterEc2AttributesArgs:
                
                > **NOTE on EMR-Managed security groups:** These security groups will have any missing inbound or outbound access rules added and maintained by AWS, to ensure proper communication between instances in a cluster. The EMR service will maintain these rules for groups provided in `emr_managed_master_security_group` and `emr_managed_slave_security_group`; attempts to remove the required rules may succeed, only for the EMR service to re-add them in a matter of minutes. This may cause this provider to fail to destroy an environment that contains an EMR cluster, because the EMR service does not revoke rules added on deletion, leaving a cyclic dependency between the security groups that prevents their deletion. To avoid this, use the `revoke_rules_on_delete` optional attribute for any Security Group used in `emr_managed_master_security_group` and `emr_managed_slave_security_group`. See [Amazon EMR-Managed Security Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html) for more information about the EMR-managed security group rules.
         """
-        pulumi.set(__self__, "instance_profile", instance_profile)
+        ClusterEc2AttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_profile=instance_profile,
+            additional_master_security_groups=additional_master_security_groups,
+            additional_slave_security_groups=additional_slave_security_groups,
+            emr_managed_master_security_group=emr_managed_master_security_group,
+            emr_managed_slave_security_group=emr_managed_slave_security_group,
+            key_name=key_name,
+            service_access_security_group=service_access_security_group,
+            subnet_id=subnet_id,
+            subnet_ids=subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_profile: Optional[pulumi.Input[str]] = None,
+             additional_master_security_groups: Optional[pulumi.Input[str]] = None,
+             additional_slave_security_groups: Optional[pulumi.Input[str]] = None,
+             emr_managed_master_security_group: Optional[pulumi.Input[str]] = None,
+             emr_managed_slave_security_group: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             service_access_security_group: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_profile is None and 'instanceProfile' in kwargs:
+            instance_profile = kwargs['instanceProfile']
+        if instance_profile is None:
+            raise TypeError("Missing 'instance_profile' argument")
+        if additional_master_security_groups is None and 'additionalMasterSecurityGroups' in kwargs:
+            additional_master_security_groups = kwargs['additionalMasterSecurityGroups']
+        if additional_slave_security_groups is None and 'additionalSlaveSecurityGroups' in kwargs:
+            additional_slave_security_groups = kwargs['additionalSlaveSecurityGroups']
+        if emr_managed_master_security_group is None and 'emrManagedMasterSecurityGroup' in kwargs:
+            emr_managed_master_security_group = kwargs['emrManagedMasterSecurityGroup']
+        if emr_managed_slave_security_group is None and 'emrManagedSlaveSecurityGroup' in kwargs:
+            emr_managed_slave_security_group = kwargs['emrManagedSlaveSecurityGroup']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if service_access_security_group is None and 'serviceAccessSecurityGroup' in kwargs:
+            service_access_security_group = kwargs['serviceAccessSecurityGroup']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
+        _setter("instance_profile", instance_profile)
         if additional_master_security_groups is not None:
-            pulumi.set(__self__, "additional_master_security_groups", additional_master_security_groups)
+            _setter("additional_master_security_groups", additional_master_security_groups)
         if additional_slave_security_groups is not None:
-            pulumi.set(__self__, "additional_slave_security_groups", additional_slave_security_groups)
+            _setter("additional_slave_security_groups", additional_slave_security_groups)
         if emr_managed_master_security_group is not None:
-            pulumi.set(__self__, "emr_managed_master_security_group", emr_managed_master_security_group)
+            _setter("emr_managed_master_security_group", emr_managed_master_security_group)
         if emr_managed_slave_security_group is not None:
-            pulumi.set(__self__, "emr_managed_slave_security_group", emr_managed_slave_security_group)
+            _setter("emr_managed_slave_security_group", emr_managed_slave_security_group)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if service_access_security_group is not None:
-            pulumi.set(__self__, "service_access_security_group", service_access_security_group)
+            _setter("service_access_security_group", service_access_security_group)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="instanceProfile")
@@ -998,14 +1327,45 @@ class ClusterKerberosAttributesArgs:
         :param pulumi.Input[str] ad_domain_join_user: Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[str] cross_realm_trust_principal_password: Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
         """
-        pulumi.set(__self__, "kdc_admin_password", kdc_admin_password)
-        pulumi.set(__self__, "realm", realm)
+        ClusterKerberosAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kdc_admin_password=kdc_admin_password,
+            realm=realm,
+            ad_domain_join_password=ad_domain_join_password,
+            ad_domain_join_user=ad_domain_join_user,
+            cross_realm_trust_principal_password=cross_realm_trust_principal_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kdc_admin_password: Optional[pulumi.Input[str]] = None,
+             realm: Optional[pulumi.Input[str]] = None,
+             ad_domain_join_password: Optional[pulumi.Input[str]] = None,
+             ad_domain_join_user: Optional[pulumi.Input[str]] = None,
+             cross_realm_trust_principal_password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kdc_admin_password is None and 'kdcAdminPassword' in kwargs:
+            kdc_admin_password = kwargs['kdcAdminPassword']
+        if kdc_admin_password is None:
+            raise TypeError("Missing 'kdc_admin_password' argument")
+        if realm is None:
+            raise TypeError("Missing 'realm' argument")
+        if ad_domain_join_password is None and 'adDomainJoinPassword' in kwargs:
+            ad_domain_join_password = kwargs['adDomainJoinPassword']
+        if ad_domain_join_user is None and 'adDomainJoinUser' in kwargs:
+            ad_domain_join_user = kwargs['adDomainJoinUser']
+        if cross_realm_trust_principal_password is None and 'crossRealmTrustPrincipalPassword' in kwargs:
+            cross_realm_trust_principal_password = kwargs['crossRealmTrustPrincipalPassword']
+
+        _setter("kdc_admin_password", kdc_admin_password)
+        _setter("realm", realm)
         if ad_domain_join_password is not None:
-            pulumi.set(__self__, "ad_domain_join_password", ad_domain_join_password)
+            _setter("ad_domain_join_password", ad_domain_join_password)
         if ad_domain_join_user is not None:
-            pulumi.set(__self__, "ad_domain_join_user", ad_domain_join_user)
+            _setter("ad_domain_join_user", ad_domain_join_user)
         if cross_realm_trust_principal_password is not None:
-            pulumi.set(__self__, "cross_realm_trust_principal_password", cross_realm_trust_principal_password)
+            _setter("cross_realm_trust_principal_password", cross_realm_trust_principal_password)
 
     @property
     @pulumi.getter(name="kdcAdminPassword")
@@ -1087,22 +1447,59 @@ class ClusterMasterInstanceFleetArgs:
         :param pulumi.Input[int] target_on_demand_capacity: Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[int] target_spot_capacity: Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
+        ClusterMasterInstanceFleetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            instance_type_configs=instance_type_configs,
+            launch_specifications=launch_specifications,
+            name=name,
+            provisioned_on_demand_capacity=provisioned_on_demand_capacity,
+            provisioned_spot_capacity=provisioned_spot_capacity,
+            target_on_demand_capacity=target_on_demand_capacity,
+            target_spot_capacity=target_spot_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArgs']]]] = None,
+             launch_specifications: Optional[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provisioned_on_demand_capacity: Optional[pulumi.Input[int]] = None,
+             provisioned_spot_capacity: Optional[pulumi.Input[int]] = None,
+             target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
+             target_spot_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type_configs is None and 'instanceTypeConfigs' in kwargs:
+            instance_type_configs = kwargs['instanceTypeConfigs']
+        if launch_specifications is None and 'launchSpecifications' in kwargs:
+            launch_specifications = kwargs['launchSpecifications']
+        if provisioned_on_demand_capacity is None and 'provisionedOnDemandCapacity' in kwargs:
+            provisioned_on_demand_capacity = kwargs['provisionedOnDemandCapacity']
+        if provisioned_spot_capacity is None and 'provisionedSpotCapacity' in kwargs:
+            provisioned_spot_capacity = kwargs['provisionedSpotCapacity']
+        if target_on_demand_capacity is None and 'targetOnDemandCapacity' in kwargs:
+            target_on_demand_capacity = kwargs['targetOnDemandCapacity']
+        if target_spot_capacity is None and 'targetSpotCapacity' in kwargs:
+            target_spot_capacity = kwargs['targetSpotCapacity']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if instance_type_configs is not None:
-            pulumi.set(__self__, "instance_type_configs", instance_type_configs)
+            _setter("instance_type_configs", instance_type_configs)
         if launch_specifications is not None:
-            pulumi.set(__self__, "launch_specifications", launch_specifications)
+            _setter("launch_specifications", launch_specifications)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provisioned_on_demand_capacity is not None:
-            pulumi.set(__self__, "provisioned_on_demand_capacity", provisioned_on_demand_capacity)
+            _setter("provisioned_on_demand_capacity", provisioned_on_demand_capacity)
         if provisioned_spot_capacity is not None:
-            pulumi.set(__self__, "provisioned_spot_capacity", provisioned_spot_capacity)
+            _setter("provisioned_spot_capacity", provisioned_spot_capacity)
         if target_on_demand_capacity is not None:
-            pulumi.set(__self__, "target_on_demand_capacity", target_on_demand_capacity)
+            _setter("target_on_demand_capacity", target_on_demand_capacity)
         if target_spot_capacity is not None:
-            pulumi.set(__self__, "target_spot_capacity", target_spot_capacity)
+            _setter("target_spot_capacity", target_spot_capacity)
 
     @property
     @pulumi.getter
@@ -1212,17 +1609,50 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[int] weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        ClusterMasterInstanceFleetInstanceTypeConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            bid_price=bid_price,
+            bid_price_as_percentage_of_on_demand_price=bid_price_as_percentage_of_on_demand_price,
+            configurations=configurations,
+            ebs_configs=ebs_configs,
+            weighted_capacity=weighted_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             bid_price: Optional[pulumi.Input[str]] = None,
+             bid_price_as_percentage_of_on_demand_price: Optional[pulumi.Input[float]] = None,
+             configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs']]]] = None,
+             ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs']]]] = None,
+             weighted_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if bid_price is None and 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if bid_price_as_percentage_of_on_demand_price is None and 'bidPriceAsPercentageOfOnDemandPrice' in kwargs:
+            bid_price_as_percentage_of_on_demand_price = kwargs['bidPriceAsPercentageOfOnDemandPrice']
+        if ebs_configs is None and 'ebsConfigs' in kwargs:
+            ebs_configs = kwargs['ebsConfigs']
+        if weighted_capacity is None and 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
+        _setter("instance_type", instance_type)
         if bid_price is not None:
-            pulumi.set(__self__, "bid_price", bid_price)
+            _setter("bid_price", bid_price)
         if bid_price_as_percentage_of_on_demand_price is not None:
-            pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
+            _setter("bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
         if ebs_configs is not None:
-            pulumi.set(__self__, "ebs_configs", ebs_configs)
+            _setter("ebs_configs", ebs_configs)
         if weighted_capacity is not None:
-            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+            _setter("weighted_capacity", weighted_capacity)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1306,10 +1736,23 @@ class ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs:
         :param pulumi.Input[str] classification: Classification within a configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Map of properties specified within a configuration classification.
         """
+        ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classification=classification,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classification: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if classification is not None:
-            pulumi.set(__self__, "classification", classification)
+            _setter("classification", classification)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -1349,12 +1792,35 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
         :param pulumi.Input[int] iops: Number of I/O operations per second (IOPS) that the volume supports.
         :param pulumi.Input[int] volumes_per_instance: Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
         """
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "type", type)
+        ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+            type=type,
+            iops=iops,
+            volumes_per_instance=volumes_per_instance,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             iops: Optional[pulumi.Input[int]] = None,
+             volumes_per_instance: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if volumes_per_instance is None and 'volumesPerInstance' in kwargs:
+            volumes_per_instance = kwargs['volumesPerInstance']
+
+        _setter("size", size)
+        _setter("type", type)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if volumes_per_instance is not None:
-            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
+            _setter("volumes_per_instance", volumes_per_instance)
 
     @property
     @pulumi.getter
@@ -1414,10 +1880,27 @@ class ClusterMasterInstanceFleetLaunchSpecificationsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]] on_demand_specifications: Configuration block for on demand instances launch specifications.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]] spot_specifications: Configuration block for spot instances launch specifications.
         """
+        ClusterMasterInstanceFleetLaunchSpecificationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            on_demand_specifications=on_demand_specifications,
+            spot_specifications=spot_specifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             on_demand_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]] = None,
+             spot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if on_demand_specifications is None and 'onDemandSpecifications' in kwargs:
+            on_demand_specifications = kwargs['onDemandSpecifications']
+        if spot_specifications is None and 'spotSpecifications' in kwargs:
+            spot_specifications = kwargs['spotSpecifications']
+
         if on_demand_specifications is not None:
-            pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
+            _setter("on_demand_specifications", on_demand_specifications)
         if spot_specifications is not None:
-            pulumi.set(__self__, "spot_specifications", spot_specifications)
+            _setter("spot_specifications", spot_specifications)
 
     @property
     @pulumi.getter(name="onDemandSpecifications")
@@ -1451,7 +1934,22 @@ class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
         """
         :param pulumi.Input[str] allocation_strategy: Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
         """
-        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_strategy=allocation_strategy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_strategy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if allocation_strategy is None:
+            raise TypeError("Missing 'allocation_strategy' argument")
+
+        _setter("allocation_strategy", allocation_strategy)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -1479,11 +1977,42 @@ class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
         :param pulumi.Input[int] timeout_duration_minutes: Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
         :param pulumi.Input[int] block_duration_minutes: Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
         """
-        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
-        pulumi.set(__self__, "timeout_action", timeout_action)
-        pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
+        ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_strategy=allocation_strategy,
+            timeout_action=timeout_action,
+            timeout_duration_minutes=timeout_duration_minutes,
+            block_duration_minutes=block_duration_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_strategy: Optional[pulumi.Input[str]] = None,
+             timeout_action: Optional[pulumi.Input[str]] = None,
+             timeout_duration_minutes: Optional[pulumi.Input[int]] = None,
+             block_duration_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if allocation_strategy is None:
+            raise TypeError("Missing 'allocation_strategy' argument")
+        if timeout_action is None and 'timeoutAction' in kwargs:
+            timeout_action = kwargs['timeoutAction']
+        if timeout_action is None:
+            raise TypeError("Missing 'timeout_action' argument")
+        if timeout_duration_minutes is None and 'timeoutDurationMinutes' in kwargs:
+            timeout_duration_minutes = kwargs['timeoutDurationMinutes']
+        if timeout_duration_minutes is None:
+            raise TypeError("Missing 'timeout_duration_minutes' argument")
+        if block_duration_minutes is None and 'blockDurationMinutes' in kwargs:
+            block_duration_minutes = kwargs['blockDurationMinutes']
+
+        _setter("allocation_strategy", allocation_strategy)
+        _setter("timeout_action", timeout_action)
+        _setter("timeout_duration_minutes", timeout_duration_minutes)
         if block_duration_minutes is not None:
-            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+            _setter("block_duration_minutes", block_duration_minutes)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -1551,17 +2080,48 @@ class ClusterMasterInstanceGroupArgs:
         :param pulumi.Input[int] instance_count: Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
         :param pulumi.Input[str] name: Friendly name given to the instance group.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        ClusterMasterInstanceGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            bid_price=bid_price,
+            ebs_configs=ebs_configs,
+            id=id,
+            instance_count=instance_count,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             bid_price: Optional[pulumi.Input[str]] = None,
+             ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArgs']]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if bid_price is None and 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if ebs_configs is None and 'ebsConfigs' in kwargs:
+            ebs_configs = kwargs['ebsConfigs']
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+
+        _setter("instance_type", instance_type)
         if bid_price is not None:
-            pulumi.set(__self__, "bid_price", bid_price)
+            _setter("bid_price", bid_price)
         if ebs_configs is not None:
-            pulumi.set(__self__, "ebs_configs", ebs_configs)
+            _setter("ebs_configs", ebs_configs)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1651,14 +2211,39 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
         :param pulumi.Input[int] throughput: The throughput, in mebibyte per second (MiB/s).
         :param pulumi.Input[int] volumes_per_instance: Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
         """
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "type", type)
+        ClusterMasterInstanceGroupEbsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+            type=type,
+            iops=iops,
+            throughput=throughput,
+            volumes_per_instance=volumes_per_instance,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             iops: Optional[pulumi.Input[int]] = None,
+             throughput: Optional[pulumi.Input[int]] = None,
+             volumes_per_instance: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if volumes_per_instance is None and 'volumesPerInstance' in kwargs:
+            volumes_per_instance = kwargs['volumesPerInstance']
+
+        _setter("size", size)
+        _setter("type", type)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
         if volumes_per_instance is not None:
-            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
+            _setter("volumes_per_instance", volumes_per_instance)
 
     @property
     @pulumi.getter
@@ -1730,9 +2315,28 @@ class ClusterPlacementGroupConfigArgs:
         :param pulumi.Input[str] instance_role: Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
         :param pulumi.Input[str] placement_strategy: EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
         """
-        pulumi.set(__self__, "instance_role", instance_role)
+        ClusterPlacementGroupConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_role=instance_role,
+            placement_strategy=placement_strategy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_role: Optional[pulumi.Input[str]] = None,
+             placement_strategy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_role is None and 'instanceRole' in kwargs:
+            instance_role = kwargs['instanceRole']
+        if instance_role is None:
+            raise TypeError("Missing 'instance_role' argument")
+        if placement_strategy is None and 'placementStrategy' in kwargs:
+            placement_strategy = kwargs['placementStrategy']
+
+        _setter("instance_role", instance_role)
         if placement_strategy is not None:
-            pulumi.set(__self__, "placement_strategy", placement_strategy)
+            _setter("placement_strategy", placement_strategy)
 
     @property
     @pulumi.getter(name="instanceRole")
@@ -1770,9 +2374,34 @@ class ClusterStepArgs:
         :param pulumi.Input['ClusterStepHadoopJarStepArgs'] hadoop_jar_step: JAR file used for the step. See below.
         :param pulumi.Input[str] name: Name of the step.
         """
-        pulumi.set(__self__, "action_on_failure", action_on_failure)
-        pulumi.set(__self__, "hadoop_jar_step", hadoop_jar_step)
-        pulumi.set(__self__, "name", name)
+        ClusterStepArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_on_failure=action_on_failure,
+            hadoop_jar_step=hadoop_jar_step,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_on_failure: Optional[pulumi.Input[str]] = None,
+             hadoop_jar_step: Optional[pulumi.Input['ClusterStepHadoopJarStepArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_on_failure is None and 'actionOnFailure' in kwargs:
+            action_on_failure = kwargs['actionOnFailure']
+        if action_on_failure is None:
+            raise TypeError("Missing 'action_on_failure' argument")
+        if hadoop_jar_step is None and 'hadoopJarStep' in kwargs:
+            hadoop_jar_step = kwargs['hadoopJarStep']
+        if hadoop_jar_step is None:
+            raise TypeError("Missing 'hadoop_jar_step' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("action_on_failure", action_on_failure)
+        _setter("hadoop_jar_step", hadoop_jar_step)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="actionOnFailure")
@@ -1824,13 +2453,34 @@ class ClusterStepHadoopJarStepArgs:
         :param pulumi.Input[str] main_class: Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
         """
-        pulumi.set(__self__, "jar", jar)
+        ClusterStepHadoopJarStepArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            jar=jar,
+            args=args,
+            main_class=main_class,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             jar: Optional[pulumi.Input[str]] = None,
+             args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             main_class: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if jar is None:
+            raise TypeError("Missing 'jar' argument")
+        if main_class is None and 'mainClass' in kwargs:
+            main_class = kwargs['mainClass']
+
+        _setter("jar", jar)
         if args is not None:
-            pulumi.set(__self__, "args", args)
+            _setter("args", args)
         if main_class is not None:
-            pulumi.set(__self__, "main_class", main_class)
+            _setter("main_class", main_class)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -1898,17 +2548,50 @@ class InstanceFleetInstanceTypeConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[int] weighted_capacity: The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        InstanceFleetInstanceTypeConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            bid_price=bid_price,
+            bid_price_as_percentage_of_on_demand_price=bid_price_as_percentage_of_on_demand_price,
+            configurations=configurations,
+            ebs_configs=ebs_configs,
+            weighted_capacity=weighted_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             bid_price: Optional[pulumi.Input[str]] = None,
+             bid_price_as_percentage_of_on_demand_price: Optional[pulumi.Input[float]] = None,
+             configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgs']]]] = None,
+             ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgs']]]] = None,
+             weighted_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if bid_price is None and 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if bid_price_as_percentage_of_on_demand_price is None and 'bidPriceAsPercentageOfOnDemandPrice' in kwargs:
+            bid_price_as_percentage_of_on_demand_price = kwargs['bidPriceAsPercentageOfOnDemandPrice']
+        if ebs_configs is None and 'ebsConfigs' in kwargs:
+            ebs_configs = kwargs['ebsConfigs']
+        if weighted_capacity is None and 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
+        _setter("instance_type", instance_type)
         if bid_price is not None:
-            pulumi.set(__self__, "bid_price", bid_price)
+            _setter("bid_price", bid_price)
         if bid_price_as_percentage_of_on_demand_price is not None:
-            pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
+            _setter("bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
         if ebs_configs is not None:
-            pulumi.set(__self__, "ebs_configs", ebs_configs)
+            _setter("ebs_configs", ebs_configs)
         if weighted_capacity is not None:
-            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+            _setter("weighted_capacity", weighted_capacity)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1992,10 +2675,23 @@ class InstanceFleetInstanceTypeConfigConfigurationArgs:
         :param pulumi.Input[str] classification: The classification within a configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A map of properties specified within a configuration classification
         """
+        InstanceFleetInstanceTypeConfigConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classification=classification,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classification: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if classification is not None:
-            pulumi.set(__self__, "classification", classification)
+            _setter("classification", classification)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -2035,12 +2731,35 @@ class InstanceFleetInstanceTypeConfigEbsConfigArgs:
         :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS) that the volume supports
         :param pulumi.Input[int] volumes_per_instance: The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
         """
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "type", type)
+        InstanceFleetInstanceTypeConfigEbsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+            type=type,
+            iops=iops,
+            volumes_per_instance=volumes_per_instance,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             iops: Optional[pulumi.Input[int]] = None,
+             volumes_per_instance: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if volumes_per_instance is None and 'volumesPerInstance' in kwargs:
+            volumes_per_instance = kwargs['volumesPerInstance']
+
+        _setter("size", size)
+        _setter("type", type)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if volumes_per_instance is not None:
-            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
+            _setter("volumes_per_instance", volumes_per_instance)
 
     @property
     @pulumi.getter
@@ -2100,10 +2819,27 @@ class InstanceFleetLaunchSpecificationsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]] on_demand_specifications: Configuration block for on demand instances launch specifications
         :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArgs']]] spot_specifications: Configuration block for spot instances launch specifications
         """
+        InstanceFleetLaunchSpecificationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            on_demand_specifications=on_demand_specifications,
+            spot_specifications=spot_specifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             on_demand_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]] = None,
+             spot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if on_demand_specifications is None and 'onDemandSpecifications' in kwargs:
+            on_demand_specifications = kwargs['onDemandSpecifications']
+        if spot_specifications is None and 'spotSpecifications' in kwargs:
+            spot_specifications = kwargs['spotSpecifications']
+
         if on_demand_specifications is not None:
-            pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
+            _setter("on_demand_specifications", on_demand_specifications)
         if spot_specifications is not None:
-            pulumi.set(__self__, "spot_specifications", spot_specifications)
+            _setter("spot_specifications", spot_specifications)
 
     @property
     @pulumi.getter(name="onDemandSpecifications")
@@ -2137,7 +2873,22 @@ class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
         """
         :param pulumi.Input[str] allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
         """
-        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_strategy=allocation_strategy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_strategy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if allocation_strategy is None:
+            raise TypeError("Missing 'allocation_strategy' argument")
+
+        _setter("allocation_strategy", allocation_strategy)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -2165,11 +2916,42 @@ class InstanceFleetLaunchSpecificationsSpotSpecificationArgs:
         :param pulumi.Input[int] timeout_duration_minutes: The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
         :param pulumi.Input[int] block_duration_minutes: The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
         """
-        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
-        pulumi.set(__self__, "timeout_action", timeout_action)
-        pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
+        InstanceFleetLaunchSpecificationsSpotSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_strategy=allocation_strategy,
+            timeout_action=timeout_action,
+            timeout_duration_minutes=timeout_duration_minutes,
+            block_duration_minutes=block_duration_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_strategy: Optional[pulumi.Input[str]] = None,
+             timeout_action: Optional[pulumi.Input[str]] = None,
+             timeout_duration_minutes: Optional[pulumi.Input[int]] = None,
+             block_duration_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if allocation_strategy is None:
+            raise TypeError("Missing 'allocation_strategy' argument")
+        if timeout_action is None and 'timeoutAction' in kwargs:
+            timeout_action = kwargs['timeoutAction']
+        if timeout_action is None:
+            raise TypeError("Missing 'timeout_action' argument")
+        if timeout_duration_minutes is None and 'timeoutDurationMinutes' in kwargs:
+            timeout_duration_minutes = kwargs['timeoutDurationMinutes']
+        if timeout_duration_minutes is None:
+            raise TypeError("Missing 'timeout_duration_minutes' argument")
+        if block_duration_minutes is None and 'blockDurationMinutes' in kwargs:
+            block_duration_minutes = kwargs['blockDurationMinutes']
+
+        _setter("allocation_strategy", allocation_strategy)
+        _setter("timeout_action", timeout_action)
+        _setter("timeout_duration_minutes", timeout_duration_minutes)
         if block_duration_minutes is not None:
-            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+            _setter("block_duration_minutes", block_duration_minutes)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -2233,12 +3015,35 @@ class InstanceGroupEbsConfigArgs:
         :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS) that the volume supports.
         :param pulumi.Input[int] volumes_per_instance: The number of EBS Volumes to attach per instance.
         """
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "type", type)
+        InstanceGroupEbsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+            type=type,
+            iops=iops,
+            volumes_per_instance=volumes_per_instance,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             iops: Optional[pulumi.Input[int]] = None,
+             volumes_per_instance: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if volumes_per_instance is None and 'volumesPerInstance' in kwargs:
+            volumes_per_instance = kwargs['volumesPerInstance']
+
+        _setter("size", size)
+        _setter("type", type)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if volumes_per_instance is not None:
-            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
+            _setter("volumes_per_instance", volumes_per_instance)
 
     @property
     @pulumi.getter
@@ -2304,13 +3109,48 @@ class ManagedScalingPolicyComputeLimitArgs:
         :param pulumi.Input[int] maximum_core_capacity_units: The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
         :param pulumi.Input[int] maximum_ondemand_capacity_units: The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
         """
-        pulumi.set(__self__, "maximum_capacity_units", maximum_capacity_units)
-        pulumi.set(__self__, "minimum_capacity_units", minimum_capacity_units)
-        pulumi.set(__self__, "unit_type", unit_type)
+        ManagedScalingPolicyComputeLimitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_capacity_units=maximum_capacity_units,
+            minimum_capacity_units=minimum_capacity_units,
+            unit_type=unit_type,
+            maximum_core_capacity_units=maximum_core_capacity_units,
+            maximum_ondemand_capacity_units=maximum_ondemand_capacity_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_capacity_units: Optional[pulumi.Input[int]] = None,
+             minimum_capacity_units: Optional[pulumi.Input[int]] = None,
+             unit_type: Optional[pulumi.Input[str]] = None,
+             maximum_core_capacity_units: Optional[pulumi.Input[int]] = None,
+             maximum_ondemand_capacity_units: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_capacity_units is None and 'maximumCapacityUnits' in kwargs:
+            maximum_capacity_units = kwargs['maximumCapacityUnits']
+        if maximum_capacity_units is None:
+            raise TypeError("Missing 'maximum_capacity_units' argument")
+        if minimum_capacity_units is None and 'minimumCapacityUnits' in kwargs:
+            minimum_capacity_units = kwargs['minimumCapacityUnits']
+        if minimum_capacity_units is None:
+            raise TypeError("Missing 'minimum_capacity_units' argument")
+        if unit_type is None and 'unitType' in kwargs:
+            unit_type = kwargs['unitType']
+        if unit_type is None:
+            raise TypeError("Missing 'unit_type' argument")
+        if maximum_core_capacity_units is None and 'maximumCoreCapacityUnits' in kwargs:
+            maximum_core_capacity_units = kwargs['maximumCoreCapacityUnits']
+        if maximum_ondemand_capacity_units is None and 'maximumOndemandCapacityUnits' in kwargs:
+            maximum_ondemand_capacity_units = kwargs['maximumOndemandCapacityUnits']
+
+        _setter("maximum_capacity_units", maximum_capacity_units)
+        _setter("minimum_capacity_units", minimum_capacity_units)
+        _setter("unit_type", unit_type)
         if maximum_core_capacity_units is not None:
-            pulumi.set(__self__, "maximum_core_capacity_units", maximum_core_capacity_units)
+            _setter("maximum_core_capacity_units", maximum_core_capacity_units)
         if maximum_ondemand_capacity_units is not None:
-            pulumi.set(__self__, "maximum_ondemand_capacity_units", maximum_ondemand_capacity_units)
+            _setter("maximum_ondemand_capacity_units", maximum_ondemand_capacity_units)
 
     @property
     @pulumi.getter(name="maximumCapacityUnits")
@@ -2382,10 +3222,23 @@ class GetReleaseLabelsFiltersArgs:
         :param str application: Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
         :param str prefix: Optional release label version prefix filter. For example, `emr-5`.
         """
+        GetReleaseLabelsFiltersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application=application,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application: Optional[str] = None,
+             prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if application is not None:
-            pulumi.set(__self__, "application", application)
+            _setter("application", application)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter

@@ -12,44 +12,6 @@ namespace Pulumi.Aws.Acmpca
     /// <summary>
     /// Provides a resource to manage an AWS Certificate Manager Private Certificate Authorities Permission.
     /// Currently, this is only required in order to allow the ACM service to automatically renew certificates issued by a PCA.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("exampleCertificateAuthority", new()
-    ///     {
-    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
-    ///         {
-    ///             KeyAlgorithm = "RSA_4096",
-    ///             SigningAlgorithm = "SHA512WITHRSA",
-    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
-    ///             {
-    ///                 CommonName = "example.com",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var examplePermission = new Aws.Acmpca.Permission("examplePermission", new()
-    ///     {
-    ///         CertificateAuthorityArn = exampleCertificateAuthority.Arn,
-    ///         Actions = new[]
-    ///         {
-    ///             "IssueCertificate",
-    ///             "GetCertificate",
-    ///             "ListPermissions",
-    ///         },
-    ///         Principal = "acm.amazonaws.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:acmpca/permission:Permission")]
     public partial class Permission : global::Pulumi.CustomResource

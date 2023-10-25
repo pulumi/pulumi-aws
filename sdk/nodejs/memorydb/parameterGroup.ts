@@ -12,21 +12,6 @@ import * as utilities from "../utilities";
  *
  * More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.memorydb.ParameterGroup("example", {
- *     family: "memorydb_redis6",
- *     parameters: [{
- *         name: "activedefrag",
- *         value: "yes",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import a parameter group using the `name`. For example:

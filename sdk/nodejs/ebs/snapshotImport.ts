@@ -9,27 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Imports a disk image from S3 as a Snapshot.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ebs.SnapshotImport("example", {
- *     diskContainer: {
- *         format: "VHD",
- *         userBucket: {
- *             s3Bucket: "disk-images",
- *             s3Key: "source.vhd",
- *         },
- *     },
- *     roleName: "disk-image-import",
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * ```
  */
 export class SnapshotImport extends pulumi.CustomResource {
     /**

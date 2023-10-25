@@ -16,32 +16,6 @@ import (
 // Provides a SageMaker User Profile resource.
 //
 // ## Example Usage
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewUserProfile(ctx, "example", &sagemaker.UserProfileArgs{
-//				DomainId:        pulumi.Any(aws_sagemaker_domain.Test.Id),
-//				UserProfileName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

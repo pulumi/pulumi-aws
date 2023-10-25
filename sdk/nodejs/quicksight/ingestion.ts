@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS QuickSight Ingestion.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.Ingestion("example", {
- *     dataSetId: aws_quicksight_data_set.example.data_set_id,
- *     ingestionId: "example-id",
- *     ingestionType: "FULL_REFRESH",
- * });
- * ```
  *
  * ## Import
  *

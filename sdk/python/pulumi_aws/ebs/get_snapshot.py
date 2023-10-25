@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -269,26 +269,6 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
     """
     Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ebs_volume = aws.ebs.get_snapshot(filters=[
-            aws.ebs.GetSnapshotFilterArgs(
-                name="volume-size",
-                values=["40"],
-            ),
-            aws.ebs.GetSnapshotFilterArgs(
-                name="tag:Name",
-                values=["Example"],
-            ),
-        ],
-        most_recent=True,
-        owners=["self"])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
@@ -342,26 +322,6 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ebs_volume = aws.ebs.get_snapshot(filters=[
-            aws.ebs.GetSnapshotFilterArgs(
-                name="volume-size",
-                values=["40"],
-            ),
-            aws.ebs.GetSnapshotFilterArgs(
-                name="tag:Name",
-                values=["Example"],
-            ),
-        ],
-        most_recent=True,
-        owners=["self"])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. There are

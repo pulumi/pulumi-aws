@@ -17,41 +17,6 @@ import (
 //
 // For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewCodeSigningConfig(ctx, "newCsc", &lambda.CodeSigningConfigArgs{
-//				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
-//					SigningProfileVersionArns: pulumi.StringArray{
-//						aws_signer_signing_profile.Example1.Arn,
-//						aws_signer_signing_profile.Example2.Arn,
-//					},
-//				},
-//				Policies: &lambda.CodeSigningConfigPoliciesArgs{
-//					UntrustedArtifactOnDeployment: pulumi.String("Warn"),
-//				},
-//				Description: pulumi.String("My awesome code signing config."),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Code Signing Configs using their ARN. For example:

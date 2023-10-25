@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,17 +35,58 @@ class SafetyRuleArgs:
         :param pulumi.Input[str] name: Name describing the safety rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         """
-        pulumi.set(__self__, "control_panel_arn", control_panel_arn)
-        pulumi.set(__self__, "rule_config", rule_config)
-        pulumi.set(__self__, "wait_period_ms", wait_period_ms)
+        SafetyRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_panel_arn=control_panel_arn,
+            rule_config=rule_config,
+            wait_period_ms=wait_period_ms,
+            asserted_controls=asserted_controls,
+            gating_controls=gating_controls,
+            name=name,
+            target_controls=target_controls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_panel_arn: Optional[pulumi.Input[str]] = None,
+             rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None,
+             wait_period_ms: Optional[pulumi.Input[int]] = None,
+             asserted_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if control_panel_arn is None and 'controlPanelArn' in kwargs:
+            control_panel_arn = kwargs['controlPanelArn']
+        if control_panel_arn is None:
+            raise TypeError("Missing 'control_panel_arn' argument")
+        if rule_config is None and 'ruleConfig' in kwargs:
+            rule_config = kwargs['ruleConfig']
+        if rule_config is None:
+            raise TypeError("Missing 'rule_config' argument")
+        if wait_period_ms is None and 'waitPeriodMs' in kwargs:
+            wait_period_ms = kwargs['waitPeriodMs']
+        if wait_period_ms is None:
+            raise TypeError("Missing 'wait_period_ms' argument")
+        if asserted_controls is None and 'assertedControls' in kwargs:
+            asserted_controls = kwargs['assertedControls']
+        if gating_controls is None and 'gatingControls' in kwargs:
+            gating_controls = kwargs['gatingControls']
+        if target_controls is None and 'targetControls' in kwargs:
+            target_controls = kwargs['targetControls']
+
+        _setter("control_panel_arn", control_panel_arn)
+        _setter("rule_config", rule_config)
+        _setter("wait_period_ms", wait_period_ms)
         if asserted_controls is not None:
-            pulumi.set(__self__, "asserted_controls", asserted_controls)
+            _setter("asserted_controls", asserted_controls)
         if gating_controls is not None:
-            pulumi.set(__self__, "gating_controls", gating_controls)
+            _setter("gating_controls", gating_controls)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if target_controls is not None:
-            pulumi.set(__self__, "target_controls", target_controls)
+            _setter("target_controls", target_controls)
 
     @property
     @pulumi.getter(name="controlPanelArn")
@@ -160,24 +201,63 @@ class _SafetyRuleState:
                
                The following arguments are optional:
         """
+        _SafetyRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            asserted_controls=asserted_controls,
+            control_panel_arn=control_panel_arn,
+            gating_controls=gating_controls,
+            name=name,
+            rule_config=rule_config,
+            status=status,
+            target_controls=target_controls,
+            wait_period_ms=wait_period_ms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             asserted_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             control_panel_arn: Optional[pulumi.Input[str]] = None,
+             gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             wait_period_ms: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asserted_controls is None and 'assertedControls' in kwargs:
+            asserted_controls = kwargs['assertedControls']
+        if control_panel_arn is None and 'controlPanelArn' in kwargs:
+            control_panel_arn = kwargs['controlPanelArn']
+        if gating_controls is None and 'gatingControls' in kwargs:
+            gating_controls = kwargs['gatingControls']
+        if rule_config is None and 'ruleConfig' in kwargs:
+            rule_config = kwargs['ruleConfig']
+        if target_controls is None and 'targetControls' in kwargs:
+            target_controls = kwargs['targetControls']
+        if wait_period_ms is None and 'waitPeriodMs' in kwargs:
+            wait_period_ms = kwargs['waitPeriodMs']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if asserted_controls is not None:
-            pulumi.set(__self__, "asserted_controls", asserted_controls)
+            _setter("asserted_controls", asserted_controls)
         if control_panel_arn is not None:
-            pulumi.set(__self__, "control_panel_arn", control_panel_arn)
+            _setter("control_panel_arn", control_panel_arn)
         if gating_controls is not None:
-            pulumi.set(__self__, "gating_controls", gating_controls)
+            _setter("gating_controls", gating_controls)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rule_config is not None:
-            pulumi.set(__self__, "rule_config", rule_config)
+            _setter("rule_config", rule_config)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if target_controls is not None:
-            pulumi.set(__self__, "target_controls", target_controls)
+            _setter("target_controls", target_controls)
         if wait_period_ms is not None:
-            pulumi.set(__self__, "wait_period_ms", wait_period_ms)
+            _setter("wait_period_ms", wait_period_ms)
 
     @property
     @pulumi.getter
@@ -306,39 +386,6 @@ class SafetyRule(pulumi.CustomResource):
         """
         Provides an AWS Route 53 Recovery Control Config Safety Rule
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoverycontrol.SafetyRule("example",
-            asserted_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
-            wait_period_ms=5000,
-            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
-                inverted=False,
-                threshold=1,
-                type="ATLEAST",
-            ))
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoverycontrol.SafetyRule("example",
-            control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
-            wait_period_ms=5000,
-            gating_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            target_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
-                inverted=False,
-                threshold=1,
-                type="ATLEAST",
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For example:
@@ -368,39 +415,6 @@ class SafetyRule(pulumi.CustomResource):
         """
         Provides an AWS Route 53 Recovery Control Config Safety Rule
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoverycontrol.SafetyRule("example",
-            asserted_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
-            wait_period_ms=5000,
-            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
-                inverted=False,
-                threshold=1,
-                type="ATLEAST",
-            ))
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoverycontrol.SafetyRule("example",
-            control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
-            wait_period_ms=5000,
-            gating_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            target_controls=[aws_route53recoverycontrolconfig_routing_control["example"]["arn"]],
-            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
-                inverted=False,
-                threshold=1,
-                type="ATLEAST",
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For example:
@@ -419,6 +433,10 @@ class SafetyRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SafetyRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -446,6 +464,7 @@ class SafetyRule(pulumi.CustomResource):
             __props__.__dict__["control_panel_arn"] = control_panel_arn
             __props__.__dict__["gating_controls"] = gating_controls
             __props__.__dict__["name"] = name
+            rule_config = _utilities.configure(rule_config, SafetyRuleRuleConfigArgs, True)
             if rule_config is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_config'")
             __props__.__dict__["rule_config"] = rule_config

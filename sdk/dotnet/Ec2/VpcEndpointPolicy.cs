@@ -12,62 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a VPC Endpoint Policy resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVpcEndpointService = Aws.Ec2.GetVpcEndpointService.Invoke(new()
-    ///     {
-    ///         Service = "dynamodb",
-    ///     });
-    /// 
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("exampleVpcEndpoint", new()
-    ///     {
-    ///         ServiceName = exampleVpcEndpointService.Apply(getVpcEndpointServiceResult =&gt; getVpcEndpointServiceResult.ServiceName),
-    ///         VpcId = exampleVpc.Id,
-    ///     });
-    /// 
-    ///     var exampleVpcEndpointPolicy = new Aws.Ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy", new()
-    ///     {
-    ///         VpcEndpointId = exampleVpcEndpoint.Id,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Sid"] = "AllowAll",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = "*",
-    ///                     },
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "dynamodb:*",
-    ///                     },
-    ///                     ["Resource"] = "*",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:

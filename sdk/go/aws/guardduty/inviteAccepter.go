@@ -15,61 +15,6 @@ import (
 
 // Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primary", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewProvider(ctx, "member", nil)
-//			if err != nil {
-//				return err
-//			}
-//			primaryDetector, err := guardduty.NewDetector(ctx, "primaryDetector", nil, pulumi.Provider(aws.Primary))
-//			if err != nil {
-//				return err
-//			}
-//			memberDetector, err := guardduty.NewDetector(ctx, "memberDetector", nil, pulumi.Provider(aws.Member))
-//			if err != nil {
-//				return err
-//			}
-//			memberMember, err := guardduty.NewMember(ctx, "memberMember", &guardduty.MemberArgs{
-//				AccountId:  memberDetector.AccountId,
-//				DetectorId: primaryDetector.ID(),
-//				Email:      pulumi.String("required@example.com"),
-//				Invite:     pulumi.Bool(true),
-//			}, pulumi.Provider(aws.Primary))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewInviteAccepter(ctx, "memberInviteAccepter", &guardduty.InviteAccepterArgs{
-//				DetectorId:      memberDetector.ID(),
-//				MasterAccountId: primaryDetector.AccountId,
-//			}, pulumi.Provider(aws.Member), pulumi.DependsOn([]pulumi.Resource{
-//				memberMember,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For example:

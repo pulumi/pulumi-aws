@@ -12,26 +12,6 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.ServicecatalogPortfolioStatus("example", new()
-    ///     {
-    ///         Status = "Enabled",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import models using the `id`. For example:

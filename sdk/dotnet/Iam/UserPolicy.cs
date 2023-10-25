@@ -12,51 +12,6 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM policy attached to a user.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lbUser = new Aws.Iam.User("lbUser", new()
-    ///     {
-    ///         Path = "/system/",
-    ///     });
-    /// 
-    ///     var lbRo = new Aws.Iam.UserPolicy("lbRo", new()
-    ///     {
-    ///         User = lbUser.Name,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "ec2:Describe*",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var lbAccessKey = new Aws.Iam.AccessKey("lbAccessKey", new()
-    ///     {
-    ///         User = lbUser.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:

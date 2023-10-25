@@ -12,27 +12,6 @@ namespace Pulumi.Aws.Dax
     /// <summary>
     /// Provides a DAX Cluster resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bar = new Aws.Dax.Cluster("bar", new()
-    ///     {
-    ///         ClusterName = "cluster-example",
-    ///         IamRoleArn = data.Aws_iam_role.Example.Arn,
-    ///         NodeType = "dax.r4.large",
-    ///         ReplicationFactor = 1,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:

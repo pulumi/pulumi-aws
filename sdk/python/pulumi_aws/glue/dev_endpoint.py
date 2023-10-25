@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DevEndpointArgs', 'DevEndpoint']
@@ -47,35 +47,100 @@ class DevEndpointArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
+        DevEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            arguments=arguments,
+            extra_jars_s3_path=extra_jars_s3_path,
+            extra_python_libs_s3_path=extra_python_libs_s3_path,
+            glue_version=glue_version,
+            name=name,
+            number_of_nodes=number_of_nodes,
+            number_of_workers=number_of_workers,
+            public_key=public_key,
+            public_keys=public_keys,
+            security_configuration=security_configuration,
+            security_group_ids=security_group_ids,
+            subnet_id=subnet_id,
+            tags=tags,
+            worker_type=worker_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: Optional[pulumi.Input[str]] = None,
+             arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
+             extra_python_libs_s3_path: Optional[pulumi.Input[str]] = None,
+             glue_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             number_of_nodes: Optional[pulumi.Input[int]] = None,
+             number_of_workers: Optional[pulumi.Input[int]] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
+             public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_configuration: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             worker_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if extra_jars_s3_path is None and 'extraJarsS3Path' in kwargs:
+            extra_jars_s3_path = kwargs['extraJarsS3Path']
+        if extra_python_libs_s3_path is None and 'extraPythonLibsS3Path' in kwargs:
+            extra_python_libs_s3_path = kwargs['extraPythonLibsS3Path']
+        if glue_version is None and 'glueVersion' in kwargs:
+            glue_version = kwargs['glueVersion']
+        if number_of_nodes is None and 'numberOfNodes' in kwargs:
+            number_of_nodes = kwargs['numberOfNodes']
+        if number_of_workers is None and 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if public_keys is None and 'publicKeys' in kwargs:
+            public_keys = kwargs['publicKeys']
+        if security_configuration is None and 'securityConfiguration' in kwargs:
+            security_configuration = kwargs['securityConfiguration']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if worker_type is None and 'workerType' in kwargs:
+            worker_type = kwargs['workerType']
+
+        _setter("role_arn", role_arn)
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if extra_jars_s3_path is not None:
-            pulumi.set(__self__, "extra_jars_s3_path", extra_jars_s3_path)
+            _setter("extra_jars_s3_path", extra_jars_s3_path)
         if extra_python_libs_s3_path is not None:
-            pulumi.set(__self__, "extra_python_libs_s3_path", extra_python_libs_s3_path)
+            _setter("extra_python_libs_s3_path", extra_python_libs_s3_path)
         if glue_version is not None:
-            pulumi.set(__self__, "glue_version", glue_version)
+            _setter("glue_version", glue_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if number_of_nodes is not None:
-            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+            _setter("number_of_nodes", number_of_nodes)
         if number_of_workers is not None:
-            pulumi.set(__self__, "number_of_workers", number_of_workers)
+            _setter("number_of_workers", number_of_workers)
         if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+            _setter("public_key", public_key)
         if public_keys is not None:
-            pulumi.set(__self__, "public_keys", public_keys)
+            _setter("public_keys", public_keys)
         if security_configuration is not None:
-            pulumi.set(__self__, "security_configuration", security_configuration)
+            _setter("security_configuration", security_configuration)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if worker_type is not None:
-            pulumi.set(__self__, "worker_type", worker_type)
+            _setter("worker_type", worker_type)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -314,59 +379,158 @@ class _DevEndpointState:
         :param pulumi.Input[str] yarn_endpoint_address: The YARN endpoint address used by this endpoint.
         :param pulumi.Input[int] zeppelin_remote_spark_interpreter_port: The Apache Zeppelin port for the remote Apache Spark interpreter.
         """
+        _DevEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arguments=arguments,
+            arn=arn,
+            availability_zone=availability_zone,
+            extra_jars_s3_path=extra_jars_s3_path,
+            extra_python_libs_s3_path=extra_python_libs_s3_path,
+            failure_reason=failure_reason,
+            glue_version=glue_version,
+            name=name,
+            number_of_nodes=number_of_nodes,
+            number_of_workers=number_of_workers,
+            private_address=private_address,
+            public_address=public_address,
+            public_key=public_key,
+            public_keys=public_keys,
+            role_arn=role_arn,
+            security_configuration=security_configuration,
+            security_group_ids=security_group_ids,
+            status=status,
+            subnet_id=subnet_id,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+            worker_type=worker_type,
+            yarn_endpoint_address=yarn_endpoint_address,
+            zeppelin_remote_spark_interpreter_port=zeppelin_remote_spark_interpreter_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
+             extra_python_libs_s3_path: Optional[pulumi.Input[str]] = None,
+             failure_reason: Optional[pulumi.Input[str]] = None,
+             glue_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             number_of_nodes: Optional[pulumi.Input[int]] = None,
+             number_of_workers: Optional[pulumi.Input[int]] = None,
+             private_address: Optional[pulumi.Input[str]] = None,
+             public_address: Optional[pulumi.Input[str]] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
+             public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             security_configuration: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             worker_type: Optional[pulumi.Input[str]] = None,
+             yarn_endpoint_address: Optional[pulumi.Input[str]] = None,
+             zeppelin_remote_spark_interpreter_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if extra_jars_s3_path is None and 'extraJarsS3Path' in kwargs:
+            extra_jars_s3_path = kwargs['extraJarsS3Path']
+        if extra_python_libs_s3_path is None and 'extraPythonLibsS3Path' in kwargs:
+            extra_python_libs_s3_path = kwargs['extraPythonLibsS3Path']
+        if failure_reason is None and 'failureReason' in kwargs:
+            failure_reason = kwargs['failureReason']
+        if glue_version is None and 'glueVersion' in kwargs:
+            glue_version = kwargs['glueVersion']
+        if number_of_nodes is None and 'numberOfNodes' in kwargs:
+            number_of_nodes = kwargs['numberOfNodes']
+        if number_of_workers is None and 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if private_address is None and 'privateAddress' in kwargs:
+            private_address = kwargs['privateAddress']
+        if public_address is None and 'publicAddress' in kwargs:
+            public_address = kwargs['publicAddress']
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if public_keys is None and 'publicKeys' in kwargs:
+            public_keys = kwargs['publicKeys']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if security_configuration is None and 'securityConfiguration' in kwargs:
+            security_configuration = kwargs['securityConfiguration']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if worker_type is None and 'workerType' in kwargs:
+            worker_type = kwargs['workerType']
+        if yarn_endpoint_address is None and 'yarnEndpointAddress' in kwargs:
+            yarn_endpoint_address = kwargs['yarnEndpointAddress']
+        if zeppelin_remote_spark_interpreter_port is None and 'zeppelinRemoteSparkInterpreterPort' in kwargs:
+            zeppelin_remote_spark_interpreter_port = kwargs['zeppelinRemoteSparkInterpreterPort']
+
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if extra_jars_s3_path is not None:
-            pulumi.set(__self__, "extra_jars_s3_path", extra_jars_s3_path)
+            _setter("extra_jars_s3_path", extra_jars_s3_path)
         if extra_python_libs_s3_path is not None:
-            pulumi.set(__self__, "extra_python_libs_s3_path", extra_python_libs_s3_path)
+            _setter("extra_python_libs_s3_path", extra_python_libs_s3_path)
         if failure_reason is not None:
-            pulumi.set(__self__, "failure_reason", failure_reason)
+            _setter("failure_reason", failure_reason)
         if glue_version is not None:
-            pulumi.set(__self__, "glue_version", glue_version)
+            _setter("glue_version", glue_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if number_of_nodes is not None:
-            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+            _setter("number_of_nodes", number_of_nodes)
         if number_of_workers is not None:
-            pulumi.set(__self__, "number_of_workers", number_of_workers)
+            _setter("number_of_workers", number_of_workers)
         if private_address is not None:
-            pulumi.set(__self__, "private_address", private_address)
+            _setter("private_address", private_address)
         if public_address is not None:
-            pulumi.set(__self__, "public_address", public_address)
+            _setter("public_address", public_address)
         if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+            _setter("public_key", public_key)
         if public_keys is not None:
-            pulumi.set(__self__, "public_keys", public_keys)
+            _setter("public_keys", public_keys)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if security_configuration is not None:
-            pulumi.set(__self__, "security_configuration", security_configuration)
+            _setter("security_configuration", security_configuration)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
         if worker_type is not None:
-            pulumi.set(__self__, "worker_type", worker_type)
+            _setter("worker_type", worker_type)
         if yarn_endpoint_address is not None:
-            pulumi.set(__self__, "yarn_endpoint_address", yarn_endpoint_address)
+            _setter("yarn_endpoint_address", yarn_endpoint_address)
         if zeppelin_remote_spark_interpreter_port is not None:
-            pulumi.set(__self__, "zeppelin_remote_spark_interpreter_port", zeppelin_remote_spark_interpreter_port)
+            _setter("zeppelin_remote_spark_interpreter_port", zeppelin_remote_spark_interpreter_port)
 
     @property
     @pulumi.getter
@@ -696,28 +860,6 @@ class DevEndpoint(pulumi.CustomResource):
         """
         Provides a Glue Development Endpoint resource.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["glue.amazonaws.com"],
-            )],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=example_policy_document.json)
-        example_dev_endpoint = aws.glue.DevEndpoint("exampleDevEndpoint", role_arn=example_role.arn)
-        example__aws_glue_service_role = aws.iam.RolePolicyAttachment("example-AWSGlueServiceRole",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
-            role=example_role.name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
@@ -753,28 +895,6 @@ class DevEndpoint(pulumi.CustomResource):
         """
         Provides a Glue Development Endpoint resource.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["glue.amazonaws.com"],
-            )],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=example_policy_document.json)
-        example_dev_endpoint = aws.glue.DevEndpoint("exampleDevEndpoint", role_arn=example_role.arn)
-        example__aws_glue_service_role = aws.iam.RolePolicyAttachment("example-AWSGlueServiceRole",
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
-            role=example_role.name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
@@ -793,6 +913,10 @@ class DevEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DevEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

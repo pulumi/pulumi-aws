@@ -11,25 +11,6 @@ namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
     /// Provides an OpsWorks User Profile resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myProfile = new Aws.OpsWorks.UserProfile("myProfile", new()
-    ///     {
-    ///         UserArn = aws_iam_user.User.Arn,
-    ///         SshUsername = "my_user",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/userProfile:UserProfile")]
     public partial class UserProfile : global::Pulumi.CustomResource

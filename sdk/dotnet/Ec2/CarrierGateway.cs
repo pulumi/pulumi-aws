@@ -12,28 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Manages an EC2 Carrier Gateway. See the AWS [documentation](https://docs.aws.amazon.com/vpc/latest/userguide/Carrier_Gateway.html) for more information.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.CarrierGateway("example", new()
-    ///     {
-    ///         VpcId = aws_vpc.Example.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-carrier-gateway" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_carrier_gateway` using the carrier gateway's ID. For example:

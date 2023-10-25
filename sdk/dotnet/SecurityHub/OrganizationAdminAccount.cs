@@ -12,47 +12,6 @@ namespace Pulumi.Aws.SecurityHub
     /// <summary>
     /// Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
-    ///     {
-    ///         AwsServiceAccessPrincipals = new[]
-    ///         {
-    ///             "securityhub.amazonaws.com",
-    ///         },
-    ///         FeatureSet = "ALL",
-    ///     });
-    /// 
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
-    /// 
-    ///     var exampleOrganizationAdminAccount = new Aws.SecurityHub.OrganizationAdminAccount("exampleOrganizationAdminAccount", new()
-    ///     {
-    ///         AdminAccountId = "123456789012",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleOrganization,
-    ///         },
-    ///     });
-    /// 
-    ///     // Auto enable security hub in organization member accounts
-    ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("exampleOrganizationConfiguration", new()
-    ///     {
-    ///         AutoEnable = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:

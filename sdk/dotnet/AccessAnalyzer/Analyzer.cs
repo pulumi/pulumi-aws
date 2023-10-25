@@ -13,55 +13,6 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
     /// 
     /// ## Example Usage
-    /// ### Account Analyzer
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AccessAnalyzer.Analyzer("example", new()
-    ///     {
-    ///         AnalyzerName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Organization Analyzer
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
-    ///     {
-    ///         AwsServiceAccessPrincipals = new[]
-    ///         {
-    ///             "access-analyzer.amazonaws.com",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleAnalyzer = new Aws.AccessAnalyzer.Analyzer("exampleAnalyzer", new()
-    ///     {
-    ///         AnalyzerName = "example",
-    ///         Type = "ORGANIZATION",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleOrganization,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

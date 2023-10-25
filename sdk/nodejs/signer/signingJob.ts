@@ -10,32 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a Signer Signing Job.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testSp = new aws.signer.SigningProfile("testSp", {platformId: "AWSLambda-SHA384-ECDSA"});
- * const buildSigningJob = new aws.signer.SigningJob("buildSigningJob", {
- *     profileName: testSp.name,
- *     source: {
- *         s3: {
- *             bucket: "s3-bucket-name",
- *             key: "object-to-be-signed.zip",
- *             version: "jADjFYYYEXAMPLETszPjOmCMFDzd9dN1",
- *         },
- *     },
- *     destination: {
- *         s3: {
- *             bucket: "s3-bucket-name",
- *             prefix: "signed/",
- *         },
- *     },
- *     ignoreSigningJobFailure: true,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:

@@ -25,15 +25,6 @@ import * as utilities from "../utilities";
  * resource. Ongoing updates to the referenced instance will not be propagated into
  * the generated AMI. Users may taint or otherwise recreate the resource in order
  * to produce a fresh snapshot.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.AmiFromInstance("example", {sourceInstanceId: "i-xxxxxxxx"});
- * ```
  */
 export class AmiFromInstance extends pulumi.CustomResource {
     /**

@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS Managed Streaming for Kafka VPC Connection.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.msk.VpcConnection("test", {
- *     authentication: "SASL_IAM",
- *     targetClusterArn: "aws_msk_cluster.arn",
- *     vpcId: aws_vpc.test.id,
- *     clientSubnets: aws_subnet.test.map(__item => __item.id),
- *     securityGroups: [aws_security_group.test.id],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import MSK configurations using the configuration ARN. For example:

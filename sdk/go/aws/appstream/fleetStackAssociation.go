@@ -15,47 +15,6 @@ import (
 
 // Manages an AppStream Fleet Stack association.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleFleet, err := appstream.NewFleet(ctx, "exampleFleet", &appstream.FleetArgs{
-//				ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-03-11-2023"),
-//				InstanceType: pulumi.String("stream.standard.small"),
-//				ComputeCapacity: &appstream.FleetComputeCapacityArgs{
-//					DesiredInstances: pulumi.Int(1),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleStack, err := appstream.NewStack(ctx, "exampleStack", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appstream.NewFleetStackAssociation(ctx, "exampleFleetStackAssociation", &appstream.FleetStackAssociationArgs{
-//				FleetName: exampleFleet.Name,
-//				StackName: exampleStack.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:

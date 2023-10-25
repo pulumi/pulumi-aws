@@ -12,26 +12,6 @@ namespace Pulumi.Aws.VerifiedAccess
     /// <summary>
     /// Resource for managing a Verified Access Trust Provider.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.TrustProvider("example", new()
-    ///     {
-    ///         PolicyReferenceName = "example",
-    ///         TrustProviderType = "user",
-    ///         UserTrustProviderType = "iam-identity-center",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer Workflows using the

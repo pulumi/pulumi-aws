@@ -13,28 +13,6 @@ namespace Pulumi.Aws.Pinpoint
     /// Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
     /// 
     /// &gt; **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new Aws.Pinpoint.App("app");
-    /// 
-    ///     var channel = new Aws.Pinpoint.AdmChannel("channel", new()
-    ///     {
-    ///         ApplicationId = app.ApplicationId,
-    ///         ClientId = "",
-    ///         ClientSecret = "",
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

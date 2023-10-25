@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetNetworkInsightsPath.Invoke(new()
-        ///     {
-        ///         NetworkInsightsPathId = aws_ec2_network_insights_path.Example.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkInsightsPathResult> InvokeAsync(GetNetworkInsightsPathArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsPathResult>("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args ?? new GetNetworkInsightsPathArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetNetworkInsightsPath.Invoke(new()
-        ///     {
-        ///         NetworkInsightsPathId = aws_ec2_network_insights_path.Example.Id,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkInsightsPathResult> Invoke(GetNetworkInsightsPathInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsPathResult>("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args ?? new GetNetworkInsightsPathInvokeArgs(), options.WithDefaults());

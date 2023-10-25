@@ -16,25 +16,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration, not the `s3` endpoint provider configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.AccountPublicAccessBlock("example", new()
-    ///     {
-    ///         BlockPublicAcls = true,
-    ///         BlockPublicPolicy = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_s3_account_public_access_block` using the AWS account ID. For example:

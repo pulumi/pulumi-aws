@@ -14,28 +14,6 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.MemoryDb.Acl("example", new()
-    ///     {
-    ///         UserNames = new[]
-    ///         {
-    ///             "my-user-1",
-    ///             "my-user-2",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an ACL using the `name`. For example:

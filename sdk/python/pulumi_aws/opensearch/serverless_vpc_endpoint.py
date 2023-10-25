@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,14 +30,43 @@ class ServerlessVpcEndpointArgs:
         :param pulumi.Input[str] name: Name of the interface endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
         """
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        ServerlessVpcEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+            name=name,
+            security_group_ids=security_group_ids,
+            timeouts=timeouts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             timeouts: Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
+        _setter("subnet_ids", subnet_ids)
+        _setter("vpc_id", vpc_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if timeouts is not None:
-            pulumi.set(__self__, "timeouts", timeouts)
+            _setter("timeouts", timeouts)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -116,16 +145,41 @@ class _ServerlessVpcEndpointState:
                
                The following arguments are optional:
         """
+        _ServerlessVpcEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+            timeouts=timeouts,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             timeouts: Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArgs']] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if timeouts is not None:
-            pulumi.set(__self__, "timeouts", timeouts)
+            _setter("timeouts", timeouts)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -202,16 +256,6 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         Resource for managing an AWS OpenSearchServerless VPC Endpoint.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessVpcEndpoint("example",
-            subnet_ids=[aws_subnet["example"]["id"]],
-            vpc_id=aws_vpc["example"]["id"])
-        ```
 
         ## Import
 
@@ -240,16 +284,6 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         Resource for managing an AWS OpenSearchServerless VPC Endpoint.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessVpcEndpoint("example",
-            subnet_ids=[aws_subnet["example"]["id"]],
-            vpc_id=aws_vpc["example"]["id"])
-        ```
 
         ## Import
 
@@ -269,6 +303,10 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerlessVpcEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -293,6 +331,7 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
+            timeouts = _utilities.configure(timeouts, ServerlessVpcEndpointTimeoutsArgs, True)
             __props__.__dict__["timeouts"] = timeouts
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")

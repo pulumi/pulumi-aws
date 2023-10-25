@@ -15,35 +15,6 @@ import (
 
 // Resource for managing an AWS QuickSight Account Subscription.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewAccountSubscription(ctx, "subscription", &quicksight.AccountSubscriptionArgs{
-//				AccountName:          pulumi.String("quicksight-pulumi"),
-//				AuthenticationMethod: pulumi.String("IAM_AND_QUICKSIGHT"),
-//				Edition:              pulumi.String("ENTERPRISE"),
-//				NotificationEmail:    pulumi.String("notification@email.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // You cannot import this resource.

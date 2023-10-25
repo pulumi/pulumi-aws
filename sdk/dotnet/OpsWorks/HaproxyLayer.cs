@@ -11,25 +11,6 @@ namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
     /// Provides an OpsWorks haproxy layer resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lb = new Aws.OpsWorks.HaproxyLayer("lb", new()
-    ///     {
-    ///         StackId = aws_opsworks_stack.Main.Id,
-    ///         StatsPassword = "foobarbaz",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/haproxyLayer:HaproxyLayer")]
     public partial class HaproxyLayer : global::Pulumi.CustomResource

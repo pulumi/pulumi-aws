@@ -7,33 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Backup Region Settings resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.backup.RegionSettings("test", {
- *     resourceTypeManagementPreference: {
- *         DynamoDB: true,
- *         EFS: true,
- *     },
- *     resourceTypeOptInPreference: {
- *         Aurora: true,
- *         DocumentDB: true,
- *         DynamoDB: true,
- *         EBS: true,
- *         EC2: true,
- *         EFS: true,
- *         FSx: true,
- *         Neptune: true,
- *         RDS: true,
- *         "Storage Gateway": true,
- *         VirtualMachine: true,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Backup Region Settings using the `region`. For example:

@@ -12,33 +12,6 @@ namespace Pulumi.Aws.DeviceFarm
     /// <summary>
     /// Provides a resource to manage AWS Device Farm Device Pools.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DeviceFarm.DevicePool("example", new()
-    ///     {
-    ///         ProjectArn = aws_devicefarm_project.Example.Arn,
-    ///         Rules = new[]
-    ///         {
-    ///             new Aws.DeviceFarm.Inputs.DevicePoolRuleArgs
-    ///             {
-    ///                 Attribute = "OS_VERSION",
-    ///                 Operator = "EQUALS",
-    ///                 Value = "\"AVAILABLE\"",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:

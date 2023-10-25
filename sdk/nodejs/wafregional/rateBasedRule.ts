@@ -10,30 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a WAF Rate Based Rule Resource
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ipset = new aws.wafregional.IpSet("ipset", {ipSetDescriptors: [{
- *     type: "IPV4",
- *     value: "192.0.7.0/24",
- * }]});
- * const wafrule = new aws.wafregional.RateBasedRule("wafrule", {
- *     metricName: "tfWAFRule",
- *     rateKey: "IP",
- *     rateLimit: 100,
- *     predicates: [{
- *         dataId: ipset.id,
- *         negated: false,
- *         type: "IPMatch",
- *     }],
- * }, {
- *     dependsOn: [ipset],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import WAF Regional Rate Based Rule using the id. For example:

@@ -13,55 +13,6 @@ import * as utilities from "../utilities";
  * > This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["transcribe.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
- * const testPolicy = new aws.iam.RolePolicy("testPolicy", {
- *     role: exampleRole.id,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: [
- *                 "s3:GetObject",
- *                 "s3:ListBucket",
- *             ],
- *             Effect: "Allow",
- *             Resource: ["*"],
- *         }],
- *     }),
- * });
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const object = new aws.s3.BucketObjectv2("object", {
- *     bucket: exampleBucketV2.id,
- *     key: "transcribe/test1.txt",
- *     source: new pulumi.asset.FileAsset("test1.txt"),
- * });
- * const exampleLanguageModel = new aws.transcribe.LanguageModel("exampleLanguageModel", {
- *     modelName: "example",
- *     baseModelName: "NarrowBand",
- *     inputDataConfig: {
- *         dataAccessRoleArn: exampleRole.arn,
- *         s3Uri: pulumi.interpolate`s3://${exampleBucketV2.id}/transcribe/`,
- *     },
- *     languageCode: "en-US",
- *     tags: {
- *         ENVIRONMENT: "development",
- *     },
- * });
- * ```
  *
  * ## Import
  *

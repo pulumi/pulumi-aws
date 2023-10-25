@@ -17,42 +17,6 @@ namespace Pulumi.Aws.Ec2
     /// resource can also automatically attach the Virtual Private Gateway it creates
     /// to an existing VPC by setting the `vpc_id` attribute accordingly.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var network = new Aws.Ec2.Vpc("network", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var vpn = new Aws.Ec2.VpnGateway("vpn", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-vpn-gateway" },
-    ///         },
-    ///     });
-    /// 
-    ///     var vpnAttachment = new Aws.Ec2.VpnGatewayAttachment("vpnAttachment", new()
-    ///     {
-    ///         VpcId = network.Id,
-    ///         VpnGatewayId = vpn.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
-    /// and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
-    /// guides for more information.
-    /// 
     /// ## Import
     /// 
     /// You cannot import this resource.

@@ -15,32 +15,6 @@ import (
 
 // Provides a CloudWatch RUM App Monitor resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rum"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rum.NewAppMonitor(ctx, "example", &rum.AppMonitorArgs{
-//				Domain: pulumi.String("localhost"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:

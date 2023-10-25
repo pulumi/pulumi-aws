@@ -7,32 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AutoScaling Schedule resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foobarGroup = new aws.autoscaling.Group("foobarGroup", {
- *     availabilityZones: ["us-west-2a"],
- *     maxSize: 1,
- *     minSize: 1,
- *     healthCheckGracePeriod: 300,
- *     healthCheckType: "ELB",
- *     forceDelete: true,
- *     terminationPolicies: ["OldestInstance"],
- * });
- * const foobarSchedule = new aws.autoscaling.Schedule("foobarSchedule", {
- *     scheduledActionName: "foobar",
- *     minSize: 0,
- *     maxSize: 1,
- *     desiredCapacity: 0,
- *     startTime: "2016-12-11T18:00:00Z",
- *     endTime: "2016-12-12T06:00:00Z",
- *     autoscalingGroupName: foobarGroup.name,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IngestionArgs', 'Ingestion']
@@ -27,11 +27,42 @@ class IngestionArgs:
                The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         """
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        pulumi.set(__self__, "ingestion_id", ingestion_id)
-        pulumi.set(__self__, "ingestion_type", ingestion_type)
+        IngestionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_set_id=data_set_id,
+            ingestion_id=ingestion_id,
+            ingestion_type=ingestion_type,
+            aws_account_id=aws_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_set_id: Optional[pulumi.Input[str]] = None,
+             ingestion_id: Optional[pulumi.Input[str]] = None,
+             ingestion_type: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_set_id is None and 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if data_set_id is None:
+            raise TypeError("Missing 'data_set_id' argument")
+        if ingestion_id is None and 'ingestionId' in kwargs:
+            ingestion_id = kwargs['ingestionId']
+        if ingestion_id is None:
+            raise TypeError("Missing 'ingestion_id' argument")
+        if ingestion_type is None and 'ingestionType' in kwargs:
+            ingestion_type = kwargs['ingestionType']
+        if ingestion_type is None:
+            raise TypeError("Missing 'ingestion_type' argument")
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+
+        _setter("data_set_id", data_set_id)
+        _setter("ingestion_id", ingestion_id)
+        _setter("ingestion_type", ingestion_type)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
 
     @property
     @pulumi.getter(name="dataSetId")
@@ -104,18 +135,49 @@ class _IngestionState:
                
                The following arguments are optional:
         """
+        _IngestionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            aws_account_id=aws_account_id,
+            data_set_id=data_set_id,
+            ingestion_id=ingestion_id,
+            ingestion_status=ingestion_status,
+            ingestion_type=ingestion_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             data_set_id: Optional[pulumi.Input[str]] = None,
+             ingestion_id: Optional[pulumi.Input[str]] = None,
+             ingestion_status: Optional[pulumi.Input[str]] = None,
+             ingestion_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if data_set_id is None and 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if ingestion_id is None and 'ingestionId' in kwargs:
+            ingestion_id = kwargs['ingestionId']
+        if ingestion_status is None and 'ingestionStatus' in kwargs:
+            ingestion_status = kwargs['ingestionStatus']
+        if ingestion_type is None and 'ingestionType' in kwargs:
+            ingestion_type = kwargs['ingestionType']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if data_set_id is not None:
-            pulumi.set(__self__, "data_set_id", data_set_id)
+            _setter("data_set_id", data_set_id)
         if ingestion_id is not None:
-            pulumi.set(__self__, "ingestion_id", ingestion_id)
+            _setter("ingestion_id", ingestion_id)
         if ingestion_status is not None:
-            pulumi.set(__self__, "ingestion_status", ingestion_status)
+            _setter("ingestion_status", ingestion_status)
         if ingestion_type is not None:
-            pulumi.set(__self__, "ingestion_type", ingestion_type)
+            _setter("ingestion_type", ingestion_type)
 
     @property
     @pulumi.getter
@@ -206,17 +268,6 @@ class Ingestion(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Ingestion.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Ingestion("example",
-            data_set_id=aws_quicksight_data_set["example"]["data_set_id"],
-            ingestion_id="example-id",
-            ingestion_type="FULL_REFRESH")
-        ```
 
         ## Import
 
@@ -245,17 +296,6 @@ class Ingestion(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Ingestion.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Ingestion("example",
-            data_set_id=aws_quicksight_data_set["example"]["data_set_id"],
-            ingestion_id="example-id",
-            ingestion_type="FULL_REFRESH")
-        ```
 
         ## Import
 
@@ -275,6 +315,10 @@ class Ingestion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IngestionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

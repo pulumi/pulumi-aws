@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ScramSecretAssociationArgs', 'ScramSecretAssociation']
@@ -21,8 +21,29 @@ class ScramSecretAssociationArgs:
         :param pulumi.Input[str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
         """
-        pulumi.set(__self__, "cluster_arn", cluster_arn)
-        pulumi.set(__self__, "secret_arn_lists", secret_arn_lists)
+        ScramSecretAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_arn=cluster_arn,
+            secret_arn_lists=secret_arn_lists,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_arn: Optional[pulumi.Input[str]] = None,
+             secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_arn is None and 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+        if cluster_arn is None:
+            raise TypeError("Missing 'cluster_arn' argument")
+        if secret_arn_lists is None and 'secretArnLists' in kwargs:
+            secret_arn_lists = kwargs['secretArnLists']
+        if secret_arn_lists is None:
+            raise TypeError("Missing 'secret_arn_lists' argument")
+
+        _setter("cluster_arn", cluster_arn)
+        _setter("secret_arn_lists", secret_arn_lists)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -59,10 +80,27 @@ class _ScramSecretAssociationState:
         :param pulumi.Input[str] cluster_arn: Amazon Resource Name (ARN) of the MSK cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secret_arn_lists: List of AWS Secrets Manager secret ARNs.
         """
+        _ScramSecretAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_arn=cluster_arn,
+            secret_arn_lists=secret_arn_lists,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_arn: Optional[pulumi.Input[str]] = None,
+             secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_arn is None and 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+        if secret_arn_lists is None and 'secretArnLists' in kwargs:
+            secret_arn_lists = kwargs['secretArnLists']
+
         if cluster_arn is not None:
-            pulumi.set(__self__, "cluster_arn", cluster_arn)
+            _setter("cluster_arn", cluster_arn)
         if secret_arn_lists is not None:
-            pulumi.set(__self__, "secret_arn_lists", secret_arn_lists)
+            _setter("secret_arn_lists", secret_arn_lists)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -110,45 +148,6 @@ class ScramSecretAssociation(pulumi.CustomResource):
         however, this policy will not be in the state and as such, will present a diff on plan/apply. For that reason, you must use the `secretsmanager.SecretPolicy`
         resource](/docs/providers/aws/r/secretsmanager_secret_policy.html) as shown below in order to ensure that the state is in a clean state after the creation of secret and the association to the cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_cluster = aws.msk.Cluster("exampleCluster", client_authentication=aws.msk.ClusterClientAuthenticationArgs(
-            sasl=aws.msk.ClusterClientAuthenticationSaslArgs(
-                scram=True,
-            ),
-        ))
-        example_key = aws.kms.Key("exampleKey", description="Example Key for MSK Cluster Scram Secret Association")
-        example_secret = aws.secretsmanager.Secret("exampleSecret", kms_key_id=example_key.key_id)
-        example_secret_version = aws.secretsmanager.SecretVersion("exampleSecretVersion",
-            secret_id=example_secret.id,
-            secret_string=json.dumps({
-                "username": "user",
-                "password": "pass",
-            }))
-        example_scram_secret_association = aws.msk.ScramSecretAssociation("exampleScramSecretAssociation",
-            cluster_arn=example_cluster.arn,
-            secret_arn_lists=[example_secret.arn],
-            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="AWSKafkaResourcePolicy",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["kafka.amazonaws.com"],
-            )],
-            actions=["secretsmanager:getSecretValue"],
-            resources=[example_secret.arn],
-        )])
-        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
-            secret_arn=example_secret.arn,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
@@ -181,45 +180,6 @@ class ScramSecretAssociation(pulumi.CustomResource):
         however, this policy will not be in the state and as such, will present a diff on plan/apply. For that reason, you must use the `secretsmanager.SecretPolicy`
         resource](/docs/providers/aws/r/secretsmanager_secret_policy.html) as shown below in order to ensure that the state is in a clean state after the creation of secret and the association to the cluster.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_cluster = aws.msk.Cluster("exampleCluster", client_authentication=aws.msk.ClusterClientAuthenticationArgs(
-            sasl=aws.msk.ClusterClientAuthenticationSaslArgs(
-                scram=True,
-            ),
-        ))
-        example_key = aws.kms.Key("exampleKey", description="Example Key for MSK Cluster Scram Secret Association")
-        example_secret = aws.secretsmanager.Secret("exampleSecret", kms_key_id=example_key.key_id)
-        example_secret_version = aws.secretsmanager.SecretVersion("exampleSecretVersion",
-            secret_id=example_secret.id,
-            secret_string=json.dumps({
-                "username": "user",
-                "password": "pass",
-            }))
-        example_scram_secret_association = aws.msk.ScramSecretAssociation("exampleScramSecretAssociation",
-            cluster_arn=example_cluster.arn,
-            secret_arn_lists=[example_secret.arn],
-            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="AWSKafkaResourcePolicy",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["kafka.amazonaws.com"],
-            )],
-            actions=["secretsmanager:getSecretValue"],
-            resources=[example_secret.arn],
-        )])
-        example_secret_policy = aws.secretsmanager.SecretPolicy("exampleSecretPolicy",
-            secret_arn=example_secret.arn,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
@@ -238,6 +198,10 @@ class ScramSecretAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScramSecretAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

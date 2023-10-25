@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  * Provides a resource to manage an S3 Object Lambda Access Point.
  * An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucketV2.id});
- * const exampleObjectLambdaAccessPoint = new aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", {configuration: {
- *     supportingAccessPoint: exampleAccessPoint.arn,
- *     transformationConfigurations: [{
- *         actions: ["GetObject"],
- *         contentTransformation: {
- *             awsLambda: {
- *                 functionArn: aws_lambda_function.example.arn,
- *             },
- *         },
- *     }],
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For example:

@@ -12,36 +12,6 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides an API Gateway Gateway Response for a REST API Gateway.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.ApiGateway.RestApi("main");
-    /// 
-    ///     var test = new Aws.ApiGateway.Response("test", new()
-    ///     {
-    ///         RestApiId = main.Id,
-    ///         StatusCode = "401",
-    ///         ResponseType = "UNAUTHORIZED",
-    ///         ResponseTemplates = 
-    ///         {
-    ///             { "application/json", "{\"message\":$context.error.messageString}" },
-    ///         },
-    ///         ResponseParameters = 
-    ///         {
-    ///             { "gatewayresponse.header.Authorization", "'Basic'" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:

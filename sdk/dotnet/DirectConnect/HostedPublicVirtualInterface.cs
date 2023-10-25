@@ -13,34 +13,6 @@ namespace Pulumi.Aws.DirectConnect
     /// Provides a Direct Connect hosted public virtual interface resource. This resource represents the allocator's side of the hosted virtual interface.
     /// A hosted virtual interface is a virtual interface that is owned by another AWS account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.DirectConnect.HostedPublicVirtualInterface("foo", new()
-    ///     {
-    ///         AddressFamily = "ipv4",
-    ///         AmazonAddress = "175.45.176.2/30",
-    ///         BgpAsn = 65352,
-    ///         ConnectionId = "dxcon-zzzzzzzz",
-    ///         CustomerAddress = "175.45.176.1/30",
-    ///         RouteFilterPrefixes = new[]
-    ///         {
-    ///             "210.52.109.0/24",
-    ///             "175.45.176.0/22",
-    ///         },
-    ///         Vlan = 4094,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:

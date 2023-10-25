@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -82,15 +82,6 @@ def get_log_groups(log_group_name_prefix: Optional[str] = None,
     """
     Use this data source to get a list of AWS Cloudwatch Log Groups
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_log_groups(log_group_name_prefix="/MyImportantLogs")
-    ```
-
 
     :param str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list
     """
@@ -111,15 +102,6 @@ def get_log_groups_output(log_group_name_prefix: Optional[pulumi.Input[Optional[
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogGroupsResult]:
     """
     Use this data source to get a list of AWS Cloudwatch Log Groups
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_log_groups(log_group_name_prefix="/MyImportantLogs")
-    ```
 
 
     :param str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list

@@ -7,24 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a ApplicationInsights Application resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGroup = new aws.resourcegroups.Group("exampleGroup", {resourceQuery: {
- *     query: JSON.stringify({
- *         ResourceTypeFilters: ["AWS::EC2::Instance"],
- *         TagFilters: [{
- *             Key: "Stage",
- *             Values: ["Test"],
- *         }],
- *     }),
- * }});
- * const exampleApplication = new aws.applicationinsights.Application("exampleApplication", {resourceGroupName: exampleGroup.name});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:

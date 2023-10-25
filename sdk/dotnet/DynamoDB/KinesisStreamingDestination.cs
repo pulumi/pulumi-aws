@@ -12,43 +12,6 @@ namespace Pulumi.Aws.DynamoDB
     /// <summary>
     /// Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
-    ///     {
-    ///         HashKey = "id",
-    ///         Attributes = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///             {
-    ///                 Name = "id",
-    ///                 Type = "S",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
-    ///     {
-    ///         ShardCount = 1,
-    ///     });
-    /// 
-    ///     var exampleKinesisStreamingDestination = new Aws.DynamoDB.KinesisStreamingDestination("exampleKinesisStreamingDestination", new()
-    ///     {
-    ///         StreamArn = exampleStream.Arn,
-    ///         TableName = exampleTable.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For example:

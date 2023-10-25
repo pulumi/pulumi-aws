@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -55,23 +55,74 @@ class EntityRecognizerArgs:
         :param pulumi.Input['EntityRecognizerVpcConfigArgs'] vpc_config: Configuration parameters for VPC to contain Entity Recognizer resources.
                See the `vpc_config` Configuration Block section below.
         """
-        pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
-        pulumi.set(__self__, "input_data_config", input_data_config)
-        pulumi.set(__self__, "language_code", language_code)
+        EntityRecognizerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_access_role_arn=data_access_role_arn,
+            input_data_config=input_data_config,
+            language_code=language_code,
+            model_kms_key_id=model_kms_key_id,
+            name=name,
+            tags=tags,
+            version_name=version_name,
+            version_name_prefix=version_name_prefix,
+            volume_kms_key_id=volume_kms_key_id,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_access_role_arn: Optional[pulumi.Input[str]] = None,
+             input_data_config: Optional[pulumi.Input['EntityRecognizerInputDataConfigArgs']] = None,
+             language_code: Optional[pulumi.Input[str]] = None,
+             model_kms_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version_name: Optional[pulumi.Input[str]] = None,
+             version_name_prefix: Optional[pulumi.Input[str]] = None,
+             volume_kms_key_id: Optional[pulumi.Input[str]] = None,
+             vpc_config: Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_access_role_arn is None and 'dataAccessRoleArn' in kwargs:
+            data_access_role_arn = kwargs['dataAccessRoleArn']
+        if data_access_role_arn is None:
+            raise TypeError("Missing 'data_access_role_arn' argument")
+        if input_data_config is None and 'inputDataConfig' in kwargs:
+            input_data_config = kwargs['inputDataConfig']
+        if input_data_config is None:
+            raise TypeError("Missing 'input_data_config' argument")
+        if language_code is None and 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if language_code is None:
+            raise TypeError("Missing 'language_code' argument")
+        if model_kms_key_id is None and 'modelKmsKeyId' in kwargs:
+            model_kms_key_id = kwargs['modelKmsKeyId']
+        if version_name is None and 'versionName' in kwargs:
+            version_name = kwargs['versionName']
+        if version_name_prefix is None and 'versionNamePrefix' in kwargs:
+            version_name_prefix = kwargs['versionNamePrefix']
+        if volume_kms_key_id is None and 'volumeKmsKeyId' in kwargs:
+            volume_kms_key_id = kwargs['volumeKmsKeyId']
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
+        _setter("data_access_role_arn", data_access_role_arn)
+        _setter("input_data_config", input_data_config)
+        _setter("language_code", language_code)
         if model_kms_key_id is not None:
-            pulumi.set(__self__, "model_kms_key_id", model_kms_key_id)
+            _setter("model_kms_key_id", model_kms_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version_name is not None:
-            pulumi.set(__self__, "version_name", version_name)
+            _setter("version_name", version_name)
         if version_name_prefix is not None:
-            pulumi.set(__self__, "version_name_prefix", version_name_prefix)
+            _setter("version_name_prefix", version_name_prefix)
         if volume_kms_key_id is not None:
-            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+            _setter("volume_kms_key_id", volume_kms_key_id)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="dataAccessRoleArn")
@@ -256,33 +307,84 @@ class _EntityRecognizerState:
         :param pulumi.Input['EntityRecognizerVpcConfigArgs'] vpc_config: Configuration parameters for VPC to contain Entity Recognizer resources.
                See the `vpc_config` Configuration Block section below.
         """
+        _EntityRecognizerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            data_access_role_arn=data_access_role_arn,
+            input_data_config=input_data_config,
+            language_code=language_code,
+            model_kms_key_id=model_kms_key_id,
+            name=name,
+            tags=tags,
+            tags_all=tags_all,
+            version_name=version_name,
+            version_name_prefix=version_name_prefix,
+            volume_kms_key_id=volume_kms_key_id,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             data_access_role_arn: Optional[pulumi.Input[str]] = None,
+             input_data_config: Optional[pulumi.Input['EntityRecognizerInputDataConfigArgs']] = None,
+             language_code: Optional[pulumi.Input[str]] = None,
+             model_kms_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version_name: Optional[pulumi.Input[str]] = None,
+             version_name_prefix: Optional[pulumi.Input[str]] = None,
+             volume_kms_key_id: Optional[pulumi.Input[str]] = None,
+             vpc_config: Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_access_role_arn is None and 'dataAccessRoleArn' in kwargs:
+            data_access_role_arn = kwargs['dataAccessRoleArn']
+        if input_data_config is None and 'inputDataConfig' in kwargs:
+            input_data_config = kwargs['inputDataConfig']
+        if language_code is None and 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if model_kms_key_id is None and 'modelKmsKeyId' in kwargs:
+            model_kms_key_id = kwargs['modelKmsKeyId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if version_name is None and 'versionName' in kwargs:
+            version_name = kwargs['versionName']
+        if version_name_prefix is None and 'versionNamePrefix' in kwargs:
+            version_name_prefix = kwargs['versionNamePrefix']
+        if volume_kms_key_id is None and 'volumeKmsKeyId' in kwargs:
+            volume_kms_key_id = kwargs['volumeKmsKeyId']
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if data_access_role_arn is not None:
-            pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
+            _setter("data_access_role_arn", data_access_role_arn)
         if input_data_config is not None:
-            pulumi.set(__self__, "input_data_config", input_data_config)
+            _setter("input_data_config", input_data_config)
         if language_code is not None:
-            pulumi.set(__self__, "language_code", language_code)
+            _setter("language_code", language_code)
         if model_kms_key_id is not None:
-            pulumi.set(__self__, "model_kms_key_id", model_kms_key_id)
+            _setter("model_kms_key_id", model_kms_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if version_name is not None:
-            pulumi.set(__self__, "version_name", version_name)
+            _setter("version_name", version_name)
         if version_name_prefix is not None:
-            pulumi.set(__self__, "version_name_prefix", version_name_prefix)
+            _setter("version_name_prefix", version_name_prefix)
         if volume_kms_key_id is not None:
-            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+            _setter("volume_kms_key_id", volume_kms_key_id)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter
@@ -468,37 +570,6 @@ class EntityRecognizer(pulumi.CustomResource):
         Resource for managing an AWS Comprehend Entity Recognizer.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        documents = aws.s3.BucketObjectv2("documents")
-        # ...
-        entities = aws.s3.BucketObjectv2("entities")
-        # ...
-        example = aws.comprehend.EntityRecognizer("example",
-            data_access_role_arn=aws_iam_role["example"]["arn"],
-            language_code="en",
-            input_data_config=aws.comprehend.EntityRecognizerInputDataConfigArgs(
-                entity_types=[
-                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArgs(
-                        type="ENTITY_1",
-                    ),
-                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArgs(
-                        type="ENTITY_2",
-                    ),
-                ],
-                documents=aws.comprehend.EntityRecognizerInputDataConfigDocumentsArgs(
-                    s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['documents']['bucket']}/{id}"),
-                ),
-                entity_list=aws.comprehend.EntityRecognizerInputDataConfigEntityListArgs(
-                    s3_uri=entities.id.apply(lambda id: f"s3://{aws_s3_bucket['entities']['bucket']}/{id}"),
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
-        ```
 
         ## Import
 
@@ -547,37 +618,6 @@ class EntityRecognizer(pulumi.CustomResource):
         Resource for managing an AWS Comprehend Entity Recognizer.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        documents = aws.s3.BucketObjectv2("documents")
-        # ...
-        entities = aws.s3.BucketObjectv2("entities")
-        # ...
-        example = aws.comprehend.EntityRecognizer("example",
-            data_access_role_arn=aws_iam_role["example"]["arn"],
-            language_code="en",
-            input_data_config=aws.comprehend.EntityRecognizerInputDataConfigArgs(
-                entity_types=[
-                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArgs(
-                        type="ENTITY_1",
-                    ),
-                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArgs(
-                        type="ENTITY_2",
-                    ),
-                ],
-                documents=aws.comprehend.EntityRecognizerInputDataConfigDocumentsArgs(
-                    s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['documents']['bucket']}/{id}"),
-                ),
-                entity_list=aws.comprehend.EntityRecognizerInputDataConfigEntityListArgs(
-                    s3_uri=entities.id.apply(lambda id: f"s3://{aws_s3_bucket['entities']['bucket']}/{id}"),
-                ),
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
-        ```
 
         ## Import
 
@@ -597,6 +637,10 @@ class EntityRecognizer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EntityRecognizerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -624,6 +668,7 @@ class EntityRecognizer(pulumi.CustomResource):
             if data_access_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'data_access_role_arn'")
             __props__.__dict__["data_access_role_arn"] = data_access_role_arn
+            input_data_config = _utilities.configure(input_data_config, EntityRecognizerInputDataConfigArgs, True)
             if input_data_config is None and not opts.urn:
                 raise TypeError("Missing required property 'input_data_config'")
             __props__.__dict__["input_data_config"] = input_data_config
@@ -636,6 +681,7 @@ class EntityRecognizer(pulumi.CustomResource):
             __props__.__dict__["version_name"] = version_name
             __props__.__dict__["version_name_prefix"] = version_name_prefix
             __props__.__dict__["volume_kms_key_id"] = volume_kms_key_id
+            vpc_config = _utilities.configure(vpc_config, EntityRecognizerVpcConfigArgs, True)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None

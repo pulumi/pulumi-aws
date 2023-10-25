@@ -13,59 +13,6 @@ namespace Pulumi.Aws.SsmContacts
     /// Resource for managing an AWS SSM Contact.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SsmContacts.Contact("example", new()
-    ///     {
-    ///         Alias = "alias",
-    ///         Type = "PERSONAL",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Usage With All Fields
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SsmContacts.Contact("example", new()
-    ///     {
-    ///         Alias = "alias",
-    ///         DisplayName = "displayName",
-    ///         Type = "ESCALATION",
-    ///         Tags = 
-    ///         {
-    ///             { "key", "value" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_ssmincidents_replication_set.Example,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

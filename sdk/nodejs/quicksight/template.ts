@@ -11,22 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing a QuickSight Template.
  *
  * ## Example Usage
- * ### From Source Template
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.Template("example", {
- *     templateId: "example-id",
- *     versionDescription: "version",
- *     sourceEntity: {
- *         sourceTemplate: {
- *             arn: aws_quicksight_template.source.arn,
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

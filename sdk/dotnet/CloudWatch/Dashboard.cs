@@ -12,68 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a CloudWatch Dashboard resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.CloudWatch.Dashboard("main", new()
-    ///     {
-    ///         DashboardName = "my-dashboard",
-    ///         DashboardBody = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["widgets"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["type"] = "metric",
-    ///                     ["x"] = 0,
-    ///                     ["y"] = 0,
-    ///                     ["width"] = 12,
-    ///                     ["height"] = 6,
-    ///                     ["properties"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["metrics"] = new[]
-    ///                         {
-    ///                             new[]
-    ///                             {
-    ///                                 "AWS/EC2",
-    ///                                 "CPUUtilization",
-    ///                                 "InstanceId",
-    ///                                 "i-012345",
-    ///                             },
-    ///                         },
-    ///                         ["period"] = 300,
-    ///                         ["stat"] = "Average",
-    ///                         ["region"] = "us-east-1",
-    ///                         ["title"] = "EC2 Instance CPU",
-    ///                     },
-    ///                 },
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["type"] = "text",
-    ///                     ["x"] = 0,
-    ///                     ["y"] = 7,
-    ///                     ["width"] = 3,
-    ///                     ["height"] = 3,
-    ///                     ["properties"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["markdown"] = "Hello world",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:

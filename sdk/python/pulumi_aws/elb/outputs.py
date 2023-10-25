@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -50,13 +50,34 @@ class LoadBalancerAccessLogs(dict):
         :param bool enabled: Boolean to enable / disable `access_logs`. Default is `true`
         :param int interval: The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
         """
-        pulumi.set(__self__, "bucket", bucket)
+        LoadBalancerAccessLogs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            bucket_prefix=bucket_prefix,
+            enabled=enabled,
+            interval=interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+
+        _setter("bucket", bucket)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
 
     @property
     @pulumi.getter
@@ -126,11 +147,44 @@ class LoadBalancerHealthCheck(dict):
         :param int timeout: The length of time before the check times out.
         :param int unhealthy_threshold: The number of checks before the instance is declared unhealthy.
         """
-        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
-        pulumi.set(__self__, "interval", interval)
-        pulumi.set(__self__, "target", target)
-        pulumi.set(__self__, "timeout", timeout)
-        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+        LoadBalancerHealthCheck._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            healthy_threshold=healthy_threshold,
+            interval=interval,
+            target=target,
+            timeout=timeout,
+            unhealthy_threshold=unhealthy_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             healthy_threshold: Optional[int] = None,
+             interval: Optional[int] = None,
+             target: Optional[str] = None,
+             timeout: Optional[int] = None,
+             unhealthy_threshold: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if healthy_threshold is None and 'healthyThreshold' in kwargs:
+            healthy_threshold = kwargs['healthyThreshold']
+        if healthy_threshold is None:
+            raise TypeError("Missing 'healthy_threshold' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if timeout is None:
+            raise TypeError("Missing 'timeout' argument")
+        if unhealthy_threshold is None and 'unhealthyThreshold' in kwargs:
+            unhealthy_threshold = kwargs['unhealthyThreshold']
+        if unhealthy_threshold is None:
+            raise TypeError("Missing 'unhealthy_threshold' argument")
+
+        _setter("healthy_threshold", healthy_threshold)
+        _setter("interval", interval)
+        _setter("target", target)
+        _setter("timeout", timeout)
+        _setter("unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -217,12 +271,49 @@ class LoadBalancerListener(dict):
         :param str ssl_certificate_id: The ARN of an SSL certificate you have
                uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
         """
-        pulumi.set(__self__, "instance_port", instance_port)
-        pulumi.set(__self__, "instance_protocol", instance_protocol)
-        pulumi.set(__self__, "lb_port", lb_port)
-        pulumi.set(__self__, "lb_protocol", lb_protocol)
+        LoadBalancerListener._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_port=instance_port,
+            instance_protocol=instance_protocol,
+            lb_port=lb_port,
+            lb_protocol=lb_protocol,
+            ssl_certificate_id=ssl_certificate_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_port: Optional[int] = None,
+             instance_protocol: Optional[str] = None,
+             lb_port: Optional[int] = None,
+             lb_protocol: Optional[str] = None,
+             ssl_certificate_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_port is None and 'instancePort' in kwargs:
+            instance_port = kwargs['instancePort']
+        if instance_port is None:
+            raise TypeError("Missing 'instance_port' argument")
+        if instance_protocol is None and 'instanceProtocol' in kwargs:
+            instance_protocol = kwargs['instanceProtocol']
+        if instance_protocol is None:
+            raise TypeError("Missing 'instance_protocol' argument")
+        if lb_port is None and 'lbPort' in kwargs:
+            lb_port = kwargs['lbPort']
+        if lb_port is None:
+            raise TypeError("Missing 'lb_port' argument")
+        if lb_protocol is None and 'lbProtocol' in kwargs:
+            lb_protocol = kwargs['lbProtocol']
+        if lb_protocol is None:
+            raise TypeError("Missing 'lb_protocol' argument")
+        if ssl_certificate_id is None and 'sslCertificateId' in kwargs:
+            ssl_certificate_id = kwargs['sslCertificateId']
+
+        _setter("instance_port", instance_port)
+        _setter("instance_protocol", instance_protocol)
+        _setter("lb_port", lb_port)
+        _setter("lb_protocol", lb_protocol)
         if ssl_certificate_id is not None:
-            pulumi.set(__self__, "ssl_certificate_id", ssl_certificate_id)
+            _setter("ssl_certificate_id", ssl_certificate_id)
 
     @property
     @pulumi.getter(name="instancePort")
@@ -273,10 +364,23 @@ class LoadBalancerPolicyPolicyAttribute(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
+        LoadBalancerPolicyPolicyAttribute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -298,8 +402,25 @@ class SslNegotiationPolicyAttribute(dict):
         :param str name: The name of the attribute
         :param str value: The value of the attribute
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        SslNegotiationPolicyAttribute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -325,10 +446,37 @@ class GetLoadBalancerAccessLogsResult(dict):
                  bucket_prefix: str,
                  enabled: bool,
                  interval: int):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "bucket_prefix", bucket_prefix)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "interval", interval)
+        GetLoadBalancerAccessLogsResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            bucket_prefix=bucket_prefix,
+            enabled=enabled,
+            interval=interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if bucket_prefix is None:
+            raise TypeError("Missing 'bucket_prefix' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+
+        _setter("bucket", bucket)
+        _setter("bucket_prefix", bucket_prefix)
+        _setter("enabled", enabled)
+        _setter("interval", interval)
 
     @property
     @pulumi.getter
@@ -359,11 +507,44 @@ class GetLoadBalancerHealthCheckResult(dict):
                  target: str,
                  timeout: int,
                  unhealthy_threshold: int):
-        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
-        pulumi.set(__self__, "interval", interval)
-        pulumi.set(__self__, "target", target)
-        pulumi.set(__self__, "timeout", timeout)
-        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+        GetLoadBalancerHealthCheckResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            healthy_threshold=healthy_threshold,
+            interval=interval,
+            target=target,
+            timeout=timeout,
+            unhealthy_threshold=unhealthy_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             healthy_threshold: Optional[int] = None,
+             interval: Optional[int] = None,
+             target: Optional[str] = None,
+             timeout: Optional[int] = None,
+             unhealthy_threshold: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if healthy_threshold is None and 'healthyThreshold' in kwargs:
+            healthy_threshold = kwargs['healthyThreshold']
+        if healthy_threshold is None:
+            raise TypeError("Missing 'healthy_threshold' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if timeout is None:
+            raise TypeError("Missing 'timeout' argument")
+        if unhealthy_threshold is None and 'unhealthyThreshold' in kwargs:
+            unhealthy_threshold = kwargs['unhealthyThreshold']
+        if unhealthy_threshold is None:
+            raise TypeError("Missing 'unhealthy_threshold' argument")
+
+        _setter("healthy_threshold", healthy_threshold)
+        _setter("interval", interval)
+        _setter("target", target)
+        _setter("timeout", timeout)
+        _setter("unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -399,11 +580,50 @@ class GetLoadBalancerListenerResult(dict):
                  lb_port: int,
                  lb_protocol: str,
                  ssl_certificate_id: str):
-        pulumi.set(__self__, "instance_port", instance_port)
-        pulumi.set(__self__, "instance_protocol", instance_protocol)
-        pulumi.set(__self__, "lb_port", lb_port)
-        pulumi.set(__self__, "lb_protocol", lb_protocol)
-        pulumi.set(__self__, "ssl_certificate_id", ssl_certificate_id)
+        GetLoadBalancerListenerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_port=instance_port,
+            instance_protocol=instance_protocol,
+            lb_port=lb_port,
+            lb_protocol=lb_protocol,
+            ssl_certificate_id=ssl_certificate_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_port: Optional[int] = None,
+             instance_protocol: Optional[str] = None,
+             lb_port: Optional[int] = None,
+             lb_protocol: Optional[str] = None,
+             ssl_certificate_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_port is None and 'instancePort' in kwargs:
+            instance_port = kwargs['instancePort']
+        if instance_port is None:
+            raise TypeError("Missing 'instance_port' argument")
+        if instance_protocol is None and 'instanceProtocol' in kwargs:
+            instance_protocol = kwargs['instanceProtocol']
+        if instance_protocol is None:
+            raise TypeError("Missing 'instance_protocol' argument")
+        if lb_port is None and 'lbPort' in kwargs:
+            lb_port = kwargs['lbPort']
+        if lb_port is None:
+            raise TypeError("Missing 'lb_port' argument")
+        if lb_protocol is None and 'lbProtocol' in kwargs:
+            lb_protocol = kwargs['lbProtocol']
+        if lb_protocol is None:
+            raise TypeError("Missing 'lb_protocol' argument")
+        if ssl_certificate_id is None and 'sslCertificateId' in kwargs:
+            ssl_certificate_id = kwargs['sslCertificateId']
+        if ssl_certificate_id is None:
+            raise TypeError("Missing 'ssl_certificate_id' argument")
+
+        _setter("instance_port", instance_port)
+        _setter("instance_protocol", instance_protocol)
+        _setter("lb_port", lb_port)
+        _setter("lb_protocol", lb_protocol)
+        _setter("ssl_certificate_id", ssl_certificate_id)
 
     @property
     @pulumi.getter(name="instancePort")

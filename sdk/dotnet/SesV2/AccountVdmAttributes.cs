@@ -13,31 +13,6 @@ namespace Pulumi.Aws.SesV2
     /// Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SesV2.AccountVdmAttributes("example", new()
-    ///     {
-    ///         DashboardAttributes = new Aws.SesV2.Inputs.AccountVdmAttributesDashboardAttributesArgs
-    ///         {
-    ///             EngagementMetrics = "ENABLED",
-    ///         },
-    ///         GuardianAttributes = new Aws.SesV2.Inputs.AccountVdmAttributesGuardianAttributesArgs
-    ///         {
-    ///             OptimizedSharedDelivery = "ENABLED",
-    ///         },
-    ///         VdmEnabled = "ENABLED",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

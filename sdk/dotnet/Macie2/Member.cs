@@ -12,36 +12,6 @@ namespace Pulumi.Aws.Macie2
     /// <summary>
     /// Provides a resource to manage an [Amazon Macie Member](https://docs.aws.amazon.com/macie/latest/APIReference/members-id.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAccount = new Aws.Macie2.Account("exampleAccount");
-    /// 
-    ///     var exampleMember = new Aws.Macie2.Member("exampleMember", new()
-    ///     {
-    ///         AccountId = "AWS ACCOUNT ID",
-    ///         Email = "EMAIL",
-    ///         Invite = true,
-    ///         InvitationMessage = "Message of the invitation",
-    ///         InvitationDisableEmailNotification = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:

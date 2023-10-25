@@ -9,40 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testRegistry = new aws.schemas.Registry("testRegistry", {});
- * const testSchema = new aws.schemas.Schema("testSchema", {
- *     registryName: testRegistry.name,
- *     type: "OpenApi3",
- *     description: "The schema definition for my event",
- *     content: JSON.stringify({
- *         openapi: "3.0.0",
- *         info: {
- *             version: "1.0.0",
- *             title: "Event",
- *         },
- *         paths: {},
- *         components: {
- *             schemas: {
- *                 Event: {
- *                     type: "object",
- *                     properties: {
- *                         name: {
- *                             type: "string",
- *                         },
- *                     },
- *                 },
- *             },
- *         },
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:

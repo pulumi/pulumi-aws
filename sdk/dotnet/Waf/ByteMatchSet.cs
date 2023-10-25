@@ -12,37 +12,6 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF Byte Match Set Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var byteSet = new Aws.Waf.ByteMatchSet("byteSet", new()
-    ///     {
-    ///         ByteMatchTuples = new[]
-    ///         {
-    ///             new Aws.Waf.Inputs.ByteMatchSetByteMatchTupleArgs
-    ///             {
-    ///                 FieldToMatch = new Aws.Waf.Inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs
-    ///                 {
-    ///                     Data = "referer",
-    ///                     Type = "HEADER",
-    ///                 },
-    ///                 PositionalConstraint = "CONTAINS",
-    ///                 TargetString = "badrefer1",
-    ///                 TextTransformation = "NONE",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Byte Match Set using the id. For example:

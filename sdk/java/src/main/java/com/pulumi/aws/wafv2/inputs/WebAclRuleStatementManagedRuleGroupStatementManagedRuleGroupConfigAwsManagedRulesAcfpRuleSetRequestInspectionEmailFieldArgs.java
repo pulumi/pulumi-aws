@@ -14,14 +14,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs();
 
     /**
-     * The name of the password field.
+     * The identifier for the value to match against in the JSON.
      * 
      */
     @Import(name="identifier", required=true)
     private Output<String> identifier;
 
     /**
-     * @return The name of the password field.
+     * @return The identifier for the value to match against in the JSON.
      * 
      */
     public Output<String> identifier() {
@@ -53,7 +53,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param identifier The name of the password field.
+         * @param identifier The identifier for the value to match against in the JSON.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param identifier The name of the password field.
+         * @param identifier The identifier for the value to match against in the JSON.
          * 
          * @return builder
          * 

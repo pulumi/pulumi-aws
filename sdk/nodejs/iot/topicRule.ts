@@ -8,56 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mytopic = new aws.sns.Topic("mytopic", {});
- * const myerrortopic = new aws.sns.Topic("myerrortopic", {});
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["iot.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const rule = new aws.iot.TopicRule("rule", {
- *     description: "Example rule",
- *     enabled: true,
- *     sql: "SELECT * FROM 'topic/test'",
- *     sqlVersion: "2016-03-23",
- *     sns: [{
- *         messageFormat: "RAW",
- *         roleArn: role.arn,
- *         targetArn: mytopic.arn,
- *     }],
- *     errorAction: {
- *         sns: {
- *             messageFormat: "RAW",
- *             roleArn: role.arn,
- *             targetArn: myerrortopic.arn,
- *         },
- *     },
- * });
- * const iamPolicyForLambdaPolicyDocument = mytopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["sns:Publish"],
- *         resources: [arn],
- *     }],
- * }));
- * const iamPolicyForLambdaRolePolicy = new aws.iam.RolePolicy("iamPolicyForLambdaRolePolicy", {
- *     role: role.id,
- *     policy: iamPolicyForLambdaPolicyDocument.apply(iamPolicyForLambdaPolicyDocument => iamPolicyForLambdaPolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IoT Topic Rules using the `name`. For example:

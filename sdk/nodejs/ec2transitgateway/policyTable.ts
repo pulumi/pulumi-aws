@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an EC2 Transit Gateway Policy Table.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.PolicyTable("example", {
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
- *     tags: {
- *         Name: "Example Policy Table",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table` using the EC2 Transit Gateway Policy Table identifier. For example:

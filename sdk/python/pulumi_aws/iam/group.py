@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupArgs', 'Group']
@@ -21,10 +21,23 @@ class GroupArgs:
         :param pulumi.Input[str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
         :param pulumi.Input[str] path: Path in which to create the group.
         """
+        GroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -65,14 +78,33 @@ class _GroupState:
         :param pulumi.Input[str] path: Path in which to create the group.
         :param pulumi.Input[str] unique_id: The [unique ID][1] assigned by AWS.
         """
+        _GroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            name=name,
+            path=path,
+            unique_id=unique_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             unique_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if unique_id is None and 'uniqueId' in kwargs:
+            unique_id = kwargs['uniqueId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if unique_id is not None:
-            pulumi.set(__self__, "unique_id", unique_id)
+            _setter("unique_id", unique_id)
 
     @property
     @pulumi.getter
@@ -136,15 +168,6 @@ class Group(pulumi.CustomResource):
 
         > **NOTE on user management:** Using `iam.GroupMembership` or `iam.UserGroupMembership` resources in addition to manually managing user/group membership using the console may lead to configuration drift or conflicts. For this reason, it's recommended to either manage membership entirely with the provider or entirely within the AWS console.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        developers = aws.iam.Group("developers", path="/users/")
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM Groups using the `name`. For example:
@@ -169,15 +192,6 @@ class Group(pulumi.CustomResource):
 
         > **NOTE on user management:** Using `iam.GroupMembership` or `iam.UserGroupMembership` resources in addition to manually managing user/group membership using the console may lead to configuration drift or conflicts. For this reason, it's recommended to either manage membership entirely with the provider or entirely within the AWS console.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        developers = aws.iam.Group("developers", path="/users/")
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM Groups using the `name`. For example:
@@ -196,6 +210,10 @@ class Group(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

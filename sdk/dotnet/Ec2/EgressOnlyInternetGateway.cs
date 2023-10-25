@@ -15,34 +15,6 @@ namespace Pulumi.Aws.Ec2
     /// over IPv6 from instances in your VPC to the Internet, and prevents hosts
     /// outside of your VPC from initiating an IPv6 connection with your instance.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
-    ///     {
-    ///         CidrBlock = "10.1.0.0/16",
-    ///         AssignGeneratedIpv6CidrBlock = true,
-    ///     });
-    /// 
-    ///     var exampleEgressOnlyInternetGateway = new Aws.Ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway", new()
-    ///     {
-    ///         VpcId = exampleVpc.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "main" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Egress-only Internet gateways using the `id`. For example:

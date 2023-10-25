@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LbArgs', 'Lb']
@@ -26,15 +26,42 @@ class LbArgs:
         :param pulumi.Input[str] name: The name of the Lightsail load balancer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "instance_port", instance_port)
+        LbArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_port=instance_port,
+            health_check_path=health_check_path,
+            ip_address_type=ip_address_type,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_port: Optional[pulumi.Input[int]] = None,
+             health_check_path: Optional[pulumi.Input[str]] = None,
+             ip_address_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_port is None and 'instancePort' in kwargs:
+            instance_port = kwargs['instancePort']
+        if instance_port is None:
+            raise TypeError("Missing 'instance_port' argument")
+        if health_check_path is None and 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+
+        _setter("instance_port", instance_port)
         if health_check_path is not None:
-            pulumi.set(__self__, "health_check_path", health_check_path)
+            _setter("health_check_path", health_check_path)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="instancePort")
@@ -123,33 +150,82 @@ class _LbState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _LbState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            created_at=created_at,
+            dns_name=dns_name,
+            health_check_path=health_check_path,
+            instance_port=instance_port,
+            ip_address_type=ip_address_type,
+            name=name,
+            protocol=protocol,
+            public_ports=public_ports,
+            support_code=support_code,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             health_check_path: Optional[pulumi.Input[str]] = None,
+             instance_port: Optional[pulumi.Input[int]] = None,
+             ip_address_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             public_ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             support_code: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if health_check_path is None and 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if instance_port is None and 'instancePort' in kwargs:
+            instance_port = kwargs['instancePort']
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if public_ports is None and 'publicPorts' in kwargs:
+            public_ports = kwargs['publicPorts']
+        if support_code is None and 'supportCode' in kwargs:
+            support_code = kwargs['supportCode']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if health_check_path is not None:
-            pulumi.set(__self__, "health_check_path", health_check_path)
+            _setter("health_check_path", health_check_path)
         if instance_port is not None:
-            pulumi.set(__self__, "instance_port", instance_port)
+            _setter("instance_port", instance_port)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if public_ports is not None:
-            pulumi.set(__self__, "public_ports", public_ports)
+            _setter("public_ports", public_ports)
         if support_code is not None:
-            pulumi.set(__self__, "support_code", support_code)
+            _setter("support_code", support_code)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -310,20 +386,6 @@ class Lb(pulumi.CustomResource):
         """
         Creates a Lightsail load balancer resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lightsail.Lb("test",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
@@ -348,20 +410,6 @@ class Lb(pulumi.CustomResource):
         """
         Creates a Lightsail load balancer resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lightsail.Lb("test",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
@@ -380,6 +428,10 @@ class Lb(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LbArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to retrieve information about a CloudFront distribution.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.cloudfront.getDistribution({
- *     id: "EDFDVBD632BHDS5",
- * });
- * ```
  */
 export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
 
@@ -94,17 +83,6 @@ export interface GetDistributionResult {
 }
 /**
  * Use this data source to retrieve information about a CloudFront distribution.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.cloudfront.getDistribution({
- *     id: "EDFDVBD632BHDS5",
- * });
- * ```
  */
 export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionResult> {
     return pulumi.output(args).apply((a: any) => getDistribution(a, opts))

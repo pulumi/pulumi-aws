@@ -13,26 +13,6 @@ namespace Pulumi.Aws.NetworkManager
     /// Associates a transit gateway Connect peer with a device, and optionally, with a link.
     /// If you specify a link, it must be associated with the specified device.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.TransitGatewayConnectPeerAssociation("example", new()
-    ///     {
-    ///         GlobalNetworkId = aws_networkmanager_global_network.Example.Id,
-    ///         DeviceId = aws_networkmanager_device.Example.Id,
-    ///         TransitGatewayConnectPeerArn = aws_ec2_transit_gateway_connect_peer.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_transit_gateway_connect_peer_association` using the global network ID and customer gateway ARN. For example:

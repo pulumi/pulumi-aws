@@ -6,33 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.wafregional.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const byName = aws.wafregional.getSubscribedRuleGroup({
- *     name: "F5 Bot Detection Signatures For AWS WAF",
- * });
- * const byMetricName = aws.wafregional.getSubscribedRuleGroup({
- *     metricName: "F5BotDetectionSignatures",
- * });
- * // ...
- * const acl = new aws.wafregional.WebAcl("acl", {rules: [
- *     {
- *         priority: 1,
- *         ruleId: byName.then(byName => byName.id),
- *         type: "GROUP",
- *     },
- *     {
- *         priority: 2,
- *         ruleId: byMetricName.then(byMetricName => byMetricName.id),
- *         type: "GROUP",
- *     },
- * ]});
- * ```
  */
 export function getSubscribedRuleGroup(args?: GetSubscribedRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscribedRuleGroupResult> {
     args = args || {};
@@ -71,33 +44,6 @@ export interface GetSubscribedRuleGroupResult {
 }
 /**
  * `aws.wafregional.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const byName = aws.wafregional.getSubscribedRuleGroup({
- *     name: "F5 Bot Detection Signatures For AWS WAF",
- * });
- * const byMetricName = aws.wafregional.getSubscribedRuleGroup({
- *     metricName: "F5BotDetectionSignatures",
- * });
- * // ...
- * const acl = new aws.wafregional.WebAcl("acl", {rules: [
- *     {
- *         priority: 1,
- *         ruleId: byName.then(byName => byName.id),
- *         type: "GROUP",
- *     },
- *     {
- *         priority: 2,
- *         ruleId: byMetricName.then(byMetricName => byMetricName.id),
- *         type: "GROUP",
- *     },
- * ]});
- * ```
  */
 export function getSubscribedRuleGroupOutput(args?: GetSubscribedRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscribedRuleGroupResult> {
     return pulumi.output(args).apply((a: any) => getSubscribedRuleGroup(a, opts))

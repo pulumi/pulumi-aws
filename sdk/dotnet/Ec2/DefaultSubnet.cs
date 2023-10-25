@@ -19,28 +19,6 @@ namespace Pulumi.Aws.Ec2
     /// By default, `pulumi destroy` does not delete the default subnet but does remove the resource from the state.
     /// Set the `force_destroy` argument to `true` to delete the default subnet.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultAz1 = new Aws.Ec2.DefaultSubnet("defaultAz1", new()
-    ///     {
-    ///         AvailabilityZone = "us-west-2a",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Default subnet for us-west-2a" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import subnets using the subnet `id`. For example:

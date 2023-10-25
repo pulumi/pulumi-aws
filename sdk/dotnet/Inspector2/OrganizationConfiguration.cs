@@ -17,28 +17,6 @@ namespace Pulumi.Aws.Inspector2
     /// &gt; **NOTE:** When this resource is deleted, EC2, ECR and Lambda scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Inspector2.OrganizationConfiguration("example", new()
-    ///     {
-    ///         AutoEnable = new Aws.Inspector2.Inputs.OrganizationConfigurationAutoEnableArgs
-    ///         {
-    ///             Ec2 = true,
-    ///             Ecr = false,
-    ///             Lambda = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:inspector2/organizationConfiguration:OrganizationConfiguration")]
     public partial class OrganizationConfiguration : global::Pulumi.CustomResource

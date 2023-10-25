@@ -13,26 +13,6 @@ namespace Pulumi.Aws.MskConnect
     /// Provides an Amazon MSK Connect Worker Configuration Resource.
     /// 
     /// ## Example Usage
-    /// ### Basic configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.MskConnect.WorkerConfiguration("example", new()
-    ///     {
-    ///         PropertiesFileContent = @"key.converter=org.apache.kafka.connect.storage.StringConverter
-    /// value.converter=org.apache.kafka.connect.storage.StringConverter
-    /// 
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

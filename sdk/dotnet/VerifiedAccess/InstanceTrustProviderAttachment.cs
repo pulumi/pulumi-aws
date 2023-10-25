@@ -12,38 +12,6 @@ namespace Pulumi.Aws.VerifiedAccess
     /// <summary>
     /// Resource for managing a Verified Access Instance Trust Provider Attachment.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleInstance = new Aws.VerifiedAccess.Instance("exampleInstance");
-    /// 
-    ///     var exampleTrustProvider = new Aws.VerifiedAccess.TrustProvider("exampleTrustProvider", new()
-    ///     {
-    ///         DeviceTrustProviderType = "jamf",
-    ///         PolicyReferenceName = "example",
-    ///         TrustProviderType = "device",
-    ///         DeviceOptions = new Aws.VerifiedAccess.Inputs.TrustProviderDeviceOptionsArgs
-    ///         {
-    ///             TenantId = "example",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleInstanceTrustProviderAttachment = new Aws.VerifiedAccess.InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment", new()
-    ///     {
-    ///         VerifiedaccessInstanceId = exampleInstance.Id,
-    ///         VerifiedaccessTrustProviderId = exampleTrustProvider.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:

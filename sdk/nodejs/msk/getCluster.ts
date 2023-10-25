@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Get information on an Amazon MSK Cluster.
  *
  * > **Note:** This data sources returns information on _provisioned_ clusters.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.msk.getCluster({
- *     clusterName: "example",
- * });
- * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -113,17 +102,6 @@ export interface GetClusterResult {
  * Get information on an Amazon MSK Cluster.
  *
  * > **Note:** This data sources returns information on _provisioned_ clusters.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.msk.getCluster({
- *     clusterName: "example",
- * });
- * ```
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

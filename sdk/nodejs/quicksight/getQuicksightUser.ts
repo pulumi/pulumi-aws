@@ -10,16 +10,6 @@ import * as utilities from "../utilities";
  * properties without having to hard code ARNs or unique IDs as input.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.quicksight.getQuicksightUser({
- *     userName: "example",
- * });
- * ```
  */
 export function getQuicksightUser(args: GetQuicksightUserArgs, opts?: pulumi.InvokeOptions): Promise<GetQuicksightUserResult> {
 
@@ -93,16 +83,6 @@ export interface GetQuicksightUserResult {
  * properties without having to hard code ARNs or unique IDs as input.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.quicksight.getQuicksightUser({
- *     userName: "example",
- * });
- * ```
  */
 export function getQuicksightUserOutput(args: GetQuicksightUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuicksightUserResult> {
     return pulumi.output(args).apply((a: any) => getQuicksightUser(a, opts))

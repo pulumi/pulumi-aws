@@ -16,62 +16,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Lookup by DHCP Options ID
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcDhcpOptions.Invoke(new()
-        ///     {
-        ///         DhcpOptionsId = "dopts-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Lookup by Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcDhcpOptions.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterInputArgs
-        ///             {
-        ///                 Name = "key",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "domain-name",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterInputArgs
-        ///             {
-        ///                 Name = "value",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "example.com",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcDhcpOptionsResult> InvokeAsync(GetVpcDhcpOptionsArgs? args = null, InvokeOptions? options = null)
@@ -82,62 +26,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Lookup by DHCP Options ID
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcDhcpOptions.Invoke(new()
-        ///     {
-        ///         DhcpOptionsId = "dopts-12345678",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Lookup by Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ec2.GetVpcDhcpOptions.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterInputArgs
-        ///             {
-        ///                 Name = "key",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "domain-name",
-        ///                 },
-        ///             },
-        ///             new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterInputArgs
-        ///             {
-        ///                 Name = "value",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "example.com",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVpcDhcpOptionsResult> Invoke(GetVpcDhcpOptionsInvokeArgs? args = null, InvokeOptions? options = null)

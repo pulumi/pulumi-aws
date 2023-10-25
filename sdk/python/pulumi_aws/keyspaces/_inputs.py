@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -34,12 +34,33 @@ class TableCapacitySpecificationArgs:
         :param pulumi.Input[str] throughput_mode: The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
         :param pulumi.Input[int] write_capacity_units: The throughput capacity specified for write operations defined in write capacity units (WCUs).
         """
+        TableCapacitySpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            read_capacity_units=read_capacity_units,
+            throughput_mode=throughput_mode,
+            write_capacity_units=write_capacity_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             read_capacity_units: Optional[pulumi.Input[int]] = None,
+             throughput_mode: Optional[pulumi.Input[str]] = None,
+             write_capacity_units: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if read_capacity_units is None and 'readCapacityUnits' in kwargs:
+            read_capacity_units = kwargs['readCapacityUnits']
+        if throughput_mode is None and 'throughputMode' in kwargs:
+            throughput_mode = kwargs['throughputMode']
+        if write_capacity_units is None and 'writeCapacityUnits' in kwargs:
+            write_capacity_units = kwargs['writeCapacityUnits']
+
         if read_capacity_units is not None:
-            pulumi.set(__self__, "read_capacity_units", read_capacity_units)
+            _setter("read_capacity_units", read_capacity_units)
         if throughput_mode is not None:
-            pulumi.set(__self__, "throughput_mode", throughput_mode)
+            _setter("throughput_mode", throughput_mode)
         if write_capacity_units is not None:
-            pulumi.set(__self__, "write_capacity_units", write_capacity_units)
+            _setter("write_capacity_units", write_capacity_units)
 
     @property
     @pulumi.getter(name="readCapacityUnits")
@@ -85,7 +106,20 @@ class TableClientSideTimestampsArgs:
         """
         :param pulumi.Input[str] status: Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
         """
-        pulumi.set(__self__, "status", status)
+        TableClientSideTimestampsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -107,8 +141,19 @@ class TableCommentArgs:
         """
         :param pulumi.Input[str] message: A description of the table.
         """
+        TableCommentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -132,10 +177,25 @@ class TableEncryptionSpecificationArgs:
         :param pulumi.Input[str] kms_key_identifier: The Amazon Resource Name (ARN) of the customer managed KMS key.
         :param pulumi.Input[str] type: The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
         """
+        TableEncryptionSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_identifier=kms_key_identifier,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_identifier: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_identifier is None and 'kmsKeyIdentifier' in kwargs:
+            kms_key_identifier = kwargs['kmsKeyIdentifier']
+
         if kms_key_identifier is not None:
-            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
+            _setter("kms_key_identifier", kms_key_identifier)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="kmsKeyIdentifier")
@@ -169,8 +229,19 @@ class TablePointInTimeRecoveryArgs:
         """
         :param pulumi.Input[str] status: Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
         """
+        TablePointInTimeRecoveryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -198,12 +269,39 @@ class TableSchemaDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]] clustering_keys: The columns that are part of the clustering key of the table.
         :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]] static_columns: The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
         """
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "partition_keys", partition_keys)
+        TableSchemaDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+            partition_keys=partition_keys,
+            clustering_keys=clustering_keys,
+            static_columns=static_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArgs']]]] = None,
+             partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArgs']]]] = None,
+             clustering_keys: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]] = None,
+             static_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if columns is None:
+            raise TypeError("Missing 'columns' argument")
+        if partition_keys is None and 'partitionKeys' in kwargs:
+            partition_keys = kwargs['partitionKeys']
+        if partition_keys is None:
+            raise TypeError("Missing 'partition_keys' argument")
+        if clustering_keys is None and 'clusteringKeys' in kwargs:
+            clustering_keys = kwargs['clusteringKeys']
+        if static_columns is None and 'staticColumns' in kwargs:
+            static_columns = kwargs['staticColumns']
+
+        _setter("columns", columns)
+        _setter("partition_keys", partition_keys)
         if clustering_keys is not None:
-            pulumi.set(__self__, "clustering_keys", clustering_keys)
+            _setter("clustering_keys", clustering_keys)
         if static_columns is not None:
-            pulumi.set(__self__, "static_columns", static_columns)
+            _setter("static_columns", static_columns)
 
     @property
     @pulumi.getter
@@ -263,8 +361,27 @@ class TableSchemaDefinitionClusteringKeyArgs:
         :param pulumi.Input[str] name: The name of the clustering key column.
         :param pulumi.Input[str] order_by: The order modifier. Valid values: `ASC`, `DESC`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "order_by", order_by)
+        TableSchemaDefinitionClusteringKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            order_by=order_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             order_by: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if order_by is None and 'orderBy' in kwargs:
+            order_by = kwargs['orderBy']
+        if order_by is None:
+            raise TypeError("Missing 'order_by' argument")
+
+        _setter("name", name)
+        _setter("order_by", order_by)
 
     @property
     @pulumi.getter
@@ -300,8 +417,25 @@ class TableSchemaDefinitionColumnArgs:
         :param pulumi.Input[str] name: The name of the column.
         :param pulumi.Input[str] type: The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        TableSchemaDefinitionColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -335,7 +469,20 @@ class TableSchemaDefinitionPartitionKeyArgs:
         """
         :param pulumi.Input[str] name: The name of the partition key column.
         """
-        pulumi.set(__self__, "name", name)
+        TableSchemaDefinitionPartitionKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -357,7 +504,20 @@ class TableSchemaDefinitionStaticColumnArgs:
         """
         :param pulumi.Input[str] name: The name of the static column.
         """
-        pulumi.set(__self__, "name", name)
+        TableSchemaDefinitionStaticColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -379,7 +539,20 @@ class TableTtlArgs:
         """
         :param pulumi.Input[str] status: Valid values: `ENABLED`.
         """
-        pulumi.set(__self__, "status", status)
+        TableTtlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("status", status)
 
     @property
     @pulumi.getter

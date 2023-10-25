@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BasePathMappingArgs', 'BasePathMapping']
@@ -25,12 +25,41 @@ class BasePathMappingArgs:
         :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         :param pulumi.Input[str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "rest_api", rest_api)
+        BasePathMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            rest_api=rest_api,
+            base_path=base_path,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             base_path: Optional[pulumi.Input[str]] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if rest_api is None:
+            raise TypeError("Missing 'rest_api' argument")
+        if base_path is None and 'basePath' in kwargs:
+            base_path = kwargs['basePath']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
+        _setter("domain_name", domain_name)
+        _setter("rest_api", rest_api)
         if base_path is not None:
-            pulumi.set(__self__, "base_path", base_path)
+            _setter("base_path", base_path)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="domainName")
@@ -95,14 +124,39 @@ class _BasePathMappingState:
         :param pulumi.Input[str] rest_api: ID of the API to connect.
         :param pulumi.Input[str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
+        _BasePathMappingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_path=base_path,
+            domain_name=domain_name,
+            rest_api=rest_api,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_path: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_path is None and 'basePath' in kwargs:
+            base_path = kwargs['basePath']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
         if base_path is not None:
-            pulumi.set(__self__, "base_path", base_path)
+            _setter("base_path", base_path)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="basePath")
@@ -168,28 +222,6 @@ class BasePathMapping(pulumi.CustomResource):
         with a deployed API so that its methods can be called via the
         custom domain name.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=aws_api_gateway_deployment["example"]["id"],
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name="example")
-        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
-            domain_name="example.com",
-            certificate_name="example-api",
-            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
-        example_base_path_mapping = aws.apigateway.BasePathMapping("exampleBasePathMapping",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=example_stage.stage_name,
-            domain_name=example_domain_name.domain_name)
-        ```
-
         ## Import
 
         For a non-root `base_path`:
@@ -225,28 +257,6 @@ class BasePathMapping(pulumi.CustomResource):
         with a deployed API so that its methods can be called via the
         custom domain name.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=aws_api_gateway_deployment["example"]["id"],
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name="example")
-        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
-            domain_name="example.com",
-            certificate_name="example-api",
-            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
-        example_base_path_mapping = aws.apigateway.BasePathMapping("exampleBasePathMapping",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=example_stage.stage_name,
-            domain_name=example_domain_name.domain_name)
-        ```
-
         ## Import
 
         For a non-root `base_path`:
@@ -274,6 +284,10 @@ class BasePathMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BasePathMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

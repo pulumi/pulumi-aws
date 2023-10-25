@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Inspector Classic Assessment Target
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bar = new aws.inspector.ResourceGroup("bar", {tags: {
- *     Name: "foo",
- *     Env: "bar",
- * }});
- * const foo = new aws.inspector.AssessmentTarget("foo", {resourceGroupArn: bar.arn});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:

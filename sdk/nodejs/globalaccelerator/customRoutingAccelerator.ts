@@ -10,24 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a Global Accelerator custom routing accelerator.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.globalaccelerator.CustomRoutingAccelerator("example", {
- *     attributes: {
- *         flowLogsEnabled: true,
- *         flowLogsS3Bucket: "example-bucket",
- *         flowLogsS3Prefix: "flow-logs/",
- *     },
- *     enabled: true,
- *     ipAddressType: "IPV4",
- *     ipAddresses: ["1.2.3.4"],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For example:

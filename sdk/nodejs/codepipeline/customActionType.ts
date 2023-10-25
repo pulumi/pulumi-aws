@@ -10,27 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CodeDeploy CustomActionType
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codepipeline.CustomActionType("example", {
- *     category: "Build",
- *     inputArtifactDetails: {
- *         maximumCount: 1,
- *         minimumCount: 0,
- *     },
- *     outputArtifactDetails: {
- *         maximumCount: 1,
- *         minimumCount: 0,
- *     },
- *     providerName: "example",
- *     version: "1",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:

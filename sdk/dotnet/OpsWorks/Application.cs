@@ -12,63 +12,6 @@ namespace Pulumi.Aws.OpsWorks
     /// <summary>
     /// Provides an OpsWorks application resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo_app = new Aws.OpsWorks.Application("foo-app", new()
-    ///     {
-    ///         ShortName = "foobar",
-    ///         StackId = aws_opsworks_stack.Main.Id,
-    ///         Type = "rails",
-    ///         Description = "This is a Rails application",
-    ///         Domains = new[]
-    ///         {
-    ///             "example.com",
-    ///             "sub.example.com",
-    ///         },
-    ///         Environments = new[]
-    ///         {
-    ///             new Aws.OpsWorks.Inputs.ApplicationEnvironmentArgs
-    ///             {
-    ///                 Key = "key",
-    ///                 Value = "value",
-    ///                 Secure = false,
-    ///             },
-    ///         },
-    ///         AppSources = new[]
-    ///         {
-    ///             new Aws.OpsWorks.Inputs.ApplicationAppSourceArgs
-    ///             {
-    ///                 Type = "git",
-    ///                 Revision = "master",
-    ///                 Url = "https://github.com/example.git",
-    ///             },
-    ///         },
-    ///         EnableSsl = true,
-    ///         SslConfigurations = new[]
-    ///         {
-    ///             new Aws.OpsWorks.Inputs.ApplicationSslConfigurationArgs
-    ///             {
-    ///                 PrivateKey = File.ReadAllText("./foobar.key"),
-    ///                 Certificate = File.ReadAllText("./foobar.crt"),
-    ///             },
-    ///         },
-    ///         DocumentRoot = "public",
-    ///         AutoBundleOnDeploy = "true",
-    ///         RailsEnv = "staging",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Opsworks Application using the `id`. For example:

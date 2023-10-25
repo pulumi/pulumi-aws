@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AuthenticationProfileArgs', 'AuthenticationProfile']
@@ -21,8 +21,29 @@ class AuthenticationProfileArgs:
         :param pulumi.Input[str] authentication_profile_content: The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
         :param pulumi.Input[str] authentication_profile_name: The name of the authentication profile.
         """
-        pulumi.set(__self__, "authentication_profile_content", authentication_profile_content)
-        pulumi.set(__self__, "authentication_profile_name", authentication_profile_name)
+        AuthenticationProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_profile_content=authentication_profile_content,
+            authentication_profile_name=authentication_profile_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_profile_content: Optional[pulumi.Input[str]] = None,
+             authentication_profile_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_profile_content is None and 'authenticationProfileContent' in kwargs:
+            authentication_profile_content = kwargs['authenticationProfileContent']
+        if authentication_profile_content is None:
+            raise TypeError("Missing 'authentication_profile_content' argument")
+        if authentication_profile_name is None and 'authenticationProfileName' in kwargs:
+            authentication_profile_name = kwargs['authenticationProfileName']
+        if authentication_profile_name is None:
+            raise TypeError("Missing 'authentication_profile_name' argument")
+
+        _setter("authentication_profile_content", authentication_profile_content)
+        _setter("authentication_profile_name", authentication_profile_name)
 
     @property
     @pulumi.getter(name="authenticationProfileContent")
@@ -59,10 +80,27 @@ class _AuthenticationProfileState:
         :param pulumi.Input[str] authentication_profile_content: The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
         :param pulumi.Input[str] authentication_profile_name: The name of the authentication profile.
         """
+        _AuthenticationProfileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_profile_content=authentication_profile_content,
+            authentication_profile_name=authentication_profile_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_profile_content: Optional[pulumi.Input[str]] = None,
+             authentication_profile_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_profile_content is None and 'authenticationProfileContent' in kwargs:
+            authentication_profile_content = kwargs['authenticationProfileContent']
+        if authentication_profile_name is None and 'authenticationProfileName' in kwargs:
+            authentication_profile_name = kwargs['authenticationProfileName']
+
         if authentication_profile_content is not None:
-            pulumi.set(__self__, "authentication_profile_content", authentication_profile_content)
+            _setter("authentication_profile_content", authentication_profile_content)
         if authentication_profile_name is not None:
-            pulumi.set(__self__, "authentication_profile_name", authentication_profile_name)
+            _setter("authentication_profile_name", authentication_profile_name)
 
     @property
     @pulumi.getter(name="authenticationProfileContent")
@@ -100,22 +138,6 @@ class AuthenticationProfile(pulumi.CustomResource):
         """
         Creates a Redshift authentication profile
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.redshift.AuthenticationProfile("example",
-            authentication_profile_name="example",
-            authentication_profile_content=json.dumps({
-                "AllowDBUserOverride": "1",
-                "Client_ID": "ExampleClientID",
-                "App_ID": "example",
-            }))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
@@ -138,22 +160,6 @@ class AuthenticationProfile(pulumi.CustomResource):
         """
         Creates a Redshift authentication profile
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.redshift.AuthenticationProfile("example",
-            authentication_profile_name="example",
-            authentication_profile_content=json.dumps({
-                "AllowDBUserOverride": "1",
-                "Client_ID": "ExampleClientID",
-                "App_ID": "example",
-            }))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
@@ -172,6 +178,10 @@ class AuthenticationProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthenticationProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

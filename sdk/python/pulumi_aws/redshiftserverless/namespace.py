@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NamespaceArgs', 'Namespace']
@@ -35,23 +35,68 @@ class NamespaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_exports: The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
+        NamespaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            admin_user_password=admin_user_password,
+            admin_username=admin_username,
+            db_name=db_name,
+            default_iam_role_arn=default_iam_role_arn,
+            iam_roles=iam_roles,
+            kms_key_id=kms_key_id,
+            log_exports=log_exports,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             admin_user_password: Optional[pulumi.Input[str]] = None,
+             admin_username: Optional[pulumi.Input[str]] = None,
+             db_name: Optional[pulumi.Input[str]] = None,
+             default_iam_role_arn: Optional[pulumi.Input[str]] = None,
+             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if admin_user_password is None and 'adminUserPassword' in kwargs:
+            admin_user_password = kwargs['adminUserPassword']
+        if admin_username is None and 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if db_name is None and 'dbName' in kwargs:
+            db_name = kwargs['dbName']
+        if default_iam_role_arn is None and 'defaultIamRoleArn' in kwargs:
+            default_iam_role_arn = kwargs['defaultIamRoleArn']
+        if iam_roles is None and 'iamRoles' in kwargs:
+            iam_roles = kwargs['iamRoles']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if log_exports is None and 'logExports' in kwargs:
+            log_exports = kwargs['logExports']
+
+        _setter("namespace_name", namespace_name)
         if admin_user_password is not None:
-            pulumi.set(__self__, "admin_user_password", admin_user_password)
+            _setter("admin_user_password", admin_user_password)
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if db_name is not None:
-            pulumi.set(__self__, "db_name", db_name)
+            _setter("db_name", db_name)
         if default_iam_role_arn is not None:
-            pulumi.set(__self__, "default_iam_role_arn", default_iam_role_arn)
+            _setter("default_iam_role_arn", default_iam_role_arn)
         if iam_roles is not None:
-            pulumi.set(__self__, "iam_roles", iam_roles)
+            _setter("iam_roles", iam_roles)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if log_exports is not None:
-            pulumi.set(__self__, "log_exports", log_exports)
+            _setter("log_exports", log_exports)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -192,33 +237,86 @@ class _NamespaceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _NamespaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_user_password=admin_user_password,
+            admin_username=admin_username,
+            arn=arn,
+            db_name=db_name,
+            default_iam_role_arn=default_iam_role_arn,
+            iam_roles=iam_roles,
+            kms_key_id=kms_key_id,
+            log_exports=log_exports,
+            namespace_id=namespace_id,
+            namespace_name=namespace_name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_user_password: Optional[pulumi.Input[str]] = None,
+             admin_username: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             db_name: Optional[pulumi.Input[str]] = None,
+             default_iam_role_arn: Optional[pulumi.Input[str]] = None,
+             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             namespace_id: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_user_password is None and 'adminUserPassword' in kwargs:
+            admin_user_password = kwargs['adminUserPassword']
+        if admin_username is None and 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if db_name is None and 'dbName' in kwargs:
+            db_name = kwargs['dbName']
+        if default_iam_role_arn is None and 'defaultIamRoleArn' in kwargs:
+            default_iam_role_arn = kwargs['defaultIamRoleArn']
+        if iam_roles is None and 'iamRoles' in kwargs:
+            iam_roles = kwargs['iamRoles']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if log_exports is None and 'logExports' in kwargs:
+            log_exports = kwargs['logExports']
+        if namespace_id is None and 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if admin_user_password is not None:
-            pulumi.set(__self__, "admin_user_password", admin_user_password)
+            _setter("admin_user_password", admin_user_password)
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if db_name is not None:
-            pulumi.set(__self__, "db_name", db_name)
+            _setter("db_name", db_name)
         if default_iam_role_arn is not None:
-            pulumi.set(__self__, "default_iam_role_arn", default_iam_role_arn)
+            _setter("default_iam_role_arn", default_iam_role_arn)
         if iam_roles is not None:
-            pulumi.set(__self__, "iam_roles", iam_roles)
+            _setter("iam_roles", iam_roles)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if log_exports is not None:
-            pulumi.set(__self__, "log_exports", log_exports)
+            _setter("log_exports", log_exports)
         if namespace_id is not None:
-            pulumi.set(__self__, "namespace_id", namespace_id)
+            _setter("namespace_id", namespace_id)
         if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
+            _setter("namespace_name", namespace_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="adminUserPassword")
@@ -386,15 +484,6 @@ class Namespace(pulumi.CustomResource):
         """
         Creates a new Amazon Redshift Serverless Namespace.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftserverless.Namespace("example", namespace_name="concurrency-scaling")
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
@@ -424,15 +513,6 @@ class Namespace(pulumi.CustomResource):
         """
         Creates a new Amazon Redshift Serverless Namespace.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftserverless.Namespace("example", namespace_name="concurrency-scaling")
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
@@ -451,6 +531,10 @@ class Namespace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

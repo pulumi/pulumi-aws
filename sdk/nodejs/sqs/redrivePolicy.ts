@@ -12,26 +12,6 @@ import * as utilities from "../utilities";
  * dead letter queue for a standard or FIFO queue, but need
  * the dead letter queue to exist before setting the redrive policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const queue = new aws.sqs.Queue("queue", {});
- * const ddl = new aws.sqs.Queue("ddl", {redriveAllowPolicy: queue.arn.apply(arn => JSON.stringify({
- *     redrivePermission: "byQueue",
- *     sourceQueueArns: [arn],
- * }))});
- * const redrivePolicy = new aws.sqs.RedrivePolicy("redrivePolicy", {
- *     queueUrl: queue.id,
- *     redrivePolicy: ddl.arn.apply(arn => JSON.stringify({
- *         deadLetterTargetArn: arn,
- *         maxReceiveCount: 4,
- *     })),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:

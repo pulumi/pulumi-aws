@@ -11,18 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const lambdaLayer = new aws.lambda.LayerVersion("lambdaLayer", {
- *     compatibleRuntimes: ["nodejs16.x"],
- *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
- *     layerName: "lambda_layer_name",
- * });
- * ```
  * ## Specifying the Deployment Package
  *
  * AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatibleRuntimes` this layer specifies.

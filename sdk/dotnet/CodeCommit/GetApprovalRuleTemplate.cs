@@ -13,56 +13,12 @@ namespace Pulumi.Aws.CodeCommit
     {
         /// <summary>
         /// Provides details about a specific CodeCommit Approval Rule Template.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeCommit.GetApprovalRuleTemplate.Invoke(new()
-        ///     {
-        ///         Name = "MyExampleApprovalRuleTemplate",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetApprovalRuleTemplateResult> InvokeAsync(GetApprovalRuleTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApprovalRuleTemplateResult>("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args ?? new GetApprovalRuleTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific CodeCommit Approval Rule Template.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CodeCommit.GetApprovalRuleTemplate.Invoke(new()
-        ///     {
-        ///         Name = "MyExampleApprovalRuleTemplate",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetApprovalRuleTemplateResult> Invoke(GetApprovalRuleTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApprovalRuleTemplateResult>("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args ?? new GetApprovalRuleTemplateInvokeArgs(), options.WithDefaults());

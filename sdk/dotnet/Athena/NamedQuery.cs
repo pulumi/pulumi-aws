@@ -12,55 +12,6 @@ namespace Pulumi.Aws.Athena
     /// <summary>
     /// Provides an Athena Named Query resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var hogeBucketV2 = new Aws.S3.BucketV2("hogeBucketV2");
-    /// 
-    ///     var testKey = new Aws.Kms.Key("testKey", new()
-    ///     {
-    ///         DeletionWindowInDays = 7,
-    ///         Description = "Athena KMS Key",
-    ///     });
-    /// 
-    ///     var testWorkgroup = new Aws.Athena.Workgroup("testWorkgroup", new()
-    ///     {
-    ///         Configuration = new Aws.Athena.Inputs.WorkgroupConfigurationArgs
-    ///         {
-    ///             ResultConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationArgs
-    ///             {
-    ///                 EncryptionConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs
-    ///                 {
-    ///                     EncryptionOption = "SSE_KMS",
-    ///                     KmsKeyArn = testKey.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var hogeDatabase = new Aws.Athena.Database("hogeDatabase", new()
-    ///     {
-    ///         Name = "users",
-    ///         Bucket = hogeBucketV2.Id,
-    ///     });
-    /// 
-    ///     var foo = new Aws.Athena.NamedQuery("foo", new()
-    ///     {
-    ///         Workgroup = testWorkgroup.Id,
-    ///         Database = hogeDatabase.Name,
-    ///         Query = hogeDatabase.Name.Apply(name =&gt; $"SELECT * FROM {name} limit 10;"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Athena Named Query using the query ID. For example:

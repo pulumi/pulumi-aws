@@ -10,60 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppStream stack.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appstream.Stack("example", {
- *     applicationSettings: {
- *         enabled: true,
- *         settingsGroup: "SettingsGroup",
- *     },
- *     description: "stack description",
- *     displayName: "stack display name",
- *     feedbackUrl: "http://your-domain/feedback",
- *     redirectUrl: "http://your-domain/redirect",
- *     storageConnectors: [{
- *         connectorType: "HOMEFOLDERS",
- *     }],
- *     tags: {
- *         TagName: "TagValue",
- *     },
- *     userSettings: [
- *         {
- *             action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
- *             permission: "ENABLED",
- *         },
- *         {
- *             action: "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
- *             permission: "ENABLED",
- *         },
- *         {
- *             action: "DOMAIN_PASSWORD_SIGNIN",
- *             permission: "ENABLED",
- *         },
- *         {
- *             action: "DOMAIN_SMART_CARD_SIGNIN",
- *             permission: "DISABLED",
- *         },
- *         {
- *             action: "FILE_DOWNLOAD",
- *             permission: "ENABLED",
- *         },
- *         {
- *             action: "FILE_UPLOAD",
- *             permission: "ENABLED",
- *         },
- *         {
- *             action: "PRINTING_TO_LOCAL_DEVICE",
- *             permission: "ENABLED",
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appstream_stack` using the id. For example:

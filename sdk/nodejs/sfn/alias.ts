@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  * Provides a Step Function State Machine Alias.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sfnAlias = new aws.sfn.Alias("sfnAlias", {routingConfigurations: [{
- *     stateMachineVersionArn: aws_sfn_state_machine.sfn_test.state_machine_version_arn,
- *     weight: 100,
- * }]});
- * const mySfnAlias = new aws.sfn.Alias("mySfnAlias", {routingConfigurations: [
- *     {
- *         stateMachineVersionArn: "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
- *         weight: 50,
- *     },
- *     {
- *         stateMachineVersionArn: "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
- *         weight: 50,
- *     },
- * ]});
- * ```
  *
  * ## Import
  *

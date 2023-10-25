@@ -11,60 +11,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon MSK Connect Connector resource.
  *
  * ## Example Usage
- * ### Basic configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.mskconnect.Connector("example", {
- *     kafkaconnectVersion: "2.7.1",
- *     capacity: {
- *         autoscaling: {
- *             mcuCount: 1,
- *             minWorkerCount: 1,
- *             maxWorkerCount: 2,
- *             scaleInPolicy: {
- *                 cpuUtilizationPercentage: 20,
- *             },
- *             scaleOutPolicy: {
- *                 cpuUtilizationPercentage: 80,
- *             },
- *         },
- *     },
- *     connectorConfiguration: {
- *         "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
- *         "tasks.max": "1",
- *         topics: "example",
- *     },
- *     kafkaCluster: {
- *         apacheKafkaCluster: {
- *             bootstrapServers: aws_msk_cluster.example.bootstrap_brokers_tls,
- *             vpc: {
- *                 securityGroups: [aws_security_group.example.id],
- *                 subnets: [
- *                     aws_subnet.example1.id,
- *                     aws_subnet.example2.id,
- *                     aws_subnet.example3.id,
- *                 ],
- *             },
- *         },
- *     },
- *     kafkaClusterClientAuthentication: {
- *         authenticationType: "NONE",
- *     },
- *     kafkaClusterEncryptionInTransit: {
- *         encryptionType: "TLS",
- *     },
- *     plugins: [{
- *         customPlugin: {
- *             arn: aws_mskconnect_custom_plugin.example.arn,
- *             revision: aws_mskconnect_custom_plugin.example.latest_revision,
- *         },
- *     }],
- *     serviceExecutionRoleArn: aws_iam_role.example.arn,
- * });
- * ```
  *
  * ## Import
  *

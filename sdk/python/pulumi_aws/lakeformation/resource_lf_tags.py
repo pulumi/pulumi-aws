@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,15 +33,42 @@ class ResourceLfTagsArgs:
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "lf_tags", lf_tags)
+        ResourceLfTagsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lf_tags=lf_tags,
+            catalog_id=catalog_id,
+            database=database,
+            table=table,
+            table_with_columns=table_with_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]]] = None,
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input['ResourceLfTagsDatabaseArgs']] = None,
+             table: Optional[pulumi.Input['ResourceLfTagsTableArgs']] = None,
+             table_with_columns: Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lf_tags is None and 'lfTags' in kwargs:
+            lf_tags = kwargs['lfTags']
+        if lf_tags is None:
+            raise TypeError("Missing 'lf_tags' argument")
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if table_with_columns is None and 'tableWithColumns' in kwargs:
+            table_with_columns = kwargs['tableWithColumns']
+
+        _setter("lf_tags", lf_tags)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if table_with_columns is not None:
-            pulumi.set(__self__, "table_with_columns", table_with_columns)
+            _setter("table_with_columns", table_with_columns)
 
     @property
     @pulumi.getter(name="lfTags")
@@ -128,16 +155,41 @@ class _ResourceLfTagsState:
                
                The following arguments are optional:
         """
+        _ResourceLfTagsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database=database,
+            lf_tags=lf_tags,
+            table=table,
+            table_with_columns=table_with_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input['ResourceLfTagsDatabaseArgs']] = None,
+             lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]]] = None,
+             table: Optional[pulumi.Input['ResourceLfTagsTableArgs']] = None,
+             table_with_columns: Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if lf_tags is None and 'lfTags' in kwargs:
+            lf_tags = kwargs['lfTags']
+        if table_with_columns is None and 'tableWithColumns' in kwargs:
+            table_with_columns = kwargs['tableWithColumns']
+
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if lf_tags is not None:
-            pulumi.set(__self__, "lf_tags", lf_tags)
+            _setter("lf_tags", lf_tags)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if table_with_columns is not None:
-            pulumi.set(__self__, "table_with_columns", table_with_columns)
+            _setter("table_with_columns", table_with_columns)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -219,77 +271,6 @@ class ResourceLfTags(pulumi.CustomResource):
         Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
 
         ## Example Usage
-        ### Database Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
-            key="right",
-            values=[
-                "abbey",
-                "village",
-                "luffield",
-                "woodcote",
-                "copse",
-                "chapel",
-                "stowe",
-                "club",
-            ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
-            database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-            ),
-            lf_tags=[aws.lakeformation.ResourceLfTagsLfTagArgs(
-                key=example_lf_tag.key,
-                value="stowe",
-            )])
-        ```
-        ### Multiple Tags Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
-            key="right",
-            values=[
-                "abbey",
-                "village",
-                "luffield",
-                "woodcote",
-                "copse",
-                "chapel",
-                "stowe",
-                "club",
-            ])
-        example2 = aws.lakeformation.LfTag("example2",
-            key="left",
-            values=[
-                "farm",
-                "theloop",
-                "aintree",
-                "brooklands",
-                "maggotts",
-                "becketts",
-                "vale",
-            ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
-            database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-            ),
-            lf_tags=[
-                aws.lakeformation.ResourceLfTagsLfTagArgs(
-                    key="right",
-                    value="luffield",
-                ),
-                aws.lakeformation.ResourceLfTagsLfTagArgs(
-                    key="left",
-                    value="aintree",
-                ),
-            ])
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,77 +294,6 @@ class ResourceLfTags(pulumi.CustomResource):
         Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
 
         ## Example Usage
-        ### Database Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
-            key="right",
-            values=[
-                "abbey",
-                "village",
-                "luffield",
-                "woodcote",
-                "copse",
-                "chapel",
-                "stowe",
-                "club",
-            ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
-            database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-            ),
-            lf_tags=[aws.lakeformation.ResourceLfTagsLfTagArgs(
-                key=example_lf_tag.key,
-                value="stowe",
-            )])
-        ```
-        ### Multiple Tags Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
-            key="right",
-            values=[
-                "abbey",
-                "village",
-                "luffield",
-                "woodcote",
-                "copse",
-                "chapel",
-                "stowe",
-                "club",
-            ])
-        example2 = aws.lakeformation.LfTag("example2",
-            key="left",
-            values=[
-                "farm",
-                "theloop",
-                "aintree",
-                "brooklands",
-                "maggotts",
-                "becketts",
-                "vale",
-            ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
-            database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-            ),
-            lf_tags=[
-                aws.lakeformation.ResourceLfTagsLfTagArgs(
-                    key="right",
-                    value="luffield",
-                ),
-                aws.lakeformation.ResourceLfTagsLfTagArgs(
-                    key="left",
-                    value="aintree",
-                ),
-            ])
-        ```
 
         :param str resource_name: The name of the resource.
         :param ResourceLfTagsArgs args: The arguments to use to populate this resource's properties.
@@ -395,6 +305,10 @@ class ResourceLfTags(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceLfTagsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -415,11 +329,14 @@ class ResourceLfTags(pulumi.CustomResource):
             __props__ = ResourceLfTagsArgs.__new__(ResourceLfTagsArgs)
 
             __props__.__dict__["catalog_id"] = catalog_id
+            database = _utilities.configure(database, ResourceLfTagsDatabaseArgs, True)
             __props__.__dict__["database"] = database
             if lf_tags is None and not opts.urn:
                 raise TypeError("Missing required property 'lf_tags'")
             __props__.__dict__["lf_tags"] = lf_tags
+            table = _utilities.configure(table, ResourceLfTagsTableArgs, True)
             __props__.__dict__["table"] = table
+            table_with_columns = _utilities.configure(table_with_columns, ResourceLfTagsTableWithColumnsArgs, True)
             __props__.__dict__["table_with_columns"] = table_with_columns
         super(ResourceLfTags, __self__).__init__(
             'aws:lakeformation/resourceLfTags:ResourceLfTags',

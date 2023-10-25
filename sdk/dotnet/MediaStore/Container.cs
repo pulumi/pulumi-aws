@@ -12,21 +12,6 @@ namespace Pulumi.Aws.MediaStore
     /// <summary>
     /// Provides a MediaStore Container.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.MediaStore.Container("example");
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For example:

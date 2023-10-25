@@ -12,25 +12,6 @@ namespace Pulumi.Aws.DocDB
     /// <summary>
     /// Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DocDB.ClusterSnapshot("example", new()
-    ///     {
-    ///         DbClusterIdentifier = aws_docdb_cluster.Example.Id,
-    ///         DbClusterSnapshotIdentifier = "resourcetestsnapshot1234",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:

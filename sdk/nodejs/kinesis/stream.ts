@@ -13,28 +13,6 @@ import * as utilities from "../utilities";
  *
  * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testStream = new aws.kinesis.Stream("testStream", {
- *     retentionPeriod: 48,
- *     shardCount: 1,
- *     shardLevelMetrics: [
- *         "IncomingBytes",
- *         "OutgoingBytes",
- *     ],
- *     streamModeDetails: {
- *         streamMode: "PROVISIONED",
- *     },
- *     tags: {
- *         Environment: "test",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Kinesis Streams using the `name`. For example:

@@ -12,27 +12,6 @@ namespace Pulumi.Aws.Swf
     /// <summary>
     /// Provides an SWF Domain resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// To register a basic SWF domain:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Swf.Domain("foo", new()
-    ///     {
-    ///         Description = "SWF Domain",
-    ///         WorkflowExecutionRetentionPeriodInDays = "30",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SWF Domains using the `name`. For example:

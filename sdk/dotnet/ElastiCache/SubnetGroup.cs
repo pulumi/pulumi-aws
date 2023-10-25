@@ -12,47 +12,6 @@ namespace Pulumi.Aws.ElastiCache
     /// <summary>
     /// Provides an ElastiCache Subnet Group resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var fooVpc = new Aws.Ec2.Vpc("fooVpc", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "tf-test" },
-    ///         },
-    ///     });
-    /// 
-    ///     var fooSubnet = new Aws.Ec2.Subnet("fooSubnet", new()
-    ///     {
-    ///         VpcId = fooVpc.Id,
-    ///         CidrBlock = "10.0.0.0/24",
-    ///         AvailabilityZone = "us-west-2a",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "tf-test" },
-    ///         },
-    ///     });
-    /// 
-    ///     var bar = new Aws.ElastiCache.SubnetGroup("bar", new()
-    ///     {
-    ///         SubnetIds = new[]
-    ///         {
-    ///             fooSubnet.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For example:

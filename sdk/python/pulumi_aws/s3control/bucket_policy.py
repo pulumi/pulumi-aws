@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BucketPolicyArgs', 'BucketPolicy']
@@ -21,8 +21,25 @@ class BucketPolicyArgs:
         :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
         :param pulumi.Input[str] policy: JSON string of the resource policy.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "policy", policy)
+        BucketPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+
+        _setter("bucket", bucket)
+        _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -59,10 +76,23 @@ class _BucketPolicyState:
         :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
         :param pulumi.Input[str] policy: JSON string of the resource policy.
         """
+        _BucketPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -102,30 +132,6 @@ class BucketPolicy(pulumi.CustomResource):
 
         > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `s3.BucketPolicy` resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.s3control.BucketPolicy("example",
-            bucket=aws_s3control_bucket["example"]["arn"],
-            policy=json.dumps({
-                "Id": "testBucketPolicy",
-                "Statement": [{
-                    "Action": "s3-outposts:PutBucketLifecycleConfiguration",
-                    "Effect": "Deny",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Resource": aws_s3control_bucket["example"]["arn"],
-                    "Sid": "statement1",
-                }],
-                "Version": "2012-10-17",
-            }))
-        ```
-
         ## Import
 
         Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
@@ -150,30 +156,6 @@ class BucketPolicy(pulumi.CustomResource):
 
         > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `s3.BucketPolicy` resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.s3control.BucketPolicy("example",
-            bucket=aws_s3control_bucket["example"]["arn"],
-            policy=json.dumps({
-                "Id": "testBucketPolicy",
-                "Statement": [{
-                    "Action": "s3-outposts:PutBucketLifecycleConfiguration",
-                    "Effect": "Deny",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Resource": aws_s3control_bucket["example"]["arn"],
-                    "Sid": "statement1",
-                }],
-                "Version": "2012-10-17",
-            }))
-        ```
-
         ## Import
 
         Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
@@ -192,6 +174,10 @@ class BucketPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

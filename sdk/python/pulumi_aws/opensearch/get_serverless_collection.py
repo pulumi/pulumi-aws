@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -165,14 +165,6 @@ def get_serverless_collection(id: Optional[str] = None,
     Data source for managing an AWS OpenSearch Serverless Collection.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_collection(name="example")
-    ```
 
 
     :param str id: ID of the collection. Either `id` or `name` must be provided.
@@ -206,14 +198,6 @@ def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[str]]] =
     Data source for managing an AWS OpenSearch Serverless Collection.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.opensearch.get_serverless_collection(name="example")
-    ```
 
 
     :param str id: ID of the collection. Either `id` or `name` must be provided.

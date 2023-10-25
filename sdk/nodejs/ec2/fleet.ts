@@ -10,26 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage EC2 Fleets.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.Fleet("example", {
- *     launchTemplateConfigs: [{
- *         launchTemplateSpecification: {
- *             launchTemplateId: aws_launch_template.example.id,
- *             version: aws_launch_template.example.latest_version,
- *         },
- *     }],
- *     targetCapacitySpecification: {
- *         defaultTargetCapacityType: "spot",
- *         totalTargetCapacity: 5,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For example:

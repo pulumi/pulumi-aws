@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -76,24 +76,6 @@ def get_vpc_ipam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIpamPo
     module and you need the pool ids as input variables. For example, pools
     can be shared via RAM and used to create vpcs with CIDRs from that pool.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_vpc_ipam_pools(filters=[
-        aws.ec2.GetVpcIpamPoolsFilterArgs(
-            name="description",
-            values=["*test*"],
-        ),
-        aws.ec2.GetVpcIpamPoolsFilterArgs(
-            name="address-family",
-            values=["ipv4"],
-        ),
-    ])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetVpcIpamPoolsFilterArgs']] filters: Custom filter block as described below.
     """
@@ -117,24 +99,6 @@ def get_vpc_ipam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     This resource can prove useful when IPAM pools are created in another root
     module and you need the pool ids as input variables. For example, pools
     can be shared via RAM and used to create vpcs with CIDRs from that pool.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_vpc_ipam_pools(filters=[
-        aws.ec2.GetVpcIpamPoolsFilterArgs(
-            name="description",
-            values=["*test*"],
-        ),
-        aws.ec2.GetVpcIpamPoolsFilterArgs(
-            name="address-family",
-            values=["ipv4"],
-        ),
-    ])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetVpcIpamPoolsFilterArgs']] filters: Custom filter block as described below.

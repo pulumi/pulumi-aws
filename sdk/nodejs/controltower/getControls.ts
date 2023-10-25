@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * List of Control Tower controls applied to an OU.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const thisOrganization = aws.organizations.getOrganization({});
- * const thisOrganizationalUnits = thisOrganization.then(thisOrganization => aws.organizations.getOrganizationalUnits({
- *     parentId: thisOrganization.roots?.[0]?.id,
- * }));
- * const thisControls = thisOrganizationalUnits.then(thisOrganizationalUnits => aws.controltower.getControls({
- *     targetIdentifier: .filter(x => x.name == "Security").map(x => (x.arn))[0],
- * }));
- * ```
  */
 export function getControls(args: GetControlsArgs, opts?: pulumi.InvokeOptions): Promise<GetControlsResult> {
 
@@ -56,21 +41,6 @@ export interface GetControlsResult {
 }
 /**
  * List of Control Tower controls applied to an OU.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const thisOrganization = aws.organizations.getOrganization({});
- * const thisOrganizationalUnits = thisOrganization.then(thisOrganization => aws.organizations.getOrganizationalUnits({
- *     parentId: thisOrganization.roots?.[0]?.id,
- * }));
- * const thisControls = thisOrganizationalUnits.then(thisOrganizationalUnits => aws.controltower.getControls({
- *     targetIdentifier: .filter(x => x.name == "Security").map(x => (x.arn))[0],
- * }));
- * ```
  */
 export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControlsResult> {
     return pulumi.output(args).apply((a: any) => getControls(a, opts))

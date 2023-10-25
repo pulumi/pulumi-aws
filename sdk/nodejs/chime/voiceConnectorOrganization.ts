@@ -10,35 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Enable origination settings to control inbound calling to your SIP infrastructure.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorOrganization = new aws.chime.VoiceConnectorOrganization("defaultVoiceConnectorOrganization", {
- *     disabled: false,
- *     voiceConnectorId: defaultVoiceConnector.id,
- *     routes: [
- *         {
- *             host: "127.0.0.1",
- *             port: 8081,
- *             protocol: "TCP",
- *             priority: 1,
- *             weight: 1,
- *         },
- *         {
- *             host: "127.0.0.2",
- *             port: 8082,
- *             protocol: "TCP",
- *             priority: 2,
- *             weight: 10,
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For example:

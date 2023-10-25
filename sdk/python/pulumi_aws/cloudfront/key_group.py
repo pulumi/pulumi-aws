@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['KeyGroupArgs', 'KeyGroup']
@@ -23,11 +23,28 @@ class KeyGroupArgs:
         :param pulumi.Input[str] comment: A comment to describe the key group..
         :param pulumi.Input[str] name: A name to identify the key group.
         """
-        pulumi.set(__self__, "items", items)
+        KeyGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+            comment=comment,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+
+        _setter("items", items)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -80,14 +97,31 @@ class _KeyGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] items: A list of the identifiers of the public keys in the key group.
         :param pulumi.Input[str] name: A name to identify the key group.
         """
+        _KeyGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            etag=etag,
+            items=items,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -148,22 +182,6 @@ class KeyGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        The following example below creates a CloudFront key group.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_public_key = aws.cloudfront.PublicKey("examplePublicKey",
-            comment="example public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
-        example_key_group = aws.cloudfront.KeyGroup("exampleKeyGroup",
-            comment="example key group",
-            items=[example_public_key.id])
-        ```
-
         ## Import
 
         Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
@@ -185,22 +203,6 @@ class KeyGroup(pulumi.CustomResource):
                  args: KeyGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        The following example below creates a CloudFront key group.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_public_key = aws.cloudfront.PublicKey("examplePublicKey",
-            comment="example public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
-        example_key_group = aws.cloudfront.KeyGroup("exampleKeyGroup",
-            comment="example key group",
-            items=[example_public_key.id])
-        ```
-
         ## Import
 
         Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
@@ -219,6 +221,10 @@ class KeyGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KeyGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

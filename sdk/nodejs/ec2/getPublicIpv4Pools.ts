@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  * Data source for getting information about AWS EC2 Public IPv4 Pools.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getPublicIpv4Pools({});
- * ```
- * ### Usage with Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getPublicIpv4Pools({
- *     filters: [{
- *         name: "tag-key",
- *         values: ["ExampleTagKey"],
- *     }],
- * });
- * ```
  */
 export function getPublicIpv4Pools(args?: GetPublicIpv4PoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIpv4PoolsResult> {
     args = args || {};
@@ -79,27 +58,6 @@ export interface GetPublicIpv4PoolsResult {
  * Data source for getting information about AWS EC2 Public IPv4 Pools.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getPublicIpv4Pools({});
- * ```
- * ### Usage with Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getPublicIpv4Pools({
- *     filters: [{
- *         name: "tag-key",
- *         values: ["ExampleTagKey"],
- *     }],
- * });
- * ```
  */
 export function getPublicIpv4PoolsOutput(args?: GetPublicIpv4PoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpv4PoolsResult> {
     return pulumi.output(args).apply((a: any) => getPublicIpv4Pools(a, opts))

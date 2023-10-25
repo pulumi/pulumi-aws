@@ -6,31 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Adds the specified user to the specified group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {passwordPolicy: {
- *     temporaryPasswordValidityDays: 7,
- *     minimumLength: 6,
- *     requireUppercase: false,
- *     requireSymbols: false,
- *     requireNumbers: false,
- * }});
- * const exampleUser = new aws.cognito.User("exampleUser", {
- *     userPoolId: exampleUserPool.id,
- *     username: "example",
- * });
- * const exampleUserGroup = new aws.cognito.UserGroup("exampleUserGroup", {userPoolId: exampleUserPool.id});
- * const exampleUserInGroup = new aws.cognito.UserInGroup("exampleUserInGroup", {
- *     userPoolId: exampleUserPool.id,
- *     groupName: exampleUserGroup.name,
- *     username: exampleUser.username,
- * });
- * ```
  */
 export class UserInGroup extends pulumi.CustomResource {
     /**

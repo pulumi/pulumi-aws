@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OpenZfsSnapshotArgs', 'OpenZfsSnapshot']
@@ -23,11 +23,30 @@ class OpenZfsSnapshotArgs:
         :param pulumi.Input[str] name: The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         """
-        pulumi.set(__self__, "volume_id", volume_id)
+        OpenZfsSnapshotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            volume_id=volume_id,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             volume_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if volume_id is None and 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+        if volume_id is None:
+            raise TypeError("Missing 'volume_id' argument")
+
+        _setter("volume_id", volume_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="volumeId")
@@ -83,21 +102,48 @@ class _OpenZfsSnapshotState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] volume_id: The ID of the volume to snapshot. This can be the root volume or a child volume.
         """
+        _OpenZfsSnapshotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            creation_time=creation_time,
+            name=name,
+            tags=tags,
+            tags_all=tags_all,
+            volume_id=volume_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             creation_time: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             volume_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if volume_id is None and 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if volume_id is not None:
-            pulumi.set(__self__, "volume_id", volume_id)
+            _setter("volume_id", volume_id)
 
     @property
     @pulumi.getter
@@ -186,33 +232,6 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
 
         ## Example Usage
-        ### Root volume Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
-            storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="SINGLE_AZ_1",
-            throughput_capacity=64)
-        example_open_zfs_snapshot = aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", volume_id=example_open_zfs_file_system.root_volume_id)
-        ```
-        ### Child volume Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
-            storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="SINGLE_AZ_1",
-            throughput_capacity=64)
-        example_open_zfs_volume = aws.fsx.OpenZfsVolume("exampleOpenZfsVolume", parent_volume_id=example_open_zfs_file_system.root_volume_id)
-        example_open_zfs_snapshot = aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", volume_id=example_open_zfs_volume.id)
-        ```
 
         ## Import
 
@@ -239,33 +258,6 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
 
         ## Example Usage
-        ### Root volume Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
-            storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="SINGLE_AZ_1",
-            throughput_capacity=64)
-        example_open_zfs_snapshot = aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", volume_id=example_open_zfs_file_system.root_volume_id)
-        ```
-        ### Child volume Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
-            storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="SINGLE_AZ_1",
-            throughput_capacity=64)
-        example_open_zfs_volume = aws.fsx.OpenZfsVolume("exampleOpenZfsVolume", parent_volume_id=example_open_zfs_file_system.root_volume_id)
-        example_open_zfs_snapshot = aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", volume_id=example_open_zfs_volume.id)
-        ```
 
         ## Import
 
@@ -285,6 +277,10 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OpenZfsSnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

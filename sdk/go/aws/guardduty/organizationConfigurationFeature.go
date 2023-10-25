@@ -16,45 +16,6 @@ import (
 // Provides a resource to manage a single Amazon GuardDuty [organization configuration feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
 //
 // > **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource in simply removed from state instead.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := guardduty.NewDetector(ctx, "example", &guardduty.DetectorArgs{
-//				Enable: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = guardduty.NewOrganizationConfigurationFeature(ctx, "eksRuntimeMonitoring", &guardduty.OrganizationConfigurationFeatureArgs{
-//				DetectorId: example.ID(),
-//				AutoEnable: pulumi.String("ALL"),
-//				AdditionalConfigurations: guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArray{
-//					&guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs{
-//						Name:       pulumi.String("EKS_ADDON_MANAGEMENT"),
-//						AutoEnable: pulumi.String("NEW"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type OrganizationConfigurationFeature struct {
 	pulumi.CustomResourceState
 

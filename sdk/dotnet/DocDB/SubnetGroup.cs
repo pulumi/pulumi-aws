@@ -12,32 +12,6 @@ namespace Pulumi.Aws.DocDB
     /// <summary>
     /// Provides an DocumentDB subnet group resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.DocDB.SubnetGroup("default", new()
-    ///     {
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Frontend.Id,
-    ///             aws_subnet.Backend.Id,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "My docdb subnet group" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For example:

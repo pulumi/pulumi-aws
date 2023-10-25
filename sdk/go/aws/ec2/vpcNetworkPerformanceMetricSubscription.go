@@ -14,33 +14,6 @@ import (
 )
 
 // Provides a resource to manage an Infrastructure Performance subscription.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcNetworkPerformanceMetricSubscription(ctx, "example", &ec2.VpcNetworkPerformanceMetricSubscriptionArgs{
-//				Destination: pulumi.String("us-west-1"),
-//				Source:      pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type VpcNetworkPerformanceMetricSubscription struct {
 	pulumi.CustomResourceState
 

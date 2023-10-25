@@ -10,21 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a GameLift Alias resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.gamelift.Alias("example", {
- *     description: "Example Description",
- *     routingStrategy: {
- *         message: "Example Message",
- *         type: "TERMINAL",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import GameLift Aliases using the ID. For example:

@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a Neptune engine version.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.neptune.getEngineVersion({
- *     preferredVersions: [
- *         "1.0.3.0",
- *         "1.0.2.2",
- *         "1.0.2.1",
- *     ],
- * });
- * ```
  */
 export function getEngineVersion(args?: GetEngineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEngineVersionResult> {
     args = args || {};
@@ -99,21 +84,6 @@ export interface GetEngineVersionResult {
 }
 /**
  * Information about a Neptune engine version.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.neptune.getEngineVersion({
- *     preferredVersions: [
- *         "1.0.3.0",
- *         "1.0.2.2",
- *         "1.0.2.1",
- *     ],
- * });
- * ```
  */
 export function getEngineVersionOutput(args?: GetEngineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEngineVersionResult> {
     return pulumi.output(args).apply((a: any) => getEngineVersion(a, opts))

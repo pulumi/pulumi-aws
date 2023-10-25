@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField {
     /**
-     * @return The name of the password field.
+     * @return The identifier for the value to match against in the JSON.
      * 
      */
     private String identifier;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField() {}
     /**
-     * @return The name of the password field.
+     * @return The identifier for the value to match against in the JSON.
      * 
      */
     public String identifier() {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,27 @@ class PlanArgs:
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
         :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
         """
-        pulumi.set(__self__, "contact_id", contact_id)
-        pulumi.set(__self__, "stages", stages)
+        PlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_id=contact_id,
+            stages=stages,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_id: Optional[pulumi.Input[str]] = None,
+             stages: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_id is None and 'contactId' in kwargs:
+            contact_id = kwargs['contactId']
+        if contact_id is None:
+            raise TypeError("Missing 'contact_id' argument")
+        if stages is None:
+            raise TypeError("Missing 'stages' argument")
+
+        _setter("contact_id", contact_id)
+        _setter("stages", stages)
 
     @property
     @pulumi.getter(name="contactId")
@@ -61,10 +80,25 @@ class _PlanState:
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
         :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
         """
+        _PlanState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_id=contact_id,
+            stages=stages,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_id: Optional[pulumi.Input[str]] = None,
+             stages: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_id is None and 'contactId' in kwargs:
+            contact_id = kwargs['contactId']
+
         if contact_id is not None:
-            pulumi.set(__self__, "contact_id", contact_id)
+            _setter("contact_id", contact_id)
         if stages is not None:
-            pulumi.set(__self__, "stages", stages)
+            _setter("stages", stages)
 
     @property
     @pulumi.getter(name="contactId")
@@ -103,68 +137,6 @@ class Plan(pulumi.CustomResource):
         Resource for managing an AWS SSM Contact Plan.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssmcontacts.Plan("example",
-            contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=1,
-            )])
-        ```
-        ### Usage with SSM Contact
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        contact = aws.ssmcontacts.Contact("contact",
-            alias="alias",
-            type="PERSONAL")
-        plan = aws.ssmcontacts.Plan("plan",
-            contact_id=contact.arn,
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=1,
-            )])
-        ```
-        ### Usage With All Fields
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        escalation_plan = aws.ssmcontacts.Contact("escalationPlan",
-            alias="escalation-plan-alias",
-            type="ESCALATION")
-        contact_one = aws.ssmcontacts.Contact("contactOne",
-            alias="alias",
-            type="PERSONAL")
-        contact_two = aws.ssmcontacts.Contact("contactTwo",
-            alias="alias",
-            type="PERSONAL")
-        test = aws.ssmcontacts.Plan("test",
-            contact_id=escalation_plan.arn,
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=0,
-                targets=[
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
-                            is_essential=False,
-                            contact_id=contact_one.arn,
-                        ),
-                    ),
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
-                            is_essential=True,
-                            contact_id=contact_two.arn,
-                        ),
-                    ),
-                ],
-            )])
-        ```
 
         ## Import
 
@@ -189,68 +161,6 @@ class Plan(pulumi.CustomResource):
         Resource for managing an AWS SSM Contact Plan.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ssmcontacts.Plan("example",
-            contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=1,
-            )])
-        ```
-        ### Usage with SSM Contact
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        contact = aws.ssmcontacts.Contact("contact",
-            alias="alias",
-            type="PERSONAL")
-        plan = aws.ssmcontacts.Plan("plan",
-            contact_id=contact.arn,
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=1,
-            )])
-        ```
-        ### Usage With All Fields
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        escalation_plan = aws.ssmcontacts.Contact("escalationPlan",
-            alias="escalation-plan-alias",
-            type="ESCALATION")
-        contact_one = aws.ssmcontacts.Contact("contactOne",
-            alias="alias",
-            type="PERSONAL")
-        contact_two = aws.ssmcontacts.Contact("contactTwo",
-            alias="alias",
-            type="PERSONAL")
-        test = aws.ssmcontacts.Plan("test",
-            contact_id=escalation_plan.arn,
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=0,
-                targets=[
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
-                            is_essential=False,
-                            contact_id=contact_one.arn,
-                        ),
-                    ),
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
-                            is_essential=True,
-                            contact_id=contact_two.arn,
-                        ),
-                    ),
-                ],
-            )])
-        ```
 
         ## Import
 
@@ -270,6 +180,10 @@ class Plan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Glue Registry resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Registry("example", {registryName: "example"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Glue Registries using `arn`. For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,30 @@ class PeeringConnectionOptionsArgs:
         :param pulumi.Input['PeeringConnectionOptionsAccepterArgs'] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
         :param pulumi.Input['PeeringConnectionOptionsRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         """
-        pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
+        PeeringConnectionOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_peering_connection_id=vpc_peering_connection_id,
+            accepter=accepter,
+            requester=requester,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
+             accepter: Optional[pulumi.Input['PeeringConnectionOptionsAccepterArgs']] = None,
+             requester: Optional[pulumi.Input['PeeringConnectionOptionsRequesterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_peering_connection_id is None and 'vpcPeeringConnectionId' in kwargs:
+            vpc_peering_connection_id = kwargs['vpcPeeringConnectionId']
+        if vpc_peering_connection_id is None:
+            raise TypeError("Missing 'vpc_peering_connection_id' argument")
+
+        _setter("vpc_peering_connection_id", vpc_peering_connection_id)
         if accepter is not None:
-            pulumi.set(__self__, "accepter", accepter)
+            _setter("accepter", accepter)
         if requester is not None:
-            pulumi.set(__self__, "requester", requester)
+            _setter("requester", requester)
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
@@ -80,12 +99,29 @@ class _PeeringConnectionOptionsState:
         :param pulumi.Input['PeeringConnectionOptionsRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         :param pulumi.Input[str] vpc_peering_connection_id: The ID of the requester VPC peering connection.
         """
+        _PeeringConnectionOptionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accepter=accepter,
+            requester=requester,
+            vpc_peering_connection_id=vpc_peering_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accepter: Optional[pulumi.Input['PeeringConnectionOptionsAccepterArgs']] = None,
+             requester: Optional[pulumi.Input['PeeringConnectionOptionsRequesterArgs']] = None,
+             vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_peering_connection_id is None and 'vpcPeeringConnectionId' in kwargs:
+            vpc_peering_connection_id = kwargs['vpcPeeringConnectionId']
+
         if accepter is not None:
-            pulumi.set(__self__, "accepter", accepter)
+            _setter("accepter", accepter)
         if requester is not None:
-            pulumi.set(__self__, "requester", requester)
+            _setter("requester", requester)
         if vpc_peering_connection_id is not None:
-            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
+            _setter("vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
     @pulumi.getter
@@ -146,76 +182,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         cross-account scenarios.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.0.0.0/16")
-        bar = aws.ec2.Vpc("bar", cidr_block="10.1.0.0/16")
-        foo_vpc_peering_connection = aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection",
-            vpc_id=foo_vpc.id,
-            peer_vpc_id=bar.id,
-            auto_accept=True)
-        foo_peering_connection_options = aws.ec2.PeeringConnectionOptions("fooPeeringConnectionOptions",
-            vpc_peering_connection_id=foo_vpc_peering_connection.id,
-            accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
-                allow_remote_vpc_dns_resolution=True,
-            ))
-        ```
-        ### Cross-Account Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        requester = aws.Provider("requester")
-        # Requester's credentials.
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        main = aws.ec2.Vpc("main",
-            cidr_block="10.0.0.0/16",
-            enable_dns_support=True,
-            enable_dns_hostnames=True,
-            opts=pulumi.ResourceOptions(provider=aws["requester"]))
-        peer_vpc = aws.ec2.Vpc("peerVpc",
-            cidr_block="10.1.0.0/16",
-            enable_dns_support=True,
-            enable_dns_hostnames=True,
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        peer_caller_identity = aws.get_caller_identity()
-        # Requester's side of the connection.
-        peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection",
-            vpc_id=main.id,
-            peer_vpc_id=peer_vpc.id,
-            peer_owner_id=peer_caller_identity.account_id,
-            auto_accept=False,
-            tags={
-                "Side": "Requester",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["requester"]))
-        # Accepter's side of the connection.
-        peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter",
-            vpc_peering_connection_id=peer_vpc_peering_connection.id,
-            auto_accept=True,
-            tags={
-                "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        requester_peering_connection_options = aws.ec2.PeeringConnectionOptions("requesterPeeringConnectionOptions",
-            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
-            requester=aws.ec2.PeeringConnectionOptionsRequesterArgs(
-                allow_remote_vpc_dns_resolution=True,
-            ),
-            opts=pulumi.ResourceOptions(provider=aws["requester"]))
-        accepter_peering_connection_options = aws.ec2.PeeringConnectionOptions("accepterPeeringConnectionOptions",
-            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
-            accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
-                allow_remote_vpc_dns_resolution=True,
-            ),
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        ```
 
         ## Import
 
@@ -250,76 +216,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         cross-account scenarios.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo_vpc = aws.ec2.Vpc("fooVpc", cidr_block="10.0.0.0/16")
-        bar = aws.ec2.Vpc("bar", cidr_block="10.1.0.0/16")
-        foo_vpc_peering_connection = aws.ec2.VpcPeeringConnection("fooVpcPeeringConnection",
-            vpc_id=foo_vpc.id,
-            peer_vpc_id=bar.id,
-            auto_accept=True)
-        foo_peering_connection_options = aws.ec2.PeeringConnectionOptions("fooPeeringConnectionOptions",
-            vpc_peering_connection_id=foo_vpc_peering_connection.id,
-            accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
-                allow_remote_vpc_dns_resolution=True,
-            ))
-        ```
-        ### Cross-Account Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        requester = aws.Provider("requester")
-        # Requester's credentials.
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        main = aws.ec2.Vpc("main",
-            cidr_block="10.0.0.0/16",
-            enable_dns_support=True,
-            enable_dns_hostnames=True,
-            opts=pulumi.ResourceOptions(provider=aws["requester"]))
-        peer_vpc = aws.ec2.Vpc("peerVpc",
-            cidr_block="10.1.0.0/16",
-            enable_dns_support=True,
-            enable_dns_hostnames=True,
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        peer_caller_identity = aws.get_caller_identity()
-        # Requester's side of the connection.
-        peer_vpc_peering_connection = aws.ec2.VpcPeeringConnection("peerVpcPeeringConnection",
-            vpc_id=main.id,
-            peer_vpc_id=peer_vpc.id,
-            peer_owner_id=peer_caller_identity.account_id,
-            auto_accept=False,
-            tags={
-                "Side": "Requester",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["requester"]))
-        # Accepter's side of the connection.
-        peer_vpc_peering_connection_accepter = aws.ec2.VpcPeeringConnectionAccepter("peerVpcPeeringConnectionAccepter",
-            vpc_peering_connection_id=peer_vpc_peering_connection.id,
-            auto_accept=True,
-            tags={
-                "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        requester_peering_connection_options = aws.ec2.PeeringConnectionOptions("requesterPeeringConnectionOptions",
-            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
-            requester=aws.ec2.PeeringConnectionOptionsRequesterArgs(
-                allow_remote_vpc_dns_resolution=True,
-            ),
-            opts=pulumi.ResourceOptions(provider=aws["requester"]))
-        accepter_peering_connection_options = aws.ec2.PeeringConnectionOptions("accepterPeeringConnectionOptions",
-            vpc_peering_connection_id=peer_vpc_peering_connection_accepter.id,
-            accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
-                allow_remote_vpc_dns_resolution=True,
-            ),
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        ```
 
         ## Import
 
@@ -339,6 +235,10 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PeeringConnectionOptionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -356,7 +256,9 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PeeringConnectionOptionsArgs.__new__(PeeringConnectionOptionsArgs)
 
+            accepter = _utilities.configure(accepter, PeeringConnectionOptionsAccepterArgs, True)
             __props__.__dict__["accepter"] = accepter
+            requester = _utilities.configure(requester, PeeringConnectionOptionsRequesterArgs, True)
             __props__.__dict__["requester"] = requester
             if vpc_peering_connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_peering_connection_id'")

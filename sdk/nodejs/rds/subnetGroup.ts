@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an RDS DB subnet group resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.rds.SubnetGroup("default", {
- *     subnetIds: [
- *         aws_subnet.frontend.id,
- *         aws_subnet.backend.id,
- *     ],
- *     tags: {
- *         Name: "My DB subnet group",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import DB Subnet groups using the `name`. For example:

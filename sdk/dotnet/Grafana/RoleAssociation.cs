@@ -13,62 +13,6 @@ namespace Pulumi.Aws.Grafana
     /// Provides an Amazon Managed Grafana workspace role association resource.
     /// 
     /// ## Example Usage
-    /// ### Basic configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assume = new Aws.Iam.Role("assume", new()
-    ///     {
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "grafana.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleWorkspace = new Aws.Grafana.Workspace("exampleWorkspace", new()
-    ///     {
-    ///         AccountAccessType = "CURRENT_ACCOUNT",
-    ///         AuthenticationProviders = new[]
-    ///         {
-    ///             "SAML",
-    ///         },
-    ///         PermissionType = "SERVICE_MANAGED",
-    ///         RoleArn = assume.Arn,
-    ///     });
-    /// 
-    ///     var exampleRoleAssociation = new Aws.Grafana.RoleAssociation("exampleRoleAssociation", new()
-    ///     {
-    ///         Role = "ADMIN",
-    ///         UserIds = new[]
-    ///         {
-    ///             "USER_ID_1",
-    ///             "USER_ID_2",
-    ///         },
-    ///         WorkspaceId = exampleWorkspace.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:grafana/roleAssociation:RoleAssociation")]
     public partial class RoleAssociation : global::Pulumi.CustomResource

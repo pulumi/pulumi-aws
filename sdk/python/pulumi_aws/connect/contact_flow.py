@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ContactFlowArgs', 'ContactFlow']
@@ -33,21 +33,52 @@ class ContactFlowArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
         """
-        pulumi.set(__self__, "instance_id", instance_id)
+        ContactFlowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_id=instance_id,
+            content=content,
+            content_hash=content_hash,
+            description=description,
+            filename=filename,
+            name=name,
+            tags=tags,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_id: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             content_hash: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if instance_id is None:
+            raise TypeError("Missing 'instance_id' argument")
+        if content_hash is None and 'contentHash' in kwargs:
+            content_hash = kwargs['contentHash']
+
+        _setter("instance_id", instance_id)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_hash is not None:
-            pulumi.set(__self__, "content_hash", content_hash)
+            _setter("content_hash", content_hash)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -174,31 +205,70 @@ class _ContactFlowState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
         """
+        _ContactFlowState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            contact_flow_id=contact_flow_id,
+            content=content,
+            content_hash=content_hash,
+            description=description,
+            filename=filename,
+            instance_id=instance_id,
+            name=name,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             contact_flow_id: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             content_hash: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_flow_id is None and 'contactFlowId' in kwargs:
+            contact_flow_id = kwargs['contactFlowId']
+        if content_hash is None and 'contentHash' in kwargs:
+            content_hash = kwargs['contentHash']
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if contact_flow_id is not None:
-            pulumi.set(__self__, "contact_flow_id", contact_flow_id)
+            _setter("contact_flow_id", contact_flow_id)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_hash is not None:
-            pulumi.set(__self__, "content_hash", content_hash)
+            _setter("content_hash", content_hash)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -361,47 +431,6 @@ class ContactFlow(pulumi.CustomResource):
         See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.connect.ContactFlow("test",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            description="Test Contact Flow Description",
-            type="CONTACT_FLOW",
-            content=json.dumps({
-                "Version": "2019-10-30",
-                "StartAction": "12345678-1234-1234-1234-123456789012",
-                "Actions": [
-                    {
-                        "Identifier": "12345678-1234-1234-1234-123456789012",
-                        "Type": "MessageParticipant",
-                        "Transitions": {
-                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                            "Errors": [],
-                            "Conditions": [],
-                        },
-                        "Parameters": {
-                            "Text": "Thanks for calling the sample flow!",
-                        },
-                    },
-                    {
-                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                        "Type": "DisconnectParticipant",
-                        "Transitions": {},
-                        "Parameters": {},
-                    },
-                ],
-            }),
-            tags={
-                "Name": "Test Contact Flow",
-                "Application": "Example",
-                "Method": "Create",
-            })
-        ```
 
         ## Import
 
@@ -439,47 +468,6 @@ class ContactFlow(pulumi.CustomResource):
         See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.connect.ContactFlow("test",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            description="Test Contact Flow Description",
-            type="CONTACT_FLOW",
-            content=json.dumps({
-                "Version": "2019-10-30",
-                "StartAction": "12345678-1234-1234-1234-123456789012",
-                "Actions": [
-                    {
-                        "Identifier": "12345678-1234-1234-1234-123456789012",
-                        "Type": "MessageParticipant",
-                        "Transitions": {
-                            "NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                            "Errors": [],
-                            "Conditions": [],
-                        },
-                        "Parameters": {
-                            "Text": "Thanks for calling the sample flow!",
-                        },
-                    },
-                    {
-                        "Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-                        "Type": "DisconnectParticipant",
-                        "Transitions": {},
-                        "Parameters": {},
-                    },
-                ],
-            }),
-            tags={
-                "Name": "Test Contact Flow",
-                "Application": "Example",
-                "Method": "Create",
-            })
-        ```
 
         ## Import
 
@@ -499,6 +487,10 @@ class ContactFlow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContactFlowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

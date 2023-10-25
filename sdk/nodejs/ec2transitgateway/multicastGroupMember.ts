@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Registers members (network interfaces) with the transit gateway multicast group.
  * A member is a network interface associated with a supported EC2 instance that receives multicast traffic.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.MulticastGroupMember("example", {
- *     groupIpAddress: "224.0.0.1",
- *     networkInterfaceId: aws_network_interface.example.id,
- *     transitGatewayMulticastDomainId: aws_ec2_transit_gateway_multicast_domain.example.id,
- * });
- * ```
  */
 export class MulticastGroupMember extends pulumi.CustomResource {
     /**

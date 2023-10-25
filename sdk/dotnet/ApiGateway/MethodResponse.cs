@@ -12,55 +12,6 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides an HTTP Method Response for an API Gateway Resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myDemoAPI = new Aws.ApiGateway.RestApi("myDemoAPI", new()
-    ///     {
-    ///         Description = "This is my API for demonstration purposes",
-    ///     });
-    /// 
-    ///     var myDemoResource = new Aws.ApiGateway.Resource("myDemoResource", new()
-    ///     {
-    ///         RestApi = myDemoAPI.Id,
-    ///         ParentId = myDemoAPI.RootResourceId,
-    ///         PathPart = "mydemoresource",
-    ///     });
-    /// 
-    ///     var myDemoMethod = new Aws.ApiGateway.Method("myDemoMethod", new()
-    ///     {
-    ///         RestApi = myDemoAPI.Id,
-    ///         ResourceId = myDemoResource.Id,
-    ///         HttpMethod = "GET",
-    ///         Authorization = "NONE",
-    ///     });
-    /// 
-    ///     var myDemoIntegration = new Aws.ApiGateway.Integration("myDemoIntegration", new()
-    ///     {
-    ///         RestApi = myDemoAPI.Id,
-    ///         ResourceId = myDemoResource.Id,
-    ///         HttpMethod = myDemoMethod.HttpMethod,
-    ///         Type = "MOCK",
-    ///     });
-    /// 
-    ///     var response200 = new Aws.ApiGateway.MethodResponse("response200", new()
-    ///     {
-    ///         RestApi = myDemoAPI.Id,
-    ///         ResourceId = myDemoResource.Id,
-    ///         HttpMethod = myDemoMethod.HttpMethod,
-    ///         StatusCode = "200",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_method_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:

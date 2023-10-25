@@ -12,28 +12,6 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Provides a Glue Schema resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.Schema("example", new()
-    ///     {
-    ///         SchemaName = "example",
-    ///         RegistryArn = aws_glue_registry.Test.Arn,
-    ///         DataFormat = "AVRO",
-    ///         Compatibility = "NONE",
-    ///         SchemaDefinition = "{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Registries using `arn`. For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NamedQueryArgs', 'NamedQuery']
@@ -27,14 +27,37 @@ class NamedQueryArgs:
         :param pulumi.Input[str] name: Plain language name for the query. Maximum length of 128.
         :param pulumi.Input[str] workgroup: Workgroup to which the query belongs. Defaults to `primary`
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "query", query)
+        NamedQueryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            query=query,
+            description=description,
+            name=name,
+            workgroup=workgroup,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             workgroup: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+
+        _setter("database", database)
+        _setter("query", query)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if workgroup is not None:
-            pulumi.set(__self__, "workgroup", workgroup)
+            _setter("workgroup", workgroup)
 
     @property
     @pulumi.getter
@@ -113,16 +136,35 @@ class _NamedQueryState:
         :param pulumi.Input[str] query: Text of the query itself. In other words, all query statements. Maximum length of 262144.
         :param pulumi.Input[str] workgroup: Workgroup to which the query belongs. Defaults to `primary`
         """
+        _NamedQueryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            description=description,
+            name=name,
+            query=query,
+            workgroup=workgroup,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             workgroup: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if workgroup is not None:
-            pulumi.set(__self__, "workgroup", workgroup)
+            _setter("workgroup", workgroup)
 
     @property
     @pulumi.getter
@@ -199,33 +241,6 @@ class NamedQuery(pulumi.CustomResource):
         """
         Provides an Athena Named Query resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
-        test_key = aws.kms.Key("testKey",
-            deletion_window_in_days=7,
-            description="Athena KMS Key")
-        test_workgroup = aws.athena.Workgroup("testWorkgroup", configuration=aws.athena.WorkgroupConfigurationArgs(
-            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                    encryption_option="SSE_KMS",
-                    kms_key_arn=test_key.arn,
-                ),
-            ),
-        ))
-        hoge_database = aws.athena.Database("hogeDatabase",
-            name="users",
-            bucket=hoge_bucket_v2.id)
-        foo = aws.athena.NamedQuery("foo",
-            workgroup=test_workgroup.id,
-            database=hoge_database.name,
-            query=hoge_database.name.apply(lambda name: f"SELECT * FROM {name} limit 10;"))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Athena Named Query using the query ID. For example:
@@ -251,33 +266,6 @@ class NamedQuery(pulumi.CustomResource):
         """
         Provides an Athena Named Query resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        hoge_bucket_v2 = aws.s3.BucketV2("hogeBucketV2")
-        test_key = aws.kms.Key("testKey",
-            deletion_window_in_days=7,
-            description="Athena KMS Key")
-        test_workgroup = aws.athena.Workgroup("testWorkgroup", configuration=aws.athena.WorkgroupConfigurationArgs(
-            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                    encryption_option="SSE_KMS",
-                    kms_key_arn=test_key.arn,
-                ),
-            ),
-        ))
-        hoge_database = aws.athena.Database("hogeDatabase",
-            name="users",
-            bucket=hoge_bucket_v2.id)
-        foo = aws.athena.NamedQuery("foo",
-            workgroup=test_workgroup.id,
-            database=hoge_database.name,
-            query=hoge_database.name.apply(lambda name: f"SELECT * FROM {name} limit 10;"))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Athena Named Query using the query ID. For example:
@@ -296,6 +284,10 @@ class NamedQuery(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamedQueryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

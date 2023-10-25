@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -80,15 +80,6 @@ def get_site(id: Optional[str] = None,
     """
     Provides details about an Outposts Site.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_site(name="example")
-    ```
-
 
     :param str id: Identifier of the Site.
     :param str name: Name of the Site.
@@ -112,15 +103,6 @@ def get_site_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
     """
     Provides details about an Outposts Site.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_site(name="example")
-    ```
 
 
     :param str id: Identifier of the Site.

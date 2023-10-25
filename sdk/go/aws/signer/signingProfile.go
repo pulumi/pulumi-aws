@@ -15,47 +15,6 @@ import (
 
 // Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/signer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := signer.NewSigningProfile(ctx, "testSp", &signer.SigningProfileArgs{
-//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = signer.NewSigningProfile(ctx, "prodSp", &signer.SigningProfileArgs{
-//				NamePrefix: pulumi.String("prod_sp_"),
-//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-//				SignatureValidityPeriod: &signer.SigningProfileSignatureValidityPeriodArgs{
-//					Type:  pulumi.String("YEARS"),
-//					Value: pulumi.Int(5),
-//				},
-//				Tags: pulumi.StringMap{
-//					"tag1": pulumi.String("value1"),
-//					"tag2": pulumi.String("value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Signer signing profiles using the `name`. For example:

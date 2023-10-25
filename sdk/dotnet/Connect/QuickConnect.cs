@@ -13,40 +13,6 @@ namespace Pulumi.Aws.Connect
     /// Provides an Amazon Connect Quick Connect resource. For more information see
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Connect.QuickConnect("test", new()
-    ///     {
-    ///         Description = "quick connect phone number",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         QuickConnectConfig = new Aws.Connect.Inputs.QuickConnectQuickConnectConfigArgs
-    ///         {
-    ///             PhoneConfigs = new[]
-    ///             {
-    ///                 new Aws.Connect.Inputs.QuickConnectQuickConnectConfigPhoneConfigArgs
-    ///                 {
-    ///                     PhoneNumber = "+12345678912",
-    ///                 },
-    ///             },
-    ///             QuickConnectType = "PHONE_NUMBER",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Quick Connect" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect Quick Connects using the `instance_id` and `quick_connect_id` separated by a colon (`:`). For example:

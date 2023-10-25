@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UsageLimitArgs', 'UsageLimit']
@@ -27,13 +27,44 @@ class UsageLimitArgs:
         :param pulumi.Input[str] breach_action: The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
         :param pulumi.Input[str] period: The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
         """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "resource_arn", resource_arn)
-        pulumi.set(__self__, "usage_type", usage_type)
+        UsageLimitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            resource_arn=resource_arn,
+            usage_type=usage_type,
+            breach_action=breach_action,
+            period=period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: Optional[pulumi.Input[int]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             usage_type: Optional[pulumi.Input[str]] = None,
+             breach_action: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if amount is None:
+            raise TypeError("Missing 'amount' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if usage_type is None and 'usageType' in kwargs:
+            usage_type = kwargs['usageType']
+        if usage_type is None:
+            raise TypeError("Missing 'usage_type' argument")
+        if breach_action is None and 'breachAction' in kwargs:
+            breach_action = kwargs['breachAction']
+
+        _setter("amount", amount)
+        _setter("resource_arn", resource_arn)
+        _setter("usage_type", usage_type)
         if breach_action is not None:
-            pulumi.set(__self__, "breach_action", breach_action)
+            _setter("breach_action", breach_action)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
 
     @property
     @pulumi.getter
@@ -114,18 +145,45 @@ class _UsageLimitState:
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
         :param pulumi.Input[str] usage_type: The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
         """
+        _UsageLimitState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            arn=arn,
+            breach_action=breach_action,
+            period=period,
+            resource_arn=resource_arn,
+            usage_type=usage_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: Optional[pulumi.Input[int]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             breach_action: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             usage_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if breach_action is None and 'breachAction' in kwargs:
+            breach_action = kwargs['breachAction']
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if usage_type is None and 'usageType' in kwargs:
+            usage_type = kwargs['usageType']
+
         if amount is not None:
-            pulumi.set(__self__, "amount", amount)
+            _setter("amount", amount)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if breach_action is not None:
-            pulumi.set(__self__, "breach_action", breach_action)
+            _setter("breach_action", breach_action)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if usage_type is not None:
-            pulumi.set(__self__, "usage_type", usage_type)
+            _setter("usage_type", usage_type)
 
     @property
     @pulumi.getter
@@ -214,21 +272,6 @@ class UsageLimit(pulumi.CustomResource):
         """
         Creates a new Amazon Redshift Serverless Usage Limit.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_workgroup = aws.redshiftserverless.Workgroup("exampleWorkgroup",
-            namespace_name=aws_redshiftserverless_namespace["example"]["namespace_name"],
-            workgroup_name="example")
-        example_usage_limit = aws.redshiftserverless.UsageLimit("exampleUsageLimit",
-            resource_arn=example_workgroup.arn,
-            usage_type="serverless-compute",
-            amount=60)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
@@ -254,21 +297,6 @@ class UsageLimit(pulumi.CustomResource):
         """
         Creates a new Amazon Redshift Serverless Usage Limit.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_workgroup = aws.redshiftserverless.Workgroup("exampleWorkgroup",
-            namespace_name=aws_redshiftserverless_namespace["example"]["namespace_name"],
-            workgroup_name="example")
-        example_usage_limit = aws.redshiftserverless.UsageLimit("exampleUsageLimit",
-            resource_arn=example_workgroup.arn,
-            usage_type="serverless-compute",
-            amount=60)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
@@ -287,6 +315,10 @@ class UsageLimit(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UsageLimitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

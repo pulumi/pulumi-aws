@@ -9,24 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource for copying an S3 object.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.s3.ObjectCopy("test", {
- *     bucket: "destination_bucket",
- *     grants: [{
- *         permissions: ["READ"],
- *         type: "Group",
- *         uri: "http://acs.amazonaws.com/groups/global/AllUsers",
- *     }],
- *     key: "destination_key",
- *     source: "source_bucket/source_key",
- * });
- * ```
  */
 export class ObjectCopy extends pulumi.CustomResource {
     /**

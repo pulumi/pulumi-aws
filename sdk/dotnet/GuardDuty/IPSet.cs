@@ -14,54 +14,6 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// &gt; **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = new Aws.GuardDuty.Detector("primary", new()
-    ///     {
-    ///         Enable = true,
-    ///     });
-    /// 
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
-    /// 
-    ///     // ... other configuration
-    ///     var myIPSet = new Aws.S3.BucketObjectv2("myIPSet", new()
-    ///     {
-    ///         Content = @"10.0.0.0/8
-    /// ",
-    ///         Bucket = bucket.Id,
-    ///         Key = "MyIPSet",
-    ///     });
-    /// 
-    ///     var example = new Aws.GuardDuty.IPSet("example", new()
-    ///     {
-    ///         Activate = true,
-    ///         DetectorId = primary.Id,
-    ///         Format = "TXT",
-    ///         Location = Output.Tuple(myIPSet.Bucket, myIPSet.Key).Apply(values =&gt;
-    ///         {
-    ///             var bucket = values.Item1;
-    ///             var key = values.Item2;
-    ///             return $"https://s3.amazonaws.com/{bucket}/{key}";
-    ///         }),
-    ///     });
-    /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
-    ///     {
-    ///         Bucket = bucket.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For example:

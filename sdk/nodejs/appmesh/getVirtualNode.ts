@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Data source for managing an AWS App Mesh Virtual Node.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.appmesh.getVirtualNode({
- *     meshName: "example-mesh",
- *     name: "serviceBv1",
- * });
- * ```
  */
 export function getVirtualNode(args: GetVirtualNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNodeResult> {
 
@@ -93,18 +81,6 @@ export interface GetVirtualNodeResult {
 }
 /**
  * Data source for managing an AWS App Mesh Virtual Node.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.appmesh.getVirtualNode({
- *     meshName: "example-mesh",
- *     name: "serviceBv1",
- * });
- * ```
  */
 export function getVirtualNodeOutput(args: GetVirtualNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNodeResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNode(a, opts))

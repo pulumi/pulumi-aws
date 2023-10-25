@@ -13,24 +13,6 @@ namespace Pulumi.Aws.Fsx
     /// Manages an Amazon FSx for OpenZFS volume.
     /// See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Fsx.OpenZfsVolume("test", new()
-    ///     {
-    ///         ParentVolumeId = aws_fsx_openzfs_file_system.Test.Root_volume_id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FSx Volumes using the `id`. For example:

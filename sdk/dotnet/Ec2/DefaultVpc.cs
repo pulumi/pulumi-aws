@@ -22,29 +22,6 @@ namespace Pulumi.Aws.Ec2
     /// By default, `pulumi destroy` does not delete the default VPC but does remove the resource from the state.
     /// Set the `force_destroy` argument to `true` to delete the default VPC.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage with tags:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Ec2.DefaultVpc("default", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Default VPC" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Default VPCs using the VPC `id`. For example:

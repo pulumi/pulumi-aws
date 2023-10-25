@@ -13,25 +13,6 @@ namespace Pulumi.Aws.CodeCatalyst
     /// Resource for managing an AWS CodeCatalyst Project.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CodeCatalyst.Project("test", new()
-    ///     {
-    ///         Description = "My CodeCatalyst Project created using Pulumi",
-    ///         DisplayName = "MyProject",
-    ///         SpaceName = "myproject",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

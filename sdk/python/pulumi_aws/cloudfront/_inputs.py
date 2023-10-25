@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -102,13 +102,48 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
         :param pulumi.Input[bool] enable_accept_encoding_brotli: Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
         :param pulumi.Input[bool] enable_accept_encoding_gzip: Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
         """
-        pulumi.set(__self__, "cookies_config", cookies_config)
-        pulumi.set(__self__, "headers_config", headers_config)
-        pulumi.set(__self__, "query_strings_config", query_strings_config)
+        CachePolicyParametersInCacheKeyAndForwardedToOriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookies_config=cookies_config,
+            headers_config=headers_config,
+            query_strings_config=query_strings_config,
+            enable_accept_encoding_brotli=enable_accept_encoding_brotli,
+            enable_accept_encoding_gzip=enable_accept_encoding_gzip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookies_config: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs']] = None,
+             headers_config: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs']] = None,
+             query_strings_config: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs']] = None,
+             enable_accept_encoding_brotli: Optional[pulumi.Input[bool]] = None,
+             enable_accept_encoding_gzip: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cookies_config is None and 'cookiesConfig' in kwargs:
+            cookies_config = kwargs['cookiesConfig']
+        if cookies_config is None:
+            raise TypeError("Missing 'cookies_config' argument")
+        if headers_config is None and 'headersConfig' in kwargs:
+            headers_config = kwargs['headersConfig']
+        if headers_config is None:
+            raise TypeError("Missing 'headers_config' argument")
+        if query_strings_config is None and 'queryStringsConfig' in kwargs:
+            query_strings_config = kwargs['queryStringsConfig']
+        if query_strings_config is None:
+            raise TypeError("Missing 'query_strings_config' argument")
+        if enable_accept_encoding_brotli is None and 'enableAcceptEncodingBrotli' in kwargs:
+            enable_accept_encoding_brotli = kwargs['enableAcceptEncodingBrotli']
+        if enable_accept_encoding_gzip is None and 'enableAcceptEncodingGzip' in kwargs:
+            enable_accept_encoding_gzip = kwargs['enableAcceptEncodingGzip']
+
+        _setter("cookies_config", cookies_config)
+        _setter("headers_config", headers_config)
+        _setter("query_strings_config", query_strings_config)
         if enable_accept_encoding_brotli is not None:
-            pulumi.set(__self__, "enable_accept_encoding_brotli", enable_accept_encoding_brotli)
+            _setter("enable_accept_encoding_brotli", enable_accept_encoding_brotli)
         if enable_accept_encoding_gzip is not None:
-            pulumi.set(__self__, "enable_accept_encoding_gzip", enable_accept_encoding_gzip)
+            _setter("enable_accept_encoding_gzip", enable_accept_encoding_gzip)
 
     @property
     @pulumi.getter(name="cookiesConfig")
@@ -180,9 +215,26 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs:
         :param pulumi.Input[str] cookie_behavior: Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
         :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs'] cookies: Object that contains a list of cookie names. See Items for more information.
         """
-        pulumi.set(__self__, "cookie_behavior", cookie_behavior)
+        CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookie_behavior=cookie_behavior,
+            cookies=cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookie_behavior: Optional[pulumi.Input[str]] = None,
+             cookies: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cookie_behavior is None and 'cookieBehavior' in kwargs:
+            cookie_behavior = kwargs['cookieBehavior']
+        if cookie_behavior is None:
+            raise TypeError("Missing 'cookie_behavior' argument")
+
+        _setter("cookie_behavior", cookie_behavior)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
 
     @property
     @pulumi.getter(name="cookieBehavior")
@@ -213,12 +265,29 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs:
 class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: List of item names, such as cookies, headers, or query strings.
+        """
+        CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
     def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of item names, such as cookies, headers, or query strings.
+        """
         return pulumi.get(self, "items")
 
     @items.setter
@@ -235,10 +304,25 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs:
         :param pulumi.Input[str] header_behavior: Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
         :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs'] headers: Object contains a list of header names. See Items for more information.
         """
+        CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_behavior=header_behavior,
+            headers=headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_behavior: Optional[pulumi.Input[str]] = None,
+             headers: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header_behavior is None and 'headerBehavior' in kwargs:
+            header_behavior = kwargs['headerBehavior']
+
         if header_behavior is not None:
-            pulumi.set(__self__, "header_behavior", header_behavior)
+            _setter("header_behavior", header_behavior)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
 
     @property
     @pulumi.getter(name="headerBehavior")
@@ -269,12 +353,29 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs:
 class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: List of item names, such as cookies, headers, or query strings.
+        """
+        CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
     def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of item names, such as cookies, headers, or query strings.
+        """
         return pulumi.get(self, "items")
 
     @items.setter
@@ -291,9 +392,28 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs:
         :param pulumi.Input[str] query_string_behavior: Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
         :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs'] query_strings: Configuration parameter that contains a list of query string names. See Items for more information.
         """
-        pulumi.set(__self__, "query_string_behavior", query_string_behavior)
+        CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_string_behavior=query_string_behavior,
+            query_strings=query_strings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_string_behavior: Optional[pulumi.Input[str]] = None,
+             query_strings: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_string_behavior is None and 'queryStringBehavior' in kwargs:
+            query_string_behavior = kwargs['queryStringBehavior']
+        if query_string_behavior is None:
+            raise TypeError("Missing 'query_string_behavior' argument")
+        if query_strings is None and 'queryStrings' in kwargs:
+            query_strings = kwargs['queryStrings']
+
+        _setter("query_string_behavior", query_string_behavior)
         if query_strings is not None:
-            pulumi.set(__self__, "query_strings", query_strings)
+            _setter("query_strings", query_strings)
 
     @property
     @pulumi.getter(name="queryStringBehavior")
@@ -324,12 +444,29 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs:
 class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: List of item names, such as cookies, headers, or query strings.
+        """
+        CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
     def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of item names, such as cookies, headers, or query strings.
+        """
         return pulumi.get(self, "items")
 
     @items.setter
@@ -346,9 +483,24 @@ class ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs:
         :param pulumi.Input[int] quantity: Number of CloudFront domain names in the staging distribution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] items: A list of CloudFront domain names for the staging distribution.
         """
-        pulumi.set(__self__, "quantity", quantity)
+        ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            quantity=quantity,
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             quantity: Optional[pulumi.Input[int]] = None,
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if quantity is None:
+            raise TypeError("Missing 'quantity' argument")
+
+        _setter("quantity", quantity)
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -386,11 +538,32 @@ class ContinuousDeploymentPolicyTrafficConfigArgs:
         :param pulumi.Input['ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs'] single_header_config: Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
         :param pulumi.Input['ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs'] single_weight_config: Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
         """
-        pulumi.set(__self__, "type", type)
+        ContinuousDeploymentPolicyTrafficConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            single_header_config=single_header_config,
+            single_weight_config=single_weight_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             single_header_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs']] = None,
+             single_weight_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if single_header_config is None and 'singleHeaderConfig' in kwargs:
+            single_header_config = kwargs['singleHeaderConfig']
+        if single_weight_config is None and 'singleWeightConfig' in kwargs:
+            single_weight_config = kwargs['singleWeightConfig']
+
+        _setter("type", type)
         if single_header_config is not None:
-            pulumi.set(__self__, "single_header_config", single_header_config)
+            _setter("single_header_config", single_header_config)
         if single_weight_config is not None:
-            pulumi.set(__self__, "single_weight_config", single_weight_config)
+            _setter("single_weight_config", single_weight_config)
 
     @property
     @pulumi.getter
@@ -438,8 +611,25 @@ class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs:
         :param pulumi.Input[str] header: Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
         :param pulumi.Input[str] value: Request header value.
         """
-        pulumi.set(__self__, "header", header)
-        pulumi.set(__self__, "value", value)
+        ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header is None:
+            raise TypeError("Missing 'header' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("header", header)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -475,9 +665,26 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs:
         :param pulumi.Input[float] weight: The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
         :param pulumi.Input['ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs'] session_stickiness_config: Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
         """
-        pulumi.set(__self__, "weight", weight)
+        ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weight=weight,
+            session_stickiness_config=session_stickiness_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weight: Optional[pulumi.Input[float]] = None,
+             session_stickiness_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
+        if session_stickiness_config is None and 'sessionStickinessConfig' in kwargs:
+            session_stickiness_config = kwargs['sessionStickinessConfig']
+
+        _setter("weight", weight)
         if session_stickiness_config is not None:
-            pulumi.set(__self__, "session_stickiness_config", session_stickiness_config)
+            _setter("session_stickiness_config", session_stickiness_config)
 
     @property
     @pulumi.getter
@@ -513,8 +720,29 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickiness
         :param pulumi.Input[int] idle_ttl: The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
         :param pulumi.Input[int] maximum_ttl: The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
         """
-        pulumi.set(__self__, "idle_ttl", idle_ttl)
-        pulumi.set(__self__, "maximum_ttl", maximum_ttl)
+        ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle_ttl=idle_ttl,
+            maximum_ttl=maximum_ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle_ttl: Optional[pulumi.Input[int]] = None,
+             maximum_ttl: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if idle_ttl is None and 'idleTtl' in kwargs:
+            idle_ttl = kwargs['idleTtl']
+        if idle_ttl is None:
+            raise TypeError("Missing 'idle_ttl' argument")
+        if maximum_ttl is None and 'maximumTtl' in kwargs:
+            maximum_ttl = kwargs['maximumTtl']
+        if maximum_ttl is None:
+            raise TypeError("Missing 'maximum_ttl' argument")
+
+        _setter("idle_ttl", idle_ttl)
+        _setter("maximum_ttl", maximum_ttl)
 
     @property
     @pulumi.getter(name="idleTtl")
@@ -554,13 +782,40 @@ class DistributionCustomErrorResponseArgs:
         :param pulumi.Input[int] response_code: HTTP status code that you want CloudFront to return with the custom error page to the viewer.
         :param pulumi.Input[str] response_page_path: Path of the custom error page (for example, `/custom_404.html`).
         """
-        pulumi.set(__self__, "error_code", error_code)
+        DistributionCustomErrorResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_caching_min_ttl=error_caching_min_ttl,
+            response_code=response_code,
+            response_page_path=response_page_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: Optional[pulumi.Input[int]] = None,
+             error_caching_min_ttl: Optional[pulumi.Input[int]] = None,
+             response_code: Optional[pulumi.Input[int]] = None,
+             response_page_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_code is None and 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if error_code is None:
+            raise TypeError("Missing 'error_code' argument")
+        if error_caching_min_ttl is None and 'errorCachingMinTtl' in kwargs:
+            error_caching_min_ttl = kwargs['errorCachingMinTtl']
+        if response_code is None and 'responseCode' in kwargs:
+            response_code = kwargs['responseCode']
+        if response_page_path is None and 'responsePagePath' in kwargs:
+            response_page_path = kwargs['responsePagePath']
+
+        _setter("error_code", error_code)
         if error_caching_min_ttl is not None:
-            pulumi.set(__self__, "error_caching_min_ttl", error_caching_min_ttl)
+            _setter("error_caching_min_ttl", error_caching_min_ttl)
         if response_code is not None:
-            pulumi.set(__self__, "response_code", response_code)
+            _setter("response_code", response_code)
         if response_page_path is not None:
-            pulumi.set(__self__, "response_page_path", response_page_path)
+            _setter("response_page_path", response_page_path)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -654,40 +909,131 @@ class DistributionDefaultCacheBehaviorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_key_groups: List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
-        pulumi.set(__self__, "allowed_methods", allowed_methods)
-        pulumi.set(__self__, "cached_methods", cached_methods)
-        pulumi.set(__self__, "target_origin_id", target_origin_id)
-        pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
+        DistributionDefaultCacheBehaviorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_methods=allowed_methods,
+            cached_methods=cached_methods,
+            target_origin_id=target_origin_id,
+            viewer_protocol_policy=viewer_protocol_policy,
+            cache_policy_id=cache_policy_id,
+            compress=compress,
+            default_ttl=default_ttl,
+            field_level_encryption_id=field_level_encryption_id,
+            forwarded_values=forwarded_values,
+            function_associations=function_associations,
+            lambda_function_associations=lambda_function_associations,
+            max_ttl=max_ttl,
+            min_ttl=min_ttl,
+            origin_request_policy_id=origin_request_policy_id,
+            realtime_log_config_arn=realtime_log_config_arn,
+            response_headers_policy_id=response_headers_policy_id,
+            smooth_streaming=smooth_streaming,
+            trusted_key_groups=trusted_key_groups,
+            trusted_signers=trusted_signers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cached_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_origin_id: Optional[pulumi.Input[str]] = None,
+             viewer_protocol_policy: Optional[pulumi.Input[str]] = None,
+             cache_policy_id: Optional[pulumi.Input[str]] = None,
+             compress: Optional[pulumi.Input[bool]] = None,
+             default_ttl: Optional[pulumi.Input[int]] = None,
+             field_level_encryption_id: Optional[pulumi.Input[str]] = None,
+             forwarded_values: Optional[pulumi.Input['DistributionDefaultCacheBehaviorForwardedValuesArgs']] = None,
+             function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorFunctionAssociationArgs']]]] = None,
+             lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs']]]] = None,
+             max_ttl: Optional[pulumi.Input[int]] = None,
+             min_ttl: Optional[pulumi.Input[int]] = None,
+             origin_request_policy_id: Optional[pulumi.Input[str]] = None,
+             realtime_log_config_arn: Optional[pulumi.Input[str]] = None,
+             response_headers_policy_id: Optional[pulumi.Input[str]] = None,
+             smooth_streaming: Optional[pulumi.Input[bool]] = None,
+             trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_methods is None and 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if allowed_methods is None:
+            raise TypeError("Missing 'allowed_methods' argument")
+        if cached_methods is None and 'cachedMethods' in kwargs:
+            cached_methods = kwargs['cachedMethods']
+        if cached_methods is None:
+            raise TypeError("Missing 'cached_methods' argument")
+        if target_origin_id is None and 'targetOriginId' in kwargs:
+            target_origin_id = kwargs['targetOriginId']
+        if target_origin_id is None:
+            raise TypeError("Missing 'target_origin_id' argument")
+        if viewer_protocol_policy is None and 'viewerProtocolPolicy' in kwargs:
+            viewer_protocol_policy = kwargs['viewerProtocolPolicy']
+        if viewer_protocol_policy is None:
+            raise TypeError("Missing 'viewer_protocol_policy' argument")
+        if cache_policy_id is None and 'cachePolicyId' in kwargs:
+            cache_policy_id = kwargs['cachePolicyId']
+        if default_ttl is None and 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if field_level_encryption_id is None and 'fieldLevelEncryptionId' in kwargs:
+            field_level_encryption_id = kwargs['fieldLevelEncryptionId']
+        if forwarded_values is None and 'forwardedValues' in kwargs:
+            forwarded_values = kwargs['forwardedValues']
+        if function_associations is None and 'functionAssociations' in kwargs:
+            function_associations = kwargs['functionAssociations']
+        if lambda_function_associations is None and 'lambdaFunctionAssociations' in kwargs:
+            lambda_function_associations = kwargs['lambdaFunctionAssociations']
+        if max_ttl is None and 'maxTtl' in kwargs:
+            max_ttl = kwargs['maxTtl']
+        if min_ttl is None and 'minTtl' in kwargs:
+            min_ttl = kwargs['minTtl']
+        if origin_request_policy_id is None and 'originRequestPolicyId' in kwargs:
+            origin_request_policy_id = kwargs['originRequestPolicyId']
+        if realtime_log_config_arn is None and 'realtimeLogConfigArn' in kwargs:
+            realtime_log_config_arn = kwargs['realtimeLogConfigArn']
+        if response_headers_policy_id is None and 'responseHeadersPolicyId' in kwargs:
+            response_headers_policy_id = kwargs['responseHeadersPolicyId']
+        if smooth_streaming is None and 'smoothStreaming' in kwargs:
+            smooth_streaming = kwargs['smoothStreaming']
+        if trusted_key_groups is None and 'trustedKeyGroups' in kwargs:
+            trusted_key_groups = kwargs['trustedKeyGroups']
+        if trusted_signers is None and 'trustedSigners' in kwargs:
+            trusted_signers = kwargs['trustedSigners']
+
+        _setter("allowed_methods", allowed_methods)
+        _setter("cached_methods", cached_methods)
+        _setter("target_origin_id", target_origin_id)
+        _setter("viewer_protocol_policy", viewer_protocol_policy)
         if cache_policy_id is not None:
-            pulumi.set(__self__, "cache_policy_id", cache_policy_id)
+            _setter("cache_policy_id", cache_policy_id)
         if compress is not None:
-            pulumi.set(__self__, "compress", compress)
+            _setter("compress", compress)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if field_level_encryption_id is not None:
-            pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
+            _setter("field_level_encryption_id", field_level_encryption_id)
         if forwarded_values is not None:
-            pulumi.set(__self__, "forwarded_values", forwarded_values)
+            _setter("forwarded_values", forwarded_values)
         if function_associations is not None:
-            pulumi.set(__self__, "function_associations", function_associations)
+            _setter("function_associations", function_associations)
         if lambda_function_associations is not None:
-            pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
+            _setter("lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
-            pulumi.set(__self__, "max_ttl", max_ttl)
+            _setter("max_ttl", max_ttl)
         if min_ttl is not None:
-            pulumi.set(__self__, "min_ttl", min_ttl)
+            _setter("min_ttl", min_ttl)
         if origin_request_policy_id is not None:
-            pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
+            _setter("origin_request_policy_id", origin_request_policy_id)
         if realtime_log_config_arn is not None:
-            pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+            _setter("realtime_log_config_arn", realtime_log_config_arn)
         if response_headers_policy_id is not None:
-            pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
+            _setter("response_headers_policy_id", response_headers_policy_id)
         if smooth_streaming is not None:
-            pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+            _setter("smooth_streaming", smooth_streaming)
         if trusted_key_groups is not None:
-            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
+            _setter("trusted_key_groups", trusted_key_groups)
         if trusted_signers is not None:
-            pulumi.set(__self__, "trusted_signers", trusted_signers)
+            _setter("trusted_signers", trusted_signers)
 
     @property
     @pulumi.getter(name="allowedMethods")
@@ -931,12 +1277,37 @@ class DistributionDefaultCacheBehaviorForwardedValuesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers: Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] query_string_cache_keys: When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
         """
-        pulumi.set(__self__, "cookies", cookies)
-        pulumi.set(__self__, "query_string", query_string)
+        DistributionDefaultCacheBehaviorForwardedValuesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookies=cookies,
+            query_string=query_string,
+            headers=headers,
+            query_string_cache_keys=query_string_cache_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookies: Optional[pulumi.Input['DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs']] = None,
+             query_string: Optional[pulumi.Input[bool]] = None,
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             query_string_cache_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cookies is None:
+            raise TypeError("Missing 'cookies' argument")
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if query_string is None:
+            raise TypeError("Missing 'query_string' argument")
+        if query_string_cache_keys is None and 'queryStringCacheKeys' in kwargs:
+            query_string_cache_keys = kwargs['queryStringCacheKeys']
+
+        _setter("cookies", cookies)
+        _setter("query_string", query_string)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_string_cache_keys is not None:
-            pulumi.set(__self__, "query_string_cache_keys", query_string_cache_keys)
+            _setter("query_string_cache_keys", query_string_cache_keys)
 
     @property
     @pulumi.getter
@@ -996,9 +1367,26 @@ class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs:
         :param pulumi.Input[str] forward: Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelisted_names: If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
         """
-        pulumi.set(__self__, "forward", forward)
+        DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            forward=forward,
+            whitelisted_names=whitelisted_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             forward: Optional[pulumi.Input[str]] = None,
+             whitelisted_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if forward is None:
+            raise TypeError("Missing 'forward' argument")
+        if whitelisted_names is None and 'whitelistedNames' in kwargs:
+            whitelisted_names = kwargs['whitelistedNames']
+
+        _setter("forward", forward)
         if whitelisted_names is not None:
-            pulumi.set(__self__, "whitelisted_names", whitelisted_names)
+            _setter("whitelisted_names", whitelisted_names)
 
     @property
     @pulumi.getter
@@ -1034,8 +1422,29 @@ class DistributionDefaultCacheBehaviorFunctionAssociationArgs:
         :param pulumi.Input[str] event_type: Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
         :param pulumi.Input[str] function_arn: ARN of the CloudFront function.
         """
-        pulumi.set(__self__, "event_type", event_type)
-        pulumi.set(__self__, "function_arn", function_arn)
+        DistributionDefaultCacheBehaviorFunctionAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_type=event_type,
+            function_arn=function_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_type: Optional[pulumi.Input[str]] = None,
+             function_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if event_type is None:
+            raise TypeError("Missing 'event_type' argument")
+        if function_arn is None and 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if function_arn is None:
+            raise TypeError("Missing 'function_arn' argument")
+
+        _setter("event_type", event_type)
+        _setter("function_arn", function_arn)
 
     @property
     @pulumi.getter(name="eventType")
@@ -1073,10 +1482,35 @@ class DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs:
         :param pulumi.Input[str] lambda_arn: ARN of the Lambda function.
         :param pulumi.Input[bool] include_body: When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
         """
-        pulumi.set(__self__, "event_type", event_type)
-        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_type=event_type,
+            lambda_arn=lambda_arn,
+            include_body=include_body,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_type: Optional[pulumi.Input[str]] = None,
+             lambda_arn: Optional[pulumi.Input[str]] = None,
+             include_body: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if event_type is None:
+            raise TypeError("Missing 'event_type' argument")
+        if lambda_arn is None and 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+        if lambda_arn is None:
+            raise TypeError("Missing 'lambda_arn' argument")
+        if include_body is None and 'includeBody' in kwargs:
+            include_body = kwargs['includeBody']
+
+        _setter("event_type", event_type)
+        _setter("lambda_arn", lambda_arn)
         if include_body is not None:
-            pulumi.set(__self__, "include_body", include_body)
+            _setter("include_body", include_body)
 
     @property
     @pulumi.getter(name="eventType")
@@ -1126,11 +1560,30 @@ class DistributionLoggingConfigArgs:
         :param pulumi.Input[bool] include_cookies: Whether to include cookies in access logs (default: `false`).
         :param pulumi.Input[str] prefix: Prefix to the access log filenames for this distribution, for example, `myprefix/`.
         """
-        pulumi.set(__self__, "bucket", bucket)
+        DistributionLoggingConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            include_cookies=include_cookies,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             include_cookies: Optional[pulumi.Input[bool]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if include_cookies is None and 'includeCookies' in kwargs:
+            include_cookies = kwargs['includeCookies']
+
+        _setter("bucket", bucket)
         if include_cookies is not None:
-            pulumi.set(__self__, "include_cookies", include_cookies)
+            _setter("include_cookies", include_cookies)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -1214,41 +1667,138 @@ class DistributionOrderedCacheBehaviorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_key_groups: List of key group IDs that CloudFront can use to validate signed URLs or signed cookies. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_signers: List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content. See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
         """
-        pulumi.set(__self__, "allowed_methods", allowed_methods)
-        pulumi.set(__self__, "cached_methods", cached_methods)
-        pulumi.set(__self__, "path_pattern", path_pattern)
-        pulumi.set(__self__, "target_origin_id", target_origin_id)
-        pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
+        DistributionOrderedCacheBehaviorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_methods=allowed_methods,
+            cached_methods=cached_methods,
+            path_pattern=path_pattern,
+            target_origin_id=target_origin_id,
+            viewer_protocol_policy=viewer_protocol_policy,
+            cache_policy_id=cache_policy_id,
+            compress=compress,
+            default_ttl=default_ttl,
+            field_level_encryption_id=field_level_encryption_id,
+            forwarded_values=forwarded_values,
+            function_associations=function_associations,
+            lambda_function_associations=lambda_function_associations,
+            max_ttl=max_ttl,
+            min_ttl=min_ttl,
+            origin_request_policy_id=origin_request_policy_id,
+            realtime_log_config_arn=realtime_log_config_arn,
+            response_headers_policy_id=response_headers_policy_id,
+            smooth_streaming=smooth_streaming,
+            trusted_key_groups=trusted_key_groups,
+            trusted_signers=trusted_signers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cached_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             path_pattern: Optional[pulumi.Input[str]] = None,
+             target_origin_id: Optional[pulumi.Input[str]] = None,
+             viewer_protocol_policy: Optional[pulumi.Input[str]] = None,
+             cache_policy_id: Optional[pulumi.Input[str]] = None,
+             compress: Optional[pulumi.Input[bool]] = None,
+             default_ttl: Optional[pulumi.Input[int]] = None,
+             field_level_encryption_id: Optional[pulumi.Input[str]] = None,
+             forwarded_values: Optional[pulumi.Input['DistributionOrderedCacheBehaviorForwardedValuesArgs']] = None,
+             function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorFunctionAssociationArgs']]]] = None,
+             lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs']]]] = None,
+             max_ttl: Optional[pulumi.Input[int]] = None,
+             min_ttl: Optional[pulumi.Input[int]] = None,
+             origin_request_policy_id: Optional[pulumi.Input[str]] = None,
+             realtime_log_config_arn: Optional[pulumi.Input[str]] = None,
+             response_headers_policy_id: Optional[pulumi.Input[str]] = None,
+             smooth_streaming: Optional[pulumi.Input[bool]] = None,
+             trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_methods is None and 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if allowed_methods is None:
+            raise TypeError("Missing 'allowed_methods' argument")
+        if cached_methods is None and 'cachedMethods' in kwargs:
+            cached_methods = kwargs['cachedMethods']
+        if cached_methods is None:
+            raise TypeError("Missing 'cached_methods' argument")
+        if path_pattern is None and 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if path_pattern is None:
+            raise TypeError("Missing 'path_pattern' argument")
+        if target_origin_id is None and 'targetOriginId' in kwargs:
+            target_origin_id = kwargs['targetOriginId']
+        if target_origin_id is None:
+            raise TypeError("Missing 'target_origin_id' argument")
+        if viewer_protocol_policy is None and 'viewerProtocolPolicy' in kwargs:
+            viewer_protocol_policy = kwargs['viewerProtocolPolicy']
+        if viewer_protocol_policy is None:
+            raise TypeError("Missing 'viewer_protocol_policy' argument")
+        if cache_policy_id is None and 'cachePolicyId' in kwargs:
+            cache_policy_id = kwargs['cachePolicyId']
+        if default_ttl is None and 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if field_level_encryption_id is None and 'fieldLevelEncryptionId' in kwargs:
+            field_level_encryption_id = kwargs['fieldLevelEncryptionId']
+        if forwarded_values is None and 'forwardedValues' in kwargs:
+            forwarded_values = kwargs['forwardedValues']
+        if function_associations is None and 'functionAssociations' in kwargs:
+            function_associations = kwargs['functionAssociations']
+        if lambda_function_associations is None and 'lambdaFunctionAssociations' in kwargs:
+            lambda_function_associations = kwargs['lambdaFunctionAssociations']
+        if max_ttl is None and 'maxTtl' in kwargs:
+            max_ttl = kwargs['maxTtl']
+        if min_ttl is None and 'minTtl' in kwargs:
+            min_ttl = kwargs['minTtl']
+        if origin_request_policy_id is None and 'originRequestPolicyId' in kwargs:
+            origin_request_policy_id = kwargs['originRequestPolicyId']
+        if realtime_log_config_arn is None and 'realtimeLogConfigArn' in kwargs:
+            realtime_log_config_arn = kwargs['realtimeLogConfigArn']
+        if response_headers_policy_id is None and 'responseHeadersPolicyId' in kwargs:
+            response_headers_policy_id = kwargs['responseHeadersPolicyId']
+        if smooth_streaming is None and 'smoothStreaming' in kwargs:
+            smooth_streaming = kwargs['smoothStreaming']
+        if trusted_key_groups is None and 'trustedKeyGroups' in kwargs:
+            trusted_key_groups = kwargs['trustedKeyGroups']
+        if trusted_signers is None and 'trustedSigners' in kwargs:
+            trusted_signers = kwargs['trustedSigners']
+
+        _setter("allowed_methods", allowed_methods)
+        _setter("cached_methods", cached_methods)
+        _setter("path_pattern", path_pattern)
+        _setter("target_origin_id", target_origin_id)
+        _setter("viewer_protocol_policy", viewer_protocol_policy)
         if cache_policy_id is not None:
-            pulumi.set(__self__, "cache_policy_id", cache_policy_id)
+            _setter("cache_policy_id", cache_policy_id)
         if compress is not None:
-            pulumi.set(__self__, "compress", compress)
+            _setter("compress", compress)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if field_level_encryption_id is not None:
-            pulumi.set(__self__, "field_level_encryption_id", field_level_encryption_id)
+            _setter("field_level_encryption_id", field_level_encryption_id)
         if forwarded_values is not None:
-            pulumi.set(__self__, "forwarded_values", forwarded_values)
+            _setter("forwarded_values", forwarded_values)
         if function_associations is not None:
-            pulumi.set(__self__, "function_associations", function_associations)
+            _setter("function_associations", function_associations)
         if lambda_function_associations is not None:
-            pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
+            _setter("lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
-            pulumi.set(__self__, "max_ttl", max_ttl)
+            _setter("max_ttl", max_ttl)
         if min_ttl is not None:
-            pulumi.set(__self__, "min_ttl", min_ttl)
+            _setter("min_ttl", min_ttl)
         if origin_request_policy_id is not None:
-            pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
+            _setter("origin_request_policy_id", origin_request_policy_id)
         if realtime_log_config_arn is not None:
-            pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+            _setter("realtime_log_config_arn", realtime_log_config_arn)
         if response_headers_policy_id is not None:
-            pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
+            _setter("response_headers_policy_id", response_headers_policy_id)
         if smooth_streaming is not None:
-            pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+            _setter("smooth_streaming", smooth_streaming)
         if trusted_key_groups is not None:
-            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
+            _setter("trusted_key_groups", trusted_key_groups)
         if trusted_signers is not None:
-            pulumi.set(__self__, "trusted_signers", trusted_signers)
+            _setter("trusted_signers", trusted_signers)
 
     @property
     @pulumi.getter(name="allowedMethods")
@@ -1504,12 +2054,37 @@ class DistributionOrderedCacheBehaviorForwardedValuesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers: Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] query_string_cache_keys: When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
         """
-        pulumi.set(__self__, "cookies", cookies)
-        pulumi.set(__self__, "query_string", query_string)
+        DistributionOrderedCacheBehaviorForwardedValuesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookies=cookies,
+            query_string=query_string,
+            headers=headers,
+            query_string_cache_keys=query_string_cache_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookies: Optional[pulumi.Input['DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs']] = None,
+             query_string: Optional[pulumi.Input[bool]] = None,
+             headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             query_string_cache_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cookies is None:
+            raise TypeError("Missing 'cookies' argument")
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if query_string is None:
+            raise TypeError("Missing 'query_string' argument")
+        if query_string_cache_keys is None and 'queryStringCacheKeys' in kwargs:
+            query_string_cache_keys = kwargs['queryStringCacheKeys']
+
+        _setter("cookies", cookies)
+        _setter("query_string", query_string)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_string_cache_keys is not None:
-            pulumi.set(__self__, "query_string_cache_keys", query_string_cache_keys)
+            _setter("query_string_cache_keys", query_string_cache_keys)
 
     @property
     @pulumi.getter
@@ -1569,9 +2144,26 @@ class DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs:
         :param pulumi.Input[str] forward: Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelisted_names: If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
         """
-        pulumi.set(__self__, "forward", forward)
+        DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            forward=forward,
+            whitelisted_names=whitelisted_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             forward: Optional[pulumi.Input[str]] = None,
+             whitelisted_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if forward is None:
+            raise TypeError("Missing 'forward' argument")
+        if whitelisted_names is None and 'whitelistedNames' in kwargs:
+            whitelisted_names = kwargs['whitelistedNames']
+
+        _setter("forward", forward)
         if whitelisted_names is not None:
-            pulumi.set(__self__, "whitelisted_names", whitelisted_names)
+            _setter("whitelisted_names", whitelisted_names)
 
     @property
     @pulumi.getter
@@ -1607,8 +2199,29 @@ class DistributionOrderedCacheBehaviorFunctionAssociationArgs:
         :param pulumi.Input[str] event_type: Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
         :param pulumi.Input[str] function_arn: ARN of the CloudFront function.
         """
-        pulumi.set(__self__, "event_type", event_type)
-        pulumi.set(__self__, "function_arn", function_arn)
+        DistributionOrderedCacheBehaviorFunctionAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_type=event_type,
+            function_arn=function_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_type: Optional[pulumi.Input[str]] = None,
+             function_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if event_type is None:
+            raise TypeError("Missing 'event_type' argument")
+        if function_arn is None and 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if function_arn is None:
+            raise TypeError("Missing 'function_arn' argument")
+
+        _setter("event_type", event_type)
+        _setter("function_arn", function_arn)
 
     @property
     @pulumi.getter(name="eventType")
@@ -1646,10 +2259,35 @@ class DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs:
         :param pulumi.Input[str] lambda_arn: ARN of the Lambda function.
         :param pulumi.Input[bool] include_body: When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
         """
-        pulumi.set(__self__, "event_type", event_type)
-        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_type=event_type,
+            lambda_arn=lambda_arn,
+            include_body=include_body,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_type: Optional[pulumi.Input[str]] = None,
+             lambda_arn: Optional[pulumi.Input[str]] = None,
+             include_body: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if event_type is None:
+            raise TypeError("Missing 'event_type' argument")
+        if lambda_arn is None and 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+        if lambda_arn is None:
+            raise TypeError("Missing 'lambda_arn' argument")
+        if include_body is None and 'includeBody' in kwargs:
+            include_body = kwargs['includeBody']
+
+        _setter("event_type", event_type)
+        _setter("lambda_arn", lambda_arn)
         if include_body is not None:
-            pulumi.set(__self__, "include_body", include_body)
+            _setter("include_body", include_body)
 
     @property
     @pulumi.getter(name="eventType")
@@ -1703,7 +2341,7 @@ class DistributionOriginArgs:
                  s3_origin_config: Optional[pulumi.Input['DistributionOriginS3OriginConfigArgs']] = None):
         """
         :param pulumi.Input[str] domain_name: DNS domain name of either the S3 bucket, or web site of your custom origin.
-        :param pulumi.Input[str] origin_id: Unique identifier for the origin.
+        :param pulumi.Input[str] origin_id: Unique identifier of the member origin.
         :param pulumi.Input[int] connection_attempts: Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
         :param pulumi.Input[int] connection_timeout: Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginCustomHeaderArgs']]] custom_headers: One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
@@ -1713,24 +2351,77 @@ class DistributionOriginArgs:
         :param pulumi.Input['DistributionOriginOriginShieldArgs'] origin_shield: CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
         :param pulumi.Input['DistributionOriginS3OriginConfigArgs'] s3_origin_config: CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "origin_id", origin_id)
+        DistributionOriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            origin_id=origin_id,
+            connection_attempts=connection_attempts,
+            connection_timeout=connection_timeout,
+            custom_headers=custom_headers,
+            custom_origin_config=custom_origin_config,
+            origin_access_control_id=origin_access_control_id,
+            origin_path=origin_path,
+            origin_shield=origin_shield,
+            s3_origin_config=s3_origin_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             origin_id: Optional[pulumi.Input[str]] = None,
+             connection_attempts: Optional[pulumi.Input[int]] = None,
+             connection_timeout: Optional[pulumi.Input[int]] = None,
+             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginCustomHeaderArgs']]]] = None,
+             custom_origin_config: Optional[pulumi.Input['DistributionOriginCustomOriginConfigArgs']] = None,
+             origin_access_control_id: Optional[pulumi.Input[str]] = None,
+             origin_path: Optional[pulumi.Input[str]] = None,
+             origin_shield: Optional[pulumi.Input['DistributionOriginOriginShieldArgs']] = None,
+             s3_origin_config: Optional[pulumi.Input['DistributionOriginS3OriginConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if origin_id is None and 'originId' in kwargs:
+            origin_id = kwargs['originId']
+        if origin_id is None:
+            raise TypeError("Missing 'origin_id' argument")
+        if connection_attempts is None and 'connectionAttempts' in kwargs:
+            connection_attempts = kwargs['connectionAttempts']
+        if connection_timeout is None and 'connectionTimeout' in kwargs:
+            connection_timeout = kwargs['connectionTimeout']
+        if custom_headers is None and 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if custom_origin_config is None and 'customOriginConfig' in kwargs:
+            custom_origin_config = kwargs['customOriginConfig']
+        if origin_access_control_id is None and 'originAccessControlId' in kwargs:
+            origin_access_control_id = kwargs['originAccessControlId']
+        if origin_path is None and 'originPath' in kwargs:
+            origin_path = kwargs['originPath']
+        if origin_shield is None and 'originShield' in kwargs:
+            origin_shield = kwargs['originShield']
+        if s3_origin_config is None and 's3OriginConfig' in kwargs:
+            s3_origin_config = kwargs['s3OriginConfig']
+
+        _setter("domain_name", domain_name)
+        _setter("origin_id", origin_id)
         if connection_attempts is not None:
-            pulumi.set(__self__, "connection_attempts", connection_attempts)
+            _setter("connection_attempts", connection_attempts)
         if connection_timeout is not None:
-            pulumi.set(__self__, "connection_timeout", connection_timeout)
+            _setter("connection_timeout", connection_timeout)
         if custom_headers is not None:
-            pulumi.set(__self__, "custom_headers", custom_headers)
+            _setter("custom_headers", custom_headers)
         if custom_origin_config is not None:
-            pulumi.set(__self__, "custom_origin_config", custom_origin_config)
+            _setter("custom_origin_config", custom_origin_config)
         if origin_access_control_id is not None:
-            pulumi.set(__self__, "origin_access_control_id", origin_access_control_id)
+            _setter("origin_access_control_id", origin_access_control_id)
         if origin_path is not None:
-            pulumi.set(__self__, "origin_path", origin_path)
+            _setter("origin_path", origin_path)
         if origin_shield is not None:
-            pulumi.set(__self__, "origin_shield", origin_shield)
+            _setter("origin_shield", origin_shield)
         if s3_origin_config is not None:
-            pulumi.set(__self__, "s3_origin_config", s3_origin_config)
+            _setter("s3_origin_config", s3_origin_config)
 
     @property
     @pulumi.getter(name="domainName")
@@ -1748,7 +2439,7 @@ class DistributionOriginArgs:
     @pulumi.getter(name="originId")
     def origin_id(self) -> pulumi.Input[str]:
         """
-        Unique identifier for the origin.
+        Unique identifier of the member origin.
         """
         return pulumi.get(self, "origin_id")
 
@@ -1858,8 +2549,25 @@ class DistributionOriginCustomHeaderArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        DistributionOriginCustomHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1897,14 +2605,55 @@ class DistributionOriginCustomOriginConfigArgs:
         :param pulumi.Input[int] origin_keepalive_timeout: The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
         :param pulumi.Input[int] origin_read_timeout: The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
         """
-        pulumi.set(__self__, "http_port", http_port)
-        pulumi.set(__self__, "https_port", https_port)
-        pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
-        pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
+        DistributionOriginCustomOriginConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_port=http_port,
+            https_port=https_port,
+            origin_protocol_policy=origin_protocol_policy,
+            origin_ssl_protocols=origin_ssl_protocols,
+            origin_keepalive_timeout=origin_keepalive_timeout,
+            origin_read_timeout=origin_read_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_port: Optional[pulumi.Input[int]] = None,
+             https_port: Optional[pulumi.Input[int]] = None,
+             origin_protocol_policy: Optional[pulumi.Input[str]] = None,
+             origin_ssl_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             origin_keepalive_timeout: Optional[pulumi.Input[int]] = None,
+             origin_read_timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_port is None and 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if http_port is None:
+            raise TypeError("Missing 'http_port' argument")
+        if https_port is None and 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+        if https_port is None:
+            raise TypeError("Missing 'https_port' argument")
+        if origin_protocol_policy is None and 'originProtocolPolicy' in kwargs:
+            origin_protocol_policy = kwargs['originProtocolPolicy']
+        if origin_protocol_policy is None:
+            raise TypeError("Missing 'origin_protocol_policy' argument")
+        if origin_ssl_protocols is None and 'originSslProtocols' in kwargs:
+            origin_ssl_protocols = kwargs['originSslProtocols']
+        if origin_ssl_protocols is None:
+            raise TypeError("Missing 'origin_ssl_protocols' argument")
+        if origin_keepalive_timeout is None and 'originKeepaliveTimeout' in kwargs:
+            origin_keepalive_timeout = kwargs['originKeepaliveTimeout']
+        if origin_read_timeout is None and 'originReadTimeout' in kwargs:
+            origin_read_timeout = kwargs['originReadTimeout']
+
+        _setter("http_port", http_port)
+        _setter("https_port", https_port)
+        _setter("origin_protocol_policy", origin_protocol_policy)
+        _setter("origin_ssl_protocols", origin_ssl_protocols)
         if origin_keepalive_timeout is not None:
-            pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
+            _setter("origin_keepalive_timeout", origin_keepalive_timeout)
         if origin_read_timeout is not None:
-            pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
+            _setter("origin_read_timeout", origin_read_timeout)
 
     @property
     @pulumi.getter(name="httpPort")
@@ -1988,11 +2737,36 @@ class DistributionOriginGroupArgs:
         """
         :param pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs'] failover_criteria: The failover criteria for when to failover to the secondary origin.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupMemberArgs']]] members: Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
-        :param pulumi.Input[str] origin_id: Unique identifier for the origin.
+        :param pulumi.Input[str] origin_id: Unique identifier of the member origin.
         """
-        pulumi.set(__self__, "failover_criteria", failover_criteria)
-        pulumi.set(__self__, "members", members)
-        pulumi.set(__self__, "origin_id", origin_id)
+        DistributionOriginGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failover_criteria=failover_criteria,
+            members=members,
+            origin_id=origin_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failover_criteria: Optional[pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs']] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupMemberArgs']]]] = None,
+             origin_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failover_criteria is None and 'failoverCriteria' in kwargs:
+            failover_criteria = kwargs['failoverCriteria']
+        if failover_criteria is None:
+            raise TypeError("Missing 'failover_criteria' argument")
+        if members is None:
+            raise TypeError("Missing 'members' argument")
+        if origin_id is None and 'originId' in kwargs:
+            origin_id = kwargs['originId']
+        if origin_id is None:
+            raise TypeError("Missing 'origin_id' argument")
+
+        _setter("failover_criteria", failover_criteria)
+        _setter("members", members)
+        _setter("origin_id", origin_id)
 
     @property
     @pulumi.getter(name="failoverCriteria")
@@ -2022,7 +2796,7 @@ class DistributionOriginGroupArgs:
     @pulumi.getter(name="originId")
     def origin_id(self) -> pulumi.Input[str]:
         """
-        Unique identifier for the origin.
+        Unique identifier of the member origin.
         """
         return pulumi.get(self, "origin_id")
 
@@ -2038,7 +2812,22 @@ class DistributionOriginGroupFailoverCriteriaArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] status_codes: List of HTTP status codes for the origin group.
         """
-        pulumi.set(__self__, "status_codes", status_codes)
+        DistributionOriginGroupFailoverCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status_codes=status_codes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status_codes is None and 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+        if status_codes is None:
+            raise TypeError("Missing 'status_codes' argument")
+
+        _setter("status_codes", status_codes)
 
     @property
     @pulumi.getter(name="statusCodes")
@@ -2058,15 +2847,30 @@ class DistributionOriginGroupMemberArgs:
     def __init__(__self__, *,
                  origin_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] origin_id: Unique identifier for the origin.
+        :param pulumi.Input[str] origin_id: Unique identifier of the member origin.
         """
-        pulumi.set(__self__, "origin_id", origin_id)
+        DistributionOriginGroupMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            origin_id=origin_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             origin_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if origin_id is None and 'originId' in kwargs:
+            origin_id = kwargs['originId']
+        if origin_id is None:
+            raise TypeError("Missing 'origin_id' argument")
+
+        _setter("origin_id", origin_id)
 
     @property
     @pulumi.getter(name="originId")
     def origin_id(self) -> pulumi.Input[str]:
         """
-        Unique identifier for the origin.
+        Unique identifier of the member origin.
         """
         return pulumi.get(self, "origin_id")
 
@@ -2081,18 +2885,35 @@ class DistributionOriginOriginShieldArgs:
                  enabled: pulumi.Input[bool],
                  origin_shield_region: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end user requests for content.
+        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
         :param pulumi.Input[str] origin_shield_region: AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        DistributionOriginOriginShieldArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            origin_shield_region=origin_shield_region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             origin_shield_region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if origin_shield_region is None and 'originShieldRegion' in kwargs:
+            origin_shield_region = kwargs['originShieldRegion']
+
+        _setter("enabled", enabled)
         if origin_shield_region is not None:
-            pulumi.set(__self__, "origin_shield_region", origin_shield_region)
+            _setter("origin_shield_region", origin_shield_region)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether the distribution is enabled to accept end user requests for content.
+        Whether Origin Shield is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -2120,7 +2941,22 @@ class DistributionOriginS3OriginConfigArgs:
         """
         :param pulumi.Input[str] origin_access_identity: The CloudFront origin access identity to associate with the origin.
         """
-        pulumi.set(__self__, "origin_access_identity", origin_access_identity)
+        DistributionOriginS3OriginConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            origin_access_identity=origin_access_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             origin_access_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if origin_access_identity is None and 'originAccessIdentity' in kwargs:
+            origin_access_identity = kwargs['originAccessIdentity']
+        if origin_access_identity is None:
+            raise TypeError("Missing 'origin_access_identity' argument")
+
+        _setter("origin_access_identity", origin_access_identity)
 
     @property
     @pulumi.getter(name="originAccessIdentity")
@@ -2139,7 +2975,22 @@ class DistributionOriginS3OriginConfigArgs:
 class DistributionRestrictionsArgs:
     def __init__(__self__, *,
                  geo_restriction: pulumi.Input['DistributionRestrictionsGeoRestrictionArgs']):
-        pulumi.set(__self__, "geo_restriction", geo_restriction)
+        DistributionRestrictionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            geo_restriction=geo_restriction,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             geo_restriction: Optional[pulumi.Input['DistributionRestrictionsGeoRestrictionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if geo_restriction is None and 'geoRestriction' in kwargs:
+            geo_restriction = kwargs['geoRestriction']
+        if geo_restriction is None:
+            raise TypeError("Missing 'geo_restriction' argument")
+
+        _setter("geo_restriction", geo_restriction)
 
     @property
     @pulumi.getter(name="geoRestriction")
@@ -2160,9 +3011,26 @@ class DistributionRestrictionsGeoRestrictionArgs:
         :param pulumi.Input[str] restriction_type: Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
         """
-        pulumi.set(__self__, "restriction_type", restriction_type)
+        DistributionRestrictionsGeoRestrictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            restriction_type=restriction_type,
+            locations=locations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             restriction_type: Optional[pulumi.Input[str]] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if restriction_type is None and 'restrictionType' in kwargs:
+            restriction_type = kwargs['restrictionType']
+        if restriction_type is None:
+            raise TypeError("Missing 'restriction_type' argument")
+
+        _setter("restriction_type", restriction_type)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
 
     @property
     @pulumi.getter(name="restrictionType")
@@ -2195,19 +3063,32 @@ class DistributionTrustedKeyGroupArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgs']]]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end user requests for content.
+        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgs']]] items: List of nested attributes for each trusted signer
         """
+        DistributionTrustedKeyGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the distribution is enabled to accept end user requests for content.
+        Whether Origin Shield is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -2237,10 +3118,27 @@ class DistributionTrustedKeyGroupItemArgs:
         :param pulumi.Input[str] key_group_id: ID of the key group that contains the public keys.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_pair_ids: Set of active CloudFront key pairs associated with the signer account
         """
+        DistributionTrustedKeyGroupItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_group_id=key_group_id,
+            key_pair_ids=key_pair_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_group_id: Optional[pulumi.Input[str]] = None,
+             key_pair_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_group_id is None and 'keyGroupId' in kwargs:
+            key_group_id = kwargs['keyGroupId']
+        if key_pair_ids is None and 'keyPairIds' in kwargs:
+            key_pair_ids = kwargs['keyPairIds']
+
         if key_group_id is not None:
-            pulumi.set(__self__, "key_group_id", key_group_id)
+            _setter("key_group_id", key_group_id)
         if key_pair_ids is not None:
-            pulumi.set(__self__, "key_pair_ids", key_pair_ids)
+            _setter("key_pair_ids", key_pair_ids)
 
     @property
     @pulumi.getter(name="keyGroupId")
@@ -2273,19 +3171,32 @@ class DistributionTrustedSignerArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerItemArgs']]]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end user requests for content.
+        :param pulumi.Input[bool] enabled: Whether Origin Shield is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerItemArgs']]] items: List of nested attributes for each trusted signer
         """
+        DistributionTrustedSignerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerItemArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the distribution is enabled to accept end user requests for content.
+        Whether Origin Shield is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -2315,10 +3226,27 @@ class DistributionTrustedSignerItemArgs:
         :param pulumi.Input[str] aws_account_number: AWS account ID or `self`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_pair_ids: Set of active CloudFront key pairs associated with the signer account
         """
+        DistributionTrustedSignerItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_account_number=aws_account_number,
+            key_pair_ids=key_pair_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_account_number: Optional[pulumi.Input[str]] = None,
+             key_pair_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_number is None and 'awsAccountNumber' in kwargs:
+            aws_account_number = kwargs['awsAccountNumber']
+        if key_pair_ids is None and 'keyPairIds' in kwargs:
+            key_pair_ids = kwargs['keyPairIds']
+
         if aws_account_number is not None:
-            pulumi.set(__self__, "aws_account_number", aws_account_number)
+            _setter("aws_account_number", aws_account_number)
         if key_pair_ids is not None:
-            pulumi.set(__self__, "key_pair_ids", key_pair_ids)
+            _setter("key_pair_ids", key_pair_ids)
 
     @property
     @pulumi.getter(name="awsAccountNumber")
@@ -2360,16 +3288,45 @@ class DistributionViewerCertificateArgs:
         :param pulumi.Input[str] minimum_protocol_version: Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfront_default_certificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under "Security policy." Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acm_certificate_arn` or `iam_certificate_id`), and have specified `sni-only` in `ssl_support_method`, `TLSv1` or later must be specified. If you have specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfront_default_certificate`, `TLSv1` must be specified.
         :param pulumi.Input[str] ssl_support_method: How you want CloudFront to serve HTTPS requests. One of `vip` or `sni-only`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
         """
+        DistributionViewerCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acm_certificate_arn=acm_certificate_arn,
+            cloudfront_default_certificate=cloudfront_default_certificate,
+            iam_certificate_id=iam_certificate_id,
+            minimum_protocol_version=minimum_protocol_version,
+            ssl_support_method=ssl_support_method,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acm_certificate_arn: Optional[pulumi.Input[str]] = None,
+             cloudfront_default_certificate: Optional[pulumi.Input[bool]] = None,
+             iam_certificate_id: Optional[pulumi.Input[str]] = None,
+             minimum_protocol_version: Optional[pulumi.Input[str]] = None,
+             ssl_support_method: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acm_certificate_arn is None and 'acmCertificateArn' in kwargs:
+            acm_certificate_arn = kwargs['acmCertificateArn']
+        if cloudfront_default_certificate is None and 'cloudfrontDefaultCertificate' in kwargs:
+            cloudfront_default_certificate = kwargs['cloudfrontDefaultCertificate']
+        if iam_certificate_id is None and 'iamCertificateId' in kwargs:
+            iam_certificate_id = kwargs['iamCertificateId']
+        if minimum_protocol_version is None and 'minimumProtocolVersion' in kwargs:
+            minimum_protocol_version = kwargs['minimumProtocolVersion']
+        if ssl_support_method is None and 'sslSupportMethod' in kwargs:
+            ssl_support_method = kwargs['sslSupportMethod']
+
         if acm_certificate_arn is not None:
-            pulumi.set(__self__, "acm_certificate_arn", acm_certificate_arn)
+            _setter("acm_certificate_arn", acm_certificate_arn)
         if cloudfront_default_certificate is not None:
-            pulumi.set(__self__, "cloudfront_default_certificate", cloudfront_default_certificate)
+            _setter("cloudfront_default_certificate", cloudfront_default_certificate)
         if iam_certificate_id is not None:
-            pulumi.set(__self__, "iam_certificate_id", iam_certificate_id)
+            _setter("iam_certificate_id", iam_certificate_id)
         if minimum_protocol_version is not None:
-            pulumi.set(__self__, "minimum_protocol_version", minimum_protocol_version)
+            _setter("minimum_protocol_version", minimum_protocol_version)
         if ssl_support_method is not None:
-            pulumi.set(__self__, "ssl_support_method", ssl_support_method)
+            _setter("ssl_support_method", ssl_support_method)
 
     @property
     @pulumi.getter(name="acmCertificateArn")
@@ -2441,8 +3398,29 @@ class FieldLevelEncryptionConfigContentTypeProfileConfigArgs:
         :param pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs'] content_type_profiles: Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
         :param pulumi.Input[bool] forward_when_content_type_is_unknown: specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
         """
-        pulumi.set(__self__, "content_type_profiles", content_type_profiles)
-        pulumi.set(__self__, "forward_when_content_type_is_unknown", forward_when_content_type_is_unknown)
+        FieldLevelEncryptionConfigContentTypeProfileConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type_profiles=content_type_profiles,
+            forward_when_content_type_is_unknown=forward_when_content_type_is_unknown,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type_profiles: Optional[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs']] = None,
+             forward_when_content_type_is_unknown: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_type_profiles is None and 'contentTypeProfiles' in kwargs:
+            content_type_profiles = kwargs['contentTypeProfiles']
+        if content_type_profiles is None:
+            raise TypeError("Missing 'content_type_profiles' argument")
+        if forward_when_content_type_is_unknown is None and 'forwardWhenContentTypeIsUnknown' in kwargs:
+            forward_when_content_type_is_unknown = kwargs['forwardWhenContentTypeIsUnknown']
+        if forward_when_content_type_is_unknown is None:
+            raise TypeError("Missing 'forward_when_content_type_is_unknown' argument")
+
+        _setter("content_type_profiles", content_type_profiles)
+        _setter("forward_when_content_type_is_unknown", forward_when_content_type_is_unknown)
 
     @property
     @pulumi.getter(name="contentTypeProfiles")
@@ -2473,7 +3451,20 @@ class FieldLevelEncryptionConfigContentTypeProfileConfigArgs:
 class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs']]]):
-        pulumi.set(__self__, "items", items)
+        FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+
+        _setter("items", items)
 
     @property
     @pulumi.getter
@@ -2496,10 +3487,33 @@ class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemA
         :param pulumi.Input[str] format: The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
         :param pulumi.Input[str] profile_id: The profile ID for a field-level encryption content type-profile mapping.
         """
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "format", format)
+        FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            format=format,
+            profile_id=profile_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: Optional[pulumi.Input[str]] = None,
+             format: Optional[pulumi.Input[str]] = None,
+             profile_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if format is None:
+            raise TypeError("Missing 'format' argument")
+        if profile_id is None and 'profileId' in kwargs:
+            profile_id = kwargs['profileId']
+
+        _setter("content_type", content_type)
+        _setter("format", format)
         if profile_id is not None:
-            pulumi.set(__self__, "profile_id", profile_id)
+            _setter("profile_id", profile_id)
 
     @property
     @pulumi.getter(name="contentType")
@@ -2547,9 +3561,28 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigArgs:
         :param pulumi.Input[bool] forward_when_query_arg_profile_is_unknown: Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
         :param pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs'] query_arg_profiles: Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
         """
-        pulumi.set(__self__, "forward_when_query_arg_profile_is_unknown", forward_when_query_arg_profile_is_unknown)
+        FieldLevelEncryptionConfigQueryArgProfileConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            forward_when_query_arg_profile_is_unknown=forward_when_query_arg_profile_is_unknown,
+            query_arg_profiles=query_arg_profiles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             forward_when_query_arg_profile_is_unknown: Optional[pulumi.Input[bool]] = None,
+             query_arg_profiles: Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if forward_when_query_arg_profile_is_unknown is None and 'forwardWhenQueryArgProfileIsUnknown' in kwargs:
+            forward_when_query_arg_profile_is_unknown = kwargs['forwardWhenQueryArgProfileIsUnknown']
+        if forward_when_query_arg_profile_is_unknown is None:
+            raise TypeError("Missing 'forward_when_query_arg_profile_is_unknown' argument")
+        if query_arg_profiles is None and 'queryArgProfiles' in kwargs:
+            query_arg_profiles = kwargs['queryArgProfiles']
+
+        _setter("forward_when_query_arg_profile_is_unknown", forward_when_query_arg_profile_is_unknown)
         if query_arg_profiles is not None:
-            pulumi.set(__self__, "query_arg_profiles", query_arg_profiles)
+            _setter("query_arg_profiles", query_arg_profiles)
 
     @property
     @pulumi.getter(name="forwardWhenQueryArgProfileIsUnknown")
@@ -2580,8 +3613,19 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigArgs:
 class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs']]]] = None):
+        FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -2602,8 +3646,29 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs:
         :param pulumi.Input[str] profile_id: The profile ID for a field-level encryption content type-profile mapping.
         :param pulumi.Input[str] query_arg: Query argument for field-level encryption query argument-profile mapping.
         """
-        pulumi.set(__self__, "profile_id", profile_id)
-        pulumi.set(__self__, "query_arg", query_arg)
+        FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            profile_id=profile_id,
+            query_arg=query_arg,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             profile_id: Optional[pulumi.Input[str]] = None,
+             query_arg: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if profile_id is None and 'profileId' in kwargs:
+            profile_id = kwargs['profileId']
+        if profile_id is None:
+            raise TypeError("Missing 'profile_id' argument")
+        if query_arg is None and 'queryArg' in kwargs:
+            query_arg = kwargs['queryArg']
+        if query_arg is None:
+            raise TypeError("Missing 'query_arg' argument")
+
+        _setter("profile_id", profile_id)
+        _setter("query_arg", query_arg)
 
     @property
     @pulumi.getter(name="profileId")
@@ -2634,8 +3699,19 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs:
 class FieldLevelEncryptionProfileEncryptionEntitiesArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesItemArgs']]]] = None):
+        FieldLevelEncryptionProfileEncryptionEntitiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesItemArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -2658,9 +3734,36 @@ class FieldLevelEncryptionProfileEncryptionEntitiesItemArgs:
         :param pulumi.Input[str] provider_id: The provider associated with the public key being used for encryption.
         :param pulumi.Input[str] public_key_id: The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
         """
-        pulumi.set(__self__, "field_patterns", field_patterns)
-        pulumi.set(__self__, "provider_id", provider_id)
-        pulumi.set(__self__, "public_key_id", public_key_id)
+        FieldLevelEncryptionProfileEncryptionEntitiesItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_patterns=field_patterns,
+            provider_id=provider_id,
+            public_key_id=public_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_patterns: Optional[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs']] = None,
+             provider_id: Optional[pulumi.Input[str]] = None,
+             public_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_patterns is None and 'fieldPatterns' in kwargs:
+            field_patterns = kwargs['fieldPatterns']
+        if field_patterns is None:
+            raise TypeError("Missing 'field_patterns' argument")
+        if provider_id is None and 'providerId' in kwargs:
+            provider_id = kwargs['providerId']
+        if provider_id is None:
+            raise TypeError("Missing 'provider_id' argument")
+        if public_key_id is None and 'publicKeyId' in kwargs:
+            public_key_id = kwargs['publicKeyId']
+        if public_key_id is None:
+            raise TypeError("Missing 'public_key_id' argument")
+
+        _setter("field_patterns", field_patterns)
+        _setter("provider_id", provider_id)
+        _setter("public_key_id", public_key_id)
 
     @property
     @pulumi.getter(name="fieldPatterns")
@@ -2703,8 +3806,19 @@ class FieldLevelEncryptionProfileEncryptionEntitiesItemArgs:
 class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -2723,7 +3837,22 @@ class MonitoringSubscriptionMonitoringSubscriptionArgs:
         """
         :param pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs'] realtime_metrics_subscription_config: A subscription configuration for additional CloudWatch metrics. See below.
         """
-        pulumi.set(__self__, "realtime_metrics_subscription_config", realtime_metrics_subscription_config)
+        MonitoringSubscriptionMonitoringSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            realtime_metrics_subscription_config=realtime_metrics_subscription_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             realtime_metrics_subscription_config: Optional[pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if realtime_metrics_subscription_config is None and 'realtimeMetricsSubscriptionConfig' in kwargs:
+            realtime_metrics_subscription_config = kwargs['realtimeMetricsSubscriptionConfig']
+        if realtime_metrics_subscription_config is None:
+            raise TypeError("Missing 'realtime_metrics_subscription_config' argument")
+
+        _setter("realtime_metrics_subscription_config", realtime_metrics_subscription_config)
 
     @property
     @pulumi.getter(name="realtimeMetricsSubscriptionConfig")
@@ -2745,7 +3874,22 @@ class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionCon
         """
         :param pulumi.Input[str] realtime_metrics_subscription_status: A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
         """
-        pulumi.set(__self__, "realtime_metrics_subscription_status", realtime_metrics_subscription_status)
+        MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            realtime_metrics_subscription_status=realtime_metrics_subscription_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             realtime_metrics_subscription_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if realtime_metrics_subscription_status is None and 'realtimeMetricsSubscriptionStatus' in kwargs:
+            realtime_metrics_subscription_status = kwargs['realtimeMetricsSubscriptionStatus']
+        if realtime_metrics_subscription_status is None:
+            raise TypeError("Missing 'realtime_metrics_subscription_status' argument")
+
+        _setter("realtime_metrics_subscription_status", realtime_metrics_subscription_status)
 
     @property
     @pulumi.getter(name="realtimeMetricsSubscriptionStatus")
@@ -2765,9 +3909,26 @@ class OriginRequestPolicyCookiesConfigArgs:
     def __init__(__self__, *,
                  cookie_behavior: pulumi.Input[str],
                  cookies: Optional[pulumi.Input['OriginRequestPolicyCookiesConfigCookiesArgs']] = None):
-        pulumi.set(__self__, "cookie_behavior", cookie_behavior)
+        OriginRequestPolicyCookiesConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookie_behavior=cookie_behavior,
+            cookies=cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookie_behavior: Optional[pulumi.Input[str]] = None,
+             cookies: Optional[pulumi.Input['OriginRequestPolicyCookiesConfigCookiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cookie_behavior is None and 'cookieBehavior' in kwargs:
+            cookie_behavior = kwargs['cookieBehavior']
+        if cookie_behavior is None:
+            raise TypeError("Missing 'cookie_behavior' argument")
+
+        _setter("cookie_behavior", cookie_behavior)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
 
     @property
     @pulumi.getter(name="cookieBehavior")
@@ -2792,8 +3953,19 @@ class OriginRequestPolicyCookiesConfigArgs:
 class OriginRequestPolicyCookiesConfigCookiesArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        OriginRequestPolicyCookiesConfigCookiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -2810,10 +3982,25 @@ class OriginRequestPolicyHeadersConfigArgs:
     def __init__(__self__, *,
                  header_behavior: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['OriginRequestPolicyHeadersConfigHeadersArgs']] = None):
+        OriginRequestPolicyHeadersConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_behavior=header_behavior,
+            headers=headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_behavior: Optional[pulumi.Input[str]] = None,
+             headers: Optional[pulumi.Input['OriginRequestPolicyHeadersConfigHeadersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header_behavior is None and 'headerBehavior' in kwargs:
+            header_behavior = kwargs['headerBehavior']
+
         if header_behavior is not None:
-            pulumi.set(__self__, "header_behavior", header_behavior)
+            _setter("header_behavior", header_behavior)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
 
     @property
     @pulumi.getter(name="headerBehavior")
@@ -2838,8 +4025,19 @@ class OriginRequestPolicyHeadersConfigArgs:
 class OriginRequestPolicyHeadersConfigHeadersArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        OriginRequestPolicyHeadersConfigHeadersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -2856,9 +4054,28 @@ class OriginRequestPolicyQueryStringsConfigArgs:
     def __init__(__self__, *,
                  query_string_behavior: pulumi.Input[str],
                  query_strings: Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigQueryStringsArgs']] = None):
-        pulumi.set(__self__, "query_string_behavior", query_string_behavior)
+        OriginRequestPolicyQueryStringsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_string_behavior=query_string_behavior,
+            query_strings=query_strings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_string_behavior: Optional[pulumi.Input[str]] = None,
+             query_strings: Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigQueryStringsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_string_behavior is None and 'queryStringBehavior' in kwargs:
+            query_string_behavior = kwargs['queryStringBehavior']
+        if query_string_behavior is None:
+            raise TypeError("Missing 'query_string_behavior' argument")
+        if query_strings is None and 'queryStrings' in kwargs:
+            query_strings = kwargs['queryStrings']
+
+        _setter("query_string_behavior", query_string_behavior)
         if query_strings is not None:
-            pulumi.set(__self__, "query_strings", query_strings)
+            _setter("query_strings", query_strings)
 
     @property
     @pulumi.getter(name="queryStringBehavior")
@@ -2883,8 +4100,19 @@ class OriginRequestPolicyQueryStringsConfigArgs:
 class OriginRequestPolicyQueryStringsConfigQueryStringsArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        OriginRequestPolicyQueryStringsConfigQueryStringsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -2905,8 +4133,29 @@ class RealtimeLogConfigEndpointArgs:
         :param pulumi.Input['RealtimeLogConfigEndpointKinesisStreamConfigArgs'] kinesis_stream_config: The Amazon Kinesis data stream configuration.
         :param pulumi.Input[str] stream_type: The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
         """
-        pulumi.set(__self__, "kinesis_stream_config", kinesis_stream_config)
-        pulumi.set(__self__, "stream_type", stream_type)
+        RealtimeLogConfigEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kinesis_stream_config=kinesis_stream_config,
+            stream_type=stream_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kinesis_stream_config: Optional[pulumi.Input['RealtimeLogConfigEndpointKinesisStreamConfigArgs']] = None,
+             stream_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kinesis_stream_config is None and 'kinesisStreamConfig' in kwargs:
+            kinesis_stream_config = kwargs['kinesisStreamConfig']
+        if kinesis_stream_config is None:
+            raise TypeError("Missing 'kinesis_stream_config' argument")
+        if stream_type is None and 'streamType' in kwargs:
+            stream_type = kwargs['streamType']
+        if stream_type is None:
+            raise TypeError("Missing 'stream_type' argument")
+
+        _setter("kinesis_stream_config", kinesis_stream_config)
+        _setter("stream_type", stream_type)
 
     @property
     @pulumi.getter(name="kinesisStreamConfig")
@@ -2943,8 +4192,29 @@ class RealtimeLogConfigEndpointKinesisStreamConfigArgs:
                See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
         :param pulumi.Input[str] stream_arn: The ARN of the Kinesis data stream.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "stream_arn", stream_arn)
+        RealtimeLogConfigEndpointKinesisStreamConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            stream_arn=stream_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: Optional[pulumi.Input[str]] = None,
+             stream_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if stream_arn is None and 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+        if stream_arn is None:
+            raise TypeError("Missing 'stream_arn' argument")
+
+        _setter("role_arn", role_arn)
+        _setter("stream_arn", stream_arn)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -2991,15 +4261,62 @@ class ResponseHeadersPolicyCorsConfigArgs:
         :param pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs'] access_control_expose_headers: Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
         :param pulumi.Input[int] access_control_max_age_sec: A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
         """
-        pulumi.set(__self__, "access_control_allow_credentials", access_control_allow_credentials)
-        pulumi.set(__self__, "access_control_allow_headers", access_control_allow_headers)
-        pulumi.set(__self__, "access_control_allow_methods", access_control_allow_methods)
-        pulumi.set(__self__, "access_control_allow_origins", access_control_allow_origins)
-        pulumi.set(__self__, "origin_override", origin_override)
+        ResponseHeadersPolicyCorsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control_allow_credentials=access_control_allow_credentials,
+            access_control_allow_headers=access_control_allow_headers,
+            access_control_allow_methods=access_control_allow_methods,
+            access_control_allow_origins=access_control_allow_origins,
+            origin_override=origin_override,
+            access_control_expose_headers=access_control_expose_headers,
+            access_control_max_age_sec=access_control_max_age_sec,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control_allow_credentials: Optional[pulumi.Input[bool]] = None,
+             access_control_allow_headers: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs']] = None,
+             access_control_allow_methods: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs']] = None,
+             access_control_allow_origins: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs']] = None,
+             origin_override: Optional[pulumi.Input[bool]] = None,
+             access_control_expose_headers: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs']] = None,
+             access_control_max_age_sec: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_control_allow_credentials is None and 'accessControlAllowCredentials' in kwargs:
+            access_control_allow_credentials = kwargs['accessControlAllowCredentials']
+        if access_control_allow_credentials is None:
+            raise TypeError("Missing 'access_control_allow_credentials' argument")
+        if access_control_allow_headers is None and 'accessControlAllowHeaders' in kwargs:
+            access_control_allow_headers = kwargs['accessControlAllowHeaders']
+        if access_control_allow_headers is None:
+            raise TypeError("Missing 'access_control_allow_headers' argument")
+        if access_control_allow_methods is None and 'accessControlAllowMethods' in kwargs:
+            access_control_allow_methods = kwargs['accessControlAllowMethods']
+        if access_control_allow_methods is None:
+            raise TypeError("Missing 'access_control_allow_methods' argument")
+        if access_control_allow_origins is None and 'accessControlAllowOrigins' in kwargs:
+            access_control_allow_origins = kwargs['accessControlAllowOrigins']
+        if access_control_allow_origins is None:
+            raise TypeError("Missing 'access_control_allow_origins' argument")
+        if origin_override is None and 'originOverride' in kwargs:
+            origin_override = kwargs['originOverride']
+        if origin_override is None:
+            raise TypeError("Missing 'origin_override' argument")
+        if access_control_expose_headers is None and 'accessControlExposeHeaders' in kwargs:
+            access_control_expose_headers = kwargs['accessControlExposeHeaders']
+        if access_control_max_age_sec is None and 'accessControlMaxAgeSec' in kwargs:
+            access_control_max_age_sec = kwargs['accessControlMaxAgeSec']
+
+        _setter("access_control_allow_credentials", access_control_allow_credentials)
+        _setter("access_control_allow_headers", access_control_allow_headers)
+        _setter("access_control_allow_methods", access_control_allow_methods)
+        _setter("access_control_allow_origins", access_control_allow_origins)
+        _setter("origin_override", origin_override)
         if access_control_expose_headers is not None:
-            pulumi.set(__self__, "access_control_expose_headers", access_control_expose_headers)
+            _setter("access_control_expose_headers", access_control_expose_headers)
         if access_control_max_age_sec is not None:
-            pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
+            _setter("access_control_max_age_sec", access_control_max_age_sec)
 
     @property
     @pulumi.getter(name="accessControlAllowCredentials")
@@ -3090,8 +4407,19 @@ class ResponseHeadersPolicyCorsConfigArgs:
 class ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -3107,8 +4435,19 @@ class ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs:
 class ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -3124,8 +4463,19 @@ class ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs:
 class ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -3141,8 +4491,19 @@ class ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs:
 class ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -3158,8 +4519,19 @@ class ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs:
 class ResponseHeadersPolicyCustomHeadersConfigArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigItemArgs']]]] = None):
+        ResponseHeadersPolicyCustomHeadersConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigItemArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -3179,12 +4551,33 @@ class ResponseHeadersPolicyCustomHeadersConfigItemArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] header: The HTTP response header name.
-        :param pulumi.Input[bool] override: Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+        :param pulumi.Input[bool] override: Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
         :param pulumi.Input[str] value: The value for the HTTP response header.
         """
-        pulumi.set(__self__, "header", header)
-        pulumi.set(__self__, "override", override)
-        pulumi.set(__self__, "value", value)
+        ResponseHeadersPolicyCustomHeadersConfigItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+            override=override,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: Optional[pulumi.Input[str]] = None,
+             override: Optional[pulumi.Input[bool]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header is None:
+            raise TypeError("Missing 'header' argument")
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("header", header)
+        _setter("override", override)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3202,7 +4595,7 @@ class ResponseHeadersPolicyCustomHeadersConfigItemArgs:
     @pulumi.getter
     def override(self) -> pulumi.Input[bool]:
         """
-        Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+        Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -3227,8 +4620,19 @@ class ResponseHeadersPolicyCustomHeadersConfigItemArgs:
 class ResponseHeadersPolicyRemoveHeadersConfigArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigItemArgs']]]] = None):
+        ResponseHeadersPolicyRemoveHeadersConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigItemArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
 
     @property
     @pulumi.getter
@@ -3247,7 +4651,20 @@ class ResponseHeadersPolicyRemoveHeadersConfigItemArgs:
         """
         :param pulumi.Input[str] header: The HTTP response header name.
         """
-        pulumi.set(__self__, "header", header)
+        ResponseHeadersPolicyRemoveHeadersConfigItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header is None:
+            raise TypeError("Missing 'header' argument")
+
+        _setter("header", header)
 
     @property
     @pulumi.getter
@@ -3279,18 +4696,51 @@ class ResponseHeadersPolicySecurityHeadersConfigArgs:
         :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs'] strict_transport_security: Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
         :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs'] xss_protection: Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
         """
+        ResponseHeadersPolicySecurityHeadersConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_security_policy=content_security_policy,
+            content_type_options=content_type_options,
+            frame_options=frame_options,
+            referrer_policy=referrer_policy,
+            strict_transport_security=strict_transport_security,
+            xss_protection=xss_protection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_security_policy: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs']] = None,
+             content_type_options: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs']] = None,
+             frame_options: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs']] = None,
+             referrer_policy: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs']] = None,
+             strict_transport_security: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs']] = None,
+             xss_protection: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_security_policy is None and 'contentSecurityPolicy' in kwargs:
+            content_security_policy = kwargs['contentSecurityPolicy']
+        if content_type_options is None and 'contentTypeOptions' in kwargs:
+            content_type_options = kwargs['contentTypeOptions']
+        if frame_options is None and 'frameOptions' in kwargs:
+            frame_options = kwargs['frameOptions']
+        if referrer_policy is None and 'referrerPolicy' in kwargs:
+            referrer_policy = kwargs['referrerPolicy']
+        if strict_transport_security is None and 'strictTransportSecurity' in kwargs:
+            strict_transport_security = kwargs['strictTransportSecurity']
+        if xss_protection is None and 'xssProtection' in kwargs:
+            xss_protection = kwargs['xssProtection']
+
         if content_security_policy is not None:
-            pulumi.set(__self__, "content_security_policy", content_security_policy)
+            _setter("content_security_policy", content_security_policy)
         if content_type_options is not None:
-            pulumi.set(__self__, "content_type_options", content_type_options)
+            _setter("content_type_options", content_type_options)
         if frame_options is not None:
-            pulumi.set(__self__, "frame_options", frame_options)
+            _setter("frame_options", frame_options)
         if referrer_policy is not None:
-            pulumi.set(__self__, "referrer_policy", referrer_policy)
+            _setter("referrer_policy", referrer_policy)
         if strict_transport_security is not None:
-            pulumi.set(__self__, "strict_transport_security", strict_transport_security)
+            _setter("strict_transport_security", strict_transport_security)
         if xss_protection is not None:
-            pulumi.set(__self__, "xss_protection", xss_protection)
+            _setter("xss_protection", xss_protection)
 
     @property
     @pulumi.getter(name="contentSecurityPolicy")
@@ -3374,8 +4824,27 @@ class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs:
         :param pulumi.Input[str] content_security_policy: The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
         :param pulumi.Input[bool] override: Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
         """
-        pulumi.set(__self__, "content_security_policy", content_security_policy)
-        pulumi.set(__self__, "override", override)
+        ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_security_policy=content_security_policy,
+            override=override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_security_policy: Optional[pulumi.Input[str]] = None,
+             override: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_security_policy is None and 'contentSecurityPolicy' in kwargs:
+            content_security_policy = kwargs['contentSecurityPolicy']
+        if content_security_policy is None:
+            raise TypeError("Missing 'content_security_policy' argument")
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+
+        _setter("content_security_policy", content_security_policy)
+        _setter("override", override)
 
     @property
     @pulumi.getter(name="contentSecurityPolicy")
@@ -3409,7 +4878,20 @@ class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs:
         """
         :param pulumi.Input[bool] override: Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
         """
-        pulumi.set(__self__, "override", override)
+        ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            override=override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             override: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+
+        _setter("override", override)
 
     @property
     @pulumi.getter
@@ -3433,8 +4915,27 @@ class ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs:
         :param pulumi.Input[str] frame_option: The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
         :param pulumi.Input[bool] override: Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
         """
-        pulumi.set(__self__, "frame_option", frame_option)
-        pulumi.set(__self__, "override", override)
+        ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frame_option=frame_option,
+            override=override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frame_option: Optional[pulumi.Input[str]] = None,
+             override: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if frame_option is None and 'frameOption' in kwargs:
+            frame_option = kwargs['frameOption']
+        if frame_option is None:
+            raise TypeError("Missing 'frame_option' argument")
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+
+        _setter("frame_option", frame_option)
+        _setter("override", override)
 
     @property
     @pulumi.getter(name="frameOption")
@@ -3470,8 +4971,27 @@ class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs:
         :param pulumi.Input[bool] override: Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
         :param pulumi.Input[str] referrer_policy: The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
         """
-        pulumi.set(__self__, "override", override)
-        pulumi.set(__self__, "referrer_policy", referrer_policy)
+        ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            override=override,
+            referrer_policy=referrer_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             override: Optional[pulumi.Input[bool]] = None,
+             referrer_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+        if referrer_policy is None and 'referrerPolicy' in kwargs:
+            referrer_policy = kwargs['referrerPolicy']
+        if referrer_policy is None:
+            raise TypeError("Missing 'referrer_policy' argument")
+
+        _setter("override", override)
+        _setter("referrer_policy", referrer_policy)
 
     @property
     @pulumi.getter
@@ -3511,12 +5031,37 @@ class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs:
         :param pulumi.Input[bool] include_subdomains: Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
         :param pulumi.Input[bool] preload: Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
         """
-        pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
-        pulumi.set(__self__, "override", override)
+        ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control_max_age_sec=access_control_max_age_sec,
+            override=override,
+            include_subdomains=include_subdomains,
+            preload=preload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control_max_age_sec: Optional[pulumi.Input[int]] = None,
+             override: Optional[pulumi.Input[bool]] = None,
+             include_subdomains: Optional[pulumi.Input[bool]] = None,
+             preload: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_control_max_age_sec is None and 'accessControlMaxAgeSec' in kwargs:
+            access_control_max_age_sec = kwargs['accessControlMaxAgeSec']
+        if access_control_max_age_sec is None:
+            raise TypeError("Missing 'access_control_max_age_sec' argument")
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+        if include_subdomains is None and 'includeSubdomains' in kwargs:
+            include_subdomains = kwargs['includeSubdomains']
+
+        _setter("access_control_max_age_sec", access_control_max_age_sec)
+        _setter("override", override)
         if include_subdomains is not None:
-            pulumi.set(__self__, "include_subdomains", include_subdomains)
+            _setter("include_subdomains", include_subdomains)
         if preload is not None:
-            pulumi.set(__self__, "preload", preload)
+            _setter("preload", preload)
 
     @property
     @pulumi.getter(name="accessControlMaxAgeSec")
@@ -3580,12 +5125,37 @@ class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs:
         :param pulumi.Input[bool] mode_block: Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
         :param pulumi.Input[str] report_uri: A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
         """
-        pulumi.set(__self__, "override", override)
-        pulumi.set(__self__, "protection", protection)
+        ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            override=override,
+            protection=protection,
+            mode_block=mode_block,
+            report_uri=report_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             override: Optional[pulumi.Input[bool]] = None,
+             protection: Optional[pulumi.Input[bool]] = None,
+             mode_block: Optional[pulumi.Input[bool]] = None,
+             report_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+        if protection is None:
+            raise TypeError("Missing 'protection' argument")
+        if mode_block is None and 'modeBlock' in kwargs:
+            mode_block = kwargs['modeBlock']
+        if report_uri is None and 'reportUri' in kwargs:
+            report_uri = kwargs['reportUri']
+
+        _setter("override", override)
+        _setter("protection", protection)
         if mode_block is not None:
-            pulumi.set(__self__, "mode_block", mode_block)
+            _setter("mode_block", mode_block)
         if report_uri is not None:
-            pulumi.set(__self__, "report_uri", report_uri)
+            _setter("report_uri", report_uri)
 
     @property
     @pulumi.getter
@@ -3645,8 +5215,27 @@ class ResponseHeadersPolicyServerTimingHeadersConfigArgs:
         :param pulumi.Input[bool] enabled: A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
         :param pulumi.Input[float] sampling_rate: A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "sampling_rate", sampling_rate)
+        ResponseHeadersPolicyServerTimingHeadersConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            sampling_rate=sampling_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             sampling_rate: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if sampling_rate is None and 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+        if sampling_rate is None:
+            raise TypeError("Missing 'sampling_rate' argument")
+
+        _setter("enabled", enabled)
+        _setter("sampling_rate", sampling_rate)
 
     @property
     @pulumi.getter

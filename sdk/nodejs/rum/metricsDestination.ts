@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CloudWatch RUM Metrics Destination resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rum.MetricsDestination("example", {
- *     appMonitorName: aws_rum_app_monitor.example.name,
- *     destination: "CloudWatch",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:

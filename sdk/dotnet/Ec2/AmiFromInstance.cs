@@ -27,24 +27,6 @@ namespace Pulumi.Aws.Ec2
     /// resource. Ongoing updates to the referenced instance will not be propagated into
     /// the generated AMI. Users may taint or otherwise recreate the resource in order
     /// to produce a fresh snapshot.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.AmiFromInstance("example", new()
-    ///     {
-    ///         SourceInstanceId = "i-xxxxxxxx",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/amiFromInstance:AmiFromInstance")]
     public partial class AmiFromInstance : global::Pulumi.CustomResource

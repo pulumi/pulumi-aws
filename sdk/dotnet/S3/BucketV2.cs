@@ -17,27 +17,7 @@ namespace Pulumi.Aws.S3
     /// &gt; In April 2023, [AWS introduced](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-s3-automatically-enable-block-public-access-disable-access-control-lists-buckets-april-2023/) updated security defaults for new S3 buckets. See this issue for a information on how this affects the `aws.s3.BucketV2` resource.
     /// 
     /// ## Example Usage
-    /// ### Private Bucket With Tags
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "Dev" },
-    ///             { "Name", "My bucket" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Static Website Hosting
     /// 
     /// &gt; **NOTE:** The `website` attribute is deprecated.

@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// <summary>
     /// Manages an EC2 Transit Gateway Route Table.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.RouteTable("example", new()
-    ///     {
-    ///         TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For example:

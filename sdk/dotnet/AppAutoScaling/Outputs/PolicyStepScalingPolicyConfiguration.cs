@@ -31,39 +31,6 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
         public readonly int? MinAdjustmentMagnitude;
         /// <summary>
         /// Set of adjustments that manage scaling. These have the following structure:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecsPolicy = new Aws.AppAutoScaling.Policy("ecsPolicy", new()
-        ///     {
-        ///         StepScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationArgs
-        ///         {
-        ///             StepAdjustments = new[]
-        ///             {
-        ///                 new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
-        ///                 {
-        ///                     MetricIntervalLowerBound = "1",
-        ///                     MetricIntervalUpperBound = "2",
-        ///                     ScalingAdjustment = -1,
-        ///                 },
-        ///                 new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
-        ///                 {
-        ///                     MetricIntervalLowerBound = "2",
-        ///                     MetricIntervalUpperBound = "3",
-        ///                     ScalingAdjustment = 1,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyStepScalingPolicyConfigurationStepAdjustment> StepAdjustments;
 

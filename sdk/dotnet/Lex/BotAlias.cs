@@ -13,27 +13,6 @@ namespace Pulumi.Aws.Lex
     /// Provides an Amazon Lex Bot Alias resource. For more information see
     /// [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var orderFlowersProd = new Aws.Lex.BotAlias("orderFlowersProd", new()
-    ///     {
-    ///         BotName = "OrderFlowers",
-    ///         BotVersion = "1",
-    ///         Description = "Production Version of the OrderFlowers Bot.",
-    ///         Name = "OrderFlowersProd",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:

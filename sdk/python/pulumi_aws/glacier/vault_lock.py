@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VaultLockArgs', 'VaultLock']
@@ -25,11 +25,40 @@ class VaultLockArgs:
         :param pulumi.Input[str] vault_name: The name of the Glacier Vault.
         :param pulumi.Input[bool] ignore_deletion_error: Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         """
-        pulumi.set(__self__, "complete_lock", complete_lock)
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "vault_name", vault_name)
+        VaultLockArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            complete_lock=complete_lock,
+            policy=policy,
+            vault_name=vault_name,
+            ignore_deletion_error=ignore_deletion_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             complete_lock: Optional[pulumi.Input[bool]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             vault_name: Optional[pulumi.Input[str]] = None,
+             ignore_deletion_error: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if complete_lock is None and 'completeLock' in kwargs:
+            complete_lock = kwargs['completeLock']
+        if complete_lock is None:
+            raise TypeError("Missing 'complete_lock' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if vault_name is None and 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+        if vault_name is None:
+            raise TypeError("Missing 'vault_name' argument")
+        if ignore_deletion_error is None and 'ignoreDeletionError' in kwargs:
+            ignore_deletion_error = kwargs['ignoreDeletionError']
+
+        _setter("complete_lock", complete_lock)
+        _setter("policy", policy)
+        _setter("vault_name", vault_name)
         if ignore_deletion_error is not None:
-            pulumi.set(__self__, "ignore_deletion_error", ignore_deletion_error)
+            _setter("ignore_deletion_error", ignore_deletion_error)
 
     @property
     @pulumi.getter(name="completeLock")
@@ -94,14 +123,37 @@ class _VaultLockState:
         :param pulumi.Input[str] policy: JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
         :param pulumi.Input[str] vault_name: The name of the Glacier Vault.
         """
+        _VaultLockState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            complete_lock=complete_lock,
+            ignore_deletion_error=ignore_deletion_error,
+            policy=policy,
+            vault_name=vault_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             complete_lock: Optional[pulumi.Input[bool]] = None,
+             ignore_deletion_error: Optional[pulumi.Input[bool]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             vault_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if complete_lock is None and 'completeLock' in kwargs:
+            complete_lock = kwargs['completeLock']
+        if ignore_deletion_error is None and 'ignoreDeletionError' in kwargs:
+            ignore_deletion_error = kwargs['ignoreDeletionError']
+        if vault_name is None and 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+
         if complete_lock is not None:
-            pulumi.set(__self__, "complete_lock", complete_lock)
+            _setter("complete_lock", complete_lock)
         if ignore_deletion_error is not None:
-            pulumi.set(__self__, "ignore_deletion_error", ignore_deletion_error)
+            _setter("ignore_deletion_error", ignore_deletion_error)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if vault_name is not None:
-            pulumi.set(__self__, "vault_name", vault_name)
+            _setter("vault_name", vault_name)
 
     @property
     @pulumi.getter(name="completeLock")
@@ -170,39 +222,6 @@ class VaultLock(pulumi.CustomResource):
         !> **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignore_deletion_error` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider's management.
 
         ## Example Usage
-        ### Testing Glacier Vault Lock Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vault = aws.glacier.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["glacier:DeleteArchive"],
-            effect="Deny",
-            resources=[example_vault.arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="NumericLessThanEquals",
-                variable="glacier:ArchiveAgeinDays",
-                values=["365"],
-            )],
-        )])
-        example_vault_lock = aws.glacier.VaultLock("exampleVaultLock",
-            complete_lock=False,
-            policy=example_policy_document.json,
-            vault_name=example_vault.name)
-        ```
-        ### Permanently Applying Glacier Vault Lock Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glacier.VaultLock("example",
-            complete_lock=True,
-            policy=data["aws_iam_policy_document"]["example"]["json"],
-            vault_name=aws_glacier_vault["example"]["name"])
-        ```
 
         ## Import
 
@@ -233,39 +252,6 @@ class VaultLock(pulumi.CustomResource):
         !> **WARNING:** Once a Glacier Vault Lock is completed, it is immutable. The deletion of the Glacier Vault Lock is not be possible and attempting to remove it from this provider will return an error. Set the `ignore_deletion_error` argument to `true` and apply this configuration before attempting to delete this resource via this provider or remove this resource from this provider's management.
 
         ## Example Usage
-        ### Testing Glacier Vault Lock Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vault = aws.glacier.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["glacier:DeleteArchive"],
-            effect="Deny",
-            resources=[example_vault.arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="NumericLessThanEquals",
-                variable="glacier:ArchiveAgeinDays",
-                values=["365"],
-            )],
-        )])
-        example_vault_lock = aws.glacier.VaultLock("exampleVaultLock",
-            complete_lock=False,
-            policy=example_policy_document.json,
-            vault_name=example_vault.name)
-        ```
-        ### Permanently Applying Glacier Vault Lock Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glacier.VaultLock("example",
-            complete_lock=True,
-            policy=data["aws_iam_policy_document"]["example"]["json"],
-            vault_name=aws_glacier_vault["example"]["name"])
-        ```
 
         ## Import
 
@@ -285,6 +271,10 @@ class VaultLock(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VaultLockArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

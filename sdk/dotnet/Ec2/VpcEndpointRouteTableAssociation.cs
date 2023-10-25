@@ -12,25 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Manages a VPC Endpoint Route Table Association
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.VpcEndpointRouteTableAssociation("example", new()
-    ///     {
-    ///         RouteTableId = aws_route_table.Example.Id,
-    ///         VpcEndpointId = aws_vpc_endpoint.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpc_endpoint_id` together with `route_table_id`. For example:

@@ -11,54 +11,6 @@ import * as utilities from "../utilities";
  * Provides a S3 bucket [inventory configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html) resource.
  *
  * ## Example Usage
- * ### Add inventory configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testBucketV2 = new aws.s3.BucketV2("testBucketV2", {});
- * const inventory = new aws.s3.BucketV2("inventory", {});
- * const testInventory = new aws.s3.Inventory("testInventory", {
- *     bucket: testBucketV2.id,
- *     includedObjectVersions: "All",
- *     schedule: {
- *         frequency: "Daily",
- *     },
- *     destination: {
- *         bucket: {
- *             format: "ORC",
- *             bucketArn: inventory.arn,
- *         },
- *     },
- * });
- * ```
- * ### Add inventory configuration with S3 object prefix
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.s3.BucketV2("test", {});
- * const inventory = new aws.s3.BucketV2("inventory", {});
- * const test_prefix = new aws.s3.Inventory("test-prefix", {
- *     bucket: test.id,
- *     includedObjectVersions: "All",
- *     schedule: {
- *         frequency: "Daily",
- *     },
- *     filter: {
- *         prefix: "documents/",
- *     },
- *     destination: {
- *         bucket: {
- *             format: "ORC",
- *             bucketArn: inventory.arn,
- *             prefix: "inventory",
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

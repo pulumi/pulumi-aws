@@ -10,31 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppConfig Environment resource for an `aws.appconfig.Application` resource. One or more environments can be defined for an application.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleApplication = new aws.appconfig.Application("exampleApplication", {
- *     description: "Example AppConfig Application",
- *     tags: {
- *         Type: "AppConfig Application",
- *     },
- * });
- * const exampleEnvironment = new aws.appconfig.Environment("exampleEnvironment", {
- *     description: "Example AppConfig Environment",
- *     applicationId: exampleApplication.id,
- *     monitors: [{
- *         alarmArn: aws_cloudwatch_metric_alarm.example.arn,
- *         alarmRoleArn: aws_iam_role.example.arn,
- *     }],
- *     tags: {
- *         Type: "AppConfig Environment",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,48 @@ class RouteArgs:
         :param pulumi.Input[str] name: Name to use for the route. Must be between 1 and 255 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "mesh_name", mesh_name)
-        pulumi.set(__self__, "spec", spec)
-        pulumi.set(__self__, "virtual_router_name", virtual_router_name)
+        RouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mesh_name=mesh_name,
+            spec=spec,
+            virtual_router_name=virtual_router_name,
+            mesh_owner=mesh_owner,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mesh_name: Optional[pulumi.Input[str]] = None,
+             spec: Optional[pulumi.Input['RouteSpecArgs']] = None,
+             virtual_router_name: Optional[pulumi.Input[str]] = None,
+             mesh_owner: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mesh_name is None and 'meshName' in kwargs:
+            mesh_name = kwargs['meshName']
+        if mesh_name is None:
+            raise TypeError("Missing 'mesh_name' argument")
+        if spec is None:
+            raise TypeError("Missing 'spec' argument")
+        if virtual_router_name is None and 'virtualRouterName' in kwargs:
+            virtual_router_name = kwargs['virtualRouterName']
+        if virtual_router_name is None:
+            raise TypeError("Missing 'virtual_router_name' argument")
+        if mesh_owner is None and 'meshOwner' in kwargs:
+            mesh_owner = kwargs['meshOwner']
+
+        _setter("mesh_name", mesh_name)
+        _setter("spec", spec)
+        _setter("virtual_router_name", virtual_router_name)
         if mesh_owner is not None:
-            pulumi.set(__self__, "mesh_owner", mesh_owner)
+            _setter("mesh_owner", mesh_owner)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="meshName")
@@ -142,31 +175,76 @@ class _RouteState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] virtual_router_name: Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
         """
+        _RouteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            created_date=created_date,
+            last_updated_date=last_updated_date,
+            mesh_name=mesh_name,
+            mesh_owner=mesh_owner,
+            name=name,
+            resource_owner=resource_owner,
+            spec=spec,
+            tags=tags,
+            tags_all=tags_all,
+            virtual_router_name=virtual_router_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             created_date: Optional[pulumi.Input[str]] = None,
+             last_updated_date: Optional[pulumi.Input[str]] = None,
+             mesh_name: Optional[pulumi.Input[str]] = None,
+             mesh_owner: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_owner: Optional[pulumi.Input[str]] = None,
+             spec: Optional[pulumi.Input['RouteSpecArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_router_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_date is None and 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if last_updated_date is None and 'lastUpdatedDate' in kwargs:
+            last_updated_date = kwargs['lastUpdatedDate']
+        if mesh_name is None and 'meshName' in kwargs:
+            mesh_name = kwargs['meshName']
+        if mesh_owner is None and 'meshOwner' in kwargs:
+            mesh_owner = kwargs['meshOwner']
+        if resource_owner is None and 'resourceOwner' in kwargs:
+            resource_owner = kwargs['resourceOwner']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if virtual_router_name is None and 'virtualRouterName' in kwargs:
+            virtual_router_name = kwargs['virtualRouterName']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if last_updated_date is not None:
-            pulumi.set(__self__, "last_updated_date", last_updated_date)
+            _setter("last_updated_date", last_updated_date)
         if mesh_name is not None:
-            pulumi.set(__self__, "mesh_name", mesh_name)
+            _setter("mesh_name", mesh_name)
         if mesh_owner is not None:
-            pulumi.set(__self__, "mesh_owner", mesh_owner)
+            _setter("mesh_owner", mesh_owner)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_owner is not None:
-            pulumi.set(__self__, "resource_owner", resource_owner)
+            _setter("resource_owner", resource_owner)
         if spec is not None:
-            pulumi.set(__self__, "spec", spec)
+            _setter("spec", spec)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if virtual_router_name is not None:
-            pulumi.set(__self__, "virtual_router_name", virtual_router_name)
+            _setter("virtual_router_name", virtual_router_name)
 
     @property
     @pulumi.getter
@@ -320,117 +398,6 @@ class Route(pulumi.CustomResource):
         Provides an AWS App Mesh route resource.
 
         ## Example Usage
-        ### HTTP Routing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[
-                            aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
-                                weight=90,
-                            ),
-                            aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb2"]["name"],
-                                weight=10,
-                            ),
-                        ],
-                    ),
-                ),
-            ))
-        ```
-        ### HTTP Header Routing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        method="POST",
-                        prefix="/",
-                        scheme="https",
-                        headers=[aws.appmesh.RouteSpecHttpRouteMatchHeaderArgs(
-                            name="clientRequestId",
-                            match=aws.appmesh.RouteSpecHttpRouteMatchHeaderMatchArgs(
-                                prefix="123",
-                            ),
-                        )],
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
-        ```
-        ### Retry Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                    retry_policy=aws.appmesh.RouteSpecHttpRouteRetryPolicyArgs(
-                        http_retry_events=["server-error"],
-                        max_retries=1,
-                        per_retry_timeout=aws.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs(
-                            unit="s",
-                            value=15,
-                        ),
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
-        ```
-        ### TCP Routing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                tcp_route=aws.appmesh.RouteSpecTcpRouteArgs(
-                    action=aws.appmesh.RouteSpecTcpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecTcpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -459,117 +426,6 @@ class Route(pulumi.CustomResource):
         Provides an AWS App Mesh route resource.
 
         ## Example Usage
-        ### HTTP Routing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[
-                            aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
-                                weight=90,
-                            ),
-                            aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb2"]["name"],
-                                weight=10,
-                            ),
-                        ],
-                    ),
-                ),
-            ))
-        ```
-        ### HTTP Header Routing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        method="POST",
-                        prefix="/",
-                        scheme="https",
-                        headers=[aws.appmesh.RouteSpecHttpRouteMatchHeaderArgs(
-                            name="clientRequestId",
-                            match=aws.appmesh.RouteSpecHttpRouteMatchHeaderMatchArgs(
-                                prefix="123",
-                            ),
-                        )],
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
-        ```
-        ### Retry Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                    retry_policy=aws.appmesh.RouteSpecHttpRouteRetryPolicyArgs(
-                        http_retry_events=["server-error"],
-                        max_retries=1,
-                        per_retry_timeout=aws.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs(
-                            unit="s",
-                            value=15,
-                        ),
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
-        ```
-        ### TCP Routing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                tcp_route=aws.appmesh.RouteSpecTcpRouteArgs(
-                    action=aws.appmesh.RouteSpecTcpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecTcpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -589,6 +445,10 @@ class Route(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -614,6 +474,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["mesh_name"] = mesh_name
             __props__.__dict__["mesh_owner"] = mesh_owner
             __props__.__dict__["name"] = name
+            spec = _utilities.configure(spec, RouteSpecArgs, True)
             if spec is None and not opts.urn:
                 raise TypeError("Missing required property 'spec'")
             __props__.__dict__["spec"] = spec

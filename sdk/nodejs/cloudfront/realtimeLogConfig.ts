@@ -10,57 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CloudFront real-time log configuration resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["cloudfront.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         actions: [
- *             "kinesis:DescribeStreamSummary",
- *             "kinesis:DescribeStream",
- *             "kinesis:PutRecord",
- *             "kinesis:PutRecords",
- *         ],
- *         resources: [aws_kinesis_stream.example.arn],
- *     }],
- * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
- *     role: exampleRole.id,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * const exampleRealtimeLogConfig = new aws.cloudfront.RealtimeLogConfig("exampleRealtimeLogConfig", {
- *     samplingRate: 75,
- *     fields: [
- *         "timestamp",
- *         "c-ip",
- *     ],
- *     endpoint: {
- *         streamType: "Kinesis",
- *         kinesisStreamConfig: {
- *             roleArn: exampleRole.arn,
- *             streamArn: aws_kinesis_stream.example.arn,
- *         },
- *     },
- * }, {
- *     dependsOn: [exampleRolePolicy],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:

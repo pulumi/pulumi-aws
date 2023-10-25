@@ -11,22 +11,6 @@ import * as utilities from "../utilities";
  * Manages an EMR Containers (EMR on EKS) Job Template.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emrcontainers.JobTemplate("example", {jobTemplateData: {
- *     executionRoleArn: aws_iam_role.example.arn,
- *     releaseLabel: "emr-6.10.0-latest",
- *     jobDriver: {
- *         sparkSqlJobDriver: {
- *             entryPoint: "default",
- *         },
- *     },
- * }});
- * ```
  *
  * ## Import
  *

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -113,17 +113,6 @@ def get_parameter(name: Optional[str] = None,
     """
     Provides an SSM Parameter data source.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ssm.get_parameter(name="foo")
-    ```
-
-    > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-
 
     :param str name: Name of the parameter.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
@@ -153,17 +142,6 @@ def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterResult]:
     """
     Provides an SSM Parameter data source.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ssm.get_parameter(name="foo")
-    ```
-
-    > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 
 
     :param str name: Name of the parameter.

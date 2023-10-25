@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VaultPolicyArgs', 'VaultPolicy']
@@ -21,8 +21,27 @@ class VaultPolicyArgs:
         :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add policy for.
         :param pulumi.Input[str] policy: The backup vault access policy document in JSON format.
         """
-        pulumi.set(__self__, "backup_vault_name", backup_vault_name)
-        pulumi.set(__self__, "policy", policy)
+        VaultPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_vault_name=backup_vault_name,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_vault_name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_vault_name is None and 'backupVaultName' in kwargs:
+            backup_vault_name = kwargs['backupVaultName']
+        if backup_vault_name is None:
+            raise TypeError("Missing 'backup_vault_name' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+
+        _setter("backup_vault_name", backup_vault_name)
+        _setter("policy", policy)
 
     @property
     @pulumi.getter(name="backupVaultName")
@@ -61,12 +80,31 @@ class _VaultPolicyState:
         :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add policy for.
         :param pulumi.Input[str] policy: The backup vault access policy document in JSON format.
         """
+        _VaultPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_vault_arn=backup_vault_arn,
+            backup_vault_name=backup_vault_name,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_vault_arn: Optional[pulumi.Input[str]] = None,
+             backup_vault_name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_vault_arn is None and 'backupVaultArn' in kwargs:
+            backup_vault_arn = kwargs['backupVaultArn']
+        if backup_vault_name is None and 'backupVaultName' in kwargs:
+            backup_vault_name = kwargs['backupVaultName']
+
         if backup_vault_arn is not None:
-            pulumi.set(__self__, "backup_vault_arn", backup_vault_arn)
+            _setter("backup_vault_arn", backup_vault_arn)
         if backup_vault_name is not None:
-            pulumi.set(__self__, "backup_vault_name", backup_vault_name)
+            _setter("backup_vault_name", backup_vault_name)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter(name="backupVaultArn")
@@ -116,36 +154,6 @@ class VaultPolicy(pulumi.CustomResource):
         """
         Provides an AWS Backup vault policy resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vault = aws.backup.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["*"],
-            )],
-            actions=[
-                "backup:DescribeBackupVault",
-                "backup:DeleteBackupVault",
-                "backup:PutBackupVaultAccessPolicy",
-                "backup:DeleteBackupVaultAccessPolicy",
-                "backup:GetBackupVaultAccessPolicy",
-                "backup:StartBackupJob",
-                "backup:GetBackupVaultNotifications",
-                "backup:PutBackupVaultNotifications",
-            ],
-            resources=[example_vault.arn],
-        )])
-        example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
-            backup_vault_name=example_vault.name,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Backup vault policy using the `name`. For example:
@@ -168,36 +176,6 @@ class VaultPolicy(pulumi.CustomResource):
         """
         Provides an AWS Backup vault policy resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vault = aws.backup.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["*"],
-            )],
-            actions=[
-                "backup:DescribeBackupVault",
-                "backup:DeleteBackupVault",
-                "backup:PutBackupVaultAccessPolicy",
-                "backup:DeleteBackupVaultAccessPolicy",
-                "backup:GetBackupVaultAccessPolicy",
-                "backup:StartBackupJob",
-                "backup:GetBackupVaultNotifications",
-                "backup:PutBackupVaultNotifications",
-            ],
-            resources=[example_vault.arn],
-        )])
-        example_vault_policy = aws.backup.VaultPolicy("exampleVaultPolicy",
-            backup_vault_name=example_vault.name,
-            policy=example_policy_document.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Backup vault policy using the `name`. For example:
@@ -216,6 +194,10 @@ class VaultPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VaultPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -15,34 +15,6 @@ import (
 
 // Resource for managing a Verified Access Trust Provider.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewTrustProvider(ctx, "example", &verifiedaccess.TrustProviderArgs{
-//				PolicyReferenceName:   pulumi.String("example"),
-//				TrustProviderType:     pulumi.String("user"),
-//				UserTrustProviderType: pulumi.String("iam-identity-center"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // # Using `pulumi import`, import Transfer Workflows using the

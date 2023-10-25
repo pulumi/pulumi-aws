@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,18 +35,53 @@ class TemplateArgs:
         :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "template_id", template_id)
-        pulumi.set(__self__, "version_description", version_description)
+        TemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            template_id=template_id,
+            version_description=version_description,
+            aws_account_id=aws_account_id,
+            name=name,
+            permissions=permissions,
+            source_entity=source_entity,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             template_id: Optional[pulumi.Input[str]] = None,
+             version_description: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]] = None,
+             source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if template_id is None and 'templateId' in kwargs:
+            template_id = kwargs['templateId']
+        if template_id is None:
+            raise TypeError("Missing 'template_id' argument")
+        if version_description is None and 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+        if version_description is None:
+            raise TypeError("Missing 'version_description' argument")
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if source_entity is None and 'sourceEntity' in kwargs:
+            source_entity = kwargs['sourceEntity']
+
+        _setter("template_id", template_id)
+        _setter("version_description", version_description)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if source_entity is not None:
-            pulumi.set(__self__, "source_entity", source_entity)
+            _setter("source_entity", source_entity)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="templateId")
@@ -171,37 +206,92 @@ class _TemplateState:
                The following arguments are optional:
         :param pulumi.Input[int] version_number: The version number of the template version.
         """
+        _TemplateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            aws_account_id=aws_account_id,
+            created_time=created_time,
+            last_updated_time=last_updated_time,
+            name=name,
+            permissions=permissions,
+            source_entity=source_entity,
+            source_entity_arn=source_entity_arn,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            template_id=template_id,
+            version_description=version_description,
+            version_number=version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             last_updated_time: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]] = None,
+             source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
+             source_entity_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_id: Optional[pulumi.Input[str]] = None,
+             version_description: Optional[pulumi.Input[str]] = None,
+             version_number: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if source_entity is None and 'sourceEntity' in kwargs:
+            source_entity = kwargs['sourceEntity']
+        if source_entity_arn is None and 'sourceEntityArn' in kwargs:
+            source_entity_arn = kwargs['sourceEntityArn']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if template_id is None and 'templateId' in kwargs:
+            template_id = kwargs['templateId']
+        if version_description is None and 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+        if version_number is None and 'versionNumber' in kwargs:
+            version_number = kwargs['versionNumber']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if last_updated_time is not None:
-            pulumi.set(__self__, "last_updated_time", last_updated_time)
+            _setter("last_updated_time", last_updated_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if source_entity is not None:
-            pulumi.set(__self__, "source_entity", source_entity)
+            _setter("source_entity", source_entity)
         if source_entity_arn is not None:
-            pulumi.set(__self__, "source_entity_arn", source_entity_arn)
+            _setter("source_entity_arn", source_entity_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
+            _setter("template_id", template_id)
         if version_description is not None:
-            pulumi.set(__self__, "version_description", version_description)
+            _setter("version_description", version_description)
         if version_number is not None:
-            pulumi.set(__self__, "version_number", version_number)
+            _setter("version_number", version_number)
 
     @property
     @pulumi.getter
@@ -394,21 +484,6 @@ class Template(pulumi.CustomResource):
         Resource for managing a QuickSight Template.
 
         ## Example Usage
-        ### From Source Template
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Template("example",
-            template_id="example-id",
-            version_description="version",
-            source_entity=aws.quicksight.TemplateSourceEntityArgs(
-                source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -440,21 +515,6 @@ class Template(pulumi.CustomResource):
         Resource for managing a QuickSight Template.
 
         ## Example Usage
-        ### From Source Template
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Template("example",
-            template_id="example-id",
-            version_description="version",
-            source_entity=aws.quicksight.TemplateSourceEntityArgs(
-                source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -474,6 +534,10 @@ class Template(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -498,6 +562,7 @@ class Template(pulumi.CustomResource):
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
+            source_entity = _utilities.configure(source_entity, TemplateSourceEntityArgs, True)
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             if template_id is None and not opts.urn:

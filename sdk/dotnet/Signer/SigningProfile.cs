@@ -12,40 +12,6 @@ namespace Pulumi.Aws.Signer
     /// <summary>
     /// Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testSp = new Aws.Signer.SigningProfile("testSp", new()
-    ///     {
-    ///         PlatformId = "AWSLambda-SHA384-ECDSA",
-    ///     });
-    /// 
-    ///     var prodSp = new Aws.Signer.SigningProfile("prodSp", new()
-    ///     {
-    ///         NamePrefix = "prod_sp_",
-    ///         PlatformId = "AWSLambda-SHA384-ECDSA",
-    ///         SignatureValidityPeriod = new Aws.Signer.Inputs.SigningProfileSignatureValidityPeriodArgs
-    ///         {
-    ///             Type = "YEARS",
-    ///             Value = 5,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "tag1", "value1" },
-    ///             { "tag2", "value2" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Signer signing profiles using the `name`. For example:

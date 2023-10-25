@@ -61,14 +61,14 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
     }
 
     /**
-     * Object prefix for filtering.
+     * Prefix to append to exported analytics data.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Object prefix for filtering.
+     * @return Prefix to append to exported analytics data.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -166,7 +166,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
         }
 
         /**
-         * @param prefix Object prefix for filtering.
+         * @param prefix Prefix to append to exported analytics data.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
         }
 
         /**
-         * @param prefix Object prefix for filtering.
+         * @param prefix Prefix to append to exported analytics data.
          * 
          * @return builder
          * 

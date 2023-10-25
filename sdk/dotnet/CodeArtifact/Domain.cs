@@ -12,24 +12,6 @@ namespace Pulumi.Aws.CodeArtifact
     /// <summary>
     /// Provides a CodeArtifact Domain Resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeArtifact.Domain("example", new()
-    ///     {
-    ///         DomainName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:

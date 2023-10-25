@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,26 +47,75 @@ class PermissionsArgs:
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "principal", principal)
+        PermissionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+            catalog_id=catalog_id,
+            catalog_resource=catalog_resource,
+            data_location=data_location,
+            database=database,
+            lf_tag=lf_tag,
+            lf_tag_policy=lf_tag_policy,
+            permissions_with_grant_options=permissions_with_grant_options,
+            table=table,
+            table_with_columns=table_with_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             catalog_resource: Optional[pulumi.Input[bool]] = None,
+             data_location: Optional[pulumi.Input['PermissionsDataLocationArgs']] = None,
+             database: Optional[pulumi.Input['PermissionsDatabaseArgs']] = None,
+             lf_tag: Optional[pulumi.Input['PermissionsLfTagArgs']] = None,
+             lf_tag_policy: Optional[pulumi.Input['PermissionsLfTagPolicyArgs']] = None,
+             permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             table: Optional[pulumi.Input['PermissionsTableArgs']] = None,
+             table_with_columns: Optional[pulumi.Input['PermissionsTableWithColumnsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_resource is None and 'catalogResource' in kwargs:
+            catalog_resource = kwargs['catalogResource']
+        if data_location is None and 'dataLocation' in kwargs:
+            data_location = kwargs['dataLocation']
+        if lf_tag is None and 'lfTag' in kwargs:
+            lf_tag = kwargs['lfTag']
+        if lf_tag_policy is None and 'lfTagPolicy' in kwargs:
+            lf_tag_policy = kwargs['lfTagPolicy']
+        if permissions_with_grant_options is None and 'permissionsWithGrantOptions' in kwargs:
+            permissions_with_grant_options = kwargs['permissionsWithGrantOptions']
+        if table_with_columns is None and 'tableWithColumns' in kwargs:
+            table_with_columns = kwargs['tableWithColumns']
+
+        _setter("permissions", permissions)
+        _setter("principal", principal)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if catalog_resource is not None:
-            pulumi.set(__self__, "catalog_resource", catalog_resource)
+            _setter("catalog_resource", catalog_resource)
         if data_location is not None:
-            pulumi.set(__self__, "data_location", data_location)
+            _setter("data_location", data_location)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if lf_tag is not None:
-            pulumi.set(__self__, "lf_tag", lf_tag)
+            _setter("lf_tag", lf_tag)
         if lf_tag_policy is not None:
-            pulumi.set(__self__, "lf_tag_policy", lf_tag_policy)
+            _setter("lf_tag_policy", lf_tag_policy)
         if permissions_with_grant_options is not None:
-            pulumi.set(__self__, "permissions_with_grant_options", permissions_with_grant_options)
+            _setter("permissions_with_grant_options", permissions_with_grant_options)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if table_with_columns is not None:
-            pulumi.set(__self__, "table_with_columns", table_with_columns)
+            _setter("table_with_columns", table_with_columns)
 
     @property
     @pulumi.getter
@@ -241,28 +290,73 @@ class _PermissionsState:
                
                The following arguments are optional:
         """
+        _PermissionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            catalog_resource=catalog_resource,
+            data_location=data_location,
+            database=database,
+            lf_tag=lf_tag,
+            lf_tag_policy=lf_tag_policy,
+            permissions=permissions,
+            permissions_with_grant_options=permissions_with_grant_options,
+            principal=principal,
+            table=table,
+            table_with_columns=table_with_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             catalog_resource: Optional[pulumi.Input[bool]] = None,
+             data_location: Optional[pulumi.Input['PermissionsDataLocationArgs']] = None,
+             database: Optional[pulumi.Input['PermissionsDatabaseArgs']] = None,
+             lf_tag: Optional[pulumi.Input['PermissionsLfTagArgs']] = None,
+             lf_tag_policy: Optional[pulumi.Input['PermissionsLfTagPolicyArgs']] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input['PermissionsTableArgs']] = None,
+             table_with_columns: Optional[pulumi.Input['PermissionsTableWithColumnsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_resource is None and 'catalogResource' in kwargs:
+            catalog_resource = kwargs['catalogResource']
+        if data_location is None and 'dataLocation' in kwargs:
+            data_location = kwargs['dataLocation']
+        if lf_tag is None and 'lfTag' in kwargs:
+            lf_tag = kwargs['lfTag']
+        if lf_tag_policy is None and 'lfTagPolicy' in kwargs:
+            lf_tag_policy = kwargs['lfTagPolicy']
+        if permissions_with_grant_options is None and 'permissionsWithGrantOptions' in kwargs:
+            permissions_with_grant_options = kwargs['permissionsWithGrantOptions']
+        if table_with_columns is None and 'tableWithColumns' in kwargs:
+            table_with_columns = kwargs['tableWithColumns']
+
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if catalog_resource is not None:
-            pulumi.set(__self__, "catalog_resource", catalog_resource)
+            _setter("catalog_resource", catalog_resource)
         if data_location is not None:
-            pulumi.set(__self__, "data_location", data_location)
+            _setter("data_location", data_location)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if lf_tag is not None:
-            pulumi.set(__self__, "lf_tag", lf_tag)
+            _setter("lf_tag", lf_tag)
         if lf_tag_policy is not None:
-            pulumi.set(__self__, "lf_tag_policy", lf_tag_policy)
+            _setter("lf_tag_policy", lf_tag_policy)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if permissions_with_grant_options is not None:
-            pulumi.set(__self__, "permissions_with_grant_options", permissions_with_grant_options)
+            _setter("permissions_with_grant_options", permissions_with_grant_options)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if table_with_columns is not None:
-            pulumi.set(__self__, "table_with_columns", table_with_columns)
+            _setter("table_with_columns", table_with_columns)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -427,71 +521,6 @@ class Permissions(pulumi.CustomResource):
 
         > **NOTE:** In general, the `principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `lakeformation.DataLakeSettings`, _not_ with this resource.
 
-        ## Default Behavior and `IAMAllowedPrincipals`
-
-        **_Lake Formation permissions are not in effect by default within AWS._** `IAMAllowedPrincipals` (i.e., `IAM_ALLOWED_PRINCIPALS`) conflicts with individual Lake Formation permissions (i.e., non-`IAMAllowedPrincipals` permissions), will cause unexpected behavior, and may result in errors.
-
-        When using Lake Formation, choose ONE of the following options as they are mutually exclusive:
-
-        1. Use this resource (`lakeformation.Permissions`), change the default security settings using `lakeformation.DataLakeSettings`, and remove existing `IAMAllowedPrincipals` permissions
-        2. Use `IAMAllowedPrincipals` without `lakeformation.Permissions`
-
-        This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `lakeformation.DataLakeSettings` resource, they are cleared.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_session_context = aws.iam.get_session_context(arn=current_caller_identity.arn)
-        test = aws.lakeformation.DataLakeSettings("test", admins=[current_session_context.issuer_arn])
-        ```
-
-        To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
-
-        `IAMAllowedPrincipals` is a hook to maintain backwards compatibility with AWS Glue. `IAMAllowedPrincipals` is a pseudo-entity group that acts like a Lake Formation principal. The group includes any IAM users and roles that are allowed access to your Data Catalog resources by your IAM policies.
-
-        This is Lake Formation's default behavior:
-
-        * Lake Formation grants `Super` permission to `IAMAllowedPrincipals` on all existing AWS Glue Data Catalog resources.
-        * Lake Formation enables "Use only IAM access control" for new Data Catalog resources.
-
-        For more details, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html).
-
-        ### Problem Using `IAMAllowedPrincipals`
-
-        AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="sadabate")
-        example_catalog_table = aws.glue.CatalogTable("exampleCatalogTable",
-            name="abelt",
-            database_name=aws_glue_catalog_database["test"]["name"],
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
-                columns=[aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                    name="event",
-                    type="string",
-                )],
-            ))
-        example_permissions = aws.lakeformation.Permissions("examplePermissions",
-            permissions=["SELECT"],
-            principal="arn:aws:iam:us-east-1:123456789012:user/SanHolo",
-            table_with_columns=aws.lakeformation.PermissionsTableWithColumnsArgs(
-                database_name=example_catalog_table.database_name,
-                name=example_catalog_table.name,
-                column_names=["event"],
-            ))
-        ```
-
-        The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
-
-        | Result With IAP | Result Without IAP |
-        | ---- | ---- |
-        | `SELECT` column wildcard (i.e., all columns) | `SELECT` on `"event"` (as expected) |
-
         ## Using Lake Formation Permissions
 
         Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. These implicit permissions cannot be revoked _per se_. If this resource reads implicit permissions, it will attempt to revoke them, which causes an error when the resource is destroyed.
@@ -501,67 +530,6 @@ class Permissions(pulumi.CustomResource):
         If the `principal` is also a data lake administrator, AWS grants implicit permissions that can cause errors using this resource. For example, AWS implicitly grants a `principal`/administrator `permissions` and `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on a table. If you use this resource to explicitly grant the `principal`/administrator `permissions` but _not_ `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on the table, this resource will read the implicit `permissions_with_grant_option` and attempt to revoke them when the resource is destroyed. Doing so will cause an `InvalidInputException: No permissions revoked` error because you cannot revoke implicit permissions _per se_. To workaround this problem, explicitly grant the `principal`/administrator `permissions` _and_ `permissions_with_grant_option`, which can then be revoked. Similarly, granting a `principal`/administrator permissions on a table with columns and providing `column_names`, will result in a `InvalidInputException: Permissions modification is invalid` error because you are narrowing the implicit permissions. Instead, set `wildcard` to `true` and remove the `column_names`.
 
         ## Example Usage
-        ### Grant Permissions For A Lake Formation S3 Resource
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.Permissions("example",
-            principal=aws_iam_role["workflow_role"]["arn"],
-            permissions=["ALL"],
-            data_location=aws.lakeformation.PermissionsDataLocationArgs(
-                arn=aws_lakeformation_resource["example"]["arn"],
-            ))
-        ```
-        ### Grant Permissions For A Glue Catalog Database
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.Permissions("example",
-            principal=aws_iam_role["workflow_role"]["arn"],
-            permissions=[
-                "CREATE_TABLE",
-                "ALTER",
-                "DROP",
-            ],
-            database=aws.lakeformation.PermissionsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-                catalog_id="110376042874",
-            ))
-        ```
-        ### Grant Permissions Using Tag-Based Access Control
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lakeformation.Permissions("test",
-            principal=aws_iam_role["sales_role"]["arn"],
-            permissions=[
-                "CREATE_TABLE",
-                "ALTER",
-                "DROP",
-            ],
-            lf_tag_policy=aws.lakeformation.PermissionsLfTagPolicyArgs(
-                resource_type="DATABASE",
-                expressions=[
-                    aws.lakeformation.PermissionsLfTagPolicyExpressionArgs(
-                        key="Team",
-                        values=["Sales"],
-                    ),
-                    aws.lakeformation.PermissionsLfTagPolicyExpressionArgs(
-                        key="Environment",
-                        values=[
-                            "Dev",
-                            "Production",
-                        ],
-                    ),
-                ],
-            ))
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -596,71 +564,6 @@ class Permissions(pulumi.CustomResource):
 
         > **NOTE:** In general, the `principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `lakeformation.DataLakeSettings`, _not_ with this resource.
 
-        ## Default Behavior and `IAMAllowedPrincipals`
-
-        **_Lake Formation permissions are not in effect by default within AWS._** `IAMAllowedPrincipals` (i.e., `IAM_ALLOWED_PRINCIPALS`) conflicts with individual Lake Formation permissions (i.e., non-`IAMAllowedPrincipals` permissions), will cause unexpected behavior, and may result in errors.
-
-        When using Lake Formation, choose ONE of the following options as they are mutually exclusive:
-
-        1. Use this resource (`lakeformation.Permissions`), change the default security settings using `lakeformation.DataLakeSettings`, and remove existing `IAMAllowedPrincipals` permissions
-        2. Use `IAMAllowedPrincipals` without `lakeformation.Permissions`
-
-        This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `lakeformation.DataLakeSettings` resource, they are cleared.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_session_context = aws.iam.get_session_context(arn=current_caller_identity.arn)
-        test = aws.lakeformation.DataLakeSettings("test", admins=[current_session_context.issuer_arn])
-        ```
-
-        To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
-
-        `IAMAllowedPrincipals` is a hook to maintain backwards compatibility with AWS Glue. `IAMAllowedPrincipals` is a pseudo-entity group that acts like a Lake Formation principal. The group includes any IAM users and roles that are allowed access to your Data Catalog resources by your IAM policies.
-
-        This is Lake Formation's default behavior:
-
-        * Lake Formation grants `Super` permission to `IAMAllowedPrincipals` on all existing AWS Glue Data Catalog resources.
-        * Lake Formation enables "Use only IAM access control" for new Data Catalog resources.
-
-        For more details, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html).
-
-        ### Problem Using `IAMAllowedPrincipals`
-
-        AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_catalog_database = aws.glue.CatalogDatabase("exampleCatalogDatabase", name="sadabate")
-        example_catalog_table = aws.glue.CatalogTable("exampleCatalogTable",
-            name="abelt",
-            database_name=aws_glue_catalog_database["test"]["name"],
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
-                columns=[aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                    name="event",
-                    type="string",
-                )],
-            ))
-        example_permissions = aws.lakeformation.Permissions("examplePermissions",
-            permissions=["SELECT"],
-            principal="arn:aws:iam:us-east-1:123456789012:user/SanHolo",
-            table_with_columns=aws.lakeformation.PermissionsTableWithColumnsArgs(
-                database_name=example_catalog_table.database_name,
-                name=example_catalog_table.name,
-                column_names=["event"],
-            ))
-        ```
-
-        The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
-
-        | Result With IAP | Result Without IAP |
-        | ---- | ---- |
-        | `SELECT` column wildcard (i.e., all columns) | `SELECT` on `"event"` (as expected) |
-
         ## Using Lake Formation Permissions
 
         Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. These implicit permissions cannot be revoked _per se_. If this resource reads implicit permissions, it will attempt to revoke them, which causes an error when the resource is destroyed.
@@ -670,67 +573,6 @@ class Permissions(pulumi.CustomResource):
         If the `principal` is also a data lake administrator, AWS grants implicit permissions that can cause errors using this resource. For example, AWS implicitly grants a `principal`/administrator `permissions` and `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on a table. If you use this resource to explicitly grant the `principal`/administrator `permissions` but _not_ `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on the table, this resource will read the implicit `permissions_with_grant_option` and attempt to revoke them when the resource is destroyed. Doing so will cause an `InvalidInputException: No permissions revoked` error because you cannot revoke implicit permissions _per se_. To workaround this problem, explicitly grant the `principal`/administrator `permissions` _and_ `permissions_with_grant_option`, which can then be revoked. Similarly, granting a `principal`/administrator permissions on a table with columns and providing `column_names`, will result in a `InvalidInputException: Permissions modification is invalid` error because you are narrowing the implicit permissions. Instead, set `wildcard` to `true` and remove the `column_names`.
 
         ## Example Usage
-        ### Grant Permissions For A Lake Formation S3 Resource
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.Permissions("example",
-            principal=aws_iam_role["workflow_role"]["arn"],
-            permissions=["ALL"],
-            data_location=aws.lakeformation.PermissionsDataLocationArgs(
-                arn=aws_lakeformation_resource["example"]["arn"],
-            ))
-        ```
-        ### Grant Permissions For A Glue Catalog Database
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.Permissions("example",
-            principal=aws_iam_role["workflow_role"]["arn"],
-            permissions=[
-                "CREATE_TABLE",
-                "ALTER",
-                "DROP",
-            ],
-            database=aws.lakeformation.PermissionsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-                catalog_id="110376042874",
-            ))
-        ```
-        ### Grant Permissions Using Tag-Based Access Control
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lakeformation.Permissions("test",
-            principal=aws_iam_role["sales_role"]["arn"],
-            permissions=[
-                "CREATE_TABLE",
-                "ALTER",
-                "DROP",
-            ],
-            lf_tag_policy=aws.lakeformation.PermissionsLfTagPolicyArgs(
-                resource_type="DATABASE",
-                expressions=[
-                    aws.lakeformation.PermissionsLfTagPolicyExpressionArgs(
-                        key="Team",
-                        values=["Sales"],
-                    ),
-                    aws.lakeformation.PermissionsLfTagPolicyExpressionArgs(
-                        key="Environment",
-                        values=[
-                            "Dev",
-                            "Production",
-                        ],
-                    ),
-                ],
-            ))
-        ```
 
         :param str resource_name: The name of the resource.
         :param PermissionsArgs args: The arguments to use to populate this resource's properties.
@@ -742,6 +584,10 @@ class Permissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -769,9 +615,13 @@ class Permissions(pulumi.CustomResource):
 
             __props__.__dict__["catalog_id"] = catalog_id
             __props__.__dict__["catalog_resource"] = catalog_resource
+            data_location = _utilities.configure(data_location, PermissionsDataLocationArgs, True)
             __props__.__dict__["data_location"] = data_location
+            database = _utilities.configure(database, PermissionsDatabaseArgs, True)
             __props__.__dict__["database"] = database
+            lf_tag = _utilities.configure(lf_tag, PermissionsLfTagArgs, True)
             __props__.__dict__["lf_tag"] = lf_tag
+            lf_tag_policy = _utilities.configure(lf_tag_policy, PermissionsLfTagPolicyArgs, True)
             __props__.__dict__["lf_tag_policy"] = lf_tag_policy
             if permissions is None and not opts.urn:
                 raise TypeError("Missing required property 'permissions'")
@@ -780,7 +630,9 @@ class Permissions(pulumi.CustomResource):
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
+            table = _utilities.configure(table, PermissionsTableArgs, True)
             __props__.__dict__["table"] = table
+            table_with_columns = _utilities.configure(table_with_columns, PermissionsTableWithColumnsArgs, True)
             __props__.__dict__["table_with_columns"] = table_with_columns
         super(Permissions, __self__).__init__(
             'aws:lakeformation/permissions:Permissions',

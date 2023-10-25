@@ -12,26 +12,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// <summary>
     /// Manages an Image Builder Image.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ImageBuilder.Image("example", new()
-    ///     {
-    ///         DistributionConfigurationArn = aws_imagebuilder_distribution_configuration.Example.Arn,
-    ///         ImageRecipeArn = aws_imagebuilder_image_recipe.Example.Arn,
-    ///         InfrastructureConfigurationArn = aws_imagebuilder_infrastructure_configuration.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For example:

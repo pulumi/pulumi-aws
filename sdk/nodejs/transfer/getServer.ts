@@ -7,17 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the ARN of an AWS Transfer Server for use in other
  * resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.transfer.getServer({
- *     serverId: "s-1234567",
- * });
- * ```
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
 
@@ -98,17 +87,6 @@ export interface GetServerResult {
 /**
  * Use this data source to get the ARN of an AWS Transfer Server for use in other
  * resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.transfer.getServer({
- *     serverId: "s-1234567",
- * });
- * ```
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))

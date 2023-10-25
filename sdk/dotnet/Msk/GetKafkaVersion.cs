@@ -13,76 +13,12 @@ namespace Pulumi.Aws.Msk
     {
         /// <summary>
         /// Get information on a Amazon MSK Kafka Version
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var preferred = Aws.Msk.GetKafkaVersion.Invoke(new()
-        ///     {
-        ///         PreferredVersions = new[]
-        ///         {
-        ///             "2.4.1.1",
-        ///             "2.4.1",
-        ///             "2.2.1",
-        ///         },
-        ///     });
-        /// 
-        ///     var example = Aws.Msk.GetKafkaVersion.Invoke(new()
-        ///     {
-        ///         Version = "2.8.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetKafkaVersionResult> InvokeAsync(GetKafkaVersionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKafkaVersionResult>("aws:msk/getKafkaVersion:getKafkaVersion", args ?? new GetKafkaVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information on a Amazon MSK Kafka Version
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var preferred = Aws.Msk.GetKafkaVersion.Invoke(new()
-        ///     {
-        ///         PreferredVersions = new[]
-        ///         {
-        ///             "2.4.1.1",
-        ///             "2.4.1",
-        ///             "2.2.1",
-        ///         },
-        ///     });
-        /// 
-        ///     var example = Aws.Msk.GetKafkaVersion.Invoke(new()
-        ///     {
-        ///         Version = "2.8.0",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetKafkaVersionResult> Invoke(GetKafkaVersionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaVersionResult>("aws:msk/getKafkaVersion:getKafkaVersion", args ?? new GetKafkaVersionInvokeArgs(), options.WithDefaults());

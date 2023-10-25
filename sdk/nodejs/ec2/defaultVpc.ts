@@ -17,19 +17,6 @@ import * as utilities from "../utilities";
  * By default, `pulumi destroy` does not delete the default VPC but does remove the resource from the state.
  * Set the `forceDestroy` argument to `true` to delete the default VPC.
  *
- * ## Example Usage
- *
- * Basic usage with tags:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.ec2.DefaultVpc("default", {tags: {
- *     Name: "Default VPC",
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Default VPCs using the VPC `id`. For example:

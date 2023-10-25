@@ -12,31 +12,6 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// Creates a Redshift authentication profile
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.AuthenticationProfile("example", new()
-    ///     {
-    ///         AuthenticationProfileName = "example",
-    ///         AuthenticationProfileContent = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["AllowDBUserOverride"] = "1",
-    ///             ["Client_ID"] = "ExampleClientID",
-    ///             ["App_ID"] = "example",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:

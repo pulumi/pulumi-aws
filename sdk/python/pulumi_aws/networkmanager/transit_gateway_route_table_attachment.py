@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TransitGatewayRouteTableAttachmentArgs', 'TransitGatewayRouteTableAttachment']
@@ -23,10 +23,33 @@ class TransitGatewayRouteTableAttachmentArgs:
         :param pulumi.Input[str] transit_gateway_route_table_arn: The ARN of the transit gateway route table for the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "peering_id", peering_id)
-        pulumi.set(__self__, "transit_gateway_route_table_arn", transit_gateway_route_table_arn)
+        TransitGatewayRouteTableAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peering_id=peering_id,
+            transit_gateway_route_table_arn=transit_gateway_route_table_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peering_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_route_table_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if peering_id is None and 'peeringId' in kwargs:
+            peering_id = kwargs['peeringId']
+        if peering_id is None:
+            raise TypeError("Missing 'peering_id' argument")
+        if transit_gateway_route_table_arn is None and 'transitGatewayRouteTableArn' in kwargs:
+            transit_gateway_route_table_arn = kwargs['transitGatewayRouteTableArn']
+        if transit_gateway_route_table_arn is None:
+            raise TypeError("Missing 'transit_gateway_route_table_arn' argument")
+
+        _setter("peering_id", peering_id)
+        _setter("transit_gateway_route_table_arn", transit_gateway_route_table_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="peeringId")
@@ -99,37 +122,96 @@ class _TransitGatewayRouteTableAttachmentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_route_table_arn: The ARN of the transit gateway route table for the attachment.
         """
+        _TransitGatewayRouteTableAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            attachment_policy_rule_number=attachment_policy_rule_number,
+            attachment_type=attachment_type,
+            core_network_arn=core_network_arn,
+            core_network_id=core_network_id,
+            edge_location=edge_location,
+            owner_account_id=owner_account_id,
+            peering_id=peering_id,
+            resource_arn=resource_arn,
+            segment_name=segment_name,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+            transit_gateway_route_table_arn=transit_gateway_route_table_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
+             attachment_type: Optional[pulumi.Input[str]] = None,
+             core_network_arn: Optional[pulumi.Input[str]] = None,
+             core_network_id: Optional[pulumi.Input[str]] = None,
+             edge_location: Optional[pulumi.Input[str]] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             peering_id: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             segment_name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_gateway_route_table_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attachment_policy_rule_number is None and 'attachmentPolicyRuleNumber' in kwargs:
+            attachment_policy_rule_number = kwargs['attachmentPolicyRuleNumber']
+        if attachment_type is None and 'attachmentType' in kwargs:
+            attachment_type = kwargs['attachmentType']
+        if core_network_arn is None and 'coreNetworkArn' in kwargs:
+            core_network_arn = kwargs['coreNetworkArn']
+        if core_network_id is None and 'coreNetworkId' in kwargs:
+            core_network_id = kwargs['coreNetworkId']
+        if edge_location is None and 'edgeLocation' in kwargs:
+            edge_location = kwargs['edgeLocation']
+        if owner_account_id is None and 'ownerAccountId' in kwargs:
+            owner_account_id = kwargs['ownerAccountId']
+        if peering_id is None and 'peeringId' in kwargs:
+            peering_id = kwargs['peeringId']
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if segment_name is None and 'segmentName' in kwargs:
+            segment_name = kwargs['segmentName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if transit_gateway_route_table_arn is None and 'transitGatewayRouteTableArn' in kwargs:
+            transit_gateway_route_table_arn = kwargs['transitGatewayRouteTableArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if attachment_policy_rule_number is not None:
-            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+            _setter("attachment_policy_rule_number", attachment_policy_rule_number)
         if attachment_type is not None:
-            pulumi.set(__self__, "attachment_type", attachment_type)
+            _setter("attachment_type", attachment_type)
         if core_network_arn is not None:
-            pulumi.set(__self__, "core_network_arn", core_network_arn)
+            _setter("core_network_arn", core_network_arn)
         if core_network_id is not None:
-            pulumi.set(__self__, "core_network_id", core_network_id)
+            _setter("core_network_id", core_network_id)
         if edge_location is not None:
-            pulumi.set(__self__, "edge_location", edge_location)
+            _setter("edge_location", edge_location)
         if owner_account_id is not None:
-            pulumi.set(__self__, "owner_account_id", owner_account_id)
+            _setter("owner_account_id", owner_account_id)
         if peering_id is not None:
-            pulumi.set(__self__, "peering_id", peering_id)
+            _setter("peering_id", peering_id)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if segment_name is not None:
-            pulumi.set(__self__, "segment_name", segment_name)
+            _setter("segment_name", segment_name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if transit_gateway_route_table_arn is not None:
-            pulumi.set(__self__, "transit_gateway_route_table_arn", transit_gateway_route_table_arn)
+            _setter("transit_gateway_route_table_arn", transit_gateway_route_table_arn)
 
     @property
     @pulumi.getter
@@ -315,17 +397,6 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         """
         Creates a transit gateway route table attachment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.TransitGatewayRouteTableAttachment("example",
-            peering_id=aws_networkmanager_transit_gateway_peering["example"]["id"],
-            transit_gateway_route_table_arn=aws_ec2_transit_gateway_route_table["example"]["arn"])
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
@@ -349,17 +420,6 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         """
         Creates a transit gateway route table attachment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.TransitGatewayRouteTableAttachment("example",
-            peering_id=aws_networkmanager_transit_gateway_peering["example"]["id"],
-            transit_gateway_route_table_arn=aws_ec2_transit_gateway_route_table["example"]["arn"])
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
@@ -378,6 +438,10 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TransitGatewayRouteTableAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

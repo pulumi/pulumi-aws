@@ -13,50 +13,6 @@ namespace Pulumi.Aws.StorageGateway
     /// Manages an AWS Storage Gateway SMB File Share.
     /// 
     /// ## Example Usage
-    /// ### Active Directory Authentication
-    /// 
-    /// &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_active_directory_settings` in the `aws.storagegateway.Gateway` resource.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.StorageGateway.SmbFileShare("example", new()
-    ///     {
-    ///         Authentication = "ActiveDirectory",
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///         LocationArn = aws_s3_bucket.Example.Arn,
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Guest Authentication
-    /// 
-    /// &gt; **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_guest_password` in the `aws.storagegateway.Gateway` resource.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.StorageGateway.SmbFileShare("example", new()
-    ///     {
-    ///         Authentication = "GuestAccess",
-    ///         GatewayArn = aws_storagegateway_gateway.Example.Arn,
-    ///         LocationArn = aws_s3_bucket.Example.Arn,
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

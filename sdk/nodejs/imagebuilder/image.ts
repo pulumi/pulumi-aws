@@ -10,19 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Image Builder Image.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.imagebuilder.Image("example", {
- *     distributionConfigurationArn: aws_imagebuilder_distribution_configuration.example.arn,
- *     imageRecipeArn: aws_imagebuilder_image_recipe.example.arn,
- *     infrastructureConfigurationArn: aws_imagebuilder_infrastructure_configuration.example.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For example:

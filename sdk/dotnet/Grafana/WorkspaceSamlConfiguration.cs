@@ -13,61 +13,6 @@ namespace Pulumi.Aws.Grafana
     /// Provides an Amazon Managed Grafana workspace SAML configuration resource.
     /// 
     /// ## Example Usage
-    /// ### Basic configuration
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assume = new Aws.Iam.Role("assume", new()
-    ///     {
-    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = "sts:AssumeRole",
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Sid"] = "",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["Service"] = "grafana.amazonaws.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleWorkspace = new Aws.Grafana.Workspace("exampleWorkspace", new()
-    ///     {
-    ///         AccountAccessType = "CURRENT_ACCOUNT",
-    ///         AuthenticationProviders = new[]
-    ///         {
-    ///             "SAML",
-    ///         },
-    ///         PermissionType = "SERVICE_MANAGED",
-    ///         RoleArn = assume.Arn,
-    ///     });
-    /// 
-    ///     var exampleWorkspaceSamlConfiguration = new Aws.Grafana.WorkspaceSamlConfiguration("exampleWorkspaceSamlConfiguration", new()
-    ///     {
-    ///         EditorRoleValues = new[]
-    ///         {
-    ///             "editor",
-    ///         },
-    ///         IdpMetadataUrl = "https://my_idp_metadata.url",
-    ///         WorkspaceId = exampleWorkspace.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

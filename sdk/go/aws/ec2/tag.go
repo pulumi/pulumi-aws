@@ -17,55 +17,6 @@ import (
 //
 // > **NOTE:** This tagging resource should not be combined with the providers resource for managing the parent resource. For example, using `ec2.Vpc` and `ec2.Tag` to manage tags of the same VPC will cause a perpetual difference where the `ec2.Vpc` resource will try to remove the tag being added by the `ec2.Tag` resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
-//				BgpAsn:    pulumi.String("65000"),
-//				IpAddress: pulumi.String("172.0.0.1"),
-//				Type:      pulumi.String("ipsec.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
-//				CustomerGatewayId: exampleCustomerGateway.ID(),
-//				TransitGatewayId:  exampleTransitGateway.ID(),
-//				Type:              exampleCustomerGateway.Type,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewTag(ctx, "exampleTag", &ec2.TagArgs{
-//				ResourceId: exampleVpnConnection.TransitGatewayAttachmentId,
-//				Key:        pulumi.String("Name"),
-//				Value:      pulumi.String("Hello World"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For example:

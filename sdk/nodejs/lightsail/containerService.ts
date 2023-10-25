@@ -16,65 +16,6 @@ import * as utilities from "../utilities";
  * see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myContainerService = new aws.lightsail.ContainerService("myContainerService", {
- *     isDisabled: false,
- *     power: "nano",
- *     scale: 1,
- *     tags: {
- *         foo1: "bar1",
- *         foo2: "",
- *     },
- * });
- * ```
- * ### Public Domain Names
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myContainerService = new aws.lightsail.ContainerService("myContainerService", {publicDomainNames: {
- *     certificates: [{
- *         certificateName: "example-certificate",
- *         domainNames: ["www.example.com"],
- *     }],
- * }});
- * ```
- * ### Private Registry Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ... other configuration ...
- * const defaultContainerService = new aws.lightsail.ContainerService("defaultContainerService", {privateRegistryAccess: {
- *     ecrImagePullerRole: {
- *         isActive: true,
- *     },
- * }});
- * const defaultPolicyDocument = defaultContainerService.privateRegistryAccess.apply(privateRegistryAccess => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: [privateRegistryAccess.ecrImagePullerRole?.principalArn],
- *         }],
- *         actions: [
- *             "ecr:BatchGetImage",
- *             "ecr:GetDownloadUrlForLayer",
- *         ],
- *     }],
- * }));
- * const defaultRepositoryPolicy = new aws.ecr.RepositoryPolicy("defaultRepositoryPolicy", {
- *     repository: aws_ecr_repository["default"].name,
- *     policy: defaultPolicyDocument.apply(defaultPolicyDocument => defaultPolicyDocument.json),
- * });
- * ```
  *
  * ## Import
  *

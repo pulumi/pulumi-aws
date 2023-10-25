@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MailFromArgs', 'MailFrom']
@@ -25,10 +25,33 @@ class MailFromArgs:
                The following arguments are optional:
         :param pulumi.Input[str] behavior_on_mx_failure: The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
         """
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "mail_from_domain", mail_from_domain)
+        MailFromArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            mail_from_domain=mail_from_domain,
+            behavior_on_mx_failure=behavior_on_mx_failure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: Optional[pulumi.Input[str]] = None,
+             mail_from_domain: Optional[pulumi.Input[str]] = None,
+             behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if mail_from_domain is None and 'mailFromDomain' in kwargs:
+            mail_from_domain = kwargs['mailFromDomain']
+        if mail_from_domain is None:
+            raise TypeError("Missing 'mail_from_domain' argument")
+        if behavior_on_mx_failure is None and 'behaviorOnMxFailure' in kwargs:
+            behavior_on_mx_failure = kwargs['behaviorOnMxFailure']
+
+        _setter("domain", domain)
+        _setter("mail_from_domain", mail_from_domain)
         if behavior_on_mx_failure is not None:
-            pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
+            _setter("behavior_on_mx_failure", behavior_on_mx_failure)
 
     @property
     @pulumi.getter
@@ -83,12 +106,31 @@ class _MailFromState:
                
                The following arguments are optional:
         """
+        _MailFromState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            behavior_on_mx_failure=behavior_on_mx_failure,
+            domain=domain,
+            mail_from_domain=mail_from_domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             mail_from_domain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if behavior_on_mx_failure is None and 'behaviorOnMxFailure' in kwargs:
+            behavior_on_mx_failure = kwargs['behaviorOnMxFailure']
+        if mail_from_domain is None and 'mailFromDomain' in kwargs:
+            mail_from_domain = kwargs['mailFromDomain']
+
         if behavior_on_mx_failure is not None:
-            pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
+            _setter("behavior_on_mx_failure", behavior_on_mx_failure)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if mail_from_domain is not None:
-            pulumi.set(__self__, "mail_from_domain", mail_from_domain)
+            _setter("mail_from_domain", mail_from_domain)
 
     @property
     @pulumi.getter(name="behaviorOnMxFailure")
@@ -144,45 +186,6 @@ class MailFrom(pulumi.CustomResource):
         > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
 
         ## Example Usage
-        ### Domain Identity MAIL FROM
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Example SES Domain Identity
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
-            domain=example_domain_identity.domain,
-            mail_from_domain=example_domain_identity.domain.apply(lambda domain: f"bounce.{domain}"))
-        # Example Route53 MX record
-        example_ses_domain_mail_from_mx = aws.route53.Record("exampleSesDomainMailFromMx",
-            zone_id=aws_route53_zone["example"]["id"],
-            name=example_mail_from.mail_from_domain,
-            type="MX",
-            ttl=600,
-            records=["10 feedback-smtp.us-east-1.amazonses.com"])
-        # Change to the region in which `aws_ses_domain_identity.example` is created
-        # Example Route53 TXT record for SPF
-        example_ses_domain_mail_from_txt = aws.route53.Record("exampleSesDomainMailFromTxt",
-            zone_id=aws_route53_zone["example"]["id"],
-            name=example_mail_from.mail_from_domain,
-            type="TXT",
-            ttl=600,
-            records=["v=spf1 include:amazonses.com -all"])
-        ```
-        ### Email Identity MAIL FROM
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Example SES Email Identity
-        example_email_identity = aws.ses.EmailIdentity("exampleEmailIdentity", email="user@example.com")
-        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
-            domain=example_email_identity.email,
-            mail_from_domain="mail.example.com")
-        ```
 
         ## Import
 
@@ -212,45 +215,6 @@ class MailFrom(pulumi.CustomResource):
         > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
 
         ## Example Usage
-        ### Domain Identity MAIL FROM
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Example SES Domain Identity
-        example_domain_identity = aws.ses.DomainIdentity("exampleDomainIdentity", domain="example.com")
-        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
-            domain=example_domain_identity.domain,
-            mail_from_domain=example_domain_identity.domain.apply(lambda domain: f"bounce.{domain}"))
-        # Example Route53 MX record
-        example_ses_domain_mail_from_mx = aws.route53.Record("exampleSesDomainMailFromMx",
-            zone_id=aws_route53_zone["example"]["id"],
-            name=example_mail_from.mail_from_domain,
-            type="MX",
-            ttl=600,
-            records=["10 feedback-smtp.us-east-1.amazonses.com"])
-        # Change to the region in which `aws_ses_domain_identity.example` is created
-        # Example Route53 TXT record for SPF
-        example_ses_domain_mail_from_txt = aws.route53.Record("exampleSesDomainMailFromTxt",
-            zone_id=aws_route53_zone["example"]["id"],
-            name=example_mail_from.mail_from_domain,
-            type="TXT",
-            ttl=600,
-            records=["v=spf1 include:amazonses.com -all"])
-        ```
-        ### Email Identity MAIL FROM
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Example SES Email Identity
-        example_email_identity = aws.ses.EmailIdentity("exampleEmailIdentity", email="user@example.com")
-        example_mail_from = aws.ses.MailFrom("exampleMailFrom",
-            domain=example_email_identity.email,
-            mail_from_domain="mail.example.com")
-        ```
 
         ## Import
 
@@ -270,6 +234,10 @@ class MailFrom(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MailFromArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

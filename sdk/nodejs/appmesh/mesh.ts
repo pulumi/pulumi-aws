@@ -11,26 +11,6 @@ import * as utilities from "../utilities";
  * Provides an AWS App Mesh service mesh resource.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const simple = new aws.appmesh.Mesh("simple", {});
- * ```
- * ### Egress Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const simple = new aws.appmesh.Mesh("simple", {spec: {
- *     egressFilter: {
- *         type: "ALLOW_ALL",
- *     },
- * }});
- * ```
  *
  * ## Import
  *

@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafregional.getIpset({
- *     name: "tfWAFRegionalIPSet",
- * });
- * ```
  */
 export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> {
 
@@ -48,17 +37,6 @@ export interface GetIpsetResult {
 }
 /**
  * `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafregional.getIpset({
- *     name: "tfWAFRegionalIPSet",
- * });
- * ```
  */
 export function getIpsetOutput(args: GetIpsetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpsetResult> {
     return pulumi.output(args).apply((a: any) => getIpset(a, opts))

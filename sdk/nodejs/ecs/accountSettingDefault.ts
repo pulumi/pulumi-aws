@@ -11,15 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Your AWS account may not support disabling `containerInstanceLongArnFormat`, `serviceLongArnFormat`, and `taskLongArnFormat`. If your account does not support disabling these, "destroying" this resource will not disable the setting nor cause a provider error. However, the AWS Provider will log an AWS error: `InvalidParameterException: You can no longer disable Long Arn settings`.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ecs.AccountSettingDefault("test", {value: "enabled"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:

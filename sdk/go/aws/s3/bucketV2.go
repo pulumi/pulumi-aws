@@ -19,34 +19,7 @@ import (
 // > In April 2023, [AWS introduced](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-s3-automatically-enable-block-public-access-disable-access-control-lists-buckets-april-2023/) updated security defaults for new S3 buckets. See this issue for a information on how this affects the `s3.BucketV2` resource.
 //
 // ## Example Usage
-// ### Private Bucket With Tags
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Dev"),
-//					"Name":        pulumi.String("My bucket"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Static Website Hosting
 //
 // > **NOTE:** The `website` attribute is deprecated.

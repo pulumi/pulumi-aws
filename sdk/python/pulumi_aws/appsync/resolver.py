@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,29 +45,86 @@ class ResolverArgs:
         :param pulumi.Input['ResolverRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
         :param pulumi.Input['ResolverSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "type", type)
+        ResolverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            field=field,
+            type=type,
+            caching_config=caching_config,
+            code=code,
+            data_source=data_source,
+            kind=kind,
+            max_batch_size=max_batch_size,
+            pipeline_config=pipeline_config,
+            request_template=request_template,
+            response_template=response_template,
+            runtime=runtime,
+            sync_config=sync_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             field: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             caching_config: Optional[pulumi.Input['ResolverCachingConfigArgs']] = None,
+             code: Optional[pulumi.Input[str]] = None,
+             data_source: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             max_batch_size: Optional[pulumi.Input[int]] = None,
+             pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None,
+             request_template: Optional[pulumi.Input[str]] = None,
+             response_template: Optional[pulumi.Input[str]] = None,
+             runtime: Optional[pulumi.Input['ResolverRuntimeArgs']] = None,
+             sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if field is None:
+            raise TypeError("Missing 'field' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if caching_config is None and 'cachingConfig' in kwargs:
+            caching_config = kwargs['cachingConfig']
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if max_batch_size is None and 'maxBatchSize' in kwargs:
+            max_batch_size = kwargs['maxBatchSize']
+        if pipeline_config is None and 'pipelineConfig' in kwargs:
+            pipeline_config = kwargs['pipelineConfig']
+        if request_template is None and 'requestTemplate' in kwargs:
+            request_template = kwargs['requestTemplate']
+        if response_template is None and 'responseTemplate' in kwargs:
+            response_template = kwargs['responseTemplate']
+        if sync_config is None and 'syncConfig' in kwargs:
+            sync_config = kwargs['syncConfig']
+
+        _setter("api_id", api_id)
+        _setter("field", field)
+        _setter("type", type)
         if caching_config is not None:
-            pulumi.set(__self__, "caching_config", caching_config)
+            _setter("caching_config", caching_config)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if max_batch_size is not None:
-            pulumi.set(__self__, "max_batch_size", max_batch_size)
+            _setter("max_batch_size", max_batch_size)
         if pipeline_config is not None:
-            pulumi.set(__self__, "pipeline_config", pipeline_config)
+            _setter("pipeline_config", pipeline_config)
         if request_template is not None:
-            pulumi.set(__self__, "request_template", request_template)
+            _setter("request_template", request_template)
         if response_template is not None:
-            pulumi.set(__self__, "response_template", response_template)
+            _setter("response_template", response_template)
         if runtime is not None:
-            pulumi.set(__self__, "runtime", runtime)
+            _setter("runtime", runtime)
         if sync_config is not None:
-            pulumi.set(__self__, "sync_config", sync_config)
+            _setter("sync_config", sync_config)
 
     @property
     @pulumi.getter(name="apiId")
@@ -260,34 +317,87 @@ class _ResolverState:
         :param pulumi.Input['ResolverSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         :param pulumi.Input[str] type: Type name from the schema defined in the GraphQL API.
         """
+        _ResolverState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            arn=arn,
+            caching_config=caching_config,
+            code=code,
+            data_source=data_source,
+            field=field,
+            kind=kind,
+            max_batch_size=max_batch_size,
+            pipeline_config=pipeline_config,
+            request_template=request_template,
+            response_template=response_template,
+            runtime=runtime,
+            sync_config=sync_config,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             caching_config: Optional[pulumi.Input['ResolverCachingConfigArgs']] = None,
+             code: Optional[pulumi.Input[str]] = None,
+             data_source: Optional[pulumi.Input[str]] = None,
+             field: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             max_batch_size: Optional[pulumi.Input[int]] = None,
+             pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None,
+             request_template: Optional[pulumi.Input[str]] = None,
+             response_template: Optional[pulumi.Input[str]] = None,
+             runtime: Optional[pulumi.Input['ResolverRuntimeArgs']] = None,
+             sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if caching_config is None and 'cachingConfig' in kwargs:
+            caching_config = kwargs['cachingConfig']
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if max_batch_size is None and 'maxBatchSize' in kwargs:
+            max_batch_size = kwargs['maxBatchSize']
+        if pipeline_config is None and 'pipelineConfig' in kwargs:
+            pipeline_config = kwargs['pipelineConfig']
+        if request_template is None and 'requestTemplate' in kwargs:
+            request_template = kwargs['requestTemplate']
+        if response_template is None and 'responseTemplate' in kwargs:
+            response_template = kwargs['responseTemplate']
+        if sync_config is None and 'syncConfig' in kwargs:
+            sync_config = kwargs['syncConfig']
+
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if caching_config is not None:
-            pulumi.set(__self__, "caching_config", caching_config)
+            _setter("caching_config", caching_config)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if max_batch_size is not None:
-            pulumi.set(__self__, "max_batch_size", max_batch_size)
+            _setter("max_batch_size", max_batch_size)
         if pipeline_config is not None:
-            pulumi.set(__self__, "pipeline_config", pipeline_config)
+            _setter("pipeline_config", pipeline_config)
         if request_template is not None:
-            pulumi.set(__self__, "request_template", request_template)
+            _setter("request_template", request_template)
         if response_template is not None:
-            pulumi.set(__self__, "response_template", response_template)
+            _setter("response_template", response_template)
         if runtime is not None:
-            pulumi.set(__self__, "runtime", runtime)
+            _setter("runtime", runtime)
         if sync_config is not None:
-            pulumi.set(__self__, "sync_config", sync_config)
+            _setter("sync_config", sync_config)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="apiId")
@@ -480,104 +590,6 @@ class Resolver(pulumi.CustomResource):
         """
         Provides an AppSync Resolver.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_graph_ql_api = aws.appsync.GraphQLApi("testGraphQLApi",
-            authentication_type="API_KEY",
-            schema=\"\"\"type Mutation {
-        	putPost(id: ID!, title: String!): Post
-        }
-
-        type Post {
-        	id: ID!
-        	title: String!
-        }
-
-        type Query {
-        	singlePost(id: ID!): Post
-        }
-
-        schema {
-        	query: Query
-        	mutation: Mutation
-        }
-        \"\"\")
-        test_data_source = aws.appsync.DataSource("testDataSource",
-            api_id=test_graph_ql_api.id,
-            name="my_example",
-            type="HTTP",
-            http_config=aws.appsync.DataSourceHttpConfigArgs(
-                endpoint="http://example.com",
-            ))
-        # UNIT type resolver (default)
-        test_resolver = aws.appsync.Resolver("testResolver",
-            api_id=test_graph_ql_api.id,
-            field="singlePost",
-            type="Query",
-            data_source=test_data_source.name,
-            request_template=\"\"\"{
-            "version": "2018-05-29",
-            "method": "GET",
-            "resourcePath": "/",
-            "params":{
-                "headers": $utils.http.copyheaders($ctx.request.headers)
-            }
-        }
-        \"\"\",
-            response_template=\"\"\"#if($ctx.result.statusCode == 200)
-            $ctx.result.body
-        #else
-            $utils.appendError($ctx.result.body, $ctx.result.statusCode)
-        #end
-        \"\"\",
-            caching_config=aws.appsync.ResolverCachingConfigArgs(
-                caching_keys=[
-                    "$context.identity.sub",
-                    "$context.arguments.id",
-                ],
-                ttl=60,
-            ))
-        # PIPELINE type resolver
-        mutation_pipeline_test = aws.appsync.Resolver("mutationPipelineTest",
-            type="Mutation",
-            api_id=test_graph_ql_api.id,
-            field="pipelineTest",
-            request_template="{}",
-            response_template="$util.toJson($ctx.result)",
-            kind="PIPELINE",
-            pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
-                functions=[
-                    aws_appsync_function["test1"]["function_id"],
-                    aws_appsync_function["test2"]["function_id"],
-                    aws_appsync_function["test3"]["function_id"],
-                ],
-            ))
-        ```
-        ### JS
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.Resolver("example",
-            type="Query",
-            api_id=aws_appsync_graphql_api["test"]["id"],
-            field="pipelineTest",
-            kind="PIPELINE",
-            code=(lambda path: open(path).read())("some-code-dir"),
-            runtime=aws.appsync.ResolverRuntimeArgs(
-                name="APPSYNC_JS",
-                runtime_version="1.0.0",
-            ),
-            pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
-                functions=[aws_appsync_function["test"]["function_id"]],
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
@@ -611,104 +623,6 @@ class Resolver(pulumi.CustomResource):
         """
         Provides an AppSync Resolver.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_graph_ql_api = aws.appsync.GraphQLApi("testGraphQLApi",
-            authentication_type="API_KEY",
-            schema=\"\"\"type Mutation {
-        	putPost(id: ID!, title: String!): Post
-        }
-
-        type Post {
-        	id: ID!
-        	title: String!
-        }
-
-        type Query {
-        	singlePost(id: ID!): Post
-        }
-
-        schema {
-        	query: Query
-        	mutation: Mutation
-        }
-        \"\"\")
-        test_data_source = aws.appsync.DataSource("testDataSource",
-            api_id=test_graph_ql_api.id,
-            name="my_example",
-            type="HTTP",
-            http_config=aws.appsync.DataSourceHttpConfigArgs(
-                endpoint="http://example.com",
-            ))
-        # UNIT type resolver (default)
-        test_resolver = aws.appsync.Resolver("testResolver",
-            api_id=test_graph_ql_api.id,
-            field="singlePost",
-            type="Query",
-            data_source=test_data_source.name,
-            request_template=\"\"\"{
-            "version": "2018-05-29",
-            "method": "GET",
-            "resourcePath": "/",
-            "params":{
-                "headers": $utils.http.copyheaders($ctx.request.headers)
-            }
-        }
-        \"\"\",
-            response_template=\"\"\"#if($ctx.result.statusCode == 200)
-            $ctx.result.body
-        #else
-            $utils.appendError($ctx.result.body, $ctx.result.statusCode)
-        #end
-        \"\"\",
-            caching_config=aws.appsync.ResolverCachingConfigArgs(
-                caching_keys=[
-                    "$context.identity.sub",
-                    "$context.arguments.id",
-                ],
-                ttl=60,
-            ))
-        # PIPELINE type resolver
-        mutation_pipeline_test = aws.appsync.Resolver("mutationPipelineTest",
-            type="Mutation",
-            api_id=test_graph_ql_api.id,
-            field="pipelineTest",
-            request_template="{}",
-            response_template="$util.toJson($ctx.result)",
-            kind="PIPELINE",
-            pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
-                functions=[
-                    aws_appsync_function["test1"]["function_id"],
-                    aws_appsync_function["test2"]["function_id"],
-                    aws_appsync_function["test3"]["function_id"],
-                ],
-            ))
-        ```
-        ### JS
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.Resolver("example",
-            type="Query",
-            api_id=aws_appsync_graphql_api["test"]["id"],
-            field="pipelineTest",
-            kind="PIPELINE",
-            code=(lambda path: open(path).read())("some-code-dir"),
-            runtime=aws.appsync.ResolverRuntimeArgs(
-                name="APPSYNC_JS",
-                runtime_version="1.0.0",
-            ),
-            pipeline_config=aws.appsync.ResolverPipelineConfigArgs(
-                functions=[aws_appsync_function["test"]["function_id"]],
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
@@ -727,6 +641,10 @@ class Resolver(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResolverArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -757,6 +675,7 @@ class Resolver(pulumi.CustomResource):
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
+            caching_config = _utilities.configure(caching_config, ResolverCachingConfigArgs, True)
             __props__.__dict__["caching_config"] = caching_config
             __props__.__dict__["code"] = code
             __props__.__dict__["data_source"] = data_source
@@ -765,10 +684,13 @@ class Resolver(pulumi.CustomResource):
             __props__.__dict__["field"] = field
             __props__.__dict__["kind"] = kind
             __props__.__dict__["max_batch_size"] = max_batch_size
+            pipeline_config = _utilities.configure(pipeline_config, ResolverPipelineConfigArgs, True)
             __props__.__dict__["pipeline_config"] = pipeline_config
             __props__.__dict__["request_template"] = request_template
             __props__.__dict__["response_template"] = response_template
+            runtime = _utilities.configure(runtime, ResolverRuntimeArgs, True)
             __props__.__dict__["runtime"] = runtime
+            sync_config = _utilities.configure(sync_config, ResolverSyncConfigArgs, True)
             __props__.__dict__["sync_config"] = sync_config
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

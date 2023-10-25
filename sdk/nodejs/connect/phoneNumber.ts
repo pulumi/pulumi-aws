@@ -12,47 +12,6 @@ import * as utilities from "../utilities";
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.PhoneNumber("example", {
- *     targetArn: aws_connect_instance.example.arn,
- *     countryCode: "US",
- *     type: "DID",
- *     tags: {
- *         hello: "world",
- *     },
- * });
- * ```
- * ### Description
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.PhoneNumber("example", {
- *     targetArn: aws_connect_instance.example.arn,
- *     countryCode: "US",
- *     type: "DID",
- *     description: "example description",
- * });
- * ```
- * ### Prefix to filter phone numbers
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.PhoneNumber("example", {
- *     targetArn: aws_connect_instance.example.arn,
- *     countryCode: "US",
- *     type: "DID",
- *     prefix: "+18005",
- * });
- * ```
  *
  * ## Import
  *

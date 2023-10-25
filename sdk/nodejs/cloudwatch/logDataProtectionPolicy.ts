@@ -9,47 +9,6 @@ import * as utilities from "../utilities";
  *
  * Read more about protecting sensitive user data in the [User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy", {
- *     logGroupName: exampleLogGroup.name,
- *     policyDocument: exampleBucketV2.bucket.apply(bucket => JSON.stringify({
- *         Name: "Example",
- *         Version: "2021-06-01",
- *         Statement: [
- *             {
- *                 Sid: "Audit",
- *                 DataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
- *                 Operation: {
- *                     Audit: {
- *                         FindingsDestination: {
- *                             S3: {
- *                                 Bucket: bucket,
- *                             },
- *                         },
- *                     },
- *                 },
- *             },
- *             {
- *                 Sid: "Redact",
- *                 DataIdentifier: ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
- *                 Operation: {
- *                     Deidentify: {
- *                         MaskConfig: {},
- *                     },
- *                 },
- *             },
- *         ],
- *     })),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import this resource using the `log_group_name`. For example:

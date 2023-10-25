@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,29 @@ class InstancePublicPortsArgs:
         :param pulumi.Input[str] instance_name: Name of the Lightsail Instance.
         :param pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         """
-        pulumi.set(__self__, "instance_name", instance_name)
-        pulumi.set(__self__, "port_infos", port_infos)
+        InstancePublicPortsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_name=instance_name,
+            port_infos=port_infos,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_name: Optional[pulumi.Input[str]] = None,
+             port_infos: Optional[pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_name is None and 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+        if instance_name is None:
+            raise TypeError("Missing 'instance_name' argument")
+        if port_infos is None and 'portInfos' in kwargs:
+            port_infos = kwargs['portInfos']
+        if port_infos is None:
+            raise TypeError("Missing 'port_infos' argument")
+
+        _setter("instance_name", instance_name)
+        _setter("port_infos", port_infos)
 
     @property
     @pulumi.getter(name="instanceName")
@@ -61,10 +82,27 @@ class _InstancePublicPortsState:
         :param pulumi.Input[str] instance_name: Name of the Lightsail Instance.
         :param pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         """
+        _InstancePublicPortsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_name=instance_name,
+            port_infos=port_infos,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_name: Optional[pulumi.Input[str]] = None,
+             port_infos: Optional[pulumi.Input[Sequence[pulumi.Input['InstancePublicPortsPortInfoArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_name is None and 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+        if port_infos is None and 'portInfos' in kwargs:
+            port_infos = kwargs['portInfos']
+
         if instance_name is not None:
-            pulumi.set(__self__, "instance_name", instance_name)
+            _setter("instance_name", instance_name)
         if port_infos is not None:
-            pulumi.set(__self__, "port_infos", port_infos)
+            _setter("port_infos", port_infos)
 
     @property
     @pulumi.getter(name="instanceName")
@@ -106,25 +144,6 @@ class InstancePublicPorts(pulumi.CustomResource):
 
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=data["aws_availability_zones"]["available"]["names"],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
-        test_instance_public_ports = aws.lightsail.InstancePublicPorts("testInstancePublicPorts",
-            instance_name=test_instance.name,
-            port_infos=[aws.lightsail.InstancePublicPortsPortInfoArgs(
-                protocol="tcp",
-                from_port=80,
-                to_port=80,
-            )])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_name: Name of the Lightsail Instance.
@@ -143,25 +162,6 @@ class InstancePublicPorts(pulumi.CustomResource):
 
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=data["aws_availability_zones"]["available"]["names"],
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_1_0")
-        test_instance_public_ports = aws.lightsail.InstancePublicPorts("testInstancePublicPorts",
-            instance_name=test_instance.name,
-            port_infos=[aws.lightsail.InstancePublicPortsPortInfoArgs(
-                protocol="tcp",
-                from_port=80,
-                to_port=80,
-            )])
-        ```
-
         :param str resource_name: The name of the resource.
         :param InstancePublicPortsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,6 +172,10 @@ class InstancePublicPorts(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstancePublicPortsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

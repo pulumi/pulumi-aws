@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafregional.getRule({
- *     name: "tfWAFRegionalRule",
- * });
- * ```
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
 
@@ -48,17 +37,6 @@ export interface GetRuleResult {
 }
 /**
  * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.wafregional.getRule({
- *     name: "tfWAFRegionalRule",
- * });
- * ```
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
     return pulumi.output(args).apply((a: any) => getRule(a, opts))

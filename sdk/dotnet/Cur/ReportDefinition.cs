@@ -14,39 +14,6 @@ namespace Pulumi.Aws.Cur
     /// 
     /// &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCurReportDefinition = new Aws.Cur.ReportDefinition("exampleCurReportDefinition", new()
-    ///     {
-    ///         AdditionalArtifacts = new[]
-    ///         {
-    ///             "REDSHIFT",
-    ///             "QUICKSIGHT",
-    ///         },
-    ///         AdditionalSchemaElements = new[]
-    ///         {
-    ///             "RESOURCES",
-    ///             "SPLIT_COST_ALLOCATION_DATA",
-    ///         },
-    ///         Compression = "GZIP",
-    ///         Format = "textORcsv",
-    ///         ReportName = "example-cur-report-definition",
-    ///         S3Bucket = "example-bucket-name",
-    ///         S3Region = "us-east-1",
-    ///         TimeUnit = "HOURLY",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Report Definitions using the `report_name`. For example:

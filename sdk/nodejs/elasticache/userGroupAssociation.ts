@@ -9,37 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The provider will detect changes in the `aws.elasticache.UserGroup` since `aws.elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignoreChanges` option as shown in the example.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.elasticache.User("default", {
- *     userId: "defaultUserID",
- *     userName: "default",
- *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
- *     engine: "REDIS",
- *     passwords: ["password123456789"],
- * });
- * const exampleUserGroup = new aws.elasticache.UserGroup("exampleUserGroup", {
- *     engine: "REDIS",
- *     userGroupId: "userGroupId",
- *     userIds: [_default.userId],
- * });
- * const exampleUser = new aws.elasticache.User("exampleUser", {
- *     userId: "exampleUserID",
- *     userName: "exampleuser",
- *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
- *     engine: "REDIS",
- *     passwords: ["password123456789"],
- * });
- * const exampleUserGroupAssociation = new aws.elasticache.UserGroupAssociation("exampleUserGroupAssociation", {
- *     userGroupId: exampleUserGroup.userGroupId,
- *     userId: exampleUser.userId,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -115,15 +115,6 @@ def get_image(image_id: Optional[str] = None,
     """
     Use this data source to get information about a Workspaces image.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_image(image_id="wsi-ten5h0y19")
-    ```
-
 
     :param str image_id: ID of the image.
     """
@@ -147,15 +138,6 @@ def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
     Use this data source to get information about a Workspaces image.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_image(image_id="wsi-ten5h0y19")
-    ```
 
 
     :param str image_id: ID of the image.

@@ -12,34 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `aws.s3.BucketCorsConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketCorsConfigurationV2 = new aws.s3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", {
- *     bucket: exampleBucketV2.id,
- *     corsRules: [
- *         {
- *             allowedHeaders: ["*"],
- *             allowedMethods: [
- *                 "PUT",
- *                 "POST",
- *             ],
- *             allowedOrigins: ["https://s3-website-test.domain.example"],
- *             exposeHeaders: ["ETag"],
- *             maxAgeSeconds: 3000,
- *         },
- *         {
- *             allowedMethods: ["GET"],
- *             allowedOrigins: ["*"],
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):

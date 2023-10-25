@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
  * Provides an Traffic mirror session.\
  * Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
  *
- * ## Example Usage
- *
- * To create a basic traffic mirror session
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const filter = new aws.ec2.TrafficMirrorFilter("filter", {
- *     description: "traffic mirror filter - example",
- *     networkServices: ["amazon-dns"],
- * });
- * const target = new aws.ec2.TrafficMirrorTarget("target", {networkLoadBalancerArn: aws_lb.lb.arn});
- * const session = new aws.ec2.TrafficMirrorSession("session", {
- *     description: "traffic mirror session - example",
- *     networkInterfaceId: aws_instance.test.primary_network_interface_id,
- *     sessionNumber: 1,
- *     trafficMirrorFilterId: filter.id,
- *     trafficMirrorTargetId: target.id,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import traffic mirror sessions using the `id`. For example:

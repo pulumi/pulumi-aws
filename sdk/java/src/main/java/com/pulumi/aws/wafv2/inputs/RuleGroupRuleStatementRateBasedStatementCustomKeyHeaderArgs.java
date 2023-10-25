@@ -34,16 +34,6 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs e
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
      * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
      * 
      */
     @Import(name="textTransformations", required=true)
@@ -51,16 +41,6 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs e
 
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
      * At least one required.
      * See Text Transformation below for details.
      * 
@@ -119,16 +99,6 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs e
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
          * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
          * 
          * @return builder
          * 
@@ -142,16 +112,6 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs e
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
          * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
          * 
          * @return builder
          * 
@@ -162,16 +122,6 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs e
 
         /**
          * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
-         * At least one required.
-         * See Text Transformation below for details.
          * At least one required.
          * See Text Transformation below for details.
          * 

@@ -12,28 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a CloudWatch Log Group resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var yada = new Aws.CloudWatch.LogGroup("yada", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Application", "serviceA" },
-    ///             { "Environment", "production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:

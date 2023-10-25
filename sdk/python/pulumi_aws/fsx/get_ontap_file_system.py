@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -292,14 +292,6 @@ def get_ontap_file_system(id: Optional[str] = None,
     Retrieve information on FSx ONTAP File System.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fsx.get_ontap_file_system(id="fs-12345678")
-    ```
 
 
     :param str id: Identifier of the file system (e.g. `fs-12345678`).
@@ -343,14 +335,6 @@ def get_ontap_file_system_output(id: Optional[pulumi.Input[str]] = None,
     Retrieve information on FSx ONTAP File System.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.fsx.get_ontap_file_system(id="fs-12345678")
-    ```
 
 
     :param str id: Identifier of the file system (e.g. `fs-12345678`).

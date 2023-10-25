@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HostedPublicVirtualInterfaceAccepterArgs', 'HostedPublicVirtualInterfaceAccepter']
@@ -21,9 +21,26 @@ class HostedPublicVirtualInterfaceAccepterArgs:
         :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
+        HostedPublicVirtualInterfaceAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_interface_id=virtual_interface_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_interface_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if virtual_interface_id is None and 'virtualInterfaceId' in kwargs:
+            virtual_interface_id = kwargs['virtualInterfaceId']
+        if virtual_interface_id is None:
+            raise TypeError("Missing 'virtual_interface_id' argument")
+
+        _setter("virtual_interface_id", virtual_interface_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="virtualInterfaceId")
@@ -64,17 +81,38 @@ class _HostedPublicVirtualInterfaceAccepterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
         """
+        _HostedPublicVirtualInterfaceAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            tags=tags,
+            tags_all=tags_all,
+            virtual_interface_id=virtual_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_interface_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if virtual_interface_id is None and 'virtualInterfaceId' in kwargs:
+            virtual_interface_id = kwargs['virtualInterfaceId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if virtual_interface_id is not None:
-            pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
+            _setter("virtual_interface_id", virtual_interface_id)
 
     @property
     @pulumi.getter
@@ -140,37 +178,6 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
         Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
         This resource accepts ownership of a public virtual interface created by another AWS account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
-        # Creator's side of the VIF
-        creator = aws.directconnect.HostedPublicVirtualInterface("creator",
-            connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
-            vlan=4094,
-            address_family="ipv4",
-            bgp_asn=65352,
-            customer_address="175.45.176.1/30",
-            amazon_address="175.45.176.2/30",
-            route_filter_prefixes=[
-                "210.52.109.0/24",
-                "175.45.176.0/22",
-            ])
-        # Accepter's side of the VIF.
-        accepter_hosted_public_virtual_interface_accepter = aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter",
-            virtual_interface_id=creator.id,
-            tags={
-                "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
@@ -194,37 +201,6 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
         Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
         This resource accepts ownership of a public virtual interface created by another AWS account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        accepter = aws.Provider("accepter")
-        # Accepter's credentials.
-        accepter_caller_identity = aws.get_caller_identity()
-        # Creator's side of the VIF
-        creator = aws.directconnect.HostedPublicVirtualInterface("creator",
-            connection_id="dxcon-zzzzzzzz",
-            owner_account_id=accepter_caller_identity.account_id,
-            vlan=4094,
-            address_family="ipv4",
-            bgp_asn=65352,
-            customer_address="175.45.176.1/30",
-            amazon_address="175.45.176.2/30",
-            route_filter_prefixes=[
-                "210.52.109.0/24",
-                "175.45.176.0/22",
-            ])
-        # Accepter's side of the VIF.
-        accepter_hosted_public_virtual_interface_accepter = aws.directconnect.HostedPublicVirtualInterfaceAccepter("accepterHostedPublicVirtualInterfaceAccepter",
-            virtual_interface_id=creator.id,
-            tags={
-                "Side": "Accepter",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["accepter"]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For example:
@@ -243,6 +219,10 @@ class HostedPublicVirtualInterfaceAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HostedPublicVirtualInterfaceAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

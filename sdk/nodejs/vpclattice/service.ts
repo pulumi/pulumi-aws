@@ -11,17 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Service.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpclattice.Service("example", {
- *     authType: "AWS_IAM",
- *     customDomainName: "example.com",
- * });
- * ```
  *
  * ## Import
  *

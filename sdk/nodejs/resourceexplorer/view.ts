@@ -10,25 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage a Resource Explorer view.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleIndex = new aws.resourceexplorer.Index("exampleIndex", {type: "LOCAL"});
- * const exampleView = new aws.resourceexplorer.View("exampleView", {
- *     filters: {
- *         filterString: "resourcetype:ec2:instance",
- *     },
- *     includedProperties: [{
- *         name: "tags",
- *     }],
- * }, {
- *     dependsOn: [exampleIndex],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Resource Explorer views using the `arn`. For example:

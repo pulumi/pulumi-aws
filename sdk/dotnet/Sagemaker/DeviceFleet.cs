@@ -13,28 +13,6 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Device Fleet resource.
     /// 
     /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.DeviceFleet("example", new()
-    ///     {
-    ///         DeviceFleetName = "example",
-    ///         RoleArn = aws_iam_role.Test.Arn,
-    ///         OutputConfig = new Aws.Sagemaker.Inputs.DeviceFleetOutputConfigArgs
-    ///         {
-    ///             S3OutputLocation = $"s3://{aws_s3_bucket.Example.Bucket}/prefix/",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -11,36 +11,6 @@ namespace Pulumi.Aws.Ec2
 {
     /// <summary>
     /// Adds permission to create volumes off of a given EBS Snapshot.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ebs.Volume("example", new()
-    ///     {
-    ///         AvailabilityZone = "us-west-2a",
-    ///         Size = 40,
-    ///     });
-    /// 
-    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new()
-    ///     {
-    ///         VolumeId = example.Id,
-    ///     });
-    /// 
-    ///     var examplePerm = new Aws.Ec2.SnapshotCreateVolumePermission("examplePerm", new()
-    ///     {
-    ///         SnapshotId = exampleSnapshot.Id,
-    ///         AccountId = "12345678",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission")]
     public partial class SnapshotCreateVolumePermission : global::Pulumi.CustomResource

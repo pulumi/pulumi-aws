@@ -12,25 +12,6 @@ namespace Pulumi.Aws.Cfg
     /// <summary>
     /// Manages an AWS Config Aggregate Authorization
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Cfg.AggregateAuthorization("example", new()
-    ///     {
-    ///         AccountId = "123456789012",
-    ///         Region = "eu-west-2",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:

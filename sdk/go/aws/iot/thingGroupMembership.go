@@ -15,34 +15,6 @@ import (
 
 // Adds an IoT Thing to an IoT Thing Group.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewThingGroupMembership(ctx, "example", &iot.ThingGroupMembershipArgs{
-//				OverrideDynamicGroup: pulumi.Bool(true),
-//				ThingGroupName:       pulumi.String("example-group"),
-//				ThingName:            pulumi.String("example-thing"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For example:

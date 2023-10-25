@@ -12,45 +12,6 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides a Cognito User Identity Provider resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Cognito.UserPool("example", new()
-    ///     {
-    ///         AutoVerifiedAttributes = new[]
-    ///         {
-    ///             "email",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleProvider = new Aws.Cognito.IdentityProvider("exampleProvider", new()
-    ///     {
-    ///         UserPoolId = example.Id,
-    ///         ProviderName = "Google",
-    ///         ProviderType = "Google",
-    ///         ProviderDetails = 
-    ///         {
-    ///             { "authorize_scopes", "email" },
-    ///             { "client_id", "your client_id" },
-    ///             { "client_secret", "your client_secret" },
-    ///         },
-    ///         AttributeMapping = 
-    ///         {
-    ///             { "email", "email" },
-    ///             { "username", "sub" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:

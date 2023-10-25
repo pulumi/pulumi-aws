@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -141,17 +141,6 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[str] = N
 
     This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
 
-    ## Example Usage
-
-    The following example shows how to get a firewall domain list from its ID.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_domain_list(firewall_domain_list_id="rslvr-fdl-example")
-    ```
-
 
     :param str firewall_domain_list_id: The ID of the domain list.
            
@@ -183,17 +172,6 @@ def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[p
     `route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
 
     This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall domain list from its ID.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_domain_list(firewall_domain_list_id="rslvr-fdl-example")
-    ```
 
 
     :param str firewall_domain_list_id: The ID of the domain list.

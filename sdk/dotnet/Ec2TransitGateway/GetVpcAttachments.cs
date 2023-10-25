@@ -16,37 +16,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetVpcAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetVpcAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVpcAttachmentsResult> InvokeAsync(GetVpcAttachmentsArgs? args = null, InvokeOptions? options = null)
@@ -57,37 +26,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Filter
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var filtered = Aws.Ec2TransitGateway.GetVpcAttachments.Invoke(new()
-        ///     {
-        ///         Filters = new[]
-        ///         {
-        ///             new Aws.Ec2TransitGateway.Inputs.GetVpcAttachmentsFilterInputArgs
-        ///             {
-        ///                 Name = "state",
-        ///                 Values = new[]
-        ///                 {
-        ///                     "pendingAcceptance",
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        ///     var unit = ;
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVpcAttachmentsResult> Invoke(GetVpcAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)

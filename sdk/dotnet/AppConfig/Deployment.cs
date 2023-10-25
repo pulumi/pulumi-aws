@@ -12,33 +12,6 @@ namespace Pulumi.Aws.AppConfig
     /// <summary>
     /// Provides an AppConfig Deployment resource for an `aws.appconfig.Application` resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppConfig.Deployment("example", new()
-    ///     {
-    ///         ApplicationId = aws_appconfig_application.Example.Id,
-    ///         ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
-    ///         ConfigurationVersion = aws_appconfig_hosted_configuration_version.Example.Version_number,
-    ///         DeploymentStrategyId = aws_appconfig_deployment_strategy.Example.Id,
-    ///         Description = "My example deployment",
-    ///         EnvironmentId = aws_appconfig_environment.Example.Environment_id,
-    ///         Tags = 
-    ///         {
-    ///             { "Type", "AppConfig Deployment" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:

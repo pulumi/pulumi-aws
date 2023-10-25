@@ -12,30 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.Ec2.CustomerGateway("main", new()
-    ///     {
-    ///         BgpAsn = "65000",
-    ///         IpAddress = "172.83.124.10",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "main-customer-gateway" },
-    ///         },
-    ///         Type = "ipsec.1",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Customer Gateways using the `id`. For example:

@@ -11,68 +11,6 @@ import * as utilities from "../utilities";
  * Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming configuration specifies whether media streaming is enabled for sending to Amazon Kinesis.
  * It also sets the retention period, in hours, for the Amazon Kinesis data.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorStreaming = new aws.chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", {
- *     disabled: false,
- *     voiceConnectorId: defaultVoiceConnector.id,
- *     dataRetention: 7,
- *     streamingNotificationTargets: ["SQS"],
- * });
- * ```
- * ### Example Usage With Media Insights
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["mediapipelines.chime.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleStream = new aws.kinesis.Stream("exampleStream", {shardCount: 2});
- * const exampleMediaInsightsPipelineConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("exampleMediaInsightsPipelineConfiguration", {
- *     resourceAccessRoleArn: exampleRole.arn,
- *     elements: [
- *         {
- *             type: "AmazonTranscribeCallAnalyticsProcessor",
- *             amazonTranscribeCallAnalyticsProcessorConfiguration: {
- *                 languageCode: "en-US",
- *             },
- *         },
- *         {
- *             type: "KinesisDataStreamSink",
- *             kinesisDataStreamSinkConfiguration: {
- *                 insightsTarget: exampleStream.arn,
- *             },
- *         },
- *     ],
- * });
- * const defaultVoiceConnectorStreaming = new aws.chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", {
- *     disabled: false,
- *     voiceConnectorId: defaultVoiceConnector.id,
- *     dataRetention: 7,
- *     streamingNotificationTargets: ["SQS"],
- *     mediaInsightsConfiguration: {
- *         disabled: false,
- *         configurationArn: exampleMediaInsightsPipelineConfiguration.arn,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For example:

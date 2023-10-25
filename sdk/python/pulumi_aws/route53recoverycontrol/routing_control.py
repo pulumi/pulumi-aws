@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RoutingControlArgs', 'RoutingControl']
@@ -25,11 +25,32 @@ class RoutingControlArgs:
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "cluster_arn", cluster_arn)
+        RoutingControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_arn=cluster_arn,
+            control_panel_arn=control_panel_arn,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_arn: Optional[pulumi.Input[str]] = None,
+             control_panel_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_arn is None and 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+        if cluster_arn is None:
+            raise TypeError("Missing 'cluster_arn' argument")
+        if control_panel_arn is None and 'controlPanelArn' in kwargs:
+            control_panel_arn = kwargs['controlPanelArn']
+
+        _setter("cluster_arn", cluster_arn)
         if control_panel_arn is not None:
-            pulumi.set(__self__, "control_panel_arn", control_panel_arn)
+            _setter("control_panel_arn", control_panel_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -88,16 +109,39 @@ class _RoutingControlState:
                The following arguments are optional:
         :param pulumi.Input[str] status: Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """
+        _RoutingControlState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cluster_arn=cluster_arn,
+            control_panel_arn=control_panel_arn,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cluster_arn: Optional[pulumi.Input[str]] = None,
+             control_panel_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_arn is None and 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+        if control_panel_arn is None and 'controlPanelArn' in kwargs:
+            control_panel_arn = kwargs['controlPanelArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cluster_arn is not None:
-            pulumi.set(__self__, "cluster_arn", cluster_arn)
+            _setter("cluster_arn", cluster_arn)
         if control_panel_arn is not None:
-            pulumi.set(__self__, "control_panel_arn", control_panel_arn)
+            _setter("control_panel_arn", control_panel_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -174,24 +218,6 @@ class RoutingControl(pulumi.CustomResource):
         """
         Provides an AWS Route 53 Recovery Control Config Routing Control.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoverycontrol.RoutingControl("example", cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoverycontrol.RoutingControl("example",
-            cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
-            control_panel_arn="arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For example:
@@ -217,24 +243,6 @@ class RoutingControl(pulumi.CustomResource):
         """
         Provides an AWS Route 53 Recovery Control Config Routing Control.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoverycontrol.RoutingControl("example", cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoverycontrol.RoutingControl("example",
-            cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393",
-            control_panel_arn="arn:aws:route53-recovery-control::428113431245:controlpanel/abd5fbfc052d4844a082dbf400f61da8")
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For example:
@@ -253,6 +261,10 @@ class RoutingControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoutingControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -9,32 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific Amazon Connect User.
- *
- * ## Example Usage
- *
- * By `name`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getUser({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Example",
- * });
- * ```
- *
- * By `userId`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getUser({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     userId: "cccccccc-bbbb-cccc-dddd-111111111111",
- * });
- * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
@@ -118,32 +92,6 @@ export interface GetUserResult {
 }
 /**
  * Provides details about a specific Amazon Connect User.
- *
- * ## Example Usage
- *
- * By `name`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getUser({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Example",
- * });
- * ```
- *
- * By `userId`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getUser({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     userId: "cccccccc-bbbb-cccc-dddd-111111111111",
- * });
- * ```
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))

@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS CodeCatalyst Project.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.codecatalyst.Project("test", {
- *     description: "My CodeCatalyst Project created using Pulumi",
- *     displayName: "MyProject",
- *     spaceName: "myproject",
- * });
- * ```
  *
  * ## Import
  *

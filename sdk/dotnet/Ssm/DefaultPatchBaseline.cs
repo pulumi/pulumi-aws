@@ -13,32 +13,6 @@ namespace Pulumi.Aws.Ssm
     /// Resource for registering an AWS Systems Manager Default Patch Baseline.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var examplePatchBaseline = new Aws.Ssm.PatchBaseline("examplePatchBaseline", new()
-    ///     {
-    ///         ApprovedPatches = new[]
-    ///         {
-    ///             "KB123456",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleDefaultPatchBaseline = new Aws.Ssm.DefaultPatchBaseline("exampleDefaultPatchBaseline", new()
-    ///     {
-    ///         BaselineId = examplePatchBaseline.Id,
-    ///         OperatingSystem = examplePatchBaseline.OperatingSystem,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

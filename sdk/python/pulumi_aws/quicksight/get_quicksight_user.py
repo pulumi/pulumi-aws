@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -153,14 +153,6 @@ def get_quicksight_user(aws_account_id: Optional[str] = None,
     properties without having to hard code ARNs or unique IDs as input.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.quicksight.get_quicksight_user(user_name="example")
-    ```
 
 
     :param str aws_account_id: AWS account ID.
@@ -200,14 +192,6 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[st
     properties without having to hard code ARNs or unique IDs as input.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.quicksight.get_quicksight_user(user_name="example")
-    ```
 
 
     :param str aws_account_id: AWS account ID.

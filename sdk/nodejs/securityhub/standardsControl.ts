@@ -10,25 +10,6 @@ import * as utilities from "../utilities";
  * The `aws.securityhub.StandardsControl` behaves differently from normal resources, in that
  * Pulumi does not _create_ this resource, but instead "adopts" it
  * into management. When you _delete_ this resource configuration, Pulumi "abandons" resource as is and just removes it from the state.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const cisAwsFoundationsBenchmark = new aws.securityhub.StandardsSubscription("cisAwsFoundationsBenchmark", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"}, {
- *     dependsOn: [example],
- * });
- * const ensureIamPasswordPolicyPreventsPasswordReuse = new aws.securityhub.StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", {
- *     standardsControlArn: "arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
- *     controlStatus: "DISABLED",
- *     disabledReason: "We handle password policies within Okta",
- * }, {
- *     dependsOn: [cisAwsFoundationsBenchmark],
- * });
- * ```
  */
 export class StandardsControl extends pulumi.CustomResource {
     /**

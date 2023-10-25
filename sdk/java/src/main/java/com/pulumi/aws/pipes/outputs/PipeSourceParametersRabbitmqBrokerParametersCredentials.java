@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class PipeSourceParametersRabbitmqBrokerParametersCredentials {
     /**
-     * @return The ARN of the Secrets Manager secret containing the basic auth credentials.
+     * @return The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     private String basicAuth;
 
     private PipeSourceParametersRabbitmqBrokerParametersCredentials() {}
     /**
-     * @return The ARN of the Secrets Manager secret containing the basic auth credentials.
+     * @return The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     public String basicAuth() {

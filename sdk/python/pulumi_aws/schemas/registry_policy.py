@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RegistryPolicyArgs', 'RegistryPolicy']
@@ -21,8 +21,27 @@ class RegistryPolicyArgs:
         :param pulumi.Input[str] policy: Resource Policy for EventBridge Schema Registry
         :param pulumi.Input[str] registry_name: Name of EventBridge Schema Registry
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "registry_name", registry_name)
+        RegistryPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            registry_name=registry_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+
+        _setter("policy", policy)
+        _setter("registry_name", registry_name)
 
     @property
     @pulumi.getter
@@ -59,10 +78,25 @@ class _RegistryPolicyState:
         :param pulumi.Input[str] policy: Resource Policy for EventBridge Schema Registry
         :param pulumi.Input[str] registry_name: Name of EventBridge Schema Registry
         """
+        _RegistryPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            registry_name=registry_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if registry_name is not None:
-            pulumi.set(__self__, "registry_name", registry_name)
+            _setter("registry_name", registry_name)
 
     @property
     @pulumi.getter
@@ -101,29 +135,6 @@ class RegistryPolicy(pulumi.CustomResource):
         Resource for managing an AWS EventBridge Schemas Registry Policy.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="example",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["109876543210"],
-            )],
-            actions=["schemas:*"],
-            resources=[
-                "arn:aws:schemas:us-east-1:012345678901:registry/example",
-                "arn:aws:schemas:us-east-1:012345678901:schema/example*",
-            ],
-        )])
-        example_registry_policy = aws.schemas.RegistryPolicy("exampleRegistryPolicy",
-            registry_name="example",
-            policy=example_policy_document.json)
-        ```
 
         ## Import
 
@@ -148,29 +159,6 @@ class RegistryPolicy(pulumi.CustomResource):
         Resource for managing an AWS EventBridge Schemas Registry Policy.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="example",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["109876543210"],
-            )],
-            actions=["schemas:*"],
-            resources=[
-                "arn:aws:schemas:us-east-1:012345678901:registry/example",
-                "arn:aws:schemas:us-east-1:012345678901:schema/example*",
-            ],
-        )])
-        example_registry_policy = aws.schemas.RegistryPolicy("exampleRegistryPolicy",
-            registry_name="example",
-            policy=example_policy_document.json)
-        ```
 
         ## Import
 
@@ -190,6 +178,10 @@ class RegistryPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

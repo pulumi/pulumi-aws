@@ -12,29 +12,6 @@ namespace Pulumi.Aws.Amplify
     /// <summary>
     /// Provides an Amplify Backend Environment resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleApp = new Aws.Amplify.App("exampleApp");
-    /// 
-    ///     var exampleBackendEnvironment = new Aws.Amplify.BackendEnvironment("exampleBackendEnvironment", new()
-    ///     {
-    ///         AppId = exampleApp.Id,
-    ///         EnvironmentName = "example",
-    ///         DeploymentArtifacts = "app-example-deployment",
-    ///         StackName = "amplify-app-example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:

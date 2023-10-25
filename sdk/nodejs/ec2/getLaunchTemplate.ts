@@ -9,30 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Launch Template.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const default = aws.ec2.getLaunchTemplate({
- *     name: "my-launch-template",
- * });
- * ```
- * ### Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getLaunchTemplate({
- *     filters: [{
- *         name: "launch-template-name",
- *         values: ["some-template"],
- *     }],
- * });
- * ```
  */
 export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
     args = args || {};
@@ -117,30 +93,6 @@ export interface GetLaunchTemplateResult {
 }
 /**
  * Provides information about a Launch Template.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const default = aws.ec2.getLaunchTemplate({
- *     name: "my-launch-template",
- * });
- * ```
- * ### Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getLaunchTemplate({
- *     filters: [{
- *         name: "launch-template-name",
- *         values: ["some-template"],
- *     }],
- * });
- * ```
  */
 export function getLaunchTemplateOutput(args?: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateResult> {
     return pulumi.output(args).apply((a: any) => getLaunchTemplate(a, opts))

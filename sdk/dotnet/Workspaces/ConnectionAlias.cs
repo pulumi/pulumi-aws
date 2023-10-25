@@ -13,23 +13,6 @@ namespace Pulumi.Aws.Workspaces
     /// Resource for managing an AWS WorkSpaces Connection Alias.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Workspaces.ConnectionAlias("example", new()
-    ///     {
-    ///         ConnectionString = "testdomain.test",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

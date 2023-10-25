@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,10 +27,35 @@ class MultiplexProgramArgs:
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "multiplex_id", multiplex_id)
-        pulumi.set(__self__, "program_name", program_name)
+        MultiplexProgramArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            multiplex_id=multiplex_id,
+            program_name=program_name,
+            multiplex_program_settings=multiplex_program_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             multiplex_id: Optional[pulumi.Input[str]] = None,
+             program_name: Optional[pulumi.Input[str]] = None,
+             multiplex_program_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if multiplex_id is None and 'multiplexId' in kwargs:
+            multiplex_id = kwargs['multiplexId']
+        if multiplex_id is None:
+            raise TypeError("Missing 'multiplex_id' argument")
+        if program_name is None and 'programName' in kwargs:
+            program_name = kwargs['programName']
+        if program_name is None:
+            raise TypeError("Missing 'program_name' argument")
+        if multiplex_program_settings is None and 'multiplexProgramSettings' in kwargs:
+            multiplex_program_settings = kwargs['multiplexProgramSettings']
+
+        _setter("multiplex_id", multiplex_id)
+        _setter("program_name", program_name)
         if multiplex_program_settings is not None:
-            pulumi.set(__self__, "multiplex_program_settings", multiplex_program_settings)
+            _setter("multiplex_program_settings", multiplex_program_settings)
 
     @property
     @pulumi.getter(name="multiplexId")
@@ -85,12 +110,33 @@ class _MultiplexProgramState:
                The following arguments are optional:
         :param pulumi.Input[str] program_name: Unique program name.
         """
+        _MultiplexProgramState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            multiplex_id=multiplex_id,
+            multiplex_program_settings=multiplex_program_settings,
+            program_name=program_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             multiplex_id: Optional[pulumi.Input[str]] = None,
+             multiplex_program_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs']] = None,
+             program_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if multiplex_id is None and 'multiplexId' in kwargs:
+            multiplex_id = kwargs['multiplexId']
+        if multiplex_program_settings is None and 'multiplexProgramSettings' in kwargs:
+            multiplex_program_settings = kwargs['multiplexProgramSettings']
+        if program_name is None and 'programName' in kwargs:
+            program_name = kwargs['programName']
+
         if multiplex_id is not None:
-            pulumi.set(__self__, "multiplex_id", multiplex_id)
+            _setter("multiplex_id", multiplex_id)
         if multiplex_program_settings is not None:
-            pulumi.set(__self__, "multiplex_program_settings", multiplex_program_settings)
+            _setter("multiplex_program_settings", multiplex_program_settings)
         if program_name is not None:
-            pulumi.set(__self__, "program_name", program_name)
+            _setter("program_name", program_name)
 
     @property
     @pulumi.getter(name="multiplexId")
@@ -144,39 +190,6 @@ class MultiplexProgram(pulumi.CustomResource):
         Resource for managing an AWS MediaLive MultiplexProgram.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available")
-        example_multiplex = aws.medialive.Multiplex("exampleMultiplex",
-            availability_zones=[
-                available.names[0],
-                available.names[1],
-            ],
-            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArgs(
-                transport_stream_bitrate=1000000,
-                transport_stream_id=1,
-                transport_stream_reserved_bitrate=1,
-                maximum_video_buffer_delay_milliseconds=1000,
-            ),
-            start_multiplex=True,
-            tags={
-                "tag1": "value1",
-            })
-        example_multiplex_program = aws.medialive.MultiplexProgram("exampleMultiplexProgram",
-            program_name="example_program",
-            multiplex_id=example_multiplex.id,
-            multiplex_program_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsArgs(
-                program_number=1,
-                preferred_channel_pipeline="CURRENTLY_ACTIVE",
-                video_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs(
-                    constant_bitrate=100000,
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -204,39 +217,6 @@ class MultiplexProgram(pulumi.CustomResource):
         Resource for managing an AWS MediaLive MultiplexProgram.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available")
-        example_multiplex = aws.medialive.Multiplex("exampleMultiplex",
-            availability_zones=[
-                available.names[0],
-                available.names[1],
-            ],
-            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArgs(
-                transport_stream_bitrate=1000000,
-                transport_stream_id=1,
-                transport_stream_reserved_bitrate=1,
-                maximum_video_buffer_delay_milliseconds=1000,
-            ),
-            start_multiplex=True,
-            tags={
-                "tag1": "value1",
-            })
-        example_multiplex_program = aws.medialive.MultiplexProgram("exampleMultiplexProgram",
-            program_name="example_program",
-            multiplex_id=example_multiplex.id,
-            multiplex_program_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsArgs(
-                program_number=1,
-                preferred_channel_pipeline="CURRENTLY_ACTIVE",
-                video_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs(
-                    constant_bitrate=100000,
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -256,6 +236,10 @@ class MultiplexProgram(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MultiplexProgramArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -276,6 +260,7 @@ class MultiplexProgram(pulumi.CustomResource):
             if multiplex_id is None and not opts.urn:
                 raise TypeError("Missing required property 'multiplex_id'")
             __props__.__dict__["multiplex_id"] = multiplex_id
+            multiplex_program_settings = _utilities.configure(multiplex_program_settings, MultiplexProgramMultiplexProgramSettingsArgs, True)
             __props__.__dict__["multiplex_program_settings"] = multiplex_program_settings
             if program_name is None and not opts.urn:
                 raise TypeError("Missing required property 'program_name'")

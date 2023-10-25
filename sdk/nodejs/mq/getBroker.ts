@@ -9,23 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a MQ Broker.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const brokerId = config.get("brokerId") || "";
- * const brokerName = config.get("brokerName") || "";
- * const byId = aws.mq.getBroker({
- *     brokerId: brokerId,
- * });
- * const byName = aws.mq.getBroker({
- *     brokerName: brokerName,
- * });
- * ```
  */
 export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
     args = args || {};
@@ -85,23 +68,6 @@ export interface GetBrokerResult {
 }
 /**
  * Provides information about a MQ Broker.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const brokerId = config.get("brokerId") || "";
- * const brokerName = config.get("brokerName") || "";
- * const byId = aws.mq.getBroker({
- *     brokerId: brokerId,
- * });
- * const byName = aws.mq.getBroker({
- *     brokerName: brokerName,
- * });
- * ```
  */
 export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerResult> {
     return pulumi.output(args).apply((a: any) => getBroker(a, opts))

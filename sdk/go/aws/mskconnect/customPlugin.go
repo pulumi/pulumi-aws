@@ -16,50 +16,6 @@ import (
 // Provides an Amazon MSK Connect Custom Plugin Resource.
 //
 // ## Example Usage
-// ### Basic configuration
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mskconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				Key:    pulumi.String("debezium.zip"),
-//				Source: pulumi.NewFileAsset("debezium.zip"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = mskconnect.NewCustomPlugin(ctx, "exampleCustomPlugin", &mskconnect.CustomPluginArgs{
-//				ContentType: pulumi.String("ZIP"),
-//				Location: &mskconnect.CustomPluginLocationArgs{
-//					S3: &mskconnect.CustomPluginLocationS3Args{
-//						BucketArn: exampleBucketV2.Arn,
-//						FileKey:   exampleBucketObjectv2.Key,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

@@ -15,54 +15,6 @@ import (
 
 // Provides an AutoScaling Schedule resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foobarGroup, err := autoscaling.NewGroup(ctx, "foobarGroup", &autoscaling.GroupArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//				},
-//				MaxSize:                pulumi.Int(1),
-//				MinSize:                pulumi.Int(1),
-//				HealthCheckGracePeriod: pulumi.Int(300),
-//				HealthCheckType:        pulumi.String("ELB"),
-//				ForceDelete:            pulumi.Bool(true),
-//				TerminationPolicies: pulumi.StringArray{
-//					pulumi.String("OldestInstance"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = autoscaling.NewSchedule(ctx, "foobarSchedule", &autoscaling.ScheduleArgs{
-//				ScheduledActionName:  pulumi.String("foobar"),
-//				MinSize:              pulumi.Int(0),
-//				MaxSize:              pulumi.Int(1),
-//				DesiredCapacity:      pulumi.Int(0),
-//				StartTime:            pulumi.String("2016-12-11T18:00:00Z"),
-//				EndTime:              pulumi.String("2016-12-12T06:00:00Z"),
-//				AutoscalingGroupName: foobarGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:

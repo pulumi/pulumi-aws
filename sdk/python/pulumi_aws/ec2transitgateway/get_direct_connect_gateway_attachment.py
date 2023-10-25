@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -94,15 +94,6 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[str] = None,
     Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
 
     ## Example Usage
-    ### By Transit Gateway and Direct Connect Gateway Identifiers
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_direct_connect_gateway_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-        dx_gateway_id=aws_dx_gateway["example"]["id"])
-    ```
 
 
     :param str dx_gateway_id: Identifier of the Direct Connect Gateway.
@@ -136,15 +127,6 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
     Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
 
     ## Example Usage
-    ### By Transit Gateway and Direct Connect Gateway Identifiers
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_direct_connect_gateway_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-        dx_gateway_id=aws_dx_gateway["example"]["id"])
-    ```
 
 
     :param str dx_gateway_id: Identifier of the Direct Connect Gateway.

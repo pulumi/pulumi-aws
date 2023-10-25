@@ -16,61 +16,6 @@ import (
 // Resource for managing an AWS VPC Lattice Auth Policy.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := vpclattice.NewService(ctx, "exampleService", &vpclattice.ServiceArgs{
-//				AuthType:         pulumi.String("AWS_IAM"),
-//				CustomDomainName: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action":    "*",
-//						"Effect":    "Allow",
-//						"Principal": "*",
-//						"Resource":  "*",
-//						"Condition": map[string]interface{}{
-//							"StringNotEqualsIgnoreCase": map[string]interface{}{
-//								"aws:PrincipalType": "anonymous",
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = vpclattice.NewAuthPolicy(ctx, "exampleAuthPolicy", &vpclattice.AuthPolicyArgs{
-//				ResourceIdentifier: exampleService.Arn,
-//				Policy:             pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

@@ -9,23 +9,6 @@ import * as utilities from "../utilities";
  *
  * Once an association is created between two organizations via IPAM & a IPAM Resource Discovery, IPAM Pools can be shared via Resource Access Manager (RAM) to accounts in the subordinate organization; these RAM shares must be accepted by the end user account. Pools can then also discover and monitor IPAM resources in the subordinate organization.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ec2.VpcIpamResourceDiscoveryAssociation("test", {
- *     ipamId: aws_vpc_ipam.test.id,
- *     ipamResourceDiscoveryId: aws_vpc_ipam_resource_discovery.test.id,
- *     tags: {
- *         Name: "test",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For example:

@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the active SES email identity
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ses.getEmailIdentity({
- *     email: "awesome@example.com",
- * });
- * ```
  */
 export function getEmailIdentity(args: GetEmailIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailIdentityResult> {
 
@@ -55,17 +44,6 @@ export interface GetEmailIdentityResult {
 }
 /**
  * Retrieve the active SES email identity
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ses.getEmailIdentity({
- *     email: "awesome@example.com",
- * });
- * ```
  */
 export function getEmailIdentityOutput(args: GetEmailIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailIdentityResult> {
     return pulumi.output(args).apply((a: any) => getEmailIdentity(a, opts))

@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
  * Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
  *
  * ## Example Usage
- * ### Account Analyzer
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.accessanalyzer.Analyzer("example", {analyzerName: "example"});
- * ```
- * ### Organization Analyzer
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {awsServiceAccessPrincipals: ["access-analyzer.amazonaws.com"]});
- * const exampleAnalyzer = new aws.accessanalyzer.Analyzer("exampleAnalyzer", {
- *     analyzerName: "example",
- *     type: "ORGANIZATION",
- * }, {
- *     dependsOn: [exampleOrganization],
- * });
- * ```
  *
  * ## Import
  *

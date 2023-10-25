@@ -12,29 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new host with instance type of c5.18xlarge with Auto Placement
-    ///     // and Host Recovery enabled.
-    ///     var test = new Aws.Ec2.DedicatedHost("test", new()
-    ///     {
-    ///         AutoPlacement = "on",
-    ///         AvailabilityZone = "us-west-2a",
-    ///         HostRecovery = "on",
-    ///         InstanceType = "c5.18xlarge",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import hosts using the host `id`. For example:

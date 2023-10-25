@@ -13,56 +13,12 @@ namespace Pulumi.Aws.WafRegional
     {
         /// <summary>
         /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafRegional.GetIpset.Invoke(new()
-        ///     {
-        ///         Name = "tfWAFRegionalIPSet",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpsetResult> InvokeAsync(GetIpsetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpsetResult>("aws:wafregional/getIpset:getIpset", args ?? new GetIpsetArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.WafRegional.GetIpset.Invoke(new()
-        ///     {
-        ///         Name = "tfWAFRegionalIPSet",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetIpsetResult> Invoke(GetIpsetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpsetResult>("aws:wafregional/getIpset:getIpset", args ?? new GetIpsetInvokeArgs(), options.WithDefaults());

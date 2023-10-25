@@ -14,32 +14,6 @@ import * as utilities from "../utilities";
  * Cluster, or you may specify different Cluster Instance resources with various
  * `instanceClass` sizes.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.docdb.Cluster("default", {
- *     clusterIdentifier: "docdb-cluster-demo",
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *         "us-west-2c",
- *     ],
- *     masterUsername: "foo",
- *     masterPassword: "barbut8chars",
- * });
- * const clusterInstances: aws.docdb.ClusterInstance[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     clusterInstances.push(new aws.docdb.ClusterInstance(`clusterInstances-${range.value}`, {
- *         identifier: `docdb-cluster-demo-${range.value}`,
- *         clusterIdentifier: _default.id,
- *         instanceClass: "db.r5.large",
- *     }));
- * }
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For example:

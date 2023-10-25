@@ -13,24 +13,6 @@ namespace Pulumi.Aws.Kms
     /// Manages a single-Region or multi-Region primary KMS key that uses external key material.
     /// To instead manage a single-Region or multi-Region primary KMS key where AWS automatically generates and potentially rotates key material, see the `aws.kms.Key` resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.ExternalKey("example", new()
-    ///     {
-    ///         Description = "KMS EXTERNAL for AMI encryption",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS External Keys using the `id`. For example:

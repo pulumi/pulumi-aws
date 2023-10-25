@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Location
     /// <summary>
     /// Resource for managing an AWS Location Geofence Collection.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Location.GeofenceCollection("example", new()
-    ///     {
-    ///         CollectionName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For example:

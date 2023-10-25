@@ -12,15 +12,6 @@ import * as utilities from "../utilities";
  *
  * More information about snapshot and restore can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/snapshots.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.memorydb.Snapshot("example", {clusterName: aws_memorydb_cluster.example.name});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import a snapshot using the `name`. For example:

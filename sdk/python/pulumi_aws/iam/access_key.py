@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccessKeyArgs', 'AccessKey']
@@ -23,11 +23,30 @@ class AccessKeyArgs:
         :param pulumi.Input[str] pgp_key: Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         :param pulumi.Input[str] status: Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
         """
-        pulumi.set(__self__, "user", user)
+        AccessKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user=user,
+            pgp_key=pgp_key,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user: Optional[pulumi.Input[str]] = None,
+             pgp_key: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if pgp_key is None and 'pgpKey' in kwargs:
+            pgp_key = kwargs['pgpKey']
+
+        _setter("user", user)
         if pgp_key is not None:
-            pulumi.set(__self__, "pgp_key", pgp_key)
+            _setter("pgp_key", pgp_key)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -90,24 +109,63 @@ class _AccessKeyState:
         :param pulumi.Input[str] status: Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
         :param pulumi.Input[str] user: IAM user to associate with this access key.
         """
+        _AccessKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_date=create_date,
+            encrypted_secret=encrypted_secret,
+            encrypted_ses_smtp_password_v4=encrypted_ses_smtp_password_v4,
+            key_fingerprint=key_fingerprint,
+            pgp_key=pgp_key,
+            secret=secret,
+            ses_smtp_password_v4=ses_smtp_password_v4,
+            status=status,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_date: Optional[pulumi.Input[str]] = None,
+             encrypted_secret: Optional[pulumi.Input[str]] = None,
+             encrypted_ses_smtp_password_v4: Optional[pulumi.Input[str]] = None,
+             key_fingerprint: Optional[pulumi.Input[str]] = None,
+             pgp_key: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             ses_smtp_password_v4: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if create_date is None and 'createDate' in kwargs:
+            create_date = kwargs['createDate']
+        if encrypted_secret is None and 'encryptedSecret' in kwargs:
+            encrypted_secret = kwargs['encryptedSecret']
+        if encrypted_ses_smtp_password_v4 is None and 'encryptedSesSmtpPasswordV4' in kwargs:
+            encrypted_ses_smtp_password_v4 = kwargs['encryptedSesSmtpPasswordV4']
+        if key_fingerprint is None and 'keyFingerprint' in kwargs:
+            key_fingerprint = kwargs['keyFingerprint']
+        if pgp_key is None and 'pgpKey' in kwargs:
+            pgp_key = kwargs['pgpKey']
+        if ses_smtp_password_v4 is None and 'sesSmtpPasswordV4' in kwargs:
+            ses_smtp_password_v4 = kwargs['sesSmtpPasswordV4']
+
         if create_date is not None:
-            pulumi.set(__self__, "create_date", create_date)
+            _setter("create_date", create_date)
         if encrypted_secret is not None:
-            pulumi.set(__self__, "encrypted_secret", encrypted_secret)
+            _setter("encrypted_secret", encrypted_secret)
         if encrypted_ses_smtp_password_v4 is not None:
-            pulumi.set(__self__, "encrypted_ses_smtp_password_v4", encrypted_ses_smtp_password_v4)
+            _setter("encrypted_ses_smtp_password_v4", encrypted_ses_smtp_password_v4)
         if key_fingerprint is not None:
-            pulumi.set(__self__, "key_fingerprint", key_fingerprint)
+            _setter("key_fingerprint", key_fingerprint)
         if pgp_key is not None:
-            pulumi.set(__self__, "pgp_key", pgp_key)
+            _setter("pgp_key", pgp_key)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
         if ses_smtp_password_v4 is not None:
-            pulumi.set(__self__, "ses_smtp_password_v4", ses_smtp_password_v4)
+            _setter("ses_smtp_password_v4", ses_smtp_password_v4)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter(name="createDate")
@@ -230,36 +288,6 @@ class AccessKey(pulumi.CustomResource):
         """
         Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb_user = aws.iam.User("lbUser", path="/system/")
-        lb_access_key = aws.iam.AccessKey("lbAccessKey",
-            user=lb_user.name,
-            pgp_key="keybase:some_person_that_exists")
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
-        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
-            user=lb_user.name,
-            policy=lb_ro_policy_document.json)
-        pulumi.export("secret", lb_access_key.encrypted_secret)
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_user = aws.iam.User("testUser", path="/test/")
-        test_access_key = aws.iam.AccessKey("testAccessKey", user=test_user.name)
-        pulumi.export("awsIamSmtpPasswordV4", test_access_key.ses_smtp_password_v4)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM Access Keys using the identifier. For example:
@@ -284,36 +312,6 @@ class AccessKey(pulumi.CustomResource):
         """
         Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lb_user = aws.iam.User("lbUser", path="/system/")
-        lb_access_key = aws.iam.AccessKey("lbAccessKey",
-            user=lb_user.name,
-            pgp_key="keybase:some_person_that_exists")
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
-        lb_ro_user_policy = aws.iam.UserPolicy("lbRoUserPolicy",
-            user=lb_user.name,
-            policy=lb_ro_policy_document.json)
-        pulumi.export("secret", lb_access_key.encrypted_secret)
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_user = aws.iam.User("testUser", path="/test/")
-        test_access_key = aws.iam.AccessKey("testAccessKey", user=test_user.name)
-        pulumi.export("awsIamSmtpPasswordV4", test_access_key.ses_smtp_password_v4)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM Access Keys using the identifier. For example:
@@ -333,6 +331,10 @@ class AccessKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -11,43 +11,6 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Code Repository resource.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.CodeRepository("example", {
- *     codeRepositoryName: "example",
- *     gitConfig: {
- *         repositoryUrl: "https://github.com/github/docs.git",
- *     },
- * });
- * ```
- * ### Example with Secret
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleSecret = new aws.secretsmanager.Secret("exampleSecret", {});
- * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("exampleSecretVersion", {
- *     secretId: exampleSecret.id,
- *     secretString: JSON.stringify({
- *         username: "example",
- *         password: "example",
- *     }),
- * });
- * const exampleCodeRepository = new aws.sagemaker.CodeRepository("exampleCodeRepository", {
- *     codeRepositoryName: "example",
- *     gitConfig: {
- *         repositoryUrl: "https://github.com/github/docs.git",
- *         secretArn: exampleSecret.arn,
- *     },
- * }, {
- *     dependsOn: [exampleSecretVersion],
- * });
- * ```
  *
  * ## Import
  *

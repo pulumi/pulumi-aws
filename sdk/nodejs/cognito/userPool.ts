@@ -11,53 +11,6 @@ import * as utilities from "../utilities";
  * Provides a Cognito User Pool resource.
  *
  * ## Example Usage
- * ### Basic configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const pool = new aws.cognito.UserPool("pool", {});
- * ```
- * ### Enabling SMS and Software Token Multi-Factor Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ... other configuration ...
- * const example = new aws.cognito.UserPool("example", {
- *     mfaConfiguration: "ON",
- *     smsAuthenticationMessage: "Your code is {####}",
- *     smsConfiguration: {
- *         externalId: "example",
- *         snsCallerArn: aws_iam_role.example.arn,
- *         snsRegion: "us-east-1",
- *     },
- *     softwareTokenMfaConfiguration: {
- *         enabled: true,
- *     },
- * });
- * ```
- * ### Using Account Recovery Setting
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.cognito.UserPool("test", {accountRecoverySetting: {
- *     recoveryMechanisms: [
- *         {
- *             name: "verified_email",
- *             priority: 1,
- *         },
- *         {
- *             name: "verified_phone_number",
- *             priority: 2,
- *         },
- *     ],
- * }});
- * ```
  *
  * ## Import
  *

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SubnetArgs', 'Subnet']
@@ -56,39 +56,116 @@ class SubnetArgs:
         :param pulumi.Input[str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        SubnetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_id=vpc_id,
+            assign_ipv6_address_on_creation=assign_ipv6_address_on_creation,
+            availability_zone=availability_zone,
+            availability_zone_id=availability_zone_id,
+            cidr_block=cidr_block,
+            customer_owned_ipv4_pool=customer_owned_ipv4_pool,
+            enable_dns64=enable_dns64,
+            enable_lni_at_device_index=enable_lni_at_device_index,
+            enable_resource_name_dns_a_record_on_launch=enable_resource_name_dns_a_record_on_launch,
+            enable_resource_name_dns_aaaa_record_on_launch=enable_resource_name_dns_aaaa_record_on_launch,
+            ipv6_cidr_block=ipv6_cidr_block,
+            ipv6_native=ipv6_native,
+            map_customer_owned_ip_on_launch=map_customer_owned_ip_on_launch,
+            map_public_ip_on_launch=map_public_ip_on_launch,
+            outpost_arn=outpost_arn,
+            private_dns_hostname_type_on_launch=private_dns_hostname_type_on_launch,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             availability_zone_id: Optional[pulumi.Input[str]] = None,
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+             enable_dns64: Optional[pulumi.Input[bool]] = None,
+             enable_lni_at_device_index: Optional[pulumi.Input[int]] = None,
+             enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
+             enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
+             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+             ipv6_native: Optional[pulumi.Input[bool]] = None,
+             map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
+             map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
+             outpost_arn: Optional[pulumi.Input[str]] = None,
+             private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if assign_ipv6_address_on_creation is None and 'assignIpv6AddressOnCreation' in kwargs:
+            assign_ipv6_address_on_creation = kwargs['assignIpv6AddressOnCreation']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone_id is None and 'availabilityZoneId' in kwargs:
+            availability_zone_id = kwargs['availabilityZoneId']
+        if cidr_block is None and 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if customer_owned_ipv4_pool is None and 'customerOwnedIpv4Pool' in kwargs:
+            customer_owned_ipv4_pool = kwargs['customerOwnedIpv4Pool']
+        if enable_dns64 is None and 'enableDns64' in kwargs:
+            enable_dns64 = kwargs['enableDns64']
+        if enable_lni_at_device_index is None and 'enableLniAtDeviceIndex' in kwargs:
+            enable_lni_at_device_index = kwargs['enableLniAtDeviceIndex']
+        if enable_resource_name_dns_a_record_on_launch is None and 'enableResourceNameDnsARecordOnLaunch' in kwargs:
+            enable_resource_name_dns_a_record_on_launch = kwargs['enableResourceNameDnsARecordOnLaunch']
+        if enable_resource_name_dns_aaaa_record_on_launch is None and 'enableResourceNameDnsAaaaRecordOnLaunch' in kwargs:
+            enable_resource_name_dns_aaaa_record_on_launch = kwargs['enableResourceNameDnsAaaaRecordOnLaunch']
+        if ipv6_cidr_block is None and 'ipv6CidrBlock' in kwargs:
+            ipv6_cidr_block = kwargs['ipv6CidrBlock']
+        if ipv6_native is None and 'ipv6Native' in kwargs:
+            ipv6_native = kwargs['ipv6Native']
+        if map_customer_owned_ip_on_launch is None and 'mapCustomerOwnedIpOnLaunch' in kwargs:
+            map_customer_owned_ip_on_launch = kwargs['mapCustomerOwnedIpOnLaunch']
+        if map_public_ip_on_launch is None and 'mapPublicIpOnLaunch' in kwargs:
+            map_public_ip_on_launch = kwargs['mapPublicIpOnLaunch']
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if private_dns_hostname_type_on_launch is None and 'privateDnsHostnameTypeOnLaunch' in kwargs:
+            private_dns_hostname_type_on_launch = kwargs['privateDnsHostnameTypeOnLaunch']
+
+        _setter("vpc_id", vpc_id)
         if assign_ipv6_address_on_creation is not None:
-            pulumi.set(__self__, "assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)
+            _setter("assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if availability_zone_id is not None:
-            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+            _setter("availability_zone_id", availability_zone_id)
         if cidr_block is not None:
-            pulumi.set(__self__, "cidr_block", cidr_block)
+            _setter("cidr_block", cidr_block)
         if customer_owned_ipv4_pool is not None:
-            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+            _setter("customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if enable_dns64 is not None:
-            pulumi.set(__self__, "enable_dns64", enable_dns64)
+            _setter("enable_dns64", enable_dns64)
         if enable_lni_at_device_index is not None:
-            pulumi.set(__self__, "enable_lni_at_device_index", enable_lni_at_device_index)
+            _setter("enable_lni_at_device_index", enable_lni_at_device_index)
         if enable_resource_name_dns_a_record_on_launch is not None:
-            pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
+            _setter("enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
         if enable_resource_name_dns_aaaa_record_on_launch is not None:
-            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record_on_launch", enable_resource_name_dns_aaaa_record_on_launch)
+            _setter("enable_resource_name_dns_aaaa_record_on_launch", enable_resource_name_dns_aaaa_record_on_launch)
         if ipv6_cidr_block is not None:
-            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+            _setter("ipv6_cidr_block", ipv6_cidr_block)
         if ipv6_native is not None:
-            pulumi.set(__self__, "ipv6_native", ipv6_native)
+            _setter("ipv6_native", ipv6_native)
         if map_customer_owned_ip_on_launch is not None:
-            pulumi.set(__self__, "map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
+            _setter("map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
         if map_public_ip_on_launch is not None:
-            pulumi.set(__self__, "map_public_ip_on_launch", map_public_ip_on_launch)
+            _setter("map_public_ip_on_launch", map_public_ip_on_launch)
         if outpost_arn is not None:
-            pulumi.set(__self__, "outpost_arn", outpost_arn)
+            _setter("outpost_arn", outpost_arn)
         if private_dns_hostname_type_on_launch is not None:
-            pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
+            _setter("private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -353,51 +430,140 @@ class _SubnetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC ID.
         """
+        _SubnetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            assign_ipv6_address_on_creation=assign_ipv6_address_on_creation,
+            availability_zone=availability_zone,
+            availability_zone_id=availability_zone_id,
+            cidr_block=cidr_block,
+            customer_owned_ipv4_pool=customer_owned_ipv4_pool,
+            enable_dns64=enable_dns64,
+            enable_lni_at_device_index=enable_lni_at_device_index,
+            enable_resource_name_dns_a_record_on_launch=enable_resource_name_dns_a_record_on_launch,
+            enable_resource_name_dns_aaaa_record_on_launch=enable_resource_name_dns_aaaa_record_on_launch,
+            ipv6_cidr_block=ipv6_cidr_block,
+            ipv6_cidr_block_association_id=ipv6_cidr_block_association_id,
+            ipv6_native=ipv6_native,
+            map_customer_owned_ip_on_launch=map_customer_owned_ip_on_launch,
+            map_public_ip_on_launch=map_public_ip_on_launch,
+            outpost_arn=outpost_arn,
+            owner_id=owner_id,
+            private_dns_hostname_type_on_launch=private_dns_hostname_type_on_launch,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             availability_zone_id: Optional[pulumi.Input[str]] = None,
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+             enable_dns64: Optional[pulumi.Input[bool]] = None,
+             enable_lni_at_device_index: Optional[pulumi.Input[int]] = None,
+             enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[bool]] = None,
+             enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[bool]] = None,
+             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+             ipv6_cidr_block_association_id: Optional[pulumi.Input[str]] = None,
+             ipv6_native: Optional[pulumi.Input[bool]] = None,
+             map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
+             map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
+             outpost_arn: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assign_ipv6_address_on_creation is None and 'assignIpv6AddressOnCreation' in kwargs:
+            assign_ipv6_address_on_creation = kwargs['assignIpv6AddressOnCreation']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone_id is None and 'availabilityZoneId' in kwargs:
+            availability_zone_id = kwargs['availabilityZoneId']
+        if cidr_block is None and 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if customer_owned_ipv4_pool is None and 'customerOwnedIpv4Pool' in kwargs:
+            customer_owned_ipv4_pool = kwargs['customerOwnedIpv4Pool']
+        if enable_dns64 is None and 'enableDns64' in kwargs:
+            enable_dns64 = kwargs['enableDns64']
+        if enable_lni_at_device_index is None and 'enableLniAtDeviceIndex' in kwargs:
+            enable_lni_at_device_index = kwargs['enableLniAtDeviceIndex']
+        if enable_resource_name_dns_a_record_on_launch is None and 'enableResourceNameDnsARecordOnLaunch' in kwargs:
+            enable_resource_name_dns_a_record_on_launch = kwargs['enableResourceNameDnsARecordOnLaunch']
+        if enable_resource_name_dns_aaaa_record_on_launch is None and 'enableResourceNameDnsAaaaRecordOnLaunch' in kwargs:
+            enable_resource_name_dns_aaaa_record_on_launch = kwargs['enableResourceNameDnsAaaaRecordOnLaunch']
+        if ipv6_cidr_block is None and 'ipv6CidrBlock' in kwargs:
+            ipv6_cidr_block = kwargs['ipv6CidrBlock']
+        if ipv6_cidr_block_association_id is None and 'ipv6CidrBlockAssociationId' in kwargs:
+            ipv6_cidr_block_association_id = kwargs['ipv6CidrBlockAssociationId']
+        if ipv6_native is None and 'ipv6Native' in kwargs:
+            ipv6_native = kwargs['ipv6Native']
+        if map_customer_owned_ip_on_launch is None and 'mapCustomerOwnedIpOnLaunch' in kwargs:
+            map_customer_owned_ip_on_launch = kwargs['mapCustomerOwnedIpOnLaunch']
+        if map_public_ip_on_launch is None and 'mapPublicIpOnLaunch' in kwargs:
+            map_public_ip_on_launch = kwargs['mapPublicIpOnLaunch']
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if private_dns_hostname_type_on_launch is None and 'privateDnsHostnameTypeOnLaunch' in kwargs:
+            private_dns_hostname_type_on_launch = kwargs['privateDnsHostnameTypeOnLaunch']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if assign_ipv6_address_on_creation is not None:
-            pulumi.set(__self__, "assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)
+            _setter("assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if availability_zone_id is not None:
-            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+            _setter("availability_zone_id", availability_zone_id)
         if cidr_block is not None:
-            pulumi.set(__self__, "cidr_block", cidr_block)
+            _setter("cidr_block", cidr_block)
         if customer_owned_ipv4_pool is not None:
-            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+            _setter("customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if enable_dns64 is not None:
-            pulumi.set(__self__, "enable_dns64", enable_dns64)
+            _setter("enable_dns64", enable_dns64)
         if enable_lni_at_device_index is not None:
-            pulumi.set(__self__, "enable_lni_at_device_index", enable_lni_at_device_index)
+            _setter("enable_lni_at_device_index", enable_lni_at_device_index)
         if enable_resource_name_dns_a_record_on_launch is not None:
-            pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
+            _setter("enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
         if enable_resource_name_dns_aaaa_record_on_launch is not None:
-            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record_on_launch", enable_resource_name_dns_aaaa_record_on_launch)
+            _setter("enable_resource_name_dns_aaaa_record_on_launch", enable_resource_name_dns_aaaa_record_on_launch)
         if ipv6_cidr_block is not None:
-            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+            _setter("ipv6_cidr_block", ipv6_cidr_block)
         if ipv6_cidr_block_association_id is not None:
-            pulumi.set(__self__, "ipv6_cidr_block_association_id", ipv6_cidr_block_association_id)
+            _setter("ipv6_cidr_block_association_id", ipv6_cidr_block_association_id)
         if ipv6_native is not None:
-            pulumi.set(__self__, "ipv6_native", ipv6_native)
+            _setter("ipv6_native", ipv6_native)
         if map_customer_owned_ip_on_launch is not None:
-            pulumi.set(__self__, "map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
+            _setter("map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
         if map_public_ip_on_launch is not None:
-            pulumi.set(__self__, "map_public_ip_on_launch", map_public_ip_on_launch)
+            _setter("map_public_ip_on_launch", map_public_ip_on_launch)
         if outpost_arn is not None:
-            pulumi.set(__self__, "outpost_arn", outpost_arn)
+            _setter("outpost_arn", outpost_arn)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if private_dns_hostname_type_on_launch is not None:
-            pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
+            _setter("private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -689,35 +855,6 @@ class Subnet(pulumi.CustomResource):
         > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Subnet("main",
-            vpc_id=aws_vpc["main"]["id"],
-            cidr_block="10.0.1.0/24",
-            tags={
-                "Name": "Main",
-            })
-        ```
-        ### Subnets In Secondary VPC CIDR Blocks
-
-        When managing subnets in one of a VPC's secondary CIDR blocks created using a `ec2.VpcIpv4CidrBlockAssociation`
-        resource, it is recommended to reference that resource's `vpc_id` attribute to ensure correct dependency ordering.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
-            vpc_id=aws_vpc["main"]["id"],
-            cidr_block="172.20.0.0/16")
-        in_secondary_cidr = aws.ec2.Subnet("inSecondaryCidr",
-            vpc_id=secondary_cidr.vpc_id,
-            cidr_block="172.20.0.0/24")
-        ```
 
         ## Import
 
@@ -764,35 +901,6 @@ class Subnet(pulumi.CustomResource):
         > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Subnet("main",
-            vpc_id=aws_vpc["main"]["id"],
-            cidr_block="10.0.1.0/24",
-            tags={
-                "Name": "Main",
-            })
-        ```
-        ### Subnets In Secondary VPC CIDR Blocks
-
-        When managing subnets in one of a VPC's secondary CIDR blocks created using a `ec2.VpcIpv4CidrBlockAssociation`
-        resource, it is recommended to reference that resource's `vpc_id` attribute to ensure correct dependency ordering.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
-            vpc_id=aws_vpc["main"]["id"],
-            cidr_block="172.20.0.0/16")
-        in_secondary_cidr = aws.ec2.Subnet("inSecondaryCidr",
-            vpc_id=secondary_cidr.vpc_id,
-            cidr_block="172.20.0.0/24")
-        ```
 
         ## Import
 
@@ -812,6 +920,10 @@ class Subnet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubnetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

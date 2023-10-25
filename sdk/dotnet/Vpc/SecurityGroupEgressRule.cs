@@ -19,28 +19,6 @@ namespace Pulumi.Aws.Vpc
     /// The `aws.vpc.SecurityGroupEgressRule` resource has been added to address these limitations and should be used for all new security group rules.
     /// You should not use the `aws.vpc.SecurityGroupEgressRule` resource in conjunction with an `aws.ec2.SecurityGroup` resource with in-line rules or with `aws.ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Vpc.SecurityGroupEgressRule("example", new()
-    ///     {
-    ///         SecurityGroupId = aws_security_group.Example.Id,
-    ///         CidrIpv4 = "10.0.0.0/8",
-    ///         FromPort = 80,
-    ///         IpProtocol = "tcp",
-    ///         ToPort = 80,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:

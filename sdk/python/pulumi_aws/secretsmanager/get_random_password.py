@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -141,16 +141,6 @@ def get_random_password(exclude_characters: Optional[str] = None,
     """
     Generate a random password.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.secretsmanager.get_random_password(exclude_numbers=True,
-        password_length=50)
-    ```
-
 
     :param str exclude_characters: String of the characters that you don't want in the password.
     :param bool exclude_lowercase: Specifies whether to exclude lowercase letters from the password.
@@ -201,16 +191,6 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRandomPasswordResult]:
     """
     Generate a random password.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.secretsmanager.get_random_password(exclude_numbers=True,
-        password_length=50)
-    ```
 
 
     :param str exclude_characters: String of the characters that you don't want in the password.

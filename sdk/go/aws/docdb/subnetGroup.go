@@ -15,38 +15,6 @@ import (
 
 // Provides an DocumentDB subnet group resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := docdb.NewSubnetGroup(ctx, "default", &docdb.SubnetGroupArgs{
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Frontend.Id,
-//					aws_subnet.Backend.Id,
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("My docdb subnet group"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For example:

@@ -13,48 +13,6 @@ namespace Pulumi.Aws.Connect
     /// Provides an Amazon Connect Routing Profile resource. For more information see
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.RoutingProfile("example", new()
-    ///     {
-    ///         DefaultOutboundQueueId = "12345678-1234-1234-1234-123456789012",
-    ///         Description = "example description",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         MediaConcurrencies = new[]
-    ///         {
-    ///             new Aws.Connect.Inputs.RoutingProfileMediaConcurrencyArgs
-    ///             {
-    ///                 Channel = "VOICE",
-    ///                 Concurrency = 1,
-    ///             },
-    ///         },
-    ///         QueueConfigs = new[]
-    ///         {
-    ///             new Aws.Connect.Inputs.RoutingProfileQueueConfigArgs
-    ///             {
-    ///                 Channel = "VOICE",
-    ///                 Delay = 2,
-    ///                 Priority = 1,
-    ///                 QueueId = "12345678-1234-1234-1234-123456789012",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Routing Profile" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:

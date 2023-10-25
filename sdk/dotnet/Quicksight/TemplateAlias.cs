@@ -13,25 +13,6 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing an AWS QuickSight Template Alias.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.TemplateAlias("example", new()
-    ///     {
-    ///         AliasName = "example-alias",
-    ///         TemplateId = aws_quicksight_template.Test.Template_id,
-    ///         TemplateVersionNumber = aws_quicksight_template.Test.Version_number,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

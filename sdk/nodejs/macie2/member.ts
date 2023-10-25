@@ -7,24 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [Amazon Macie Member](https://docs.aws.amazon.com/macie/latest/APIReference/members-id.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
- * const exampleMember = new aws.macie2.Member("exampleMember", {
- *     accountId: "AWS ACCOUNT ID",
- *     email: "EMAIL",
- *     invite: true,
- *     invitationMessage: "Message of the invitation",
- *     invitationDisableEmailNotification: true,
- * }, {
- *     dependsOn: [exampleAccount],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:

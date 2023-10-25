@@ -12,40 +12,6 @@ namespace Pulumi.Aws.Emr
     /// <summary>
     /// Provides a resource to manage AWS EMR Security Configurations
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Emr.SecurityConfiguration("foo", new()
-    ///     {
-    ///         Configuration = @"{
-    ///   ""EncryptionConfiguration"": {
-    ///     ""AtRestEncryptionConfiguration"": {
-    ///       ""S3EncryptionConfiguration"": {
-    ///         ""EncryptionMode"": ""SSE-S3""
-    ///       },
-    ///       ""LocalDiskEncryptionConfiguration"": {
-    ///         ""EncryptionKeyProviderType"": ""AwsKms"",
-    ///         ""AwsKmsKey"": ""arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key""
-    ///       }
-    ///     },
-    ///     ""EnableInTransitEncryption"": false,
-    ///     ""EnableAtRestEncryption"": true
-    ///   }
-    /// }
-    /// 
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EMR Security Configurations using the `name`. For example:

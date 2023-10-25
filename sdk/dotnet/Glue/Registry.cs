@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Provides a Glue Registry resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.Registry("example", new()
-    ///     {
-    ///         RegistryName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Registries using `arn`. For example:

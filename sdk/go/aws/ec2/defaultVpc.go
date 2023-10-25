@@ -24,36 +24,6 @@ import (
 // By default, `pulumi destroy` does not delete the default VPC but does remove the resource from the state.
 // Set the `forceDestroy` argument to `true` to delete the default VPC.
 //
-// ## Example Usage
-//
-// Basic usage with tags:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewDefaultVpc(ctx, "default", &ec2.DefaultVpcArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Default VPC"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Default VPCs using the VPC `id`. For example:

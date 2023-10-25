@@ -13,92 +13,12 @@ namespace Pulumi.Aws.Amp
     {
         /// <summary>
         /// Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example returns all of the workspaces in a region:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetWorkspaces.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// The following example filters the workspaces by alias. Only the workspaces with
-        /// aliases that begin with the value of `alias_prefix` will be returned:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetWorkspaces.Invoke(new()
-        ///     {
-        ///         AliasPrefix = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetWorkspacesResult> InvokeAsync(GetWorkspacesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspacesResult>("aws:amp/getWorkspaces:getWorkspaces", args ?? new GetWorkspacesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// The following example returns all of the workspaces in a region:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetWorkspaces.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// The following example filters the workspaces by alias. Only the workspaces with
-        /// aliases that begin with the value of `alias_prefix` will be returned:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Amp.GetWorkspaces.Invoke(new()
-        ///     {
-        ///         AliasPrefix = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetWorkspacesResult> Invoke(GetWorkspacesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspacesResult>("aws:amp/getWorkspaces:getWorkspaces", args ?? new GetWorkspacesInvokeArgs(), options.WithDefaults());

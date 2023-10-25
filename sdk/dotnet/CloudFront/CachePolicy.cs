@@ -10,65 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront
 {
     /// <summary>
-    /// ## Example Usage
-    /// 
-    /// Use the `aws.cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.CachePolicy("example", new()
-    ///     {
-    ///         Comment = "test comment",
-    ///         DefaultTtl = 50,
-    ///         MaxTtl = 100,
-    ///         MinTtl = 1,
-    ///         ParametersInCacheKeyAndForwardedToOrigin = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs
-    ///         {
-    ///             CookiesConfig = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs
-    ///             {
-    ///                 CookieBehavior = "whitelist",
-    ///                 Cookies = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs
-    ///                 {
-    ///                     Items = new[]
-    ///                     {
-    ///                         "example",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             HeadersConfig = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs
-    ///             {
-    ///                 HeaderBehavior = "whitelist",
-    ///                 Headers = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs
-    ///                 {
-    ///                     Items = new[]
-    ///                     {
-    ///                         "example",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             QueryStringsConfig = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs
-    ///             {
-    ///                 QueryStringBehavior = "whitelist",
-    ///                 QueryStrings = new Aws.CloudFront.Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs
-    ///                 {
-    ///                     Items = new[]
-    ///                     {
-    ///                         "example",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:

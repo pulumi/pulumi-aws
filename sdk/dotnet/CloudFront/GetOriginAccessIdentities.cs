@@ -16,47 +16,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### All origin access identities in the account
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Origin access identities filtered by comment/name
-        /// 
-        /// Origin access identities whose comments are `example-comment1`, `example-comment2`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke(new()
-        ///     {
-        ///         Comments = new[]
-        ///         {
-        ///             "example-comment1",
-        ///             "example-comment2",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetOriginAccessIdentitiesResult> InvokeAsync(GetOriginAccessIdentitiesArgs? args = null, InvokeOptions? options = null)
@@ -67,47 +26,6 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### All origin access identities in the account
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke();
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Origin access identities filtered by comment/name
-        /// 
-        /// Origin access identities whose comments are `example-comment1`, `example-comment2`
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke(new()
-        ///     {
-        ///         Comments = new[]
-        ///         {
-        ///             "example-comment1",
-        ///             "example-comment2",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetOriginAccessIdentitiesResult> Invoke(GetOriginAccessIdentitiesInvokeArgs? args = null, InvokeOptions? options = null)

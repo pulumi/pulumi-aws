@@ -12,39 +12,6 @@ import * as utilities from "../utilities";
  *
  * The provider waits for the domain to become `Active` when applying a configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudsearch.Domain("example", {
- *     indexFields: [
- *         {
- *             analysisScheme: "_en_default_",
- *             highlight: false,
- *             name: "headline",
- *             "return": true,
- *             search: true,
- *             sort: true,
- *             type: "text",
- *         },
- *         {
- *             facet: true,
- *             name: "price",
- *             "return": true,
- *             search: true,
- *             sort: true,
- *             sourceFields: "headline",
- *             type: "double",
- *         },
- *     ],
- *     scalingParameters: {
- *         desiredInstanceType: "search.medium",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CloudSearch Domains using the `name`. For example:

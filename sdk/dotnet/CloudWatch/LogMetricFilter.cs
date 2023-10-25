@@ -12,33 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a CloudWatch Log Metric Filter resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var dada = new Aws.CloudWatch.LogGroup("dada");
-    /// 
-    ///     var yada = new Aws.CloudWatch.LogMetricFilter("yada", new()
-    ///     {
-    ///         Pattern = "",
-    ///         LogGroupName = dada.Name,
-    ///         MetricTransformation = new Aws.CloudWatch.Inputs.LogMetricFilterMetricTransformationArgs
-    ///         {
-    ///             Name = "EventCount",
-    ///             Namespace = "YourNamespace",
-    ///             Value = "1",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:

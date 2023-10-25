@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -159,25 +159,6 @@ def get_vpc_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpcAttach
     Get information on an EC2 Transit Gateway VPC Attachment.
 
     ## Example Usage
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpc_attachment(filters=[aws.ec2transitgateway.GetVpcAttachmentFilterArgs(
-        name="vpc-id",
-        values=["vpc-12345678"],
-    )])
-    ```
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpc_attachment(id="tgw-attach-12345678")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetVpcAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
@@ -213,25 +194,6 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     Get information on an EC2 Transit Gateway VPC Attachment.
 
     ## Example Usage
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpc_attachment(filters=[aws.ec2transitgateway.GetVpcAttachmentFilterArgs(
-        name="vpc-id",
-        values=["vpc-12345678"],
-    )])
-    ```
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpc_attachment(id="tgw-attach-12345678")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetVpcAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.

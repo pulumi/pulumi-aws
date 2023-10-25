@@ -12,21 +12,6 @@ namespace Pulumi.Aws.DataPipeline
     /// <summary>
     /// Provides a DataPipeline Pipeline resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.DataPipeline.Pipeline("default");
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For example:

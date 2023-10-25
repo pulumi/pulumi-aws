@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -69,15 +69,6 @@ def get_tracker_association(consumer_arn: Optional[str] = None,
     Retrieve information about a Location Service Tracker Association.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_tracker_association(consumer_arn="arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer",
-        tracker_name="example")
-    ```
 
 
     :param str consumer_arn: ARN of the geofence collection associated to tracker resource.
@@ -103,15 +94,6 @@ def get_tracker_association_output(consumer_arn: Optional[pulumi.Input[str]] = N
     Retrieve information about a Location Service Tracker Association.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_tracker_association(consumer_arn="arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer",
-        tracker_name="example")
-    ```
 
 
     :param str consumer_arn: ARN of the geofence collection associated to tracker resource.

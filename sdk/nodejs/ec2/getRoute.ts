@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
  * `aws.ec2.Route` provides details about a specific Route.
  *
  * This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
- *
- * ## Example Usage
- *
- * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const subnetId = config.requireObject("subnetId");
- * const selected = aws.ec2.getRouteTable({
- *     subnetId: subnetId,
- * });
- * const route = aws.ec2.getRoute({
- *     routeTableId: aws_route_table.selected.id,
- *     destinationCidrBlock: "10.0.1.0/24",
- * });
- * const interface = route.then(route => aws.ec2.getNetworkInterface({
- *     id: route.networkInterfaceId,
- * }));
- * ```
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
 
@@ -143,28 +121,6 @@ export interface GetRouteResult {
  * `aws.ec2.Route` provides details about a specific Route.
  *
  * This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
- *
- * ## Example Usage
- *
- * The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const subnetId = config.requireObject("subnetId");
- * const selected = aws.ec2.getRouteTable({
- *     subnetId: subnetId,
- * });
- * const route = aws.ec2.getRoute({
- *     routeTableId: aws_route_table.selected.id,
- *     destinationCidrBlock: "10.0.1.0/24",
- * });
- * const interface = route.then(route => aws.ec2.getNetworkInterface({
- *     id: route.networkInterfaceId,
- * }));
- * ```
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
     return pulumi.output(args).apply((a: any) => getRoute(a, opts))

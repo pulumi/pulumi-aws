@@ -16,33 +16,6 @@ import (
 // Resource for managing an AWS QuickSight Ingestion.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewIngestion(ctx, "example", &quicksight.IngestionArgs{
-//				DataSetId:     pulumi.Any(aws_quicksight_data_set.Example.Data_set_id),
-//				IngestionId:   pulumi.String("example-id"),
-//				IngestionType: pulumi.String("FULL_REFRESH"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

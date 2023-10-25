@@ -14,35 +14,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// &gt; To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleUser = new Aws.Iam.User("exampleUser", new()
-    ///     {
-    ///         Path = "/",
-    ///         ForceDestroy = true,
-    ///     });
-    /// 
-    ///     var exampleUserLoginProfile = new Aws.Iam.UserLoginProfile("exampleUserLoginProfile", new()
-    ///     {
-    ///         User = exampleUser.Name,
-    ///         PgpKey = "keybase:some_person_that_exists",
-    ///     });
-    /// 
-    ///     return new Dictionary&lt;string, object?&gt;
-    ///     {
-    ///         ["password"] = exampleUserLoginProfile.EncryptedPassword,
-    ///     };
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:

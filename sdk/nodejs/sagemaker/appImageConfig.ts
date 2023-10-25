@@ -11,37 +11,6 @@ import * as utilities from "../utilities";
  * Provides a SageMaker App Image Config resource.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.sagemaker.AppImageConfig("test", {
- *     appImageConfigName: "example",
- *     kernelGatewayImageConfig: {
- *         kernelSpec: {
- *             name: "example",
- *         },
- *     },
- * });
- * ```
- * ### Default File System Config
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.sagemaker.AppImageConfig("test", {
- *     appImageConfigName: "example",
- *     kernelGatewayImageConfig: {
- *         fileSystemConfig: {},
- *         kernelSpec: {
- *             name: "example",
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

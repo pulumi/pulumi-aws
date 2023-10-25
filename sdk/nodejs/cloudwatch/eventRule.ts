@@ -9,40 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const console = new aws.cloudwatch.EventRule("console", {
- *     description: "Capture each AWS Console Sign In",
- *     eventPattern: JSON.stringify({
- *         "detail-type": ["AWS Console Sign In via CloudTrail"],
- *     }),
- * });
- * const awsLogins = new aws.sns.Topic("awsLogins", {});
- * const sns = new aws.cloudwatch.EventTarget("sns", {
- *     rule: console.name,
- *     arn: awsLogins.arn,
- * });
- * const snsTopicPolicy = awsLogins.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         actions: ["SNS:Publish"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["events.amazonaws.com"],
- *         }],
- *         resources: [arn],
- *     }],
- * }));
- * const _default = new aws.sns.TopicPolicy("default", {
- *     arn: awsLogins.arn,
- *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:

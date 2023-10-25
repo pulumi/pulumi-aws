@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -67,48 +67,123 @@ class BucketArgs:
         :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         :param pulumi.Input[str] website_endpoint: The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         """
+        BucketArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acceleration_status=acceleration_status,
+            acl=acl,
+            arn=arn,
+            bucket=bucket,
+            bucket_prefix=bucket_prefix,
+            cors_rules=cors_rules,
+            force_destroy=force_destroy,
+            grants=grants,
+            hosted_zone_id=hosted_zone_id,
+            lifecycle_rules=lifecycle_rules,
+            loggings=loggings,
+            object_lock_configuration=object_lock_configuration,
+            policy=policy,
+            replication_configuration=replication_configuration,
+            request_payer=request_payer,
+            server_side_encryption_configuration=server_side_encryption_configuration,
+            tags=tags,
+            versioning=versioning,
+            website=website,
+            website_domain=website_domain,
+            website_endpoint=website_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acceleration_status: Optional[pulumi.Input[str]] = None,
+             acl: Optional[pulumi.Input[Union[str, 'CannedAcl']]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             bucket: Optional[pulumi.Input[str]] = None,
+             bucket_prefix: Optional[pulumi.Input[str]] = None,
+             cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleArgs']]]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketGrantArgs']]]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             lifecycle_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleArgs']]]] = None,
+             loggings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingArgs']]]] = None,
+             object_lock_configuration: Optional[pulumi.Input['BucketObjectLockConfigurationArgs']] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             replication_configuration: Optional[pulumi.Input['BucketReplicationConfigurationArgs']] = None,
+             request_payer: Optional[pulumi.Input[str]] = None,
+             server_side_encryption_configuration: Optional[pulumi.Input['BucketServerSideEncryptionConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             versioning: Optional[pulumi.Input['BucketVersioningArgs']] = None,
+             website: Optional[pulumi.Input['BucketWebsiteArgs']] = None,
+             website_domain: Optional[pulumi.Input[str]] = None,
+             website_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acceleration_status is None and 'accelerationStatus' in kwargs:
+            acceleration_status = kwargs['accelerationStatus']
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if cors_rules is None and 'corsRules' in kwargs:
+            cors_rules = kwargs['corsRules']
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if lifecycle_rules is None and 'lifecycleRules' in kwargs:
+            lifecycle_rules = kwargs['lifecycleRules']
+        if object_lock_configuration is None and 'objectLockConfiguration' in kwargs:
+            object_lock_configuration = kwargs['objectLockConfiguration']
+        if replication_configuration is None and 'replicationConfiguration' in kwargs:
+            replication_configuration = kwargs['replicationConfiguration']
+        if request_payer is None and 'requestPayer' in kwargs:
+            request_payer = kwargs['requestPayer']
+        if server_side_encryption_configuration is None and 'serverSideEncryptionConfiguration' in kwargs:
+            server_side_encryption_configuration = kwargs['serverSideEncryptionConfiguration']
+        if website_domain is None and 'websiteDomain' in kwargs:
+            website_domain = kwargs['websiteDomain']
+        if website_endpoint is None and 'websiteEndpoint' in kwargs:
+            website_endpoint = kwargs['websiteEndpoint']
+
         if acceleration_status is not None:
-            pulumi.set(__self__, "acceleration_status", acceleration_status)
+            _setter("acceleration_status", acceleration_status)
         if acl is not None:
-            pulumi.set(__self__, "acl", acl)
+            _setter("acl", acl)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if grants is not None:
-            pulumi.set(__self__, "grants", grants)
+            _setter("grants", grants)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if lifecycle_rules is not None:
-            pulumi.set(__self__, "lifecycle_rules", lifecycle_rules)
+            _setter("lifecycle_rules", lifecycle_rules)
         if loggings is not None:
-            pulumi.set(__self__, "loggings", loggings)
+            _setter("loggings", loggings)
         if object_lock_configuration is not None:
-            pulumi.set(__self__, "object_lock_configuration", object_lock_configuration)
+            _setter("object_lock_configuration", object_lock_configuration)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if replication_configuration is not None:
-            pulumi.set(__self__, "replication_configuration", replication_configuration)
+            _setter("replication_configuration", replication_configuration)
         if request_payer is not None:
-            pulumi.set(__self__, "request_payer", request_payer)
+            _setter("request_payer", request_payer)
         if server_side_encryption_configuration is not None:
-            pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
+            _setter("server_side_encryption_configuration", server_side_encryption_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if versioning is not None:
-            pulumi.set(__self__, "versioning", versioning)
+            _setter("versioning", versioning)
         if website is not None:
-            pulumi.set(__self__, "website", website)
+            _setter("website", website)
         if website_domain is not None:
-            pulumi.set(__self__, "website_domain", website_domain)
+            _setter("website_domain", website_domain)
         if website_endpoint is not None:
-            pulumi.set(__self__, "website_endpoint", website_endpoint)
+            _setter("website_endpoint", website_endpoint)
 
     @property
     @pulumi.getter(name="accelerationStatus")
@@ -429,59 +504,148 @@ class _BucketState:
         :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         :param pulumi.Input[str] website_endpoint: The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         """
+        _BucketState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acceleration_status=acceleration_status,
+            acl=acl,
+            arn=arn,
+            bucket=bucket,
+            bucket_domain_name=bucket_domain_name,
+            bucket_prefix=bucket_prefix,
+            bucket_regional_domain_name=bucket_regional_domain_name,
+            cors_rules=cors_rules,
+            force_destroy=force_destroy,
+            grants=grants,
+            hosted_zone_id=hosted_zone_id,
+            lifecycle_rules=lifecycle_rules,
+            loggings=loggings,
+            object_lock_configuration=object_lock_configuration,
+            policy=policy,
+            region=region,
+            replication_configuration=replication_configuration,
+            request_payer=request_payer,
+            server_side_encryption_configuration=server_side_encryption_configuration,
+            tags=tags,
+            tags_all=tags_all,
+            versioning=versioning,
+            website=website,
+            website_domain=website_domain,
+            website_endpoint=website_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acceleration_status: Optional[pulumi.Input[str]] = None,
+             acl: Optional[pulumi.Input[Union[str, 'CannedAcl']]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             bucket: Optional[pulumi.Input[str]] = None,
+             bucket_domain_name: Optional[pulumi.Input[str]] = None,
+             bucket_prefix: Optional[pulumi.Input[str]] = None,
+             bucket_regional_domain_name: Optional[pulumi.Input[str]] = None,
+             cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleArgs']]]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketGrantArgs']]]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             lifecycle_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleArgs']]]] = None,
+             loggings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingArgs']]]] = None,
+             object_lock_configuration: Optional[pulumi.Input['BucketObjectLockConfigurationArgs']] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             replication_configuration: Optional[pulumi.Input['BucketReplicationConfigurationArgs']] = None,
+             request_payer: Optional[pulumi.Input[str]] = None,
+             server_side_encryption_configuration: Optional[pulumi.Input['BucketServerSideEncryptionConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             versioning: Optional[pulumi.Input['BucketVersioningArgs']] = None,
+             website: Optional[pulumi.Input['BucketWebsiteArgs']] = None,
+             website_domain: Optional[pulumi.Input[str]] = None,
+             website_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acceleration_status is None and 'accelerationStatus' in kwargs:
+            acceleration_status = kwargs['accelerationStatus']
+        if bucket_domain_name is None and 'bucketDomainName' in kwargs:
+            bucket_domain_name = kwargs['bucketDomainName']
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if bucket_regional_domain_name is None and 'bucketRegionalDomainName' in kwargs:
+            bucket_regional_domain_name = kwargs['bucketRegionalDomainName']
+        if cors_rules is None and 'corsRules' in kwargs:
+            cors_rules = kwargs['corsRules']
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if lifecycle_rules is None and 'lifecycleRules' in kwargs:
+            lifecycle_rules = kwargs['lifecycleRules']
+        if object_lock_configuration is None and 'objectLockConfiguration' in kwargs:
+            object_lock_configuration = kwargs['objectLockConfiguration']
+        if replication_configuration is None and 'replicationConfiguration' in kwargs:
+            replication_configuration = kwargs['replicationConfiguration']
+        if request_payer is None and 'requestPayer' in kwargs:
+            request_payer = kwargs['requestPayer']
+        if server_side_encryption_configuration is None and 'serverSideEncryptionConfiguration' in kwargs:
+            server_side_encryption_configuration = kwargs['serverSideEncryptionConfiguration']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if website_domain is None and 'websiteDomain' in kwargs:
+            website_domain = kwargs['websiteDomain']
+        if website_endpoint is None and 'websiteEndpoint' in kwargs:
+            website_endpoint = kwargs['websiteEndpoint']
+
         if acceleration_status is not None:
-            pulumi.set(__self__, "acceleration_status", acceleration_status)
+            _setter("acceleration_status", acceleration_status)
         if acl is not None:
-            pulumi.set(__self__, "acl", acl)
+            _setter("acl", acl)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if bucket_domain_name is not None:
-            pulumi.set(__self__, "bucket_domain_name", bucket_domain_name)
+            _setter("bucket_domain_name", bucket_domain_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if bucket_regional_domain_name is not None:
-            pulumi.set(__self__, "bucket_regional_domain_name", bucket_regional_domain_name)
+            _setter("bucket_regional_domain_name", bucket_regional_domain_name)
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if grants is not None:
-            pulumi.set(__self__, "grants", grants)
+            _setter("grants", grants)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if lifecycle_rules is not None:
-            pulumi.set(__self__, "lifecycle_rules", lifecycle_rules)
+            _setter("lifecycle_rules", lifecycle_rules)
         if loggings is not None:
-            pulumi.set(__self__, "loggings", loggings)
+            _setter("loggings", loggings)
         if object_lock_configuration is not None:
-            pulumi.set(__self__, "object_lock_configuration", object_lock_configuration)
+            _setter("object_lock_configuration", object_lock_configuration)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if replication_configuration is not None:
-            pulumi.set(__self__, "replication_configuration", replication_configuration)
+            _setter("replication_configuration", replication_configuration)
         if request_payer is not None:
-            pulumi.set(__self__, "request_payer", request_payer)
+            _setter("request_payer", request_payer)
         if server_side_encryption_configuration is not None:
-            pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
+            _setter("server_side_encryption_configuration", server_side_encryption_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if versioning is not None:
-            pulumi.set(__self__, "versioning", versioning)
+            _setter("versioning", versioning)
         if website is not None:
-            pulumi.set(__self__, "website", website)
+            _setter("website", website)
         if website_domain is not None:
-            pulumi.set(__self__, "website_domain", website_domain)
+            _setter("website_domain", website_domain)
         if website_endpoint is not None:
-            pulumi.set(__self__, "website_endpoint", website_endpoint)
+            _setter("website_endpoint", website_endpoint)
 
     @property
     @pulumi.getter(name="accelerationStatus")
@@ -825,285 +989,6 @@ class Bucket(pulumi.CustomResource):
         > This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `s3control.Bucket` resource.
 
         ## Example Usage
-        ### Private Bucket w/ Tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket",
-            acl="private",
-            tags={
-                "Environment": "Dev",
-                "Name": "My bucket",
-            })
-        ```
-        ### Static Website Hosting
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket",
-            acl="public-read",
-            policy=(lambda path: open(path).read())("policy.json"),
-            website=aws.s3.BucketWebsiteArgs(
-                index_document="index.html",
-                error_document="error.html",
-                routing_rules=\"\"\"[{
-            "Condition": {
-                "KeyPrefixEquals": "docs/"
-            },
-            "Redirect": {
-                "ReplaceKeyPrefixWith": "documents/"
-            }
-        }]
-        \"\"\",
-            ))
-        ```
-        ### Using CORS
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket",
-            acl="public-read",
-            cors_rules=[aws.s3.BucketCorsRuleArgs(
-                allowed_headers=["*"],
-                allowed_methods=[
-                    "PUT",
-                    "POST",
-                ],
-                allowed_origins=["https://s3-website-test.mydomain.com"],
-                expose_headers=["ETag"],
-                max_age_seconds=3000,
-            )])
-        ```
-        ### Using versioning
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket",
-            acl="private",
-            versioning=aws.s3.BucketVersioningArgs(
-                enabled=True,
-            ))
-        ```
-        ### Enable Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        log_bucket = aws.s3.Bucket("logBucket", acl="log-delivery-write")
-        bucket = aws.s3.Bucket("bucket",
-            acl="private",
-            loggings=[aws.s3.BucketLoggingArgs(
-                target_bucket=log_bucket.id,
-                target_prefix="log/",
-            )])
-        ```
-        ### Using object lifecycle
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket",
-            acl="private",
-            lifecycle_rules=[
-                aws.s3.BucketLifecycleRuleArgs(
-                    enabled=True,
-                    expiration=aws.s3.BucketLifecycleRuleExpirationArgs(
-                        days=90,
-                    ),
-                    id="log",
-                    prefix="log/",
-                    tags={
-                        "autoclean": "true",
-                        "rule": "log",
-                    },
-                    transitions=[
-                        aws.s3.BucketLifecycleRuleTransitionArgs(
-                            days=30,
-                            storage_class="STANDARD_IA",
-                        ),
-                        aws.s3.BucketLifecycleRuleTransitionArgs(
-                            days=60,
-                            storage_class="GLACIER",
-                        ),
-                    ],
-                ),
-                aws.s3.BucketLifecycleRuleArgs(
-                    enabled=True,
-                    expiration=aws.s3.BucketLifecycleRuleExpirationArgs(
-                        date="2016-01-12",
-                    ),
-                    id="tmp",
-                    prefix="tmp/",
-                ),
-            ])
-        versioning_bucket = aws.s3.Bucket("versioningBucket",
-            acl="private",
-            lifecycle_rules=[aws.s3.BucketLifecycleRuleArgs(
-                enabled=True,
-                noncurrent_version_expiration=aws.s3.BucketLifecycleRuleNoncurrentVersionExpirationArgs(
-                    days=90,
-                ),
-                noncurrent_version_transitions=[
-                    aws.s3.BucketLifecycleRuleNoncurrentVersionTransitionArgs(
-                        days=30,
-                        storage_class="STANDARD_IA",
-                    ),
-                    aws.s3.BucketLifecycleRuleNoncurrentVersionTransitionArgs(
-                        days=60,
-                        storage_class="GLACIER",
-                    ),
-                ],
-                prefix="config/",
-            )],
-            versioning=aws.s3.BucketVersioningArgs(
-                enabled=True,
-            ))
-        ```
-        ### Using replication configuration
-
-        > **NOTE:** See the `s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        central = aws.Provider("central", region="eu-central-1")
-        replication_role = aws.iam.Role("replicationRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "s3.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        destination = aws.s3.Bucket("destination", versioning=aws.s3.BucketVersioningArgs(
-            enabled=True,
-        ))
-        source = aws.s3.Bucket("source",
-            acl="private",
-            versioning=aws.s3.BucketVersioningArgs(
-                enabled=True,
-            ),
-            replication_configuration=aws.s3.BucketReplicationConfigurationArgs(
-                role=replication_role.arn,
-                rules=[aws.s3.BucketReplicationConfigurationRuleArgs(
-                    id="foobar",
-                    status="Enabled",
-                    filter=aws.s3.BucketReplicationConfigurationRuleFilterArgs(
-                        tags={},
-                    ),
-                    destination=aws.s3.BucketReplicationConfigurationRuleDestinationArgs(
-                        bucket=destination.arn,
-                        storage_class="STANDARD",
-                        replication_time=aws.s3.BucketReplicationConfigurationRuleDestinationReplicationTimeArgs(
-                            status="Enabled",
-                            minutes=15,
-                        ),
-                        metrics=aws.s3.BucketReplicationConfigurationRuleDestinationMetricsArgs(
-                            status="Enabled",
-                            minutes=15,
-                        ),
-                    ),
-                )],
-            ),
-            opts=pulumi.ResourceOptions(provider=aws["central"]))
-        replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(source.arn, source.arn, destination.arn).apply(lambda sourceArn, sourceArn1, destinationArn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": [
-                "s3:GetReplicationConfiguration",
-                "s3:ListBucket"
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                "{source_arn}"
-              ]
-            }},
-            {{
-              "Action": [
-                "s3:GetObjectVersionForReplication",
-                "s3:GetObjectVersionAcl",
-                 "s3:GetObjectVersionTagging"
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                "{source_arn1}/*"
-              ]
-            }},
-            {{
-              "Action": [
-                "s3:ReplicateObject",
-                "s3:ReplicateDelete",
-                "s3:ReplicateTags"
-              ],
-              "Effect": "Allow",
-              "Resource": "{destination_arn}/*"
-            }}
-          ]
-        }}
-        \"\"\"))
-        replication_role_policy_attachment = aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment",
-            role=replication_role.name,
-            policy_arn=replication_policy.arn)
-        ```
-        ### Enable Default Server Side Encryption
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        mykey = aws.kms.Key("mykey",
-            description="This key is used to encrypt bucket objects",
-            deletion_window_in_days=10)
-        mybucket = aws.s3.Bucket("mybucket", server_side_encryption_configuration=aws.s3.BucketServerSideEncryptionConfigurationArgs(
-            rule=aws.s3.BucketServerSideEncryptionConfigurationRuleArgs(
-                apply_server_side_encryption_by_default=aws.s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs(
-                    kms_master_key_id=mykey.arn,
-                    sse_algorithm="aws:kms",
-                ),
-            ),
-        ))
-        ```
-        ### Using ACL policy grants
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_user = aws.s3.get_canonical_user_id()
-        bucket = aws.s3.Bucket("bucket", grants=[
-            aws.s3.BucketGrantArgs(
-                id=current_user.id,
-                type="CanonicalUser",
-                permissions=["FULL_CONTROL"],
-            ),
-            aws.s3.BucketGrantArgs(
-                type="Group",
-                permissions=[
-                    "READ_ACP",
-                    "WRITE",
-                ],
-                uri="http://acs.amazonaws.com/groups/s3/LogDelivery",
-            ),
-        ])
-        ```
 
         ## Import
 
@@ -1155,285 +1040,6 @@ class Bucket(pulumi.CustomResource):
         > This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `s3control.Bucket` resource.
 
         ## Example Usage
-        ### Private Bucket w/ Tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket",
-            acl="private",
-            tags={
-                "Environment": "Dev",
-                "Name": "My bucket",
-            })
-        ```
-        ### Static Website Hosting
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket",
-            acl="public-read",
-            policy=(lambda path: open(path).read())("policy.json"),
-            website=aws.s3.BucketWebsiteArgs(
-                index_document="index.html",
-                error_document="error.html",
-                routing_rules=\"\"\"[{
-            "Condition": {
-                "KeyPrefixEquals": "docs/"
-            },
-            "Redirect": {
-                "ReplaceKeyPrefixWith": "documents/"
-            }
-        }]
-        \"\"\",
-            ))
-        ```
-        ### Using CORS
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket",
-            acl="public-read",
-            cors_rules=[aws.s3.BucketCorsRuleArgs(
-                allowed_headers=["*"],
-                allowed_methods=[
-                    "PUT",
-                    "POST",
-                ],
-                allowed_origins=["https://s3-website-test.mydomain.com"],
-                expose_headers=["ETag"],
-                max_age_seconds=3000,
-            )])
-        ```
-        ### Using versioning
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket",
-            acl="private",
-            versioning=aws.s3.BucketVersioningArgs(
-                enabled=True,
-            ))
-        ```
-        ### Enable Logging
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        log_bucket = aws.s3.Bucket("logBucket", acl="log-delivery-write")
-        bucket = aws.s3.Bucket("bucket",
-            acl="private",
-            loggings=[aws.s3.BucketLoggingArgs(
-                target_bucket=log_bucket.id,
-                target_prefix="log/",
-            )])
-        ```
-        ### Using object lifecycle
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bucket = aws.s3.Bucket("bucket",
-            acl="private",
-            lifecycle_rules=[
-                aws.s3.BucketLifecycleRuleArgs(
-                    enabled=True,
-                    expiration=aws.s3.BucketLifecycleRuleExpirationArgs(
-                        days=90,
-                    ),
-                    id="log",
-                    prefix="log/",
-                    tags={
-                        "autoclean": "true",
-                        "rule": "log",
-                    },
-                    transitions=[
-                        aws.s3.BucketLifecycleRuleTransitionArgs(
-                            days=30,
-                            storage_class="STANDARD_IA",
-                        ),
-                        aws.s3.BucketLifecycleRuleTransitionArgs(
-                            days=60,
-                            storage_class="GLACIER",
-                        ),
-                    ],
-                ),
-                aws.s3.BucketLifecycleRuleArgs(
-                    enabled=True,
-                    expiration=aws.s3.BucketLifecycleRuleExpirationArgs(
-                        date="2016-01-12",
-                    ),
-                    id="tmp",
-                    prefix="tmp/",
-                ),
-            ])
-        versioning_bucket = aws.s3.Bucket("versioningBucket",
-            acl="private",
-            lifecycle_rules=[aws.s3.BucketLifecycleRuleArgs(
-                enabled=True,
-                noncurrent_version_expiration=aws.s3.BucketLifecycleRuleNoncurrentVersionExpirationArgs(
-                    days=90,
-                ),
-                noncurrent_version_transitions=[
-                    aws.s3.BucketLifecycleRuleNoncurrentVersionTransitionArgs(
-                        days=30,
-                        storage_class="STANDARD_IA",
-                    ),
-                    aws.s3.BucketLifecycleRuleNoncurrentVersionTransitionArgs(
-                        days=60,
-                        storage_class="GLACIER",
-                    ),
-                ],
-                prefix="config/",
-            )],
-            versioning=aws.s3.BucketVersioningArgs(
-                enabled=True,
-            ))
-        ```
-        ### Using replication configuration
-
-        > **NOTE:** See the `s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        central = aws.Provider("central", region="eu-central-1")
-        replication_role = aws.iam.Role("replicationRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "s3.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        destination = aws.s3.Bucket("destination", versioning=aws.s3.BucketVersioningArgs(
-            enabled=True,
-        ))
-        source = aws.s3.Bucket("source",
-            acl="private",
-            versioning=aws.s3.BucketVersioningArgs(
-                enabled=True,
-            ),
-            replication_configuration=aws.s3.BucketReplicationConfigurationArgs(
-                role=replication_role.arn,
-                rules=[aws.s3.BucketReplicationConfigurationRuleArgs(
-                    id="foobar",
-                    status="Enabled",
-                    filter=aws.s3.BucketReplicationConfigurationRuleFilterArgs(
-                        tags={},
-                    ),
-                    destination=aws.s3.BucketReplicationConfigurationRuleDestinationArgs(
-                        bucket=destination.arn,
-                        storage_class="STANDARD",
-                        replication_time=aws.s3.BucketReplicationConfigurationRuleDestinationReplicationTimeArgs(
-                            status="Enabled",
-                            minutes=15,
-                        ),
-                        metrics=aws.s3.BucketReplicationConfigurationRuleDestinationMetricsArgs(
-                            status="Enabled",
-                            minutes=15,
-                        ),
-                    ),
-                )],
-            ),
-            opts=pulumi.ResourceOptions(provider=aws["central"]))
-        replication_policy = aws.iam.Policy("replicationPolicy", policy=pulumi.Output.all(source.arn, source.arn, destination.arn).apply(lambda sourceArn, sourceArn1, destinationArn: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Action": [
-                "s3:GetReplicationConfiguration",
-                "s3:ListBucket"
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                "{source_arn}"
-              ]
-            }},
-            {{
-              "Action": [
-                "s3:GetObjectVersionForReplication",
-                "s3:GetObjectVersionAcl",
-                 "s3:GetObjectVersionTagging"
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                "{source_arn1}/*"
-              ]
-            }},
-            {{
-              "Action": [
-                "s3:ReplicateObject",
-                "s3:ReplicateDelete",
-                "s3:ReplicateTags"
-              ],
-              "Effect": "Allow",
-              "Resource": "{destination_arn}/*"
-            }}
-          ]
-        }}
-        \"\"\"))
-        replication_role_policy_attachment = aws.iam.RolePolicyAttachment("replicationRolePolicyAttachment",
-            role=replication_role.name,
-            policy_arn=replication_policy.arn)
-        ```
-        ### Enable Default Server Side Encryption
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        mykey = aws.kms.Key("mykey",
-            description="This key is used to encrypt bucket objects",
-            deletion_window_in_days=10)
-        mybucket = aws.s3.Bucket("mybucket", server_side_encryption_configuration=aws.s3.BucketServerSideEncryptionConfigurationArgs(
-            rule=aws.s3.BucketServerSideEncryptionConfigurationRuleArgs(
-                apply_server_side_encryption_by_default=aws.s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs(
-                    kms_master_key_id=mykey.arn,
-                    sse_algorithm="aws:kms",
-                ),
-            ),
-        ))
-        ```
-        ### Using ACL policy grants
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_user = aws.s3.get_canonical_user_id()
-        bucket = aws.s3.Bucket("bucket", grants=[
-            aws.s3.BucketGrantArgs(
-                id=current_user.id,
-                type="CanonicalUser",
-                permissions=["FULL_CONTROL"],
-            ),
-            aws.s3.BucketGrantArgs(
-                type="Group",
-                permissions=[
-                    "READ_ACP",
-                    "WRITE",
-                ],
-                uri="http://acs.amazonaws.com/groups/s3/LogDelivery",
-            ),
-        ])
-        ```
 
         ## Import
 
@@ -1454,6 +1060,10 @@ class Bucket(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1500,13 +1110,18 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = hosted_zone_id
             __props__.__dict__["lifecycle_rules"] = lifecycle_rules
             __props__.__dict__["loggings"] = loggings
+            object_lock_configuration = _utilities.configure(object_lock_configuration, BucketObjectLockConfigurationArgs, True)
             __props__.__dict__["object_lock_configuration"] = object_lock_configuration
             __props__.__dict__["policy"] = policy
+            replication_configuration = _utilities.configure(replication_configuration, BucketReplicationConfigurationArgs, True)
             __props__.__dict__["replication_configuration"] = replication_configuration
             __props__.__dict__["request_payer"] = request_payer
+            server_side_encryption_configuration = _utilities.configure(server_side_encryption_configuration, BucketServerSideEncryptionConfigurationArgs, True)
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
             __props__.__dict__["tags"] = tags
+            versioning = _utilities.configure(versioning, BucketVersioningArgs, True)
             __props__.__dict__["versioning"] = versioning
+            website = _utilities.configure(website, BucketWebsiteArgs, True)
             __props__.__dict__["website"] = website
             __props__.__dict__["website_domain"] = website_domain
             __props__.__dict__["website_endpoint"] = website_endpoint

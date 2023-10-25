@@ -9,45 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The `aws.codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console. See the [AWS documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html) for details.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleConnection = new aws.codestarconnections.Connection("exampleConnection", {providerType: "Bitbucket"});
- * const examplePipeline = new aws.codepipeline.Pipeline("examplePipeline", {
- *     roleArn: aws_iam_role.codepipeline_role.arn,
- *     artifactStores: [{}],
- *     stages: [
- *         {
- *             name: "Source",
- *             actions: [{
- *                 name: "Source",
- *                 category: "Source",
- *                 owner: "AWS",
- *                 provider: "CodeStarSourceConnection",
- *                 version: "1",
- *                 outputArtifacts: ["source_output"],
- *                 configuration: {
- *                     ConnectionArn: exampleConnection.arn,
- *                     FullRepositoryId: "my-organization/test",
- *                     BranchName: "main",
- *                 },
- *             }],
- *         },
- *         {
- *             name: "Build",
- *             actions: [{}],
- *         },
- *         {
- *             name: "Deploy",
- *             actions: [{}],
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CodeStar connections using the ARN. For example:

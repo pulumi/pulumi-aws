@@ -12,39 +12,6 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a resource to manage EC2 Fleets.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.Fleet("example", new()
-    ///     {
-    ///         LaunchTemplateConfigs = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.FleetLaunchTemplateConfigArgs
-    ///             {
-    ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
-    ///                 {
-    ///                     LaunchTemplateId = aws_launch_template.Example.Id,
-    ///                     Version = aws_launch_template.Example.Latest_version,
-    ///                 },
-    ///             },
-    ///         },
-    ///         TargetCapacitySpecification = new Aws.Ec2.Inputs.FleetTargetCapacitySpecificationArgs
-    ///         {
-    ///             DefaultTargetCapacityType = "spot",
-    ///             TotalTargetCapacity = 5,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For example:

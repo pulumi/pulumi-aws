@@ -12,37 +12,6 @@ namespace Pulumi.Aws.AppStream
     /// <summary>
     /// Manages an AppStream Fleet Stack association.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleFleet = new Aws.AppStream.Fleet("exampleFleet", new()
-    ///     {
-    ///         ImageName = "Amazon-AppStream2-Sample-Image-03-11-2023",
-    ///         InstanceType = "stream.standard.small",
-    ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
-    ///         {
-    ///             DesiredInstances = 1,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleStack = new Aws.AppStream.Stack("exampleStack");
-    /// 
-    ///     var exampleFleetStackAssociation = new Aws.AppStream.FleetStackAssociation("exampleFleetStackAssociation", new()
-    ///     {
-    ///         FleetName = exampleFleet.Name,
-    ///         StackName = exampleStack.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:

@@ -10,20 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a SageMaker monitoring schedule resource.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.sagemaker.MonitoringSchedule("test", {monitoringScheduleConfig: {
- *     monitoringJobDefinitionName: aws_sagemaker_data_quality_job_definition.test.name,
- *     monitoringType: "DataQuality",
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import monitoring schedules using the `name`. For example:

@@ -13,39 +13,6 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing a QuickSight Dashboard.
     /// 
     /// ## Example Usage
-    /// ### From Source Template
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.Dashboard("example", new()
-    ///     {
-    ///         DashboardId = "example-id",
-    ///         VersionDescription = "version",
-    ///         SourceEntity = new Aws.Quicksight.Inputs.DashboardSourceEntityArgs
-    ///         {
-    ///             SourceTemplate = new Aws.Quicksight.Inputs.DashboardSourceEntitySourceTemplateArgs
-    ///             {
-    ///                 Arn = aws_quicksight_template.Source.Arn,
-    ///                 DataSetReferences = new[]
-    ///                 {
-    ///                     new Aws.Quicksight.Inputs.DashboardSourceEntitySourceTemplateDataSetReferenceArgs
-    ///                     {
-    ///                         DataSetArn = aws_quicksight_data_set.Dataset.Arn,
-    ///                         DataSetPlaceholder = "1",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

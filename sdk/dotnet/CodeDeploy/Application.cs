@@ -13,57 +13,6 @@ namespace Pulumi.Aws.CodeDeploy
     /// Provides a CodeDeploy application to be used as a basis for deployments
     /// 
     /// ## Example Usage
-    /// ### ECS Application
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeDeploy.Application("example", new()
-    ///     {
-    ///         ComputePlatform = "ECS",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Lambda Application
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeDeploy.Application("example", new()
-    ///     {
-    ///         ComputePlatform = "Lambda",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Server Application
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeDeploy.Application("example", new()
-    ///     {
-    ///         ComputePlatform = "Server",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

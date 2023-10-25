@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NotificationArgs', 'Notification']
@@ -24,9 +24,34 @@ class NotificationArgs:
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         :param pulumi.Input[str] topic_arn: Topic ARN for notifications to be sent through
         """
-        pulumi.set(__self__, "group_names", group_names)
-        pulumi.set(__self__, "notifications", notifications)
-        pulumi.set(__self__, "topic_arn", topic_arn)
+        NotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_names=group_names,
+            notifications=notifications,
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_names is None and 'groupNames' in kwargs:
+            group_names = kwargs['groupNames']
+        if group_names is None:
+            raise TypeError("Missing 'group_names' argument")
+        if notifications is None:
+            raise TypeError("Missing 'notifications' argument")
+        if topic_arn is None and 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+        if topic_arn is None:
+            raise TypeError("Missing 'topic_arn' argument")
+
+        _setter("group_names", group_names)
+        _setter("notifications", notifications)
+        _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="groupNames")
@@ -79,12 +104,31 @@ class _NotificationState:
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         :param pulumi.Input[str] topic_arn: Topic ARN for notifications to be sent through
         """
+        _NotificationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_names=group_names,
+            notifications=notifications,
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_names is None and 'groupNames' in kwargs:
+            group_names = kwargs['groupNames']
+        if topic_arn is None and 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         if group_names is not None:
-            pulumi.set(__self__, "group_names", group_names)
+            _setter("group_names", group_names)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
         if topic_arn is not None:
-            pulumi.set(__self__, "topic_arn", topic_arn)
+            _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="groupNames")
@@ -138,34 +182,6 @@ class Notification(pulumi.CustomResource):
         the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
         Services, and are applied to each AutoScaling Group you supply.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sns.Topic("example")
-        # arn is an exported attribute
-        bar = aws.autoscaling.Group("bar")
-        # ...
-        foo = aws.autoscaling.Group("foo")
-        # ...
-        example_notifications = aws.autoscaling.Notification("exampleNotifications",
-            group_names=[
-                bar.name,
-                foo.name,
-            ],
-            notifications=[
-                "autoscaling:EC2_INSTANCE_LAUNCH",
-                "autoscaling:EC2_INSTANCE_TERMINATE",
-                "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-                "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
-            ],
-            topic_arn=example.arn)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_names: List of AutoScaling Group Names
@@ -184,34 +200,6 @@ class Notification(pulumi.CustomResource):
         the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
         Services, and are applied to each AutoScaling Group you supply.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sns.Topic("example")
-        # arn is an exported attribute
-        bar = aws.autoscaling.Group("bar")
-        # ...
-        foo = aws.autoscaling.Group("foo")
-        # ...
-        example_notifications = aws.autoscaling.Notification("exampleNotifications",
-            group_names=[
-                bar.name,
-                foo.name,
-            ],
-            notifications=[
-                "autoscaling:EC2_INSTANCE_LAUNCH",
-                "autoscaling:EC2_INSTANCE_TERMINATE",
-                "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-                "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
-            ],
-            topic_arn=example.arn)
-        ```
-
         :param str resource_name: The name of the resource.
         :param NotificationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,6 +210,10 @@ class Notification(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

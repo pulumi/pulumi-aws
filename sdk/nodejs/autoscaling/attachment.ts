@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
  * Attaches a load balancer to an Auto Scaling group.
  *
  * > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `loadBalancers`, `targetGroupArns` and `trafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new load balancer attachment
- * const example = new aws.autoscaling.Attachment("example", {
- *     autoscalingGroupName: aws_autoscaling_group.example.id,
- *     elb: aws_elb.example.id,
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new ALB Target Group attachment
- * const example = new aws.autoscaling.Attachment("example", {
- *     autoscalingGroupName: aws_autoscaling_group.example.id,
- *     lbTargetGroupArn: aws_lb_target_group.example.arn,
- * });
- * ```
  */
 export class Attachment extends pulumi.CustomResource {
     /**

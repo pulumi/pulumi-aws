@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sesv2.getConfigurationSet({
- *     configurationSetName: "example",
- * });
- * ```
  */
 export function getConfigurationSet(args: GetConfigurationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationSetResult> {
 
@@ -88,16 +78,6 @@ export interface GetConfigurationSetResult {
  * Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sesv2.getConfigurationSet({
- *     configurationSetName: "example",
- * });
- * ```
  */
 export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationSet(a, opts))

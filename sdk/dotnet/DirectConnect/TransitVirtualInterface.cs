@@ -13,33 +13,6 @@ namespace Pulumi.Aws.DirectConnect
     /// Provides a Direct Connect transit virtual interface resource.
     /// A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new()
-    ///     {
-    ///         AmazonSideAsn = "64512",
-    ///     });
-    /// 
-    ///     var exampleTransitVirtualInterface = new Aws.DirectConnect.TransitVirtualInterface("exampleTransitVirtualInterface", new()
-    ///     {
-    ///         ConnectionId = aws_dx_connection.Example.Id,
-    ///         DxGatewayId = exampleGateway.Id,
-    ///         Vlan = 4094,
-    ///         AddressFamily = "ipv4",
-    ///         BgpAsn = 65352,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For example:

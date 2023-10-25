@@ -12,30 +12,6 @@ namespace Pulumi.Aws.Eks
     /// <summary>
     /// Manages an EKS Identity Provider Configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Eks.IdentityProviderConfig("example", new()
-    ///     {
-    ///         ClusterName = aws_eks_cluster.Example.Name,
-    ///         Oidc = new Aws.Eks.Inputs.IdentityProviderConfigOidcArgs
-    ///         {
-    ///             ClientId = "your client_id",
-    ///             IdentityProviderConfigName = "example",
-    ///             IssuerUrl = "your issuer_url",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:

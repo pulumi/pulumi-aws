@@ -13,24 +13,6 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Image resource.
     /// 
     /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.Image("example", new()
-    ///     {
-    ///         ImageName = "example",
-    ///         RoleArn = aws_iam_role.Test.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

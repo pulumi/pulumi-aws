@@ -12,27 +12,6 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Provides an AWS Backup vault lock configuration resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Backup.VaultLockConfiguration("test", new()
-    ///     {
-    ///         BackupVaultName = "example_backup_vault",
-    ///         ChangeableForDays = 3,
-    ///         MaxRetentionDays = 1200,
-    ///         MinRetentionDays = 7,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:

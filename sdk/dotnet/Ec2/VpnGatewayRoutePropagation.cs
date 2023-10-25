@@ -15,25 +15,6 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **Note:** This resource should not be used with a route table that has
     /// the `propagating_vgws` argument set. If that argument is set, any route
     /// propagation not explicitly listed in its value will be removed.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2.VpnGatewayRoutePropagation("example", new()
-    ///     {
-    ///         VpnGatewayId = aws_vpn_gateway.Example.Id,
-    ///         RouteTableId = aws_route_table.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation")]
     public partial class VpnGatewayRoutePropagation : global::Pulumi.CustomResource

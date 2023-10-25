@@ -17,38 +17,6 @@ import (
 //
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/schemas"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			messenger, err := cloudwatch.NewEventBus(ctx, "messenger", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = schemas.NewDiscoverer(ctx, "test", &schemas.DiscovererArgs{
-//				SourceArn:   messenger.Arn,
-//				Description: pulumi.String("Auto discover event schemas"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import EventBridge discoverers using the `id`. For example:

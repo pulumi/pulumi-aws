@@ -13,57 +13,6 @@ namespace Pulumi.Aws.IvsChat
     /// Resource for managing an AWS IVS (Interactive Video) Chat Room.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.IvsChat.Room("example");
-    /// 
-    /// });
-    /// ```
-    /// ## Usage with Logging Configuration to S3 Bucket
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
-    ///     {
-    ///         BucketPrefix = "tf-ivschat-logging-bucket-",
-    ///         ForceDestroy = true,
-    ///     });
-    /// 
-    ///     var exampleLoggingConfiguration = new Aws.IvsChat.LoggingConfiguration("exampleLoggingConfiguration", new()
-    ///     {
-    ///         DestinationConfiguration = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationArgs
-    ///         {
-    ///             S3 = new Aws.IvsChat.Inputs.LoggingConfigurationDestinationConfigurationS3Args
-    ///             {
-    ///                 BucketName = exampleBucketV2.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRoom = new Aws.IvsChat.Room("exampleRoom", new()
-    ///     {
-    ///         LoggingConfigurationIdentifiers = new[]
-    ///         {
-    ///             exampleLoggingConfiguration.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

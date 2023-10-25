@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * Get information on an EC2 Transit Gateway Multicast Domain.
  *
  * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getMulticastDomain({
- *     filters: [{
- *         name: "transit-gateway-multicast-domain-id",
- *         values: ["tgw-mcast-domain-12345678"],
- *     }],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getMulticastDomain({
- *     transitGatewayMulticastDomainId: "tgw-mcast-domain-12345678",
- * });
- * ```
  */
 export function getMulticastDomain(args?: GetMulticastDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetMulticastDomainResult> {
     args = args || {};
@@ -124,29 +101,6 @@ export interface GetMulticastDomainResult {
  * Get information on an EC2 Transit Gateway Multicast Domain.
  *
  * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getMulticastDomain({
- *     filters: [{
- *         name: "transit-gateway-multicast-domain-id",
- *         values: ["tgw-mcast-domain-12345678"],
- *     }],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getMulticastDomain({
- *     transitGatewayMulticastDomainId: "tgw-mcast-domain-12345678",
- * });
- * ```
  */
 export function getMulticastDomainOutput(args?: GetMulticastDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMulticastDomainResult> {
     return pulumi.output(args).apply((a: any) => getMulticastDomain(a, opts))

@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [AWS Macie Account](https://docs.aws.amazon.com/macie/latest/APIReference/macie.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.macie2.Account("test", {
- *     findingPublishingFrequency: "FIFTEEN_MINUTES",
- *     status: "ENABLED",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_macie2_account` using the id. For example:

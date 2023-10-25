@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Kendra
     {
         /// <summary>
         /// Provides details about a specific Amazon Kendra Index.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kendra.GetIndex.Invoke(new()
-        ///     {
-        ///         Id = "12345678-1234-1234-1234-123456789123",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetIndexResult> InvokeAsync(GetIndexArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIndexResult>("aws:kendra/getIndex:getIndex", args ?? new GetIndexArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific Amazon Kendra Index.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Kendra.GetIndex.Invoke(new()
-        ///     {
-        ///         Id = "12345678-1234-1234-1234-123456789123",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetIndexResult> Invoke(GetIndexInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIndexResult>("aws:kendra/getIndex:getIndex", args ?? new GetIndexInvokeArgs(), options.WithDefaults());

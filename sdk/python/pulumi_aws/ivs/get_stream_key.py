@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -96,14 +96,6 @@ def get_stream_key(channel_arn: Optional[str] = None,
     Data source for managing an AWS IVS (Interactive Video) Stream Key.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ivs.get_stream_key(channel_arn="arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5")
-    ```
 
 
     :param str channel_arn: ARN of the Channel.
@@ -131,14 +123,6 @@ def get_stream_key_output(channel_arn: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS IVS (Interactive Video) Stream Key.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ivs.get_stream_key(channel_arn="arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5")
-    ```
 
 
     :param str channel_arn: ARN of the Channel.

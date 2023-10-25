@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -114,15 +114,6 @@ def get_framework(control_sets: Optional[Sequence[pulumi.InputType['GetFramework
     Data source for managing an AWS Audit Manager Framework.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.auditmanager.get_framework(framework_type="Standard",
-        name="Essential Eight")
-    ```
 
 
     :param str name: Name of the framework.
@@ -154,15 +145,6 @@ def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[p
     Data source for managing an AWS Audit Manager Framework.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.auditmanager.get_framework(framework_type="Standard",
-        name="Essential Eight")
-    ```
 
 
     :param str name: Name of the framework.

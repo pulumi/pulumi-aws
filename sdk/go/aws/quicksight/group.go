@@ -15,32 +15,6 @@ import (
 
 // Resource for managing QuickSight Group
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewGroup(ctx, "example", &quicksight.GroupArgs{
-//				GroupName: pulumi.String("tf-example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import QuickSight Group using the aws account id, namespace and group name separated by `/`. For example:

@@ -16,38 +16,6 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Transfer.Server("example", new()
-    ///     {
-    ///         IdentityProviderType = "SERVICE_MANAGED",
-    ///     });
-    /// 
-    ///     var zoneId = new Aws.Transfer.Tag("zoneId", new()
-    ///     {
-    ///         ResourceArn = example.Arn,
-    ///         Key = "aws:transfer:route53HostedZoneId",
-    ///         Value = "/hostedzone/MyHostedZoneId",
-    ///     });
-    /// 
-    ///     var hostname = new Aws.Transfer.Tag("hostname", new()
-    ///     {
-    ///         ResourceArn = example.Arn,
-    ///         Key = "aws:transfer:customHostname",
-    ///         Value = "example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For example:

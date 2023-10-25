@@ -8,37 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * The following example below creates a CloudFront origin request policy.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.OriginRequestPolicy("example", {
- *     comment: "example comment",
- *     cookiesConfig: {
- *         cookieBehavior: "whitelist",
- *         cookies: {
- *             items: ["example"],
- *         },
- *     },
- *     headersConfig: {
- *         headerBehavior: "whitelist",
- *         headers: {
- *             items: ["example"],
- *         },
- *     },
- *     queryStringsConfig: {
- *         queryStringBehavior: "whitelist",
- *         queryStrings: {
- *             items: ["example"],
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For example:

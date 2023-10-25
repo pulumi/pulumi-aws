@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.HsmConfiguration("example", {
- *     description: "example",
- *     hsmConfigurationIdentifier: "example",
- *     hsmIpAddress: "10.0.0.1",
- *     hsmPartitionName: "aws",
- *     hsmPartitionPassword: "example",
- *     hsmServerPublicCertificate: "example",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:

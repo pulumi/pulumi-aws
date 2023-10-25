@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DeploymentArgs', 'Deployment']
@@ -29,17 +29,46 @@ class DeploymentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map to set on the stage managed by the `stage_name` argument.
         """
-        pulumi.set(__self__, "rest_api", rest_api)
+        DeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rest_api=rest_api,
+            description=description,
+            stage_description=stage_description,
+            stage_name=stage_name,
+            triggers=triggers,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rest_api: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             stage_description: Optional[pulumi.Input[str]] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if rest_api is None:
+            raise TypeError("Missing 'rest_api' argument")
+        if stage_description is None and 'stageDescription' in kwargs:
+            stage_description = kwargs['stageDescription']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
+        _setter("rest_api", rest_api)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if stage_description is not None:
-            pulumi.set(__self__, "stage_description", stage_description)
+            _setter("stage_description", stage_description)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="restApi")
@@ -141,24 +170,63 @@ class _DeploymentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map to set on the stage managed by the `stage_name` argument.
         """
+        _DeploymentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_date=created_date,
+            description=description,
+            execution_arn=execution_arn,
+            invoke_url=invoke_url,
+            rest_api=rest_api,
+            stage_description=stage_description,
+            stage_name=stage_name,
+            triggers=triggers,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_date: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             execution_arn: Optional[pulumi.Input[str]] = None,
+             invoke_url: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             stage_description: Optional[pulumi.Input[str]] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_date is None and 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if execution_arn is None and 'executionArn' in kwargs:
+            execution_arn = kwargs['executionArn']
+        if invoke_url is None and 'invokeUrl' in kwargs:
+            invoke_url = kwargs['invokeUrl']
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if stage_description is None and 'stageDescription' in kwargs:
+            stage_description = kwargs['stageDescription']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if execution_arn is not None:
-            pulumi.set(__self__, "execution_arn", execution_arn)
+            _setter("execution_arn", execution_arn)
         if invoke_url is not None:
-            pulumi.set(__self__, "invoke_url", invoke_url)
+            _setter("invoke_url", invoke_url)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
         if stage_description is not None:
-            pulumi.set(__self__, "stage_description", stage_description)
+            _setter("stage_description", stage_description)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="createdDate")
@@ -295,80 +363,6 @@ class Deployment(pulumi.CustomResource):
         !> **WARNING:** It is recommended to use the `apigateway.Stage` resource instead of managing an API Gateway Stage via the `stage_name` argument of this resource. When this resource is recreated (REST API redeployment) with the `stage_name` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `aws_api_method_settings` resources.
 
         ## Example Usage
-        ### OpenAPI Specification
-
-        ```python
-        import pulumi
-        import hashlib
-        import json
-        import pulumi_aws as aws
-
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
-            },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-                        },
-                    },
-                },
-            },
-        }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
-            rest_api=example_rest_api.id,
-            triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
-            })
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=example_deployment.id,
-            rest_api=example_rest_api.id,
-            stage_name="example")
-        ```
-        ### Resources
-
-        ```python
-        import pulumi
-        import hashlib
-        import json
-        import pulumi_aws as aws
-
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_resource = aws.apigateway.Resource("exampleResource",
-            parent_id=example_rest_api.root_resource_id,
-            path_part="example",
-            rest_api=example_rest_api.id)
-        example_method = aws.apigateway.Method("exampleMethod",
-            authorization="NONE",
-            http_method="GET",
-            resource_id=example_resource.id,
-            rest_api=example_rest_api.id)
-        example_integration = aws.apigateway.Integration("exampleIntegration",
-            http_method=example_method.http_method,
-            resource_id=example_resource.id,
-            rest_api=example_rest_api.id,
-            type="MOCK")
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
-            rest_api=example_rest_api.id,
-            triggers={
-                "redeployment": pulumi.Output.all(example_resource.id, example_method.id, example_integration.id).apply(lambda exampleResourceId, exampleMethodId, exampleIntegrationId: json.dumps([
-                    example_resource_id,
-                    example_method_id,
-                    example_integration_id,
-                ])).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
-            })
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=example_deployment.id,
-            rest_api=example_rest_api.id,
-            stage_name="example")
-        ```
 
         ## Import
 
@@ -407,80 +401,6 @@ class Deployment(pulumi.CustomResource):
         !> **WARNING:** It is recommended to use the `apigateway.Stage` resource instead of managing an API Gateway Stage via the `stage_name` argument of this resource. When this resource is recreated (REST API redeployment) with the `stage_name` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `aws_api_method_settings` resources.
 
         ## Example Usage
-        ### OpenAPI Specification
-
-        ```python
-        import pulumi
-        import hashlib
-        import json
-        import pulumi_aws as aws
-
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
-            },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-                        },
-                    },
-                },
-            },
-        }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
-            rest_api=example_rest_api.id,
-            triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
-            })
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=example_deployment.id,
-            rest_api=example_rest_api.id,
-            stage_name="example")
-        ```
-        ### Resources
-
-        ```python
-        import pulumi
-        import hashlib
-        import json
-        import pulumi_aws as aws
-
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi")
-        example_resource = aws.apigateway.Resource("exampleResource",
-            parent_id=example_rest_api.root_resource_id,
-            path_part="example",
-            rest_api=example_rest_api.id)
-        example_method = aws.apigateway.Method("exampleMethod",
-            authorization="NONE",
-            http_method="GET",
-            resource_id=example_resource.id,
-            rest_api=example_rest_api.id)
-        example_integration = aws.apigateway.Integration("exampleIntegration",
-            http_method=example_method.http_method,
-            resource_id=example_resource.id,
-            rest_api=example_rest_api.id,
-            type="MOCK")
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
-            rest_api=example_rest_api.id,
-            triggers={
-                "redeployment": pulumi.Output.all(example_resource.id, example_method.id, example_integration.id).apply(lambda exampleResourceId, exampleMethodId, exampleIntegrationId: json.dumps([
-                    example_resource_id,
-                    example_method_id,
-                    example_integration_id,
-                ])).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
-            })
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=example_deployment.id,
-            rest_api=example_rest_api.id,
-            stage_name="example")
-        ```
 
         ## Import
 
@@ -503,6 +423,10 @@ class Deployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

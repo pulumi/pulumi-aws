@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetLocationsResult',
     'AwaitableGetLocationsResult',
     'get_locations',
+    'get_locations_output',
 ]
 
 @pulumi.output_type
@@ -61,15 +62,6 @@ def get_locations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLo
     These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
 
     > **Note:** This data source is different from the `directconnect_get_location` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    available = aws.directconnect.get_locations()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -78,3 +70,14 @@ def get_locations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLo
     return AwaitableGetLocationsResult(
         id=pulumi.get(__ret__, 'id'),
         location_codes=pulumi.get(__ret__, 'location_codes'))
+
+
+@_utilities.lift_output_func(get_locations)
+def get_locations_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationsResult]:
+    """
+    Retrieve information about the AWS Direct Connect locations in the current AWS Region.
+    These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
+
+    > **Note:** This data source is different from the `directconnect_get_location` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
+    """
+    ...

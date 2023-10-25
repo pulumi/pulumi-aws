@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake {
     /**
-     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
+     * @return Amazon S3 bucket prefix.
      * 
      */
     private @Nullable String bucketPrefix;
     /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig errorHandlingConfig;
@@ -35,14 +35,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowfl
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake() {}
     /**
-     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
+     * @return Amazon S3 bucket prefix.
      * 
      */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
     /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig> errorHandlingConfig() {

@@ -15,46 +15,6 @@ namespace Pulumi.Aws.CodeBuild
     /// &gt; **NOTE:**
     /// [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html). Therefore, when you define `aws.codebuild.SourceCredential`, `aws.codebuild.Project` resource defined in the same module will use it.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeBuild.SourceCredential("example", new()
-    ///     {
-    ///         AuthType = "PERSONAL_ACCESS_TOKEN",
-    ///         ServerType = "GITHUB",
-    ///         Token = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Bitbucket Server Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CodeBuild.SourceCredential("example", new()
-    ///     {
-    ///         AuthType = "BASIC_AUTH",
-    ///         ServerType = "BITBUCKET",
-    ///         Token = "example",
-    ///         UserName = "test-user",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:

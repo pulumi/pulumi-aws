@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InternetGatewayAttachmentArgs', 'InternetGatewayAttachment']
@@ -21,8 +21,29 @@ class InternetGatewayAttachmentArgs:
         :param pulumi.Input[str] internet_gateway_id: The ID of the internet gateway.
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
-        pulumi.set(__self__, "internet_gateway_id", internet_gateway_id)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        InternetGatewayAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            internet_gateway_id=internet_gateway_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             internet_gateway_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if internet_gateway_id is None and 'internetGatewayId' in kwargs:
+            internet_gateway_id = kwargs['internetGatewayId']
+        if internet_gateway_id is None:
+            raise TypeError("Missing 'internet_gateway_id' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
+        _setter("internet_gateway_id", internet_gateway_id)
+        _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="internetGatewayId")
@@ -59,10 +80,27 @@ class _InternetGatewayAttachmentState:
         :param pulumi.Input[str] internet_gateway_id: The ID of the internet gateway.
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
+        _InternetGatewayAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            internet_gateway_id=internet_gateway_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             internet_gateway_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if internet_gateway_id is None and 'internetGatewayId' in kwargs:
+            internet_gateway_id = kwargs['internetGatewayId']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if internet_gateway_id is not None:
-            pulumi.set(__self__, "internet_gateway_id", internet_gateway_id)
+            _setter("internet_gateway_id", internet_gateway_id)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="internetGatewayId")
@@ -100,19 +138,6 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         """
         Provides a resource to create a VPC Internet Gateway Attachment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.1.0.0/16")
-        example_internet_gateway = aws.ec2.InternetGateway("exampleInternetGateway")
-        example_internet_gateway_attachment = aws.ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment",
-            internet_gateway_id=example_internet_gateway.id,
-            vpc_id=example_vpc.id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Internet Gateway Attachments using the `id`. For example:
@@ -135,19 +160,6 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         """
         Provides a resource to create a VPC Internet Gateway Attachment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.1.0.0/16")
-        example_internet_gateway = aws.ec2.InternetGateway("exampleInternetGateway")
-        example_internet_gateway_attachment = aws.ec2.InternetGatewayAttachment("exampleInternetGatewayAttachment",
-            internet_gateway_id=example_internet_gateway.id,
-            vpc_id=example_vpc.id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Internet Gateway Attachments using the `id`. For example:
@@ -166,6 +178,10 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InternetGatewayAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

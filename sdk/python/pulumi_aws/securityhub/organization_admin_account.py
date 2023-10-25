@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OrganizationAdminAccountArgs', 'OrganizationAdminAccount']
@@ -19,7 +19,22 @@ class OrganizationAdminAccountArgs:
         The set of arguments for constructing a OrganizationAdminAccount resource.
         :param pulumi.Input[str] admin_account_id: The AWS account identifier of the account to designate as the Security Hub administrator account.
         """
-        pulumi.set(__self__, "admin_account_id", admin_account_id)
+        OrganizationAdminAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_account_id=admin_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_account_id is None and 'adminAccountId' in kwargs:
+            admin_account_id = kwargs['adminAccountId']
+        if admin_account_id is None:
+            raise TypeError("Missing 'admin_account_id' argument")
+
+        _setter("admin_account_id", admin_account_id)
 
     @property
     @pulumi.getter(name="adminAccountId")
@@ -42,8 +57,21 @@ class _OrganizationAdminAccountState:
         Input properties used for looking up and filtering OrganizationAdminAccount resources.
         :param pulumi.Input[str] admin_account_id: The AWS account identifier of the account to designate as the Security Hub administrator account.
         """
+        _OrganizationAdminAccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_account_id=admin_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_account_id is None and 'adminAccountId' in kwargs:
+            admin_account_id = kwargs['adminAccountId']
+
         if admin_account_id is not None:
-            pulumi.set(__self__, "admin_account_id", admin_account_id)
+            _setter("admin_account_id", admin_account_id)
 
     @property
     @pulumi.getter(name="adminAccountId")
@@ -68,22 +96,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         """
         Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["securityhub.amazonaws.com"],
-            feature_set="ALL")
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
-        # Auto enable security hub in organization member accounts
-        example_organization_configuration = aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", auto_enable=True)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
@@ -105,22 +117,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         """
         Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["securityhub.amazonaws.com"],
-            feature_set="ALL")
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
-        # Auto enable security hub in organization member accounts
-        example_organization_configuration = aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", auto_enable=True)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
@@ -139,6 +135,10 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationAdminAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

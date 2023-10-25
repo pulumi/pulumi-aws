@@ -13,37 +13,6 @@ namespace Pulumi.Aws.ControlTower
     /// Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
     /// [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var exampleOrganization = Aws.Organizations.GetOrganization.Invoke();
-    /// 
-    ///     var exampleOrganizationalUnits = Aws.Organizations.GetOrganizationalUnits.Invoke(new()
-    ///     {
-    ///         ParentId = exampleOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
-    ///     });
-    /// 
-    ///     var exampleControlTowerControl = new Aws.ControlTower.ControlTowerControl("exampleControlTowerControl", new()
-    ///     {
-    ///         ControlIdentifier = $"arn:aws:controltower:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
-    ///         TargetIdentifier = .Where(x =&gt; x.Name == "Infrastructure").Select(x =&gt; 
-    ///         {
-    ///             return x.Arn;
-    ///         }).ToList()[0],
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For example:

@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.cloudwatch.EventApiDestination("test", {
- *     description: "An API Destination",
- *     invocationEndpoint: "https://api.destination.com/endpoint",
- *     httpMethod: "POST",
- *     invocationRateLimitPerSecond: 20,
- *     connectionArn: aws_cloudwatch_event_connection.test.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:

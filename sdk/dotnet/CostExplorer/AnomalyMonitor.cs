@@ -15,59 +15,6 @@ namespace Pulumi.Aws.CostExplorer
     /// ## Example Usage
     /// 
     /// There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
-    /// ### Dimensional Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var serviceMonitor = new Aws.CostExplorer.AnomalyMonitor("serviceMonitor", new()
-    ///     {
-    ///         MonitorDimension = "SERVICE",
-    ///         MonitorType = "DIMENSIONAL",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Custom Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CostExplorer.AnomalyMonitor("test", new()
-    ///     {
-    ///         MonitorType = "CUSTOM",
-    ///         MonitorSpecification = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["And"] = null,
-    ///             ["CostCategories"] = null,
-    ///             ["Dimensions"] = null,
-    ///             ["Not"] = null,
-    ///             ["Or"] = null,
-    ///             ["Tags"] = new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["Key"] = "CostCenter",
-    ///                 ["MatchOptions"] = null,
-    ///                 ["Values"] = new[]
-    ///                 {
-    ///                     "10000",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

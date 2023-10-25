@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RoleAssociationArgs', 'RoleAssociation']
@@ -27,12 +27,39 @@ class RoleAssociationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
         """
-        pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        RoleAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role=role,
+            workspace_id=workspace_id,
+            group_ids=group_ids,
+            user_ids=user_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if user_ids is None and 'userIds' in kwargs:
+            user_ids = kwargs['userIds']
+
+        _setter("role", role)
+        _setter("workspace_id", workspace_id)
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
         if user_ids is not None:
-            pulumi.set(__self__, "user_ids", user_ids)
+            _setter("user_ids", user_ids)
 
     @property
     @pulumi.getter
@@ -101,14 +128,37 @@ class _RoleAssociationState:
                
                The following arguments are optional:
         """
+        _RoleAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            role=role,
+            user_ids=user_ids,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if user_ids is None and 'userIds' in kwargs:
+            user_ids = kwargs['userIds']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if user_ids is not None:
-            pulumi.set(__self__, "user_ids", user_ids)
+            _setter("user_ids", user_ids)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -175,37 +225,6 @@ class RoleAssociation(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace role association resource.
 
         ## Example Usage
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
-        example_workspace = aws.grafana.Workspace("exampleWorkspace",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
-            role_arn=assume.arn)
-        example_role_association = aws.grafana.RoleAssociation("exampleRoleAssociation",
-            role="ADMIN",
-            user_ids=[
-                "USER_ID_1",
-                "USER_ID_2",
-            ],
-            workspace_id=example_workspace.id)
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,37 +245,6 @@ class RoleAssociation(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace role association resource.
 
         ## Example Usage
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
-        example_workspace = aws.grafana.Workspace("exampleWorkspace",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
-            role_arn=assume.arn)
-        example_role_association = aws.grafana.RoleAssociation("exampleRoleAssociation",
-            role="ADMIN",
-            user_ids=[
-                "USER_ID_1",
-                "USER_ID_2",
-            ],
-            workspace_id=example_workspace.id)
-        ```
 
         :param str resource_name: The name of the resource.
         :param RoleAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -268,6 +256,10 @@ class RoleAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

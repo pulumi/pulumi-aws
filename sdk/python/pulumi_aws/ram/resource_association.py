@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourceAssociationArgs', 'ResourceAssociation']
@@ -21,8 +21,29 @@ class ResourceAssociationArgs:
         :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         :param pulumi.Input[str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         """
-        pulumi.set(__self__, "resource_arn", resource_arn)
-        pulumi.set(__self__, "resource_share_arn", resource_share_arn)
+        ResourceAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_arn=resource_arn,
+            resource_share_arn=resource_share_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             resource_share_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if resource_share_arn is None and 'resourceShareArn' in kwargs:
+            resource_share_arn = kwargs['resourceShareArn']
+        if resource_share_arn is None:
+            raise TypeError("Missing 'resource_share_arn' argument")
+
+        _setter("resource_arn", resource_arn)
+        _setter("resource_share_arn", resource_share_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -59,10 +80,27 @@ class _ResourceAssociationState:
         :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         :param pulumi.Input[str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         """
+        _ResourceAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_arn=resource_arn,
+            resource_share_arn=resource_share_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             resource_share_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_share_arn is None and 'resourceShareArn' in kwargs:
+            resource_share_arn = kwargs['resourceShareArn']
+
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if resource_share_arn is not None:
-            pulumi.set(__self__, "resource_share_arn", resource_share_arn)
+            _setter("resource_share_arn", resource_share_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -102,17 +140,6 @@ class ResourceAssociation(pulumi.CustomResource):
 
         > *NOTE:* Certain AWS resources (e.g., EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ram.ResourceAssociation("example",
-            resource_arn=aws_subnet["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
-        ```
-
         ## Import
 
         Using `pulumi import`, import RAM Resource Associations using their Resource Share ARN and Resource ARN separated by a comma. For example:
@@ -137,17 +164,6 @@ class ResourceAssociation(pulumi.CustomResource):
 
         > *NOTE:* Certain AWS resources (e.g., EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ram.ResourceAssociation("example",
-            resource_arn=aws_subnet["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
-        ```
-
         ## Import
 
         Using `pulumi import`, import RAM Resource Associations using their Resource Share ARN and Resource ARN separated by a comma. For example:
@@ -166,6 +182,10 @@ class ResourceAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

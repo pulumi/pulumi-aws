@@ -12,38 +12,6 @@ import * as utilities from "../utilities";
  * See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html) for more information.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.fsx.OntapStorageVirtualMachine("test", {fileSystemId: aws_fsx_ontap_file_system.test.id});
- * ```
- * ### Using a Self-Managed Microsoft Active Directory
- *
- * Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.fsx.OntapStorageVirtualMachine("test", {
- *     fileSystemId: aws_fsx_ontap_file_system.test.id,
- *     activeDirectoryConfiguration: {
- *         netbiosName: "mysvm",
- *         selfManagedActiveDirectoryConfiguration: {
- *             dnsIps: [
- *                 "10.0.0.111",
- *                 "10.0.0.222",
- *             ],
- *             domainName: "corp.example.com",
- *             password: "avoid-plaintext-passwords",
- *             username: "Admin",
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

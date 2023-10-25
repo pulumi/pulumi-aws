@@ -11,37 +11,6 @@ namespace Pulumi.Aws.CloudControl
 {
     /// <summary>
     /// Manages a Cloud Control API Resource. The configuration and lifecycle handling of these resources is proxied through Cloud Control API handlers to the backend service.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudControl.Resource("example", new()
-    ///     {
-    ///         TypeName = "AWS::ECS::Cluster",
-    ///         DesiredState = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["ClusterName"] = "example",
-    ///             ["Tags"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Key"] = "CostCenter",
-    ///                     ["Value"] = "IT",
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudcontrol/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HostedZoneDnsSecArgs', 'HostedZoneDnsSec']
@@ -23,9 +23,28 @@ class HostedZoneDnsSecArgs:
                The following arguments are optional:
         :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
-        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        HostedZoneDnsSecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hosted_zone_id=hosted_zone_id,
+            signing_status=signing_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             signing_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if hosted_zone_id is None:
+            raise TypeError("Missing 'hosted_zone_id' argument")
+        if signing_status is None and 'signingStatus' in kwargs:
+            signing_status = kwargs['signingStatus']
+
+        _setter("hosted_zone_id", hosted_zone_id)
         if signing_status is not None:
-            pulumi.set(__self__, "signing_status", signing_status)
+            _setter("signing_status", signing_status)
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -66,10 +85,27 @@ class _HostedZoneDnsSecState:
                The following arguments are optional:
         :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
+        _HostedZoneDnsSecState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hosted_zone_id=hosted_zone_id,
+            signing_status=signing_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             signing_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if signing_status is None and 'signingStatus' in kwargs:
+            signing_status = kwargs['signingStatus']
+
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if signing_status is not None:
-            pulumi.set(__self__, "signing_status", signing_status)
+            _setter("signing_status", signing_status)
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -113,54 +149,6 @@ class HostedZoneDnsSec(pulumi.CustomResource):
 
         > **Note:** Route53 hosted zones are global resources, and as such any `kms.Key` that you use as part of a signing key needs to be located in the `us-east-1` region. In the example below, the main AWS provider declaration is for `us-east-1`, however if you are provisioning your AWS resources in a different region, you will need to specify a provider alias and use that attached to the `kms.Key` resource as described in the provider alias documentation.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_key = aws.kms.Key("exampleKey",
-            customer_master_key_spec="ECC_NIST_P256",
-            deletion_window_in_days=7,
-            key_usage="SIGN_VERIFY",
-            policy=json.dumps({
-                "Statement": [
-                    {
-                        "Action": [
-                            "kms:DescribeKey",
-                            "kms:GetPublicKey",
-                            "kms:Sign",
-                            "kms:Verify",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
-                        },
-                        "Resource": "*",
-                        "Sid": "Allow Route 53 DNSSEC Service",
-                    },
-                    {
-                        "Action": "kms:*",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "AWS": f"arn:aws:iam::{current.account_id}:root",
-                        },
-                        "Resource": "*",
-                        "Sid": "Enable IAM User Permissions",
-                    },
-                ],
-                "Version": "2012-10-17",
-            }))
-        example_zone = aws.route53.Zone("exampleZone")
-        example_key_signing_key = aws.route53.KeySigningKey("exampleKeySigningKey",
-            hosted_zone_id=example_zone.id,
-            key_management_service_arn=example_key.arn)
-        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", hosted_zone_id=example_key_signing_key.hosted_zone_id,
-        opts=pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:
@@ -189,54 +177,6 @@ class HostedZoneDnsSec(pulumi.CustomResource):
 
         > **Note:** Route53 hosted zones are global resources, and as such any `kms.Key` that you use as part of a signing key needs to be located in the `us-east-1` region. In the example below, the main AWS provider declaration is for `us-east-1`, however if you are provisioning your AWS resources in a different region, you will need to specify a provider alias and use that attached to the `kms.Key` resource as described in the provider alias documentation.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_key = aws.kms.Key("exampleKey",
-            customer_master_key_spec="ECC_NIST_P256",
-            deletion_window_in_days=7,
-            key_usage="SIGN_VERIFY",
-            policy=json.dumps({
-                "Statement": [
-                    {
-                        "Action": [
-                            "kms:DescribeKey",
-                            "kms:GetPublicKey",
-                            "kms:Sign",
-                            "kms:Verify",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
-                        },
-                        "Resource": "*",
-                        "Sid": "Allow Route 53 DNSSEC Service",
-                    },
-                    {
-                        "Action": "kms:*",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "AWS": f"arn:aws:iam::{current.account_id}:root",
-                        },
-                        "Resource": "*",
-                        "Sid": "Enable IAM User Permissions",
-                    },
-                ],
-                "Version": "2012-10-17",
-            }))
-        example_zone = aws.route53.Zone("exampleZone")
-        example_key_signing_key = aws.route53.KeySigningKey("exampleKeySigningKey",
-            hosted_zone_id=example_zone.id,
-            key_management_service_arn=example_key.arn)
-        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", hosted_zone_id=example_key_signing_key.hosted_zone_id,
-        opts=pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:
@@ -255,6 +195,10 @@ class HostedZoneDnsSec(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HostedZoneDnsSecArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

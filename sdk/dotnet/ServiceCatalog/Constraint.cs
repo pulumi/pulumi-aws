@@ -15,31 +15,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// &gt; **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `aws.servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.Constraint("example", new()
-    ///     {
-    ///         Description = "Back off, man. I'm a scientist.",
-    ///         PortfolioId = aws_servicecatalog_portfolio.Example.Id,
-    ///         ProductId = aws_servicecatalog_product.Example.Id,
-    ///         Type = "LAUNCH",
-    ///         Parameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["RoleArn"] = "arn:aws:iam::123456789012:role/LaunchRole",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -9,38 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE on Access Points and Access Point Policies:** The provider provides both a standalone Access Point Policy resource and an Access Point resource with a resource policy defined in-line. You cannot use an Access Point with in-line resource policy in conjunction with an Access Point Policy resource. Doing so will cause a conflict of policies and will overwrite the access point's resource policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {
- *     bucket: exampleBucketV2.id,
- *     publicAccessBlockConfiguration: {
- *         blockPublicAcls: true,
- *         blockPublicPolicy: false,
- *         ignorePublicAcls: true,
- *         restrictPublicBuckets: false,
- *     },
- * });
- * const exampleAccessPointPolicy = new aws.s3control.AccessPointPolicy("exampleAccessPointPolicy", {
- *     accessPointArn: exampleAccessPoint.arn,
- *     policy: exampleAccessPoint.arn.apply(arn => JSON.stringify({
- *         Version: "2008-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: "s3:GetObjectTagging",
- *             Principal: {
- *                 AWS: "*",
- *             },
- *             Resource: `${arn}/object/*`,
- *         }],
- *     })),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:

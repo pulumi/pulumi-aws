@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcEndpointPolicyArgs', 'VpcEndpointPolicy']
@@ -21,9 +21,26 @@ class VpcEndpointPolicyArgs:
         :param pulumi.Input[str] vpc_endpoint_id: The VPC Endpoint ID.
         :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         """
-        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+        VpcEndpointPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_endpoint_id=vpc_endpoint_id,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if vpc_endpoint_id is None:
+            raise TypeError("Missing 'vpc_endpoint_id' argument")
+
+        _setter("vpc_endpoint_id", vpc_endpoint_id)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter(name="vpcEndpointId")
@@ -60,10 +77,25 @@ class _VpcEndpointPolicyState:
         :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[str] vpc_endpoint_id: The VPC Endpoint ID.
         """
+        _VpcEndpointPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            vpc_endpoint_id=vpc_endpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
 
     @property
     @pulumi.getter
@@ -101,34 +133,6 @@ class VpcEndpointPolicy(pulumi.CustomResource):
         """
         Provides a VPC Endpoint Policy resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_vpc_endpoint_service = aws.ec2.get_vpc_endpoint_service(service="dynamodb")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            service_name=example_vpc_endpoint_service.service_name,
-            vpc_id=example_vpc.id)
-        example_vpc_endpoint_policy = aws.ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy",
-            vpc_endpoint_id=example_vpc_endpoint.id,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "AllowAll",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Action": ["dynamodb:*"],
-                    "Resource": "*",
-                }],
-            }))
-        ```
-
         ## Import
 
         Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:
@@ -151,34 +155,6 @@ class VpcEndpointPolicy(pulumi.CustomResource):
         """
         Provides a VPC Endpoint Policy resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_vpc_endpoint_service = aws.ec2.get_vpc_endpoint_service(service="dynamodb")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            service_name=example_vpc_endpoint_service.service_name,
-            vpc_id=example_vpc.id)
-        example_vpc_endpoint_policy = aws.ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy",
-            vpc_endpoint_id=example_vpc_endpoint.id,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "AllowAll",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Action": ["dynamodb:*"],
-                    "Resource": "*",
-                }],
-            }))
-        ```
-
         ## Import
 
         Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:
@@ -197,6 +173,10 @@ class VpcEndpointPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcEndpointPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

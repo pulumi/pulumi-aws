@@ -13,76 +13,12 @@ namespace Pulumi.Aws.Efs
     {
         /// <summary>
         /// Provides information about an Elastic File System (EFS) File System.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var fileSystemId = config.Get("fileSystemId") ?? "";
-        ///     var byId = Aws.Efs.GetFileSystem.Invoke(new()
-        ///     {
-        ///         FileSystemId = fileSystemId,
-        ///     });
-        /// 
-        ///     var byTag = Aws.Efs.GetFileSystem.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Environment", "dev" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFileSystemResult> InvokeAsync(GetFileSystemArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? new GetFileSystemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides information about an Elastic File System (EFS) File System.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var config = new Config();
-        ///     var fileSystemId = config.Get("fileSystemId") ?? "";
-        ///     var byId = Aws.Efs.GetFileSystem.Invoke(new()
-        ///     {
-        ///         FileSystemId = fileSystemId,
-        ///     });
-        /// 
-        ///     var byTag = Aws.Efs.GetFileSystem.Invoke(new()
-        ///     {
-        ///         Tags = 
-        ///         {
-        ///             { "Environment", "dev" },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFileSystemResult> Invoke(GetFileSystemInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? new GetFileSystemInvokeArgs(), options.WithDefaults());

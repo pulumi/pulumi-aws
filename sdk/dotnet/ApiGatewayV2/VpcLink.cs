@@ -15,32 +15,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// &gt; **Note:** Amazon API Gateway Version 2 VPC Links enable private integrations that connect HTTP APIs to private resources in a VPC.
     /// To enable private integration for REST APIs, use the Amazon API Gateway Version 1 VPC Link resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGatewayV2.VpcLink("example", new()
-    ///     {
-    ///         SecurityGroupIds = new[]
-    ///         {
-    ///             data.Aws_security_group.Example.Id,
-    ///         },
-    ///         SubnetIds = data.Aws_subnets.Example.Ids,
-    ///         Tags = 
-    ///         {
-    ///             { "Usage", "example" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:

@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing SES Identity Notification Topics
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ses.IdentityNotificationTopic("test", {
- *     topicArn: aws_sns_topic.example.arn,
- *     notificationType: "Bounce",
- *     identity: aws_ses_domain_identity.example.domain,
- *     includeOriginalHeaders: true,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:

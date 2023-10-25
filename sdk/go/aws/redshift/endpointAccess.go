@@ -15,34 +15,6 @@ import (
 
 // Creates a new Amazon Redshift endpoint access.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewEndpointAccess(ctx, "example", &redshift.EndpointAccessArgs{
-//				EndpointName:      pulumi.String("example"),
-//				SubnetGroupName:   pulumi.Any(aws_redshift_subnet_group.Example.Id),
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Redshift endpoint access using the `name`. For example:

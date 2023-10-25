@@ -13,23 +13,6 @@ namespace Pulumi.Aws.Auditmanager
     /// Resource for managing AWS Audit Manager Organization Admin Account Registration.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Auditmanager.OrganizationAdminAccountRegistration("example", new()
-    ///     {
-    ///         AdminAccountId = "012345678901",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

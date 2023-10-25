@@ -12,25 +12,6 @@ namespace Pulumi.Aws.CostExplorer
     /// <summary>
     /// Provides a CE Cost Allocation Tag.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CostExplorer.CostAllocationTag("example", new()
-    ///     {
-    ///         Status = "Active",
-    ///         TagKey = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For example:

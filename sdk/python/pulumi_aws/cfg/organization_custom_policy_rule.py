@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OrganizationCustomPolicyRuleArgs', 'OrganizationCustomPolicyRule']
@@ -45,29 +45,92 @@ class OrganizationCustomPolicyRuleArgs:
         :param pulumi.Input[str] tag_key_scope: Tag key of AWS resources to evaluate
         :param pulumi.Input[str] tag_value_scope: Tag value of AWS resources to evaluate
         """
-        pulumi.set(__self__, "policy_runtime", policy_runtime)
-        pulumi.set(__self__, "policy_text", policy_text)
-        pulumi.set(__self__, "trigger_types", trigger_types)
+        OrganizationCustomPolicyRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_runtime=policy_runtime,
+            policy_text=policy_text,
+            trigger_types=trigger_types,
+            debug_log_delivery_accounts=debug_log_delivery_accounts,
+            description=description,
+            excluded_accounts=excluded_accounts,
+            input_parameters=input_parameters,
+            maximum_execution_frequency=maximum_execution_frequency,
+            name=name,
+            resource_id_scope=resource_id_scope,
+            resource_types_scopes=resource_types_scopes,
+            tag_key_scope=tag_key_scope,
+            tag_value_scope=tag_value_scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_runtime: Optional[pulumi.Input[str]] = None,
+             policy_text: Optional[pulumi.Input[str]] = None,
+             trigger_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             debug_log_delivery_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             input_parameters: Optional[pulumi.Input[str]] = None,
+             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_id_scope: Optional[pulumi.Input[str]] = None,
+             resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tag_key_scope: Optional[pulumi.Input[str]] = None,
+             tag_value_scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_runtime is None and 'policyRuntime' in kwargs:
+            policy_runtime = kwargs['policyRuntime']
+        if policy_runtime is None:
+            raise TypeError("Missing 'policy_runtime' argument")
+        if policy_text is None and 'policyText' in kwargs:
+            policy_text = kwargs['policyText']
+        if policy_text is None:
+            raise TypeError("Missing 'policy_text' argument")
+        if trigger_types is None and 'triggerTypes' in kwargs:
+            trigger_types = kwargs['triggerTypes']
+        if trigger_types is None:
+            raise TypeError("Missing 'trigger_types' argument")
+        if debug_log_delivery_accounts is None and 'debugLogDeliveryAccounts' in kwargs:
+            debug_log_delivery_accounts = kwargs['debugLogDeliveryAccounts']
+        if excluded_accounts is None and 'excludedAccounts' in kwargs:
+            excluded_accounts = kwargs['excludedAccounts']
+        if input_parameters is None and 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if maximum_execution_frequency is None and 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+        if resource_id_scope is None and 'resourceIdScope' in kwargs:
+            resource_id_scope = kwargs['resourceIdScope']
+        if resource_types_scopes is None and 'resourceTypesScopes' in kwargs:
+            resource_types_scopes = kwargs['resourceTypesScopes']
+        if tag_key_scope is None and 'tagKeyScope' in kwargs:
+            tag_key_scope = kwargs['tagKeyScope']
+        if tag_value_scope is None and 'tagValueScope' in kwargs:
+            tag_value_scope = kwargs['tagValueScope']
+
+        _setter("policy_runtime", policy_runtime)
+        _setter("policy_text", policy_text)
+        _setter("trigger_types", trigger_types)
         if debug_log_delivery_accounts is not None:
-            pulumi.set(__self__, "debug_log_delivery_accounts", debug_log_delivery_accounts)
+            _setter("debug_log_delivery_accounts", debug_log_delivery_accounts)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if excluded_accounts is not None:
-            pulumi.set(__self__, "excluded_accounts", excluded_accounts)
+            _setter("excluded_accounts", excluded_accounts)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if maximum_execution_frequency is not None:
-            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+            _setter("maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_id_scope is not None:
-            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+            _setter("resource_id_scope", resource_id_scope)
         if resource_types_scopes is not None:
-            pulumi.set(__self__, "resource_types_scopes", resource_types_scopes)
+            _setter("resource_types_scopes", resource_types_scopes)
         if tag_key_scope is not None:
-            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+            _setter("tag_key_scope", tag_key_scope)
         if tag_value_scope is not None:
-            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+            _setter("tag_value_scope", tag_value_scope)
 
     @property
     @pulumi.getter(name="policyRuntime")
@@ -264,34 +327,93 @@ class _OrganizationCustomPolicyRuleState:
                
                The following arguments are optional:
         """
+        _OrganizationCustomPolicyRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            debug_log_delivery_accounts=debug_log_delivery_accounts,
+            description=description,
+            excluded_accounts=excluded_accounts,
+            input_parameters=input_parameters,
+            maximum_execution_frequency=maximum_execution_frequency,
+            name=name,
+            policy_runtime=policy_runtime,
+            policy_text=policy_text,
+            resource_id_scope=resource_id_scope,
+            resource_types_scopes=resource_types_scopes,
+            tag_key_scope=tag_key_scope,
+            tag_value_scope=tag_value_scope,
+            trigger_types=trigger_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             debug_log_delivery_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             input_parameters: Optional[pulumi.Input[str]] = None,
+             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_runtime: Optional[pulumi.Input[str]] = None,
+             policy_text: Optional[pulumi.Input[str]] = None,
+             resource_id_scope: Optional[pulumi.Input[str]] = None,
+             resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tag_key_scope: Optional[pulumi.Input[str]] = None,
+             tag_value_scope: Optional[pulumi.Input[str]] = None,
+             trigger_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if debug_log_delivery_accounts is None and 'debugLogDeliveryAccounts' in kwargs:
+            debug_log_delivery_accounts = kwargs['debugLogDeliveryAccounts']
+        if excluded_accounts is None and 'excludedAccounts' in kwargs:
+            excluded_accounts = kwargs['excludedAccounts']
+        if input_parameters is None and 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if maximum_execution_frequency is None and 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+        if policy_runtime is None and 'policyRuntime' in kwargs:
+            policy_runtime = kwargs['policyRuntime']
+        if policy_text is None and 'policyText' in kwargs:
+            policy_text = kwargs['policyText']
+        if resource_id_scope is None and 'resourceIdScope' in kwargs:
+            resource_id_scope = kwargs['resourceIdScope']
+        if resource_types_scopes is None and 'resourceTypesScopes' in kwargs:
+            resource_types_scopes = kwargs['resourceTypesScopes']
+        if tag_key_scope is None and 'tagKeyScope' in kwargs:
+            tag_key_scope = kwargs['tagKeyScope']
+        if tag_value_scope is None and 'tagValueScope' in kwargs:
+            tag_value_scope = kwargs['tagValueScope']
+        if trigger_types is None and 'triggerTypes' in kwargs:
+            trigger_types = kwargs['triggerTypes']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if debug_log_delivery_accounts is not None:
-            pulumi.set(__self__, "debug_log_delivery_accounts", debug_log_delivery_accounts)
+            _setter("debug_log_delivery_accounts", debug_log_delivery_accounts)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if excluded_accounts is not None:
-            pulumi.set(__self__, "excluded_accounts", excluded_accounts)
+            _setter("excluded_accounts", excluded_accounts)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if maximum_execution_frequency is not None:
-            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+            _setter("maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_runtime is not None:
-            pulumi.set(__self__, "policy_runtime", policy_runtime)
+            _setter("policy_runtime", policy_runtime)
         if policy_text is not None:
-            pulumi.set(__self__, "policy_text", policy_text)
+            _setter("policy_text", policy_text)
         if resource_id_scope is not None:
-            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+            _setter("resource_id_scope", resource_id_scope)
         if resource_types_scopes is not None:
-            pulumi.set(__self__, "resource_types_scopes", resource_types_scopes)
+            _setter("resource_types_scopes", resource_types_scopes)
         if tag_key_scope is not None:
-            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+            _setter("tag_key_scope", tag_key_scope)
         if tag_value_scope is not None:
-            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+            _setter("tag_value_scope", tag_value_scope)
         if trigger_types is not None:
-            pulumi.set(__self__, "trigger_types", trigger_types)
+            _setter("trigger_types", trigger_types)
 
     @property
     @pulumi.getter
@@ -489,31 +611,6 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excluded_accounts` argument.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cfg.OrganizationCustomPolicyRule("example",
-            policy_runtime="guard-2.x.x",
-            policy_text=\"\"\"  let status = ['ACTIVE']
-
-          rule tableisactive when
-              resourceType == "AWS::DynamoDB::Table" {
-              configuration.tableStatus == %status
-          }
-
-          rule checkcompliance when
-              resourceType == "AWS::DynamoDB::Table"
-              tableisactive {
-                  let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
-                  %pitr == "ENABLED"
-              }
-
-        \"\"\",
-            resource_types_scopes=["AWS::DynamoDB::Table"])
-        ```
 
         ## Import
 
@@ -553,31 +650,6 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excluded_accounts` argument.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cfg.OrganizationCustomPolicyRule("example",
-            policy_runtime="guard-2.x.x",
-            policy_text=\"\"\"  let status = ['ACTIVE']
-
-          rule tableisactive when
-              resourceType == "AWS::DynamoDB::Table" {
-              configuration.tableStatus == %status
-          }
-
-          rule checkcompliance when
-              resourceType == "AWS::DynamoDB::Table"
-              tableisactive {
-                  let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
-                  %pitr == "ENABLED"
-              }
-
-        \"\"\",
-            resource_types_scopes=["AWS::DynamoDB::Table"])
-        ```
 
         ## Import
 
@@ -597,6 +669,10 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationCustomPolicyRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

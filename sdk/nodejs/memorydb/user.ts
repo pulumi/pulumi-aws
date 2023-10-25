@@ -13,23 +13,6 @@ import * as utilities from "../utilities";
  * More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
  *
  * > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as random from "@pulumi/random";
- *
- * const exampleRandomPassword = new random.RandomPassword("exampleRandomPassword", {length: 16});
- * const exampleUser = new aws.memorydb.User("exampleUser", {
- *     userName: "my-user",
- *     accessString: "on ~* &* +@all",
- *     authenticationMode: {
- *         type: "password",
- *         passwords: [exampleRandomPassword.result],
- *     },
- * });
- * ```
  *
  * ## Import
  *

@@ -22,38 +22,6 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// The state associated with existing resources will automatically be migrated.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var serviceb = new Aws.AppMesh.VirtualRouter("serviceb", new()
-    ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualRouterSpecArgs
-    ///         {
-    ///             Listeners = new[]
-    ///             {
-    ///                 new Aws.AppMesh.Inputs.VirtualRouterSpecListenerArgs
-    ///                 {
-    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualRouterSpecListenerPortMappingArgs
-    ///                     {
-    ///                         Port = 8080,
-    ///                         Protocol = "http",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:

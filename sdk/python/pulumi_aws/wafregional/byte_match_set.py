@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,10 +23,25 @@ class ByteMatchSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]] byte_match_tuples: Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
         :param pulumi.Input[str] name: The name or description of the ByteMatchSet.
         """
+        ByteMatchSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            byte_match_tuples=byte_match_tuples,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             byte_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if byte_match_tuples is None and 'byteMatchTuples' in kwargs:
+            byte_match_tuples = kwargs['byteMatchTuples']
+
         if byte_match_tuples is not None:
-            pulumi.set(__self__, "byte_match_tuples", byte_match_tuples)
+            _setter("byte_match_tuples", byte_match_tuples)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="byteMatchTuples")
@@ -63,10 +78,25 @@ class _ByteMatchSetState:
         :param pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]] byte_match_tuples: Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
         :param pulumi.Input[str] name: The name or description of the ByteMatchSet.
         """
+        _ByteMatchSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            byte_match_tuples=byte_match_tuples,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             byte_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if byte_match_tuples is None and 'byteMatchTuples' in kwargs:
+            byte_match_tuples = kwargs['byteMatchTuples']
+
         if byte_match_tuples is not None:
-            pulumi.set(__self__, "byte_match_tuples", byte_match_tuples)
+            _setter("byte_match_tuples", byte_match_tuples)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="byteMatchTuples")
@@ -104,23 +134,6 @@ class ByteMatchSet(pulumi.CustomResource):
         """
         Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        byte_set = aws.wafregional.ByteMatchSet("byteSet", byte_match_tuples=[aws.wafregional.ByteMatchSetByteMatchTupleArgs(
-            field_to_match=aws.wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs(
-                data="referer",
-                type="HEADER",
-            ),
-            positional_constraint="CONTAINS",
-            target_string="badrefer1",
-            text_transformation="NONE",
-        )])
-        ```
-
         ## Import
 
         Using `pulumi import`, import WAF Regional Byte Match Set using the id. For example:
@@ -143,23 +156,6 @@ class ByteMatchSet(pulumi.CustomResource):
         """
         Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        byte_set = aws.wafregional.ByteMatchSet("byteSet", byte_match_tuples=[aws.wafregional.ByteMatchSetByteMatchTupleArgs(
-            field_to_match=aws.wafregional.ByteMatchSetByteMatchTupleFieldToMatchArgs(
-                data="referer",
-                type="HEADER",
-            ),
-            positional_constraint="CONTAINS",
-            target_string="badrefer1",
-            text_transformation="NONE",
-        )])
-        ```
-
         ## Import
 
         Using `pulumi import`, import WAF Regional Byte Match Set using the id. For example:
@@ -178,6 +174,10 @@ class ByteMatchSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ByteMatchSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

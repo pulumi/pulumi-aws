@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,12 +25,29 @@ class LoggingConfigurationArgs:
         :param pulumi.Input[str] name: Logging Configuration name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        LoggingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_configuration=destination_configuration,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_configuration: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_configuration is None and 'destinationConfiguration' in kwargs:
+            destination_configuration = kwargs['destinationConfiguration']
+
         if destination_configuration is not None:
-            pulumi.set(__self__, "destination_configuration", destination_configuration)
+            _setter("destination_configuration", destination_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="destinationConfiguration")
@@ -87,21 +104,46 @@ class _LoggingConfigurationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _LoggingConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            destination_configuration=destination_configuration,
+            name=name,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             destination_configuration: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_configuration is None and 'destinationConfiguration' in kwargs:
+            destination_configuration = kwargs['destinationConfiguration']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if destination_configuration is not None:
-            pulumi.set(__self__, "destination_configuration", destination_configuration)
+            _setter("destination_configuration", destination_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -192,53 +234,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
 
         ## Example Usage
-        ### Basic Usage - Logging to CloudWatch
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            cloudwatch_logs=aws.ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs(
-                log_group_name=example_log_group.name,
-            ),
-        ))
-        ```
-        ### Basic Usage - Logging to Kinesis Firehose with Extended S3
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket_prefix="tf-ivschat-logging-bucket")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=example_role.arn,
-                bucket_arn=example_bucket_v2.arn,
-            ),
-            tags={
-                "LogDeliveryEnabled": "true",
-            })
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            firehose=aws.ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs(
-                delivery_stream_name=example_firehose_delivery_stream.name,
-            ),
-        ))
-        ```
 
         ## Import
 
@@ -264,53 +259,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
 
         ## Example Usage
-        ### Basic Usage - Logging to CloudWatch
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            cloudwatch_logs=aws.ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs(
-                log_group_name=example_log_group.name,
-            ),
-        ))
-        ```
-        ### Basic Usage - Logging to Kinesis Firehose with Extended S3
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket_prefix="tf-ivschat-logging-bucket")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=example_role.arn,
-                bucket_arn=example_bucket_v2.arn,
-            ),
-            tags={
-                "LogDeliveryEnabled": "true",
-            })
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            firehose=aws.ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs(
-                delivery_stream_name=example_firehose_delivery_stream.name,
-            ),
-        ))
-        ```
 
         ## Import
 
@@ -330,6 +278,10 @@ class LoggingConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoggingConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -347,6 +299,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LoggingConfigurationArgs.__new__(LoggingConfigurationArgs)
 
+            destination_configuration = _utilities.configure(destination_configuration, LoggingConfigurationDestinationConfigurationArgs, True)
             __props__.__dict__["destination_configuration"] = destination_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

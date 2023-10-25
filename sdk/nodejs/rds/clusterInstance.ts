@@ -27,35 +27,6 @@ import {EngineType} from "./index";
  *
  * > **NOTE:** `aurora` is no longer a valid `engine` because of [Amazon Aurora's MySQL-Compatible Edition version 1 end of life](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.MySQL56.EOL.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.rds.Cluster("default", {
- *     clusterIdentifier: "aurora-cluster-demo",
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *         "us-west-2c",
- *     ],
- *     databaseName: "mydb",
- *     masterUsername: "foo",
- *     masterPassword: "barbut8chars",
- * });
- * const clusterInstances: aws.rds.ClusterInstance[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     clusterInstances.push(new aws.rds.ClusterInstance(`clusterInstances-${range.value}`, {
- *         identifier: `aurora-cluster-demo-${range.value}`,
- *         clusterIdentifier: _default.id,
- *         instanceClass: "db.r4.large",
- *         engine: _default.engine,
- *         engineVersion: _default.engineVersion,
- *     }));
- * }
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For example:

@@ -8,25 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Transcribe VocabularyFilter.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transcribe.VocabularyFilter("example", {
- *     languageCode: "en-US",
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value3",
- *     },
- *     vocabularyFilterName: "example",
- *     words: [
- *         "cars",
- *         "bucket",
- *     ],
- * });
- * ```
  *
  * ## Import
  *

@@ -11,37 +11,6 @@ namespace Pulumi.Aws.DirectConnect
 {
     /// <summary>
     /// Associates a Direct Connect Connection with a LAG.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleConnection = new Aws.DirectConnect.Connection("exampleConnection", new()
-    ///     {
-    ///         Bandwidth = "1Gbps",
-    ///         Location = "EqSe2-EQ",
-    ///     });
-    /// 
-    ///     var exampleLinkAggregationGroup = new Aws.DirectConnect.LinkAggregationGroup("exampleLinkAggregationGroup", new()
-    ///     {
-    ///         ConnectionsBandwidth = "1Gbps",
-    ///         Location = "EqSe2-EQ",
-    ///     });
-    /// 
-    ///     var exampleConnectionAssociation = new Aws.DirectConnect.ConnectionAssociation("exampleConnectionAssociation", new()
-    ///     {
-    ///         ConnectionId = exampleConnection.Id,
-    ///         LagId = exampleLinkAggregationGroup.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/connectionAssociation:ConnectionAssociation")]
     public partial class ConnectionAssociation : global::Pulumi.CustomResource

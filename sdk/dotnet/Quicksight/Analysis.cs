@@ -13,38 +13,6 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing a QuickSight Analysis.
     /// 
     /// ## Example Usage
-    /// ### From Source Template
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.Analysis("example", new()
-    ///     {
-    ///         AnalysisId = "example-id",
-    ///         SourceEntity = new Aws.Quicksight.Inputs.AnalysisSourceEntityArgs
-    ///         {
-    ///             SourceTemplate = new Aws.Quicksight.Inputs.AnalysisSourceEntitySourceTemplateArgs
-    ///             {
-    ///                 Arn = aws_quicksight_template.Source.Arn,
-    ///                 DataSetReferences = new[]
-    ///                 {
-    ///                     new Aws.Quicksight.Inputs.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs
-    ///                     {
-    ///                         DataSetArn = aws_quicksight_data_set.Dataset.Arn,
-    ///                         DataSetPlaceholder = "1",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -7,24 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Amplify Webhook resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.amplify.App("example", {});
- * const masterBranch = new aws.amplify.Branch("masterBranch", {
- *     appId: example.id,
- *     branchName: "master",
- * });
- * const masterWebhook = new aws.amplify.Webhook("masterWebhook", {
- *     appId: example.id,
- *     branchName: masterBranch.branchName,
- *     description: "triggermaster",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Amplify webhook using a webhook ID. For example:

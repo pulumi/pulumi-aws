@@ -12,47 +12,6 @@ namespace Pulumi.Aws.LightSail
     /// <summary>
     /// Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testLb = new Aws.LightSail.Lb("testLb", new()
-    ///     {
-    ///         HealthCheckPath = "/",
-    ///         InstancePort = 80,
-    ///         Tags = 
-    ///         {
-    ///             { "foo", "bar" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testLbCertificate = new Aws.LightSail.LbCertificate("testLbCertificate", new()
-    ///     {
-    ///         LbName = testLb.Id,
-    ///         DomainName = "test.com",
-    ///     });
-    /// 
-    ///     var testLbCertificateAttachment = new Aws.LightSail.LbCertificateAttachment("testLbCertificateAttachment", new()
-    ///     {
-    ///         LbName = testLb.Name,
-    ///         CertificateName = testLbCertificate.Name,
-    ///     });
-    /// 
-    ///     var testLbHttpsRedirectionPolicy = new Aws.LightSail.LbHttpsRedirectionPolicy("testLbHttpsRedirectionPolicy", new()
-    ///     {
-    ///         LbName = testLb.Name,
-    ///         Enabled = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:

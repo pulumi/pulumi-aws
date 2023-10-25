@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetSitesResult',
     'AwaitableGetSitesResult',
     'get_sites',
+    'get_sites_output',
 ]
 
 @pulumi.output_type
@@ -58,15 +59,6 @@ class AwaitableGetSitesResult(GetSitesResult):
 def get_sites(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesResult:
     """
     Provides details about multiple Outposts Sites.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    all = aws.outposts.get_sites()
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -75,3 +67,11 @@ def get_sites(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesR
     return AwaitableGetSitesResult(
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'))
+
+
+@_utilities.lift_output_func(get_sites)
+def get_sites_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSitesResult]:
+    """
+    Provides details about multiple Outposts Sites.
+    """
+    ...

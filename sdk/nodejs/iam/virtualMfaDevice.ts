@@ -12,17 +12,6 @@ import * as utilities from "../utilities";
  *   To associate the virtual MFA device with a user and enable it, use the code returned in either `base32StringSeed` or `qrCodePng` to generate TOTP authentication codes.
  *   The authentication codes can then be used with the AWS CLI command [`aws iam enable-mfa-device`](https://docs.aws.amazon.com/cli/latest/reference/iam/enable-mfa-device.html) or the AWS API call [`EnableMFADevice`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html).
  *
- * ## Example Usage
- *
- * **Using certs on file:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iam.VirtualMfaDevice("example", {virtualMfaDeviceName: "example"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:

@@ -13,40 +13,6 @@ namespace Pulumi.Aws.Comprehend
     /// Resource for managing an AWS Comprehend Document Classifier.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var documents = new Aws.S3.BucketObjectv2("documents");
-    /// 
-    ///     // ...
-    ///     var example = new Aws.Comprehend.DocumentClassifier("example", new()
-    ///     {
-    ///         DataAccessRoleArn = aws_iam_role.Example.Arn,
-    ///         LanguageCode = "en",
-    ///         InputDataConfig = new Aws.Comprehend.Inputs.DocumentClassifierInputDataConfigArgs
-    ///         {
-    ///             S3Uri = documents.Id.Apply(id =&gt; $"s3://{aws_s3_bucket.Test.Bucket}/{id}"),
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy.Example,
-    ///         },
-    ///     });
-    /// 
-    ///     var entities = new Aws.S3.BucketObjectv2("entities");
-    /// 
-    ///     // ...
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

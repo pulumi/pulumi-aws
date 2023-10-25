@@ -14,57 +14,6 @@ namespace Pulumi.Aws.Fsx
     /// See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html) for more information.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new()
-    ///     {
-    ///         FileSystemId = aws_fsx_ontap_file_system.Test.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Using a Self-Managed Microsoft Active Directory
-    /// 
-    /// Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new()
-    ///     {
-    ///         FileSystemId = aws_fsx_ontap_file_system.Test.Id,
-    ///         ActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs
-    ///         {
-    ///             NetbiosName = "mysvm",
-    ///             SelfManagedActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs
-    ///             {
-    ///                 DnsIps = new[]
-    ///                 {
-    ///                     "10.0.0.111",
-    ///                     "10.0.0.222",
-    ///                 },
-    ///                 DomainName = "corp.example.com",
-    ///                 Password = "avoid-plaintext-passwords",
-    ///                 Username = "Admin",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -11,28 +11,6 @@ namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
     /// Provides an OpsWorks permission resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myStackPermission = new Aws.OpsWorks.Permission("myStackPermission", new()
-    ///     {
-    ///         AllowSsh = true,
-    ///         AllowSudo = true,
-    ///         Level = "iam_only",
-    ///         UserArn = aws_iam_user.User.Arn,
-    ///         StackId = aws_opsworks_stack.Stack.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/permission:Permission")]
     public partial class Permission : global::Pulumi.CustomResource

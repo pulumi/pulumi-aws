@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a new Amazon Redshift Serverless Usage Limit.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleWorkgroup = new aws.redshiftserverless.Workgroup("exampleWorkgroup", {
- *     namespaceName: aws_redshiftserverless_namespace.example.namespace_name,
- *     workgroupName: "example",
- * });
- * const exampleUsageLimit = new aws.redshiftserverless.UsageLimit("exampleUsageLimit", {
- *     resourceArn: exampleWorkgroup.arn,
- *     usageType: "serverless-compute",
- *     amount: 60,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:

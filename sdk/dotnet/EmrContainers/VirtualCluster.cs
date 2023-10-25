@@ -13,34 +13,6 @@ namespace Pulumi.Aws.EmrContainers
     /// Manages an EMR Containers (EMR on EKS) Virtual Cluster.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.EmrContainers.VirtualCluster("example", new()
-    ///     {
-    ///         ContainerProvider = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderArgs
-    ///         {
-    ///             Id = aws_eks_cluster.Example.Name,
-    ///             Type = "EKS",
-    ///             Info = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderInfoArgs
-    ///             {
-    ///                 EksInfo = new Aws.EmrContainers.Inputs.VirtualClusterContainerProviderInfoEksInfoArgs
-    ///                 {
-    ///                     Namespace = "default",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

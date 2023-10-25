@@ -8,34 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Auth Policy.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleService = new aws.vpclattice.Service("exampleService", {
- *     authType: "AWS_IAM",
- *     customDomainName: "example.com",
- * });
- * const exampleAuthPolicy = new aws.vpclattice.AuthPolicy("exampleAuthPolicy", {
- *     resourceIdentifier: exampleService.arn,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "*",
- *             Effect: "Allow",
- *             Principal: "*",
- *             Resource: "*",
- *             Condition: {
- *                 StringNotEqualsIgnoreCase: {
- *                     "aws:PrincipalType": "anonymous",
- *                 },
- *             },
- *         }],
- *     }),
- * });
- * ```
  *
  * ## Import
  *

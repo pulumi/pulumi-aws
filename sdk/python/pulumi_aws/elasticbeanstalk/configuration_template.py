@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,17 +34,44 @@ class ConfigurationTemplateArgs:
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your Template
                off of. Example stacks can be found in the [Amazon API documentation][1]
         """
-        pulumi.set(__self__, "application", application)
+        ConfigurationTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application=application,
+            description=description,
+            environment_id=environment_id,
+            name=name,
+            settings=settings,
+            solution_stack_name=solution_stack_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]]] = None,
+             solution_stack_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application is None:
+            raise TypeError("Missing 'application' argument")
+        if environment_id is None and 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if solution_stack_name is None and 'solutionStackName' in kwargs:
+            solution_stack_name = kwargs['solutionStackName']
+
+        _setter("application", application)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if solution_stack_name is not None:
-            pulumi.set(__self__, "solution_stack_name", solution_stack_name)
+            _setter("solution_stack_name", solution_stack_name)
 
     @property
     @pulumi.getter
@@ -143,18 +170,43 @@ class _ConfigurationTemplateState:
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your Template
                off of. Example stacks can be found in the [Amazon API documentation][1]
         """
+        _ConfigurationTemplateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application=application,
+            description=description,
+            environment_id=environment_id,
+            name=name,
+            settings=settings,
+            solution_stack_name=solution_stack_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]]] = None,
+             solution_stack_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment_id is None and 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if solution_stack_name is None and 'solutionStackName' in kwargs:
+            solution_stack_name = kwargs['solutionStackName']
+
         if application is not None:
-            pulumi.set(__self__, "application", application)
+            _setter("application", application)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if solution_stack_name is not None:
-            pulumi.set(__self__, "solution_stack_name", solution_stack_name)
+            _setter("solution_stack_name", solution_stack_name)
 
     @property
     @pulumi.getter
@@ -249,17 +301,6 @@ class ConfigurationTemplate(pulumi.CustomResource):
         a specific application and are used to deploy different versions of the
         application with the same configuration settings.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        tftest = aws.elasticbeanstalk.Application("tftest", description="tf-test-desc")
-        my_template = aws.elasticbeanstalk.ConfigurationTemplate("myTemplate",
-            application=tftest.name,
-            solution_stack_name="64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")
-        ```
         ## Option Settings
 
         The `setting` field supports the following format:
@@ -292,17 +333,6 @@ class ConfigurationTemplate(pulumi.CustomResource):
         a specific application and are used to deploy different versions of the
         application with the same configuration settings.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        tftest = aws.elasticbeanstalk.Application("tftest", description="tf-test-desc")
-        my_template = aws.elasticbeanstalk.ConfigurationTemplate("myTemplate",
-            application=tftest.name,
-            solution_stack_name="64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")
-        ```
         ## Option Settings
 
         The `setting` field supports the following format:
@@ -322,6 +352,10 @@ class ConfigurationTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

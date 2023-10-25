@@ -12,26 +12,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// <summary>
     /// Registers sources (network interfaces) with the transit gateway multicast group.
     /// A multicast source is a network interface attached to a supported instance that sends multicast traffic.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.MulticastGroupSource("example", new()
-    ///     {
-    ///         GroupIpAddress = "224.0.0.1",
-    ///         NetworkInterfaceId = aws_network_interface.Example.Id,
-    ///         TransitGatewayMulticastDomainId = aws_ec2_transit_gateway_multicast_domain.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource")]
     public partial class MulticastGroupSource : global::Pulumi.CustomResource

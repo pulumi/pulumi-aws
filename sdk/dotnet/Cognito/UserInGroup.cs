@@ -11,49 +11,6 @@ namespace Pulumi.Aws.Cognito
 {
     /// <summary>
     /// Adds the specified user to the specified group.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new()
-    ///     {
-    ///         PasswordPolicy = new Aws.Cognito.Inputs.UserPoolPasswordPolicyArgs
-    ///         {
-    ///             TemporaryPasswordValidityDays = 7,
-    ///             MinimumLength = 6,
-    ///             RequireUppercase = false,
-    ///             RequireSymbols = false,
-    ///             RequireNumbers = false,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
-    ///     {
-    ///         UserPoolId = exampleUserPool.Id,
-    ///         Username = "example",
-    ///     });
-    /// 
-    ///     var exampleUserGroup = new Aws.Cognito.UserGroup("exampleUserGroup", new()
-    ///     {
-    ///         UserPoolId = exampleUserPool.Id,
-    ///     });
-    /// 
-    ///     var exampleUserInGroup = new Aws.Cognito.UserInGroup("exampleUserInGroup", new()
-    ///     {
-    ///         UserPoolId = exampleUserPool.Id,
-    ///         GroupName = exampleUserGroup.Name,
-    ///         Username = exampleUser.Username,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userInGroup:UserInGroup")]
     public partial class UserInGroup : global::Pulumi.CustomResource

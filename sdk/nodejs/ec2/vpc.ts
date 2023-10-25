@@ -7,59 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a VPC resource.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
- * ```
- *
- * Basic usage with tags:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.ec2.Vpc("main", {
- *     cidrBlock: "10.0.0.0/16",
- *     instanceTenancy: "default",
- *     tags: {
- *         Name: "main",
- *     },
- * });
- * ```
- *
- * VPC with CIDR from AWS IPAM:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const testVpcIpam = new aws.ec2.VpcIpam("testVpcIpam", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
- * }]});
- * const testVpcIpamPool = new aws.ec2.VpcIpamPool("testVpcIpamPool", {
- *     addressFamily: "ipv4",
- *     ipamScopeId: testVpcIpam.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
- * });
- * const testVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr", {
- *     ipamPoolId: testVpcIpamPool.id,
- *     cidr: "172.20.0.0/16",
- * });
- * const testVpc = new aws.ec2.Vpc("testVpc", {
- *     ipv4IpamPoolId: testVpcIpamPool.id,
- *     ipv4NetmaskLength: 28,
- * }, {
- *     dependsOn: [testVpcIpamPoolCidr],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import VPCs using the VPC `id`. For example:

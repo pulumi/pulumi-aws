@@ -13,51 +13,6 @@ namespace Pulumi.Aws.S3Control
     /// Provides a resource to manage an S3 Object Lambda Access Point.
     /// An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///     });
-    /// 
-    ///     var exampleObjectLambdaAccessPoint = new Aws.S3Control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", new()
-    ///     {
-    ///         Configuration = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationArgs
-    ///         {
-    ///             SupportingAccessPoint = exampleAccessPoint.Arn,
-    ///             TransformationConfigurations = new[]
-    ///             {
-    ///                 new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs
-    ///                 {
-    ///                     Actions = new[]
-    ///                     {
-    ///                         "GetObject",
-    ///                     },
-    ///                     ContentTransformation = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs
-    ///                     {
-    ///                         AwsLambda = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs
-    ///                         {
-    ///                             FunctionArn = aws_lambda_function.Example.Arn,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For example:

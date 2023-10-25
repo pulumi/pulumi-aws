@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -49,10 +49,23 @@ class DeploymentConfigMinimumHealthyHosts(dict):
                deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
                When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
         """
+        DeploymentConfigMinimumHealthyHosts._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             value: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -104,12 +117,31 @@ class DeploymentConfigTrafficRoutingConfig(dict):
         :param 'DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs' time_based_linear: The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
         :param str type: Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
         """
+        DeploymentConfigTrafficRoutingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time_based_canary=time_based_canary,
+            time_based_linear=time_based_linear,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time_based_canary: Optional['outputs.DeploymentConfigTrafficRoutingConfigTimeBasedCanary'] = None,
+             time_based_linear: Optional['outputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinear'] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if time_based_canary is None and 'timeBasedCanary' in kwargs:
+            time_based_canary = kwargs['timeBasedCanary']
+        if time_based_linear is None and 'timeBasedLinear' in kwargs:
+            time_based_linear = kwargs['timeBasedLinear']
+
         if time_based_canary is not None:
-            pulumi.set(__self__, "time_based_canary", time_based_canary)
+            _setter("time_based_canary", time_based_canary)
         if time_based_linear is not None:
-            pulumi.set(__self__, "time_based_linear", time_based_linear)
+            _setter("time_based_linear", time_based_linear)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="timeBasedCanary")
@@ -145,10 +177,23 @@ class DeploymentConfigTrafficRoutingConfigTimeBasedCanary(dict):
         :param int interval: The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
         :param int percentage: The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
         """
+        DeploymentConfigTrafficRoutingConfigTimeBasedCanary._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interval=interval,
+            percentage=percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interval: Optional[int] = None,
+             percentage: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if percentage is not None:
-            pulumi.set(__self__, "percentage", percentage)
+            _setter("percentage", percentage)
 
     @property
     @pulumi.getter
@@ -176,10 +221,23 @@ class DeploymentConfigTrafficRoutingConfigTimeBasedLinear(dict):
         :param int interval: The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
         :param int percentage: The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
         """
+        DeploymentConfigTrafficRoutingConfigTimeBasedLinear._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interval=interval,
+            percentage=percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interval: Optional[int] = None,
+             percentage: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if percentage is not None:
-            pulumi.set(__self__, "percentage", percentage)
+            _setter("percentage", percentage)
 
     @property
     @pulumi.getter
@@ -226,12 +284,29 @@ class DeploymentGroupAlarmConfiguration(dict):
         :param bool enabled: Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
         :param bool ignore_poll_alarm_failure: Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
         """
+        DeploymentGroupAlarmConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            enabled=enabled,
+            ignore_poll_alarm_failure=ignore_poll_alarm_failure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             enabled: Optional[bool] = None,
+             ignore_poll_alarm_failure: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ignore_poll_alarm_failure is None and 'ignorePollAlarmFailure' in kwargs:
+            ignore_poll_alarm_failure = kwargs['ignorePollAlarmFailure']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if ignore_poll_alarm_failure is not None:
-            pulumi.set(__self__, "ignore_poll_alarm_failure", ignore_poll_alarm_failure)
+            _setter("ignore_poll_alarm_failure", ignore_poll_alarm_failure)
 
     @property
     @pulumi.getter
@@ -269,10 +344,23 @@ class DeploymentGroupAutoRollbackConfiguration(dict):
                
                _Only one `auto_rollback_configuration` is allowed_.
         """
+        DeploymentGroupAutoRollbackConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             events: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter
@@ -327,12 +415,33 @@ class DeploymentGroupBlueGreenDeploymentConfig(dict):
                
                _Only one `blue_green_deployment_config` is allowed_.
         """
+        DeploymentGroupBlueGreenDeploymentConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_ready_option=deployment_ready_option,
+            green_fleet_provisioning_option=green_fleet_provisioning_option,
+            terminate_blue_instances_on_deployment_success=terminate_blue_instances_on_deployment_success,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_ready_option: Optional['outputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption'] = None,
+             green_fleet_provisioning_option: Optional['outputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption'] = None,
+             terminate_blue_instances_on_deployment_success: Optional['outputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_ready_option is None and 'deploymentReadyOption' in kwargs:
+            deployment_ready_option = kwargs['deploymentReadyOption']
+        if green_fleet_provisioning_option is None and 'greenFleetProvisioningOption' in kwargs:
+            green_fleet_provisioning_option = kwargs['greenFleetProvisioningOption']
+        if terminate_blue_instances_on_deployment_success is None and 'terminateBlueInstancesOnDeploymentSuccess' in kwargs:
+            terminate_blue_instances_on_deployment_success = kwargs['terminateBlueInstancesOnDeploymentSuccess']
+
         if deployment_ready_option is not None:
-            pulumi.set(__self__, "deployment_ready_option", deployment_ready_option)
+            _setter("deployment_ready_option", deployment_ready_option)
         if green_fleet_provisioning_option is not None:
-            pulumi.set(__self__, "green_fleet_provisioning_option", green_fleet_provisioning_option)
+            _setter("green_fleet_provisioning_option", green_fleet_provisioning_option)
         if terminate_blue_instances_on_deployment_success is not None:
-            pulumi.set(__self__, "terminate_blue_instances_on_deployment_success", terminate_blue_instances_on_deployment_success)
+            _setter("terminate_blue_instances_on_deployment_success", terminate_blue_instances_on_deployment_success)
 
     @property
     @pulumi.getter(name="deploymentReadyOption")
@@ -389,10 +498,27 @@ class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption(dict):
         :param str action_on_timeout: When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
         :param int wait_time_in_minutes: The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
         """
+        DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_on_timeout=action_on_timeout,
+            wait_time_in_minutes=wait_time_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_on_timeout: Optional[str] = None,
+             wait_time_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_on_timeout is None and 'actionOnTimeout' in kwargs:
+            action_on_timeout = kwargs['actionOnTimeout']
+        if wait_time_in_minutes is None and 'waitTimeInMinutes' in kwargs:
+            wait_time_in_minutes = kwargs['waitTimeInMinutes']
+
         if action_on_timeout is not None:
-            pulumi.set(__self__, "action_on_timeout", action_on_timeout)
+            _setter("action_on_timeout", action_on_timeout)
         if wait_time_in_minutes is not None:
-            pulumi.set(__self__, "wait_time_in_minutes", wait_time_in_minutes)
+            _setter("wait_time_in_minutes", wait_time_in_minutes)
 
     @property
     @pulumi.getter(name="actionOnTimeout")
@@ -418,8 +544,19 @@ class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption(dict)
         """
         :param str action: The method used to add instances to a replacement environment.
         """
+        DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter
@@ -456,10 +593,25 @@ class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployment
         :param str action: The action to take on instances in the original environment after a successful blue/green deployment.
         :param int termination_wait_time_in_minutes: The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
         """
+        DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            termination_wait_time_in_minutes=termination_wait_time_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             termination_wait_time_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if termination_wait_time_in_minutes is None and 'terminationWaitTimeInMinutes' in kwargs:
+            termination_wait_time_in_minutes = kwargs['terminationWaitTimeInMinutes']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if termination_wait_time_in_minutes is not None:
-            pulumi.set(__self__, "termination_wait_time_in_minutes", termination_wait_time_in_minutes)
+            _setter("termination_wait_time_in_minutes", termination_wait_time_in_minutes)
 
     @property
     @pulumi.getter
@@ -508,10 +660,27 @@ class DeploymentGroupDeploymentStyle(dict):
                
                _Only one `deployment_style` is allowed_.
         """
+        DeploymentGroupDeploymentStyle._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_option=deployment_option,
+            deployment_type=deployment_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_option: Optional[str] = None,
+             deployment_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_option is None and 'deploymentOption' in kwargs:
+            deployment_option = kwargs['deploymentOption']
+        if deployment_type is None and 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+
         if deployment_option is not None:
-            pulumi.set(__self__, "deployment_option", deployment_option)
+            _setter("deployment_option", deployment_option)
         if deployment_type is not None:
-            pulumi.set(__self__, "deployment_type", deployment_type)
+            _setter("deployment_type", deployment_type)
 
     @property
     @pulumi.getter(name="deploymentOption")
@@ -545,12 +714,27 @@ class DeploymentGroupEc2TagFilter(dict):
                
                Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
         """
+        DeploymentGroupEc2TagFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -603,8 +787,21 @@ class DeploymentGroupEc2TagSet(dict):
         """
         :param Sequence['DeploymentGroupEc2TagSetEc2TagFilterArgs'] ec2_tag_filters: Tag filters associated with the deployment group. See the AWS docs for details.
         """
+        DeploymentGroupEc2TagSet._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ec2_tag_filters=ec2_tag_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ec2_tag_filters: Optional[Sequence['outputs.DeploymentGroupEc2TagSetEc2TagFilter']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ec2_tag_filters is None and 'ec2TagFilters' in kwargs:
+            ec2_tag_filters = kwargs['ec2TagFilters']
+
         if ec2_tag_filters is not None:
-            pulumi.set(__self__, "ec2_tag_filters", ec2_tag_filters)
+            _setter("ec2_tag_filters", ec2_tag_filters)
 
     @property
     @pulumi.getter(name="ec2TagFilters")
@@ -628,12 +825,27 @@ class DeploymentGroupEc2TagSetEc2TagFilter(dict):
                
                Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
         """
+        DeploymentGroupEc2TagSetEc2TagFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -690,8 +902,29 @@ class DeploymentGroupEcsService(dict):
         :param str cluster_name: The name of the ECS cluster.
         :param str service_name: The name of the ECS service.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "service_name", service_name)
+        DeploymentGroupEcsService._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            service_name=service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[str] = None,
+             service_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+
+        _setter("cluster_name", cluster_name)
+        _setter("service_name", service_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -742,12 +975,33 @@ class DeploymentGroupLoadBalancerInfo(dict):
         :param Sequence['DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs'] target_group_infos: The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elb_info` and `target_group_pair_info`.
         :param 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs' target_group_pair_info: The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elb_info` and `target_group_info`.
         """
+        DeploymentGroupLoadBalancerInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elb_infos=elb_infos,
+            target_group_infos=target_group_infos,
+            target_group_pair_info=target_group_pair_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elb_infos: Optional[Sequence['outputs.DeploymentGroupLoadBalancerInfoElbInfo']] = None,
+             target_group_infos: Optional[Sequence['outputs.DeploymentGroupLoadBalancerInfoTargetGroupInfo']] = None,
+             target_group_pair_info: Optional['outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfo'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if elb_infos is None and 'elbInfos' in kwargs:
+            elb_infos = kwargs['elbInfos']
+        if target_group_infos is None and 'targetGroupInfos' in kwargs:
+            target_group_infos = kwargs['targetGroupInfos']
+        if target_group_pair_info is None and 'targetGroupPairInfo' in kwargs:
+            target_group_pair_info = kwargs['targetGroupPairInfo']
+
         if elb_infos is not None:
-            pulumi.set(__self__, "elb_infos", elb_infos)
+            _setter("elb_infos", elb_infos)
         if target_group_infos is not None:
-            pulumi.set(__self__, "target_group_infos", target_group_infos)
+            _setter("target_group_infos", target_group_infos)
         if target_group_pair_info is not None:
-            pulumi.set(__self__, "target_group_pair_info", target_group_pair_info)
+            _setter("target_group_pair_info", target_group_pair_info)
 
     @property
     @pulumi.getter(name="elbInfos")
@@ -781,8 +1035,19 @@ class DeploymentGroupLoadBalancerInfoElbInfo(dict):
         """
         :param str name: The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
         """
+        DeploymentGroupLoadBalancerInfoElbInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -800,8 +1065,19 @@ class DeploymentGroupLoadBalancerInfoTargetGroupInfo(dict):
         """
         :param str name: The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
         """
+        DeploymentGroupLoadBalancerInfoTargetGroupInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -844,10 +1120,35 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo(dict):
         :param Sequence['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs'] target_groups: Configuration blocks for a target group within a target group pair (documented below).
         :param 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs' test_traffic_route: Configuration block for the test traffic route (documented below).
         """
-        pulumi.set(__self__, "prod_traffic_route", prod_traffic_route)
-        pulumi.set(__self__, "target_groups", target_groups)
+        DeploymentGroupLoadBalancerInfoTargetGroupPairInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prod_traffic_route=prod_traffic_route,
+            target_groups=target_groups,
+            test_traffic_route=test_traffic_route,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prod_traffic_route: Optional['outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute'] = None,
+             target_groups: Optional[Sequence['outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup']] = None,
+             test_traffic_route: Optional['outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if prod_traffic_route is None and 'prodTrafficRoute' in kwargs:
+            prod_traffic_route = kwargs['prodTrafficRoute']
+        if prod_traffic_route is None:
+            raise TypeError("Missing 'prod_traffic_route' argument")
+        if target_groups is None and 'targetGroups' in kwargs:
+            target_groups = kwargs['targetGroups']
+        if target_groups is None:
+            raise TypeError("Missing 'target_groups' argument")
+        if test_traffic_route is None and 'testTrafficRoute' in kwargs:
+            test_traffic_route = kwargs['testTrafficRoute']
+
+        _setter("prod_traffic_route", prod_traffic_route)
+        _setter("target_groups", target_groups)
         if test_traffic_route is not None:
-            pulumi.set(__self__, "test_traffic_route", test_traffic_route)
+            _setter("test_traffic_route", test_traffic_route)
 
     @property
     @pulumi.getter(name="prodTrafficRoute")
@@ -898,7 +1199,22 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute(dict):
         """
         :param Sequence[str] listener_arns: List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
         """
-        pulumi.set(__self__, "listener_arns", listener_arns)
+        DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            listener_arns=listener_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             listener_arns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if listener_arns is None and 'listenerArns' in kwargs:
+            listener_arns = kwargs['listenerArns']
+        if listener_arns is None:
+            raise TypeError("Missing 'listener_arns' argument")
+
+        _setter("listener_arns", listener_arns)
 
     @property
     @pulumi.getter(name="listenerArns")
@@ -916,7 +1232,20 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup(dict):
         """
         :param str name: Name of the target group.
         """
-        pulumi.set(__self__, "name", name)
+        DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -951,7 +1280,22 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute(dict):
         """
         :param Sequence[str] listener_arns: List of Amazon Resource Names (ARNs) of the load balancer listeners.
         """
-        pulumi.set(__self__, "listener_arns", listener_arns)
+        DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            listener_arns=listener_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             listener_arns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if listener_arns is None and 'listenerArns' in kwargs:
+            listener_arns = kwargs['listenerArns']
+        if listener_arns is None:
+            raise TypeError("Missing 'listener_arns' argument")
+
+        _setter("listener_arns", listener_arns)
 
     @property
     @pulumi.getter(name="listenerArns")
@@ -973,12 +1317,27 @@ class DeploymentGroupOnPremisesInstanceTagFilter(dict):
         :param str type: The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
         :param str value: The value of the tag filter.
         """
+        DeploymentGroupOnPremisesInstanceTagFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1037,9 +1396,36 @@ class DeploymentGroupTriggerConfiguration(dict):
         :param str trigger_name: The name of the notification trigger.
         :param str trigger_target_arn: The ARN of the SNS topic through which notifications are sent.
         """
-        pulumi.set(__self__, "trigger_events", trigger_events)
-        pulumi.set(__self__, "trigger_name", trigger_name)
-        pulumi.set(__self__, "trigger_target_arn", trigger_target_arn)
+        DeploymentGroupTriggerConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            trigger_events=trigger_events,
+            trigger_name=trigger_name,
+            trigger_target_arn=trigger_target_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             trigger_events: Optional[Sequence[str]] = None,
+             trigger_name: Optional[str] = None,
+             trigger_target_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if trigger_events is None and 'triggerEvents' in kwargs:
+            trigger_events = kwargs['triggerEvents']
+        if trigger_events is None:
+            raise TypeError("Missing 'trigger_events' argument")
+        if trigger_name is None and 'triggerName' in kwargs:
+            trigger_name = kwargs['triggerName']
+        if trigger_name is None:
+            raise TypeError("Missing 'trigger_name' argument")
+        if trigger_target_arn is None and 'triggerTargetArn' in kwargs:
+            trigger_target_arn = kwargs['triggerTargetArn']
+        if trigger_target_arn is None:
+            raise TypeError("Missing 'trigger_target_arn' argument")
+
+        _setter("trigger_events", trigger_events)
+        _setter("trigger_name", trigger_name)
+        _setter("trigger_target_arn", trigger_target_arn)
 
     @property
     @pulumi.getter(name="triggerEvents")

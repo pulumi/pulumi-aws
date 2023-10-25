@@ -14,33 +14,6 @@ import (
 )
 
 // Provides an OpsWorks haproxy layer resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewHaproxyLayer(ctx, "lb", &opsworks.HaproxyLayerArgs{
-//				StackId:       pulumi.Any(aws_opsworks_stack.Main.Id),
-//				StatsPassword: pulumi.String("foobarbaz"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type HaproxyLayer struct {
 	pulumi.CustomResourceState
 

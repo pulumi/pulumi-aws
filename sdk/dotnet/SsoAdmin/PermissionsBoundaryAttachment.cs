@@ -15,28 +15,6 @@ namespace Pulumi.Aws.SsoAdmin
     /// &gt; **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `aws.ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
     /// 
     /// ## Example Usage
-    /// ### Attaching an AWS-managed policy
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SsoAdmin.PermissionsBoundaryAttachment("example", new()
-    ///     {
-    ///         InstanceArn = aws_ssoadmin_permission_set.Example.Instance_arn,
-    ///         PermissionSetArn = aws_ssoadmin_permission_set.Example.Arn,
-    ///         PermissionsBoundary = new Aws.SsoAdmin.Inputs.PermissionsBoundaryAttachmentPermissionsBoundaryArgs
-    ///         {
-    ///             ManagedPolicyArn = "arn:aws:iam::aws:policy/ReadOnlyAccess",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -15,42 +15,6 @@ namespace Pulumi.Aws.Cfg
     /// &gt; **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excluded_accounts` argument.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Cfg.OrganizationCustomPolicyRule("example", new()
-    ///     {
-    ///         PolicyRuntime = "guard-2.x.x",
-    ///         PolicyText = @"  let status = ['ACTIVE']
-    /// 
-    ///   rule tableisactive when
-    ///       resourceType == ""AWS::DynamoDB::Table"" {
-    ///       configuration.tableStatus == %status
-    ///   }
-    /// 
-    ///   rule checkcompliance when
-    ///       resourceType == ""AWS::DynamoDB::Table""
-    ///       tableisactive {
-    ///           let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
-    ///           %pitr == ""ENABLED""
-    ///       }
-    /// 
-    /// ",
-    ///         ResourceTypesScopes = new[]
-    ///         {
-    ///             "AWS::DynamoDB::Table",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

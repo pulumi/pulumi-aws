@@ -14,35 +14,6 @@ import (
 
 // Provides an AppConfig Application resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.NewApplication(ctx, "example", &appconfig.ApplicationArgs{
-//				Description: pulumi.String("Example AppConfig Application"),
-//				Tags: pulumi.StringMap{
-//					"Type": pulumi.String("AppConfig Application"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import AppConfig Applications using their application ID. For example:

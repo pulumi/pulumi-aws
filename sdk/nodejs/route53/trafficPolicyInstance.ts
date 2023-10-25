@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Route53 traffic policy instance resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.route53.TrafficPolicyInstance("test", {
- *     hostedZoneId: "Z033120931TAQO548OGJC",
- *     trafficPolicyId: "b3gb108f-ea6f-45a5-baab-9d112d8b4037",
- *     trafficPolicyVersion: 1,
- *     ttl: 360,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Route53 traffic policy instance using its id. For example:

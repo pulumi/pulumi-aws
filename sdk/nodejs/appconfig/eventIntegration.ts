@@ -10,24 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Amazon AppIntegrations Event Integration resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appconfig.EventIntegration("example", {
- *     description: "Example Description",
- *     eventFilter: {
- *         source: "aws.partner/examplepartner.com",
- *     },
- *     eventbridgeBus: "default",
- *     tags: {
- *         Name: "Example Event Integration",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:

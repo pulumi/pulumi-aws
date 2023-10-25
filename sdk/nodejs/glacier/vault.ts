@@ -12,43 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const awsSnsTopic = new aws.sns.Topic("awsSnsTopic", {});
- * const myArchivePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "add-read-only-perm",
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: [
- *             "glacier:InitiateJob",
- *             "glacier:GetJobOutput",
- *         ],
- *         resources: ["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
- *     }],
- * });
- * const myArchiveVault = new aws.glacier.Vault("myArchiveVault", {
- *     notification: {
- *         snsTopic: awsSnsTopic.arn,
- *         events: [
- *             "ArchiveRetrievalCompleted",
- *             "InventoryRetrievalCompleted",
- *         ],
- *     },
- *     accessPolicy: myArchivePolicyDocument.then(myArchivePolicyDocument => myArchivePolicyDocument.json),
- *     tags: {
- *         Test: "MyArchive",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Glacier Vaults using the `name`. For example:

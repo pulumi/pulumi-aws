@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGraph = new aws.detective.Graph("exampleGraph", {});
- * const exampleMember = new aws.detective.Member("exampleMember", {
- *     accountId: "AWS ACCOUNT ID",
- *     emailAddress: "EMAIL",
- *     graphArn: exampleGraph.id,
- *     message: "Message of the invitation",
- *     disableEmailNotification: true,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_detective_member` using the ARN of the graph followed by the account ID of the member account. For example:

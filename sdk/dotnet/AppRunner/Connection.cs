@@ -14,29 +14,6 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// &gt; **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppRunner.Connection("example", new()
-    ///     {
-    ///         ConnectionName = "example",
-    ///         ProviderType = "GITHUB",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-apprunner-connection" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:

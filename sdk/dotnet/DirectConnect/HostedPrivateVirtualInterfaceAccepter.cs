@@ -13,61 +13,6 @@ namespace Pulumi.Aws.DirectConnect
     /// Provides a resource to manage the accepter's side of a Direct Connect hosted private virtual interface.
     /// This resource accepts ownership of a private virtual interface created by another AWS account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var accepter = new Aws.Provider("accepter");
-    /// 
-    ///     // Accepter's credentials.
-    ///     var accepterCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     // Accepter's side of the VIF.
-    ///     var vpnGw = new Aws.Ec2.VpnGateway("vpnGw", new()
-    ///     {
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Accepter,
-    ///     });
-    /// 
-    ///     // Creator's side of the VIF
-    ///     var creator = new Aws.DirectConnect.HostedPrivateVirtualInterface("creator", new()
-    ///     {
-    ///         ConnectionId = "dxcon-zzzzzzzz",
-    ///         OwnerAccountId = accepterCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///         Vlan = 4094,
-    ///         AddressFamily = "ipv4",
-    ///         BgpAsn = 65352,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             vpnGw,
-    ///         },
-    ///     });
-    /// 
-    ///     var accepterHostedPrivateVirtualInterfaceAccepter = new Aws.DirectConnect.HostedPrivateVirtualInterfaceAccepter("accepterHostedPrivateVirtualInterfaceAccepter", new()
-    ///     {
-    ///         VirtualInterfaceId = creator.Id,
-    ///         VpnGatewayId = vpnGw.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Side", "Accepter" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Accepter,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:

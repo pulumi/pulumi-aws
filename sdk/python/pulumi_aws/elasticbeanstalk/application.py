@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,14 +26,33 @@ class ApplicationArgs:
         :param pulumi.Input[str] name: The name of the application, must be unique within your account
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            appversion_lifecycle=appversion_lifecycle,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             appversion_lifecycle: Optional[pulumi.Input['ApplicationAppversionLifecycleArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if appversion_lifecycle is None and 'appversionLifecycle' in kwargs:
+            appversion_lifecycle = kwargs['appversionLifecycle']
+
         if appversion_lifecycle is not None:
-            pulumi.set(__self__, "appversion_lifecycle", appversion_lifecycle)
+            _setter("appversion_lifecycle", appversion_lifecycle)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="appversionLifecycle")
@@ -98,21 +117,46 @@ class _ApplicationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ApplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            appversion_lifecycle=appversion_lifecycle,
+            arn=arn,
+            description=description,
+            name=name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             appversion_lifecycle: Optional[pulumi.Input['ApplicationAppversionLifecycleArgs']] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if appversion_lifecycle is None and 'appversionLifecycle' in kwargs:
+            appversion_lifecycle = kwargs['appversionLifecycle']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if appversion_lifecycle is not None:
-            pulumi.set(__self__, "appversion_lifecycle", appversion_lifecycle)
+            _setter("appversion_lifecycle", appversion_lifecycle)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="appversionLifecycle")
@@ -205,21 +249,6 @@ class Application(pulumi.CustomResource):
         This resource creates an application that has one configuration template named
         `default`, and no application versions
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        tftest = aws.elasticbeanstalk.Application("tftest",
-            description="tf-test-desc",
-            appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArgs(
-                service_role=aws_iam_role["beanstalk_service"]["arn"],
-                max_count=128,
-                delete_source_from_s3=True,
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
@@ -248,21 +277,6 @@ class Application(pulumi.CustomResource):
         This resource creates an application that has one configuration template named
         `default`, and no application versions
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        tftest = aws.elasticbeanstalk.Application("tftest",
-            description="tf-test-desc",
-            appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArgs(
-                service_role=aws_iam_role["beanstalk_service"]["arn"],
-                max_count=128,
-                delete_source_from_s3=True,
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
@@ -281,6 +295,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -299,6 +317,7 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
+            appversion_lifecycle = _utilities.configure(appversion_lifecycle, ApplicationAppversionLifecycleArgs, True)
             __props__.__dict__["appversion_lifecycle"] = appversion_lifecycle
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

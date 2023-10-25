@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -77,64 +77,183 @@ class ClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_major_version_upgrade=allow_major_version_upgrade,
+            apply_immediately=apply_immediately,
+            availability_zones=availability_zones,
+            backup_retention_period=backup_retention_period,
+            cluster_identifier=cluster_identifier,
+            cluster_identifier_prefix=cluster_identifier_prefix,
+            copy_tags_to_snapshot=copy_tags_to_snapshot,
+            deletion_protection=deletion_protection,
+            enable_cloudwatch_logs_exports=enable_cloudwatch_logs_exports,
+            engine=engine,
+            engine_version=engine_version,
+            final_snapshot_identifier=final_snapshot_identifier,
+            global_cluster_identifier=global_cluster_identifier,
+            iam_database_authentication_enabled=iam_database_authentication_enabled,
+            iam_roles=iam_roles,
+            kms_key_arn=kms_key_arn,
+            neptune_cluster_parameter_group_name=neptune_cluster_parameter_group_name,
+            neptune_instance_parameter_group_name=neptune_instance_parameter_group_name,
+            neptune_subnet_group_name=neptune_subnet_group_name,
+            port=port,
+            preferred_backup_window=preferred_backup_window,
+            preferred_maintenance_window=preferred_maintenance_window,
+            replication_source_identifier=replication_source_identifier,
+            serverless_v2_scaling_configuration=serverless_v2_scaling_configuration,
+            skip_final_snapshot=skip_final_snapshot,
+            snapshot_identifier=snapshot_identifier,
+            storage_encrypted=storage_encrypted,
+            tags=tags,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             apply_immediately: Optional[pulumi.Input[bool]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             backup_retention_period: Optional[pulumi.Input[int]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
+             copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+             deletion_protection: Optional[pulumi.Input[bool]] = None,
+             enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
+             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             neptune_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+             neptune_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
+             neptune_subnet_group_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             preferred_backup_window: Optional[pulumi.Input[str]] = None,
+             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+             replication_source_identifier: Optional[pulumi.Input[str]] = None,
+             serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']] = None,
+             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
+             snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             storage_encrypted: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_major_version_upgrade is None and 'allowMajorVersionUpgrade' in kwargs:
+            allow_major_version_upgrade = kwargs['allowMajorVersionUpgrade']
+        if apply_immediately is None and 'applyImmediately' in kwargs:
+            apply_immediately = kwargs['applyImmediately']
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if backup_retention_period is None and 'backupRetentionPeriod' in kwargs:
+            backup_retention_period = kwargs['backupRetentionPeriod']
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_identifier_prefix is None and 'clusterIdentifierPrefix' in kwargs:
+            cluster_identifier_prefix = kwargs['clusterIdentifierPrefix']
+        if copy_tags_to_snapshot is None and 'copyTagsToSnapshot' in kwargs:
+            copy_tags_to_snapshot = kwargs['copyTagsToSnapshot']
+        if deletion_protection is None and 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if enable_cloudwatch_logs_exports is None and 'enableCloudwatchLogsExports' in kwargs:
+            enable_cloudwatch_logs_exports = kwargs['enableCloudwatchLogsExports']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if final_snapshot_identifier is None and 'finalSnapshotIdentifier' in kwargs:
+            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
+        if global_cluster_identifier is None and 'globalClusterIdentifier' in kwargs:
+            global_cluster_identifier = kwargs['globalClusterIdentifier']
+        if iam_database_authentication_enabled is None and 'iamDatabaseAuthenticationEnabled' in kwargs:
+            iam_database_authentication_enabled = kwargs['iamDatabaseAuthenticationEnabled']
+        if iam_roles is None and 'iamRoles' in kwargs:
+            iam_roles = kwargs['iamRoles']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if neptune_cluster_parameter_group_name is None and 'neptuneClusterParameterGroupName' in kwargs:
+            neptune_cluster_parameter_group_name = kwargs['neptuneClusterParameterGroupName']
+        if neptune_instance_parameter_group_name is None and 'neptuneInstanceParameterGroupName' in kwargs:
+            neptune_instance_parameter_group_name = kwargs['neptuneInstanceParameterGroupName']
+        if neptune_subnet_group_name is None and 'neptuneSubnetGroupName' in kwargs:
+            neptune_subnet_group_name = kwargs['neptuneSubnetGroupName']
+        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if replication_source_identifier is None and 'replicationSourceIdentifier' in kwargs:
+            replication_source_identifier = kwargs['replicationSourceIdentifier']
+        if serverless_v2_scaling_configuration is None and 'serverlessV2ScalingConfiguration' in kwargs:
+            serverless_v2_scaling_configuration = kwargs['serverlessV2ScalingConfiguration']
+        if skip_final_snapshot is None and 'skipFinalSnapshot' in kwargs:
+            skip_final_snapshot = kwargs['skipFinalSnapshot']
+        if snapshot_identifier is None and 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if storage_encrypted is None and 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if allow_major_version_upgrade is not None:
-            pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
+            _setter("allow_major_version_upgrade", allow_major_version_upgrade)
         if apply_immediately is not None:
-            pulumi.set(__self__, "apply_immediately", apply_immediately)
+            _setter("apply_immediately", apply_immediately)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if backup_retention_period is not None:
-            pulumi.set(__self__, "backup_retention_period", backup_retention_period)
+            _setter("backup_retention_period", backup_retention_period)
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if cluster_identifier_prefix is not None:
-            pulumi.set(__self__, "cluster_identifier_prefix", cluster_identifier_prefix)
+            _setter("cluster_identifier_prefix", cluster_identifier_prefix)
         if copy_tags_to_snapshot is not None:
-            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+            _setter("copy_tags_to_snapshot", copy_tags_to_snapshot)
         if deletion_protection is not None:
-            pulumi.set(__self__, "deletion_protection", deletion_protection)
+            _setter("deletion_protection", deletion_protection)
         if enable_cloudwatch_logs_exports is not None:
-            pulumi.set(__self__, "enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
+            _setter("enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if final_snapshot_identifier is not None:
-            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+            _setter("final_snapshot_identifier", final_snapshot_identifier)
         if global_cluster_identifier is not None:
-            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+            _setter("global_cluster_identifier", global_cluster_identifier)
         if iam_database_authentication_enabled is not None:
-            pulumi.set(__self__, "iam_database_authentication_enabled", iam_database_authentication_enabled)
+            _setter("iam_database_authentication_enabled", iam_database_authentication_enabled)
         if iam_roles is not None:
-            pulumi.set(__self__, "iam_roles", iam_roles)
+            _setter("iam_roles", iam_roles)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if neptune_cluster_parameter_group_name is not None:
-            pulumi.set(__self__, "neptune_cluster_parameter_group_name", neptune_cluster_parameter_group_name)
+            _setter("neptune_cluster_parameter_group_name", neptune_cluster_parameter_group_name)
         if neptune_instance_parameter_group_name is not None:
-            pulumi.set(__self__, "neptune_instance_parameter_group_name", neptune_instance_parameter_group_name)
+            _setter("neptune_instance_parameter_group_name", neptune_instance_parameter_group_name)
         if neptune_subnet_group_name is not None:
-            pulumi.set(__self__, "neptune_subnet_group_name", neptune_subnet_group_name)
+            _setter("neptune_subnet_group_name", neptune_subnet_group_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if preferred_backup_window is not None:
-            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
+            _setter("preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if replication_source_identifier is not None:
-            pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
+            _setter("replication_source_identifier", replication_source_identifier)
         if serverless_v2_scaling_configuration is not None:
-            pulumi.set(__self__, "serverless_v2_scaling_configuration", serverless_v2_scaling_configuration)
+            _setter("serverless_v2_scaling_configuration", serverless_v2_scaling_configuration)
         if skip_final_snapshot is not None:
-            pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
+            _setter("skip_final_snapshot", skip_final_snapshot)
         if snapshot_identifier is not None:
-            pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
+            _setter("snapshot_identifier", snapshot_identifier)
         if storage_encrypted is not None:
-            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+            _setter("storage_encrypted", storage_encrypted)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="allowMajorVersionUpgrade")
@@ -563,81 +682,224 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
+        _ClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_major_version_upgrade=allow_major_version_upgrade,
+            apply_immediately=apply_immediately,
+            arn=arn,
+            availability_zones=availability_zones,
+            backup_retention_period=backup_retention_period,
+            cluster_identifier=cluster_identifier,
+            cluster_identifier_prefix=cluster_identifier_prefix,
+            cluster_members=cluster_members,
+            cluster_resource_id=cluster_resource_id,
+            copy_tags_to_snapshot=copy_tags_to_snapshot,
+            deletion_protection=deletion_protection,
+            enable_cloudwatch_logs_exports=enable_cloudwatch_logs_exports,
+            endpoint=endpoint,
+            engine=engine,
+            engine_version=engine_version,
+            final_snapshot_identifier=final_snapshot_identifier,
+            global_cluster_identifier=global_cluster_identifier,
+            hosted_zone_id=hosted_zone_id,
+            iam_database_authentication_enabled=iam_database_authentication_enabled,
+            iam_roles=iam_roles,
+            kms_key_arn=kms_key_arn,
+            neptune_cluster_parameter_group_name=neptune_cluster_parameter_group_name,
+            neptune_instance_parameter_group_name=neptune_instance_parameter_group_name,
+            neptune_subnet_group_name=neptune_subnet_group_name,
+            port=port,
+            preferred_backup_window=preferred_backup_window,
+            preferred_maintenance_window=preferred_maintenance_window,
+            reader_endpoint=reader_endpoint,
+            replication_source_identifier=replication_source_identifier,
+            serverless_v2_scaling_configuration=serverless_v2_scaling_configuration,
+            skip_final_snapshot=skip_final_snapshot,
+            snapshot_identifier=snapshot_identifier,
+            storage_encrypted=storage_encrypted,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             apply_immediately: Optional[pulumi.Input[bool]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             backup_retention_period: Optional[pulumi.Input[int]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
+             cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cluster_resource_id: Optional[pulumi.Input[str]] = None,
+             copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+             deletion_protection: Optional[pulumi.Input[bool]] = None,
+             enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
+             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             neptune_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+             neptune_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
+             neptune_subnet_group_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             preferred_backup_window: Optional[pulumi.Input[str]] = None,
+             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+             reader_endpoint: Optional[pulumi.Input[str]] = None,
+             replication_source_identifier: Optional[pulumi.Input[str]] = None,
+             serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']] = None,
+             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
+             snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             storage_encrypted: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_major_version_upgrade is None and 'allowMajorVersionUpgrade' in kwargs:
+            allow_major_version_upgrade = kwargs['allowMajorVersionUpgrade']
+        if apply_immediately is None and 'applyImmediately' in kwargs:
+            apply_immediately = kwargs['applyImmediately']
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if backup_retention_period is None and 'backupRetentionPeriod' in kwargs:
+            backup_retention_period = kwargs['backupRetentionPeriod']
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_identifier_prefix is None and 'clusterIdentifierPrefix' in kwargs:
+            cluster_identifier_prefix = kwargs['clusterIdentifierPrefix']
+        if cluster_members is None and 'clusterMembers' in kwargs:
+            cluster_members = kwargs['clusterMembers']
+        if cluster_resource_id is None and 'clusterResourceId' in kwargs:
+            cluster_resource_id = kwargs['clusterResourceId']
+        if copy_tags_to_snapshot is None and 'copyTagsToSnapshot' in kwargs:
+            copy_tags_to_snapshot = kwargs['copyTagsToSnapshot']
+        if deletion_protection is None and 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if enable_cloudwatch_logs_exports is None and 'enableCloudwatchLogsExports' in kwargs:
+            enable_cloudwatch_logs_exports = kwargs['enableCloudwatchLogsExports']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if final_snapshot_identifier is None and 'finalSnapshotIdentifier' in kwargs:
+            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
+        if global_cluster_identifier is None and 'globalClusterIdentifier' in kwargs:
+            global_cluster_identifier = kwargs['globalClusterIdentifier']
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if iam_database_authentication_enabled is None and 'iamDatabaseAuthenticationEnabled' in kwargs:
+            iam_database_authentication_enabled = kwargs['iamDatabaseAuthenticationEnabled']
+        if iam_roles is None and 'iamRoles' in kwargs:
+            iam_roles = kwargs['iamRoles']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if neptune_cluster_parameter_group_name is None and 'neptuneClusterParameterGroupName' in kwargs:
+            neptune_cluster_parameter_group_name = kwargs['neptuneClusterParameterGroupName']
+        if neptune_instance_parameter_group_name is None and 'neptuneInstanceParameterGroupName' in kwargs:
+            neptune_instance_parameter_group_name = kwargs['neptuneInstanceParameterGroupName']
+        if neptune_subnet_group_name is None and 'neptuneSubnetGroupName' in kwargs:
+            neptune_subnet_group_name = kwargs['neptuneSubnetGroupName']
+        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if reader_endpoint is None and 'readerEndpoint' in kwargs:
+            reader_endpoint = kwargs['readerEndpoint']
+        if replication_source_identifier is None and 'replicationSourceIdentifier' in kwargs:
+            replication_source_identifier = kwargs['replicationSourceIdentifier']
+        if serverless_v2_scaling_configuration is None and 'serverlessV2ScalingConfiguration' in kwargs:
+            serverless_v2_scaling_configuration = kwargs['serverlessV2ScalingConfiguration']
+        if skip_final_snapshot is None and 'skipFinalSnapshot' in kwargs:
+            skip_final_snapshot = kwargs['skipFinalSnapshot']
+        if snapshot_identifier is None and 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if storage_encrypted is None and 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if allow_major_version_upgrade is not None:
-            pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
+            _setter("allow_major_version_upgrade", allow_major_version_upgrade)
         if apply_immediately is not None:
-            pulumi.set(__self__, "apply_immediately", apply_immediately)
+            _setter("apply_immediately", apply_immediately)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if backup_retention_period is not None:
-            pulumi.set(__self__, "backup_retention_period", backup_retention_period)
+            _setter("backup_retention_period", backup_retention_period)
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if cluster_identifier_prefix is not None:
-            pulumi.set(__self__, "cluster_identifier_prefix", cluster_identifier_prefix)
+            _setter("cluster_identifier_prefix", cluster_identifier_prefix)
         if cluster_members is not None:
-            pulumi.set(__self__, "cluster_members", cluster_members)
+            _setter("cluster_members", cluster_members)
         if cluster_resource_id is not None:
-            pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+            _setter("cluster_resource_id", cluster_resource_id)
         if copy_tags_to_snapshot is not None:
-            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+            _setter("copy_tags_to_snapshot", copy_tags_to_snapshot)
         if deletion_protection is not None:
-            pulumi.set(__self__, "deletion_protection", deletion_protection)
+            _setter("deletion_protection", deletion_protection)
         if enable_cloudwatch_logs_exports is not None:
-            pulumi.set(__self__, "enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
+            _setter("enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if final_snapshot_identifier is not None:
-            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+            _setter("final_snapshot_identifier", final_snapshot_identifier)
         if global_cluster_identifier is not None:
-            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+            _setter("global_cluster_identifier", global_cluster_identifier)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if iam_database_authentication_enabled is not None:
-            pulumi.set(__self__, "iam_database_authentication_enabled", iam_database_authentication_enabled)
+            _setter("iam_database_authentication_enabled", iam_database_authentication_enabled)
         if iam_roles is not None:
-            pulumi.set(__self__, "iam_roles", iam_roles)
+            _setter("iam_roles", iam_roles)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if neptune_cluster_parameter_group_name is not None:
-            pulumi.set(__self__, "neptune_cluster_parameter_group_name", neptune_cluster_parameter_group_name)
+            _setter("neptune_cluster_parameter_group_name", neptune_cluster_parameter_group_name)
         if neptune_instance_parameter_group_name is not None:
-            pulumi.set(__self__, "neptune_instance_parameter_group_name", neptune_instance_parameter_group_name)
+            _setter("neptune_instance_parameter_group_name", neptune_instance_parameter_group_name)
         if neptune_subnet_group_name is not None:
-            pulumi.set(__self__, "neptune_subnet_group_name", neptune_subnet_group_name)
+            _setter("neptune_subnet_group_name", neptune_subnet_group_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if preferred_backup_window is not None:
-            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
+            _setter("preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if reader_endpoint is not None:
-            pulumi.set(__self__, "reader_endpoint", reader_endpoint)
+            _setter("reader_endpoint", reader_endpoint)
         if replication_source_identifier is not None:
-            pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
+            _setter("replication_source_identifier", replication_source_identifier)
         if serverless_v2_scaling_configuration is not None:
-            pulumi.set(__self__, "serverless_v2_scaling_configuration", serverless_v2_scaling_configuration)
+            _setter("serverless_v2_scaling_configuration", serverless_v2_scaling_configuration)
         if skip_final_snapshot is not None:
-            pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
+            _setter("skip_final_snapshot", skip_final_snapshot)
         if snapshot_identifier is not None:
-            pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
+            _setter("snapshot_identifier", snapshot_identifier)
         if storage_encrypted is not None:
-            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+            _setter("storage_encrypted", storage_encrypted)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="allowMajorVersionUpgrade")
@@ -1121,25 +1383,6 @@ class Cluster(pulumi.CustomResource):
         `apply_immediately` flag to instruct the service to apply the change immediately
         (see documentation below).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.neptune.Cluster("default",
-            apply_immediately=True,
-            backup_retention_period=5,
-            cluster_identifier="neptune-cluster-demo",
-            engine="neptune",
-            iam_database_authentication_enabled=True,
-            preferred_backup_window="07:00-09:00",
-            skip_final_snapshot=True)
-        ```
-
-        > **Note:** AWS Neptune does not support user name/password–based access control.
-        See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
-
         ## Import
 
         Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
@@ -1197,25 +1440,6 @@ class Cluster(pulumi.CustomResource):
         `apply_immediately` flag to instruct the service to apply the change immediately
         (see documentation below).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.neptune.Cluster("default",
-            apply_immediately=True,
-            backup_retention_period=5,
-            cluster_identifier="neptune-cluster-demo",
-            engine="neptune",
-            iam_database_authentication_enabled=True,
-            preferred_backup_window="07:00-09:00",
-            skip_final_snapshot=True)
-        ```
-
-        > **Note:** AWS Neptune does not support user name/password–based access control.
-        See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
-
         ## Import
 
         Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
@@ -1234,6 +1458,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1300,6 +1528,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["replication_source_identifier"] = replication_source_identifier
+            serverless_v2_scaling_configuration = _utilities.configure(serverless_v2_scaling_configuration, ClusterServerlessV2ScalingConfigurationArgs, True)
             __props__.__dict__["serverless_v2_scaling_configuration"] = serverless_v2_scaling_configuration
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -153,14 +153,6 @@ def get_workgroup(workgroup_name: Optional[str] = None,
     Data source for managing an AWS Redshift Serverless Workgroup.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshiftserverless.get_workgroup(workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"])
-    ```
 
 
     :param str workgroup_name: The name of the workgroup associated with the database.
@@ -190,14 +182,6 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS Redshift Serverless Workgroup.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshiftserverless.get_workgroup(workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"])
-    ```
 
 
     :param str workgroup_name: The name of the workgroup associated with the database.

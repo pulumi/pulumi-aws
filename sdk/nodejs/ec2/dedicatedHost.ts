@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new host with instance type of c5.18xlarge with Auto Placement
- * // and Host Recovery enabled.
- * const test = new aws.ec2.DedicatedHost("test", {
- *     autoPlacement: "on",
- *     availabilityZone: "us-west-2a",
- *     hostRecovery: "on",
- *     instanceType: "c5.18xlarge",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import hosts using the host `id`. For example:

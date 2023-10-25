@@ -11,59 +11,6 @@ import * as utilities from "../utilities";
  * Associates an SSM Document to an instance or EC2 tag.
  *
  * ## Example Usage
- * ### Create an association for a specific instance
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssm.Association("example", {targets: [{
- *     key: "InstanceIds",
- *     values: [aws_instance.example.id],
- * }]});
- * ```
- * ### Create an association for all managed instances in an AWS account
- *
- * To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssm.Association("example", {targets: [{
- *     key: "InstanceIds",
- *     values: ["*"],
- * }]});
- * ```
- * ### Create an association for a specific tag
- *
- * This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssm.Association("example", {targets: [{
- *     key: "tag:Environment",
- *     values: ["Development"],
- * }]});
- * ```
- * ### Create an association with a specific schedule
- *
- * This example shows how to schedule an association in various ways.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssm.Association("example", {
- *     scheduleExpression: "cron(0 2 ? * SUN *)",
- *     targets: [{
- *         key: "InstanceIds",
- *         values: [aws_instance.example.id],
- *     }],
- * });
- * ```
  *
  * ## Import
  *

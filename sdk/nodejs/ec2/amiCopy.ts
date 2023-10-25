@@ -19,22 +19,6 @@ import * as utilities from "../utilities";
  *
  * Copying an AMI can take several minutes. The creation of this resource will
  * block until the new AMI is available for use on new instances.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.AmiCopy("example", {
- *     description: "A copy of ami-xxxxxxxx",
- *     sourceAmiId: "ami-xxxxxxxx",
- *     sourceAmiRegion: "us-west-1",
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * ```
  */
 export class AmiCopy extends pulumi.CustomResource {
     /**
@@ -99,7 +83,7 @@ export class AmiCopy extends pulumi.CustomResource {
      */
     public /*out*/ readonly enaSupport!: pulumi.Output<boolean>;
     /**
-     * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+     * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      */
     public readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
@@ -318,7 +302,7 @@ export interface AmiCopyState {
      */
     enaSupport?: pulumi.Input<boolean>;
     /**
-     * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+     * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      */
     encrypted?: pulumi.Input<boolean>;
     /**
@@ -425,7 +409,7 @@ export interface AmiCopyArgs {
      */
     ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEbsBlockDevice>[]>;
     /**
-     * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+     * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      */
     encrypted?: pulumi.Input<boolean>;
     /**

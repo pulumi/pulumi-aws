@@ -16,29 +16,6 @@ namespace Pulumi.Aws.S3
         /// for the effective account in which this provider is working.  
         /// 
         /// &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.S3.GetCanonicalUserId.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["canonicalUserId"] = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCanonicalUserIdResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());
@@ -48,29 +25,6 @@ namespace Pulumi.Aws.S3
         /// for the effective account in which this provider is working.  
         /// 
         /// &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Aws.S3.GetCanonicalUserId.Invoke();
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["canonicalUserId"] = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCanonicalUserIdResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());

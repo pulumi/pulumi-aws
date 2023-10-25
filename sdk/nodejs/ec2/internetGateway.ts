@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to create a VPC Internet Gateway.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const gw = new aws.ec2.InternetGateway("gw", {
- *     vpcId: aws_vpc.main.id,
- *     tags: {
- *         Name: "main",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Internet Gateways using the `id`. For example:
@@ -69,17 +55,6 @@ export class InternetGateway extends pulumi.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as aws from "@pulumi/aws";
-     *
-     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: aws_vpc.main.id});
-     * // ... other arguments ...
-     * const foo = new aws.ec2.Instance("foo", {}, {
-     *     dependsOn: [gw],
-     * });
-     * ```
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -142,17 +117,6 @@ export interface InternetGatewayState {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as aws from "@pulumi/aws";
-     *
-     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: aws_vpc.main.id});
-     * // ... other arguments ...
-     * const foo = new aws.ec2.Instance("foo", {}, {
-     *     dependsOn: [gw],
-     * });
-     * ```
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -175,17 +139,6 @@ export interface InternetGatewayArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *
      * > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as aws from "@pulumi/aws";
-     *
-     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: aws_vpc.main.id});
-     * // ... other arguments ...
-     * const foo = new aws.ec2.Instance("foo", {}, {
-     *     dependsOn: [gw],
-     * });
-     * ```
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

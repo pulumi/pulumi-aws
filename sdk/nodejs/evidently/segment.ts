@@ -8,51 +8,6 @@ import * as utilities from "../utilities";
  * Provides a CloudWatch Evidently Segment resource.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Segment("example", {
- *     pattern: "{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}",
- *     tags: {
- *         Key1: "example Segment",
- *     },
- * });
- * ```
- * ### With JSON object in pattern
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Segment("example", {
- *     pattern: `  {
- *     "Price": [
- *       {
- *         "numeric": [">",10,"<=",20]
- *       }
- *     ]
- *   }
- *   
- * `,
- *     tags: {
- *         Key1: "example Segment",
- *     },
- * });
- * ```
- * ### With Description
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Segment("example", {
- *     description: "example",
- *     pattern: "{\"Price\":[{\"numeric\":[\">\",10,\"<=\",20]}]}",
- * });
- * ```
  *
  * ## Import
  *

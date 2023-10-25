@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['KeyPairArgs', 'KeyPair']
@@ -28,16 +28,41 @@ class KeyPairArgs:
                
                > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgp_key` is ignored if `public_key` is supplied.
         """
+        KeyPairArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            name_prefix=name_prefix,
+            pgp_key=pgp_key,
+            public_key=public_key,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             pgp_key: Optional[pulumi.Input[str]] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if pgp_key is None and 'pgpKey' in kwargs:
+            pgp_key = kwargs['pgpKey']
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if pgp_key is not None:
-            pulumi.set(__self__, "pgp_key", pgp_key)
+            _setter("pgp_key", pgp_key)
         if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+            _setter("public_key", public_key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -127,31 +152,76 @@ class _KeyPairState:
                
                > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgp_key` is ignored if `public_key` is supplied.
         """
+        _KeyPairState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            encrypted_fingerprint=encrypted_fingerprint,
+            encrypted_private_key=encrypted_private_key,
+            fingerprint=fingerprint,
+            name=name,
+            name_prefix=name_prefix,
+            pgp_key=pgp_key,
+            private_key=private_key,
+            public_key=public_key,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             encrypted_fingerprint: Optional[pulumi.Input[str]] = None,
+             encrypted_private_key: Optional[pulumi.Input[str]] = None,
+             fingerprint: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             pgp_key: Optional[pulumi.Input[str]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encrypted_fingerprint is None and 'encryptedFingerprint' in kwargs:
+            encrypted_fingerprint = kwargs['encryptedFingerprint']
+        if encrypted_private_key is None and 'encryptedPrivateKey' in kwargs:
+            encrypted_private_key = kwargs['encryptedPrivateKey']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if pgp_key is None and 'pgpKey' in kwargs:
+            pgp_key = kwargs['pgpKey']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if encrypted_fingerprint is not None:
-            pulumi.set(__self__, "encrypted_fingerprint", encrypted_fingerprint)
+            _setter("encrypted_fingerprint", encrypted_fingerprint)
         if encrypted_private_key is not None:
-            pulumi.set(__self__, "encrypted_private_key", encrypted_private_key)
+            _setter("encrypted_private_key", encrypted_private_key)
         if fingerprint is not None:
-            pulumi.set(__self__, "fingerprint", fingerprint)
+            _setter("fingerprint", fingerprint)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if pgp_key is not None:
-            pulumi.set(__self__, "pgp_key", pgp_key)
+            _setter("pgp_key", pgp_key)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+            _setter("public_key", public_key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -304,31 +374,6 @@ class KeyPair(pulumi.CustomResource):
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 
         ## Example Usage
-        ### Create New Key Pair
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new Lightsail Key Pair
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair")
-        ```
-        ### Create New Key Pair with PGP Encrypted Private Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", pgp_key="keybase:keybaseusername")
-        ```
-        ### Existing Public Key Import
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
-        ```
 
         ## Import
 
@@ -357,31 +402,6 @@ class KeyPair(pulumi.CustomResource):
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 
         ## Example Usage
-        ### Create New Key Pair
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # Create a new Lightsail Key Pair
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair")
-        ```
-        ### Create New Key Pair with PGP Encrypted Private Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", pgp_key="keybase:keybaseusername")
-        ```
-        ### Existing Public Key Import
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        lg_key_pair = aws.lightsail.KeyPair("lgKeyPair", public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
-        ```
 
         ## Import
 
@@ -397,6 +417,10 @@ class KeyPair(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KeyPairArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

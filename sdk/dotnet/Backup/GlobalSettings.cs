@@ -12,27 +12,6 @@ namespace Pulumi.Aws.Backup
     /// <summary>
     /// Provides an AWS Backup Global Settings resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Backup.GlobalSettings("test", new()
-    ///     {
-    ///         GlobalSettingsList = 
-    ///         {
-    ///             { "isCrossAccountBackupEnabled", "true" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup Global Settings using the `id`. For example:

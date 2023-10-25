@@ -13,50 +13,6 @@ namespace Pulumi.Aws.ElasticSearch
     /// Manages SAML authentication options for an AWS Elasticsearch Domain.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleDomain = new Aws.ElasticSearch.Domain("exampleDomain", new()
-    ///     {
-    ///         ElasticsearchVersion = "1.5",
-    ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
-    ///         {
-    ///             InstanceType = "r4.large.elasticsearch",
-    ///         },
-    ///         SnapshotOptions = new Aws.ElasticSearch.Inputs.DomainSnapshotOptionsArgs
-    ///         {
-    ///             AutomatedSnapshotStartHour = 23,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Domain", "TestDomain" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleDomainSamlOptions = new Aws.ElasticSearch.DomainSamlOptions("exampleDomainSamlOptions", new()
-    ///     {
-    ///         DomainName = exampleDomain.DomainName,
-    ///         SamlOptions = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
-    ///         {
-    ///             Enabled = true,
-    ///             Idp = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
-    ///             {
-    ///                 EntityId = "https://example.com",
-    ///                 MetadataContent = File.ReadAllText("./saml-metadata.xml"),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

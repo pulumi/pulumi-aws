@@ -13,64 +13,12 @@ namespace Pulumi.Aws.CostExplorer
     {
         /// <summary>
         /// Provides details about a specific CE Tags.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CostExplorer.GetTags.Invoke(new()
-        ///     {
-        ///         TimePeriod = new Aws.CostExplorer.Inputs.GetTagsTimePeriodInputArgs
-        ///         {
-        ///             End = "2022-12-01",
-        ///             Start = "2021-01-01",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTagsResult> InvokeAsync(GetTagsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagsResult>("aws:costexplorer/getTags:getTags", args ?? new GetTagsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific CE Tags.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.CostExplorer.GetTags.Invoke(new()
-        ///     {
-        ///         TimePeriod = new Aws.CostExplorer.Inputs.GetTagsTimePeriodInputArgs
-        ///         {
-        ///             End = "2022-12-01",
-        ///             Start = "2021-01-01",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetTagsResult> Invoke(GetTagsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagsResult>("aws:costexplorer/getTags:getTags", args ?? new GetTagsInvokeArgs(), options.WithDefaults());

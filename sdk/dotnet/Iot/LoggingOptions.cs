@@ -11,25 +11,6 @@ namespace Pulumi.Aws.Iot
 {
     /// <summary>
     /// Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iot.LoggingOptions("example", new()
-    ///     {
-    ///         DefaultLogLevel = "WARN",
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:iot/loggingOptions:LoggingOptions")]
     public partial class LoggingOptions : global::Pulumi.CustomResource

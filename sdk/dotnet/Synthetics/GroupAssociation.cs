@@ -13,24 +13,6 @@ namespace Pulumi.Aws.Synthetics
     /// Provides a Synthetics Group Association resource.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Synthetics.GroupAssociation("example", new()
-    ///     {
-    ///         GroupName = aws_synthetics_group.Example.Name,
-    ///         CanaryArn = aws_synthetics_canary.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

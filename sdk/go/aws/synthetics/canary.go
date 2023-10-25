@@ -17,39 +17,6 @@ import (
 //
 // > **NOTE:** When you create a canary, AWS creates supporting implicit resources. See the Amazon CloudWatch Synthetics documentation on [DeleteCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html) for a full list. Neither AWS nor this provider deletes these implicit resources automatically when the canary is deleted. Before deleting a canary, ensure you have all the information about the canary that you need to delete the implicit resources using the AWS Console, or AWS CLI.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/synthetics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewCanary(ctx, "some", &synthetics.CanaryArgs{
-//				ArtifactS3Location: pulumi.String("s3://some-bucket/"),
-//				ExecutionRoleArn:   pulumi.String("some-role"),
-//				Handler:            pulumi.String("exports.handler"),
-//				RuntimeVersion:     pulumi.String("syn-1.0"),
-//				Schedule: &synthetics.CanaryScheduleArgs{
-//					Expression: pulumi.String("rate(0 minute)"),
-//				},
-//				ZipFile: pulumi.String("test-fixtures/lambdatest.zip"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Synthetics Canaries using the `name`. For example:

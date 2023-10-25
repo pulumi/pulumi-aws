@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Manages a Service Catalog Tag Option.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.TagOption("example", {
- *     key: "nyckel",
- *     value: "värde",
- * });
- * ```
  *
  * ## Import
  *

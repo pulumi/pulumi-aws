@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the `aws.guardduty.InviteAccepter` resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primary = new aws.guardduty.Detector("primary", {enable: true});
- * const memberDetector = new aws.guardduty.Detector("memberDetector", {enable: true}, {
- *     provider: aws.dev,
- * });
- * const memberMember = new aws.guardduty.Member("memberMember", {
- *     accountId: memberDetector.accountId,
- *     detectorId: primary.id,
- *     email: "required@example.com",
- *     invite: true,
- *     invitationMessage: "please accept guardduty invitation",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import GuardDuty members using the primary GuardDuty detector ID and member AWS account ID. For example:

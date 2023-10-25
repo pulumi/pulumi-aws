@@ -13,58 +13,12 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Retrieve information about an EKS Node Group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Eks.GetNodeGroup.Invoke(new()
-        ///     {
-        ///         ClusterName = "example",
-        ///         NodeGroupName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNodeGroupResult> InvokeAsync(GetNodeGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeGroupResult>("aws:eks/getNodeGroup:getNodeGroup", args ?? new GetNodeGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about an EKS Node Group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Eks.GetNodeGroup.Invoke(new()
-        ///     {
-        ///         ClusterName = "example",
-        ///         NodeGroupName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNodeGroupResult> Invoke(GetNodeGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeGroupResult>("aws:eks/getNodeGroup:getNodeGroup", args ?? new GetNodeGroupInvokeArgs(), options.WithDefaults());

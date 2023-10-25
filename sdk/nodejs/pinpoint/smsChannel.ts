@@ -7,16 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Use the `aws.pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const sms = new aws.pinpoint.SmsChannel("sms", {applicationId: app.applicationId});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:

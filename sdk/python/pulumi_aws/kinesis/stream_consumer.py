@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StreamConsumerArgs', 'StreamConsumer']
@@ -21,9 +21,26 @@ class StreamConsumerArgs:
         :param pulumi.Input[str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         :param pulumi.Input[str] name: Name of the stream consumer.
         """
-        pulumi.set(__self__, "stream_arn", stream_arn)
+        StreamConsumerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stream_arn=stream_arn,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stream_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if stream_arn is None and 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+        if stream_arn is None:
+            raise TypeError("Missing 'stream_arn' argument")
+
+        _setter("stream_arn", stream_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -64,14 +81,35 @@ class _StreamConsumerState:
         :param pulumi.Input[str] name: Name of the stream consumer.
         :param pulumi.Input[str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         """
+        _StreamConsumerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            creation_timestamp=creation_timestamp,
+            name=name,
+            stream_arn=stream_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             creation_timestamp: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             stream_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if creation_timestamp is None and 'creationTimestamp' in kwargs:
+            creation_timestamp = kwargs['creationTimestamp']
+        if stream_arn is None and 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if creation_timestamp is not None:
-            pulumi.set(__self__, "creation_timestamp", creation_timestamp)
+            _setter("creation_timestamp", creation_timestamp)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if stream_arn is not None:
-            pulumi.set(__self__, "stream_arn", stream_arn)
+            _setter("stream_arn", stream_arn)
 
     @property
     @pulumi.getter
@@ -137,16 +175,6 @@ class StreamConsumer(pulumi.CustomResource):
 
         For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_stream = aws.kinesis.Stream("exampleStream", shard_count=1)
-        example_stream_consumer = aws.kinesis.StreamConsumer("exampleStreamConsumer", stream_arn=example_stream.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For example:
@@ -173,16 +201,6 @@ class StreamConsumer(pulumi.CustomResource):
 
         For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_stream = aws.kinesis.Stream("exampleStream", shard_count=1)
-        example_stream_consumer = aws.kinesis.StreamConsumer("exampleStreamConsumer", stream_arn=example_stream.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For example:
@@ -201,6 +219,10 @@ class StreamConsumer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamConsumerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

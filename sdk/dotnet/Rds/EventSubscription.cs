@@ -12,57 +12,6 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// Provides a DB event subscription resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultInstance = new Aws.Rds.Instance("defaultInstance", new()
-    ///     {
-    ///         AllocatedStorage = 10,
-    ///         Engine = "mysql",
-    ///         EngineVersion = "5.6.17",
-    ///         InstanceClass = "db.t2.micro",
-    ///         DbName = "mydb",
-    ///         Username = "foo",
-    ///         Password = "bar",
-    ///         DbSubnetGroupName = "my_database_subnet_group",
-    ///         ParameterGroupName = "default.mysql5.6",
-    ///     });
-    /// 
-    ///     var defaultTopic = new Aws.Sns.Topic("defaultTopic");
-    /// 
-    ///     var defaultEventSubscription = new Aws.Rds.EventSubscription("defaultEventSubscription", new()
-    ///     {
-    ///         SnsTopic = defaultTopic.Arn,
-    ///         SourceType = "db-instance",
-    ///         SourceIds = new[]
-    ///         {
-    ///             defaultInstance.Identifier,
-    ///         },
-    ///         EventCategories = new[]
-    ///         {
-    ///             "availability",
-    ///             "deletion",
-    ///             "failover",
-    ///             "failure",
-    ///             "low storage",
-    ///             "maintenance",
-    ///             "notification",
-    ///             "read replica",
-    ///             "recovery",
-    ///             "restoration",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:

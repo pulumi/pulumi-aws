@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const hosted = new aws.directconnect.HostedConnection("hosted", {
- *     bandwidth: "100Mbps",
- *     connectionId: "dxcon-ffabc123",
- *     ownerAccountId: "123456789012",
- *     vlan: 1,
- * });
- * ```
  */
 export class HostedConnection extends pulumi.CustomResource {
     /**

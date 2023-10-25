@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  * Get information on an EC2 Transit Gateway Peering Attachment.
  *
  * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getPeeringAttachment({
- *     filters: [{
- *         name: "transit-gateway-attachment-id",
- *         values: ["tgw-attach-12345678"],
- *     }],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const attachment = aws.ec2transitgateway.getPeeringAttachment({
- *     id: "tgw-attach-12345678",
- * });
- * ```
  */
 export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringAttachmentResult> {
     args = args || {};
@@ -96,29 +73,6 @@ export interface GetPeeringAttachmentResult {
  * Get information on an EC2 Transit Gateway Peering Attachment.
  *
  * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getPeeringAttachment({
- *     filters: [{
- *         name: "transit-gateway-attachment-id",
- *         values: ["tgw-attach-12345678"],
- *     }],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const attachment = aws.ec2transitgateway.getPeeringAttachment({
- *     id: "tgw-attach-12345678",
- * });
- * ```
  */
 export function getPeeringAttachmentOutput(args?: GetPeeringAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getPeeringAttachment(a, opts))

@@ -11,28 +11,6 @@ import * as utilities from "../utilities";
  * Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
  * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2clientvpn.Endpoint("example", {
- *     description: "clientvpn-example",
- *     serverCertificateArn: aws_acm_certificate.cert.arn,
- *     clientCidrBlock: "10.0.0.0/16",
- *     authenticationOptions: [{
- *         type: "certificate-authentication",
- *         rootCertificateChainArn: aws_acm_certificate.root_cert.arn,
- *     }],
- *     connectionLogOptions: {
- *         enabled: true,
- *         cloudwatchLogGroup: aws_cloudwatch_log_group.lg.name,
- *         cloudwatchLogStream: aws_cloudwatch_log_stream.ls.name,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:

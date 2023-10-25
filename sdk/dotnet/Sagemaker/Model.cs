@@ -12,64 +12,6 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker model resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "sagemaker.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var test = Aws.Sagemaker.GetPrebuiltEcrImage.Invoke(new()
-    ///     {
-    ///         RepositoryName = "kmeans",
-    ///     });
-    /// 
-    ///     var exampleModel = new Aws.Sagemaker.Model("exampleModel", new()
-    ///     {
-    ///         ExecutionRoleArn = exampleRole.Arn,
-    ///         PrimaryContainer = new Aws.Sagemaker.Inputs.ModelPrimaryContainerArgs
-    ///         {
-    ///             Image = test.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Inference Execution Config
     /// 
     /// * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.

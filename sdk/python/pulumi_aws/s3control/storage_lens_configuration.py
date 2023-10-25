@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,39 @@ class StorageLensConfigurationArgs:
         :param pulumi.Input[str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "config_id", config_id)
-        pulumi.set(__self__, "storage_lens_configuration", storage_lens_configuration)
+        StorageLensConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config_id=config_id,
+            storage_lens_configuration=storage_lens_configuration,
+            account_id=account_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config_id: Optional[pulumi.Input[str]] = None,
+             storage_lens_configuration: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationArgs']] = None,
+             account_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config_id is None and 'configId' in kwargs:
+            config_id = kwargs['configId']
+        if config_id is None:
+            raise TypeError("Missing 'config_id' argument")
+        if storage_lens_configuration is None and 'storageLensConfiguration' in kwargs:
+            storage_lens_configuration = kwargs['storageLensConfiguration']
+        if storage_lens_configuration is None:
+            raise TypeError("Missing 'storage_lens_configuration' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
+        _setter("config_id", config_id)
+        _setter("storage_lens_configuration", storage_lens_configuration)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="configId")
@@ -101,21 +128,50 @@ class _StorageLensConfigurationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _StorageLensConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            arn=arn,
+            config_id=config_id,
+            storage_lens_configuration=storage_lens_configuration,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             config_id: Optional[pulumi.Input[str]] = None,
+             storage_lens_configuration: Optional[pulumi.Input['StorageLensConfigurationStorageLensConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if config_id is None and 'configId' in kwargs:
+            config_id = kwargs['configId']
+        if storage_lens_configuration is None and 'storageLensConfiguration' in kwargs:
+            storage_lens_configuration = kwargs['storageLensConfiguration']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if config_id is not None:
-            pulumi.set(__self__, "config_id", config_id)
+            _setter("config_id", config_id)
         if storage_lens_configuration is not None:
-            pulumi.set(__self__, "storage_lens_configuration", storage_lens_configuration)
+            _setter("storage_lens_configuration", storage_lens_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accountId")
@@ -206,51 +262,6 @@ class StorageLensConfiguration(pulumi.CustomResource):
         """
         Provides a resource to manage an S3 Storage Lens configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.s3control.StorageLensConfiguration("example",
-            config_id="example-1",
-            storage_lens_configuration=aws.s3control.StorageLensConfigurationStorageLensConfigurationArgs(
-                enabled=True,
-                account_level=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs(
-                    activity_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs(
-                        enabled=True,
-                    ),
-                    bucket_level=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs(
-                        activity_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs(
-                            enabled=True,
-                        ),
-                    ),
-                ),
-                data_export=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportArgs(
-                    cloud_watch_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs(
-                        enabled=True,
-                    ),
-                    s3_bucket_destination=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(
-                        account_id=current.account_id,
-                        arn=aws_s3_bucket["target"]["arn"],
-                        format="CSV",
-                        output_schema_version="V_1",
-                        encryption=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(
-                            sse_s3s=[aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args()],
-                        ),
-                    ),
-                ),
-                exclude=aws.s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs(
-                    buckets=[
-                        aws_s3_bucket["b1"]["arn"],
-                        aws_s3_bucket["b2"]["arn"],
-                    ],
-                    regions=["us-east-2"],
-                ),
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
@@ -275,51 +286,6 @@ class StorageLensConfiguration(pulumi.CustomResource):
         """
         Provides a resource to manage an S3 Storage Lens configuration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.s3control.StorageLensConfiguration("example",
-            config_id="example-1",
-            storage_lens_configuration=aws.s3control.StorageLensConfigurationStorageLensConfigurationArgs(
-                enabled=True,
-                account_level=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs(
-                    activity_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs(
-                        enabled=True,
-                    ),
-                    bucket_level=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs(
-                        activity_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs(
-                            enabled=True,
-                        ),
-                    ),
-                ),
-                data_export=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportArgs(
-                    cloud_watch_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs(
-                        enabled=True,
-                    ),
-                    s3_bucket_destination=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(
-                        account_id=current.account_id,
-                        arn=aws_s3_bucket["target"]["arn"],
-                        format="CSV",
-                        output_schema_version="V_1",
-                        encryption=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(
-                            sse_s3s=[aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args()],
-                        ),
-                    ),
-                ),
-                exclude=aws.s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs(
-                    buckets=[
-                        aws_s3_bucket["b1"]["arn"],
-                        aws_s3_bucket["b2"]["arn"],
-                    ],
-                    regions=["us-east-2"],
-                ),
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
@@ -338,6 +304,10 @@ class StorageLensConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageLensConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -360,6 +330,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
             if config_id is None and not opts.urn:
                 raise TypeError("Missing required property 'config_id'")
             __props__.__dict__["config_id"] = config_id
+            storage_lens_configuration = _utilities.configure(storage_lens_configuration, StorageLensConfigurationStorageLensConfigurationArgs, True)
             if storage_lens_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_lens_configuration'")
             __props__.__dict__["storage_lens_configuration"] = storage_lens_configuration

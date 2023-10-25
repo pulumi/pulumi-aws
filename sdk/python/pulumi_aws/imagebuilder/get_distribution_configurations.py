@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -84,18 +84,6 @@ def get_distribution_configurations(filters: Optional[Sequence[pulumi.InputType[
     """
     Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_distribution_configurations(filters=[aws.imagebuilder.GetDistributionConfigurationsFilterArgs(
-        name="name",
-        values=["example"],
-    )])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetDistributionConfigurationsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
@@ -116,18 +104,6 @@ def get_distribution_configurations_output(filters: Optional[pulumi.Input[Option
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionConfigurationsResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_distribution_configurations(filters=[aws.imagebuilder.GetDistributionConfigurationsFilterArgs(
-        name="name",
-        values=["example"],
-    )])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetDistributionConfigurationsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

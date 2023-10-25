@@ -8,25 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.DedicatedIpPool("example", {poolName: "my-pool"});
- * ```
- * ### Managed Pool
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sesv2.DedicatedIpPool("example", {
- *     poolName: "my-managed-pool",
- *     scalingMode: "MANAGED",
- * });
- * ```
  *
  * ## Import
  *

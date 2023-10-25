@@ -11,36 +11,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Lex Slot Type resource. For more information see
  * [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const flowerTypes = new aws.lex.SlotType("flowerTypes", {
- *     createVersion: true,
- *     description: "Types of flowers to order",
- *     enumerationValues: [
- *         {
- *             synonyms: [
- *                 "Lirium",
- *                 "Martagon",
- *             ],
- *             value: "lilies",
- *         },
- *         {
- *             synonyms: [
- *                 "Eduardoregelia",
- *                 "Podonix",
- *             ],
- *             value: "tulips",
- *         },
- *     ],
- *     name: "FlowerTypes",
- *     valueSelectionStrategy: "ORIGINAL_VALUE",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import slot types using their name. For example:

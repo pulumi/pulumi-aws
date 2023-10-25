@@ -11,17 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS OpenSearchServerless VPC Endpoint.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opensearch.ServerlessVpcEndpoint("example", {
- *     subnetIds: [aws_subnet.example.id],
- *     vpcId: aws_vpc.example.id,
- * });
- * ```
  *
  * ## Import
  *

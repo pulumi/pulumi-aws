@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Route 53 Resolver config resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
- *     cidrBlock: "10.0.0.0/16",
- *     enableDnsSupport: true,
- *     enableDnsHostnames: true,
- * });
- * const exampleResolverConfig = new aws.route53.ResolverConfig("exampleResolverConfig", {
- *     resourceId: exampleVpc.id,
- *     autodefinedReverseFlag: "DISABLE",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Route 53 Resolver configs using the Route 53 Resolver config ID. For example:

@@ -12,26 +12,6 @@ namespace Pulumi.Aws.S3Outposts
     /// <summary>
     /// Provides a resource to manage an S3 Outposts Endpoint.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.S3Outposts.Endpoint("example", new()
-    ///     {
-    ///         OutpostId = data.Aws_outposts_outpost.Example.Id,
-    ///         SecurityGroupId = aws_security_group.Example.Id,
-    ///         SubnetId = aws_subnet.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:

@@ -12,32 +12,6 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM OpenID Connect provider.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Iam.OpenIdConnectProvider("default", new()
-    ///     {
-    ///         ClientIdLists = new[]
-    ///         {
-    ///             "266362248691-342342xasdasdasda-apps.googleusercontent.com",
-    ///         },
-    ///         ThumbprintLists = new[]
-    ///         {
-    ///             "cf23df2207d99a74fbe169e3eba035e633b65d94",
-    ///         },
-    ///         Url = "https://accounts.google.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:

@@ -12,42 +12,6 @@ namespace Pulumi.Aws.Waf
     /// <summary>
     /// Provides a WAF XSS Match Set Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var xssMatchSet = new Aws.Waf.XssMatchSet("xssMatchSet", new()
-    ///     {
-    ///         XssMatchTuples = new[]
-    ///         {
-    ///             new Aws.Waf.Inputs.XssMatchSetXssMatchTupleArgs
-    ///             {
-    ///                 FieldToMatch = new Aws.Waf.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
-    ///                 {
-    ///                     Type = "URI",
-    ///                 },
-    ///                 TextTransformation = "NONE",
-    ///             },
-    ///             new Aws.Waf.Inputs.XssMatchSetXssMatchTupleArgs
-    ///             {
-    ///                 FieldToMatch = new Aws.Waf.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
-    ///                 {
-    ///                     Type = "QUERY_STRING",
-    ///                 },
-    ///                 TextTransformation = "NONE",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF XSS Match Set using their ID. For example:

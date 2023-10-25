@@ -13,60 +13,6 @@ namespace Pulumi.Aws.AppMesh
     /// Provides an AWS App Mesh virtual service resource.
     /// 
     /// ## Example Usage
-    /// ### Virtual Node Provider
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var servicea = new Aws.AppMesh.VirtualService("servicea", new()
-    ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
-    ///         {
-    ///             Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
-    ///             {
-    ///                 VirtualNode = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderVirtualNodeArgs
-    ///                 {
-    ///                     VirtualNodeName = aws_appmesh_virtual_node.Serviceb1.Name,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Virtual Router Provider
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var servicea = new Aws.AppMesh.VirtualService("servicea", new()
-    ///     {
-    ///         MeshName = aws_appmesh_mesh.Simple.Id,
-    ///         Spec = new Aws.AppMesh.Inputs.VirtualServiceSpecArgs
-    ///         {
-    ///             Provider = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderArgs
-    ///             {
-    ///                 VirtualRouter = new Aws.AppMesh.Inputs.VirtualServiceSpecProviderVirtualRouterArgs
-    ///                 {
-    ///                     VirtualRouterName = aws_appmesh_virtual_router.Serviceb.Name,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

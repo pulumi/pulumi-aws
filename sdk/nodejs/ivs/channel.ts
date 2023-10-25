@@ -8,14 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IVS (Interactive Video) Channel.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ivs.Channel("example", {});
- * ```
  *
  * ## Import
  *

@@ -12,25 +12,6 @@ namespace Pulumi.Aws.Chime
     /// <summary>
     /// Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Chime.VoiceConnector("test", new()
-    ///     {
-    ///         AwsRegion = "us-east-1",
-    ///         RequireEncryption = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Configuration Recorder using the name. For example:

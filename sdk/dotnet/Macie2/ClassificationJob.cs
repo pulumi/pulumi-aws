@@ -12,46 +12,6 @@ namespace Pulumi.Aws.Macie2
     /// <summary>
     /// Provides a resource to manage an [AWS Macie Classification Job](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testAccount = new Aws.Macie2.Account("testAccount");
-    /// 
-    ///     var testClassificationJob = new Aws.Macie2.ClassificationJob("testClassificationJob", new()
-    ///     {
-    ///         JobType = "ONE_TIME",
-    ///         S3JobDefinition = new Aws.Macie2.Inputs.ClassificationJobS3JobDefinitionArgs
-    ///         {
-    ///             BucketDefinitions = new[]
-    ///             {
-    ///                 new Aws.Macie2.Inputs.ClassificationJobS3JobDefinitionBucketDefinitionArgs
-    ///                 {
-    ///                     AccountId = "ACCOUNT ID",
-    ///                     Buckets = new[]
-    ///                     {
-    ///                         "S3 BUCKET NAME",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             testAccount,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_macie2_classification_job` using the id. For example:

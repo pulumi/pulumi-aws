@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a new Amazon Redshift Serverless Namespace.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshiftserverless.Namespace("example", {namespaceName: "concurrency-scaling"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:

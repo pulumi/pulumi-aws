@@ -11,49 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing a QuickSight Folder.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.Folder("example", {folderId: "example-id"});
- * ```
- * ### With Permissions
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.Folder("example", {
- *     folderId: "example-id",
- *     permissions: [{
- *         actions: [
- *             "quicksight:CreateFolder",
- *             "quicksight:DescribeFolder",
- *             "quicksight:UpdateFolder",
- *             "quicksight:DeleteFolder",
- *             "quicksight:CreateFolderMembership",
- *             "quicksight:DeleteFolderMembership",
- *             "quicksight:DescribeFolderPermissions",
- *             "quicksight:UpdateFolderPermissions",
- *         ],
- *         principal: aws_quicksight_user.example.arn,
- *     }],
- * });
- * ```
- * ### With Parent Folder
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const parent = new aws.quicksight.Folder("parent", {folderId: "parent-id"});
- * const example = new aws.quicksight.Folder("example", {
- *     folderId: "example-id",
- *     parentFolderArn: parent.arn,
- * });
- * ```
  *
  * ## Import
  *

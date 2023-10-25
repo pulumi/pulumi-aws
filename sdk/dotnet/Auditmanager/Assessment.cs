@@ -13,53 +13,6 @@ namespace Pulumi.Aws.Auditmanager
     /// Resource for managing an AWS Audit Manager Assessment.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Auditmanager.Assessment("test", new()
-    ///     {
-    ///         AssessmentReportsDestination = new Aws.Auditmanager.Inputs.AssessmentAssessmentReportsDestinationArgs
-    ///         {
-    ///             Destination = $"s3://{aws_s3_bucket.Test.Id}",
-    ///             DestinationType = "S3",
-    ///         },
-    ///         FrameworkId = aws_auditmanager_framework.Test.Id,
-    ///         Roles = new[]
-    ///         {
-    ///             new Aws.Auditmanager.Inputs.AssessmentRoleArgs
-    ///             {
-    ///                 RoleArn = aws_iam_role.Test.Arn,
-    ///                 RoleType = "PROCESS_OWNER",
-    ///             },
-    ///         },
-    ///         Scope = new Aws.Auditmanager.Inputs.AssessmentScopeArgs
-    ///         {
-    ///             AwsAccounts = new[]
-    ///             {
-    ///                 new Aws.Auditmanager.Inputs.AssessmentScopeAwsAccountArgs
-    ///                 {
-    ///                     Id = data.Aws_caller_identity.Current.Account_id,
-    ///                 },
-    ///             },
-    ///             AwsServices = new[]
-    ///             {
-    ///                 new Aws.Auditmanager.Inputs.AssessmentScopeAwsServiceArgs
-    ///                 {
-    ///                     ServiceName = "S3",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

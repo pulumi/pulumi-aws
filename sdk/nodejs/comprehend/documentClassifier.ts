@@ -11,26 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Comprehend Document Classifier.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const documents = new aws.s3.BucketObjectv2("documents", {});
- * // ...
- * const example = new aws.comprehend.DocumentClassifier("example", {
- *     dataAccessRoleArn: aws_iam_role.example.arn,
- *     languageCode: "en",
- *     inputDataConfig: {
- *         s3Uri: pulumi.interpolate`s3://${aws_s3_bucket.test.bucket}/${documents.id}`,
- *     },
- * }, {
- *     dependsOn: [aws_iam_role_policy.example],
- * });
- * const entities = new aws.s3.BucketObjectv2("entities", {});
- * // ...
- * ```
  *
  * ## Import
  *

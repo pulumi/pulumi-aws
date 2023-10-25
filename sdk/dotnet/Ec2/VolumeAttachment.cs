@@ -15,43 +15,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE on EBS block devices:** If you use `ebs_block_device` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, and treats additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `aws.ebs.Volume` + `aws.ec2.VolumeAttachment` resources for a given instance.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var web = new Aws.Ec2.Instance("web", new()
-    ///     {
-    ///         Ami = "ami-21f78e11",
-    ///         AvailabilityZone = "us-west-2a",
-    ///         InstanceType = "t2.micro",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld" },
-    ///         },
-    ///     });
-    /// 
-    ///     var example = new Aws.Ebs.Volume("example", new()
-    ///     {
-    ///         AvailabilityZone = "us-west-2a",
-    ///         Size = 1,
-    ///     });
-    /// 
-    ///     var ebsAtt = new Aws.Ec2.VolumeAttachment("ebsAtt", new()
-    ///     {
-    ///         DeviceName = "/dev/sdh",
-    ///         VolumeId = example.Id,
-    ///         InstanceId = web.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:

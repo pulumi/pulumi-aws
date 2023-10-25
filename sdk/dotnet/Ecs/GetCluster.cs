@@ -14,28 +14,6 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// The ECS Cluster data source allows access to details of a specific
         /// cluster within an AWS ECS service.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecs_mongo = Aws.Ecs.GetCluster.Invoke(new()
-        ///     {
-        ///         ClusterName = "ecs-mongo-production",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:ecs/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -43,28 +21,6 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// The ECS Cluster data source allows access to details of a specific
         /// cluster within an AWS ECS service.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecs_mongo = Aws.Ecs.GetCluster.Invoke(new()
-        ///     {
-        ///         ClusterName = "ecs-mongo-production",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:ecs/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

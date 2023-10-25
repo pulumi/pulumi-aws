@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConnectionArgs', 'Connection']
@@ -25,14 +25,35 @@ class ConnectionArgs:
         :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        ConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_arn=host_arn,
+            name=name,
+            provider_type=provider_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provider_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if host_arn is None and 'hostArn' in kwargs:
+            host_arn = kwargs['hostArn']
+        if provider_type is None and 'providerType' in kwargs:
+            provider_type = kwargs['providerType']
+
         if host_arn is not None:
-            pulumi.set(__self__, "host_arn", host_arn)
+            _setter("host_arn", host_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provider_type is not None:
-            pulumi.set(__self__, "provider_type", provider_type)
+            _setter("provider_type", provider_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="hostArn")
@@ -103,23 +124,54 @@ class _ConnectionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            connection_status=connection_status,
+            host_arn=host_arn,
+            name=name,
+            provider_type=provider_type,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             connection_status: Optional[pulumi.Input[str]] = None,
+             host_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provider_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_status is None and 'connectionStatus' in kwargs:
+            connection_status = kwargs['connectionStatus']
+        if host_arn is None and 'hostArn' in kwargs:
+            host_arn = kwargs['hostArn']
+        if provider_type is None and 'providerType' in kwargs:
+            provider_type = kwargs['providerType']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if connection_status is not None:
-            pulumi.set(__self__, "connection_status", connection_status)
+            _setter("connection_status", connection_status)
         if host_arn is not None:
-            pulumi.set(__self__, "host_arn", host_arn)
+            _setter("host_arn", host_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provider_type is not None:
-            pulumi.set(__self__, "provider_type", provider_type)
+            _setter("provider_type", provider_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -224,44 +276,6 @@ class Connection(pulumi.CustomResource):
 
         > **NOTE:** The `codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console. See the [AWS documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html) for details.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_connection = aws.codestarconnections.Connection("exampleConnection", provider_type="Bitbucket")
-        example_pipeline = aws.codepipeline.Pipeline("examplePipeline",
-            role_arn=aws_iam_role["codepipeline_role"]["arn"],
-            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs()],
-            stages=[
-                aws.codepipeline.PipelineStageArgs(
-                    name="Source",
-                    actions=[aws.codepipeline.PipelineStageActionArgs(
-                        name="Source",
-                        category="Source",
-                        owner="AWS",
-                        provider="CodeStarSourceConnection",
-                        version="1",
-                        output_artifacts=["source_output"],
-                        configuration={
-                            "ConnectionArn": example_connection.arn,
-                            "FullRepositoryId": "my-organization/test",
-                            "BranchName": "main",
-                        },
-                    )],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Build",
-                    actions=[aws.codepipeline.PipelineStageActionArgs()],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Deploy",
-                    actions=[aws.codepipeline.PipelineStageActionArgs()],
-                ),
-            ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import CodeStar connections using the ARN. For example:
@@ -288,44 +302,6 @@ class Connection(pulumi.CustomResource):
 
         > **NOTE:** The `codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console. See the [AWS documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html) for details.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_connection = aws.codestarconnections.Connection("exampleConnection", provider_type="Bitbucket")
-        example_pipeline = aws.codepipeline.Pipeline("examplePipeline",
-            role_arn=aws_iam_role["codepipeline_role"]["arn"],
-            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs()],
-            stages=[
-                aws.codepipeline.PipelineStageArgs(
-                    name="Source",
-                    actions=[aws.codepipeline.PipelineStageActionArgs(
-                        name="Source",
-                        category="Source",
-                        owner="AWS",
-                        provider="CodeStarSourceConnection",
-                        version="1",
-                        output_artifacts=["source_output"],
-                        configuration={
-                            "ConnectionArn": example_connection.arn,
-                            "FullRepositoryId": "my-organization/test",
-                            "BranchName": "main",
-                        },
-                    )],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Build",
-                    actions=[aws.codepipeline.PipelineStageActionArgs()],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Deploy",
-                    actions=[aws.codepipeline.PipelineStageActionArgs()],
-                ),
-            ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import CodeStar connections using the ARN. For example:
@@ -344,6 +320,10 @@ class Connection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

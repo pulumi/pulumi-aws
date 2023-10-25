@@ -10,16 +10,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Deleting this resource does not change the block public access value, the resource in simply removed from state instead.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Prevent making AMIs publicly accessible in the region and account for which the provider is configured
- * const test = new aws.ec2.ImageBlockPublicAccess("test", {state: "block-new-sharing"});
- * ```
- *
  * ## Import
  *
  * You cannot import this resource.

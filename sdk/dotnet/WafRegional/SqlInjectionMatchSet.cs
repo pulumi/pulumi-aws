@@ -12,34 +12,6 @@ namespace Pulumi.Aws.WafRegional
     /// <summary>
     /// Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sqlInjectionMatchSet = new Aws.WafRegional.SqlInjectionMatchSet("sqlInjectionMatchSet", new()
-    ///     {
-    ///         SqlInjectionMatchTuples = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs
-    ///             {
-    ///                 FieldToMatch = new Aws.WafRegional.Inputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs
-    ///                 {
-    ///                     Type = "QUERY_STRING",
-    ///                 },
-    ///                 TextTransformation = "URL_DECODE",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Regional Sql Injection Match Set using the id. For example:

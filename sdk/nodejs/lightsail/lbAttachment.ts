@@ -7,37 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Attaches a Lightsail Instance to a Lightsail Load Balancer.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["opt-in-not-required"],
- *     }],
- * });
- * const testLb = new aws.lightsail.Lb("testLb", {
- *     healthCheckPath: "/",
- *     instancePort: 80,
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * const testInstance = new aws.lightsail.Instance("testInstance", {
- *     availabilityZone: available.then(available => available.names?.[0]),
- *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_1_0",
- * });
- * const testLbAttachment = new aws.lightsail.LbAttachment("testLbAttachment", {
- *     lbName: testLb.name,
- *     instanceName: testInstance.name,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:

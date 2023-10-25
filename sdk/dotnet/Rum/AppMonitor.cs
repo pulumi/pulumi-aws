@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Rum
     /// <summary>
     /// Provides a CloudWatch RUM App Monitor resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rum.AppMonitor("example", new()
-    ///     {
-    ///         Domain = "localhost",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:

@@ -15,45 +15,6 @@ import (
 
 // Provides an AWS Backup Report Plan resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewReportPlan(ctx, "example", &backup.ReportPlanArgs{
-//				Description: pulumi.String("example description"),
-//				ReportDeliveryChannel: &backup.ReportPlanReportDeliveryChannelArgs{
-//					Formats: pulumi.StringArray{
-//						pulumi.String("CSV"),
-//						pulumi.String("JSON"),
-//					},
-//					S3BucketName: pulumi.String("example-bucket-name"),
-//				},
-//				ReportSetting: &backup.ReportPlanReportSettingArgs{
-//					ReportTemplate: pulumi.String("RESTORE_JOB_REPORT"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Report Plan"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:

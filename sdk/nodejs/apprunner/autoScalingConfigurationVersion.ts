@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Runner AutoScaling Configuration Version.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apprunner.AutoScalingConfigurationVersion("example", {
- *     autoScalingConfigurationName: "example",
- *     maxConcurrency: 50,
- *     maxSize: 10,
- *     minSize: 2,
- *     tags: {
- *         Name: "example-apprunner-autoscaling",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:

@@ -8,40 +8,6 @@ import * as utilities from "../utilities";
  * Adds a launch permission to an Amazon Machine Image (AMI).
  *
  * ## Example Usage
- * ### AWS Account ID
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.AmiLaunchPermission("example", {
- *     accountId: "123456789012",
- *     imageId: "ami-12345678",
- * });
- * ```
- * ### Public Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.AmiLaunchPermission("example", {
- *     group: "all",
- *     imageId: "ami-12345678",
- * });
- * ```
- * ### Organization Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.organizations.getOrganization({});
- * const example = new aws.ec2.AmiLaunchPermission("example", {
- *     imageId: "ami-12345678",
- *     organizationArn: current.then(current => current.arn),
- * });
- * ```
  *
  * ## Import
  *

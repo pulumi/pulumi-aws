@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Service Network VPC Association.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpclattice.ServiceNetworkVpcAssociation("example", {
- *     vpcIdentifier: aws_vpc.example.id,
- *     serviceNetworkIdentifier: aws_vpclattice_service_network.example.id,
- *     securityGroupIds: [aws_security_group.example.id],
- * });
- * ```
  *
  * ## Import
  *

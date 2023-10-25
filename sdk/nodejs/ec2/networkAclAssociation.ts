@@ -10,18 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource
  * and a network ACL resource with a `subnetIds` attribute. Do not use the same subnet ID in both a network ACL
  * resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.ec2.NetworkAclAssociation("main", {
- *     networkAclId: aws_network_acl.main.id,
- *     subnetId: aws_subnet.main.id,
- * });
- * ```
  */
 export class NetworkAclAssociation extends pulumi.CustomResource {
     /**

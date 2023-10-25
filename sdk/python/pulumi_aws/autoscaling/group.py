@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -129,80 +129,239 @@ class GroupArgs:
         :param pulumi.Input['GroupWarmPoolArgs'] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
                to the specified Auto Scaling group. Defined below
         """
-        pulumi.set(__self__, "max_size", max_size)
-        pulumi.set(__self__, "min_size", min_size)
+        GroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_size=max_size,
+            min_size=min_size,
+            availability_zones=availability_zones,
+            capacity_rebalance=capacity_rebalance,
+            context=context,
+            default_cooldown=default_cooldown,
+            default_instance_warmup=default_instance_warmup,
+            desired_capacity=desired_capacity,
+            desired_capacity_type=desired_capacity_type,
+            enabled_metrics=enabled_metrics,
+            force_delete=force_delete,
+            force_delete_warm_pool=force_delete_warm_pool,
+            health_check_grace_period=health_check_grace_period,
+            health_check_type=health_check_type,
+            ignore_failed_scaling_activities=ignore_failed_scaling_activities,
+            initial_lifecycle_hooks=initial_lifecycle_hooks,
+            instance_refresh=instance_refresh,
+            launch_configuration=launch_configuration,
+            launch_template=launch_template,
+            load_balancers=load_balancers,
+            max_instance_lifetime=max_instance_lifetime,
+            metrics_granularity=metrics_granularity,
+            min_elb_capacity=min_elb_capacity,
+            mixed_instances_policy=mixed_instances_policy,
+            name=name,
+            name_prefix=name_prefix,
+            placement_group=placement_group,
+            protect_from_scale_in=protect_from_scale_in,
+            service_linked_role_arn=service_linked_role_arn,
+            suspended_processes=suspended_processes,
+            tags=tags,
+            target_group_arns=target_group_arns,
+            termination_policies=termination_policies,
+            traffic_sources=traffic_sources,
+            vpc_zone_identifiers=vpc_zone_identifiers,
+            wait_for_capacity_timeout=wait_for_capacity_timeout,
+            wait_for_elb_capacity=wait_for_elb_capacity,
+            warm_pool=warm_pool,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_size: Optional[pulumi.Input[int]] = None,
+             min_size: Optional[pulumi.Input[int]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             capacity_rebalance: Optional[pulumi.Input[bool]] = None,
+             context: Optional[pulumi.Input[str]] = None,
+             default_cooldown: Optional[pulumi.Input[int]] = None,
+             default_instance_warmup: Optional[pulumi.Input[int]] = None,
+             desired_capacity: Optional[pulumi.Input[int]] = None,
+             desired_capacity_type: Optional[pulumi.Input[str]] = None,
+             enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
+             health_check_grace_period: Optional[pulumi.Input[int]] = None,
+             health_check_type: Optional[pulumi.Input[str]] = None,
+             ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
+             initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
+             instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArgs']] = None,
+             launch_configuration: Optional[pulumi.Input[str]] = None,
+             launch_template: Optional[pulumi.Input['GroupLaunchTemplateArgs']] = None,
+             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_instance_lifetime: Optional[pulumi.Input[int]] = None,
+             metrics_granularity: Optional[pulumi.Input[Union[str, 'MetricsGranularity']]] = None,
+             min_elb_capacity: Optional[pulumi.Input[int]] = None,
+             mixed_instances_policy: Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             placement_group: Optional[pulumi.Input[str]] = None,
+             protect_from_scale_in: Optional[pulumi.Input[bool]] = None,
+             service_linked_role_arn: Optional[pulumi.Input[str]] = None,
+             suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
+             target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]] = None,
+             vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
+             wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
+             warm_pool: Optional[pulumi.Input['GroupWarmPoolArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if max_size is None:
+            raise TypeError("Missing 'max_size' argument")
+        if min_size is None and 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if min_size is None:
+            raise TypeError("Missing 'min_size' argument")
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if capacity_rebalance is None and 'capacityRebalance' in kwargs:
+            capacity_rebalance = kwargs['capacityRebalance']
+        if default_cooldown is None and 'defaultCooldown' in kwargs:
+            default_cooldown = kwargs['defaultCooldown']
+        if default_instance_warmup is None and 'defaultInstanceWarmup' in kwargs:
+            default_instance_warmup = kwargs['defaultInstanceWarmup']
+        if desired_capacity is None and 'desiredCapacity' in kwargs:
+            desired_capacity = kwargs['desiredCapacity']
+        if desired_capacity_type is None and 'desiredCapacityType' in kwargs:
+            desired_capacity_type = kwargs['desiredCapacityType']
+        if enabled_metrics is None and 'enabledMetrics' in kwargs:
+            enabled_metrics = kwargs['enabledMetrics']
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if force_delete_warm_pool is None and 'forceDeleteWarmPool' in kwargs:
+            force_delete_warm_pool = kwargs['forceDeleteWarmPool']
+        if health_check_grace_period is None and 'healthCheckGracePeriod' in kwargs:
+            health_check_grace_period = kwargs['healthCheckGracePeriod']
+        if health_check_type is None and 'healthCheckType' in kwargs:
+            health_check_type = kwargs['healthCheckType']
+        if ignore_failed_scaling_activities is None and 'ignoreFailedScalingActivities' in kwargs:
+            ignore_failed_scaling_activities = kwargs['ignoreFailedScalingActivities']
+        if initial_lifecycle_hooks is None and 'initialLifecycleHooks' in kwargs:
+            initial_lifecycle_hooks = kwargs['initialLifecycleHooks']
+        if instance_refresh is None and 'instanceRefresh' in kwargs:
+            instance_refresh = kwargs['instanceRefresh']
+        if launch_configuration is None and 'launchConfiguration' in kwargs:
+            launch_configuration = kwargs['launchConfiguration']
+        if launch_template is None and 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if load_balancers is None and 'loadBalancers' in kwargs:
+            load_balancers = kwargs['loadBalancers']
+        if max_instance_lifetime is None and 'maxInstanceLifetime' in kwargs:
+            max_instance_lifetime = kwargs['maxInstanceLifetime']
+        if metrics_granularity is None and 'metricsGranularity' in kwargs:
+            metrics_granularity = kwargs['metricsGranularity']
+        if min_elb_capacity is None and 'minElbCapacity' in kwargs:
+            min_elb_capacity = kwargs['minElbCapacity']
+        if mixed_instances_policy is None and 'mixedInstancesPolicy' in kwargs:
+            mixed_instances_policy = kwargs['mixedInstancesPolicy']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if placement_group is None and 'placementGroup' in kwargs:
+            placement_group = kwargs['placementGroup']
+        if protect_from_scale_in is None and 'protectFromScaleIn' in kwargs:
+            protect_from_scale_in = kwargs['protectFromScaleIn']
+        if service_linked_role_arn is None and 'serviceLinkedRoleArn' in kwargs:
+            service_linked_role_arn = kwargs['serviceLinkedRoleArn']
+        if suspended_processes is None and 'suspendedProcesses' in kwargs:
+            suspended_processes = kwargs['suspendedProcesses']
+        if target_group_arns is None and 'targetGroupArns' in kwargs:
+            target_group_arns = kwargs['targetGroupArns']
+        if termination_policies is None and 'terminationPolicies' in kwargs:
+            termination_policies = kwargs['terminationPolicies']
+        if traffic_sources is None and 'trafficSources' in kwargs:
+            traffic_sources = kwargs['trafficSources']
+        if vpc_zone_identifiers is None and 'vpcZoneIdentifiers' in kwargs:
+            vpc_zone_identifiers = kwargs['vpcZoneIdentifiers']
+        if wait_for_capacity_timeout is None and 'waitForCapacityTimeout' in kwargs:
+            wait_for_capacity_timeout = kwargs['waitForCapacityTimeout']
+        if wait_for_elb_capacity is None and 'waitForElbCapacity' in kwargs:
+            wait_for_elb_capacity = kwargs['waitForElbCapacity']
+        if warm_pool is None and 'warmPool' in kwargs:
+            warm_pool = kwargs['warmPool']
+
+        _setter("max_size", max_size)
+        _setter("min_size", min_size)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if capacity_rebalance is not None:
-            pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+            _setter("capacity_rebalance", capacity_rebalance)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if default_cooldown is not None:
-            pulumi.set(__self__, "default_cooldown", default_cooldown)
+            _setter("default_cooldown", default_cooldown)
         if default_instance_warmup is not None:
-            pulumi.set(__self__, "default_instance_warmup", default_instance_warmup)
+            _setter("default_instance_warmup", default_instance_warmup)
         if desired_capacity is not None:
-            pulumi.set(__self__, "desired_capacity", desired_capacity)
+            _setter("desired_capacity", desired_capacity)
         if desired_capacity_type is not None:
-            pulumi.set(__self__, "desired_capacity_type", desired_capacity_type)
+            _setter("desired_capacity_type", desired_capacity_type)
         if enabled_metrics is not None:
-            pulumi.set(__self__, "enabled_metrics", enabled_metrics)
+            _setter("enabled_metrics", enabled_metrics)
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if force_delete_warm_pool is not None:
-            pulumi.set(__self__, "force_delete_warm_pool", force_delete_warm_pool)
+            _setter("force_delete_warm_pool", force_delete_warm_pool)
         if health_check_grace_period is not None:
-            pulumi.set(__self__, "health_check_grace_period", health_check_grace_period)
+            _setter("health_check_grace_period", health_check_grace_period)
         if health_check_type is not None:
-            pulumi.set(__self__, "health_check_type", health_check_type)
+            _setter("health_check_type", health_check_type)
         if ignore_failed_scaling_activities is not None:
-            pulumi.set(__self__, "ignore_failed_scaling_activities", ignore_failed_scaling_activities)
+            _setter("ignore_failed_scaling_activities", ignore_failed_scaling_activities)
         if initial_lifecycle_hooks is not None:
-            pulumi.set(__self__, "initial_lifecycle_hooks", initial_lifecycle_hooks)
+            _setter("initial_lifecycle_hooks", initial_lifecycle_hooks)
         if instance_refresh is not None:
-            pulumi.set(__self__, "instance_refresh", instance_refresh)
+            _setter("instance_refresh", instance_refresh)
         if launch_configuration is not None:
-            pulumi.set(__self__, "launch_configuration", launch_configuration)
+            _setter("launch_configuration", launch_configuration)
         if launch_template is not None:
-            pulumi.set(__self__, "launch_template", launch_template)
+            _setter("launch_template", launch_template)
         if load_balancers is not None:
-            pulumi.set(__self__, "load_balancers", load_balancers)
+            _setter("load_balancers", load_balancers)
         if max_instance_lifetime is not None:
-            pulumi.set(__self__, "max_instance_lifetime", max_instance_lifetime)
+            _setter("max_instance_lifetime", max_instance_lifetime)
         if metrics_granularity is not None:
-            pulumi.set(__self__, "metrics_granularity", metrics_granularity)
+            _setter("metrics_granularity", metrics_granularity)
         if min_elb_capacity is not None:
-            pulumi.set(__self__, "min_elb_capacity", min_elb_capacity)
+            _setter("min_elb_capacity", min_elb_capacity)
         if mixed_instances_policy is not None:
-            pulumi.set(__self__, "mixed_instances_policy", mixed_instances_policy)
+            _setter("mixed_instances_policy", mixed_instances_policy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if placement_group is not None:
-            pulumi.set(__self__, "placement_group", placement_group)
+            _setter("placement_group", placement_group)
         if protect_from_scale_in is not None:
-            pulumi.set(__self__, "protect_from_scale_in", protect_from_scale_in)
+            _setter("protect_from_scale_in", protect_from_scale_in)
         if service_linked_role_arn is not None:
-            pulumi.set(__self__, "service_linked_role_arn", service_linked_role_arn)
+            _setter("service_linked_role_arn", service_linked_role_arn)
         if suspended_processes is not None:
-            pulumi.set(__self__, "suspended_processes", suspended_processes)
+            _setter("suspended_processes", suspended_processes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_group_arns is not None:
-            pulumi.set(__self__, "target_group_arns", target_group_arns)
+            _setter("target_group_arns", target_group_arns)
         if termination_policies is not None:
-            pulumi.set(__self__, "termination_policies", termination_policies)
+            _setter("termination_policies", termination_policies)
         if traffic_sources is not None:
-            pulumi.set(__self__, "traffic_sources", traffic_sources)
+            _setter("traffic_sources", traffic_sources)
         if vpc_zone_identifiers is not None:
-            pulumi.set(__self__, "vpc_zone_identifiers", vpc_zone_identifiers)
+            _setter("vpc_zone_identifiers", vpc_zone_identifiers)
         if wait_for_capacity_timeout is not None:
-            pulumi.set(__self__, "wait_for_capacity_timeout", wait_for_capacity_timeout)
+            _setter("wait_for_capacity_timeout", wait_for_capacity_timeout)
         if wait_for_elb_capacity is not None:
-            pulumi.set(__self__, "wait_for_elb_capacity", wait_for_elb_capacity)
+            _setter("wait_for_elb_capacity", wait_for_elb_capacity)
         if warm_pool is not None:
-            pulumi.set(__self__, "warm_pool", warm_pool)
+            _setter("warm_pool", warm_pool)
 
     @property
     @pulumi.getter(name="maxSize")
@@ -813,88 +972,253 @@ class _GroupState:
                to the specified Auto Scaling group. Defined below
         :param pulumi.Input[int] warm_pool_size: Current size of the warm pool.
         """
+        _GroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            availability_zones=availability_zones,
+            capacity_rebalance=capacity_rebalance,
+            context=context,
+            default_cooldown=default_cooldown,
+            default_instance_warmup=default_instance_warmup,
+            desired_capacity=desired_capacity,
+            desired_capacity_type=desired_capacity_type,
+            enabled_metrics=enabled_metrics,
+            force_delete=force_delete,
+            force_delete_warm_pool=force_delete_warm_pool,
+            health_check_grace_period=health_check_grace_period,
+            health_check_type=health_check_type,
+            ignore_failed_scaling_activities=ignore_failed_scaling_activities,
+            initial_lifecycle_hooks=initial_lifecycle_hooks,
+            instance_refresh=instance_refresh,
+            launch_configuration=launch_configuration,
+            launch_template=launch_template,
+            load_balancers=load_balancers,
+            max_instance_lifetime=max_instance_lifetime,
+            max_size=max_size,
+            metrics_granularity=metrics_granularity,
+            min_elb_capacity=min_elb_capacity,
+            min_size=min_size,
+            mixed_instances_policy=mixed_instances_policy,
+            name=name,
+            name_prefix=name_prefix,
+            placement_group=placement_group,
+            predicted_capacity=predicted_capacity,
+            protect_from_scale_in=protect_from_scale_in,
+            service_linked_role_arn=service_linked_role_arn,
+            suspended_processes=suspended_processes,
+            tags=tags,
+            target_group_arns=target_group_arns,
+            termination_policies=termination_policies,
+            traffic_sources=traffic_sources,
+            vpc_zone_identifiers=vpc_zone_identifiers,
+            wait_for_capacity_timeout=wait_for_capacity_timeout,
+            wait_for_elb_capacity=wait_for_elb_capacity,
+            warm_pool=warm_pool,
+            warm_pool_size=warm_pool_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             capacity_rebalance: Optional[pulumi.Input[bool]] = None,
+             context: Optional[pulumi.Input[str]] = None,
+             default_cooldown: Optional[pulumi.Input[int]] = None,
+             default_instance_warmup: Optional[pulumi.Input[int]] = None,
+             desired_capacity: Optional[pulumi.Input[int]] = None,
+             desired_capacity_type: Optional[pulumi.Input[str]] = None,
+             enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
+             health_check_grace_period: Optional[pulumi.Input[int]] = None,
+             health_check_type: Optional[pulumi.Input[str]] = None,
+             ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
+             initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
+             instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArgs']] = None,
+             launch_configuration: Optional[pulumi.Input[str]] = None,
+             launch_template: Optional[pulumi.Input['GroupLaunchTemplateArgs']] = None,
+             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_instance_lifetime: Optional[pulumi.Input[int]] = None,
+             max_size: Optional[pulumi.Input[int]] = None,
+             metrics_granularity: Optional[pulumi.Input[Union[str, 'MetricsGranularity']]] = None,
+             min_elb_capacity: Optional[pulumi.Input[int]] = None,
+             min_size: Optional[pulumi.Input[int]] = None,
+             mixed_instances_policy: Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             placement_group: Optional[pulumi.Input[str]] = None,
+             predicted_capacity: Optional[pulumi.Input[int]] = None,
+             protect_from_scale_in: Optional[pulumi.Input[bool]] = None,
+             service_linked_role_arn: Optional[pulumi.Input[str]] = None,
+             suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
+             target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]] = None,
+             vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
+             wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
+             warm_pool: Optional[pulumi.Input['GroupWarmPoolArgs']] = None,
+             warm_pool_size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if capacity_rebalance is None and 'capacityRebalance' in kwargs:
+            capacity_rebalance = kwargs['capacityRebalance']
+        if default_cooldown is None and 'defaultCooldown' in kwargs:
+            default_cooldown = kwargs['defaultCooldown']
+        if default_instance_warmup is None and 'defaultInstanceWarmup' in kwargs:
+            default_instance_warmup = kwargs['defaultInstanceWarmup']
+        if desired_capacity is None and 'desiredCapacity' in kwargs:
+            desired_capacity = kwargs['desiredCapacity']
+        if desired_capacity_type is None and 'desiredCapacityType' in kwargs:
+            desired_capacity_type = kwargs['desiredCapacityType']
+        if enabled_metrics is None and 'enabledMetrics' in kwargs:
+            enabled_metrics = kwargs['enabledMetrics']
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if force_delete_warm_pool is None and 'forceDeleteWarmPool' in kwargs:
+            force_delete_warm_pool = kwargs['forceDeleteWarmPool']
+        if health_check_grace_period is None and 'healthCheckGracePeriod' in kwargs:
+            health_check_grace_period = kwargs['healthCheckGracePeriod']
+        if health_check_type is None and 'healthCheckType' in kwargs:
+            health_check_type = kwargs['healthCheckType']
+        if ignore_failed_scaling_activities is None and 'ignoreFailedScalingActivities' in kwargs:
+            ignore_failed_scaling_activities = kwargs['ignoreFailedScalingActivities']
+        if initial_lifecycle_hooks is None and 'initialLifecycleHooks' in kwargs:
+            initial_lifecycle_hooks = kwargs['initialLifecycleHooks']
+        if instance_refresh is None and 'instanceRefresh' in kwargs:
+            instance_refresh = kwargs['instanceRefresh']
+        if launch_configuration is None and 'launchConfiguration' in kwargs:
+            launch_configuration = kwargs['launchConfiguration']
+        if launch_template is None and 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if load_balancers is None and 'loadBalancers' in kwargs:
+            load_balancers = kwargs['loadBalancers']
+        if max_instance_lifetime is None and 'maxInstanceLifetime' in kwargs:
+            max_instance_lifetime = kwargs['maxInstanceLifetime']
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if metrics_granularity is None and 'metricsGranularity' in kwargs:
+            metrics_granularity = kwargs['metricsGranularity']
+        if min_elb_capacity is None and 'minElbCapacity' in kwargs:
+            min_elb_capacity = kwargs['minElbCapacity']
+        if min_size is None and 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if mixed_instances_policy is None and 'mixedInstancesPolicy' in kwargs:
+            mixed_instances_policy = kwargs['mixedInstancesPolicy']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if placement_group is None and 'placementGroup' in kwargs:
+            placement_group = kwargs['placementGroup']
+        if predicted_capacity is None and 'predictedCapacity' in kwargs:
+            predicted_capacity = kwargs['predictedCapacity']
+        if protect_from_scale_in is None and 'protectFromScaleIn' in kwargs:
+            protect_from_scale_in = kwargs['protectFromScaleIn']
+        if service_linked_role_arn is None and 'serviceLinkedRoleArn' in kwargs:
+            service_linked_role_arn = kwargs['serviceLinkedRoleArn']
+        if suspended_processes is None and 'suspendedProcesses' in kwargs:
+            suspended_processes = kwargs['suspendedProcesses']
+        if target_group_arns is None and 'targetGroupArns' in kwargs:
+            target_group_arns = kwargs['targetGroupArns']
+        if termination_policies is None and 'terminationPolicies' in kwargs:
+            termination_policies = kwargs['terminationPolicies']
+        if traffic_sources is None and 'trafficSources' in kwargs:
+            traffic_sources = kwargs['trafficSources']
+        if vpc_zone_identifiers is None and 'vpcZoneIdentifiers' in kwargs:
+            vpc_zone_identifiers = kwargs['vpcZoneIdentifiers']
+        if wait_for_capacity_timeout is None and 'waitForCapacityTimeout' in kwargs:
+            wait_for_capacity_timeout = kwargs['waitForCapacityTimeout']
+        if wait_for_elb_capacity is None and 'waitForElbCapacity' in kwargs:
+            wait_for_elb_capacity = kwargs['waitForElbCapacity']
+        if warm_pool is None and 'warmPool' in kwargs:
+            warm_pool = kwargs['warmPool']
+        if warm_pool_size is None and 'warmPoolSize' in kwargs:
+            warm_pool_size = kwargs['warmPoolSize']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if capacity_rebalance is not None:
-            pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+            _setter("capacity_rebalance", capacity_rebalance)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if default_cooldown is not None:
-            pulumi.set(__self__, "default_cooldown", default_cooldown)
+            _setter("default_cooldown", default_cooldown)
         if default_instance_warmup is not None:
-            pulumi.set(__self__, "default_instance_warmup", default_instance_warmup)
+            _setter("default_instance_warmup", default_instance_warmup)
         if desired_capacity is not None:
-            pulumi.set(__self__, "desired_capacity", desired_capacity)
+            _setter("desired_capacity", desired_capacity)
         if desired_capacity_type is not None:
-            pulumi.set(__self__, "desired_capacity_type", desired_capacity_type)
+            _setter("desired_capacity_type", desired_capacity_type)
         if enabled_metrics is not None:
-            pulumi.set(__self__, "enabled_metrics", enabled_metrics)
+            _setter("enabled_metrics", enabled_metrics)
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if force_delete_warm_pool is not None:
-            pulumi.set(__self__, "force_delete_warm_pool", force_delete_warm_pool)
+            _setter("force_delete_warm_pool", force_delete_warm_pool)
         if health_check_grace_period is not None:
-            pulumi.set(__self__, "health_check_grace_period", health_check_grace_period)
+            _setter("health_check_grace_period", health_check_grace_period)
         if health_check_type is not None:
-            pulumi.set(__self__, "health_check_type", health_check_type)
+            _setter("health_check_type", health_check_type)
         if ignore_failed_scaling_activities is not None:
-            pulumi.set(__self__, "ignore_failed_scaling_activities", ignore_failed_scaling_activities)
+            _setter("ignore_failed_scaling_activities", ignore_failed_scaling_activities)
         if initial_lifecycle_hooks is not None:
-            pulumi.set(__self__, "initial_lifecycle_hooks", initial_lifecycle_hooks)
+            _setter("initial_lifecycle_hooks", initial_lifecycle_hooks)
         if instance_refresh is not None:
-            pulumi.set(__self__, "instance_refresh", instance_refresh)
+            _setter("instance_refresh", instance_refresh)
         if launch_configuration is not None:
-            pulumi.set(__self__, "launch_configuration", launch_configuration)
+            _setter("launch_configuration", launch_configuration)
         if launch_template is not None:
-            pulumi.set(__self__, "launch_template", launch_template)
+            _setter("launch_template", launch_template)
         if load_balancers is not None:
-            pulumi.set(__self__, "load_balancers", load_balancers)
+            _setter("load_balancers", load_balancers)
         if max_instance_lifetime is not None:
-            pulumi.set(__self__, "max_instance_lifetime", max_instance_lifetime)
+            _setter("max_instance_lifetime", max_instance_lifetime)
         if max_size is not None:
-            pulumi.set(__self__, "max_size", max_size)
+            _setter("max_size", max_size)
         if metrics_granularity is not None:
-            pulumi.set(__self__, "metrics_granularity", metrics_granularity)
+            _setter("metrics_granularity", metrics_granularity)
         if min_elb_capacity is not None:
-            pulumi.set(__self__, "min_elb_capacity", min_elb_capacity)
+            _setter("min_elb_capacity", min_elb_capacity)
         if min_size is not None:
-            pulumi.set(__self__, "min_size", min_size)
+            _setter("min_size", min_size)
         if mixed_instances_policy is not None:
-            pulumi.set(__self__, "mixed_instances_policy", mixed_instances_policy)
+            _setter("mixed_instances_policy", mixed_instances_policy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if placement_group is not None:
-            pulumi.set(__self__, "placement_group", placement_group)
+            _setter("placement_group", placement_group)
         if predicted_capacity is not None:
-            pulumi.set(__self__, "predicted_capacity", predicted_capacity)
+            _setter("predicted_capacity", predicted_capacity)
         if protect_from_scale_in is not None:
-            pulumi.set(__self__, "protect_from_scale_in", protect_from_scale_in)
+            _setter("protect_from_scale_in", protect_from_scale_in)
         if service_linked_role_arn is not None:
-            pulumi.set(__self__, "service_linked_role_arn", service_linked_role_arn)
+            _setter("service_linked_role_arn", service_linked_role_arn)
         if suspended_processes is not None:
-            pulumi.set(__self__, "suspended_processes", suspended_processes)
+            _setter("suspended_processes", suspended_processes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_group_arns is not None:
-            pulumi.set(__self__, "target_group_arns", target_group_arns)
+            _setter("target_group_arns", target_group_arns)
         if termination_policies is not None:
-            pulumi.set(__self__, "termination_policies", termination_policies)
+            _setter("termination_policies", termination_policies)
         if traffic_sources is not None:
-            pulumi.set(__self__, "traffic_sources", traffic_sources)
+            _setter("traffic_sources", traffic_sources)
         if vpc_zone_identifiers is not None:
-            pulumi.set(__self__, "vpc_zone_identifiers", vpc_zone_identifiers)
+            _setter("vpc_zone_identifiers", vpc_zone_identifiers)
         if wait_for_capacity_timeout is not None:
-            pulumi.set(__self__, "wait_for_capacity_timeout", wait_for_capacity_timeout)
+            _setter("wait_for_capacity_timeout", wait_for_capacity_timeout)
         if wait_for_elb_capacity is not None:
-            pulumi.set(__self__, "wait_for_elb_capacity", wait_for_elb_capacity)
+            _setter("wait_for_elb_capacity", wait_for_elb_capacity)
         if warm_pool is not None:
-            pulumi.set(__self__, "warm_pool", warm_pool)
+            _setter("warm_pool", warm_pool)
         if warm_pool_size is not None:
-            pulumi.set(__self__, "warm_pool_size", warm_pool_size)
+            _setter("warm_pool_size", warm_pool_size)
 
     @property
     @pulumi.getter
@@ -1471,239 +1795,6 @@ class Group(pulumi.CustomResource):
 
         > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 
-        ## Example Usage
-        ### With Latest Version Of Launch Template
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foobar = aws.ec2.LaunchTemplate("foobar",
-            name_prefix="foobar",
-            image_id="ami-1a2b3c",
-            instance_type="t2.micro")
-        bar = aws.autoscaling.Group("bar",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=1,
-            min_size=1,
-            launch_template=aws.autoscaling.GroupLaunchTemplateArgs(
-                id=foobar.id,
-                version="$Latest",
-            ))
-        ```
-        ### Mixed Instances Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=1,
-            min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c4.large",
-                            weighted_capacity="3",
-                        ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c3.large",
-                            weighted_capacity="2",
-                        ),
-                    ],
-                ),
-            ))
-        ```
-        ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            capacity_rebalance=True,
-            desired_capacity=12,
-            max_size=15,
-            min_size=12,
-            vpc_zone_identifiers=[
-                aws_subnet["example1"]["id"],
-                aws_subnet["example2"]["id"],
-            ],
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                instances_distribution=aws.autoscaling.GroupMixedInstancesPolicyInstancesDistributionArgs(
-                    on_demand_base_capacity=0,
-                    on_demand_percentage_above_base_capacity=25,
-                    spot_allocation_strategy="capacity-optimized",
-                ),
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c4.large",
-                            weighted_capacity="3",
-                        ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c3.large",
-                            weighted_capacity="2",
-                        ),
-                    ],
-                ),
-            ))
-        ```
-        ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
-
-        When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example2 = aws.ec2.LaunchTemplate("example2",
-            name_prefix="example2",
-            image_id=data["aws_ami"]["example2"]["id"])
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=1,
-            min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c4.large",
-                            weighted_capacity="3",
-                        ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c6g.large",
-                            launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs(
-                                launch_template_id=example2.id,
-                            ),
-                            weighted_capacity="2",
-                        ),
-                    ],
-                ),
-            ))
-        ```
-        ### Mixed Instances Policy with Attribute-based Instance Type Selection
-
-        As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=1,
-            min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                        instance_requirements=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs(
-                            memory_mib=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs(
-                                min=1000,
-                            ),
-                            vcpu_count=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs(
-                                min=4,
-                            ),
-                        ),
-                    )],
-                ),
-            ))
-        ```
-        ### Automatically refresh all instances after the group is updated
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_ami = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["amzn-ami-hvm-*-x86_64-gp2"],
-            )])
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            image_id=example_ami.id,
-            instance_type="t3.nano")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=2,
-            min_size=1,
-            launch_template=aws.autoscaling.GroupLaunchTemplateArgs(
-                id=example_launch_template.id,
-                version=example_launch_template.latest_version,
-            ),
-            tags=[aws.autoscaling.GroupTagArgs(
-                key="Key",
-                value="Value",
-                propagate_at_launch=True,
-            )],
-            instance_refresh=aws.autoscaling.GroupInstanceRefreshArgs(
-                strategy="Rolling",
-                preferences=aws.autoscaling.GroupInstanceRefreshPreferencesArgs(
-                    min_healthy_percentage=50,
-                ),
-                triggers=["tag"],
-            ))
-        ```
-        ### Auto Scaling group with Warm Pool
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=5,
-            min_size=1,
-            warm_pool=aws.autoscaling.GroupWarmPoolArgs(
-                pool_state="Hibernated",
-                min_size=1,
-                max_group_prepared_capacity=10,
-                instance_reuse_policy=aws.autoscaling.GroupWarmPoolInstanceReusePolicyArgs(
-                    reuse_on_scale_in=True,
-                ),
-            ))
-        ```
         ## Waiting for Capacity
 
         A newly-created ASG is initially empty and begins to scale to `min_size` (or
@@ -1861,239 +1952,6 @@ class Group(pulumi.CustomResource):
 
         > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 
-        ## Example Usage
-        ### With Latest Version Of Launch Template
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foobar = aws.ec2.LaunchTemplate("foobar",
-            name_prefix="foobar",
-            image_id="ami-1a2b3c",
-            instance_type="t2.micro")
-        bar = aws.autoscaling.Group("bar",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=1,
-            min_size=1,
-            launch_template=aws.autoscaling.GroupLaunchTemplateArgs(
-                id=foobar.id,
-                version="$Latest",
-            ))
-        ```
-        ### Mixed Instances Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=1,
-            min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c4.large",
-                            weighted_capacity="3",
-                        ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c3.large",
-                            weighted_capacity="2",
-                        ),
-                    ],
-                ),
-            ))
-        ```
-        ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            capacity_rebalance=True,
-            desired_capacity=12,
-            max_size=15,
-            min_size=12,
-            vpc_zone_identifiers=[
-                aws_subnet["example1"]["id"],
-                aws_subnet["example2"]["id"],
-            ],
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                instances_distribution=aws.autoscaling.GroupMixedInstancesPolicyInstancesDistributionArgs(
-                    on_demand_base_capacity=0,
-                    on_demand_percentage_above_base_capacity=25,
-                    spot_allocation_strategy="capacity-optimized",
-                ),
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c4.large",
-                            weighted_capacity="3",
-                        ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c3.large",
-                            weighted_capacity="2",
-                        ),
-                    ],
-                ),
-            ))
-        ```
-        ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
-
-        When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example2 = aws.ec2.LaunchTemplate("example2",
-            name_prefix="example2",
-            image_id=data["aws_ami"]["example2"]["id"])
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=1,
-            min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c4.large",
-                            weighted_capacity="3",
-                        ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                            instance_type="c6g.large",
-                            launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs(
-                                launch_template_id=example2.id,
-                            ),
-                            weighted_capacity="2",
-                        ),
-                    ],
-                ),
-            ))
-        ```
-        ### Mixed Instances Policy with Attribute-based Instance Type Selection
-
-        As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=1,
-            min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
-                        launch_template_id=example_launch_template.id,
-                    ),
-                    overrides=[aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                        instance_requirements=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs(
-                            memory_mib=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs(
-                                min=1000,
-                            ),
-                            vcpu_count=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs(
-                                min=4,
-                            ),
-                        ),
-                    )],
-                ),
-            ))
-        ```
-        ### Automatically refresh all instances after the group is updated
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_ami = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["amzn-ami-hvm-*-x86_64-gp2"],
-            )])
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            image_id=example_ami.id,
-            instance_type="t3.nano")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=2,
-            min_size=1,
-            launch_template=aws.autoscaling.GroupLaunchTemplateArgs(
-                id=example_launch_template.id,
-                version=example_launch_template.latest_version,
-            ),
-            tags=[aws.autoscaling.GroupTagArgs(
-                key="Key",
-                value="Value",
-                propagate_at_launch=True,
-            )],
-            instance_refresh=aws.autoscaling.GroupInstanceRefreshArgs(
-                strategy="Rolling",
-                preferences=aws.autoscaling.GroupInstanceRefreshPreferencesArgs(
-                    min_healthy_percentage=50,
-                ),
-                triggers=["tag"],
-            ))
-        ```
-        ### Auto Scaling group with Warm Pool
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
-            name_prefix="example",
-            image_id=data["aws_ami"]["example"]["id"],
-            instance_type="c5.large")
-        example_group = aws.autoscaling.Group("exampleGroup",
-            availability_zones=["us-east-1a"],
-            desired_capacity=1,
-            max_size=5,
-            min_size=1,
-            warm_pool=aws.autoscaling.GroupWarmPoolArgs(
-                pool_state="Hibernated",
-                min_size=1,
-                max_group_prepared_capacity=10,
-                instance_reuse_policy=aws.autoscaling.GroupWarmPoolInstanceReusePolicyArgs(
-                    reuse_on_scale_in=True,
-                ),
-            ))
-        ```
         ## Waiting for Capacity
 
         A newly-created ASG is initially empty and begins to scale to `min_size` (or
@@ -2174,6 +2032,10 @@ class Group(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2240,8 +2102,10 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["health_check_type"] = health_check_type
             __props__.__dict__["ignore_failed_scaling_activities"] = ignore_failed_scaling_activities
             __props__.__dict__["initial_lifecycle_hooks"] = initial_lifecycle_hooks
+            instance_refresh = _utilities.configure(instance_refresh, GroupInstanceRefreshArgs, True)
             __props__.__dict__["instance_refresh"] = instance_refresh
             __props__.__dict__["launch_configuration"] = launch_configuration
+            launch_template = _utilities.configure(launch_template, GroupLaunchTemplateArgs, True)
             __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["load_balancers"] = load_balancers
             __props__.__dict__["max_instance_lifetime"] = max_instance_lifetime
@@ -2253,6 +2117,7 @@ class Group(pulumi.CustomResource):
             if min_size is None and not opts.urn:
                 raise TypeError("Missing required property 'min_size'")
             __props__.__dict__["min_size"] = min_size
+            mixed_instances_policy = _utilities.configure(mixed_instances_policy, GroupMixedInstancesPolicyArgs, True)
             __props__.__dict__["mixed_instances_policy"] = mixed_instances_policy
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
@@ -2267,6 +2132,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["vpc_zone_identifiers"] = vpc_zone_identifiers
             __props__.__dict__["wait_for_capacity_timeout"] = wait_for_capacity_timeout
             __props__.__dict__["wait_for_elb_capacity"] = wait_for_elb_capacity
+            warm_pool = _utilities.configure(warm_pool, GroupWarmPoolArgs, True)
             __props__.__dict__["warm_pool"] = warm_pool
             __props__.__dict__["arn"] = None
             __props__.__dict__["predicted_capacity"] = None

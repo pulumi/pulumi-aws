@@ -16,28 +16,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lambdaLayer = new Aws.Lambda.LayerVersion("lambdaLayer", new()
-    ///     {
-    ///         CompatibleRuntimes = new[]
-    ///         {
-    ///             "nodejs16.x",
-    ///         },
-    ///         Code = new FileArchive("lambda_layer_payload.zip"),
-    ///         LayerName = "lambda_layer_name",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Specifying the Deployment Package
     /// 
     /// AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.

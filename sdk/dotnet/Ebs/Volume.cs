@@ -12,31 +12,6 @@ namespace Pulumi.Aws.Ebs
     /// <summary>
     /// Manages a single EBS volume.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ebs.Volume("example", new()
-    ///     {
-    ///         AvailabilityZone = "us-west-2a",
-    ///         Size = 40,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EBS Volumes using the `id`. For example:

@@ -17,67 +17,6 @@ import (
 //
 // > **NOTE:** The provider will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignoreChanges` option as shown in the example.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticache.NewUser(ctx, "default", &elasticache.UserArgs{
-//				UserId:       pulumi.String("defaultUserID"),
-//				UserName:     pulumi.String("default"),
-//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-//				Engine:       pulumi.String("REDIS"),
-//				Passwords: pulumi.StringArray{
-//					pulumi.String("password123456789"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUserGroup, err := elasticache.NewUserGroup(ctx, "exampleUserGroup", &elasticache.UserGroupArgs{
-//				Engine:      pulumi.String("REDIS"),
-//				UserGroupId: pulumi.String("userGroupId"),
-//				UserIds: pulumi.StringArray{
-//					_default.UserId,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleUser, err := elasticache.NewUser(ctx, "exampleUser", &elasticache.UserArgs{
-//				UserId:       pulumi.String("exampleUserID"),
-//				UserName:     pulumi.String("exampleuser"),
-//				AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-//				Engine:       pulumi.String("REDIS"),
-//				Passwords: pulumi.StringArray{
-//					pulumi.String("password123456789"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewUserGroupAssociation(ctx, "exampleUserGroupAssociation", &elasticache.UserGroupAssociationArgs{
-//				UserGroupId: exampleUserGroup.UserGroupId,
-//				UserId:      exampleUser.UserId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:

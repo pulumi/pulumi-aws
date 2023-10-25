@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -100,19 +100,6 @@ def get_orderable_cluster(cluster_type: Optional[str] = None,
     """
     Information about Redshift Orderable Clusters and valid parameter combinations.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.redshift.get_orderable_cluster(cluster_type="multi-node",
-        preferred_node_types=[
-            "dc2.large",
-            "ds2.xlarge",
-        ])
-    ```
-
 
     :param str cluster_type: Reshift Cluster typeE.g., `multi-node` or `single-node`
     :param str cluster_version: Redshift Cluster versionE.g., `1.0`
@@ -144,19 +131,6 @@ def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[st
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableClusterResult]:
     """
     Information about Redshift Orderable Clusters and valid parameter combinations.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.redshift.get_orderable_cluster(cluster_type="multi-node",
-        preferred_node_types=[
-            "dc2.large",
-            "ds2.xlarge",
-        ])
-    ```
 
 
     :param str cluster_type: Reshift Cluster typeE.g., `multi-node` or `single-node`

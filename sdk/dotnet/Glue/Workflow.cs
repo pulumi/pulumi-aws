@@ -14,58 +14,6 @@ namespace Pulumi.Aws.Glue
     /// The workflow graph (DAG) can be build using the `aws.glue.Trigger` resource.
     /// See the example below for creating a graph with four nodes (two triggers and two jobs).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.Workflow("example");
-    /// 
-    ///     var example_start = new Aws.Glue.Trigger("example-start", new()
-    ///     {
-    ///         Type = "ON_DEMAND",
-    ///         WorkflowName = example.Name,
-    ///         Actions = new[]
-    ///         {
-    ///             new Aws.Glue.Inputs.TriggerActionArgs
-    ///             {
-    ///                 JobName = "example-job",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var example_inner = new Aws.Glue.Trigger("example-inner", new()
-    ///     {
-    ///         Type = "CONDITIONAL",
-    ///         WorkflowName = example.Name,
-    ///         Predicate = new Aws.Glue.Inputs.TriggerPredicateArgs
-    ///         {
-    ///             Conditions = new[]
-    ///             {
-    ///                 new Aws.Glue.Inputs.TriggerPredicateConditionArgs
-    ///                 {
-    ///                     JobName = "example-job",
-    ///                     State = "SUCCEEDED",
-    ///                 },
-    ///             },
-    ///         },
-    ///         Actions = new[]
-    ///         {
-    ///             new Aws.Glue.Inputs.TriggerActionArgs
-    ///             {
-    ///                 JobName = "another-example-job",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Workflows using `name`. For example:

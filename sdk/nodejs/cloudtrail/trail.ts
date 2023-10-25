@@ -15,134 +15,13 @@ import * as utilities from "../utilities";
  * > **Tip:** For an organization trail, this resource must be in the master account of the organization.
  *
  * ## Example Usage
- * ### Basic
  *
- * Enable CloudTrail to capture all compatible management events in region.
- * For capturing events from services like IAM, `includeGlobalServiceEvents` must be enabled.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {
- *     s3BucketName: exampleBucketV2.id,
- *     s3KeyPrefix: "prefix",
- *     includeGlobalServiceEvents: false,
- * });
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
- * const currentRegion = aws.getRegion({});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [
- *         {
- *             sid: "AWSCloudTrailAclCheck",
- *             effect: "Allow",
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["cloudtrail.amazonaws.com"],
- *             }],
- *             actions: ["s3:GetBucketAcl"],
- *             resources: [exampleBucketV2.arn],
- *             conditions: [{
- *                 test: "StringEquals",
- *                 variable: "aws:SourceArn",
- *                 values: [Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => `arn:${currentPartition.partition}:cloudtrail:${currentRegion.name}:${currentCallerIdentity.accountId}:trail/example`)],
- *             }],
- *         },
- *         {
- *             sid: "AWSCloudTrailWrite",
- *             effect: "Allow",
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["cloudtrail.amazonaws.com"],
- *             }],
- *             actions: ["s3:PutObject"],
- *             resources: [pulumi.all([exampleBucketV2.arn, currentCallerIdentity]).apply(([arn, currentCallerIdentity]) => `${arn}/prefix/AWSLogs/${currentCallerIdentity.accountId}/*`)],
- *             conditions: [
- *                 {
- *                     test: "StringEquals",
- *                     variable: "s3:x-amz-acl",
- *                     values: ["bucket-owner-full-control"],
- *                 },
- *                 {
- *                     test: "StringEquals",
- *                     variable: "aws:SourceArn",
- *                     values: [Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => `arn:${currentPartition.partition}:cloudtrail:${currentRegion.name}:${currentCallerIdentity.accountId}:trail/example`)],
- *                 },
- *             ],
- *         },
- *     ],
- * });
- * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
- *     bucket: exampleBucketV2.id,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * ```
  * ### Data Event Logging
  *
  * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
  *
  * * [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html) (for basic event selector).
  * * [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) (for advanced event selector).
- * ### Logging All Lambda Function Invocations By Using Basic Event Selectors
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
- *     dataResources: [{
- *         type: "AWS::Lambda::Function",
- *         values: ["arn:aws:lambda"],
- *     }],
- *     includeManagementEvents: true,
- *     readWriteType: "All",
- * }]});
- * ```
- * ### Logging All S3 Object Events By Using Basic Event Selectors
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
- *     dataResources: [{
- *         type: "AWS::S3::Object",
- *         values: ["arn:aws:s3"],
- *     }],
- *     includeManagementEvents: true,
- *     readWriteType: "All",
- * }]});
- * ```
- * ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const important-bucket = aws.s3.getBucket({
- *     bucket: "important-bucket",
- * });
- * const example = new aws.cloudtrail.Trail("example", {eventSelectors: [{
- *     dataResources: [{
- *         type: "AWS::S3::Object",
- *         values: [important_bucket.then(important_bucket => `${important_bucket.arn}/`)],
- *     }],
- *     includeManagementEvents: true,
- *     readWriteType: "All",
- * }]});
- * ```
- * ### Sending Events to CloudWatch Logs
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {cloudWatchLogsGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`});
- * // CloudTrail requires the Log Stream wildcard
- * ```
  *
  * ## Import
  *

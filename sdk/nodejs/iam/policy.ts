@@ -9,26 +9,6 @@ import {PolicyDocument} from "./index";
 /**
  * Provides an IAM policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const policy = new aws.iam.Policy("policy", {
- *     path: "/",
- *     description: "My test policy",
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: ["ec2:Describe*"],
- *             Effect: "Allow",
- *             Resource: "*",
- *         }],
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IAM Policies using the `arn`. For example:

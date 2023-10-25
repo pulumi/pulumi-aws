@@ -9,28 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Changing most arguments will stop the task if it is running. You can set `startReplicationTask` to resume the task afterwards.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new replication task
- * const test = new aws.dms.ReplicationTask("test", {
- *     cdcStartTime: "1484346880",
- *     migrationType: "full-load",
- *     replicationInstanceArn: aws_dms_replication_instance["test-dms-replication-instance-tf"].replication_instance_arn,
- *     replicationTaskId: "test-dms-replication-task-tf",
- *     replicationTaskSettings: "...",
- *     sourceEndpointArn: aws_dms_endpoint["test-dms-source-endpoint-tf"].endpoint_arn,
- *     tableMappings: "{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}",
- *     tags: {
- *         Name: "test",
- *     },
- *     targetEndpointArn: aws_dms_endpoint["test-dms-target-endpoint-tf"].endpoint_arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:

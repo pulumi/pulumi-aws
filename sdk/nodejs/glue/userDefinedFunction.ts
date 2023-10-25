@@ -10,26 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Glue User Defined Function Resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCatalogDatabase = new aws.glue.CatalogDatabase("exampleCatalogDatabase", {name: "my_database"});
- * const exampleUserDefinedFunction = new aws.glue.UserDefinedFunction("exampleUserDefinedFunction", {
- *     catalogId: exampleCatalogDatabase.catalogId,
- *     databaseName: exampleCatalogDatabase.name,
- *     className: "class",
- *     ownerName: "owner",
- *     ownerType: "GROUP",
- *     resourceUris: [{
- *         resourceType: "ARCHIVE",
- *         uri: "uri",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:

@@ -19,56 +19,6 @@ import * as utilities from "../utilities";
  * instances in conjunction with a ELB Attachment resources. Doing so will cause a
  * conflict and will overwrite attachments.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new load balancer
- * const bar = new aws.elb.LoadBalancer("bar", {
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *         "us-west-2c",
- *     ],
- *     accessLogs: {
- *         bucket: "foo",
- *         bucketPrefix: "bar",
- *         interval: 60,
- *     },
- *     listeners: [
- *         {
- *             instancePort: 8000,
- *             instanceProtocol: "http",
- *             lbPort: 80,
- *             lbProtocol: "http",
- *         },
- *         {
- *             instancePort: 8000,
- *             instanceProtocol: "http",
- *             lbPort: 443,
- *             lbProtocol: "https",
- *             sslCertificateId: "arn:aws:iam::123456789012:server-certificate/certName",
- *         },
- *     ],
- *     healthCheck: {
- *         healthyThreshold: 2,
- *         unhealthyThreshold: 2,
- *         timeout: 3,
- *         target: "HTTP:8000/",
- *         interval: 30,
- *     },
- *     instances: [aws_instance.foo.id],
- *     crossZoneLoadBalancing: true,
- *     idleTimeout: 400,
- *     connectionDraining: true,
- *     connectionDrainingTimeout: 400,
- *     tags: {
- *         Name: "foobar-elb",
- *     },
- * });
- * ```
  * ## Note on ECDSA Key Algorithm
  *
  * If the ARN of the `sslCertificateId` that is pointed to references a

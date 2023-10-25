@@ -12,34 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myDetector = new aws.guardduty.Detector("myDetector", {
- *     datasources: {
- *         kubernetes: {
- *             auditLogs: {
- *                 enable: false,
- *             },
- *         },
- *         malwareProtection: {
- *             scanEc2InstanceWithFindings: {
- *                 ebsVolumes: {
- *                     enable: true,
- *                 },
- *             },
- *         },
- *         s3Logs: {
- *             enable: true,
- *         },
- *     },
- *     enable: true,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import GuardDuty detectors using the detector ID. For example:

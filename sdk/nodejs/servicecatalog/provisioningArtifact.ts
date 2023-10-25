@@ -14,18 +14,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** The user or role that use this resource must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `templatePhysicalId` argument.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.ProvisioningArtifact("example", {
- *     productId: aws_servicecatalog_product.example.id,
- *     type: "CLOUD_FORMATION_TEMPLATE",
- *     templateUrl: `https://${aws_s3_bucket.example.bucket_regional_domain_name}/${aws_s3_object.example.key}`,
- * });
- * ```
  *
  * ## Import
  *

@@ -15,61 +15,6 @@ namespace Pulumi.Aws.Ssm
     /// &gt; **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
     /// 
     /// ## Example Usage
-    /// ### Basic example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Ssm.Parameter("foo", new()
-    ///     {
-    ///         Type = "String",
-    ///         Value = "bar",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Encrypted string using default SSM KMS key
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Rds.Instance("default", new()
-    ///     {
-    ///         AllocatedStorage = 10,
-    ///         StorageType = "gp2",
-    ///         Engine = "mysql",
-    ///         EngineVersion = "5.7.16",
-    ///         InstanceClass = "db.t2.micro",
-    ///         DbName = "mydb",
-    ///         Username = "foo",
-    ///         Password = @var.Database_master_password,
-    ///         DbSubnetGroupName = "my_database_subnet_group",
-    ///         ParameterGroupName = "default.mysql5.7",
-    ///     });
-    /// 
-    ///     var secret = new Aws.Ssm.Parameter("secret", new()
-    ///     {
-    ///         Description = "The parameter description",
-    ///         Type = "SecureString",
-    ///         Value = @var.Database_master_password,
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

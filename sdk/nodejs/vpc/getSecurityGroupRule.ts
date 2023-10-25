@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.vpc.getSecurityGroupRule({
- *     securityGroupRuleId: _var.security_group_rule_id,
- * });
- * ```
  */
 export function getSecurityGroupRule(args?: GetSecurityGroupRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupRuleResult> {
     args = args || {};
@@ -103,17 +92,6 @@ export interface GetSecurityGroupRuleResult {
 }
 /**
  * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.vpc.getSecurityGroupRule({
- *     securityGroupRuleId: _var.security_group_rule_id,
- * });
- * ```
  */
 export function getSecurityGroupRuleOutput(args?: GetSecurityGroupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupRuleResult> {
     return pulumi.output(args).apply((a: any) => getSecurityGroupRule(a, opts))

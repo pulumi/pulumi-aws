@@ -11,24 +11,6 @@ namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
     /// Provides an OpsWorks memcached layer resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cache = new Aws.OpsWorks.MemcachedLayer("cache", new()
-    ///     {
-    ///         StackId = aws_opsworks_stack.Main.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/memcachedLayer:MemcachedLayer")]
     public partial class MemcachedLayer : global::Pulumi.CustomResource

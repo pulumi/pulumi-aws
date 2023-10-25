@@ -13,64 +13,12 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// Information about a single RDS Reserved Instance Offering.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Rds.GetReservedInstanceOffering.Invoke(new()
-        ///     {
-        ///         DbInstanceClass = "db.t2.micro",
-        ///         Duration = 31536000,
-        ///         MultiAz = false,
-        ///         OfferingType = "All Upfront",
-        ///         ProductDescription = "mysql",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetReservedInstanceOfferingResult> InvokeAsync(GetReservedInstanceOfferingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReservedInstanceOfferingResult>("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", args ?? new GetReservedInstanceOfferingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about a single RDS Reserved Instance Offering.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.Rds.GetReservedInstanceOffering.Invoke(new()
-        ///     {
-        ///         DbInstanceClass = "db.t2.micro",
-        ///         Duration = 31536000,
-        ///         MultiAz = false,
-        ///         OfferingType = "All Upfront",
-        ///         ProductDescription = "mysql",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetReservedInstanceOfferingResult> Invoke(GetReservedInstanceOfferingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReservedInstanceOfferingResult>("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", args ?? new GetReservedInstanceOfferingInvokeArgs(), options.WithDefaults());

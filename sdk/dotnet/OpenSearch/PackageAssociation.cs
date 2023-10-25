@@ -13,44 +13,6 @@ namespace Pulumi.Aws.OpenSearch
     /// Manages an AWS Opensearch Package Association.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var myDomain = new Aws.OpenSearch.Domain("myDomain", new()
-    ///     {
-    ///         EngineVersion = "Elasticsearch_7.10",
-    ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
-    ///         {
-    ///             InstanceType = "r4.large.search",
-    ///         },
-    ///     });
-    /// 
-    ///     var examplePackage = new Aws.OpenSearch.Package("examplePackage", new()
-    ///     {
-    ///         PackageName = "example-txt",
-    ///         PackageSource = new Aws.OpenSearch.Inputs.PackagePackageSourceArgs
-    ///         {
-    ///             S3BucketName = aws_s3_bucket.My_opensearch_packages.Bucket,
-    ///             S3Key = aws_s3_object.Example.Key,
-    ///         },
-    ///         PackageType = "TXT-DICTIONARY",
-    ///     });
-    /// 
-    ///     var examplePackageAssociation = new Aws.OpenSearch.PackageAssociation("examplePackageAssociation", new()
-    ///     {
-    ///         PackageId = examplePackage.Id,
-    ///         DomainName = myDomain.DomainName,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/packageAssociation:PackageAssociation")]
     public partial class PackageAssociation : global::Pulumi.CustomResource

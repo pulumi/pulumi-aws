@@ -12,41 +12,6 @@ namespace Pulumi.Aws.Kms
     /// <summary>
     /// Manages a KMS multi-Region replica key.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primary = new Aws.Provider("primary", new()
-    ///     {
-    ///         Region = "us-east-1",
-    ///     });
-    /// 
-    ///     var primaryKey = new Aws.Kms.Key("primaryKey", new()
-    ///     {
-    ///         Description = "Multi-Region primary key",
-    ///         DeletionWindowInDays = 30,
-    ///         MultiRegion = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Primary,
-    ///     });
-    /// 
-    ///     var replica = new Aws.Kms.ReplicaKey("replica", new()
-    ///     {
-    ///         Description = "Multi-Region replica key",
-    ///         DeletionWindowInDays = 7,
-    ///         PrimaryKeyArn = primaryKey.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:

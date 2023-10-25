@@ -17,40 +17,6 @@ import (
 //
 // > **NOTE on `id`:** In an effort to simplify imports, this resource `id` field has been updated to the standard resource id separator, a comma (`,`). For backward compatibility, the previous separator (underscore `_`) can still be used to read and import existing resources. When state is refreshed, the `id` will be updated to use the new standard separator. The previous separator will be deprecated in a future major release.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewDomain(ctx, "testDomain", &lightsail.DomainArgs{
-//				DomainName: pulumi.String("mydomain.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewDomainEntry(ctx, "testDomainEntry", &lightsail.DomainEntryArgs{
-//				DomainName: pulumi.Any(aws_lightsail_domain.Domain_test.Domain_name),
-//				Type:       pulumi.String("A"),
-//				Target:     pulumi.String("127.0.0.1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:

@@ -21,29 +21,6 @@ namespace Pulumi.Aws.Ec2
     /// this provider does not _create_ this resource, but instead "adopts" it
     /// into management.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage with tags:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Ec2.DefaultVpcDhcpOptions("default", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Default DHCP Option Set" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:

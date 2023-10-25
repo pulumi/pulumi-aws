@@ -13,36 +13,6 @@ namespace Pulumi.Aws.OpenSearch
     /// Manages an [AWS Opensearch VPC Endpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon OpenSearch Service-managed VPC endpoint.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.OpenSearch.VpcEndpoint("foo", new()
-    ///     {
-    ///         DomainArn = aws_opensearch_domain.Domain_1.Arn,
-    ///         VpcOptions = new Aws.OpenSearch.Inputs.VpcEndpointVpcOptionsArgs
-    ///         {
-    ///             SecurityGroupIds = new[]
-    ///             {
-    ///                 aws_security_group.Test.Id,
-    ///                 aws_security_group.Test2.Id,
-    ///             },
-    ///             SubnetIds = new[]
-    ///             {
-    ///                 aws_subnet.Test.Id,
-    ///                 aws_subnet.Test2.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

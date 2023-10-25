@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -93,25 +93,6 @@ def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIds
     Use this data source to get a list of EBS Snapshot IDs matching the specified
     criteria.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ebs_volumes = aws.ebs.get_snapshot_ids(filters=[
-            aws.ebs.GetSnapshotIdsFilterArgs(
-                name="volume-size",
-                values=["40"],
-            ),
-            aws.ebs.GetSnapshotIdsFilterArgs(
-                name="tag:Name",
-                values=["Example"],
-            ),
-        ],
-        owners=["self"])
-    ```
-
 
     :param Sequence[pulumi.InputType['GetSnapshotIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
@@ -142,25 +123,6 @@ def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     """
     Use this data source to get a list of EBS Snapshot IDs matching the specified
     criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ebs_volumes = aws.ebs.get_snapshot_ids(filters=[
-            aws.ebs.GetSnapshotIdsFilterArgs(
-                name="volume-size",
-                values=["40"],
-            ),
-            aws.ebs.GetSnapshotIdsFilterArgs(
-                name="tag:Name",
-                values=["Example"],
-            ),
-        ],
-        owners=["self"])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetSnapshotIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There are

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,15 +36,42 @@ class SlotTypeArgs:
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
                if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
         """
-        pulumi.set(__self__, "enumeration_values", enumeration_values)
+        SlotTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enumeration_values=enumeration_values,
+            create_version=create_version,
+            description=description,
+            name=name,
+            value_selection_strategy=value_selection_strategy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]] = None,
+             create_version: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             value_selection_strategy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enumeration_values is None and 'enumerationValues' in kwargs:
+            enumeration_values = kwargs['enumerationValues']
+        if enumeration_values is None:
+            raise TypeError("Missing 'enumeration_values' argument")
+        if create_version is None and 'createVersion' in kwargs:
+            create_version = kwargs['createVersion']
+        if value_selection_strategy is None and 'valueSelectionStrategy' in kwargs:
+            value_selection_strategy = kwargs['valueSelectionStrategy']
+
+        _setter("enumeration_values", enumeration_values)
         if create_version is not None:
-            pulumi.set(__self__, "create_version", create_version)
+            _setter("create_version", create_version)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value_selection_strategy is not None:
-            pulumi.set(__self__, "value_selection_strategy", value_selection_strategy)
+            _setter("value_selection_strategy", value_selection_strategy)
 
     @property
     @pulumi.getter(name="enumerationValues")
@@ -146,24 +173,61 @@ class _SlotTypeState:
                if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
         :param pulumi.Input[str] version: The version of the slot type.
         """
+        _SlotTypeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            checksum=checksum,
+            create_version=create_version,
+            created_date=created_date,
+            description=description,
+            enumeration_values=enumeration_values,
+            last_updated_date=last_updated_date,
+            name=name,
+            value_selection_strategy=value_selection_strategy,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             checksum: Optional[pulumi.Input[str]] = None,
+             create_version: Optional[pulumi.Input[bool]] = None,
+             created_date: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]] = None,
+             last_updated_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             value_selection_strategy: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if create_version is None and 'createVersion' in kwargs:
+            create_version = kwargs['createVersion']
+        if created_date is None and 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if enumeration_values is None and 'enumerationValues' in kwargs:
+            enumeration_values = kwargs['enumerationValues']
+        if last_updated_date is None and 'lastUpdatedDate' in kwargs:
+            last_updated_date = kwargs['lastUpdatedDate']
+        if value_selection_strategy is None and 'valueSelectionStrategy' in kwargs:
+            value_selection_strategy = kwargs['valueSelectionStrategy']
+
         if checksum is not None:
-            pulumi.set(__self__, "checksum", checksum)
+            _setter("checksum", checksum)
         if create_version is not None:
-            pulumi.set(__self__, "create_version", create_version)
+            _setter("create_version", create_version)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enumeration_values is not None:
-            pulumi.set(__self__, "enumeration_values", enumeration_values)
+            _setter("enumeration_values", enumeration_values)
         if last_updated_date is not None:
-            pulumi.set(__self__, "last_updated_date", last_updated_date)
+            _setter("last_updated_date", last_updated_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value_selection_strategy is not None:
-            pulumi.set(__self__, "value_selection_strategy", value_selection_strategy)
+            _setter("value_selection_strategy", value_selection_strategy)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -297,35 +361,6 @@ class SlotType(pulumi.CustomResource):
         Provides an Amazon Lex Slot Type resource. For more information see
         [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        flower_types = aws.lex.SlotType("flowerTypes",
-            create_version=True,
-            description="Types of flowers to order",
-            enumeration_values=[
-                aws.lex.SlotTypeEnumerationValueArgs(
-                    synonyms=[
-                        "Lirium",
-                        "Martagon",
-                    ],
-                    value="lilies",
-                ),
-                aws.lex.SlotTypeEnumerationValueArgs(
-                    synonyms=[
-                        "Eduardoregelia",
-                        "Podonix",
-                    ],
-                    value="tulips",
-                ),
-            ],
-            name="FlowerTypes",
-            value_selection_strategy="ORIGINAL_VALUE")
-        ```
-
         ## Import
 
         Using `pulumi import`, import slot types using their name. For example:
@@ -359,35 +394,6 @@ class SlotType(pulumi.CustomResource):
         Provides an Amazon Lex Slot Type resource. For more information see
         [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        flower_types = aws.lex.SlotType("flowerTypes",
-            create_version=True,
-            description="Types of flowers to order",
-            enumeration_values=[
-                aws.lex.SlotTypeEnumerationValueArgs(
-                    synonyms=[
-                        "Lirium",
-                        "Martagon",
-                    ],
-                    value="lilies",
-                ),
-                aws.lex.SlotTypeEnumerationValueArgs(
-                    synonyms=[
-                        "Eduardoregelia",
-                        "Podonix",
-                    ],
-                    value="tulips",
-                ),
-            ],
-            name="FlowerTypes",
-            value_selection_strategy="ORIGINAL_VALUE")
-        ```
-
         ## Import
 
         Using `pulumi import`, import slot types using their name. For example:
@@ -406,6 +412,10 @@ class SlotType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SlotTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

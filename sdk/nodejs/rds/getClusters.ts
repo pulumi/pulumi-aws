@@ -11,19 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS RDS (Relational Database) Clusters.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.rds.getClusters({
- *     filters: [{
- *         name: "engine",
- *         values: ["aurora-postgresql"],
- *     }],
- * });
- * ```
  */
 export function getClusters(args?: GetClustersArgs, opts?: pulumi.InvokeOptions): Promise<GetClustersResult> {
     args = args || {};
@@ -66,19 +53,6 @@ export interface GetClustersResult {
  * Data source for managing an AWS RDS (Relational Database) Clusters.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.rds.getClusters({
- *     filters: [{
- *         name: "engine",
- *         values: ["aurora-postgresql"],
- *     }],
- * });
- * ```
  */
 export function getClustersOutput(args?: GetClustersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClustersResult> {
     return pulumi.output(args).apply((a: any) => getClusters(a, opts))

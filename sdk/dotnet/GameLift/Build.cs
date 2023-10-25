@@ -12,30 +12,6 @@ namespace Pulumi.Aws.GameLift
     /// <summary>
     /// Provides an GameLift Build resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.GameLift.Build("test", new()
-    ///     {
-    ///         OperatingSystem = "WINDOWS_2012",
-    ///         StorageLocation = new Aws.GameLift.Inputs.BuildStorageLocationArgs
-    ///         {
-    ///             Bucket = aws_s3_bucket.Test.Id,
-    ///             Key = aws_s3_object.Test.Key,
-    ///             RoleArn = aws_iam_role.Test.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GameLift Builds using the ID. For example:

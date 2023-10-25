@@ -12,47 +12,6 @@ namespace Pulumi.Aws.AutoScaling
     /// <summary>
     /// Provides an AutoScaling Schedule resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foobarGroup = new Aws.AutoScaling.Group("foobarGroup", new()
-    ///     {
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-west-2a",
-    ///         },
-    ///         MaxSize = 1,
-    ///         MinSize = 1,
-    ///         HealthCheckGracePeriod = 300,
-    ///         HealthCheckType = "ELB",
-    ///         ForceDelete = true,
-    ///         TerminationPolicies = new[]
-    ///         {
-    ///             "OldestInstance",
-    ///         },
-    ///     });
-    /// 
-    ///     var foobarSchedule = new Aws.AutoScaling.Schedule("foobarSchedule", new()
-    ///     {
-    ///         ScheduledActionName = "foobar",
-    ///         MinSize = 0,
-    ///         MaxSize = 1,
-    ///         DesiredCapacity = 0,
-    ///         StartTime = "2016-12-11T18:00:00Z",
-    ///         EndTime = "2016-12-12T06:00:00Z",
-    ///         AutoscalingGroupName = foobarGroup.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:

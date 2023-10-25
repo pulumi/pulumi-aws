@@ -16,39 +16,6 @@ import (
 // Manages an EMR Containers (EMR on EKS) Job Template.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrcontainers"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrcontainers.NewJobTemplate(ctx, "example", &emrcontainers.JobTemplateArgs{
-//				JobTemplateData: &emrcontainers.JobTemplateJobTemplateDataArgs{
-//					ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//					ReleaseLabel:     pulumi.String("emr-6.10.0-latest"),
-//					JobDriver: &emrcontainers.JobTemplateJobTemplateDataJobDriverArgs{
-//						SparkSqlJobDriver: &emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs{
-//							EntryPoint: pulumi.String("default"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

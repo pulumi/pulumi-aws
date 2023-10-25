@@ -10,22 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppStream Directory Config.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appstream.DirectoryConfig("example", {
- *     directoryName: "NAME OF DIRECTORY",
- *     organizationalUnitDistinguishedNames: ["DISTINGUISHED NAME"],
- *     serviceAccountCredentials: {
- *         accountName: "NAME OF ACCOUNT",
- *         accountPassword: "PASSWORD OF ACCOUNT",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appstream_directory_config` using the id. For example:

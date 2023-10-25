@@ -12,55 +12,6 @@ namespace Pulumi.Aws.LightSail
     /// <summary>
     /// Attaches a Lightsail disk to a Lightsail Instance
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///         Filters = new[]
-    ///         {
-    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
-    ///             {
-    ///                 Name = "opt-in-status",
-    ///                 Values = new[]
-    ///                 {
-    ///                     "opt-in-not-required",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testDisk = new Aws.LightSail.Disk("testDisk", new()
-    ///     {
-    ///         SizeInGb = 8,
-    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///     });
-    /// 
-    ///     var testInstance = new Aws.LightSail.Instance("testInstance", new()
-    ///     {
-    ///         AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names[0]),
-    ///         BlueprintId = "amazon_linux_2",
-    ///         BundleId = "nano_1_0",
-    ///     });
-    /// 
-    ///     var testDisk_attachment = new Aws.LightSail.Disk_attachment("testDisk_attachment", new()
-    ///     {
-    ///         DiskName = testDisk.Name,
-    ///         InstanceName = testInstance.Name,
-    ///         DiskPath = "/dev/xvdf",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:

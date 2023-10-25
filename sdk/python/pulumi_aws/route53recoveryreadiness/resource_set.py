@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,11 +29,38 @@ class ResourceSetArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
-        pulumi.set(__self__, "resource_set_name", resource_set_name)
-        pulumi.set(__self__, "resource_set_type", resource_set_type)
-        pulumi.set(__self__, "resources", resources)
+        ResourceSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_set_name=resource_set_name,
+            resource_set_type=resource_set_type,
+            resources=resources,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_set_name: Optional[pulumi.Input[str]] = None,
+             resource_set_type: Optional[pulumi.Input[str]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_set_name is None and 'resourceSetName' in kwargs:
+            resource_set_name = kwargs['resourceSetName']
+        if resource_set_name is None:
+            raise TypeError("Missing 'resource_set_name' argument")
+        if resource_set_type is None and 'resourceSetType' in kwargs:
+            resource_set_type = kwargs['resourceSetType']
+        if resource_set_type is None:
+            raise TypeError("Missing 'resource_set_type' argument")
+        if resources is None:
+            raise TypeError("Missing 'resources' argument")
+
+        _setter("resource_set_name", resource_set_name)
+        _setter("resource_set_type", resource_set_type)
+        _setter("resources", resources)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceSetName")
@@ -106,21 +133,48 @@ class _ResourceSetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ResourceSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            resource_set_name=resource_set_name,
+            resource_set_type=resource_set_type,
+            resources=resources,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             resource_set_name: Optional[pulumi.Input[str]] = None,
+             resource_set_type: Optional[pulumi.Input[str]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_set_name is None and 'resourceSetName' in kwargs:
+            resource_set_name = kwargs['resourceSetName']
+        if resource_set_type is None and 'resourceSetType' in kwargs:
+            resource_set_type = kwargs['resourceSetType']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if resource_set_name is not None:
-            pulumi.set(__self__, "resource_set_name", resource_set_name)
+            _setter("resource_set_name", resource_set_name)
         if resource_set_type is not None:
-            pulumi.set(__self__, "resource_set_type", resource_set_type)
+            _setter("resource_set_type", resource_set_type)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -213,20 +267,6 @@ class ResourceSet(pulumi.CustomResource):
         """
         Provides an AWS Route 53 Recovery Readiness Resource Set.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoveryreadiness.ResourceSet("example",
-            resource_set_name=my_cw_alarm_set,
-            resource_set_type="AWS::CloudWatch::Alarm",
-            resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
-                resource_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
-            )])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For example:
@@ -253,20 +293,6 @@ class ResourceSet(pulumi.CustomResource):
         """
         Provides an AWS Route 53 Recovery Readiness Resource Set.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoveryreadiness.ResourceSet("example",
-            resource_set_name=my_cw_alarm_set,
-            resource_set_type="AWS::CloudWatch::Alarm",
-            resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
-                resource_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
-            )])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For example:
@@ -285,6 +311,10 @@ class ResourceSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

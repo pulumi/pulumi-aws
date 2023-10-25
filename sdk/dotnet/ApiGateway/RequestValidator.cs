@@ -12,26 +12,6 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Manages an API Gateway Request Validator.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ApiGateway.RequestValidator("example", new()
-    ///     {
-    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
-    ///         ValidateRequestBody = true,
-    ///         ValidateRequestParameters = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:

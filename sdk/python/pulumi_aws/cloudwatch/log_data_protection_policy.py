@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LogDataProtectionPolicyArgs', 'LogDataProtectionPolicy']
@@ -21,8 +21,29 @@ class LogDataProtectionPolicyArgs:
         :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         """
-        pulumi.set(__self__, "log_group_name", log_group_name)
-        pulumi.set(__self__, "policy_document", policy_document)
+        LogDataProtectionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            policy_document=policy_document,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: Optional[pulumi.Input[str]] = None,
+             policy_document: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_group_name is None:
+            raise TypeError("Missing 'log_group_name' argument")
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_document is None:
+            raise TypeError("Missing 'policy_document' argument")
+
+        _setter("log_group_name", log_group_name)
+        _setter("policy_document", policy_document)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -59,10 +80,27 @@ class _LogDataProtectionPolicyState:
         :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         """
+        _LogDataProtectionPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            policy_document=policy_document,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: Optional[pulumi.Input[str]] = None,
+             policy_document: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+
         if log_group_name is not None:
-            pulumi.set(__self__, "log_group_name", log_group_name)
+            _setter("log_group_name", log_group_name)
         if policy_document is not None:
-            pulumi.set(__self__, "policy_document", policy_document)
+            _setter("policy_document", policy_document)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -102,47 +140,6 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
 
         Read more about protecting sensitive user data in the [User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
-            log_group_name=example_log_group.name,
-            policy_document=example_bucket_v2.bucket.apply(lambda bucket: json.dumps({
-                "Name": "Example",
-                "Version": "2021-06-01",
-                "Statement": [
-                    {
-                        "Sid": "Audit",
-                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                        "Operation": {
-                            "Audit": {
-                                "FindingsDestination": {
-                                    "S3": {
-                                        "Bucket": bucket,
-                                    },
-                                },
-                            },
-                        },
-                    },
-                    {
-                        "Sid": "Redact",
-                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                        "Operation": {
-                            "Deidentify": {
-                                "MaskConfig": {},
-                            },
-                        },
-                    },
-                ],
-            })))
-        ```
-
         ## Import
 
         Using `pulumi import`, import this resource using the `log_group_name`. For example:
@@ -167,47 +164,6 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
 
         Read more about protecting sensitive user data in the [User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("exampleLogDataProtectionPolicy",
-            log_group_name=example_log_group.name,
-            policy_document=example_bucket_v2.bucket.apply(lambda bucket: json.dumps({
-                "Name": "Example",
-                "Version": "2021-06-01",
-                "Statement": [
-                    {
-                        "Sid": "Audit",
-                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                        "Operation": {
-                            "Audit": {
-                                "FindingsDestination": {
-                                    "S3": {
-                                        "Bucket": bucket,
-                                    },
-                                },
-                            },
-                        },
-                    },
-                    {
-                        "Sid": "Redact",
-                        "DataIdentifier": ["arn:aws:dataprotection::aws:data-identifier/EmailAddress"],
-                        "Operation": {
-                            "Deidentify": {
-                                "MaskConfig": {},
-                            },
-                        },
-                    },
-                ],
-            })))
-        ```
-
         ## Import
 
         Using `pulumi import`, import this resource using the `log_group_name`. For example:
@@ -226,6 +182,10 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogDataProtectionPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

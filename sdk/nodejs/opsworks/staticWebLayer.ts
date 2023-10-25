@@ -10,15 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an OpsWorks static web server layer resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const web = new aws.opsworks.StaticWebLayer("web", {stackId: aws_opsworks_stack.main.id});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import OpsWorks static web server Layers using the `id`. For example:

@@ -15,45 +15,6 @@ namespace Pulumi.Aws.SecurityHub
     /// The `aws.securityhub.StandardsControl` behaves differently from normal resources, in that
     /// Pulumi does not _create_ this resource, but instead "adopts" it
     /// into management. When you _delete_ this resource configuration, Pulumi "abandons" resource as is and just removes it from the state.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecurityHub.Account("example");
-    /// 
-    ///     var cisAwsFoundationsBenchmark = new Aws.SecurityHub.StandardsSubscription("cisAwsFoundationsBenchmark", new()
-    ///     {
-    ///         StandardsArn = "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             example,
-    ///         },
-    ///     });
-    /// 
-    ///     var ensureIamPasswordPolicyPreventsPasswordReuse = new Aws.SecurityHub.StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", new()
-    ///     {
-    ///         StandardsControlArn = "arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
-    ///         ControlStatus = "DISABLED",
-    ///         DisabledReason = "We handle password policies within Okta",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             cisAwsFoundationsBenchmark,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/standardsControl:StandardsControl")]
     public partial class StandardsControl : global::Pulumi.CustomResource

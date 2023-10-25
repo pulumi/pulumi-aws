@@ -14,48 +14,6 @@ namespace Pulumi.Aws.Chime
     /// 
     /// You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This creates a fault tolerant mechanism for fallback in case of availability events.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var vc1 = new Aws.Chime.VoiceConnector("vc1", new()
-    ///     {
-    ///         RequireEncryption = true,
-    ///         AwsRegion = "us-east-1",
-    ///     });
-    /// 
-    ///     var vc2 = new Aws.Chime.VoiceConnector("vc2", new()
-    ///     {
-    ///         RequireEncryption = true,
-    ///         AwsRegion = "us-west-2",
-    ///     });
-    /// 
-    ///     var @group = new Aws.Chime.VoiceConnectorGroup("group", new()
-    ///     {
-    ///         Connectors = new[]
-    ///         {
-    ///             new Aws.Chime.Inputs.VoiceConnectorGroupConnectorArgs
-    ///             {
-    ///                 VoiceConnectorId = vc1.Id,
-    ///                 Priority = 1,
-    ///             },
-    ///             new Aws.Chime.Inputs.VoiceConnectorGroupConnectorArgs
-    ///             {
-    ///                 VoiceConnectorId = vc2.Id,
-    ///                 Priority = 3,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Configuration Recorder using the name. For example:

@@ -12,20 +12,6 @@ import * as utilities from "../utilities";
  * and a single `securityGroupId`) and a VPC Endpoint resource with a `securityGroupIds`
  * attribute. Do not use the same security group ID in both a VPC Endpoint resource and a VPC Endpoint Security
  * Group Association resource. Doing so will cause a conflict of associations and will overwrite the association.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sgEc2 = new aws.ec2.SecurityGroupAssociation("sgEc2", {
- *     vpcEndpointId: aws_vpc_endpoint.ec2.id,
- *     securityGroupId: aws_security_group.sg.id,
- * });
- * ```
  */
 export class SecurityGroupAssociation extends pulumi.CustomResource {
     /**

@@ -17,27 +17,6 @@ namespace Pulumi.Aws.CloudFront
     /// &gt; **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
     /// 
     /// ## Example Usage
-    /// ### Basic Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CloudFront.Function("test", new()
-    ///     {
-    ///         Runtime = "cloudfront-js-1.0",
-    ///         Comment = "my function",
-    ///         Publish = true,
-    ///         Code = File.ReadAllText($"{path.Module}/function.js"),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

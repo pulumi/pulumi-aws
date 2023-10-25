@@ -9,27 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource for managing an AWS CodeGuru Reviewer Repository Association.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {});
- * const exampleRepository = new aws.codecommit.Repository("exampleRepository", {repositoryName: "example-repo"});
- * const exampleRepositoryAssociation = new aws.codegurureviewer.RepositoryAssociation("exampleRepositoryAssociation", {
- *     repository: {
- *         codecommit: {
- *             name: exampleRepository.repositoryName,
- *         },
- *     },
- *     kmsKeyDetails: {
- *         encryptionOption: "CUSTOMER_MANAGED_CMK",
- *         kmsKeyId: exampleKey.keyId,
- *     },
- * });
- * ```
  */
 export class RepositoryAssociation extends pulumi.CustomResource {
     /**

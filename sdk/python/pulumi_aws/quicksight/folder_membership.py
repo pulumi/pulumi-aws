@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FolderMembershipArgs', 'FolderMembership']
@@ -27,11 +27,42 @@ class FolderMembershipArgs:
                The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         """
-        pulumi.set(__self__, "folder_id", folder_id)
-        pulumi.set(__self__, "member_id", member_id)
-        pulumi.set(__self__, "member_type", member_type)
+        FolderMembershipArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            folder_id=folder_id,
+            member_id=member_id,
+            member_type=member_type,
+            aws_account_id=aws_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             folder_id: Optional[pulumi.Input[str]] = None,
+             member_id: Optional[pulumi.Input[str]] = None,
+             member_type: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if folder_id is None and 'folderId' in kwargs:
+            folder_id = kwargs['folderId']
+        if folder_id is None:
+            raise TypeError("Missing 'folder_id' argument")
+        if member_id is None and 'memberId' in kwargs:
+            member_id = kwargs['memberId']
+        if member_id is None:
+            raise TypeError("Missing 'member_id' argument")
+        if member_type is None and 'memberType' in kwargs:
+            member_type = kwargs['memberType']
+        if member_type is None:
+            raise TypeError("Missing 'member_type' argument")
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+
+        _setter("folder_id", folder_id)
+        _setter("member_id", member_id)
+        _setter("member_type", member_type)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
 
     @property
     @pulumi.getter(name="folderId")
@@ -100,14 +131,39 @@ class _FolderMembershipState:
                
                The following arguments are optional:
         """
+        _FolderMembershipState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_account_id=aws_account_id,
+            folder_id=folder_id,
+            member_id=member_id,
+            member_type=member_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             folder_id: Optional[pulumi.Input[str]] = None,
+             member_id: Optional[pulumi.Input[str]] = None,
+             member_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if folder_id is None and 'folderId' in kwargs:
+            folder_id = kwargs['folderId']
+        if member_id is None and 'memberId' in kwargs:
+            member_id = kwargs['memberId']
+        if member_type is None and 'memberType' in kwargs:
+            member_type = kwargs['memberType']
+
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if folder_id is not None:
-            pulumi.set(__self__, "folder_id", folder_id)
+            _setter("folder_id", folder_id)
         if member_id is not None:
-            pulumi.set(__self__, "member_id", member_id)
+            _setter("member_id", member_id)
         if member_type is not None:
-            pulumi.set(__self__, "member_type", member_type)
+            _setter("member_type", member_type)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -174,17 +230,6 @@ class FolderMembership(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Folder Membership.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.FolderMembership("example",
-            folder_id=aws_quicksight_folder["example"]["folder_id"],
-            member_type="DATASET",
-            member_id=aws_quicksight_data_set["example"]["data_set_id"])
-        ```
 
         ## Import
 
@@ -213,17 +258,6 @@ class FolderMembership(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Folder Membership.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.FolderMembership("example",
-            folder_id=aws_quicksight_folder["example"]["folder_id"],
-            member_type="DATASET",
-            member_id=aws_quicksight_data_set["example"]["data_set_id"])
-        ```
 
         ## Import
 
@@ -243,6 +277,10 @@ class FolderMembership(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FolderMembershipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

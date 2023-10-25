@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -131,15 +131,6 @@ def get_vpc_connection(arn: Optional[str] = None,
     """
     Get information on an Amazon MSK VPC Connection.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.msk.get_vpc_connection(arn=aws_msk_vpc_connection["example"]["arn"])
-    ```
-
 
     :param str arn: ARN of the VPC Connection.
     :param Mapping[str, str] tags: Map of key-value pairs assigned to the VPC Connection.
@@ -167,15 +158,6 @@ def get_vpc_connection_output(arn: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcConnectionResult]:
     """
     Get information on an Amazon MSK VPC Connection.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.msk.get_vpc_connection(arn=aws_msk_vpc_connection["example"]["arn"])
-    ```
 
 
     :param str arn: ARN of the VPC Connection.

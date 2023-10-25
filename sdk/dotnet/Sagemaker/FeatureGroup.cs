@@ -12,41 +12,6 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker Feature Group resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.FeatureGroup("example", new()
-    ///     {
-    ///         FeatureGroupName = "example",
-    ///         RecordIdentifierFeatureName = "example",
-    ///         EventTimeFeatureName = "example",
-    ///         RoleArn = aws_iam_role.Test.Arn,
-    ///         FeatureDefinitions = new[]
-    ///         {
-    ///             new Aws.Sagemaker.Inputs.FeatureGroupFeatureDefinitionArgs
-    ///             {
-    ///                 FeatureName = "example",
-    ///                 FeatureType = "String",
-    ///             },
-    ///         },
-    ///         OnlineStoreConfig = new Aws.Sagemaker.Inputs.FeatureGroupOnlineStoreConfigArgs
-    ///         {
-    ///             EnableOnlineStore = true,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Feature Groups using the `name`. For example:

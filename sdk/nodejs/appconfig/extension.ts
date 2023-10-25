@@ -10,39 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppConfig Extension resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testTopic = new aws.sns.Topic("testTopic", {});
- * const testPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["appconfig.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: testPolicyDocument.then(testPolicyDocument => testPolicyDocument.json)});
- * const testExtension = new aws.appconfig.Extension("testExtension", {
- *     description: "test description",
- *     actionPoints: [{
- *         point: "ON_DEPLOYMENT_COMPLETE",
- *         actions: [{
- *             name: "test",
- *             roleArn: testRole.arn,
- *             uri: testTopic.arn,
- *         }],
- *     }],
- *     tags: {
- *         Type: "AppConfig Extension",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Extensions using their extension ID. For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,40 @@ class WebhookArgs:
         :param pulumi.Input[str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
         """
-        pulumi.set(__self__, "project_name", project_name)
+        WebhookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_name=project_name,
+            branch_filter=branch_filter,
+            build_type=build_type,
+            filter_groups=filter_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_name: Optional[pulumi.Input[str]] = None,
+             branch_filter: Optional[pulumi.Input[str]] = None,
+             build_type: Optional[pulumi.Input[str]] = None,
+             filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if branch_filter is None and 'branchFilter' in kwargs:
+            branch_filter = kwargs['branchFilter']
+        if build_type is None and 'buildType' in kwargs:
+            build_type = kwargs['buildType']
+        if filter_groups is None and 'filterGroups' in kwargs:
+            filter_groups = kwargs['filterGroups']
+
+        _setter("project_name", project_name)
         if branch_filter is not None:
-            pulumi.set(__self__, "branch_filter", branch_filter)
+            _setter("branch_filter", branch_filter)
         if build_type is not None:
-            pulumi.set(__self__, "build_type", build_type)
+            _setter("build_type", build_type)
         if filter_groups is not None:
-            pulumi.set(__self__, "filter_groups", filter_groups)
+            _setter("filter_groups", filter_groups)
 
     @property
     @pulumi.getter(name="projectName")
@@ -104,20 +131,53 @@ class _WebhookState:
         :param pulumi.Input[str] secret: The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         :param pulumi.Input[str] url: The URL to the webhook.
         """
+        _WebhookState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_filter=branch_filter,
+            build_type=build_type,
+            filter_groups=filter_groups,
+            payload_url=payload_url,
+            project_name=project_name,
+            secret=secret,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_filter: Optional[pulumi.Input[str]] = None,
+             build_type: Optional[pulumi.Input[str]] = None,
+             filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
+             payload_url: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch_filter is None and 'branchFilter' in kwargs:
+            branch_filter = kwargs['branchFilter']
+        if build_type is None and 'buildType' in kwargs:
+            build_type = kwargs['buildType']
+        if filter_groups is None and 'filterGroups' in kwargs:
+            filter_groups = kwargs['filterGroups']
+        if payload_url is None and 'payloadUrl' in kwargs:
+            payload_url = kwargs['payloadUrl']
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+
         if branch_filter is not None:
-            pulumi.set(__self__, "branch_filter", branch_filter)
+            _setter("branch_filter", branch_filter)
         if build_type is not None:
-            pulumi.set(__self__, "build_type", build_type)
+            _setter("build_type", build_type)
         if filter_groups is not None:
-            pulumi.set(__self__, "filter_groups", filter_groups)
+            _setter("filter_groups", filter_groups)
         if payload_url is not None:
-            pulumi.set(__self__, "payload_url", payload_url)
+            _setter("payload_url", payload_url)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="branchFilter")
@@ -218,57 +278,6 @@ class Webhook(pulumi.CustomResource):
         Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
 
         ## Example Usage
-        ### Bitbucket and GitHub
-
-        When working with [Bitbucket](https://bitbucket.org) and [GitHub](https://github.com) source CodeBuild webhooks, the CodeBuild service will automatically create (on `codebuild.Webhook` resource creation) and delete (on `codebuild.Webhook` resource deletion) the Bitbucket/GitHub repository webhook using its granted OAuth permissions. This behavior cannot be controlled by this provider.
-
-        > **Note:** The AWS account that this provider uses to create this resource *must* have authorized CodeBuild to access Bitbucket/GitHub's OAuth API in each applicable region. This is a manual step that must be done *before* creating webhooks with this resource. If OAuth is not configured, AWS will return an error similar to `ResourceNotFoundException: Could not find access token for server type github`. More information can be found in the CodeBuild User Guide for [Bitbucket](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-bitbucket-pull-request.html) and [GitHub](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-pull-request.html).
-
-        > **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucket_hook`/`github_repository_webhook` resource is only possible with importing that resource after creation of the `codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `codebuild.Webhook` resource in this scenario.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codebuild.Webhook("example",
-            project_name=aws_codebuild_project["example"]["name"],
-            build_type="BUILD",
-            filter_groups=[aws.codebuild.WebhookFilterGroupArgs(
-                filters=[
-                    aws.codebuild.WebhookFilterGroupFilterArgs(
-                        type="EVENT",
-                        pattern="PUSH",
-                    ),
-                    aws.codebuild.WebhookFilterGroupFilterArgs(
-                        type="BASE_REF",
-                        pattern="master",
-                    ),
-                ],
-            )])
-        ```
-        ### GitHub Enterprise
-
-        When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `github_repository_webhook` resource).
-
-        More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_github as github
-
-        example_webhook = aws.codebuild.Webhook("exampleWebhook", project_name=aws_codebuild_project["example"]["name"])
-        example_repository_webhook = github.RepositoryWebhook("exampleRepositoryWebhook",
-            active=True,
-            events=["push"],
-            repository=github_repository["example"]["name"],
-            configuration=github.RepositoryWebhookConfigurationArgs(
-                url=example_webhook.payload_url,
-                secret=example_webhook.secret,
-                content_type="json",
-                insecure_ssl=False,
-            ))
-        ```
 
         ## Import
 
@@ -295,57 +304,6 @@ class Webhook(pulumi.CustomResource):
         Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
 
         ## Example Usage
-        ### Bitbucket and GitHub
-
-        When working with [Bitbucket](https://bitbucket.org) and [GitHub](https://github.com) source CodeBuild webhooks, the CodeBuild service will automatically create (on `codebuild.Webhook` resource creation) and delete (on `codebuild.Webhook` resource deletion) the Bitbucket/GitHub repository webhook using its granted OAuth permissions. This behavior cannot be controlled by this provider.
-
-        > **Note:** The AWS account that this provider uses to create this resource *must* have authorized CodeBuild to access Bitbucket/GitHub's OAuth API in each applicable region. This is a manual step that must be done *before* creating webhooks with this resource. If OAuth is not configured, AWS will return an error similar to `ResourceNotFoundException: Could not find access token for server type github`. More information can be found in the CodeBuild User Guide for [Bitbucket](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-bitbucket-pull-request.html) and [GitHub](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-pull-request.html).
-
-        > **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucket_hook`/`github_repository_webhook` resource is only possible with importing that resource after creation of the `codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `codebuild.Webhook` resource in this scenario.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codebuild.Webhook("example",
-            project_name=aws_codebuild_project["example"]["name"],
-            build_type="BUILD",
-            filter_groups=[aws.codebuild.WebhookFilterGroupArgs(
-                filters=[
-                    aws.codebuild.WebhookFilterGroupFilterArgs(
-                        type="EVENT",
-                        pattern="PUSH",
-                    ),
-                    aws.codebuild.WebhookFilterGroupFilterArgs(
-                        type="BASE_REF",
-                        pattern="master",
-                    ),
-                ],
-            )])
-        ```
-        ### GitHub Enterprise
-
-        When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `github_repository_webhook` resource).
-
-        More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_github as github
-
-        example_webhook = aws.codebuild.Webhook("exampleWebhook", project_name=aws_codebuild_project["example"]["name"])
-        example_repository_webhook = github.RepositoryWebhook("exampleRepositoryWebhook",
-            active=True,
-            events=["push"],
-            repository=github_repository["example"]["name"],
-            configuration=github.RepositoryWebhookConfigurationArgs(
-                url=example_webhook.payload_url,
-                secret=example_webhook.secret,
-                content_type="json",
-                insecure_ssl=False,
-            ))
-        ```
 
         ## Import
 
@@ -365,6 +323,10 @@ class Webhook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebhookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

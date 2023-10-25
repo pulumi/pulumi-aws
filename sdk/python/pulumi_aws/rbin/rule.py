@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,16 +32,49 @@ class RuleArgs:
         :param pulumi.Input['RuleLockConfigurationArgs'] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         """
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "retention_period", retention_period)
+        RuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            retention_period=retention_period,
+            description=description,
+            lock_configuration=lock_configuration,
+            resource_tags=resource_tags,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: Optional[pulumi.Input[str]] = None,
+             retention_period: Optional[pulumi.Input['RuleRetentionPeriodArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             lock_configuration: Optional[pulumi.Input['RuleLockConfigurationArgs']] = None,
+             resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if retention_period is None and 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+        if retention_period is None:
+            raise TypeError("Missing 'retention_period' argument")
+        if lock_configuration is None and 'lockConfiguration' in kwargs:
+            lock_configuration = kwargs['lockConfiguration']
+        if resource_tags is None and 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+
+        _setter("resource_type", resource_type)
+        _setter("retention_period", retention_period)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if lock_configuration is not None:
-            pulumi.set(__self__, "lock_configuration", lock_configuration)
+            _setter("lock_configuration", lock_configuration)
         if resource_tags is not None:
-            pulumi.set(__self__, "resource_tags", resource_tags)
+            _setter("resource_tags", resource_tags)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -142,31 +175,76 @@ class _RuleState:
                The following arguments are optional:
         :param pulumi.Input[str] status: (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
         """
+        _RuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            lock_configuration=lock_configuration,
+            lock_end_time=lock_end_time,
+            lock_state=lock_state,
+            resource_tags=resource_tags,
+            resource_type=resource_type,
+            retention_period=retention_period,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             lock_configuration: Optional[pulumi.Input['RuleLockConfigurationArgs']] = None,
+             lock_end_time: Optional[pulumi.Input[str]] = None,
+             lock_state: Optional[pulumi.Input[str]] = None,
+             resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             retention_period: Optional[pulumi.Input['RuleRetentionPeriodArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lock_configuration is None and 'lockConfiguration' in kwargs:
+            lock_configuration = kwargs['lockConfiguration']
+        if lock_end_time is None and 'lockEndTime' in kwargs:
+            lock_end_time = kwargs['lockEndTime']
+        if lock_state is None and 'lockState' in kwargs:
+            lock_state = kwargs['lockState']
+        if resource_tags is None and 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if retention_period is None and 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if lock_configuration is not None:
-            pulumi.set(__self__, "lock_configuration", lock_configuration)
+            _setter("lock_configuration", lock_configuration)
         if lock_end_time is not None:
-            pulumi.set(__self__, "lock_end_time", lock_end_time)
+            _setter("lock_end_time", lock_end_time)
         if lock_state is not None:
-            pulumi.set(__self__, "lock_state", lock_state)
+            _setter("lock_state", lock_state)
         if resource_tags is not None:
-            pulumi.set(__self__, "resource_tags", resource_tags)
+            _setter("resource_tags", resource_tags)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -313,27 +391,6 @@ class Rule(pulumi.CustomResource):
         Resource for managing an AWS RBin Rule.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rbin.Rule("example",
-            description="example_rule",
-            resource_tags=[aws.rbin.RuleResourceTagArgs(
-                resource_tag_key="tag_key",
-                resource_tag_value="tag_value",
-            )],
-            resource_type="EBS_SNAPSHOT",
-            retention_period=aws.rbin.RuleRetentionPeriodArgs(
-                retention_period_unit="DAYS",
-                retention_period_value=10,
-            ),
-            tags={
-                "test_tag_key": "test_tag_value",
-            })
-        ```
 
         ## Import
 
@@ -363,27 +420,6 @@ class Rule(pulumi.CustomResource):
         Resource for managing an AWS RBin Rule.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rbin.Rule("example",
-            description="example_rule",
-            resource_tags=[aws.rbin.RuleResourceTagArgs(
-                resource_tag_key="tag_key",
-                resource_tag_value="tag_value",
-            )],
-            resource_type="EBS_SNAPSHOT",
-            retention_period=aws.rbin.RuleRetentionPeriodArgs(
-                retention_period_unit="DAYS",
-                retention_period_value=10,
-            ),
-            tags={
-                "test_tag_key": "test_tag_value",
-            })
-        ```
 
         ## Import
 
@@ -403,6 +439,10 @@ class Rule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -424,11 +464,13 @@ class Rule(pulumi.CustomResource):
             __props__ = RuleArgs.__new__(RuleArgs)
 
             __props__.__dict__["description"] = description
+            lock_configuration = _utilities.configure(lock_configuration, RuleLockConfigurationArgs, True)
             __props__.__dict__["lock_configuration"] = lock_configuration
             __props__.__dict__["resource_tags"] = resource_tags
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
+            retention_period = _utilities.configure(retention_period, RuleRetentionPeriodArgs, True)
             if retention_period is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_period'")
             __props__.__dict__["retention_period"] = retention_period

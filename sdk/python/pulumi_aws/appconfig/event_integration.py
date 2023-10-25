@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,41 @@ class EventIntegrationArgs:
         :param pulumi.Input[str] name: Name of the Event Integration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "event_filter", event_filter)
-        pulumi.set(__self__, "eventbridge_bus", eventbridge_bus)
+        EventIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_filter=event_filter,
+            eventbridge_bus=eventbridge_bus,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_filter: Optional[pulumi.Input['EventIntegrationEventFilterArgs']] = None,
+             eventbridge_bus: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_filter is None and 'eventFilter' in kwargs:
+            event_filter = kwargs['eventFilter']
+        if event_filter is None:
+            raise TypeError("Missing 'event_filter' argument")
+        if eventbridge_bus is None and 'eventbridgeBus' in kwargs:
+            eventbridge_bus = kwargs['eventbridgeBus']
+        if eventbridge_bus is None:
+            raise TypeError("Missing 'eventbridge_bus' argument")
+
+        _setter("event_filter", event_filter)
+        _setter("eventbridge_bus", eventbridge_bus)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="eventFilter")
@@ -119,23 +146,52 @@ class _EventIntegrationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _EventIntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            event_filter=event_filter,
+            eventbridge_bus=eventbridge_bus,
+            name=name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             event_filter: Optional[pulumi.Input['EventIntegrationEventFilterArgs']] = None,
+             eventbridge_bus: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_filter is None and 'eventFilter' in kwargs:
+            event_filter = kwargs['eventFilter']
+        if eventbridge_bus is None and 'eventbridgeBus' in kwargs:
+            eventbridge_bus = kwargs['eventbridgeBus']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if event_filter is not None:
-            pulumi.set(__self__, "event_filter", event_filter)
+            _setter("event_filter", event_filter)
         if eventbridge_bus is not None:
-            pulumi.set(__self__, "eventbridge_bus", eventbridge_bus)
+            _setter("eventbridge_bus", eventbridge_bus)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -239,23 +295,6 @@ class EventIntegration(pulumi.CustomResource):
         """
         Provides an Amazon AppIntegrations Event Integration resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appconfig.EventIntegration("example",
-            description="Example Description",
-            event_filter=aws.appconfig.EventIntegrationEventFilterArgs(
-                source="aws.partner/examplepartner.com",
-            ),
-            eventbridge_bus="default",
-            tags={
-                "Name": "Example Event Integration",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
@@ -281,23 +320,6 @@ class EventIntegration(pulumi.CustomResource):
         """
         Provides an Amazon AppIntegrations Event Integration resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appconfig.EventIntegration("example",
-            description="Example Description",
-            event_filter=aws.appconfig.EventIntegrationEventFilterArgs(
-                source="aws.partner/examplepartner.com",
-            ),
-            eventbridge_bus="default",
-            tags={
-                "Name": "Example Event Integration",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
@@ -316,6 +338,10 @@ class EventIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -336,6 +362,7 @@ class EventIntegration(pulumi.CustomResource):
             __props__ = EventIntegrationArgs.__new__(EventIntegrationArgs)
 
             __props__.__dict__["description"] = description
+            event_filter = _utilities.configure(event_filter, EventIntegrationEventFilterArgs, True)
             if event_filter is None and not opts.urn:
                 raise TypeError("Missing required property 'event_filter'")
             __props__.__dict__["event_filter"] = event_filter

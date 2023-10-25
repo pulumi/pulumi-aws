@@ -13,45 +13,6 @@ namespace Pulumi.Aws.TimestreamWrite
     /// Provides a Timestream database resource.
     /// 
     /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.TimestreamWrite.Database("example", new()
-    ///     {
-    ///         DatabaseName = "database-example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Full usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.TimestreamWrite.Database("example", new()
-    ///     {
-    ///         DatabaseName = "database-example",
-    ///         KmsKeyId = aws_kms_key.Example.Arn,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "value" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

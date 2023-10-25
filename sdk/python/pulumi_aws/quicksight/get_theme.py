@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -203,14 +203,6 @@ def get_theme(aws_account_id: Optional[str] = None,
     Data source for managing an AWS QuickSight Theme.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.quicksight.get_theme(theme_id="example")
-    ```
 
 
     :param str aws_account_id: AWS account ID.
@@ -252,14 +244,6 @@ def get_theme_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = Non
     Data source for managing an AWS QuickSight Theme.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.quicksight.get_theme(theme_id="example")
-    ```
 
 
     :param str aws_account_id: AWS account ID.

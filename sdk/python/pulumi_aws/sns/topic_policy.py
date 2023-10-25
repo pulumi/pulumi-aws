@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TopicPolicyArgs', 'TopicPolicy']
@@ -21,8 +21,25 @@ class TopicPolicyArgs:
         :param pulumi.Input[str] arn: The ARN of the SNS topic
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "policy", policy)
+        TopicPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+
+        _setter("arn", arn)
+        _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -61,12 +78,27 @@ class _TopicPolicyState:
         :param pulumi.Input[str] owner: The AWS Account ID of the SNS topic owner
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
         """
+        _TopicPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            owner=owner,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -118,44 +150,6 @@ class TopicPolicy(pulumi.CustomResource):
 
         > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sns.Topic("test")
-        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
-                actions=[
-                    "SNS:Subscribe",
-                    "SNS:SetTopicAttributes",
-                    "SNS:RemovePermission",
-                    "SNS:Receive",
-                    "SNS:Publish",
-                    "SNS:ListSubscriptionsByTopic",
-                    "SNS:GetTopicAttributes",
-                    "SNS:DeleteTopic",
-                    "SNS:AddPermission",
-                ],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="AWS:SourceOwner",
-                    values=[var["account-id"]],
-                )],
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=["*"],
-                )],
-                resources=[arn],
-                sid="__default_statement_ID",
-            )]))
-        default = aws.sns.TopicPolicy("default",
-            arn=test.arn,
-            policy=sns_topic_policy.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
@@ -180,44 +174,6 @@ class TopicPolicy(pulumi.CustomResource):
 
         > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sns.Topic("test")
-        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
-                actions=[
-                    "SNS:Subscribe",
-                    "SNS:SetTopicAttributes",
-                    "SNS:RemovePermission",
-                    "SNS:Receive",
-                    "SNS:Publish",
-                    "SNS:ListSubscriptionsByTopic",
-                    "SNS:GetTopicAttributes",
-                    "SNS:DeleteTopic",
-                    "SNS:AddPermission",
-                ],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="AWS:SourceOwner",
-                    values=[var["account-id"]],
-                )],
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=["*"],
-                )],
-                resources=[arn],
-                sid="__default_statement_ID",
-            )]))
-        default = aws.sns.TopicPolicy("default",
-            arn=test.arn,
-            policy=sns_topic_policy.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
@@ -236,6 +192,10 @@ class TopicPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TopicPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

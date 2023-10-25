@@ -10,18 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Location Service Place Index.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.location.PlaceIndex("example", {
- *     dataSource: "Here",
- *     indexName: "example",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:

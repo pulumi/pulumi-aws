@@ -12,41 +12,6 @@ namespace Pulumi.Aws.WafRegional
     /// <summary>
     /// Provides a WAF Regional Rule Group Resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRule = new Aws.WafRegional.Rule("exampleRule", new()
-    ///     {
-    ///         MetricName = "example",
-    ///     });
-    /// 
-    ///     var exampleRuleGroup = new Aws.WafRegional.RuleGroup("exampleRuleGroup", new()
-    ///     {
-    ///         MetricName = "example",
-    ///         ActivatedRules = new[]
-    ///         {
-    ///             new Aws.WafRegional.Inputs.RuleGroupActivatedRuleArgs
-    ///             {
-    ///                 Action = new Aws.WafRegional.Inputs.RuleGroupActivatedRuleActionArgs
-    ///                 {
-    ///                     Type = "COUNT",
-    ///                 },
-    ///                 Priority = 50,
-    ///                 RuleId = exampleRule.Id,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAF Regional Rule Group using the id. For example:

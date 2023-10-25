@@ -12,34 +12,6 @@ namespace Pulumi.Aws.SecurityHub
     /// <summary>
     /// Provides a Security Hub member resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleAccount = new Aws.SecurityHub.Account("exampleAccount");
-    /// 
-    ///     var exampleMember = new Aws.SecurityHub.Member("exampleMember", new()
-    ///     {
-    ///         AccountId = "123456789012",
-    ///         Email = "example@example.com",
-    ///         Invite = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccount,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Security Hub members using their account ID. For example:

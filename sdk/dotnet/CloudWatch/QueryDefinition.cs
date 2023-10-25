@@ -12,33 +12,6 @@ namespace Pulumi.Aws.CloudWatch
     /// <summary>
     /// Provides a CloudWatch Logs query definition resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudWatch.QueryDefinition("example", new()
-    ///     {
-    ///         LogGroupNames = new[]
-    ///         {
-    ///             "/aws/logGroup1",
-    ///             "/aws/logGroup2",
-    ///         },
-    ///         QueryString = @"fields @timestamp, @message
-    /// | sort @timestamp desc
-    /// | limit 25
-    /// 
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch query definitions using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For example:

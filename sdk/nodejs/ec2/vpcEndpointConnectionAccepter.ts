@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
  * Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
  *
  * ## Example Usage
- * ### Accept cross-account request
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleVpcEndpointService = new aws.ec2.VpcEndpointService("exampleVpcEndpointService", {
- *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb.example.arn],
- * });
- * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("exampleVpcEndpoint", {
- *     vpcId: aws_vpc.test_alternate.id,
- *     serviceName: aws_vpc_endpoint_service.test.service_name,
- *     vpcEndpointType: "Interface",
- *     privateDnsEnabled: false,
- *     securityGroupIds: [aws_security_group.test.id],
- * }, {
- *     provider: aws.alternate,
- * });
- * const exampleVpcEndpointConnectionAccepter = new aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", {
- *     vpcEndpointServiceId: exampleVpcEndpointService.id,
- *     vpcEndpointId: exampleVpcEndpoint.id,
- * });
- * ```
  *
  * ## Import
  *

@@ -4,35 +4,15 @@
 package outposts
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple Outposts Sites.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetSites(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetSites(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSitesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSitesResult
@@ -49,4 +29,50 @@ type GetSitesResult struct {
 	Id string `pulumi:"id"`
 	// Set of Outposts Site identifiers.
 	Ids []string `pulumi:"ids"`
+}
+
+func GetSitesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSitesResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetSitesResult, error) {
+		r, err := GetSites(ctx, opts...)
+		var s GetSitesResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetSitesResultOutput)
+}
+
+// A collection of values returned by getSites.
+type GetSitesResultOutput struct{ *pulumi.OutputState }
+
+func (GetSitesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSitesResult)(nil)).Elem()
+}
+
+func (o GetSitesResultOutput) ToGetSitesResultOutput() GetSitesResultOutput {
+	return o
+}
+
+func (o GetSitesResultOutput) ToGetSitesResultOutputWithContext(ctx context.Context) GetSitesResultOutput {
+	return o
+}
+
+func (o GetSitesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSitesResult] {
+	return pulumix.Output[GetSitesResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSitesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSitesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Set of Outposts Site identifiers.
+func (o GetSitesResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSitesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSitesResultOutput{})
 }

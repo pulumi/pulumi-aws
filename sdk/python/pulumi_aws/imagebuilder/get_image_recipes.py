@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -94,19 +94,6 @@ def get_image_recipes(filters: Optional[Sequence[pulumi.InputType['GetImageRecip
     """
     Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_recipes(filters=[aws.imagebuilder.GetImageRecipesFilterArgs(
-            name="platform",
-            values=["Linux"],
-        )],
-        owner="Self")
-    ```
-
 
     :param Sequence[pulumi.InputType['GetImageRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
@@ -131,19 +118,6 @@ def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageRecipesResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_recipes(filters=[aws.imagebuilder.GetImageRecipesFilterArgs(
-            name="platform",
-            values=["Linux"],
-        )],
-        owner="Self")
-    ```
 
 
     :param Sequence[pulumi.InputType['GetImageRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

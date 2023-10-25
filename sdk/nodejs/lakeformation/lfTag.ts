@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lakeformation.LfTag("example", {
- *     key: "module",
- *     values: [
- *         "Orders",
- *         "Sales",
- *         "Customers",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:

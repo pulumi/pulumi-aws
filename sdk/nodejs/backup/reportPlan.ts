@@ -10,30 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Backup Report Plan resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.backup.ReportPlan("example", {
- *     description: "example description",
- *     reportDeliveryChannel: {
- *         formats: [
- *             "CSV",
- *             "JSON",
- *         ],
- *         s3BucketName: "example-bucket-name",
- *     },
- *     reportSetting: {
- *         reportTemplate: "RESTORE_JOB_REPORT",
- *     },
- *     tags: {
- *         Name: "Example Report Plan",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:

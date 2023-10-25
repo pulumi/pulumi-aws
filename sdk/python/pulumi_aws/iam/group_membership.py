@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupMembershipArgs', 'GroupMembership']
@@ -23,10 +23,29 @@ class GroupMembershipArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: A list of IAM User names to associate with the Group
         :param pulumi.Input[str] name: The name to identify the Group Membership
         """
-        pulumi.set(__self__, "group", group)
-        pulumi.set(__self__, "users", users)
+        GroupMembershipArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group=group,
+            users=users,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group: Optional[pulumi.Input[str]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group is None:
+            raise TypeError("Missing 'group' argument")
+        if users is None:
+            raise TypeError("Missing 'users' argument")
+
+        _setter("group", group)
+        _setter("users", users)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -77,12 +96,27 @@ class _GroupMembershipState:
         :param pulumi.Input[str] name: The name to identify the Group Membership
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: A list of IAM User names to associate with the Group
         """
+        _GroupMembershipState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group=group,
+            name=name,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if group is not None:
-            pulumi.set(__self__, "group", group)
+            _setter("group", group)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter
@@ -140,23 +174,6 @@ class GroupMembership(pulumi.CustomResource):
         > **Note:** `iam.GroupMembership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
         `iam.UserGroupMembership` resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        group = aws.iam.Group("group")
-        user_one = aws.iam.User("userOne")
-        user_two = aws.iam.User("userTwo")
-        team = aws.iam.GroupMembership("team",
-            users=[
-                user_one.name,
-                user_two.name,
-            ],
-            group=group.name)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The IAM Group name to attach the list of `users` to
@@ -179,23 +196,6 @@ class GroupMembership(pulumi.CustomResource):
         > **Note:** `iam.GroupMembership` will conflict with itself if used more than once with the same group. To non-exclusively manage the users in a group, see the
         `iam.UserGroupMembership` resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        group = aws.iam.Group("group")
-        user_one = aws.iam.User("userOne")
-        user_two = aws.iam.User("userTwo")
-        team = aws.iam.GroupMembership("team",
-            users=[
-                user_one.name,
-                user_two.name,
-            ],
-            group=group.name)
-        ```
-
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,6 +206,10 @@ class GroupMembership(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupMembershipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

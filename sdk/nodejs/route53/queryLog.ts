@@ -13,48 +13,6 @@ import * as utilities from "../utilities";
  * the Route53 hosted zone must be public.
  * See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Example CloudWatch log group in us-east-1
- * const us_east_1 = new aws.Provider("us-east-1", {region: "us-east-1"});
- * const awsRoute53ExampleCom = new aws.cloudwatch.LogGroup("awsRoute53ExampleCom", {retentionInDays: 30}, {
- *     provider: aws["us-east-1"],
- * });
- * // Example CloudWatch log resource policy to allow Route53 to write logs
- * // to any log group under /aws/route53/*
- * const route53-query-logging-policyPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *         ],
- *         resources: ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
- *         principals: [{
- *             identifiers: ["route53.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
- * });
- * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", {
- *     policyDocument: route53_query_logging_policyPolicyDocument.then(route53_query_logging_policyPolicyDocument => route53_query_logging_policyPolicyDocument.json),
- *     policyName: "route53-query-logging-policy",
- * }, {
- *     provider: aws["us-east-1"],
- * });
- * // Example Route53 zone with query logging
- * const exampleComZone = new aws.route53.Zone("exampleComZone", {});
- * const exampleComQueryLog = new aws.route53.QueryLog("exampleComQueryLog", {
- *     cloudwatchLogGroupArn: awsRoute53ExampleCom.arn,
- *     zoneId: exampleComZone.zoneId,
- * }, {
- *     dependsOn: [route53_query_logging_policyLogResourcePolicy],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Route53 query logging configurations using their ID. For example:

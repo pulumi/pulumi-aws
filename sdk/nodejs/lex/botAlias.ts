@@ -11,20 +11,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Lex Bot Alias resource. For more information see
  * [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const orderFlowersProd = new aws.lex.BotAlias("orderFlowersProd", {
- *     botName: "OrderFlowers",
- *     botVersion: "1",
- *     description: "Production Version of the OrderFlowers Bot.",
- *     name: "OrderFlowersProd",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:

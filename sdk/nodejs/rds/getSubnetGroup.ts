@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about an RDS subnet group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const database = aws.rds.getSubnetGroup({
- *     name: "my-test-database-subnet-group",
- * });
- * ```
  */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
 
@@ -72,17 +61,6 @@ export interface GetSubnetGroupResult {
 }
 /**
  * Use this data source to get information about an RDS subnet group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const database = aws.rds.getSubnetGroup({
- *     name: "my-test-database-subnet-group",
- * });
- * ```
  */
 export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
     return pulumi.output(args).apply((a: any) => getSubnetGroup(a, opts))

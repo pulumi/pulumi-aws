@@ -12,32 +12,6 @@ namespace Pulumi.Aws.Neptune
     /// <summary>
     /// Manages a Neptune Parameter Group
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Neptune.ParameterGroup("example", new()
-    ///     {
-    ///         Family = "neptune1",
-    ///         Parameters = new[]
-    ///         {
-    ///             new Aws.Neptune.Inputs.ParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "neptune_query_timeout",
-    ///                 Value = "25",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:

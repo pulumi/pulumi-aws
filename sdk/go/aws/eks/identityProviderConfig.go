@@ -15,37 +15,6 @@ import (
 
 // Manages an EKS Identity Provider Configuration.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.NewIdentityProviderConfig(ctx, "example", &eks.IdentityProviderConfigArgs{
-//				ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
-//				Oidc: &eks.IdentityProviderConfigOidcArgs{
-//					ClientId:                   pulumi.String("your client_id"),
-//					IdentityProviderConfigName: pulumi.String("example"),
-//					IssuerUrl:                  pulumi.String("your issuer_url"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BucketPolicyArgs', 'BucketPolicy']
@@ -21,8 +21,25 @@ class BucketPolicyArgs:
         :param pulumi.Input[str] bucket: Name of the bucket to which to apply the policy.
         :param pulumi.Input[str] policy: Text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam_get_policy_document` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "policy", policy)
+        BucketPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+
+        _setter("bucket", bucket)
+        _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -59,10 +76,23 @@ class _BucketPolicyState:
         :param pulumi.Input[str] bucket: Name of the bucket to which to apply the policy.
         :param pulumi.Input[str] policy: Text of the policy. Although this is a bucket policy rather than an IAM policy, the `iam_get_policy_document` data source may be used, so long as it specifies a principal. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide. Note: Bucket policies are limited to 20 KB in size.
         """
+        _BucketPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -101,31 +131,6 @@ class BucketPolicy(pulumi.CustomResource):
         Attaches a policy to an S3 bucket resource.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.BucketV2("example")
-        allow_access_from_another_account_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=[
-                "s3:GetObject",
-                "s3:ListBucket",
-            ],
-            resources=[
-                example.arn,
-                example.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        )])
-        allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy",
-            bucket=example.id,
-            policy=allow_access_from_another_account_policy_document.json)
-        ```
 
         ## Import
 
@@ -150,31 +155,6 @@ class BucketPolicy(pulumi.CustomResource):
         Attaches a policy to an S3 bucket resource.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.s3.BucketV2("example")
-        allow_access_from_another_account_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=[
-                "s3:GetObject",
-                "s3:ListBucket",
-            ],
-            resources=[
-                example.arn,
-                example.arn.apply(lambda arn: f"{arn}/*"),
-            ],
-        )])
-        allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy",
-            bucket=example.id,
-            policy=allow_access_from_another_account_policy_document.json)
-        ```
 
         ## Import
 
@@ -194,6 +174,10 @@ class BucketPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

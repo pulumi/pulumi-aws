@@ -15,24 +15,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// &gt; **Tip:** A "resource" is either a Service Catalog portfolio or product.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ServiceCatalog.BudgetResourceAssociation("example", new()
-    ///     {
-    ///         BudgetName = "budget-pjtvyakdlyo3m",
-    ///         ResourceId = "prod-dnigbtea24ste",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

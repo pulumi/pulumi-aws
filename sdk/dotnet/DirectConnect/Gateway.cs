@@ -12,24 +12,6 @@ namespace Pulumi.Aws.DirectConnect
     /// <summary>
     /// Provides a Direct Connect Gateway.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DirectConnect.Gateway("example", new()
-    ///     {
-    ///         AmazonSideAsn = "64512",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:

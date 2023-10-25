@@ -14,47 +14,6 @@ import (
 
 // Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := macie2.NewAccount(ctx, "exampleAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = macie.NewCustomDataIdentifier(ctx, "exampleCustomDataIdentifier", &macie.CustomDataIdentifierArgs{
-//				Regex:                pulumi.String("[0-9]{3}-[0-9]{2}-[0-9]{4}"),
-//				Description:          pulumi.String("DESCRIPTION"),
-//				MaximumMatchDistance: pulumi.Int(10),
-//				Keywords: pulumi.StringArray{
-//					pulumi.String("keyword"),
-//				},
-//				IgnoreWords: pulumi.StringArray{
-//					pulumi.String("ignore"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_macie2_account.Test,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:

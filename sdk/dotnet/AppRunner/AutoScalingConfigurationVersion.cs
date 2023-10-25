@@ -12,31 +12,6 @@ namespace Pulumi.Aws.AppRunner
     /// <summary>
     /// Manages an App Runner AutoScaling Configuration Version.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppRunner.AutoScalingConfigurationVersion("example", new()
-    ///     {
-    ///         AutoScalingConfigurationName = "example",
-    ///         MaxConcurrency = 50,
-    ///         MaxSize = 10,
-    ///         MinSize = 2,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example-apprunner-autoscaling" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:

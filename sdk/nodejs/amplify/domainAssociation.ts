@@ -10,37 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Amplify Domain Association resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleApp = new aws.amplify.App("exampleApp", {customRules: [{
- *     source: "https://example.com",
- *     status: "302",
- *     target: "https://www.example.com",
- * }]});
- * const master = new aws.amplify.Branch("master", {
- *     appId: exampleApp.id,
- *     branchName: "master",
- * });
- * const exampleDomainAssociation = new aws.amplify.DomainAssociation("exampleDomainAssociation", {
- *     appId: exampleApp.id,
- *     domainName: "example.com",
- *     subDomains: [
- *         {
- *             branchName: master.branchName,
- *             prefix: "",
- *         },
- *         {
- *             branchName: master.branchName,
- *             prefix: "www",
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:

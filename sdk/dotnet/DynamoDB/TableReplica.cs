@@ -17,60 +17,6 @@ namespace Pulumi.Aws.DynamoDB
     /// &gt; **Note:** Do not use the `replica` configuration block of aws.dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
     /// 
     /// ## Example Usage
-    /// ### Basic Example
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.Provider("main", new()
-    ///     {
-    ///         Region = "us-west-2",
-    ///     });
-    /// 
-    ///     var alt = new Aws.Provider("alt", new()
-    ///     {
-    ///         Region = "us-east-2",
-    ///     });
-    /// 
-    ///     var exampleTable = new Aws.DynamoDB.Table("exampleTable", new()
-    ///     {
-    ///         HashKey = "BrodoBaggins",
-    ///         BillingMode = "PAY_PER_REQUEST",
-    ///         StreamEnabled = true,
-    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
-    ///         Attributes = new[]
-    ///         {
-    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
-    ///             {
-    ///                 Name = "BrodoBaggins",
-    ///                 Type = "S",
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Main,
-    ///     });
-    /// 
-    ///     var exampleTableReplica = new Aws.DynamoDB.TableReplica("exampleTableReplica", new()
-    ///     {
-    ///         GlobalTableArn = exampleTable.Arn,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "IZPAWS" },
-    ///             { "Pozo", "Amargo" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = aws.Alt,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

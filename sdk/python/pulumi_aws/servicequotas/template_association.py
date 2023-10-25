@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TemplateAssociationArgs', 'TemplateAssociation']
@@ -18,8 +18,21 @@ class TemplateAssociationArgs:
         """
         The set of arguments for constructing a TemplateAssociation resource.
         """
+        TemplateAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            skip_destroy=skip_destroy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if skip_destroy is None and 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
 
     @property
     @pulumi.getter(name="skipDestroy")
@@ -40,10 +53,25 @@ class _TemplateAssociationState:
         Input properties used for looking up and filtering TemplateAssociation resources.
         :param pulumi.Input[str] status: Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
         """
+        _TemplateAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            skip_destroy=skip_destroy,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if skip_destroy is None and 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="skipDestroy")
@@ -80,14 +108,6 @@ class TemplateAssociation(pulumi.CustomResource):
         > Only the management account of an organization can associate Service Quota templates, and this must be done from the `us-east-1` region.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicequotas.TemplateAssociation("example")
-        ```
 
         ## Import
 
@@ -112,14 +132,6 @@ class TemplateAssociation(pulumi.CustomResource):
         > Only the management account of an organization can associate Service Quota templates, and this must be done from the `us-east-1` region.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicequotas.TemplateAssociation("example")
-        ```
 
         ## Import
 
@@ -139,6 +151,10 @@ class TemplateAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TemplateAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

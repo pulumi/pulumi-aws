@@ -13,34 +13,6 @@ namespace Pulumi.Aws.EmrContainers
     /// Manages an EMR Containers (EMR on EKS) Job Template.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.EmrContainers.JobTemplate("example", new()
-    ///     {
-    ///         JobTemplateData = new Aws.EmrContainers.Inputs.JobTemplateJobTemplateDataArgs
-    ///         {
-    ///             ExecutionRoleArn = aws_iam_role.Example.Arn,
-    ///             ReleaseLabel = "emr-6.10.0-latest",
-    ///             JobDriver = new Aws.EmrContainers.Inputs.JobTemplateJobTemplateDataJobDriverArgs
-    ///             {
-    ///                 SparkSqlJobDriver = new Aws.EmrContainers.Inputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs
-    ///                 {
-    ///                     EntryPoint = "default",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

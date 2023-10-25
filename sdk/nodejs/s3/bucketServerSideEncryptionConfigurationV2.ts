@@ -12,28 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfigurationV2` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mykey = new aws.kms.Key("mykey", {
- *     description: "This key is used to encrypt bucket objects",
- *     deletionWindowInDays: 10,
- * });
- * const mybucket = new aws.s3.BucketV2("mybucket", {});
- * const example = new aws.s3.BucketServerSideEncryptionConfigurationV2("example", {
- *     bucket: mybucket.id,
- *     rules: [{
- *         applyServerSideEncryptionByDefault: {
- *             kmsMasterKeyId: mykey.arn,
- *             sseAlgorithm: "aws:kms",
- *         },
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):

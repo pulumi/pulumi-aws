@@ -16,63 +16,6 @@ import (
 // Manages SAML authentication options for an AWS OpenSearch Domain.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"os"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDomain, err := opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
-//				EngineVersion: pulumi.String("OpenSearch_1.1"),
-//				ClusterConfig: &opensearch.DomainClusterConfigArgs{
-//					InstanceType: pulumi.String("r4.large.search"),
-//				},
-//				SnapshotOptions: &opensearch.DomainSnapshotOptionsArgs{
-//					AutomatedSnapshotStartHour: pulumi.Int(23),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Domain": pulumi.String("TestDomain"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewDomainSamlOptions(ctx, "exampleDomainSamlOptions", &opensearch.DomainSamlOptionsArgs{
-//				DomainName: exampleDomain.DomainName,
-//				SamlOptions: &opensearch.DomainSamlOptionsSamlOptionsArgs{
-//					Enabled: pulumi.Bool(true),
-//					Idp: &opensearch.DomainSamlOptionsSamlOptionsIdpArgs{
-//						EntityId:        pulumi.String("https://example.com"),
-//						MetadataContent: readFileOrPanic("./saml-metadata.xml"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

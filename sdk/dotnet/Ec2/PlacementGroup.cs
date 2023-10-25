@@ -13,24 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides an EC2 placement group. Read more about placement groups
     /// in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var web = new Aws.Ec2.PlacementGroup("web", new()
-    ///     {
-    ///         Strategy = "cluster",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import placement groups using the `name`. For example:

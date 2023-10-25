@@ -13,23 +13,6 @@ namespace Pulumi.Aws.VerifiedAccess
     /// Resource for managing a Verified Access Group.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.VerifiedAccess.Group("example", new()
-    ///     {
-    ///         VerifiedaccessInstanceId = aws_verifiedaccess_instance.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:verifiedaccess/group:Group")]
     public partial class Group : global::Pulumi.CustomResource

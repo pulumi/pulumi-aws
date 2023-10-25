@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AssociationArgs', 'Association']
@@ -21,8 +21,29 @@ class AssociationArgs:
         :param pulumi.Input[str] license_configuration_arn: ARN of the license configuration.
         :param pulumi.Input[str] resource_arn: ARN of the resource associated with the license configuration.
         """
-        pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        AssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            license_configuration_arn=license_configuration_arn,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             license_configuration_arn: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if license_configuration_arn is None and 'licenseConfigurationArn' in kwargs:
+            license_configuration_arn = kwargs['licenseConfigurationArn']
+        if license_configuration_arn is None:
+            raise TypeError("Missing 'license_configuration_arn' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+
+        _setter("license_configuration_arn", license_configuration_arn)
+        _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="licenseConfigurationArn")
@@ -59,10 +80,27 @@ class _AssociationState:
         :param pulumi.Input[str] license_configuration_arn: ARN of the license configuration.
         :param pulumi.Input[str] resource_arn: ARN of the resource associated with the license configuration.
         """
+        _AssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            license_configuration_arn=license_configuration_arn,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             license_configuration_arn: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if license_configuration_arn is None and 'licenseConfigurationArn' in kwargs:
+            license_configuration_arn = kwargs['licenseConfigurationArn']
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         if license_configuration_arn is not None:
-            pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
+            _setter("license_configuration_arn", license_configuration_arn)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="licenseConfigurationArn")
@@ -102,27 +140,6 @@ class Association(pulumi.CustomResource):
 
         > **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `ec2.LaunchTemplate`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_ami = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["amzn-ami-vpc-nat*"],
-            )])
-        example_instance = aws.ec2.Instance("exampleInstance",
-            ami=example_ami.id,
-            instance_type="t2.micro")
-        example_license_configuration = aws.licensemanager.LicenseConfiguration("exampleLicenseConfiguration", license_counting_type="Instance")
-        example_association = aws.licensemanager.Association("exampleAssociation",
-            license_configuration_arn=example_license_configuration.arn,
-            resource_arn=example_instance.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:
@@ -147,27 +164,6 @@ class Association(pulumi.CustomResource):
 
         > **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `ec2.LaunchTemplate`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_ami = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["amzn-ami-vpc-nat*"],
-            )])
-        example_instance = aws.ec2.Instance("exampleInstance",
-            ami=example_ami.id,
-            instance_type="t2.micro")
-        example_license_configuration = aws.licensemanager.LicenseConfiguration("exampleLicenseConfiguration", license_counting_type="Instance")
-        example_association = aws.licensemanager.Association("exampleAssociation",
-            license_configuration_arn=example_license_configuration.arn,
-            resource_arn=example_instance.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:
@@ -186,6 +182,10 @@ class Association(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

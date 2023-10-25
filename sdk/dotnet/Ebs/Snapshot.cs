@@ -12,38 +12,6 @@ namespace Pulumi.Aws.Ebs
     /// <summary>
     /// Creates a Snapshot of an EBS Volume.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ebs.Volume("example", new()
-    ///     {
-    ///         AvailabilityZone = "us-west-2a",
-    ///         Size = 40,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleSnapshot = new Aws.Ebs.Snapshot("exampleSnapshot", new()
-    ///     {
-    ///         VolumeId = example.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "HelloWorld_snap" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EBS Snapshot using the `id`. For example:

@@ -14,55 +14,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var orderEventBus = new Aws.CloudWatch.EventBus("orderEventBus");
-    /// 
-    ///     var orderEventArchive = new Aws.CloudWatch.EventArchive("orderEventArchive", new()
-    ///     {
-    ///         EventSourceArn = orderEventBus.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ## Example all optional arguments
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var orderEventBus = new Aws.CloudWatch.EventBus("orderEventBus");
-    /// 
-    ///     var orderEventArchive = new Aws.CloudWatch.EventArchive("orderEventArchive", new()
-    ///     {
-    ///         Description = "Archived events from order service",
-    ///         EventSourceArn = orderEventBus.Arn,
-    ///         RetentionDays = 7,
-    ///         EventPattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["source"] = new[]
-    ///             {
-    ///                 "company.team.order",
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an EventBridge archive using the `name`. For example:

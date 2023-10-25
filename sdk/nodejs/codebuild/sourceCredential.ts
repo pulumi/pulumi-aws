@@ -10,32 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:**
  * [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html). Therefore, when you define `aws.codebuild.SourceCredential`, `aws.codebuild.Project` resource defined in the same module will use it.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codebuild.SourceCredential("example", {
- *     authType: "PERSONAL_ACCESS_TOKEN",
- *     serverType: "GITHUB",
- *     token: "example",
- * });
- * ```
- * ### Bitbucket Server Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codebuild.SourceCredential("example", {
- *     authType: "BASIC_AUTH",
- *     serverType: "BITBUCKET",
- *     token: "example",
- *     userName: "test-user",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:

@@ -13,46 +13,6 @@ namespace Pulumi.Aws.MediaLive
     /// Resource for managing an AWS MediaLive Input.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleInputSecurityGroup = new Aws.MediaLive.InputSecurityGroup("exampleInputSecurityGroup", new()
-    ///     {
-    ///         WhitelistRules = new[]
-    ///         {
-    ///             new Aws.MediaLive.Inputs.InputSecurityGroupWhitelistRuleArgs
-    ///             {
-    ///                 Cidr = "10.0.0.8/32",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "ENVIRONMENT", "prod" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleInput = new Aws.MediaLive.Input("exampleInput", new()
-    ///     {
-    ///         InputSecurityGroups = new[]
-    ///         {
-    ///             exampleInputSecurityGroup.Id,
-    ///         },
-    ///         Type = "UDP_PUSH",
-    ///         Tags = 
-    ///         {
-    ///             { "ENVIRONMENT", "prod" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

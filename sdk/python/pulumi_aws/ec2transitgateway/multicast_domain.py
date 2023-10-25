@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MulticastDomainArgs', 'MulticastDomain']
@@ -27,15 +27,44 @@ class MulticastDomainArgs:
         :param pulumi.Input[str] static_sources_support: Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        MulticastDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            transit_gateway_id=transit_gateway_id,
+            auto_accept_shared_associations=auto_accept_shared_associations,
+            igmpv2_support=igmpv2_support,
+            static_sources_support=static_sources_support,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
+             auto_accept_shared_associations: Optional[pulumi.Input[str]] = None,
+             igmpv2_support: Optional[pulumi.Input[str]] = None,
+             static_sources_support: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if transit_gateway_id is None:
+            raise TypeError("Missing 'transit_gateway_id' argument")
+        if auto_accept_shared_associations is None and 'autoAcceptSharedAssociations' in kwargs:
+            auto_accept_shared_associations = kwargs['autoAcceptSharedAssociations']
+        if igmpv2_support is None and 'igmpv2Support' in kwargs:
+            igmpv2_support = kwargs['igmpv2Support']
+        if static_sources_support is None and 'staticSourcesSupport' in kwargs:
+            static_sources_support = kwargs['staticSourcesSupport']
+
+        _setter("transit_gateway_id", transit_gateway_id)
         if auto_accept_shared_associations is not None:
-            pulumi.set(__self__, "auto_accept_shared_associations", auto_accept_shared_associations)
+            _setter("auto_accept_shared_associations", auto_accept_shared_associations)
         if igmpv2_support is not None:
-            pulumi.set(__self__, "igmpv2_support", igmpv2_support)
+            _setter("igmpv2_support", igmpv2_support)
         if static_sources_support is not None:
-            pulumi.set(__self__, "static_sources_support", static_sources_support)
+            _setter("static_sources_support", static_sources_support)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="transitGatewayId")
@@ -120,25 +149,62 @@ class _MulticastDomainState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
         """
+        _MulticastDomainState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auto_accept_shared_associations=auto_accept_shared_associations,
+            igmpv2_support=igmpv2_support,
+            owner_id=owner_id,
+            static_sources_support=static_sources_support,
+            tags=tags,
+            tags_all=tags_all,
+            transit_gateway_id=transit_gateway_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_accept_shared_associations: Optional[pulumi.Input[str]] = None,
+             igmpv2_support: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             static_sources_support: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_accept_shared_associations is None and 'autoAcceptSharedAssociations' in kwargs:
+            auto_accept_shared_associations = kwargs['autoAcceptSharedAssociations']
+        if igmpv2_support is None and 'igmpv2Support' in kwargs:
+            igmpv2_support = kwargs['igmpv2Support']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if static_sources_support is None and 'staticSourcesSupport' in kwargs:
+            static_sources_support = kwargs['staticSourcesSupport']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_accept_shared_associations is not None:
-            pulumi.set(__self__, "auto_accept_shared_associations", auto_accept_shared_associations)
+            _setter("auto_accept_shared_associations", auto_accept_shared_associations)
         if igmpv2_support is not None:
-            pulumi.set(__self__, "igmpv2_support", igmpv2_support)
+            _setter("igmpv2_support", igmpv2_support)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if static_sources_support is not None:
-            pulumi.set(__self__, "static_sources_support", static_sources_support)
+            _setter("static_sources_support", static_sources_support)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if transit_gateway_id is not None:
-            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+            _setter("transit_gateway_id", transit_gateway_id)
 
     @property
     @pulumi.getter
@@ -254,95 +320,6 @@ class MulticastDomain(pulumi.CustomResource):
         """
         Manages an EC2 Transit Gateway Multicast Domain.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available")
-        amazon_linux = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["amzn-ami-hvm-*-x86_64-gp2"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="owner-alias",
-                    values=["amazon"],
-                ),
-            ])
-        vpc1 = aws.ec2.Vpc("vpc1", cidr_block="10.0.0.0/16")
-        vpc2 = aws.ec2.Vpc("vpc2", cidr_block="10.1.0.0/16")
-        subnet1 = aws.ec2.Subnet("subnet1",
-            vpc_id=vpc1.id,
-            cidr_block="10.0.1.0/24",
-            availability_zone=available.names[0])
-        subnet2 = aws.ec2.Subnet("subnet2",
-            vpc_id=vpc1.id,
-            cidr_block="10.0.2.0/24",
-            availability_zone=available.names[1])
-        subnet3 = aws.ec2.Subnet("subnet3",
-            vpc_id=vpc2.id,
-            cidr_block="10.1.1.0/24",
-            availability_zone=available.names[0])
-        instance1 = aws.ec2.Instance("instance1",
-            ami=amazon_linux.id,
-            instance_type="t2.micro",
-            subnet_id=subnet1.id)
-        instance2 = aws.ec2.Instance("instance2",
-            ami=amazon_linux.id,
-            instance_type="t2.micro",
-            subnet_id=subnet2.id)
-        instance3 = aws.ec2.Instance("instance3",
-            ami=amazon_linux.id,
-            instance_type="t2.micro",
-            subnet_id=subnet3.id)
-        tgw = aws.ec2transitgateway.TransitGateway("tgw", multicast_support="enable")
-        attachment1 = aws.ec2transitgateway.VpcAttachment("attachment1",
-            subnet_ids=[
-                subnet1.id,
-                subnet2.id,
-            ],
-            transit_gateway_id=tgw.id,
-            vpc_id=vpc1.id)
-        attachment2 = aws.ec2transitgateway.VpcAttachment("attachment2",
-            subnet_ids=[subnet3.id],
-            transit_gateway_id=tgw.id,
-            vpc_id=vpc2.id)
-        domain = aws.ec2transitgateway.MulticastDomain("domain",
-            transit_gateway_id=tgw.id,
-            static_sources_support="enable",
-            tags={
-                "Name": "Transit_Gateway_Multicast_Domain_Example",
-            })
-        association3 = aws.ec2transitgateway.MulticastDomainAssociation("association3",
-            subnet_id=subnet3.id,
-            transit_gateway_attachment_id=attachment2.id,
-            transit_gateway_multicast_domain_id=domain.id)
-        source = aws.ec2transitgateway.MulticastGroupSource("source",
-            group_ip_address="224.0.0.1",
-            network_interface_id=instance3.primary_network_interface_id,
-            transit_gateway_multicast_domain_id=association3.transit_gateway_multicast_domain_id)
-        association1 = aws.ec2transitgateway.MulticastDomainAssociation("association1",
-            subnet_id=subnet1.id,
-            transit_gateway_attachment_id=attachment1.id,
-            transit_gateway_multicast_domain_id=domain.id)
-        association2 = aws.ec2transitgateway.MulticastDomainAssociation("association2",
-            subnet_id=subnet2.id,
-            transit_gateway_attachment_id=attachment2.id,
-            transit_gateway_multicast_domain_id=domain.id)
-        member1 = aws.ec2transitgateway.MulticastGroupMember("member1",
-            group_ip_address="224.0.0.1",
-            network_interface_id=instance1.primary_network_interface_id,
-            transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
-        member2 = aws.ec2transitgateway.MulticastGroupMember("member2",
-            group_ip_address="224.0.0.1",
-            network_interface_id=instance2.primary_network_interface_id,
-            transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
@@ -368,95 +345,6 @@ class MulticastDomain(pulumi.CustomResource):
         """
         Manages an EC2 Transit Gateway Multicast Domain.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available")
-        amazon_linux = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["amzn-ami-hvm-*-x86_64-gp2"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="owner-alias",
-                    values=["amazon"],
-                ),
-            ])
-        vpc1 = aws.ec2.Vpc("vpc1", cidr_block="10.0.0.0/16")
-        vpc2 = aws.ec2.Vpc("vpc2", cidr_block="10.1.0.0/16")
-        subnet1 = aws.ec2.Subnet("subnet1",
-            vpc_id=vpc1.id,
-            cidr_block="10.0.1.0/24",
-            availability_zone=available.names[0])
-        subnet2 = aws.ec2.Subnet("subnet2",
-            vpc_id=vpc1.id,
-            cidr_block="10.0.2.0/24",
-            availability_zone=available.names[1])
-        subnet3 = aws.ec2.Subnet("subnet3",
-            vpc_id=vpc2.id,
-            cidr_block="10.1.1.0/24",
-            availability_zone=available.names[0])
-        instance1 = aws.ec2.Instance("instance1",
-            ami=amazon_linux.id,
-            instance_type="t2.micro",
-            subnet_id=subnet1.id)
-        instance2 = aws.ec2.Instance("instance2",
-            ami=amazon_linux.id,
-            instance_type="t2.micro",
-            subnet_id=subnet2.id)
-        instance3 = aws.ec2.Instance("instance3",
-            ami=amazon_linux.id,
-            instance_type="t2.micro",
-            subnet_id=subnet3.id)
-        tgw = aws.ec2transitgateway.TransitGateway("tgw", multicast_support="enable")
-        attachment1 = aws.ec2transitgateway.VpcAttachment("attachment1",
-            subnet_ids=[
-                subnet1.id,
-                subnet2.id,
-            ],
-            transit_gateway_id=tgw.id,
-            vpc_id=vpc1.id)
-        attachment2 = aws.ec2transitgateway.VpcAttachment("attachment2",
-            subnet_ids=[subnet3.id],
-            transit_gateway_id=tgw.id,
-            vpc_id=vpc2.id)
-        domain = aws.ec2transitgateway.MulticastDomain("domain",
-            transit_gateway_id=tgw.id,
-            static_sources_support="enable",
-            tags={
-                "Name": "Transit_Gateway_Multicast_Domain_Example",
-            })
-        association3 = aws.ec2transitgateway.MulticastDomainAssociation("association3",
-            subnet_id=subnet3.id,
-            transit_gateway_attachment_id=attachment2.id,
-            transit_gateway_multicast_domain_id=domain.id)
-        source = aws.ec2transitgateway.MulticastGroupSource("source",
-            group_ip_address="224.0.0.1",
-            network_interface_id=instance3.primary_network_interface_id,
-            transit_gateway_multicast_domain_id=association3.transit_gateway_multicast_domain_id)
-        association1 = aws.ec2transitgateway.MulticastDomainAssociation("association1",
-            subnet_id=subnet1.id,
-            transit_gateway_attachment_id=attachment1.id,
-            transit_gateway_multicast_domain_id=domain.id)
-        association2 = aws.ec2transitgateway.MulticastDomainAssociation("association2",
-            subnet_id=subnet2.id,
-            transit_gateway_attachment_id=attachment2.id,
-            transit_gateway_multicast_domain_id=domain.id)
-        member1 = aws.ec2transitgateway.MulticastGroupMember("member1",
-            group_ip_address="224.0.0.1",
-            network_interface_id=instance1.primary_network_interface_id,
-            transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
-        member2 = aws.ec2transitgateway.MulticastGroupMember("member2",
-            group_ip_address="224.0.0.1",
-            network_interface_id=instance2.primary_network_interface_id,
-            transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
@@ -475,6 +363,10 @@ class MulticastDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MulticastDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

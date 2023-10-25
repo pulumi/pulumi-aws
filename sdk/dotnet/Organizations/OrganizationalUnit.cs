@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Organizations
     /// <summary>
     /// Provides a resource to create an organizational unit.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Organizations.OrganizationalUnit("example", new()
-    ///     {
-    ///         ParentId = aws_organizations_organization.Example.Roots[0].Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:

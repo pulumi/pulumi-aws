@@ -10,14 +10,6 @@ import * as utilities from "../utilities";
  * > Only the management account of an organization can associate Service Quota templates, and this must be done from the `us-east-1` region.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicequotas.TemplateAssociation("example", {});
- * ```
  *
  * ## Import
  *

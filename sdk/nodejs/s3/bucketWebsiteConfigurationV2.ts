@@ -11,55 +11,6 @@ import * as utilities from "../utilities";
  * Provides an S3 bucket website configuration resource. For more information, see [Hosting Websites on S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
  *
  * ## Example Usage
- * ### With `routingRule` configured
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.BucketWebsiteConfigurationV2("example", {
- *     bucket: aws_s3_bucket.example.id,
- *     indexDocument: {
- *         suffix: "index.html",
- *     },
- *     errorDocument: {
- *         key: "error.html",
- *     },
- *     routingRules: [{
- *         condition: {
- *             keyPrefixEquals: "docs/",
- *         },
- *         redirect: {
- *             replaceKeyPrefixWith: "documents/",
- *         },
- *     }],
- * });
- * ```
- * ### With `routingRules` configured
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.BucketWebsiteConfigurationV2("example", {
- *     bucket: aws_s3_bucket.example.id,
- *     indexDocument: {
- *         suffix: "index.html",
- *     },
- *     errorDocument: {
- *         key: "error.html",
- *     },
- *     routingRuleDetails: `[{
- *     "Condition": {
- *         "KeyPrefixEquals": "docs/"
- *     },
- *     "Redirect": {
- *         "ReplaceKeyPrefixWith": ""
- *     }
- * }]
- * `,
- * });
- * ```
  *
  * ## Import
  *

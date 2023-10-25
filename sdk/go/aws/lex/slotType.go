@@ -16,51 +16,6 @@ import (
 // Provides an Amazon Lex Slot Type resource. For more information see
 // [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewSlotType(ctx, "flowerTypes", &lex.SlotTypeArgs{
-//				CreateVersion: pulumi.Bool(true),
-//				Description:   pulumi.String("Types of flowers to order"),
-//				EnumerationValues: lex.SlotTypeEnumerationValueArray{
-//					&lex.SlotTypeEnumerationValueArgs{
-//						Synonyms: pulumi.StringArray{
-//							pulumi.String("Lirium"),
-//							pulumi.String("Martagon"),
-//						},
-//						Value: pulumi.String("lilies"),
-//					},
-//					&lex.SlotTypeEnumerationValueArgs{
-//						Synonyms: pulumi.StringArray{
-//							pulumi.String("Eduardoregelia"),
-//							pulumi.String("Podonix"),
-//						},
-//						Value: pulumi.String("tulips"),
-//					},
-//				},
-//				Name:                   pulumi.String("FlowerTypes"),
-//				ValueSelectionStrategy: pulumi.String("ORIGINAL_VALUE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import slot types using their name. For example:

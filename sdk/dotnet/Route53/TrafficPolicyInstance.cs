@@ -12,27 +12,6 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// Provides a Route53 traffic policy instance resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Route53.TrafficPolicyInstance("test", new()
-    ///     {
-    ///         HostedZoneId = "Z033120931TAQO548OGJC",
-    ///         TrafficPolicyId = "b3gb108f-ea6f-45a5-baab-9d112d8b4037",
-    ///         TrafficPolicyVersion = 1,
-    ///         Ttl = 360,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 traffic policy instance using its id. For example:

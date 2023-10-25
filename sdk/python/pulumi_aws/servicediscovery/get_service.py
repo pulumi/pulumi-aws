@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -161,16 +161,6 @@ def get_service(name: Optional[str] = None,
     """
     Retrieves information about a Service Discovery Service.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.servicediscovery.get_service(name="example",
-        namespace_id="NAMESPACE_ID_VALUE")
-    ```
-
 
     :param str name: Name of the service.
     :param str namespace_id: ID of the namespace that the service belongs to.
@@ -206,16 +196,6 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Retrieves information about a Service Discovery Service.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.servicediscovery.get_service(name="example",
-        namespace_id="NAMESPACE_ID_VALUE")
-    ```
 
 
     :param str name: Name of the service.

@@ -25,14 +25,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     public static final LifecyclePolicyPolicyDetailsScheduleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleArgs();
 
     /**
-     * Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+     * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
      * 
      */
     @Import(name="copyTags")
     private @Nullable Output<Boolean> copyTags;
 
     /**
-     * @return Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+     * @return Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
      * 
      */
     public Optional<Output<Boolean>> copyTags() {
@@ -70,14 +70,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
     }
 
     /**
-     * See the `deprecate_rule` block. Max of 1 per schedule.
+     * The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
      * 
      */
     @Import(name="deprecateRule")
     private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs> deprecateRule;
 
     /**
-     * @return See the `deprecate_rule` block. Max of 1 per schedule.
+     * @return The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
      * 
      */
     public Optional<Output<LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs>> deprecateRule() {
@@ -208,7 +208,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param copyTags Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+         * @param copyTags Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param copyTags Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+         * @param copyTags Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param deprecateRule See the `deprecate_rule` block. Max of 1 per schedule.
+         * @param deprecateRule The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleArgs extends com.pulumi.r
         }
 
         /**
-         * @param deprecateRule See the `deprecate_rule` block. Max of 1 per schedule.
+         * @param deprecateRule The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
          * 
          * @return builder
          * 

@@ -15,38 +15,6 @@ import (
 
 // Manages an App Runner AutoScaling Configuration Version.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apprunner.NewAutoScalingConfigurationVersion(ctx, "example", &apprunner.AutoScalingConfigurationVersionArgs{
-//				AutoScalingConfigurationName: pulumi.String("example"),
-//				MaxConcurrency:               pulumi.Int(50),
-//				MaxSize:                      pulumi.Int(10),
-//				MinSize:                      pulumi.Int(2),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-apprunner-autoscaling"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For example:

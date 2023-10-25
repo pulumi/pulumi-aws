@@ -13,32 +13,6 @@ namespace Pulumi.Aws.Fsx
     /// Manages an Amazon FSx for NetApp ONTAP file system.
     /// See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html) for more information.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Fsx.OntapFileSystem("test", new()
-    ///     {
-    ///         StorageCapacity = 1024,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Test1.Id,
-    ///             aws_subnet.Test2.Id,
-    ///         },
-    ///         DeploymentType = "MULTI_AZ_1",
-    ///         ThroughputCapacity = 512,
-    ///         PreferredSubnetId = aws_subnet.Test1.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FSx File Systems using the `id`. For example:

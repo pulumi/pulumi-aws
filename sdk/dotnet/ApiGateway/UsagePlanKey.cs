@@ -12,43 +12,6 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides an API Gateway Usage Plan Key.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.ApiGateway.RestApi("test");
-    /// 
-    ///     // ...
-    ///     var myusageplan = new Aws.ApiGateway.UsagePlan("myusageplan", new()
-    ///     {
-    ///         ApiStages = new[]
-    ///         {
-    ///             new Aws.ApiGateway.Inputs.UsagePlanApiStageArgs
-    ///             {
-    ///                 ApiId = test.Id,
-    ///                 Stage = aws_api_gateway_stage.Foo.Stage_name,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var mykey = new Aws.ApiGateway.ApiKey("mykey");
-    /// 
-    ///     var main = new Aws.ApiGateway.UsagePlanKey("main", new()
-    ///     {
-    ///         KeyId = mykey.Id,
-    ///         KeyType = "API_KEY",
-    ///         UsagePlanId = myusageplan.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:

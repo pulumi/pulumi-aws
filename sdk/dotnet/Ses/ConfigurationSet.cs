@@ -12,41 +12,6 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES configuration set resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ses.ConfigurationSet("test");
-    /// 
-    /// });
-    /// ```
-    /// ### Require TLS Connections
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Ses.ConfigurationSet("test", new()
-    ///     {
-    ///         DeliveryOptions = new Aws.Ses.Inputs.ConfigurationSetDeliveryOptionsArgs
-    ///         {
-    ///             TlsPolicy = "Require",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES Configuration Sets using their `name`. For example:

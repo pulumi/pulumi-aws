@@ -15,64 +15,6 @@ import (
 
 // Provides a resource to manage a resource-based delegation policy that can be used to delegate policy management for AWS Organizations to specified member accounts to perform policy actions that are by default available only to the management account. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_delegate_policies.html) for more information.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := organizations.NewResourcePolicy(ctx, "example", &organizations.ResourcePolicyArgs{
-//				Content: pulumi.String(`{
-//	  "Version": "2012-10-17",
-//	  "Statement": [
-//	    {
-//	      "Sid": "DelegatingNecessaryDescribeListActions",
-//	      "Effect": "Allow",
-//	      "Principal": {
-//	        "AWS": "arn:aws:iam::123456789012:root"
-//	      },
-//	      "Action": [
-//	        "organizations:DescribeOrganization",
-//	        "organizations:DescribeOrganizationalUnit",
-//	        "organizations:DescribeAccount",
-//	        "organizations:DescribePolicy",
-//	        "organizations:DescribeEffectivePolicy",
-//	        "organizations:ListRoots",
-//	        "organizations:ListOrganizationalUnitsForParent",
-//	        "organizations:ListParents",
-//	        "organizations:ListChildren",
-//	        "organizations:ListAccounts",
-//	        "organizations:ListAccountsForParent",
-//	        "organizations:ListPolicies",
-//	        "organizations:ListPoliciesForTarget",
-//	        "organizations:ListTargetsForPolicy",
-//	        "organizations:ListTagsForResource"
-//	      ],
-//	      "Resource": "*"
-//	    }
-//	  ]
-//	}
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:

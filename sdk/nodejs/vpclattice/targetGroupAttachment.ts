@@ -11,20 +11,6 @@ import * as utilities from "../utilities";
  * Provides the ability to register a target with an AWS VPC Lattice Target Group.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.vpclattice.TargetGroupAttachment("example", {
- *     targetGroupIdentifier: aws_vpclattice_target_group.example.id,
- *     target: {
- *         id: aws_lb.example.arn,
- *         port: 80,
- *     },
- * });
- * ```
  */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**

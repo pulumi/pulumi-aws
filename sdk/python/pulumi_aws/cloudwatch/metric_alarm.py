@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -72,48 +72,133 @@ class MetricAlarmArgs:
         :param pulumi.Input[str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[str] unit: The unit for the alarm's associated metric.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+        MetricAlarmArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            evaluation_periods=evaluation_periods,
+            actions_enabled=actions_enabled,
+            alarm_actions=alarm_actions,
+            alarm_description=alarm_description,
+            datapoints_to_alarm=datapoints_to_alarm,
+            dimensions=dimensions,
+            evaluate_low_sample_count_percentiles=evaluate_low_sample_count_percentiles,
+            extended_statistic=extended_statistic,
+            insufficient_data_actions=insufficient_data_actions,
+            metric_name=metric_name,
+            metric_queries=metric_queries,
+            name=name,
+            namespace=namespace,
+            ok_actions=ok_actions,
+            period=period,
+            statistic=statistic,
+            tags=tags,
+            threshold=threshold,
+            threshold_metric_id=threshold_metric_id,
+            treat_missing_data=treat_missing_data,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: Optional[pulumi.Input[str]] = None,
+             evaluation_periods: Optional[pulumi.Input[int]] = None,
+             actions_enabled: Optional[pulumi.Input[bool]] = None,
+             alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             alarm_description: Optional[pulumi.Input[str]] = None,
+             datapoints_to_alarm: Optional[pulumi.Input[int]] = None,
+             dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             evaluate_low_sample_count_percentiles: Optional[pulumi.Input[str]] = None,
+             extended_statistic: Optional[pulumi.Input[str]] = None,
+             insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             period: Optional[pulumi.Input[int]] = None,
+             statistic: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threshold: Optional[pulumi.Input[float]] = None,
+             threshold_metric_id: Optional[pulumi.Input[str]] = None,
+             treat_missing_data: Optional[pulumi.Input[str]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if evaluation_periods is None and 'evaluationPeriods' in kwargs:
+            evaluation_periods = kwargs['evaluationPeriods']
+        if evaluation_periods is None:
+            raise TypeError("Missing 'evaluation_periods' argument")
+        if actions_enabled is None and 'actionsEnabled' in kwargs:
+            actions_enabled = kwargs['actionsEnabled']
+        if alarm_actions is None and 'alarmActions' in kwargs:
+            alarm_actions = kwargs['alarmActions']
+        if alarm_description is None and 'alarmDescription' in kwargs:
+            alarm_description = kwargs['alarmDescription']
+        if datapoints_to_alarm is None and 'datapointsToAlarm' in kwargs:
+            datapoints_to_alarm = kwargs['datapointsToAlarm']
+        if evaluate_low_sample_count_percentiles is None and 'evaluateLowSampleCountPercentiles' in kwargs:
+            evaluate_low_sample_count_percentiles = kwargs['evaluateLowSampleCountPercentiles']
+        if extended_statistic is None and 'extendedStatistic' in kwargs:
+            extended_statistic = kwargs['extendedStatistic']
+        if insufficient_data_actions is None and 'insufficientDataActions' in kwargs:
+            insufficient_data_actions = kwargs['insufficientDataActions']
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_queries is None and 'metricQueries' in kwargs:
+            metric_queries = kwargs['metricQueries']
+        if ok_actions is None and 'okActions' in kwargs:
+            ok_actions = kwargs['okActions']
+        if threshold_metric_id is None and 'thresholdMetricId' in kwargs:
+            threshold_metric_id = kwargs['thresholdMetricId']
+        if treat_missing_data is None and 'treatMissingData' in kwargs:
+            treat_missing_data = kwargs['treatMissingData']
+
+        _setter("comparison_operator", comparison_operator)
+        _setter("evaluation_periods", evaluation_periods)
         if actions_enabled is not None:
-            pulumi.set(__self__, "actions_enabled", actions_enabled)
+            _setter("actions_enabled", actions_enabled)
         if alarm_actions is not None:
-            pulumi.set(__self__, "alarm_actions", alarm_actions)
+            _setter("alarm_actions", alarm_actions)
         if alarm_description is not None:
-            pulumi.set(__self__, "alarm_description", alarm_description)
+            _setter("alarm_description", alarm_description)
         if datapoints_to_alarm is not None:
-            pulumi.set(__self__, "datapoints_to_alarm", datapoints_to_alarm)
+            _setter("datapoints_to_alarm", datapoints_to_alarm)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if evaluate_low_sample_count_percentiles is not None:
-            pulumi.set(__self__, "evaluate_low_sample_count_percentiles", evaluate_low_sample_count_percentiles)
+            _setter("evaluate_low_sample_count_percentiles", evaluate_low_sample_count_percentiles)
         if extended_statistic is not None:
-            pulumi.set(__self__, "extended_statistic", extended_statistic)
+            _setter("extended_statistic", extended_statistic)
         if insufficient_data_actions is not None:
-            pulumi.set(__self__, "insufficient_data_actions", insufficient_data_actions)
+            _setter("insufficient_data_actions", insufficient_data_actions)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if metric_queries is not None:
-            pulumi.set(__self__, "metric_queries", metric_queries)
+            _setter("metric_queries", metric_queries)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if ok_actions is not None:
-            pulumi.set(__self__, "ok_actions", ok_actions)
+            _setter("ok_actions", ok_actions)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if statistic is not None:
-            pulumi.set(__self__, "statistic", statistic)
+            _setter("statistic", statistic)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
         if threshold_metric_id is not None:
-            pulumi.set(__self__, "threshold_metric_id", threshold_metric_id)
+            _setter("threshold_metric_id", threshold_metric_id)
         if treat_missing_data is not None:
-            pulumi.set(__self__, "treat_missing_data", treat_missing_data)
+            _setter("treat_missing_data", treat_missing_data)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -452,57 +537,144 @@ class _MetricAlarmState:
         :param pulumi.Input[str] treat_missing_data: Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         :param pulumi.Input[str] unit: The unit for the alarm's associated metric.
         """
+        _MetricAlarmState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_enabled=actions_enabled,
+            alarm_actions=alarm_actions,
+            alarm_description=alarm_description,
+            arn=arn,
+            comparison_operator=comparison_operator,
+            datapoints_to_alarm=datapoints_to_alarm,
+            dimensions=dimensions,
+            evaluate_low_sample_count_percentiles=evaluate_low_sample_count_percentiles,
+            evaluation_periods=evaluation_periods,
+            extended_statistic=extended_statistic,
+            insufficient_data_actions=insufficient_data_actions,
+            metric_name=metric_name,
+            metric_queries=metric_queries,
+            name=name,
+            namespace=namespace,
+            ok_actions=ok_actions,
+            period=period,
+            statistic=statistic,
+            tags=tags,
+            tags_all=tags_all,
+            threshold=threshold,
+            threshold_metric_id=threshold_metric_id,
+            treat_missing_data=treat_missing_data,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_enabled: Optional[pulumi.Input[bool]] = None,
+             alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             alarm_description: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             comparison_operator: Optional[pulumi.Input[str]] = None,
+             datapoints_to_alarm: Optional[pulumi.Input[int]] = None,
+             dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             evaluate_low_sample_count_percentiles: Optional[pulumi.Input[str]] = None,
+             evaluation_periods: Optional[pulumi.Input[int]] = None,
+             extended_statistic: Optional[pulumi.Input[str]] = None,
+             insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             period: Optional[pulumi.Input[int]] = None,
+             statistic: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threshold: Optional[pulumi.Input[float]] = None,
+             threshold_metric_id: Optional[pulumi.Input[str]] = None,
+             treat_missing_data: Optional[pulumi.Input[str]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_enabled is None and 'actionsEnabled' in kwargs:
+            actions_enabled = kwargs['actionsEnabled']
+        if alarm_actions is None and 'alarmActions' in kwargs:
+            alarm_actions = kwargs['alarmActions']
+        if alarm_description is None and 'alarmDescription' in kwargs:
+            alarm_description = kwargs['alarmDescription']
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if datapoints_to_alarm is None and 'datapointsToAlarm' in kwargs:
+            datapoints_to_alarm = kwargs['datapointsToAlarm']
+        if evaluate_low_sample_count_percentiles is None and 'evaluateLowSampleCountPercentiles' in kwargs:
+            evaluate_low_sample_count_percentiles = kwargs['evaluateLowSampleCountPercentiles']
+        if evaluation_periods is None and 'evaluationPeriods' in kwargs:
+            evaluation_periods = kwargs['evaluationPeriods']
+        if extended_statistic is None and 'extendedStatistic' in kwargs:
+            extended_statistic = kwargs['extendedStatistic']
+        if insufficient_data_actions is None and 'insufficientDataActions' in kwargs:
+            insufficient_data_actions = kwargs['insufficientDataActions']
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_queries is None and 'metricQueries' in kwargs:
+            metric_queries = kwargs['metricQueries']
+        if ok_actions is None and 'okActions' in kwargs:
+            ok_actions = kwargs['okActions']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if threshold_metric_id is None and 'thresholdMetricId' in kwargs:
+            threshold_metric_id = kwargs['thresholdMetricId']
+        if treat_missing_data is None and 'treatMissingData' in kwargs:
+            treat_missing_data = kwargs['treatMissingData']
+
         if actions_enabled is not None:
-            pulumi.set(__self__, "actions_enabled", actions_enabled)
+            _setter("actions_enabled", actions_enabled)
         if alarm_actions is not None:
-            pulumi.set(__self__, "alarm_actions", alarm_actions)
+            _setter("alarm_actions", alarm_actions)
         if alarm_description is not None:
-            pulumi.set(__self__, "alarm_description", alarm_description)
+            _setter("alarm_description", alarm_description)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if comparison_operator is not None:
-            pulumi.set(__self__, "comparison_operator", comparison_operator)
+            _setter("comparison_operator", comparison_operator)
         if datapoints_to_alarm is not None:
-            pulumi.set(__self__, "datapoints_to_alarm", datapoints_to_alarm)
+            _setter("datapoints_to_alarm", datapoints_to_alarm)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if evaluate_low_sample_count_percentiles is not None:
-            pulumi.set(__self__, "evaluate_low_sample_count_percentiles", evaluate_low_sample_count_percentiles)
+            _setter("evaluate_low_sample_count_percentiles", evaluate_low_sample_count_percentiles)
         if evaluation_periods is not None:
-            pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+            _setter("evaluation_periods", evaluation_periods)
         if extended_statistic is not None:
-            pulumi.set(__self__, "extended_statistic", extended_statistic)
+            _setter("extended_statistic", extended_statistic)
         if insufficient_data_actions is not None:
-            pulumi.set(__self__, "insufficient_data_actions", insufficient_data_actions)
+            _setter("insufficient_data_actions", insufficient_data_actions)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if metric_queries is not None:
-            pulumi.set(__self__, "metric_queries", metric_queries)
+            _setter("metric_queries", metric_queries)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if ok_actions is not None:
-            pulumi.set(__self__, "ok_actions", ok_actions)
+            _setter("ok_actions", ok_actions)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if statistic is not None:
-            pulumi.set(__self__, "statistic", statistic)
+            _setter("statistic", statistic)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
         if threshold_metric_id is not None:
-            pulumi.set(__self__, "threshold_metric_id", threshold_metric_id)
+            _setter("threshold_metric_id", threshold_metric_id)
         if treat_missing_data is not None:
-            pulumi.set(__self__, "treat_missing_data", treat_missing_data)
+            _setter("treat_missing_data", treat_missing_data)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
 
     @property
     @pulumi.getter(name="actionsEnabled")
@@ -836,158 +1008,6 @@ class MetricAlarm(pulumi.CustomResource):
         """
         Provides a CloudWatch Metric Alarm resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foobar = aws.cloudwatch.MetricAlarm("foobar",
-            alarm_description="This metric monitors ec2 cpu utilization",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            insufficient_data_actions=[],
-            metric_name="CPUUtilization",
-            namespace="AWS/EC2",
-            period=120,
-            statistic="Average",
-            threshold=80)
-        ```
-        ## Example in Conjunction with Scaling Policies
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bat_policy = aws.autoscaling.Policy("batPolicy",
-            scaling_adjustment=4,
-            adjustment_type="ChangeInCapacity",
-            cooldown=300,
-            autoscaling_group_name=aws_autoscaling_group["bar"]["name"])
-        bat_metric_alarm = aws.cloudwatch.MetricAlarm("batMetricAlarm",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            metric_name="CPUUtilization",
-            namespace="AWS/EC2",
-            period=120,
-            statistic="Average",
-            threshold=80,
-            dimensions={
-                "AutoScalingGroupName": aws_autoscaling_group["bar"]["name"],
-            },
-            alarm_description="This metric monitors ec2 cpu utilization",
-            alarm_actions=[bat_policy.arn])
-        ```
-
-        ## Example with an Expression
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foobar = aws.cloudwatch.MetricAlarm("foobar",
-            alarm_description="Request error rate has exceeded 10%",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            insufficient_data_actions=[],
-            metric_queries=[
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    expression="m2/m1*100",
-                    id="e1",
-                    label="Error Rate",
-                    return_data=True,
-                ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="m1",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        dimensions={
-                            "LoadBalancer": "app/web",
-                        },
-                        metric_name="RequestCount",
-                        namespace="AWS/ApplicationELB",
-                        period=120,
-                        stat="Sum",
-                        unit="Count",
-                    ),
-                ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="m2",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        dimensions={
-                            "LoadBalancer": "app/web",
-                        },
-                        metric_name="HTTPCode_ELB_5XX_Count",
-                        namespace="AWS/ApplicationELB",
-                        period=120,
-                        stat="Sum",
-                        unit="Count",
-                    ),
-                ),
-            ],
-            threshold=10)
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        xx_anomaly_detection = aws.cloudwatch.MetricAlarm("xxAnomalyDetection",
-            alarm_description="This metric monitors ec2 cpu utilization",
-            comparison_operator="GreaterThanUpperThreshold",
-            evaluation_periods=2,
-            insufficient_data_actions=[],
-            metric_queries=[
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    expression="ANOMALY_DETECTION_BAND(m1)",
-                    id="e1",
-                    label="CPUUtilization (Expected)",
-                    return_data=True,
-                ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="m1",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        dimensions={
-                            "InstanceId": "i-abc123",
-                        },
-                        metric_name="CPUUtilization",
-                        namespace="AWS/EC2",
-                        period=120,
-                        stat="Average",
-                        unit="Count",
-                    ),
-                    return_data=True,
-                ),
-            ],
-            threshold_metric_id="e1")
-        ```
-
-        ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        nlb_healthyhosts = aws.cloudwatch.MetricAlarm("nlbHealthyhosts",
-            comparison_operator="LessThanThreshold",
-            evaluation_periods=1,
-            metric_name="HealthyHostCount",
-            namespace="AWS/NetworkELB",
-            period=60,
-            statistic="Average",
-            threshold=var["logstash_servers_count"],
-            alarm_description="Number of healthy nodes in Target Group",
-            actions_enabled=True,
-            alarm_actions=[aws_sns_topic["sns"]["arn"]],
-            ok_actions=[aws_sns_topic["sns"]["arn"]],
-            dimensions={
-                "TargetGroup": aws_lb_target_group["lb-tg"]["arn_suffix"],
-                "LoadBalancer": aws_lb["lb"]["arn_suffix"],
-            })
-        ```
-
-        > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
-        You must choose one or the other
-
         ## Import
 
         Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
@@ -1039,158 +1059,6 @@ class MetricAlarm(pulumi.CustomResource):
         """
         Provides a CloudWatch Metric Alarm resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foobar = aws.cloudwatch.MetricAlarm("foobar",
-            alarm_description="This metric monitors ec2 cpu utilization",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            insufficient_data_actions=[],
-            metric_name="CPUUtilization",
-            namespace="AWS/EC2",
-            period=120,
-            statistic="Average",
-            threshold=80)
-        ```
-        ## Example in Conjunction with Scaling Policies
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bat_policy = aws.autoscaling.Policy("batPolicy",
-            scaling_adjustment=4,
-            adjustment_type="ChangeInCapacity",
-            cooldown=300,
-            autoscaling_group_name=aws_autoscaling_group["bar"]["name"])
-        bat_metric_alarm = aws.cloudwatch.MetricAlarm("batMetricAlarm",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            metric_name="CPUUtilization",
-            namespace="AWS/EC2",
-            period=120,
-            statistic="Average",
-            threshold=80,
-            dimensions={
-                "AutoScalingGroupName": aws_autoscaling_group["bar"]["name"],
-            },
-            alarm_description="This metric monitors ec2 cpu utilization",
-            alarm_actions=[bat_policy.arn])
-        ```
-
-        ## Example with an Expression
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foobar = aws.cloudwatch.MetricAlarm("foobar",
-            alarm_description="Request error rate has exceeded 10%",
-            comparison_operator="GreaterThanOrEqualToThreshold",
-            evaluation_periods=2,
-            insufficient_data_actions=[],
-            metric_queries=[
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    expression="m2/m1*100",
-                    id="e1",
-                    label="Error Rate",
-                    return_data=True,
-                ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="m1",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        dimensions={
-                            "LoadBalancer": "app/web",
-                        },
-                        metric_name="RequestCount",
-                        namespace="AWS/ApplicationELB",
-                        period=120,
-                        stat="Sum",
-                        unit="Count",
-                    ),
-                ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="m2",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        dimensions={
-                            "LoadBalancer": "app/web",
-                        },
-                        metric_name="HTTPCode_ELB_5XX_Count",
-                        namespace="AWS/ApplicationELB",
-                        period=120,
-                        stat="Sum",
-                        unit="Count",
-                    ),
-                ),
-            ],
-            threshold=10)
-        ```
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        xx_anomaly_detection = aws.cloudwatch.MetricAlarm("xxAnomalyDetection",
-            alarm_description="This metric monitors ec2 cpu utilization",
-            comparison_operator="GreaterThanUpperThreshold",
-            evaluation_periods=2,
-            insufficient_data_actions=[],
-            metric_queries=[
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    expression="ANOMALY_DETECTION_BAND(m1)",
-                    id="e1",
-                    label="CPUUtilization (Expected)",
-                    return_data=True,
-                ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="m1",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        dimensions={
-                            "InstanceId": "i-abc123",
-                        },
-                        metric_name="CPUUtilization",
-                        namespace="AWS/EC2",
-                        period=120,
-                        stat="Average",
-                        unit="Count",
-                    ),
-                    return_data=True,
-                ),
-            ],
-            threshold_metric_id="e1")
-        ```
-
-        ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        nlb_healthyhosts = aws.cloudwatch.MetricAlarm("nlbHealthyhosts",
-            comparison_operator="LessThanThreshold",
-            evaluation_periods=1,
-            metric_name="HealthyHostCount",
-            namespace="AWS/NetworkELB",
-            period=60,
-            statistic="Average",
-            threshold=var["logstash_servers_count"],
-            alarm_description="Number of healthy nodes in Target Group",
-            actions_enabled=True,
-            alarm_actions=[aws_sns_topic["sns"]["arn"]],
-            ok_actions=[aws_sns_topic["sns"]["arn"]],
-            dimensions={
-                "TargetGroup": aws_lb_target_group["lb-tg"]["arn_suffix"],
-                "LoadBalancer": aws_lb["lb"]["arn_suffix"],
-            })
-        ```
-
-        > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
-        You must choose one or the other
-
         ## Import
 
         Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
@@ -1209,6 +1077,10 @@ class MetricAlarm(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MetricAlarmArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

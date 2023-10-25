@@ -10,47 +10,6 @@ import * as utilities from "../utilities";
  *
  * !> **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits).  For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance.  Use care when creating or deleting instances.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Instance("test", {
- *     identityManagementType: "CONNECT_MANAGED",
- *     inboundCallsEnabled: true,
- *     instanceAlias: "friendly-name-connect",
- *     outboundCallsEnabled: true,
- * });
- * ```
- * ### With Existing Active Directory
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Instance("test", {
- *     directoryId: aws_directory_service_directory.test.id,
- *     identityManagementType: "EXISTING_DIRECTORY",
- *     inboundCallsEnabled: true,
- *     instanceAlias: "friendly-name-connect",
- *     outboundCallsEnabled: true,
- * });
- * ```
- * ### With SAML
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Instance("test", {
- *     identityManagementType: "SAML",
- *     inboundCallsEnabled: true,
- *     instanceAlias: "friendly-name-connect",
- *     outboundCallsEnabled: true,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Connect instances using the `id`. For example:

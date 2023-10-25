@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -83,14 +83,6 @@ def get_route_table_associations(filters: Optional[Sequence[pulumi.InputType['Ge
     Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
 
     ## Example Usage
-    ### By Transit Gateway Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_route_table_associations(transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetRouteTableAssociationsFilterArgs']] filters: Custom filter block as described below.
@@ -122,14 +114,6 @@ def get_route_table_associations_output(filters: Optional[pulumi.Input[Optional[
     Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
 
     ## Example Usage
-    ### By Transit Gateway Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_route_table_associations(transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
-    ```
 
 
     :param Sequence[pulumi.InputType['GetRouteTableAssociationsFilterArgs']] filters: Custom filter block as described below.

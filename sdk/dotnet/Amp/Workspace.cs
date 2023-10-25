@@ -12,50 +12,6 @@ namespace Pulumi.Aws.Amp
     /// <summary>
     /// Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amp.Workspace("example", new()
-    ///     {
-    ///         Alias = "example",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### CloudWatch Logging
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup");
-    /// 
-    ///     var exampleWorkspace = new Aws.Amp.Workspace("exampleWorkspace", new()
-    ///     {
-    ///         LoggingConfiguration = new Aws.Amp.Inputs.WorkspaceLoggingConfigurationArgs
-    ///         {
-    ///             LogGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AMP Workspaces using the identifier. For example:

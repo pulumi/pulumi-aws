@@ -16,40 +16,6 @@ import (
 // Resource for registering an AWS Systems Manager Default Patch Baseline.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			examplePatchBaseline, err := ssm.NewPatchBaseline(ctx, "examplePatchBaseline", &ssm.PatchBaselineArgs{
-//				ApprovedPatches: pulumi.StringArray{
-//					pulumi.String("KB123456"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssm.NewDefaultPatchBaseline(ctx, "exampleDefaultPatchBaseline", &ssm.DefaultPatchBaselineArgs{
-//				BaselineId:      examplePatchBaseline.ID(),
-//				OperatingSystem: examplePatchBaseline.OperatingSystem,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

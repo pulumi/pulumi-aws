@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an SES receipt filter resource
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const filter = new aws.ses.ReceiptFilter("filter", {
- *     cidr: "10.10.10.10",
- *     policy: "Block",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SES Receipt Filter using their `name`. For example:

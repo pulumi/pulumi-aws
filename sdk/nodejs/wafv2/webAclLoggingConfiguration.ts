@@ -13,63 +13,6 @@ import * as utilities from "../utilities";
  * !> **WARNING:** When logging from a WAFv2 Web ACL to a CloudWatch Log Group, the WAFv2 service tries to create or update a generic Log Resource Policy named `AWSWAF-LOGS`. However, if there are a large number of Web ACLs or if the account frequently creates and deletes Web ACLs, this policy may exceed the maximum policy size. As a result, this resource type will fail to be created. More details about this issue can be found in this issue. To prevent this issue, you can manage a specific resource policy. Please refer to the example below for managing a CloudWatch Log Group with a managed CloudWatch Log Resource Policy.
  *
  * ## Example Usage
- * ### With Redacted Fields
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [aws_kinesis_firehose_delivery_stream.example.arn],
- *     resourceArn: aws_wafv2_web_acl.example.arn,
- *     redactedFields: [{
- *         singleHeader: {
- *             name: "user-agent",
- *         },
- *     }],
- * });
- * ```
- * ### With Logging Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [aws_kinesis_firehose_delivery_stream.example.arn],
- *     resourceArn: aws_wafv2_web_acl.example.arn,
- *     loggingFilter: {
- *         defaultBehavior: "KEEP",
- *         filters: [
- *             {
- *                 behavior: "DROP",
- *                 conditions: [
- *                     {
- *                         actionCondition: {
- *                             action: "COUNT",
- *                         },
- *                     },
- *                     {
- *                         labelNameCondition: {
- *                             labelName: "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
- *                         },
- *                     },
- *                 ],
- *                 requirement: "MEETS_ALL",
- *             },
- *             {
- *                 behavior: "KEEP",
- *                 conditions: [{
- *                     actionCondition: {
- *                         action: "ALLOW",
- *                     },
- *                 }],
- *                 requirement: "MEETS_ANY",
- *             },
- *         ],
- *     },
- * });
- * ```
  *
  * ## Import
  *

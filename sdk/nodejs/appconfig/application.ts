@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppConfig Application resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appconfig.Application("example", {
- *     description: "Example AppConfig Application",
- *     tags: {
- *         Type: "AppConfig Application",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Applications using their application ID. For example:

@@ -12,27 +12,6 @@ namespace Pulumi.Aws.Account
     /// <summary>
     /// Manages the specified alternate contact attached to an AWS Account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var operations = new Aws.Account.AlternativeContact("operations", new()
-    ///     {
-    ///         AlternateContactType = "OPERATIONS",
-    ///         EmailAddress = "test@example.com",
-    ///         PhoneNumber = "+1234567890",
-    ///         Title = "Example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):

@@ -23,52 +23,6 @@ namespace Pulumi.Aws.Ec2
     /// resource and a network ACL resource with a `subnet_ids` attribute. Do not use the same subnet ID in both a network ACL
     /// resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var main = new Aws.Ec2.NetworkAcl("main", new()
-    ///     {
-    ///         VpcId = aws_vpc.Main.Id,
-    ///         Egress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.NetworkAclEgressArgs
-    ///             {
-    ///                 Protocol = "tcp",
-    ///                 RuleNo = 200,
-    ///                 Action = "allow",
-    ///                 CidrBlock = "10.3.0.0/18",
-    ///                 FromPort = 443,
-    ///                 ToPort = 443,
-    ///             },
-    ///         },
-    ///         Ingress = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.NetworkAclIngressArgs
-    ///             {
-    ///                 Protocol = "tcp",
-    ///                 RuleNo = 100,
-    ///                 Action = "allow",
-    ///                 CidrBlock = "10.3.0.0/18",
-    ///                 FromPort = 80,
-    ///                 ToPort = 80,
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "main" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network ACLs using the `id`. For example:

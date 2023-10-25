@@ -10,41 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a SageMaker data quality job definition resource.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.sagemaker.DataQualityJobDefinition("test", {
- *     dataQualityAppSpecification: {
- *         imageUri: data.aws_sagemaker_prebuilt_ecr_image.monitor.registry_path,
- *     },
- *     dataQualityJobInput: {
- *         endpointInput: {
- *             endpointName: aws_sagemaker_endpoint.my_endpoint.name,
- *         },
- *     },
- *     dataQualityJobOutputConfig: {
- *         monitoringOutputs: {
- *             s3Output: {
- *                 s3Uri: `https://${aws_s3_bucket.my_bucket.bucket_regional_domain_name}/output`,
- *             },
- *         },
- *     },
- *     jobResources: {
- *         clusterConfig: {
- *             instanceCount: 1,
- *             instanceType: "ml.t3.medium",
- *             volumeSizeInGb: 20,
- *         },
- *     },
- *     roleArn: aws_iam_role.my_role.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import data quality job definitions using the `name`. For example:

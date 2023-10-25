@@ -12,26 +12,6 @@ import * as utilities from "../utilities";
  *
  * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const newCsc = new aws.lambda.CodeSigningConfig("newCsc", {
- *     allowedPublishers: {
- *         signingProfileVersionArns: [
- *             aws_signer_signing_profile.example1.arn,
- *             aws_signer_signing_profile.example2.arn,
- *         ],
- *     },
- *     policies: {
- *         untrustedArtifactOnDeployment: "Warn",
- *     },
- *     description: "My awesome code signing config.",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Code Signing Configs using their ARN. For example:

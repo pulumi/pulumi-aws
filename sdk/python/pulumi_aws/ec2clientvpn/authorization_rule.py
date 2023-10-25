@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AuthorizationRuleArgs', 'AuthorizationRule']
@@ -27,14 +27,45 @@ class AuthorizationRuleArgs:
         :param pulumi.Input[bool] authorize_all_groups: Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         :param pulumi.Input[str] description: A brief description of the authorization rule.
         """
-        pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
-        pulumi.set(__self__, "target_network_cidr", target_network_cidr)
+        AuthorizationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_vpn_endpoint_id=client_vpn_endpoint_id,
+            target_network_cidr=target_network_cidr,
+            access_group_id=access_group_id,
+            authorize_all_groups=authorize_all_groups,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+             target_network_cidr: Optional[pulumi.Input[str]] = None,
+             access_group_id: Optional[pulumi.Input[str]] = None,
+             authorize_all_groups: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_vpn_endpoint_id is None and 'clientVpnEndpointId' in kwargs:
+            client_vpn_endpoint_id = kwargs['clientVpnEndpointId']
+        if client_vpn_endpoint_id is None:
+            raise TypeError("Missing 'client_vpn_endpoint_id' argument")
+        if target_network_cidr is None and 'targetNetworkCidr' in kwargs:
+            target_network_cidr = kwargs['targetNetworkCidr']
+        if target_network_cidr is None:
+            raise TypeError("Missing 'target_network_cidr' argument")
+        if access_group_id is None and 'accessGroupId' in kwargs:
+            access_group_id = kwargs['accessGroupId']
+        if authorize_all_groups is None and 'authorizeAllGroups' in kwargs:
+            authorize_all_groups = kwargs['authorizeAllGroups']
+
+        _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
+        _setter("target_network_cidr", target_network_cidr)
         if access_group_id is not None:
-            pulumi.set(__self__, "access_group_id", access_group_id)
+            _setter("access_group_id", access_group_id)
         if authorize_all_groups is not None:
-            pulumi.set(__self__, "authorize_all_groups", authorize_all_groups)
+            _setter("authorize_all_groups", authorize_all_groups)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
@@ -113,16 +144,43 @@ class _AuthorizationRuleState:
         :param pulumi.Input[str] description: A brief description of the authorization rule.
         :param pulumi.Input[str] target_network_cidr: The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
         """
+        _AuthorizationRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_group_id=access_group_id,
+            authorize_all_groups=authorize_all_groups,
+            client_vpn_endpoint_id=client_vpn_endpoint_id,
+            description=description,
+            target_network_cidr=target_network_cidr,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_group_id: Optional[pulumi.Input[str]] = None,
+             authorize_all_groups: Optional[pulumi.Input[bool]] = None,
+             client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             target_network_cidr: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_group_id is None and 'accessGroupId' in kwargs:
+            access_group_id = kwargs['accessGroupId']
+        if authorize_all_groups is None and 'authorizeAllGroups' in kwargs:
+            authorize_all_groups = kwargs['authorizeAllGroups']
+        if client_vpn_endpoint_id is None and 'clientVpnEndpointId' in kwargs:
+            client_vpn_endpoint_id = kwargs['clientVpnEndpointId']
+        if target_network_cidr is None and 'targetNetworkCidr' in kwargs:
+            target_network_cidr = kwargs['targetNetworkCidr']
+
         if access_group_id is not None:
-            pulumi.set(__self__, "access_group_id", access_group_id)
+            _setter("access_group_id", access_group_id)
         if authorize_all_groups is not None:
-            pulumi.set(__self__, "authorize_all_groups", authorize_all_groups)
+            _setter("authorize_all_groups", authorize_all_groups)
         if client_vpn_endpoint_id is not None:
-            pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
+            _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if target_network_cidr is not None:
-            pulumi.set(__self__, "target_network_cidr", target_network_cidr)
+            _setter("target_network_cidr", target_network_cidr)
 
     @property
     @pulumi.getter(name="accessGroupId")
@@ -200,18 +258,6 @@ class AuthorizationRule(pulumi.CustomResource):
         Provides authorization rules for AWS Client VPN endpoints. For more information on usage, please see the
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2clientvpn.AuthorizationRule("example",
-            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
-            target_network_cidr=aws_subnet["example"]["cidr_block"],
-            authorize_all_groups=True)
-        ```
-
         ## Import
 
         Using the endpoint ID, target network CIDR, and group name:
@@ -247,18 +293,6 @@ class AuthorizationRule(pulumi.CustomResource):
         Provides authorization rules for AWS Client VPN endpoints. For more information on usage, please see the
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2clientvpn.AuthorizationRule("example",
-            client_vpn_endpoint_id=aws_ec2_client_vpn_endpoint["example"]["id"],
-            target_network_cidr=aws_subnet["example"]["cidr_block"],
-            authorize_all_groups=True)
-        ```
-
         ## Import
 
         Using the endpoint ID, target network CIDR, and group name:
@@ -286,6 +320,10 @@ class AuthorizationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthorizationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

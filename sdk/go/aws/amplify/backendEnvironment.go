@@ -15,39 +15,6 @@ import (
 
 // Provides an Amplify Backend Environment resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApp, err := amplify.NewApp(ctx, "exampleApp", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amplify.NewBackendEnvironment(ctx, "exampleBackendEnvironment", &amplify.BackendEnvironmentArgs{
-//				AppId:               exampleApp.ID(),
-//				EnvironmentName:     pulumi.String("example"),
-//				DeploymentArtifacts: pulumi.String("app-example-deployment"),
-//				StackName:           pulumi.String("amplify-app-example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:

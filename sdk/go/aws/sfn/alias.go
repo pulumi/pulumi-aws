@@ -16,51 +16,6 @@ import (
 // Provides a Step Function State Machine Alias.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sfn.NewAlias(ctx, "sfnAlias", &sfn.AliasArgs{
-//				RoutingConfigurations: sfn.AliasRoutingConfigurationArray{
-//					&sfn.AliasRoutingConfigurationArgs{
-//						StateMachineVersionArn: pulumi.Any(aws_sfn_state_machine.Sfn_test.State_machine_version_arn),
-//						Weight:                 pulumi.Int(100),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sfn.NewAlias(ctx, "mySfnAlias", &sfn.AliasArgs{
-//				RoutingConfigurations: sfn.AliasRoutingConfigurationArray{
-//					&sfn.AliasRoutingConfigurationArgs{
-//						StateMachineVersionArn: pulumi.String("arn:aws:states:us-east-1:12345:stateMachine:demo:3"),
-//						Weight:                 pulumi.Int(50),
-//					},
-//					&sfn.AliasRoutingConfigurationArgs{
-//						StateMachineVersionArn: pulumi.String("arn:aws:states:us-east-1:12345:stateMachine:demo:2"),
-//						Weight:                 pulumi.Int(50),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

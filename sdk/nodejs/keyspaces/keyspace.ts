@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
  *
  * More information about keyspaces can be found in the [Keyspaces User Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is-keyspaces.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.keyspaces.Keyspace("example", {});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import a keyspace using the `name`. For example:

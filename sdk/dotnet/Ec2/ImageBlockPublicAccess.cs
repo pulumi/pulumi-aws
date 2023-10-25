@@ -15,25 +15,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE:** Deleting this resource does not change the block public access value, the resource in simply removed from state instead.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Prevent making AMIs publicly accessible in the region and account for which the provider is configured
-    ///     var test = new Aws.Ec2.ImageBlockPublicAccess("test", new()
-    ///     {
-    ///         State = "block-new-sharing",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// You cannot import this resource.

@@ -9,48 +9,6 @@ import * as utilities from "../utilities";
  * in a given region for the purpose of permitting in S3 bucket policy.
  *
  * > **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = aws.elb.getServiceAccount({});
- * const elbLogs = new aws.s3.BucketV2("elbLogs", {});
- * const elbLogsAcl = new aws.s3.BucketAclV2("elbLogsAcl", {
- *     bucket: elbLogs.id,
- *     acl: "private",
- * });
- * const allowElbLoggingPolicyDocument = pulumi.all([main, elbLogs.arn]).apply(([main, arn]) => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: [main.arn],
- *         }],
- *         actions: ["s3:PutObject"],
- *         resources: [`${arn}/AWSLogs/*`],
- *     }],
- * }));
- * const allowElbLoggingBucketPolicy = new aws.s3.BucketPolicy("allowElbLoggingBucketPolicy", {
- *     bucket: elbLogs.id,
- *     policy: allowElbLoggingPolicyDocument.apply(allowElbLoggingPolicyDocument => allowElbLoggingPolicyDocument.json),
- * });
- * const bar = new aws.elb.LoadBalancer("bar", {
- *     availabilityZones: ["us-west-2a"],
- *     accessLogs: {
- *         bucket: elbLogs.id,
- *         interval: 5,
- *     },
- *     listeners: [{
- *         instancePort: 8000,
- *         instanceProtocol: "http",
- *         lbPort: 80,
- *         lbProtocol: "http",
- *     }],
- * });
- * ```
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     args = args || {};
@@ -91,48 +49,6 @@ export interface GetServiceAccountResult {
  * in a given region for the purpose of permitting in S3 bucket policy.
  *
  * > **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = aws.elb.getServiceAccount({});
- * const elbLogs = new aws.s3.BucketV2("elbLogs", {});
- * const elbLogsAcl = new aws.s3.BucketAclV2("elbLogsAcl", {
- *     bucket: elbLogs.id,
- *     acl: "private",
- * });
- * const allowElbLoggingPolicyDocument = pulumi.all([main, elbLogs.arn]).apply(([main, arn]) => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: [main.arn],
- *         }],
- *         actions: ["s3:PutObject"],
- *         resources: [`${arn}/AWSLogs/*`],
- *     }],
- * }));
- * const allowElbLoggingBucketPolicy = new aws.s3.BucketPolicy("allowElbLoggingBucketPolicy", {
- *     bucket: elbLogs.id,
- *     policy: allowElbLoggingPolicyDocument.apply(allowElbLoggingPolicyDocument => allowElbLoggingPolicyDocument.json),
- * });
- * const bar = new aws.elb.LoadBalancer("bar", {
- *     availabilityZones: ["us-west-2a"],
- *     accessLogs: {
- *         bucket: elbLogs.id,
- *         interval: 5,
- *     },
- *     listeners: [{
- *         instancePort: 8000,
- *         instanceProtocol: "http",
- *         lbPort: 80,
- *         lbProtocol: "http",
- *     }],
- * });
- * ```
  */
 export function getServiceAccountOutput(args?: GetServiceAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceAccountResult> {
     return pulumi.output(args).apply((a: any) => getServiceAccount(a, opts))

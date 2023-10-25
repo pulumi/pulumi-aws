@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
- *
- * ## Example Usage
- *
- * The following shows outputting all Transit Gateway Route Table Ids.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleTransitGatewayRouteTables = aws.ec2.getTransitGatewayRouteTables({});
- * export const example = exampleTransitGatewayRouteTables.then(exampleTransitGatewayRouteTables => exampleTransitGatewayRouteTables.ids);
- * ```
  */
 export function getTransitGatewayRouteTables(args?: GetTransitGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTablesResult> {
     args = args || {};
@@ -67,18 +55,6 @@ export interface GetTransitGatewayRouteTablesResult {
 }
 /**
  * Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
- *
- * ## Example Usage
- *
- * The following shows outputting all Transit Gateway Route Table Ids.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleTransitGatewayRouteTables = aws.ec2.getTransitGatewayRouteTables({});
- * export const example = exampleTransitGatewayRouteTables.then(exampleTransitGatewayRouteTables => exampleTransitGatewayRouteTables.ids);
- * ```
  */
 export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTablesResult> {
     return pulumi.output(args).apply((a: any) => getTransitGatewayRouteTables(a, opts))

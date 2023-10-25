@@ -17,33 +17,6 @@ import (
 //
 // > **NOTE:** The `codestarconnections.Host` resource is created in the state `PENDING`. Authentication with the host provider must be completed in the AWS Console. For more information visit [Set up a pending host](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-host-setup.html).
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codestarconnections"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codestarconnections.NewHost(ctx, "example", &codestarconnections.HostArgs{
-//				ProviderEndpoint: pulumi.String("https://example.com"),
-//				ProviderType:     pulumi.String("GitHubEnterpriseServer"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import CodeStar Host using the ARN. For example:

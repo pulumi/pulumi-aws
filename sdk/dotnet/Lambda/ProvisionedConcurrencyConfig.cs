@@ -15,44 +15,6 @@ namespace Pulumi.Aws.Lambda
     /// &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
     /// 
     /// ## Example Usage
-    /// ### Alias Name
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new()
-    ///     {
-    ///         FunctionName = aws_lambda_alias.Example.Function_name,
-    ///         ProvisionedConcurrentExecutions = 1,
-    ///         Qualifier = aws_lambda_alias.Example.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Function Version
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.ProvisionedConcurrencyConfig("example", new()
-    ///     {
-    ///         FunctionName = aws_lambda_function.Example.Function_name,
-    ///         ProvisionedConcurrentExecutions = 1,
-    ///         Qualifier = aws_lambda_function.Example.Version,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

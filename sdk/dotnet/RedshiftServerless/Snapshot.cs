@@ -12,25 +12,6 @@ namespace Pulumi.Aws.RedshiftServerless
     /// <summary>
     /// Creates a new Amazon Redshift Serverless Snapshot.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedshiftServerless.Snapshot("example", new()
-    ///     {
-    ///         NamespaceName = aws_redshiftserverless_workgroup.Example.Namespace_name,
-    ///         SnapshotName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:

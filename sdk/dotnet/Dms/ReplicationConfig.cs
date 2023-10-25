@@ -14,40 +14,6 @@ namespace Pulumi.Aws.Dms
     /// 
     /// &gt; **NOTE:** Changing most arguments will stop the replication if it is running. You can set `start_replication` to resume the replication afterwards.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var name = new Aws.Dms.ReplicationConfig("name", new()
-    ///     {
-    ///         ReplicationConfigIdentifier = "test-dms-serverless-replication-tf",
-    ///         ResourceIdentifier = "test-dms-serverless-replication-tf",
-    ///         ReplicationType = "cdc",
-    ///         SourceEndpointArn = aws_dms_endpoint.Source.Endpoint_arn,
-    ///         TargetEndpointArn = aws_dms_endpoint.Target.Endpoint_arn,
-    ///         TableMappings = @"  {
-    ///     ""rules"":[{""rule-type"":""selection"",""rule-id"":""1"",""rule-name"":""1"",""object-locator"":{""schema-name"":""%%"",""table-name"":""%%"", ""rule-action"":""include""}]
-    ///   }
-    /// ",
-    ///         StartReplication = true,
-    ///         ComputeConfig = new Aws.Dms.Inputs.ReplicationConfigComputeConfigArgs
-    ///         {
-    ///             ReplicationSubnetGroupId = aws_dms_replication_subnet_group.Default.Replication_subnet_group_id,
-    ///             MaxCapacityUnits = 64,
-    ///             MinCapacityUnits = 2,
-    ///             PreferredMaintenanceWindow = "sun:23:45-mon:00:30",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a replication config using the `arn`. For example:

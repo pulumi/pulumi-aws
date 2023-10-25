@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS FinSpace Kx Database.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {
- *     description: "Example KMS Key",
- *     deletionWindowInDays: 7,
- * });
- * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {kmsKeyId: exampleKey.arn});
- * const exampleKxDatabase = new aws.finspace.KxDatabase("exampleKxDatabase", {
- *     environmentId: exampleKxEnvironment.id,
- *     description: "Example database description",
- * });
- * ```
  *
  * ## Import
  *

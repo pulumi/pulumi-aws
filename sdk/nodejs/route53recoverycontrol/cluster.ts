@@ -10,15 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Route 53 Recovery Control Config Cluster.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoverycontrol.Cluster("example", {});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Recovery Control Config cluster using the cluster ARN. For example:

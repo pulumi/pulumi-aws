@@ -7,29 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an ElastiCache Subnet Group resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const fooVpc = new aws.ec2.Vpc("fooVpc", {
- *     cidrBlock: "10.0.0.0/16",
- *     tags: {
- *         Name: "tf-test",
- *     },
- * });
- * const fooSubnet = new aws.ec2.Subnet("fooSubnet", {
- *     vpcId: fooVpc.id,
- *     cidrBlock: "10.0.0.0/24",
- *     availabilityZone: "us-west-2a",
- *     tags: {
- *         Name: "tf-test",
- *     },
- * });
- * const bar = new aws.elasticache.SubnetGroup("bar", {subnetIds: [fooSubnet.id]});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For example:

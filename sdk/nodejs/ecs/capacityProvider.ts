@@ -12,30 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `aws.autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `minSize` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ... other configuration, including potentially other tags ...
- * const testGroup = new aws.autoscaling.Group("testGroup", {tags: [{
- *     key: "AmazonECSManaged",
- *     value: "true",
- *     propagateAtLaunch: true,
- * }]});
- * const testCapacityProvider = new aws.ecs.CapacityProvider("testCapacityProvider", {autoScalingGroupProvider: {
- *     autoScalingGroupArn: testGroup.arn,
- *     managedTerminationProtection: "ENABLED",
- *     managedScaling: {
- *         maximumScalingStepSize: 1000,
- *         minimumScalingStepSize: 1,
- *         status: "ENABLED",
- *         targetCapacity: 10,
- *     },
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:

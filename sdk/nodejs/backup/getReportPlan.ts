@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information on an existing backup report plan.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.backup.getReportPlan({
- *     name: "my_example_backup_report_plan_name",
- * });
- * ```
  */
 export function getReportPlan(args: GetReportPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReportPlanResult> {
 
@@ -84,17 +73,6 @@ export interface GetReportPlanResult {
 }
 /**
  * Use this data source to get information on an existing backup report plan.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.backup.getReportPlan({
- *     name: "my_example_backup_report_plan_name",
- * });
- * ```
  */
 export function getReportPlanOutput(args: GetReportPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportPlanResult> {
     return pulumi.output(args).apply((a: any) => getReportPlan(a, opts))

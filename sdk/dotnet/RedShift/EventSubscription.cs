@@ -12,50 +12,6 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// Provides a Redshift event subscription resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var defaultCluster = new Aws.RedShift.Cluster("defaultCluster", new()
-    ///     {
-    ///         ClusterIdentifier = "default",
-    ///         DatabaseName = "default",
-    ///     });
-    /// 
-    ///     // ...
-    ///     var defaultTopic = new Aws.Sns.Topic("defaultTopic");
-    /// 
-    ///     var defaultEventSubscription = new Aws.RedShift.EventSubscription("defaultEventSubscription", new()
-    ///     {
-    ///         SnsTopicArn = defaultTopic.Arn,
-    ///         SourceType = "cluster",
-    ///         SourceIds = new[]
-    ///         {
-    ///             defaultCluster.Id,
-    ///         },
-    ///         Severity = "INFO",
-    ///         EventCategories = new[]
-    ///         {
-    ///             "configuration",
-    ///             "management",
-    ///             "monitoring",
-    ///             "security",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "default" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For example:

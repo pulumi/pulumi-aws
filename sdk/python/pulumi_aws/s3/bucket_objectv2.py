@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BucketObjectv2Args', 'BucketObjectv2']
@@ -73,55 +73,150 @@ class BucketObjectv2Args:
                
                > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
-        pulumi.set(__self__, "bucket", bucket)
+        BucketObjectv2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            acl=acl,
+            bucket_key_enabled=bucket_key_enabled,
+            cache_control=cache_control,
+            checksum_algorithm=checksum_algorithm,
+            content=content,
+            content_base64=content_base64,
+            content_disposition=content_disposition,
+            content_encoding=content_encoding,
+            content_language=content_language,
+            content_type=content_type,
+            etag=etag,
+            force_destroy=force_destroy,
+            key=key,
+            kms_key_id=kms_key_id,
+            metadata=metadata,
+            object_lock_legal_hold_status=object_lock_legal_hold_status,
+            object_lock_mode=object_lock_mode,
+            object_lock_retain_until_date=object_lock_retain_until_date,
+            server_side_encryption=server_side_encryption,
+            source=source,
+            source_hash=source_hash,
+            storage_class=storage_class,
+            tags=tags,
+            website_redirect=website_redirect,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             acl: Optional[pulumi.Input[str]] = None,
+             bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
+             cache_control: Optional[pulumi.Input[str]] = None,
+             checksum_algorithm: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             content_base64: Optional[pulumi.Input[str]] = None,
+             content_disposition: Optional[pulumi.Input[str]] = None,
+             content_encoding: Optional[pulumi.Input[str]] = None,
+             content_language: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             object_lock_legal_hold_status: Optional[pulumi.Input[str]] = None,
+             object_lock_mode: Optional[pulumi.Input[str]] = None,
+             object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
+             server_side_encryption: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
+             source_hash: Optional[pulumi.Input[str]] = None,
+             storage_class: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             website_redirect: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if bucket_key_enabled is None and 'bucketKeyEnabled' in kwargs:
+            bucket_key_enabled = kwargs['bucketKeyEnabled']
+        if cache_control is None and 'cacheControl' in kwargs:
+            cache_control = kwargs['cacheControl']
+        if checksum_algorithm is None and 'checksumAlgorithm' in kwargs:
+            checksum_algorithm = kwargs['checksumAlgorithm']
+        if content_base64 is None and 'contentBase64' in kwargs:
+            content_base64 = kwargs['contentBase64']
+        if content_disposition is None and 'contentDisposition' in kwargs:
+            content_disposition = kwargs['contentDisposition']
+        if content_encoding is None and 'contentEncoding' in kwargs:
+            content_encoding = kwargs['contentEncoding']
+        if content_language is None and 'contentLanguage' in kwargs:
+            content_language = kwargs['contentLanguage']
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if object_lock_legal_hold_status is None and 'objectLockLegalHoldStatus' in kwargs:
+            object_lock_legal_hold_status = kwargs['objectLockLegalHoldStatus']
+        if object_lock_mode is None and 'objectLockMode' in kwargs:
+            object_lock_mode = kwargs['objectLockMode']
+        if object_lock_retain_until_date is None and 'objectLockRetainUntilDate' in kwargs:
+            object_lock_retain_until_date = kwargs['objectLockRetainUntilDate']
+        if server_side_encryption is None and 'serverSideEncryption' in kwargs:
+            server_side_encryption = kwargs['serverSideEncryption']
+        if source_hash is None and 'sourceHash' in kwargs:
+            source_hash = kwargs['sourceHash']
+        if storage_class is None and 'storageClass' in kwargs:
+            storage_class = kwargs['storageClass']
+        if website_redirect is None and 'websiteRedirect' in kwargs:
+            website_redirect = kwargs['websiteRedirect']
+
+        _setter("bucket", bucket)
         if acl is not None:
-            pulumi.set(__self__, "acl", acl)
+            _setter("acl", acl)
         if bucket_key_enabled is not None:
-            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
+            _setter("bucket_key_enabled", bucket_key_enabled)
         if cache_control is not None:
-            pulumi.set(__self__, "cache_control", cache_control)
+            _setter("cache_control", cache_control)
         if checksum_algorithm is not None:
-            pulumi.set(__self__, "checksum_algorithm", checksum_algorithm)
+            _setter("checksum_algorithm", checksum_algorithm)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_base64 is not None:
-            pulumi.set(__self__, "content_base64", content_base64)
+            _setter("content_base64", content_base64)
         if content_disposition is not None:
-            pulumi.set(__self__, "content_disposition", content_disposition)
+            _setter("content_disposition", content_disposition)
         if content_encoding is not None:
-            pulumi.set(__self__, "content_encoding", content_encoding)
+            _setter("content_encoding", content_encoding)
         if content_language is not None:
-            pulumi.set(__self__, "content_language", content_language)
+            _setter("content_language", content_language)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if object_lock_legal_hold_status is not None:
-            pulumi.set(__self__, "object_lock_legal_hold_status", object_lock_legal_hold_status)
+            _setter("object_lock_legal_hold_status", object_lock_legal_hold_status)
         if object_lock_mode is not None:
-            pulumi.set(__self__, "object_lock_mode", object_lock_mode)
+            _setter("object_lock_mode", object_lock_mode)
         if object_lock_retain_until_date is not None:
-            pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
+            _setter("object_lock_retain_until_date", object_lock_retain_until_date)
         if server_side_encryption is not None:
-            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
+            _setter("server_side_encryption", server_side_encryption)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if source_hash is not None:
-            pulumi.set(__self__, "source_hash", source_hash)
+            _setter("source_hash", source_hash)
         if storage_class is not None:
-            pulumi.set(__self__, "storage_class", storage_class)
+            _setter("storage_class", storage_class)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if website_redirect is not None:
-            pulumi.set(__self__, "website_redirect", website_redirect)
+            _setter("website_redirect", website_redirect)
 
     @property
     @pulumi.getter
@@ -504,71 +599,188 @@ class _BucketObjectv2State:
                
                > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
+        _BucketObjectv2State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acl=acl,
+            bucket=bucket,
+            bucket_key_enabled=bucket_key_enabled,
+            cache_control=cache_control,
+            checksum_algorithm=checksum_algorithm,
+            checksum_crc32=checksum_crc32,
+            checksum_crc32c=checksum_crc32c,
+            checksum_sha1=checksum_sha1,
+            checksum_sha256=checksum_sha256,
+            content=content,
+            content_base64=content_base64,
+            content_disposition=content_disposition,
+            content_encoding=content_encoding,
+            content_language=content_language,
+            content_type=content_type,
+            etag=etag,
+            force_destroy=force_destroy,
+            key=key,
+            kms_key_id=kms_key_id,
+            metadata=metadata,
+            object_lock_legal_hold_status=object_lock_legal_hold_status,
+            object_lock_mode=object_lock_mode,
+            object_lock_retain_until_date=object_lock_retain_until_date,
+            server_side_encryption=server_side_encryption,
+            source=source,
+            source_hash=source_hash,
+            storage_class=storage_class,
+            tags=tags,
+            tags_all=tags_all,
+            version_id=version_id,
+            website_redirect=website_redirect,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acl: Optional[pulumi.Input[str]] = None,
+             bucket: Optional[pulumi.Input[str]] = None,
+             bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
+             cache_control: Optional[pulumi.Input[str]] = None,
+             checksum_algorithm: Optional[pulumi.Input[str]] = None,
+             checksum_crc32: Optional[pulumi.Input[str]] = None,
+             checksum_crc32c: Optional[pulumi.Input[str]] = None,
+             checksum_sha1: Optional[pulumi.Input[str]] = None,
+             checksum_sha256: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             content_base64: Optional[pulumi.Input[str]] = None,
+             content_disposition: Optional[pulumi.Input[str]] = None,
+             content_encoding: Optional[pulumi.Input[str]] = None,
+             content_language: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             object_lock_legal_hold_status: Optional[pulumi.Input[str]] = None,
+             object_lock_mode: Optional[pulumi.Input[str]] = None,
+             object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
+             server_side_encryption: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
+             source_hash: Optional[pulumi.Input[str]] = None,
+             storage_class: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version_id: Optional[pulumi.Input[str]] = None,
+             website_redirect: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_key_enabled is None and 'bucketKeyEnabled' in kwargs:
+            bucket_key_enabled = kwargs['bucketKeyEnabled']
+        if cache_control is None and 'cacheControl' in kwargs:
+            cache_control = kwargs['cacheControl']
+        if checksum_algorithm is None and 'checksumAlgorithm' in kwargs:
+            checksum_algorithm = kwargs['checksumAlgorithm']
+        if checksum_crc32 is None and 'checksumCrc32' in kwargs:
+            checksum_crc32 = kwargs['checksumCrc32']
+        if checksum_crc32c is None and 'checksumCrc32c' in kwargs:
+            checksum_crc32c = kwargs['checksumCrc32c']
+        if checksum_sha1 is None and 'checksumSha1' in kwargs:
+            checksum_sha1 = kwargs['checksumSha1']
+        if checksum_sha256 is None and 'checksumSha256' in kwargs:
+            checksum_sha256 = kwargs['checksumSha256']
+        if content_base64 is None and 'contentBase64' in kwargs:
+            content_base64 = kwargs['contentBase64']
+        if content_disposition is None and 'contentDisposition' in kwargs:
+            content_disposition = kwargs['contentDisposition']
+        if content_encoding is None and 'contentEncoding' in kwargs:
+            content_encoding = kwargs['contentEncoding']
+        if content_language is None and 'contentLanguage' in kwargs:
+            content_language = kwargs['contentLanguage']
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if object_lock_legal_hold_status is None and 'objectLockLegalHoldStatus' in kwargs:
+            object_lock_legal_hold_status = kwargs['objectLockLegalHoldStatus']
+        if object_lock_mode is None and 'objectLockMode' in kwargs:
+            object_lock_mode = kwargs['objectLockMode']
+        if object_lock_retain_until_date is None and 'objectLockRetainUntilDate' in kwargs:
+            object_lock_retain_until_date = kwargs['objectLockRetainUntilDate']
+        if server_side_encryption is None and 'serverSideEncryption' in kwargs:
+            server_side_encryption = kwargs['serverSideEncryption']
+        if source_hash is None and 'sourceHash' in kwargs:
+            source_hash = kwargs['sourceHash']
+        if storage_class is None and 'storageClass' in kwargs:
+            storage_class = kwargs['storageClass']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if version_id is None and 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+        if website_redirect is None and 'websiteRedirect' in kwargs:
+            website_redirect = kwargs['websiteRedirect']
+
         if acl is not None:
-            pulumi.set(__self__, "acl", acl)
+            _setter("acl", acl)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if bucket_key_enabled is not None:
-            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
+            _setter("bucket_key_enabled", bucket_key_enabled)
         if cache_control is not None:
-            pulumi.set(__self__, "cache_control", cache_control)
+            _setter("cache_control", cache_control)
         if checksum_algorithm is not None:
-            pulumi.set(__self__, "checksum_algorithm", checksum_algorithm)
+            _setter("checksum_algorithm", checksum_algorithm)
         if checksum_crc32 is not None:
-            pulumi.set(__self__, "checksum_crc32", checksum_crc32)
+            _setter("checksum_crc32", checksum_crc32)
         if checksum_crc32c is not None:
-            pulumi.set(__self__, "checksum_crc32c", checksum_crc32c)
+            _setter("checksum_crc32c", checksum_crc32c)
         if checksum_sha1 is not None:
-            pulumi.set(__self__, "checksum_sha1", checksum_sha1)
+            _setter("checksum_sha1", checksum_sha1)
         if checksum_sha256 is not None:
-            pulumi.set(__self__, "checksum_sha256", checksum_sha256)
+            _setter("checksum_sha256", checksum_sha256)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_base64 is not None:
-            pulumi.set(__self__, "content_base64", content_base64)
+            _setter("content_base64", content_base64)
         if content_disposition is not None:
-            pulumi.set(__self__, "content_disposition", content_disposition)
+            _setter("content_disposition", content_disposition)
         if content_encoding is not None:
-            pulumi.set(__self__, "content_encoding", content_encoding)
+            _setter("content_encoding", content_encoding)
         if content_language is not None:
-            pulumi.set(__self__, "content_language", content_language)
+            _setter("content_language", content_language)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if object_lock_legal_hold_status is not None:
-            pulumi.set(__self__, "object_lock_legal_hold_status", object_lock_legal_hold_status)
+            _setter("object_lock_legal_hold_status", object_lock_legal_hold_status)
         if object_lock_mode is not None:
-            pulumi.set(__self__, "object_lock_mode", object_lock_mode)
+            _setter("object_lock_mode", object_lock_mode)
         if object_lock_retain_until_date is not None:
-            pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
+            _setter("object_lock_retain_until_date", object_lock_retain_until_date)
         if server_side_encryption is not None:
-            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
+            _setter("server_side_encryption", server_side_encryption)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if source_hash is not None:
-            pulumi.set(__self__, "source_hash", source_hash)
+            _setter("source_hash", source_hash)
         if storage_class is not None:
-            pulumi.set(__self__, "storage_class", storage_class)
+            _setter("storage_class", storage_class)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if version_id is not None:
-            pulumi.set(__self__, "version_id", version_id)
+            _setter("version_id", version_id)
         if website_redirect is not None:
-            pulumi.set(__self__, "website_redirect", website_redirect)
+            _setter("website_redirect", website_redirect)
 
     @property
     @pulumi.getter
@@ -987,82 +1199,6 @@ class BucketObjectv2(pulumi.CustomResource):
         Provides an S3 object resource.
 
         ## Example Usage
-        ### Encrypting with KMS Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        examplekms = aws.kms.Key("examplekms",
-            description="KMS key 1",
-            deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=examplebucket.id,
-            acl="private")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            key="someobject",
-            bucket=examplebucket.id,
-            source=pulumi.FileAsset("index.html"),
-            kms_key_id=examplekms.arn)
-        ```
-        ### Server Side Encryption with S3 Default Master Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=examplebucket.id,
-            acl="private")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            key="someobject",
-            bucket=examplebucket.id,
-            source=pulumi.FileAsset("index.html"),
-            server_side_encryption="aws:kms")
-        ```
-        ### Server Side Encryption with AWS-Managed Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=examplebucket.id,
-            acl="private")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            key="someobject",
-            bucket=examplebucket.id,
-            source=pulumi.FileAsset("index.html"),
-            server_side_encryption="AES256")
-        ```
-        ### S3 Object Lock
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        examplebucket = aws.s3.BucketV2("examplebucket", object_lock_enabled=True)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=examplebucket.id,
-            acl="private")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
-            bucket=examplebucket.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
-        examplebucket_object = aws.s3.BucketObjectv2("examplebucketObject",
-            key="someobject",
-            bucket=examplebucket.id,
-            source=pulumi.FileAsset("important.txt"),
-            object_lock_legal_hold_status="ON",
-            object_lock_mode="GOVERNANCE",
-            object_lock_retain_until_date="2021-12-31T23:59:60Z",
-            force_destroy=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
-        ```
 
         ## Import
 
@@ -1125,82 +1261,6 @@ class BucketObjectv2(pulumi.CustomResource):
         Provides an S3 object resource.
 
         ## Example Usage
-        ### Encrypting with KMS Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        examplekms = aws.kms.Key("examplekms",
-            description="KMS key 1",
-            deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=examplebucket.id,
-            acl="private")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            key="someobject",
-            bucket=examplebucket.id,
-            source=pulumi.FileAsset("index.html"),
-            kms_key_id=examplekms.arn)
-        ```
-        ### Server Side Encryption with S3 Default Master Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=examplebucket.id,
-            acl="private")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            key="someobject",
-            bucket=examplebucket.id,
-            source=pulumi.FileAsset("index.html"),
-            server_side_encryption="aws:kms")
-        ```
-        ### Server Side Encryption with AWS-Managed Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        examplebucket = aws.s3.BucketV2("examplebucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=examplebucket.id,
-            acl="private")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            key="someobject",
-            bucket=examplebucket.id,
-            source=pulumi.FileAsset("index.html"),
-            server_side_encryption="AES256")
-        ```
-        ### S3 Object Lock
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        examplebucket = aws.s3.BucketV2("examplebucket", object_lock_enabled=True)
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=examplebucket.id,
-            acl="private")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
-            bucket=examplebucket.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
-        examplebucket_object = aws.s3.BucketObjectv2("examplebucketObject",
-            key="someobject",
-            bucket=examplebucket.id,
-            source=pulumi.FileAsset("important.txt"),
-            object_lock_legal_hold_status="ON",
-            object_lock_mode="GOVERNANCE",
-            object_lock_retain_until_date="2021-12-31T23:59:60Z",
-            force_destroy=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
-        ```
 
         ## Import
 
@@ -1229,6 +1289,10 @@ class BucketObjectv2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketObjectv2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS CodeCatalyst Source Repository.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codecatalyst.SourceRepository("example", {
- *     projectName: "example-project",
- *     spaceName: "example-space",
- * });
- * ```
  *
  * ## Import
  *

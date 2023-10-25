@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -46,12 +46,33 @@ class ClusterMasterUserSecretArgs:
         :param pulumi.Input[str] secret_arn: Amazon Resource Name (ARN) of the secret.
         :param pulumi.Input[str] secret_status: Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         """
+        ClusterMasterUserSecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            secret_arn=secret_arn,
+            secret_status=secret_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             secret_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if secret_status is None and 'secretStatus' in kwargs:
+            secret_status = kwargs['secretStatus']
+
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
         if secret_status is not None:
-            pulumi.set(__self__, "secret_status", secret_status)
+            _setter("secret_status", secret_status)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -103,10 +124,31 @@ class ClusterParameterGroupParameterArgs:
                engines can't apply some parameters without a reboot, and you will need to
                specify "pending-reboot" here.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ClusterParameterGroupParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+            apply_method=apply_method,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             apply_method: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if apply_method is None and 'applyMethod' in kwargs:
+            apply_method = kwargs['applyMethod']
+
+        _setter("name", name)
+        _setter("value", value)
         if apply_method is not None:
-            pulumi.set(__self__, "apply_method", apply_method)
+            _setter("apply_method", apply_method)
 
     @property
     @pulumi.getter
@@ -161,13 +203,40 @@ class ClusterRestoreToPointInTimeArgs:
                Valid options are `full-copy` (default) and `copy-on-write`.
         :param pulumi.Input[bool] use_latest_restorable_time: Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
         """
-        pulumi.set(__self__, "source_cluster_identifier", source_cluster_identifier)
+        ClusterRestoreToPointInTimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_cluster_identifier=source_cluster_identifier,
+            restore_to_time=restore_to_time,
+            restore_type=restore_type,
+            use_latest_restorable_time=use_latest_restorable_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             restore_to_time: Optional[pulumi.Input[str]] = None,
+             restore_type: Optional[pulumi.Input[str]] = None,
+             use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_cluster_identifier is None and 'sourceClusterIdentifier' in kwargs:
+            source_cluster_identifier = kwargs['sourceClusterIdentifier']
+        if source_cluster_identifier is None:
+            raise TypeError("Missing 'source_cluster_identifier' argument")
+        if restore_to_time is None and 'restoreToTime' in kwargs:
+            restore_to_time = kwargs['restoreToTime']
+        if restore_type is None and 'restoreType' in kwargs:
+            restore_type = kwargs['restoreType']
+        if use_latest_restorable_time is None and 'useLatestRestorableTime' in kwargs:
+            use_latest_restorable_time = kwargs['useLatestRestorableTime']
+
+        _setter("source_cluster_identifier", source_cluster_identifier)
         if restore_to_time is not None:
-            pulumi.set(__self__, "restore_to_time", restore_to_time)
+            _setter("restore_to_time", restore_to_time)
         if restore_type is not None:
-            pulumi.set(__self__, "restore_type", restore_type)
+            _setter("restore_type", restore_type)
         if use_latest_restorable_time is not None:
-            pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
+            _setter("use_latest_restorable_time", use_latest_restorable_time)
 
     @property
     @pulumi.getter(name="sourceClusterIdentifier")
@@ -236,12 +305,49 @@ class ClusterS3ImportArgs:
                This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
         :param pulumi.Input[str] bucket_prefix: Can be blank, but is the path to your backup
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "ingestion_role", ingestion_role)
-        pulumi.set(__self__, "source_engine", source_engine)
-        pulumi.set(__self__, "source_engine_version", source_engine_version)
+        ClusterS3ImportArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            ingestion_role=ingestion_role,
+            source_engine=source_engine,
+            source_engine_version=source_engine_version,
+            bucket_prefix=bucket_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             ingestion_role: Optional[pulumi.Input[str]] = None,
+             source_engine: Optional[pulumi.Input[str]] = None,
+             source_engine_version: Optional[pulumi.Input[str]] = None,
+             bucket_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if ingestion_role is None and 'ingestionRole' in kwargs:
+            ingestion_role = kwargs['ingestionRole']
+        if ingestion_role is None:
+            raise TypeError("Missing 'ingestion_role' argument")
+        if source_engine is None and 'sourceEngine' in kwargs:
+            source_engine = kwargs['sourceEngine']
+        if source_engine is None:
+            raise TypeError("Missing 'source_engine' argument")
+        if source_engine_version is None and 'sourceEngineVersion' in kwargs:
+            source_engine_version = kwargs['sourceEngineVersion']
+        if source_engine_version is None:
+            raise TypeError("Missing 'source_engine_version' argument")
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+
+        _setter("bucket_name", bucket_name)
+        _setter("ingestion_role", ingestion_role)
+        _setter("source_engine", source_engine)
+        _setter("source_engine_version", source_engine_version)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -321,16 +427,45 @@ class ClusterScalingConfigurationArgs:
         :param pulumi.Input[int] seconds_until_auto_pause: Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
         :param pulumi.Input[str] timeout_action: Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
         """
+        ClusterScalingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_pause=auto_pause,
+            max_capacity=max_capacity,
+            min_capacity=min_capacity,
+            seconds_until_auto_pause=seconds_until_auto_pause,
+            timeout_action=timeout_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_pause: Optional[pulumi.Input[bool]] = None,
+             max_capacity: Optional[pulumi.Input[int]] = None,
+             min_capacity: Optional[pulumi.Input[int]] = None,
+             seconds_until_auto_pause: Optional[pulumi.Input[int]] = None,
+             timeout_action: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_pause is None and 'autoPause' in kwargs:
+            auto_pause = kwargs['autoPause']
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if seconds_until_auto_pause is None and 'secondsUntilAutoPause' in kwargs:
+            seconds_until_auto_pause = kwargs['secondsUntilAutoPause']
+        if timeout_action is None and 'timeoutAction' in kwargs:
+            timeout_action = kwargs['timeoutAction']
+
         if auto_pause is not None:
-            pulumi.set(__self__, "auto_pause", auto_pause)
+            _setter("auto_pause", auto_pause)
         if max_capacity is not None:
-            pulumi.set(__self__, "max_capacity", max_capacity)
+            _setter("max_capacity", max_capacity)
         if min_capacity is not None:
-            pulumi.set(__self__, "min_capacity", min_capacity)
+            _setter("min_capacity", min_capacity)
         if seconds_until_auto_pause is not None:
-            pulumi.set(__self__, "seconds_until_auto_pause", seconds_until_auto_pause)
+            _setter("seconds_until_auto_pause", seconds_until_auto_pause)
         if timeout_action is not None:
-            pulumi.set(__self__, "timeout_action", timeout_action)
+            _setter("timeout_action", timeout_action)
 
     @property
     @pulumi.getter(name="autoPause")
@@ -402,8 +537,29 @@ class ClusterServerlessv2ScalingConfigurationArgs:
         :param pulumi.Input[float] max_capacity: Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
         :param pulumi.Input[float] min_capacity: Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
         """
-        pulumi.set(__self__, "max_capacity", max_capacity)
-        pulumi.set(__self__, "min_capacity", min_capacity)
+        ClusterServerlessv2ScalingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_capacity=max_capacity,
+            min_capacity=min_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_capacity: Optional[pulumi.Input[float]] = None,
+             min_capacity: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if max_capacity is None:
+            raise TypeError("Missing 'max_capacity' argument")
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if min_capacity is None:
+            raise TypeError("Missing 'min_capacity' argument")
+
+        _setter("max_capacity", max_capacity)
+        _setter("min_capacity", min_capacity)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -435,10 +591,23 @@ class ExportTaskTimeoutsArgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None):
+        ExportTaskTimeoutsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create=create,
+            delete=delete,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create: Optional[pulumi.Input[str]] = None,
+             delete: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if create is not None:
-            pulumi.set(__self__, "create", create)
+            _setter("create", create)
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
 
     @property
     @pulumi.getter
@@ -468,10 +637,27 @@ class GlobalClusterGlobalClusterMemberArgs:
         :param pulumi.Input[str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster
         :param pulumi.Input[bool] is_writer: Whether the member is the primary DB Cluster
         """
+        GlobalClusterGlobalClusterMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_cluster_arn=db_cluster_arn,
+            is_writer=is_writer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_cluster_arn: Optional[pulumi.Input[str]] = None,
+             is_writer: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_cluster_arn is None and 'dbClusterArn' in kwargs:
+            db_cluster_arn = kwargs['dbClusterArn']
+        if is_writer is None and 'isWriter' in kwargs:
+            is_writer = kwargs['isWriter']
+
         if db_cluster_arn is not None:
-            pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
+            _setter("db_cluster_arn", db_cluster_arn)
         if is_writer is not None:
-            pulumi.set(__self__, "is_writer", is_writer)
+            _setter("is_writer", is_writer)
 
     @property
     @pulumi.getter(name="dbClusterArn")
@@ -513,8 +699,19 @@ class InstanceBlueGreenUpdateArgs:
                [blue-green]:
                https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
         """
+        InstanceBlueGreenUpdateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -548,12 +745,29 @@ class InstanceListenerEndpointArgs:
         :param pulumi.Input[str] hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         :param pulumi.Input[int] port: The port on which the DB accepts connections.
         """
+        InstanceListenerEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            hosted_zone_id=hosted_zone_id,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -604,12 +818,33 @@ class InstanceMasterUserSecretArgs:
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret.
         :param pulumi.Input[str] secret_status: The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         """
+        InstanceMasterUserSecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            secret_arn=secret_arn,
+            secret_status=secret_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             secret_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if secret_status is None and 'secretStatus' in kwargs:
+            secret_status = kwargs['secretStatus']
+
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
         if secret_status is not None:
-            pulumi.set(__self__, "secret_status", secret_status)
+            _setter("secret_status", secret_status)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -664,16 +899,45 @@ class InstanceRestoreToPointInTimeArgs:
         :param pulumi.Input[str] source_dbi_resource_id: The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
         :param pulumi.Input[bool] use_latest_restorable_time: A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
         """
+        InstanceRestoreToPointInTimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            restore_time=restore_time,
+            source_db_instance_automated_backups_arn=source_db_instance_automated_backups_arn,
+            source_db_instance_identifier=source_db_instance_identifier,
+            source_dbi_resource_id=source_dbi_resource_id,
+            use_latest_restorable_time=use_latest_restorable_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             restore_time: Optional[pulumi.Input[str]] = None,
+             source_db_instance_automated_backups_arn: Optional[pulumi.Input[str]] = None,
+             source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
+             source_dbi_resource_id: Optional[pulumi.Input[str]] = None,
+             use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if restore_time is None and 'restoreTime' in kwargs:
+            restore_time = kwargs['restoreTime']
+        if source_db_instance_automated_backups_arn is None and 'sourceDbInstanceAutomatedBackupsArn' in kwargs:
+            source_db_instance_automated_backups_arn = kwargs['sourceDbInstanceAutomatedBackupsArn']
+        if source_db_instance_identifier is None and 'sourceDbInstanceIdentifier' in kwargs:
+            source_db_instance_identifier = kwargs['sourceDbInstanceIdentifier']
+        if source_dbi_resource_id is None and 'sourceDbiResourceId' in kwargs:
+            source_dbi_resource_id = kwargs['sourceDbiResourceId']
+        if use_latest_restorable_time is None and 'useLatestRestorableTime' in kwargs:
+            use_latest_restorable_time = kwargs['useLatestRestorableTime']
+
         if restore_time is not None:
-            pulumi.set(__self__, "restore_time", restore_time)
+            _setter("restore_time", restore_time)
         if source_db_instance_automated_backups_arn is not None:
-            pulumi.set(__self__, "source_db_instance_automated_backups_arn", source_db_instance_automated_backups_arn)
+            _setter("source_db_instance_automated_backups_arn", source_db_instance_automated_backups_arn)
         if source_db_instance_identifier is not None:
-            pulumi.set(__self__, "source_db_instance_identifier", source_db_instance_identifier)
+            _setter("source_db_instance_identifier", source_db_instance_identifier)
         if source_dbi_resource_id is not None:
-            pulumi.set(__self__, "source_dbi_resource_id", source_dbi_resource_id)
+            _setter("source_dbi_resource_id", source_dbi_resource_id)
         if use_latest_restorable_time is not None:
-            pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
+            _setter("use_latest_restorable_time", use_latest_restorable_time)
 
     @property
     @pulumi.getter(name="restoreTime")
@@ -753,12 +1017,49 @@ class InstanceS3ImportArgs:
                This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
         :param pulumi.Input[str] bucket_prefix: Can be blank, but is the path to your backup
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "ingestion_role", ingestion_role)
-        pulumi.set(__self__, "source_engine", source_engine)
-        pulumi.set(__self__, "source_engine_version", source_engine_version)
+        InstanceS3ImportArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            ingestion_role=ingestion_role,
+            source_engine=source_engine,
+            source_engine_version=source_engine_version,
+            bucket_prefix=bucket_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             ingestion_role: Optional[pulumi.Input[str]] = None,
+             source_engine: Optional[pulumi.Input[str]] = None,
+             source_engine_version: Optional[pulumi.Input[str]] = None,
+             bucket_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if ingestion_role is None and 'ingestionRole' in kwargs:
+            ingestion_role = kwargs['ingestionRole']
+        if ingestion_role is None:
+            raise TypeError("Missing 'ingestion_role' argument")
+        if source_engine is None and 'sourceEngine' in kwargs:
+            source_engine = kwargs['sourceEngine']
+        if source_engine is None:
+            raise TypeError("Missing 'source_engine' argument")
+        if source_engine_version is None and 'sourceEngineVersion' in kwargs:
+            source_engine_version = kwargs['sourceEngineVersion']
+        if source_engine_version is None:
+            raise TypeError("Missing 'source_engine_version' argument")
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+
+        _setter("bucket_name", bucket_name)
+        _setter("ingestion_role", ingestion_role)
+        _setter("source_engine", source_engine)
+        _setter("source_engine_version", source_engine_version)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -840,17 +1141,48 @@ class OptionGroupOptionArgs:
         :param pulumi.Input[str] version: Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_memberships: List of VPC Security Groups for which the option is enabled.
         """
-        pulumi.set(__self__, "option_name", option_name)
+        OptionGroupOptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            option_name=option_name,
+            db_security_group_memberships=db_security_group_memberships,
+            option_settings=option_settings,
+            port=port,
+            version=version,
+            vpc_security_group_memberships=vpc_security_group_memberships,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             option_name: Optional[pulumi.Input[str]] = None,
+             db_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             option_settings: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             vpc_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if option_name is None and 'optionName' in kwargs:
+            option_name = kwargs['optionName']
+        if option_name is None:
+            raise TypeError("Missing 'option_name' argument")
+        if db_security_group_memberships is None and 'dbSecurityGroupMemberships' in kwargs:
+            db_security_group_memberships = kwargs['dbSecurityGroupMemberships']
+        if option_settings is None and 'optionSettings' in kwargs:
+            option_settings = kwargs['optionSettings']
+        if vpc_security_group_memberships is None and 'vpcSecurityGroupMemberships' in kwargs:
+            vpc_security_group_memberships = kwargs['vpcSecurityGroupMemberships']
+
+        _setter("option_name", option_name)
         if db_security_group_memberships is not None:
-            pulumi.set(__self__, "db_security_group_memberships", db_security_group_memberships)
+            _setter("db_security_group_memberships", db_security_group_memberships)
         if option_settings is not None:
-            pulumi.set(__self__, "option_settings", option_settings)
+            _setter("option_settings", option_settings)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if vpc_security_group_memberships is not None:
-            pulumi.set(__self__, "vpc_security_group_memberships", vpc_security_group_memberships)
+            _setter("vpc_security_group_memberships", vpc_security_group_memberships)
 
     @property
     @pulumi.getter(name="optionName")
@@ -934,8 +1266,25 @@ class OptionGroupOptionOptionSettingArgs:
         :param pulumi.Input[str] name: Name of the setting.
         :param pulumi.Input[str] value: Value of the setting.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        OptionGroupOptionOptionSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -975,10 +1324,31 @@ class ParameterGroupParameterArgs:
                engines can't apply some parameters without a reboot, and you will need to
                specify "pending-reboot" here.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ParameterGroupParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+            apply_method=apply_method,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             apply_method: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if apply_method is None and 'applyMethod' in kwargs:
+            apply_method = kwargs['applyMethod']
+
+        _setter("name", name)
+        _setter("value", value)
         if apply_method is not None:
-            pulumi.set(__self__, "apply_method", apply_method)
+            _setter("apply_method", apply_method)
 
     @property
     @pulumi.getter
@@ -1036,18 +1406,47 @@ class ProxyAuthArgs:
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         :param pulumi.Input[str] username: The name of the database user to which the proxy connects.
         """
+        ProxyAuthArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_scheme=auth_scheme,
+            client_password_auth_type=client_password_auth_type,
+            description=description,
+            iam_auth=iam_auth,
+            secret_arn=secret_arn,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_scheme: Optional[pulumi.Input[str]] = None,
+             client_password_auth_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             iam_auth: Optional[pulumi.Input[str]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_scheme is None and 'authScheme' in kwargs:
+            auth_scheme = kwargs['authScheme']
+        if client_password_auth_type is None and 'clientPasswordAuthType' in kwargs:
+            client_password_auth_type = kwargs['clientPasswordAuthType']
+        if iam_auth is None and 'iamAuth' in kwargs:
+            iam_auth = kwargs['iamAuth']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         if auth_scheme is not None:
-            pulumi.set(__self__, "auth_scheme", auth_scheme)
+            _setter("auth_scheme", auth_scheme)
         if client_password_auth_type is not None:
-            pulumi.set(__self__, "client_password_auth_type", client_password_auth_type)
+            _setter("client_password_auth_type", client_password_auth_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if iam_auth is not None:
-            pulumi.set(__self__, "iam_auth", iam_auth)
+            _setter("iam_auth", iam_auth)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="authScheme")
@@ -1137,16 +1536,45 @@ class ProxyDefaultTargetGroupConnectionPoolConfigArgs:
         :param pulumi.Input[int] max_idle_connections_percent: Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] session_pinning_filters: Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
         """
+        ProxyDefaultTargetGroupConnectionPoolConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_borrow_timeout=connection_borrow_timeout,
+            init_query=init_query,
+            max_connections_percent=max_connections_percent,
+            max_idle_connections_percent=max_idle_connections_percent,
+            session_pinning_filters=session_pinning_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_borrow_timeout: Optional[pulumi.Input[int]] = None,
+             init_query: Optional[pulumi.Input[str]] = None,
+             max_connections_percent: Optional[pulumi.Input[int]] = None,
+             max_idle_connections_percent: Optional[pulumi.Input[int]] = None,
+             session_pinning_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_borrow_timeout is None and 'connectionBorrowTimeout' in kwargs:
+            connection_borrow_timeout = kwargs['connectionBorrowTimeout']
+        if init_query is None and 'initQuery' in kwargs:
+            init_query = kwargs['initQuery']
+        if max_connections_percent is None and 'maxConnectionsPercent' in kwargs:
+            max_connections_percent = kwargs['maxConnectionsPercent']
+        if max_idle_connections_percent is None and 'maxIdleConnectionsPercent' in kwargs:
+            max_idle_connections_percent = kwargs['maxIdleConnectionsPercent']
+        if session_pinning_filters is None and 'sessionPinningFilters' in kwargs:
+            session_pinning_filters = kwargs['sessionPinningFilters']
+
         if connection_borrow_timeout is not None:
-            pulumi.set(__self__, "connection_borrow_timeout", connection_borrow_timeout)
+            _setter("connection_borrow_timeout", connection_borrow_timeout)
         if init_query is not None:
-            pulumi.set(__self__, "init_query", init_query)
+            _setter("init_query", init_query)
         if max_connections_percent is not None:
-            pulumi.set(__self__, "max_connections_percent", max_connections_percent)
+            _setter("max_connections_percent", max_connections_percent)
         if max_idle_connections_percent is not None:
-            pulumi.set(__self__, "max_idle_connections_percent", max_idle_connections_percent)
+            _setter("max_idle_connections_percent", max_idle_connections_percent)
         if session_pinning_filters is not None:
-            pulumi.set(__self__, "session_pinning_filters", session_pinning_filters)
+            _setter("session_pinning_filters", session_pinning_filters)
 
     @property
     @pulumi.getter(name="connectionBorrowTimeout")
@@ -1214,10 +1642,27 @@ class ReservedInstanceRecurringChargeArgs:
     def __init__(__self__, *,
                  recurring_charge_amount: Optional[pulumi.Input[int]] = None,
                  recurring_charge_frequency: Optional[pulumi.Input[str]] = None):
+        ReservedInstanceRecurringChargeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recurring_charge_amount=recurring_charge_amount,
+            recurring_charge_frequency=recurring_charge_frequency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recurring_charge_amount: Optional[pulumi.Input[int]] = None,
+             recurring_charge_frequency: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if recurring_charge_amount is None and 'recurringChargeAmount' in kwargs:
+            recurring_charge_amount = kwargs['recurringChargeAmount']
+        if recurring_charge_frequency is None and 'recurringChargeFrequency' in kwargs:
+            recurring_charge_frequency = kwargs['recurringChargeFrequency']
+
         if recurring_charge_amount is not None:
-            pulumi.set(__self__, "recurring_charge_amount", recurring_charge_amount)
+            _setter("recurring_charge_amount", recurring_charge_amount)
         if recurring_charge_frequency is not None:
-            pulumi.set(__self__, "recurring_charge_frequency", recurring_charge_frequency)
+            _setter("recurring_charge_frequency", recurring_charge_frequency)
 
     @property
     @pulumi.getter(name="recurringChargeAmount")
@@ -1247,8 +1692,25 @@ class GetClustersFilterArgs:
         :param str name: Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetClustersFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1280,8 +1742,25 @@ class GetEngineVersionFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetEngineVersionFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1311,8 +1790,25 @@ class GetInstancesFilterArgs:
         :param str name: Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetInstancesFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter

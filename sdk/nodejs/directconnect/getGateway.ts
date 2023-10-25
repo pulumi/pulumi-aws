@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a Direct Connect Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.directconnect.getGateway({
- *     name: "example",
- * });
- * ```
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
 
@@ -56,17 +45,6 @@ export interface GetGatewayResult {
 }
 /**
  * Retrieve information about a Direct Connect Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.directconnect.getGateway({
- *     name: "example",
- * });
- * ```
  */
 export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
     return pulumi.output(args).apply((a: any) => getGateway(a, opts))

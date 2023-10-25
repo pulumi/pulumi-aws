@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing a Verified Access Instance Trust Provider Attachment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleInstance = new aws.verifiedaccess.Instance("exampleInstance", {});
- * const exampleTrustProvider = new aws.verifiedaccess.TrustProvider("exampleTrustProvider", {
- *     deviceTrustProviderType: "jamf",
- *     policyReferenceName: "example",
- *     trustProviderType: "device",
- *     deviceOptions: {
- *         tenantId: "example",
- *     },
- * });
- * const exampleInstanceTrustProviderAttachment = new aws.verifiedaccess.InstanceTrustProviderAttachment("exampleInstanceTrustProviderAttachment", {
- *     verifiedaccessInstanceId: exampleInstance.id,
- *     verifiedaccessTrustProviderId: exampleTrustProvider.id,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:

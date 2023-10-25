@@ -12,41 +12,6 @@ namespace Pulumi.Aws.Detective
     /// <summary>
     /// Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var primaryGraph = new Aws.Detective.Graph("primaryGraph");
-    /// 
-    ///     var primaryMember = new Aws.Detective.Member("primaryMember", new()
-    ///     {
-    ///         AccountId = "ACCOUNT ID",
-    ///         EmailAddress = "EMAIL",
-    ///         GraphArn = primaryGraph.Id,
-    ///         Message = "Message of the invite",
-    ///     });
-    /// 
-    ///     var member = new Aws.Detective.InvitationAccepter("member", new()
-    ///     {
-    ///         GraphArn = primaryGraph.GraphArn,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         Provider = "awsalternate",
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryMember,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:

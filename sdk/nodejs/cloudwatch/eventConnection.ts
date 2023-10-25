@@ -12,41 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.cloudwatch.EventConnection("test", {
- *     authParameters: {
- *         apiKey: {
- *             key: "x-signature",
- *             value: "1234",
- *         },
- *     },
- *     authorizationType: "API_KEY",
- *     description: "A connection description",
- * });
- * ```
- * ### Basic Authorization
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.cloudwatch.EventConnection("test", {
- *     authParameters: {
- *         basic: {
- *             password: "Pass1234!",
- *             username: "user",
- *         },
- *     },
- *     authorizationType: "BASIC",
- *     description: "A connection description",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:

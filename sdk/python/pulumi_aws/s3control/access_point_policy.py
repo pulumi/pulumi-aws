@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccessPointPolicyArgs', 'AccessPointPolicy']
@@ -21,8 +21,27 @@ class AccessPointPolicyArgs:
         :param pulumi.Input[str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
         :param pulumi.Input[str] policy: The policy that you want to apply to the specified access point.
         """
-        pulumi.set(__self__, "access_point_arn", access_point_arn)
-        pulumi.set(__self__, "policy", policy)
+        AccessPointPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_point_arn=access_point_arn,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_point_arn: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_point_arn is None and 'accessPointArn' in kwargs:
+            access_point_arn = kwargs['accessPointArn']
+        if access_point_arn is None:
+            raise TypeError("Missing 'access_point_arn' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+
+        _setter("access_point_arn", access_point_arn)
+        _setter("policy", policy)
 
     @property
     @pulumi.getter(name="accessPointArn")
@@ -61,12 +80,31 @@ class _AccessPointPolicyState:
         :param pulumi.Input[bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
         :param pulumi.Input[str] policy: The policy that you want to apply to the specified access point.
         """
+        _AccessPointPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_point_arn=access_point_arn,
+            has_public_access_policy=has_public_access_policy,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_point_arn: Optional[pulumi.Input[str]] = None,
+             has_public_access_policy: Optional[pulumi.Input[bool]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_point_arn is None and 'accessPointArn' in kwargs:
+            access_point_arn = kwargs['accessPointArn']
+        if has_public_access_policy is None and 'hasPublicAccessPolicy' in kwargs:
+            has_public_access_policy = kwargs['hasPublicAccessPolicy']
+
         if access_point_arn is not None:
-            pulumi.set(__self__, "access_point_arn", access_point_arn)
+            _setter("access_point_arn", access_point_arn)
         if has_public_access_policy is not None:
-            pulumi.set(__self__, "has_public_access_policy", has_public_access_policy)
+            _setter("has_public_access_policy", has_public_access_policy)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter(name="accessPointArn")
@@ -118,37 +156,6 @@ class AccessPointPolicy(pulumi.CustomResource):
 
         > **NOTE on Access Points and Access Point Policies:** The provider provides both a standalone Access Point Policy resource and an Access Point resource with a resource policy defined in-line. You cannot use an Access Point with in-line resource policy in conjunction with an Access Point Policy resource. Doing so will cause a conflict of policies and will overwrite the access point's resource policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
-            bucket=example_bucket_v2.id,
-            public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
-                block_public_acls=True,
-                block_public_policy=False,
-                ignore_public_acls=True,
-                restrict_public_buckets=False,
-            ))
-        example_access_point_policy = aws.s3control.AccessPointPolicy("exampleAccessPointPolicy",
-            access_point_arn=example_access_point.arn,
-            policy=example_access_point.arn.apply(lambda arn: json.dumps({
-                "Version": "2008-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "s3:GetObjectTagging",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Resource": f"{arn}/object/*",
-                }],
-            })))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
@@ -173,37 +180,6 @@ class AccessPointPolicy(pulumi.CustomResource):
 
         > **NOTE on Access Points and Access Point Policies:** The provider provides both a standalone Access Point Policy resource and an Access Point resource with a resource policy defined in-line. You cannot use an Access Point with in-line resource policy in conjunction with an Access Point Policy resource. Doing so will cause a conflict of policies and will overwrite the access point's resource policy.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
-            bucket=example_bucket_v2.id,
-            public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
-                block_public_acls=True,
-                block_public_policy=False,
-                ignore_public_acls=True,
-                restrict_public_buckets=False,
-            ))
-        example_access_point_policy = aws.s3control.AccessPointPolicy("exampleAccessPointPolicy",
-            access_point_arn=example_access_point.arn,
-            policy=example_access_point.arn.apply(lambda arn: json.dumps({
-                "Version": "2008-10-17",
-                "Statement": [{
-                    "Effect": "Allow",
-                    "Action": "s3:GetObjectTagging",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Resource": f"{arn}/object/*",
-                }],
-            })))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
@@ -222,6 +198,10 @@ class AccessPointPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessPointPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

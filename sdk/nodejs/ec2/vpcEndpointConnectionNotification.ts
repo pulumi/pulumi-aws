@@ -8,38 +8,6 @@ import * as utilities from "../utilities";
  * Provides a VPC Endpoint connection notification resource.
  * Connection notifications notify subscribers of VPC Endpoint events.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const topicPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["vpce.amazonaws.com"],
- *         }],
- *         actions: ["SNS:Publish"],
- *         resources: ["arn:aws:sns:*:*:vpce-notification-topic"],
- *     }],
- * });
- * const topicTopic = new aws.sns.Topic("topicTopic", {policy: topicPolicyDocument.then(topicPolicyDocument => topicPolicyDocument.json)});
- * const fooVpcEndpointService = new aws.ec2.VpcEndpointService("fooVpcEndpointService", {
- *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb.test.arn],
- * });
- * const fooVpcEndpointConnectionNotification = new aws.ec2.VpcEndpointConnectionNotification("fooVpcEndpointConnectionNotification", {
- *     vpcEndpointServiceId: fooVpcEndpointService.id,
- *     connectionNotificationArn: topicTopic.arn,
- *     connectionEvents: [
- *         "Accept",
- *         "Reject",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:

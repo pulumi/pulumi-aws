@@ -16,51 +16,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// &gt; **NOTE:** The proper Lambda permission to allow the AWS Config service invoke the Lambda Function must be in place before the rule will successfully create or update. See also the `aws.lambda.Permission` resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var examplePermission = new Aws.Lambda.Permission("examplePermission", new()
-    ///     {
-    ///         Action = "lambda:InvokeFunction",
-    ///         Function = aws_lambda_function.Example.Arn,
-    ///         Principal = "config.amazonaws.com",
-    ///     });
-    /// 
-    ///     var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new()
-    ///     {
-    ///         AwsServiceAccessPrincipals = new[]
-    ///         {
-    ///             "config-multiaccountsetup.amazonaws.com",
-    ///         },
-    ///         FeatureSet = "ALL",
-    ///     });
-    /// 
-    ///     var exampleOrganizationCustomRule = new Aws.Cfg.OrganizationCustomRule("exampleOrganizationCustomRule", new()
-    ///     {
-    ///         LambdaFunctionArn = aws_lambda_function.Example.Arn,
-    ///         TriggerTypes = new[]
-    ///         {
-    ///             "ConfigurationItemChangeNotification",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             examplePermission,
-    ///             exampleOrganization,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Config Organization Custom Rules using the name. For example:

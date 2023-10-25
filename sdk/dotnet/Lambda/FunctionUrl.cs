@@ -14,55 +14,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// See the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) for more information.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testLatest = new Aws.Lambda.FunctionUrl("testLatest", new()
-    ///     {
-    ///         FunctionName = aws_lambda_function.Test.Function_name,
-    ///         AuthorizationType = "NONE",
-    ///     });
-    /// 
-    ///     var testLive = new Aws.Lambda.FunctionUrl("testLive", new()
-    ///     {
-    ///         FunctionName = aws_lambda_function.Test.Function_name,
-    ///         Qualifier = "my_alias",
-    ///         AuthorizationType = "AWS_IAM",
-    ///         Cors = new Aws.Lambda.Inputs.FunctionUrlCorsArgs
-    ///         {
-    ///             AllowCredentials = true,
-    ///             AllowOrigins = new[]
-    ///             {
-    ///                 "*",
-    ///             },
-    ///             AllowMethods = new[]
-    ///             {
-    ///                 "*",
-    ///             },
-    ///             AllowHeaders = new[]
-    ///             {
-    ///                 "date",
-    ///                 "keep-alive",
-    ///             },
-    ///             ExposeHeaders = new[]
-    ///             {
-    ///                 "keep-alive",
-    ///                 "date",
-    ///             },
-    ///             MaxAge = 86400,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,46 @@ class PhoneNumberArgs:
         :param pulumi.Input[str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "target_arn", target_arn)
-        pulumi.set(__self__, "type", type)
+        PhoneNumberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_code=country_code,
+            target_arn=target_arn,
+            type=type,
+            description=description,
+            prefix=prefix,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_code: Optional[pulumi.Input[str]] = None,
+             target_arn: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if country_code is None:
+            raise TypeError("Missing 'country_code' argument")
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if target_arn is None:
+            raise TypeError("Missing 'target_arn' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("country_code", country_code)
+        _setter("target_arn", target_arn)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="countryCode")
@@ -140,29 +171,66 @@ class _PhoneNumberState:
         :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
         :param pulumi.Input[str] type: The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
         """
+        _PhoneNumberState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            country_code=country_code,
+            description=description,
+            phone_number=phone_number,
+            prefix=prefix,
+            statuses=statuses,
+            tags=tags,
+            tags_all=tags_all,
+            target_arn=target_arn,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             country_code: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             statuses: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_arn: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if country_code is not None:
-            pulumi.set(__self__, "country_code", country_code)
+            _setter("country_code", country_code)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if statuses is not None:
-            pulumi.set(__self__, "statuses", statuses)
+            _setter("statuses", statuses)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target_arn is not None:
-            pulumi.set(__self__, "target_arn", target_arn)
+            _setter("target_arn", target_arn)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -305,44 +373,6 @@ class PhoneNumber(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
-            country_code="US",
-            type="DID",
-            tags={
-                "hello": "world",
-            })
-        ```
-        ### Description
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
-            country_code="US",
-            type="DID",
-            description="example description")
-        ```
-        ### Prefix to filter phone numbers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
-            country_code="US",
-            type="DID",
-            prefix="+18005")
-        ```
 
         ## Import
 
@@ -372,44 +402,6 @@ class PhoneNumber(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
-            country_code="US",
-            type="DID",
-            tags={
-                "hello": "world",
-            })
-        ```
-        ### Description
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
-            country_code="US",
-            type="DID",
-            description="example description")
-        ```
-        ### Prefix to filter phone numbers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.PhoneNumber("example",
-            target_arn=aws_connect_instance["example"]["arn"],
-            country_code="US",
-            type="DID",
-            prefix="+18005")
-        ```
 
         ## Import
 
@@ -429,6 +421,10 @@ class PhoneNumber(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PhoneNumberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

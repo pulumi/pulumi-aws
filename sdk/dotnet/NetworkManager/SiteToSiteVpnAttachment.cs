@@ -13,24 +13,6 @@ namespace Pulumi.Aws.NetworkManager
     /// Resource for managing an AWS NetworkManager SiteToSiteAttachment.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.SiteToSiteVpnAttachment("example", new()
-    ///     {
-    ///         CoreNetworkId = awscc_networkmanager_core_network.Example.Id,
-    ///         VpnConnectionArn = aws_vpn_connection.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

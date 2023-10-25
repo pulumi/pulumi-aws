@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a new Amazon Redshift Usage Limit.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.UsageLimit("example", {
- *     clusterIdentifier: aws_redshift_cluster.example.id,
- *     featureType: "concurrency-scaling",
- *     limitType: "time",
- *     amount: 60,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Redshift usage limits using the `id`. For example:

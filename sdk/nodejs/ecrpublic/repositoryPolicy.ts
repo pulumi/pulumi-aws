@@ -11,45 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This resource can only be used in the `us-east-1` region.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRepository = new aws.ecrpublic.Repository("exampleRepository", {repositoryName: "example"});
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "new policy",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["123456789012"],
- *         }],
- *         actions: [
- *             "ecr:GetDownloadUrlForLayer",
- *             "ecr:BatchGetImage",
- *             "ecr:BatchCheckLayerAvailability",
- *             "ecr:PutImage",
- *             "ecr:InitiateLayerUpload",
- *             "ecr:UploadLayerPart",
- *             "ecr:CompleteLayerUpload",
- *             "ecr:DescribeRepositories",
- *             "ecr:GetRepositoryPolicy",
- *             "ecr:ListImages",
- *             "ecr:DeleteRepository",
- *             "ecr:BatchDeleteImage",
- *             "ecr:SetRepositoryPolicy",
- *             "ecr:DeleteRepositoryPolicy",
- *         ],
- *     }],
- * });
- * const exampleRepositoryPolicy = new aws.ecrpublic.RepositoryPolicy("exampleRepositoryPolicy", {
- *     repositoryName: exampleRepository.repositoryName,
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:

@@ -11,25 +11,6 @@ namespace Pulumi.Aws.OpsWorks
 {
     /// <summary>
     /// Provides an OpsWorks Ganglia layer resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var monitor = new Aws.OpsWorks.GangliaLayer("monitor", new()
-    ///     {
-    ///         StackId = aws_opsworks_stack.Main.Id,
-    ///         Password = "foobarbaz",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/gangliaLayer:GangliaLayer")]
     public partial class GangliaLayer : global::Pulumi.CustomResource

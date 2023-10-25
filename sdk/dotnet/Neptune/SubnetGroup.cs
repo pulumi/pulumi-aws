@@ -12,32 +12,6 @@ namespace Pulumi.Aws.Neptune
     /// <summary>
     /// Provides an Neptune subnet group resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Neptune.SubnetGroup("default", new()
-    ///     {
-    ///         SubnetIds = new[]
-    ///         {
-    ///             aws_subnet.Frontend.Id,
-    ///             aws_subnet.Backend.Id,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "My neptune subnet group" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Neptune Subnet groups using the `name`. For example:

@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Removing this resource disables default EBS encryption.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ebs.EncryptionByDefault("example", {enabled: true});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import the default EBS encryption state. For example:

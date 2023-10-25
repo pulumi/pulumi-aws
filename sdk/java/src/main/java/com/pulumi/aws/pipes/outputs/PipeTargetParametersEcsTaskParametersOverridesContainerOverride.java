@@ -17,12 +17,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverride {
     /**
-     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
      * 
      */
     private @Nullable List<String> commands;
     /**
-     * @return The cpu override for the task.
+     * @return The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     private @Nullable Integer cpu;
@@ -32,12 +32,12 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
      */
     private @Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile> environmentFiles;
     /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with &#34; AWS Batch &#34;. This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
      * 
      */
     private @Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment> environments;
     /**
-     * @return The memory override for the task.
+     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
      * 
      */
     private @Nullable Integer memory;
@@ -52,21 +52,21 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
      */
     private @Nullable String name;
     /**
-     * @return The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
      * 
      */
     private @Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement> resourceRequirements;
 
     private PipeTargetParametersEcsTaskParametersOverridesContainerOverride() {}
     /**
-     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+     * @return List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
      * 
      */
     public List<String> commands() {
         return this.commands == null ? List.of() : this.commands;
     }
     /**
-     * @return The cpu override for the task.
+     * @return The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     public Optional<Integer> cpu() {
@@ -80,14 +80,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         return this.environmentFiles == null ? List.of() : this.environmentFiles;
     }
     /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with &#34; AWS Batch &#34;. This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
      * 
      */
     public List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment> environments() {
         return this.environments == null ? List.of() : this.environments;
     }
     /**
-     * @return The memory override for the task.
+     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
      * 
      */
     public Optional<Integer> memory() {
@@ -108,7 +108,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
      * 
      */
     public List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement> resourceRequirements() {

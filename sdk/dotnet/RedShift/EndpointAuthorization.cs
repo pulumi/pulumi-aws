@@ -12,25 +12,6 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// Creates a new Amazon Redshift endpoint authorization.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedShift.EndpointAuthorization("example", new()
-    ///     {
-    ///         Account = "01234567910",
-    ///         ClusterIdentifier = aws_redshift_cluster.Example.Cluster_identifier,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift endpoint authorization using the `id`. For example:

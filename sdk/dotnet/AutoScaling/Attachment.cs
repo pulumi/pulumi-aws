@@ -13,44 +13,6 @@ namespace Pulumi.Aws.AutoScaling
     /// Attaches a load balancer to an Auto Scaling group.
     /// 
     /// &gt; **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new load balancer attachment
-    ///     var example = new Aws.AutoScaling.Attachment("example", new()
-    ///     {
-    ///         AutoscalingGroupName = aws_autoscaling_group.Example.Id,
-    ///         Elb = aws_elb.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new ALB Target Group attachment
-    ///     var example = new Aws.AutoScaling.Attachment("example", new()
-    ///     {
-    ///         AutoscalingGroupName = aws_autoscaling_group.Example.Id,
-    ///         LbTargetGroupArn = aws_lb_target_group.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/attachment:Attachment")]
     public partial class Attachment : global::Pulumi.CustomResource

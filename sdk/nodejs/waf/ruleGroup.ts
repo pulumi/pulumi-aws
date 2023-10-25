@@ -10,25 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a WAF Rule Group Resource
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRule = new aws.waf.Rule("exampleRule", {metricName: "example"});
- * const exampleRuleGroup = new aws.waf.RuleGroup("exampleRuleGroup", {
- *     metricName: "example",
- *     activatedRules: [{
- *         action: {
- *             type: "COUNT",
- *         },
- *         priority: 50,
- *         ruleId: exampleRule.id,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import WAF Rule Group using the id. For example:

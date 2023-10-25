@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -285,14 +285,6 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
     Provides an Amazon Managed Grafana workspace data source.
 
     ## Example Usage
-    ### Basic configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.grafana.get_workspace(workspace_id="g-2054c75a02")
-    ```
 
 
     :param Mapping[str, str] tags: Tags assigned to the resource
@@ -336,14 +328,6 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]
     Provides an Amazon Managed Grafana workspace data source.
 
     ## Example Usage
-    ### Basic configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.grafana.get_workspace(workspace_id="g-2054c75a02")
-    ```
 
 
     :param Mapping[str, str] tags: Tags assigned to the resource

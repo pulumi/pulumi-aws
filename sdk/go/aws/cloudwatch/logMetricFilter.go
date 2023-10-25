@@ -15,42 +15,6 @@ import (
 
 // Provides a CloudWatch Log Metric Filter resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			dada, err := cloudwatch.NewLogGroup(ctx, "dada", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogMetricFilter(ctx, "yada", &cloudwatch.LogMetricFilterArgs{
-//				Pattern:      pulumi.String(""),
-//				LogGroupName: dada.Name,
-//				MetricTransformation: &cloudwatch.LogMetricFilterMetricTransformationArgs{
-//					Name:      pulumi.String("EventCount"),
-//					Namespace: pulumi.String("YourNamespace"),
-//					Value:     pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:

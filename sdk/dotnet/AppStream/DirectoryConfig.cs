@@ -12,33 +12,6 @@ namespace Pulumi.Aws.AppStream
     /// <summary>
     /// Provides an AppStream Directory Config.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppStream.DirectoryConfig("example", new()
-    ///     {
-    ///         DirectoryName = "NAME OF DIRECTORY",
-    ///         OrganizationalUnitDistinguishedNames = new[]
-    ///         {
-    ///             "DISTINGUISHED NAME",
-    ///         },
-    ///         ServiceAccountCredentials = new Aws.AppStream.Inputs.DirectoryConfigServiceAccountCredentialsArgs
-    ///         {
-    ///             AccountName = "NAME OF ACCOUNT",
-    ///             AccountPassword = "PASSWORD OF ACCOUNT",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appstream_directory_config` using the id. For example:

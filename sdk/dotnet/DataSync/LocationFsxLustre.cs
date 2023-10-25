@@ -12,28 +12,6 @@ namespace Pulumi.Aws.DataSync
     /// <summary>
     /// Manages an AWS DataSync FSx Lustre Location.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataSync.LocationFsxLustre("example", new()
-    ///     {
-    ///         FsxFilesystemArn = aws_fsx_lustre_file_system.Example.Arn,
-    ///         SecurityGroupArns = new[]
-    ///         {
-    ///             aws_security_group.Example.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_fsx_lustre_file_system` using the `DataSync-ARN#FSx-Lustre-ARN`. For example:

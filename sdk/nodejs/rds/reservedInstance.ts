@@ -14,26 +14,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.rds.getReservedInstanceOffering({
- *     dbInstanceClass: "db.t2.micro",
- *     duration: 31536000,
- *     multiAz: false,
- *     offeringType: "All Upfront",
- *     productDescription: "mysql",
- * });
- * const example = new aws.rds.ReservedInstance("example", {
- *     offeringId: test.then(test => test.offeringId),
- *     reservationId: "optionalCustomReservationID",
- *     instanceCount: 3,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:

@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Resource Policy.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const currentPartition = aws.getPartition({});
- * const exampleServiceNetwork = new aws.vpclattice.ServiceNetwork("exampleServiceNetwork", {});
- * const exampleResourcePolicy = new aws.vpclattice.ResourcePolicy("exampleResourcePolicy", {
- *     resourceArn: exampleServiceNetwork.arn,
- *     policy: pulumi.all([currentPartition, currentCallerIdentity, exampleServiceNetwork.arn]).apply(([currentPartition, currentCallerIdentity, arn]) => JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Sid: "test-pol-principals-6",
- *             Effect: "Allow",
- *             Principal: {
- *                 AWS: `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`,
- *             },
- *             Action: [
- *                 "vpc-lattice:CreateServiceNetworkVpcAssociation",
- *                 "vpc-lattice:CreateServiceNetworkServiceAssociation",
- *                 "vpc-lattice:GetServiceNetwork",
- *             ],
- *             Resource: arn,
- *         }],
- *     })),
- * });
- * ```
  *
  * ## Import
  *

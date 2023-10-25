@@ -12,25 +12,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// <summary>
     /// Provides an AWS Route 53 Recovery Readiness Readiness Check.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryReadiness.ReadinessCheck("example", new()
-    ///     {
-    ///         ReadinessCheckName = my_cw_alarm_check,
-    ///         ResourceSetName = my_cw_alarm_set,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For example:

@@ -4,35 +4,15 @@
 package ses
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve the active SES receipt rule set
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.LookupActiveReceiptRuleSet(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupActiveReceiptRuleSet(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupActiveReceiptRuleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupActiveReceiptRuleSetResult
@@ -51,4 +31,55 @@ type LookupActiveReceiptRuleSetResult struct {
 	Id string `pulumi:"id"`
 	// Name of the rule set
 	RuleSetName string `pulumi:"ruleSetName"`
+}
+
+func LookupActiveReceiptRuleSetOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupActiveReceiptRuleSetResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (LookupActiveReceiptRuleSetResult, error) {
+		r, err := LookupActiveReceiptRuleSet(ctx, opts...)
+		var s LookupActiveReceiptRuleSetResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(LookupActiveReceiptRuleSetResultOutput)
+}
+
+// A collection of values returned by getActiveReceiptRuleSet.
+type LookupActiveReceiptRuleSetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupActiveReceiptRuleSetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupActiveReceiptRuleSetResult)(nil)).Elem()
+}
+
+func (o LookupActiveReceiptRuleSetResultOutput) ToLookupActiveReceiptRuleSetResultOutput() LookupActiveReceiptRuleSetResultOutput {
+	return o
+}
+
+func (o LookupActiveReceiptRuleSetResultOutput) ToLookupActiveReceiptRuleSetResultOutputWithContext(ctx context.Context) LookupActiveReceiptRuleSetResultOutput {
+	return o
+}
+
+func (o LookupActiveReceiptRuleSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupActiveReceiptRuleSetResult] {
+	return pulumix.Output[LookupActiveReceiptRuleSetResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// SES receipt rule set ARN.
+func (o LookupActiveReceiptRuleSetResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupActiveReceiptRuleSetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the rule set
+func (o LookupActiveReceiptRuleSetResultOutput) RuleSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) string { return v.RuleSetName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupActiveReceiptRuleSetResultOutput{})
 }

@@ -14,29 +14,6 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// &gt; **NOTE:** The DataSync Agents must be available before creating this resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataSync.LocationObjectStorage("example", new()
-    ///     {
-    ///         AgentArns = new[]
-    ///         {
-    ///             aws_datasync_agent.Example.Arn,
-    ///         },
-    ///         ServerHostname = "example",
-    ///         BucketName = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:

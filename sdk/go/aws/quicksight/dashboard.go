@@ -16,43 +16,6 @@ import (
 // Resource for managing a QuickSight Dashboard.
 //
 // ## Example Usage
-// ### From Source Template
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewDashboard(ctx, "example", &quicksight.DashboardArgs{
-//				DashboardId:        pulumi.String("example-id"),
-//				VersionDescription: pulumi.String("version"),
-//				SourceEntity: &quicksight.DashboardSourceEntityArgs{
-//					SourceTemplate: &quicksight.DashboardSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(aws_quicksight_template.Source.Arn),
-//						DataSetReferences: quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArray{
-//							&quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArgs{
-//								DataSetArn:         pulumi.Any(aws_quicksight_data_set.Dataset.Arn),
-//								DataSetPlaceholder: pulumi.String("1"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

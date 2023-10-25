@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,8 +22,27 @@ class TriggerArgs:
         The set of arguments for constructing a Trigger resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
         """
-        pulumi.set(__self__, "repository_name", repository_name)
-        pulumi.set(__self__, "triggers", triggers)
+        TriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_name=repository_name,
+            triggers=triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_name: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if triggers is None:
+            raise TypeError("Missing 'triggers' argument")
+
+        _setter("repository_name", repository_name)
+        _setter("triggers", triggers)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -58,12 +77,31 @@ class _TriggerState:
         :param pulumi.Input[str] configuration_id: System-generated unique identifier.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
         """
+        _TriggerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_id=configuration_id,
+            repository_name=repository_name,
+            triggers=triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_id: Optional[pulumi.Input[str]] = None,
+             repository_name: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_id is None and 'configurationId' in kwargs:
+            configuration_id = kwargs['configurationId']
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         if configuration_id is not None:
-            pulumi.set(__self__, "configuration_id", configuration_id)
+            _setter("configuration_id", configuration_id)
         if repository_name is not None:
-            pulumi.set(__self__, "repository_name", repository_name)
+            _setter("repository_name", repository_name)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
 
     @property
     @pulumi.getter(name="configurationId")
@@ -110,22 +148,6 @@ class Trigger(pulumi.CustomResource):
         """
         Provides a CodeCommit Trigger Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_repository = aws.codecommit.Repository("testRepository", repository_name="test")
-        test_trigger = aws.codecommit.Trigger("testTrigger",
-            repository_name=test_repository.repository_name,
-            triggers=[aws.codecommit.TriggerTriggerArgs(
-                name="all",
-                events=["all"],
-                destination_arn=aws_sns_topic["test"]["arn"],
-            )])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
@@ -139,22 +161,6 @@ class Trigger(pulumi.CustomResource):
         """
         Provides a CodeCommit Trigger Resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_repository = aws.codecommit.Repository("testRepository", repository_name="test")
-        test_trigger = aws.codecommit.Trigger("testTrigger",
-            repository_name=test_repository.repository_name,
-            triggers=[aws.codecommit.TriggerTriggerArgs(
-                name="all",
-                events=["all"],
-                destination_arn=aws_sns_topic["test"]["arn"],
-            )])
-        ```
-
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,6 +171,10 @@ class Trigger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TriggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

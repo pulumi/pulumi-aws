@@ -13,31 +13,6 @@ namespace Pulumi.Aws.Lex
     /// Resource for managing an AWS Lex V2 Models Bot.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lex.V2modelsBot("example", new()
-    ///     {
-    ///         DataPrivacies = new[]
-    ///         {
-    ///             new Aws.Lex.Inputs.V2modelsBotDataPrivacyArgs
-    ///             {
-    ///                 ChildDirected = "boolean",
-    ///             },
-    ///         },
-    ///         IdleSessionTtlInSeconds = 10,
-    ///         RoleArn = "bot_example_arn",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

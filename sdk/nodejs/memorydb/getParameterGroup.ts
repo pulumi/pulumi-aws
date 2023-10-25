@@ -9,17 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a MemoryDB Parameter Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getParameterGroup({
- *     name: "my-parameter-group",
- * });
- * ```
  */
 export function getParameterGroup(args: GetParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterGroupResult> {
 
@@ -79,17 +68,6 @@ export interface GetParameterGroupResult {
 }
 /**
  * Provides information about a MemoryDB Parameter Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getParameterGroup({
- *     name: "my-parameter-group",
- * });
- * ```
  */
 export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterGroupResult> {
     return pulumi.output(args).apply((a: any) => getParameterGroup(a, opts))

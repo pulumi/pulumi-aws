@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,23 +41,60 @@ class JobDefinitionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['JobDefinitionTimeoutArgs'] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         """
-        pulumi.set(__self__, "type", type)
+        JobDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            container_properties=container_properties,
+            name=name,
+            parameters=parameters,
+            platform_capabilities=platform_capabilities,
+            propagate_tags=propagate_tags,
+            retry_strategy=retry_strategy,
+            tags=tags,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             container_properties: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             propagate_tags: Optional[pulumi.Input[bool]] = None,
+             retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if container_properties is None and 'containerProperties' in kwargs:
+            container_properties = kwargs['containerProperties']
+        if platform_capabilities is None and 'platformCapabilities' in kwargs:
+            platform_capabilities = kwargs['platformCapabilities']
+        if propagate_tags is None and 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if retry_strategy is None and 'retryStrategy' in kwargs:
+            retry_strategy = kwargs['retryStrategy']
+
+        _setter("type", type)
         if container_properties is not None:
-            pulumi.set(__self__, "container_properties", container_properties)
+            _setter("container_properties", container_properties)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if platform_capabilities is not None:
-            pulumi.set(__self__, "platform_capabilities", platform_capabilities)
+            _setter("platform_capabilities", platform_capabilities)
         if propagate_tags is not None:
-            pulumi.set(__self__, "propagate_tags", propagate_tags)
+            _setter("propagate_tags", propagate_tags)
         if retry_strategy is not None:
-            pulumi.set(__self__, "retry_strategy", retry_strategy)
+            _setter("retry_strategy", retry_strategy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -206,33 +243,76 @@ class _JobDefinitionState:
                
                The following arguments are optional:
         """
+        _JobDefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            container_properties=container_properties,
+            name=name,
+            parameters=parameters,
+            platform_capabilities=platform_capabilities,
+            propagate_tags=propagate_tags,
+            retry_strategy=retry_strategy,
+            revision=revision,
+            tags=tags,
+            tags_all=tags_all,
+            timeout=timeout,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             container_properties: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             propagate_tags: Optional[pulumi.Input[bool]] = None,
+             retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
+             revision: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_properties is None and 'containerProperties' in kwargs:
+            container_properties = kwargs['containerProperties']
+        if platform_capabilities is None and 'platformCapabilities' in kwargs:
+            platform_capabilities = kwargs['platformCapabilities']
+        if propagate_tags is None and 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if retry_strategy is None and 'retryStrategy' in kwargs:
+            retry_strategy = kwargs['retryStrategy']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if container_properties is not None:
-            pulumi.set(__self__, "container_properties", container_properties)
+            _setter("container_properties", container_properties)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if platform_capabilities is not None:
-            pulumi.set(__self__, "platform_capabilities", platform_capabilities)
+            _setter("platform_capabilities", platform_capabilities)
         if propagate_tags is not None:
-            pulumi.set(__self__, "propagate_tags", propagate_tags)
+            _setter("propagate_tags", propagate_tags)
         if retry_strategy is not None:
-            pulumi.set(__self__, "retry_strategy", retry_strategy)
+            _setter("retry_strategy", retry_strategy)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -404,98 +484,6 @@ class JobDefinition(pulumi.CustomResource):
         """
         Provides a Batch Job Definition resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.batch.JobDefinition("test",
-            type="container",
-            container_properties=json.dumps({
-                "command": [
-                    "ls",
-                    "-la",
-                ],
-                "image": "busybox",
-                "resourceRequirements": [
-                    {
-                        "type": "VCPU",
-                        "value": "0.25",
-                    },
-                    {
-                        "type": "MEMORY",
-                        "value": "512",
-                    },
-                ],
-                "volumes": [{
-                    "host": {
-                        "sourcePath": "/tmp",
-                    },
-                    "name": "tmp",
-                }],
-                "environment": [{
-                    "name": "VARNAME",
-                    "value": "VARVAL",
-                }],
-                "mountPoints": [{
-                    "sourceVolume": "tmp",
-                    "containerPath": "/tmp",
-                    "readOnly": False,
-                }],
-                "ulimits": [{
-                    "hardLimit": 1024,
-                    "name": "nofile",
-                    "softLimit": 1024,
-                }],
-            }))
-        ```
-        ### Fargate Platform Capability
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ecs-tasks.amazonaws.com"],
-            )],
-        )])
-        ecs_task_execution_role = aws.iam.Role("ecsTaskExecutionRole", assume_role_policy=assume_role_policy.json)
-        ecs_task_execution_role_policy = aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy",
-            role=ecs_task_execution_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
-        test = aws.batch.JobDefinition("test",
-            type="container",
-            platform_capabilities=["FARGATE"],
-            container_properties=ecs_task_execution_role.arn.apply(lambda arn: json.dumps({
-                "command": [
-                    "echo",
-                    "test",
-                ],
-                "image": "busybox",
-                "jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
-                "fargatePlatformConfiguration": {
-                    "platformVersion": "LATEST",
-                },
-                "resourceRequirements": [
-                    {
-                        "type": "VCPU",
-                        "value": "0.25",
-                    },
-                    {
-                        "type": "MEMORY",
-                        "value": "512",
-                    },
-                ],
-                "executionRoleArn": arn,
-            })))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
@@ -529,98 +517,6 @@ class JobDefinition(pulumi.CustomResource):
         """
         Provides a Batch Job Definition resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        test = aws.batch.JobDefinition("test",
-            type="container",
-            container_properties=json.dumps({
-                "command": [
-                    "ls",
-                    "-la",
-                ],
-                "image": "busybox",
-                "resourceRequirements": [
-                    {
-                        "type": "VCPU",
-                        "value": "0.25",
-                    },
-                    {
-                        "type": "MEMORY",
-                        "value": "512",
-                    },
-                ],
-                "volumes": [{
-                    "host": {
-                        "sourcePath": "/tmp",
-                    },
-                    "name": "tmp",
-                }],
-                "environment": [{
-                    "name": "VARNAME",
-                    "value": "VARVAL",
-                }],
-                "mountPoints": [{
-                    "sourceVolume": "tmp",
-                    "containerPath": "/tmp",
-                    "readOnly": False,
-                }],
-                "ulimits": [{
-                    "hardLimit": 1024,
-                    "name": "nofile",
-                    "softLimit": 1024,
-                }],
-            }))
-        ```
-        ### Fargate Platform Capability
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ecs-tasks.amazonaws.com"],
-            )],
-        )])
-        ecs_task_execution_role = aws.iam.Role("ecsTaskExecutionRole", assume_role_policy=assume_role_policy.json)
-        ecs_task_execution_role_policy = aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy",
-            role=ecs_task_execution_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
-        test = aws.batch.JobDefinition("test",
-            type="container",
-            platform_capabilities=["FARGATE"],
-            container_properties=ecs_task_execution_role.arn.apply(lambda arn: json.dumps({
-                "command": [
-                    "echo",
-                    "test",
-                ],
-                "image": "busybox",
-                "jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
-                "fargatePlatformConfiguration": {
-                    "platformVersion": "LATEST",
-                },
-                "resourceRequirements": [
-                    {
-                        "type": "VCPU",
-                        "value": "0.25",
-                    },
-                    {
-                        "type": "MEMORY",
-                        "value": "512",
-                    },
-                ],
-                "executionRoleArn": arn,
-            })))
-        ```
-
         ## Import
 
         Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
@@ -639,6 +535,10 @@ class JobDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -667,8 +567,10 @@ class JobDefinition(pulumi.CustomResource):
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["platform_capabilities"] = platform_capabilities
             __props__.__dict__["propagate_tags"] = propagate_tags
+            retry_strategy = _utilities.configure(retry_strategy, JobDefinitionRetryStrategyArgs, True)
             __props__.__dict__["retry_strategy"] = retry_strategy
             __props__.__dict__["tags"] = tags
+            timeout = _utilities.configure(timeout, JobDefinitionTimeoutArgs, True)
             __props__.__dict__["timeout"] = timeout
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

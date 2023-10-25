@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.schemas.Registry("test", {description: "A custom schema registry"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge schema registries using the `name`. For example:

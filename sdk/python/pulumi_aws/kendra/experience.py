@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,14 +31,41 @@ class ExperienceArgs:
         :param pulumi.Input[str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[str] name: A name for your Amazon Kendra experience.
         """
-        pulumi.set(__self__, "index_id", index_id)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ExperienceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index_id=index_id,
+            role_arn=role_arn,
+            configuration=configuration,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index_id: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             configuration: Optional[pulumi.Input['ExperienceConfigurationArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if index_id is None and 'indexId' in kwargs:
+            index_id = kwargs['indexId']
+        if index_id is None:
+            raise TypeError("Missing 'index_id' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
+        _setter("index_id", index_id)
+        _setter("role_arn", role_arn)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="indexId")
@@ -129,24 +156,57 @@ class _ExperienceState:
                The following arguments are optional:
         :param pulumi.Input[str] status: The current processing status of your Amazon Kendra experience.
         """
+        _ExperienceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            configuration=configuration,
+            description=description,
+            endpoints=endpoints,
+            experience_id=experience_id,
+            index_id=index_id,
+            name=name,
+            role_arn=role_arn,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             configuration: Optional[pulumi.Input['ExperienceConfigurationArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ExperienceEndpointArgs']]]] = None,
+             experience_id: Optional[pulumi.Input[str]] = None,
+             index_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if experience_id is None and 'experienceId' in kwargs:
+            experience_id = kwargs['experienceId']
+        if index_id is None and 'indexId' in kwargs:
+            index_id = kwargs['indexId']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if experience_id is not None:
-            pulumi.set(__self__, "experience_id", experience_id)
+            _setter("experience_id", experience_id)
         if index_id is not None:
-            pulumi.set(__self__, "index_id", index_id)
+            _setter("index_id", index_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -274,26 +334,6 @@ class Experience(pulumi.CustomResource):
         Resource for managing an AWS Kendra Experience.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kendra.Experience("example",
-            index_id=aws_kendra_index["example"]["id"],
-            description="My Kendra Experience",
-            role_arn=aws_iam_role["example"]["arn"],
-            configuration=aws.kendra.ExperienceConfigurationArgs(
-                content_source_configuration=aws.kendra.ExperienceConfigurationContentSourceConfigurationArgs(
-                    direct_put_content=True,
-                    faq_ids=[aws_kendra_faq["example"]["faq_id"]],
-                ),
-                user_identity_configuration=aws.kendra.ExperienceConfigurationUserIdentityConfigurationArgs(
-                    identity_attribute_name="12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -323,26 +363,6 @@ class Experience(pulumi.CustomResource):
         Resource for managing an AWS Kendra Experience.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.kendra.Experience("example",
-            index_id=aws_kendra_index["example"]["id"],
-            description="My Kendra Experience",
-            role_arn=aws_iam_role["example"]["arn"],
-            configuration=aws.kendra.ExperienceConfigurationArgs(
-                content_source_configuration=aws.kendra.ExperienceConfigurationContentSourceConfigurationArgs(
-                    direct_put_content=True,
-                    faq_ids=[aws_kendra_faq["example"]["faq_id"]],
-                ),
-                user_identity_configuration=aws.kendra.ExperienceConfigurationUserIdentityConfigurationArgs(
-                    identity_attribute_name="12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -362,6 +382,10 @@ class Experience(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExperienceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -381,6 +405,7 @@ class Experience(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExperienceArgs.__new__(ExperienceArgs)
 
+            configuration = _utilities.configure(configuration, ExperienceConfigurationArgs, True)
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["description"] = description
             if index_id is None and not opts.urn:

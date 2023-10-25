@@ -16,37 +16,6 @@ import (
 // Resource for managing an AWS Lex V2 Models Bot.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewV2modelsBot(ctx, "example", &lex.V2modelsBotArgs{
-//				DataPrivacies: lex.V2modelsBotDataPrivacyArray{
-//					&lex.V2modelsBotDataPrivacyArgs{
-//						ChildDirected: pulumi.Bool("boolean"),
-//					},
-//				},
-//				IdleSessionTtlInSeconds: pulumi.Int(10),
-//				RoleArn:                 pulumi.String("bot_example_arn"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

@@ -12,32 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** All arguments including the password will be stored in the raw state as plain-text. > **Note:** The `s3Settings` argument is deprecated, may not be maintained, and will be removed in a future version. Use the `aws.dms.S3Endpoint` resource instead.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new endpoint
- * const test = new aws.dms.Endpoint("test", {
- *     certificateArn: "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
- *     databaseName: "test",
- *     endpointId: "test-dms-endpoint-tf",
- *     endpointType: "source",
- *     engineName: "aurora",
- *     extraConnectionAttributes: "",
- *     kmsKeyArn: "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
- *     password: "test",
- *     port: 3306,
- *     serverName: "test",
- *     sslMode: "none",
- *     tags: {
- *         Name: "test",
- *     },
- *     username: "test",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:

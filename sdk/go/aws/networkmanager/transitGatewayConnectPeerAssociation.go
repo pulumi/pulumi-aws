@@ -16,34 +16,6 @@ import (
 // Associates a transit gateway Connect peer with a device, and optionally, with a link.
 // If you specify a link, it must be associated with the specified device.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewTransitGatewayConnectPeerAssociation(ctx, "example", &networkmanager.TransitGatewayConnectPeerAssociationArgs{
-//				GlobalNetworkId:              pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				DeviceId:                     pulumi.Any(aws_networkmanager_device.Example.Id),
-//				TransitGatewayConnectPeerArn: pulumi.Any(aws_ec2_transit_gateway_connect_peer.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_transit_gateway_connect_peer_association` using the global network ID and customer gateway ARN. For example:

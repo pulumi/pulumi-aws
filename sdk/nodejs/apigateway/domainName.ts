@@ -36,56 +36,6 @@ import * as utilities from "../utilities";
  * `regionalCertificateArn = aws_acm_certificate_validation.cert.certificate_arn`.
  *
  * ## Example Usage
- * ### Edge Optimized (ACM Certificate)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
- *     certificateArn: aws_acm_certificate_validation.example.certificate_arn,
- *     domainName: "api.example.com",
- * });
- * // Example DNS record using Route53.
- * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
- *     name: exampleDomainName.domainName,
- *     type: "A",
- *     zoneId: aws_route53_zone.example.id,
- *     aliases: [{
- *         evaluateTargetHealth: true,
- *         name: exampleDomainName.cloudfrontDomainName,
- *         zoneId: exampleDomainName.cloudfrontZoneId,
- *     }],
- * });
- * ```
- * ### Edge Optimized (IAM Certificate)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
- *     domainName: "api.example.com",
- *     certificateName: "example-api",
- *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`),
- *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
- *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
- * });
- * // Example DNS record using Route53.
- * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
- *     zoneId: aws_route53_zone.example.id,
- *     name: exampleDomainName.domainName,
- *     type: "A",
- *     aliases: [{
- *         name: exampleDomainName.cloudfrontDomainName,
- *         zoneId: exampleDomainName.cloudfrontZoneId,
- *         evaluateTargetHealth: true,
- *     }],
- * });
- * ```
  *
  * ## Import
  *

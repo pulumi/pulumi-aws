@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apprunner.Connection("example", {
- *     connectionName: "example",
- *     providerType: "GITHUB",
- *     tags: {
- *         Name: "example-apprunner-connection",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:

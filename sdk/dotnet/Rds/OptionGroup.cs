@@ -17,67 +17,6 @@ namespace Pulumi.Aws.Rds
     /// * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
     /// * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rds.OptionGroup("example", new()
-    ///     {
-    ///         OptionGroupDescription = "Option Group",
-    ///         EngineName = "sqlserver-ee",
-    ///         MajorEngineVersion = "11.00",
-    ///         Options = new[]
-    ///         {
-    ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
-    ///             {
-    ///                 OptionName = "Timezone",
-    ///                 OptionSettings = new[]
-    ///                 {
-    ///                     new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
-    ///                     {
-    ///                         Name = "TIME_ZONE",
-    ///                         Value = "UTC",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
-    ///             {
-    ///                 OptionName = "SQLSERVER_BACKUP_RESTORE",
-    ///                 OptionSettings = new[]
-    ///                 {
-    ///                     new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
-    ///                     {
-    ///                         Name = "IAM_ROLE_ARN",
-    ///                         Value = aws_iam_role.Example.Arn,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
-    ///             {
-    ///                 OptionName = "TDE",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// &gt; **Note:** Any modifications to the `aws.rds.OptionGroup` are set to happen immediately as we default to applying immediately.
-    /// 
-    /// &gt; **WARNING:** You can perform a destroy on a `aws.rds.OptionGroup`, as long as it is not associated with any Amazon RDS resource. An option group can be associated with a DB instance, a manual DB snapshot, or an automated DB snapshot.
-    /// 
-    /// If you try to delete an option group that is associated with an Amazon RDS resource, an error similar to the following is returned:
-    /// 
-    /// &gt; An error occurred (InvalidOptionGroupStateFault) when calling the DeleteOptionGroup operation: The option group 'optionGroupName' cannot be deleted because it is in use.
-    /// 
-    /// More information about this can be found [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html#USER_WorkingWithOptionGroups.Delete).
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB option groups using the `name`. For example:

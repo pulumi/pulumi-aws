@@ -14,33 +14,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// &gt; **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var user = new Aws.Iam.User("user");
-    /// 
-    ///     var policy = new Aws.Iam.Policy("policy", new()
-    ///     {
-    ///         Description = "A test policy",
-    ///         PolicyDocument = "{ ... policy JSON ... }",
-    ///     });
-    /// 
-    ///     var test_attach = new Aws.Iam.UserPolicyAttachment("test-attach", new()
-    ///     {
-    ///         User = user.Name,
-    ///         PolicyArn = policy.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:

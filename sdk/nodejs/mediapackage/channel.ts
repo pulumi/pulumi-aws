@@ -10,18 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Elemental MediaPackage Channel.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const kittens = new aws.mediapackage.Channel("kittens", {
- *     channelId: "kitten-channel",
- *     description: "A channel dedicated to amusing videos of kittens.",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Media Package Channels using the channel ID. For example:

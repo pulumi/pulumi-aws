@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
         /// </summary>
         public readonly string Stat;
         /// <summary>
-        /// Unit of the metric.
+        /// Unit of the metrics to return.
         /// </summary>
         public readonly string? Unit;
 

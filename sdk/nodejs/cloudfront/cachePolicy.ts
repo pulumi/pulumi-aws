@@ -8,42 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * Use the `aws.cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudfront.CachePolicy("example", {
- *     comment: "test comment",
- *     defaultTtl: 50,
- *     maxTtl: 100,
- *     minTtl: 1,
- *     parametersInCacheKeyAndForwardedToOrigin: {
- *         cookiesConfig: {
- *             cookieBehavior: "whitelist",
- *             cookies: {
- *                 items: ["example"],
- *             },
- *         },
- *         headersConfig: {
- *             headerBehavior: "whitelist",
- *             headers: {
- *                 items: ["example"],
- *             },
- *         },
- *         queryStringsConfig: {
- *             queryStringBehavior: "whitelist",
- *             queryStrings: {
- *                 items: ["example"],
- *             },
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:

@@ -11,54 +11,6 @@ import * as utilities from "../utilities";
  * Provides an ElastiCache user resource.
  *
  * > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.elasticache.User("test", {
- *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
- *     engine: "REDIS",
- *     passwords: ["password123456789"],
- *     userId: "testUserId",
- *     userName: "testUserName",
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.elasticache.User("test", {
- *     accessString: "on ~* +@all",
- *     authenticationMode: {
- *         type: "iam",
- *     },
- *     engine: "REDIS",
- *     userId: "testUserId",
- *     userName: "testUserName",
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.elasticache.User("test", {
- *     accessString: "on ~* +@all",
- *     authenticationMode: {
- *         passwords: [
- *             "password1",
- *             "password2",
- *         ],
- *         type: "password",
- *     },
- *     engine: "REDIS",
- *     userId: "testUserId",
- *     userName: "testUserName",
- * });
- * ```
  *
  * ## Import
  *

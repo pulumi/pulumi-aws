@@ -12,25 +12,6 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// This setting defines how a user interacts with or uses a service or a feature of a service.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testSetting = new Aws.Ssm.ServiceSetting("testSetting", new()
-    ///     {
-    ///         SettingId = "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled",
-    ///         SettingValue = "true",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS SSM Service Setting using the `setting_id`. For example:

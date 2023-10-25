@@ -24,56 +24,6 @@ namespace Pulumi.Aws.AutoScaling
     /// `aws.autoscaling.Group`,
     /// but take care to not duplicate those hooks with this resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foobarGroup = new Aws.AutoScaling.Group("foobarGroup", new()
-    ///     {
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-west-2a",
-    ///         },
-    ///         HealthCheckType = "EC2",
-    ///         TerminationPolicies = new[]
-    ///         {
-    ///             "OldestInstance",
-    ///         },
-    ///         Tags = new[]
-    ///         {
-    ///             new Aws.AutoScaling.Inputs.GroupTagArgs
-    ///             {
-    ///                 Key = "Foo",
-    ///                 Value = "foo-bar",
-    ///                 PropagateAtLaunch = true,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var foobarLifecycleHook = new Aws.AutoScaling.LifecycleHook("foobarLifecycleHook", new()
-    ///     {
-    ///         AutoscalingGroupName = foobarGroup.Name,
-    ///         DefaultResult = "CONTINUE",
-    ///         HeartbeatTimeout = 2000,
-    ///         LifecycleTransition = "autoscaling:EC2_INSTANCE_LAUNCHING",
-    ///         NotificationMetadata = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["foo"] = "bar",
-    ///         }),
-    ///         NotificationTargetArn = "arn:aws:sqs:us-east-1:444455556666:queue1*",
-    ///         RoleArn = "arn:aws:iam::123456789012:role/S3Access",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role autoscaling_group_name and name separated by `/`. For example:

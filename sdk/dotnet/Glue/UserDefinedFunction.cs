@@ -12,41 +12,6 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Provides a Glue User Defined Function Resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCatalogDatabase = new Aws.Glue.CatalogDatabase("exampleCatalogDatabase", new()
-    ///     {
-    ///         Name = "my_database",
-    ///     });
-    /// 
-    ///     var exampleUserDefinedFunction = new Aws.Glue.UserDefinedFunction("exampleUserDefinedFunction", new()
-    ///     {
-    ///         CatalogId = exampleCatalogDatabase.CatalogId,
-    ///         DatabaseName = exampleCatalogDatabase.Name,
-    ///         ClassName = "class",
-    ///         OwnerName = "owner",
-    ///         OwnerType = "GROUP",
-    ///         ResourceUris = new[]
-    ///         {
-    ///             new Aws.Glue.Inputs.UserDefinedFunctionResourceUriArgs
-    ///             {
-    ///                 ResourceType = "ARCHIVE",
-    ///                 Uri = "uri",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:

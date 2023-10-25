@@ -15,40 +15,6 @@ import (
 
 // Provides an AppConfig Deployment Strategy resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.NewDeploymentStrategy(ctx, "example", &appconfig.DeploymentStrategyArgs{
-//				DeploymentDurationInMinutes: pulumi.Int(3),
-//				Description:                 pulumi.String("Example Deployment Strategy"),
-//				FinalBakeTimeInMinutes:      pulumi.Int(4),
-//				GrowthFactor:                pulumi.Float64(10),
-//				GrowthType:                  pulumi.String("LINEAR"),
-//				ReplicateTo:                 pulumi.String("NONE"),
-//				Tags: pulumi.StringMap{
-//					"Type": pulumi.String("AppConfig Deployment Strategy"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:

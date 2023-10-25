@@ -15,236 +15,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retainOnDelete` flag.
  *
  * ## Example Usage
- * ### S3 Origin
- *
- * The example below creates a CloudFront distribution with an S3 origin.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {tags: {
- *     Name: "My bucket",
- * }});
- * const bAcl = new aws.s3.BucketAclV2("bAcl", {
- *     bucket: bucketV2.id,
- *     acl: "private",
- * });
- * const s3OriginId = "myS3Origin";
- * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
- *     origins: [{
- *         domainName: bucketV2.bucketRegionalDomainName,
- *         originAccessControlId: aws_cloudfront_origin_access_control["default"].id,
- *         originId: s3OriginId,
- *     }],
- *     enabled: true,
- *     isIpv6Enabled: true,
- *     comment: "Some comment",
- *     defaultRootObject: "index.html",
- *     loggingConfig: {
- *         includeCookies: false,
- *         bucket: "mylogs.s3.amazonaws.com",
- *         prefix: "myprefix",
- *     },
- *     aliases: [
- *         "mysite.example.com",
- *         "yoursite.example.com",
- *     ],
- *     defaultCacheBehavior: {
- *         allowedMethods: [
- *             "DELETE",
- *             "GET",
- *             "HEAD",
- *             "OPTIONS",
- *             "PATCH",
- *             "POST",
- *             "PUT",
- *         ],
- *         cachedMethods: [
- *             "GET",
- *             "HEAD",
- *         ],
- *         targetOriginId: s3OriginId,
- *         forwardedValues: {
- *             queryString: false,
- *             cookies: {
- *                 forward: "none",
- *             },
- *         },
- *         viewerProtocolPolicy: "allow-all",
- *         minTtl: 0,
- *         defaultTtl: 3600,
- *         maxTtl: 86400,
- *     },
- *     orderedCacheBehaviors: [
- *         {
- *             pathPattern: "/content/immutable/*",
- *             allowedMethods: [
- *                 "GET",
- *                 "HEAD",
- *                 "OPTIONS",
- *             ],
- *             cachedMethods: [
- *                 "GET",
- *                 "HEAD",
- *                 "OPTIONS",
- *             ],
- *             targetOriginId: s3OriginId,
- *             forwardedValues: {
- *                 queryString: false,
- *                 headers: ["Origin"],
- *                 cookies: {
- *                     forward: "none",
- *                 },
- *             },
- *             minTtl: 0,
- *             defaultTtl: 86400,
- *             maxTtl: 31536000,
- *             compress: true,
- *             viewerProtocolPolicy: "redirect-to-https",
- *         },
- *         {
- *             pathPattern: "/content/*",
- *             allowedMethods: [
- *                 "GET",
- *                 "HEAD",
- *                 "OPTIONS",
- *             ],
- *             cachedMethods: [
- *                 "GET",
- *                 "HEAD",
- *             ],
- *             targetOriginId: s3OriginId,
- *             forwardedValues: {
- *                 queryString: false,
- *                 cookies: {
- *                     forward: "none",
- *                 },
- *             },
- *             minTtl: 0,
- *             defaultTtl: 3600,
- *             maxTtl: 86400,
- *             compress: true,
- *             viewerProtocolPolicy: "redirect-to-https",
- *         },
- *     ],
- *     priceClass: "PriceClass_200",
- *     restrictions: {
- *         geoRestriction: {
- *             restrictionType: "whitelist",
- *             locations: [
- *                 "US",
- *                 "CA",
- *                 "GB",
- *                 "DE",
- *             ],
- *         },
- *     },
- *     tags: {
- *         Environment: "production",
- *     },
- *     viewerCertificate: {
- *         cloudfrontDefaultCertificate: true,
- *     },
- * });
- * ```
- * ### With Failover Routing
- *
- * The example below creates a CloudFront distribution with an origin group for failover routing.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
- *     originGroups: [{
- *         originId: "groupS3",
- *         failoverCriteria: {
- *             statusCodes: [
- *                 403,
- *                 404,
- *                 500,
- *                 502,
- *             ],
- *         },
- *         members: [
- *             {
- *                 originId: "primaryS3",
- *             },
- *             {
- *                 originId: "failoverS3",
- *             },
- *         ],
- *     }],
- *     origins: [
- *         {
- *             domainName: aws_s3_bucket.primary.bucket_regional_domain_name,
- *             originId: "primaryS3",
- *             s3OriginConfig: {
- *                 originAccessIdentity: aws_cloudfront_origin_access_identity["default"].cloudfront_access_identity_path,
- *             },
- *         },
- *         {
- *             domainName: aws_s3_bucket.failover.bucket_regional_domain_name,
- *             originId: "failoverS3",
- *             s3OriginConfig: {
- *                 originAccessIdentity: aws_cloudfront_origin_access_identity["default"].cloudfront_access_identity_path,
- *             },
- *         },
- *     ],
- *     defaultCacheBehavior: {
- *         targetOriginId: "groupS3",
- *     },
- * });
- * // ... other configuration ...
- * ```
- * ### With Managed Caching Policy
- *
- * The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const s3OriginId = "myS3Origin";
- * const s3Distribution = new aws.cloudfront.Distribution("s3Distribution", {
- *     origins: [{
- *         domainName: aws_s3_bucket.primary.bucket_regional_domain_name,
- *         originId: "myS3Origin",
- *         s3OriginConfig: {
- *             originAccessIdentity: aws_cloudfront_origin_access_identity["default"].cloudfront_access_identity_path,
- *         },
- *     }],
- *     enabled: true,
- *     isIpv6Enabled: true,
- *     comment: "Some comment",
- *     defaultRootObject: "index.html",
- *     defaultCacheBehavior: {
- *         cachePolicyId: "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
- *         allowedMethods: [
- *             "GET",
- *             "HEAD",
- *             "OPTIONS",
- *         ],
- *         targetOriginId: s3OriginId,
- *     },
- *     restrictions: {
- *         geoRestriction: {
- *             restrictionType: "whitelist",
- *             locations: [
- *                 "US",
- *                 "CA",
- *                 "GB",
- *                 "DE",
- *             ],
- *         },
- *     },
- *     viewerCertificate: {
- *         cloudfrontDefaultCertificate: true,
- *     },
- * });
- * // ... other configuration ...
- * ```
  *
  * ## Import
  *
@@ -319,7 +89,7 @@ export class Distribution extends pulumi.CustomResource {
      */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
-     * Whether the distribution is enabled to accept end user requests for content.
+     * Whether Origin Shield is enabled.
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
@@ -556,7 +326,7 @@ export interface DistributionState {
      */
     domainName?: pulumi.Input<string>;
     /**
-     * Whether the distribution is enabled to accept end user requests for content.
+     * Whether Origin Shield is enabled.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -680,7 +450,7 @@ export interface DistributionArgs {
      */
     defaultRootObject?: pulumi.Input<string>;
     /**
-     * Whether the distribution is enabled to accept end user requests for content.
+     * Whether Origin Shield is enabled.
      */
     enabled: pulumi.Input<boolean>;
     /**

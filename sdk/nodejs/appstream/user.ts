@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppStream user.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appstream.User("example", {
- *     authenticationType: "USERPOOL",
- *     firstName: "FIRST NAME",
- *     lastName: "LAST NAME",
- *     userName: "EMAIL",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:

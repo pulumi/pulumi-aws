@@ -14,40 +14,6 @@ namespace Pulumi.Aws.Dms
     /// 
     /// &gt; **Note:** All arguments including the password will be stored in the raw state as plain-text. &gt; **Note:** The `s3_settings` argument is deprecated, may not be maintained, and will be removed in a future version. Use the `aws.dms.S3Endpoint` resource instead.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new endpoint
-    ///     var test = new Aws.Dms.Endpoint("test", new()
-    ///     {
-    ///         CertificateArn = "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
-    ///         DatabaseName = "test",
-    ///         EndpointId = "test-dms-endpoint-tf",
-    ///         EndpointType = "source",
-    ///         EngineName = "aurora",
-    ///         ExtraConnectionAttributes = "",
-    ///         KmsKeyArn = "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-    ///         Password = "test",
-    ///         Port = 3306,
-    ///         ServerName = "test",
-    ///         SslMode = "none",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "test" },
-    ///         },
-    ///         Username = "test",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import endpoints using the `endpoint_id`. For example:

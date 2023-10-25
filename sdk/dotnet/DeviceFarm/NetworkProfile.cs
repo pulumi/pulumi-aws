@@ -14,26 +14,6 @@ namespace Pulumi.Aws.DeviceFarm
     /// ∂
     /// &gt; **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new Aws.DeviceFarm.Project("exampleProject");
-    /// 
-    ///     var exampleNetworkProfile = new Aws.DeviceFarm.NetworkProfile("exampleNetworkProfile", new()
-    ///     {
-    ///         ProjectArn = exampleProject.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:

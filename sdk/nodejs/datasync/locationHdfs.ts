@@ -12,23 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The DataSync Agents must be available before creating this resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.LocationHdfs("example", {
- *     agentArns: [aws_datasync_agent.example.arn],
- *     authenticationType: "SIMPLE",
- *     simpleUser: "example",
- *     nameNodes: [{
- *         hostname: aws_instance.example.private_dns,
- *         port: 80,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:

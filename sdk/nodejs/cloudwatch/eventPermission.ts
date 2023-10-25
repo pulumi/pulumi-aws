@@ -15,33 +15,6 @@ import * as utilities from "../utilities";
  * > **Note:** The EventBridge bus policy resource  (`aws.cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`aws.cloudwatch.EventPermission`) and will overwrite permissions.
  *
  * ## Example Usage
- * ### Account Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const devAccountAccess = new aws.cloudwatch.EventPermission("devAccountAccess", {
- *     principal: "123456789012",
- *     statementId: "DevAccountAccess",
- * });
- * ```
- * ### Organization Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const organizationAccess = new aws.cloudwatch.EventPermission("organizationAccess", {
- *     principal: "*",
- *     statementId: "OrganizationAccess",
- *     condition: {
- *         key: "aws:PrincipalOrgID",
- *         type: "StringEquals",
- *         value: aws_organizations_organization.example.id,
- *     },
- * });
- * ```
  *
  * ## Import
  *

@@ -7,31 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Glue Development Endpoint resource.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["glue.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
- * const exampleDevEndpoint = new aws.glue.DevEndpoint("exampleDevEndpoint", {roleArn: exampleRole.arn});
- * const example_AWSGlueServiceRole = new aws.iam.RolePolicyAttachment("example-AWSGlueServiceRole", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
- *     role: exampleRole.name,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:

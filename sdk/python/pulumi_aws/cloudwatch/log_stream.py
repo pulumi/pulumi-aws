@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LogStreamArgs', 'LogStream']
@@ -21,9 +21,26 @@ class LogStreamArgs:
         :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
         """
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        LogStreamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_group_name is None:
+            raise TypeError("Missing 'log_group_name' argument")
+
+        _setter("log_group_name", log_group_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -62,12 +79,29 @@ class _LogStreamState:
         :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
         """
+        _LogStreamState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            log_group_name=log_group_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             log_group_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if log_group_name is not None:
-            pulumi.set(__self__, "log_group_name", log_group_name)
+            _setter("log_group_name", log_group_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -117,16 +151,6 @@ class LogStream(pulumi.CustomResource):
         """
         Provides a CloudWatch Log Stream resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        yada = aws.cloudwatch.LogGroup("yada")
-        foo = aws.cloudwatch.LogStream("foo", log_group_name=yada.name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
@@ -149,16 +173,6 @@ class LogStream(pulumi.CustomResource):
         """
         Provides a CloudWatch Log Stream resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        yada = aws.cloudwatch.LogGroup("yada")
-        foo = aws.cloudwatch.LogStream("foo", log_group_name=yada.name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
@@ -177,6 +191,10 @@ class LogStream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogStreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

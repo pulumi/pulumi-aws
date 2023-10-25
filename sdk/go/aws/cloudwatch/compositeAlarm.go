@@ -17,43 +17,6 @@ import (
 //
 // > **NOTE:** An alarm (composite or metric) cannot be destroyed when there are other composite alarms depending on it. This can lead to a cyclical dependency on update, as the provider will unsuccessfully attempt to destroy alarms before updating the rule. Consider using `dependsOn`, references to alarm names, and two-stage updates.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewCompositeAlarm(ctx, "example", &cloudwatch.CompositeAlarmArgs{
-//				AlarmDescription: pulumi.String("This is a composite alarm!"),
-//				AlarmName:        pulumi.String("example-composite-alarm"),
-//				AlarmActions:     pulumi.Any(aws_sns_topic.Example.Arn),
-//				OkActions:        pulumi.Any(aws_sns_topic.Example.Arn),
-//				AlarmRule:        pulumi.String(fmt.Sprintf("ALARM(%v) OR\nALARM(%v)\n", aws_cloudwatch_metric_alarm.Alpha.Alarm_name, aws_cloudwatch_metric_alarm.Bravo.Alarm_name)),
-//				ActionsSuppressor: &cloudwatch.CompositeAlarmActionsSuppressorArgs{
-//					Alarm:           pulumi.String("suppressor-alarm"),
-//					ExtensionPeriod: pulumi.Int(10),
-//					WaitPeriod:      pulumi.Int(20),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:

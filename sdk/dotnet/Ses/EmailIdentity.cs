@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES email identity resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ses.EmailIdentity("example", new()
-    ///     {
-    ///         Email = "email@example.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES email identities using the email address. For example:

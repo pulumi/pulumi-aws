@@ -13,58 +13,12 @@ namespace Pulumi.Aws.SecretsManager
     {
         /// <summary>
         /// Generate a random password.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.SecretsManager.GetRandomPassword.Invoke(new()
-        ///     {
-        ///         ExcludeNumbers = true,
-        ///         PasswordLength = 50,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRandomPasswordResult> InvokeAsync(GetRandomPasswordArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRandomPasswordResult>("aws:secretsmanager/getRandomPassword:getRandomPassword", args ?? new GetRandomPasswordArgs(), options.WithDefaults());
 
         /// <summary>
         /// Generate a random password.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.SecretsManager.GetRandomPassword.Invoke(new()
-        ///     {
-        ///         ExcludeNumbers = true,
-        ///         PasswordLength = 50,
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRandomPasswordResult> Invoke(GetRandomPasswordInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRandomPasswordResult>("aws:secretsmanager/getRandomPassword:getRandomPassword", args ?? new GetRandomPasswordInvokeArgs(), options.WithDefaults());

@@ -7,32 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleDomainIdentity = new aws.ses.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
- * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         actions: [
- *             "SES:SendEmail",
- *             "SES:SendRawEmail",
- *         ],
- *         resources: [exampleDomainIdentity.arn],
- *         principals: [{
- *             identifiers: ["*"],
- *             type: "AWS",
- *         }],
- *     }],
- * });
- * const exampleIdentityPolicy = new aws.ses.IdentityPolicy("exampleIdentityPolicy", {
- *     identity: exampleDomainIdentity.arn,
- *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:

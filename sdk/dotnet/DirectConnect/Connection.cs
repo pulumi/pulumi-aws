@@ -13,65 +13,6 @@ namespace Pulumi.Aws.DirectConnect
     /// Provides a Connection of Direct Connect.
     /// 
     /// ## Example Usage
-    /// ### Create a connection
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var hoge = new Aws.DirectConnect.Connection("hoge", new()
-    ///     {
-    ///         Bandwidth = "1Gbps",
-    ///         Location = "EqDC2",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Request a MACsec-capable connection
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DirectConnect.Connection("example", new()
-    ///     {
-    ///         Bandwidth = "10Gbps",
-    ///         Location = "EqDA2",
-    ///         RequestMacsec = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Configure encryption mode for MACsec-capable connections
-    /// 
-    /// &gt; **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DirectConnect.Connection("example", new()
-    ///     {
-    ///         Bandwidth = "10Gbps",
-    ///         EncryptionMode = "must_encrypt",
-    ///         Location = "EqDC2",
-    ///         RequestMacsec = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

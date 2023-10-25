@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourceArgs', 'Resource']
@@ -23,8 +23,29 @@ class ResourceArgs:
                The following arguments are optional:
         :param pulumi.Input[str] resource_arn: The ARN of the resource to be added to the group.
         """
-        pulumi.set(__self__, "group_arn", group_arn)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        ResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_arn=group_arn,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_arn: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_arn is None and 'groupArn' in kwargs:
+            group_arn = kwargs['groupArn']
+        if group_arn is None:
+            raise TypeError("Missing 'group_arn' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+
+        _setter("group_arn", group_arn)
+        _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="groupArn")
@@ -67,12 +88,33 @@ class _ResourceState:
         :param pulumi.Input[str] resource_arn: The ARN of the resource to be added to the group.
         :param pulumi.Input[str] resource_type: The resource type of a resource, such as `AWS::EC2::Instance`.
         """
+        _ResourceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_arn=group_arn,
+            resource_arn=resource_arn,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_arn: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_arn is None and 'groupArn' in kwargs:
+            group_arn = kwargs['groupArn']
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if group_arn is not None:
-            pulumi.set(__self__, "group_arn", group_arn)
+            _setter("group_arn", group_arn)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter(name="groupArn")
@@ -125,22 +167,6 @@ class Resource(pulumi.CustomResource):
         Resource for managing an AWS Resource Groups Resource.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_dedicated_host = aws.ec2.DedicatedHost("exampleDedicatedHost",
-            instance_family="t3",
-            availability_zone="us-east-1a",
-            host_recovery="off",
-            auto_placement="on")
-        example_group = aws.resourcegroups.Group("exampleGroup")
-        example_resource = aws.resourcegroups.Resource("exampleResource",
-            group_arn=example_group.arn,
-            resource_arn=example_dedicated_host.arn)
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,22 +185,6 @@ class Resource(pulumi.CustomResource):
         Resource for managing an AWS Resource Groups Resource.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_dedicated_host = aws.ec2.DedicatedHost("exampleDedicatedHost",
-            instance_family="t3",
-            availability_zone="us-east-1a",
-            host_recovery="off",
-            auto_placement="on")
-        example_group = aws.resourcegroups.Group("exampleGroup")
-        example_resource = aws.resourcegroups.Resource("exampleResource",
-            group_arn=example_group.arn,
-            resource_arn=example_dedicated_host.arn)
-        ```
 
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.
@@ -186,6 +196,10 @@ class Resource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

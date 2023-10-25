@@ -11,17 +11,6 @@ import * as utilities from "../utilities";
  * This data source can be used to fetch information about a specific
  * IAM role. By using this data source, you can reference IAM role
  * properties without having to hard code ARNs as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getRole({
- *     name: "an_example_role_name",
- * });
- * ```
  */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
 
@@ -100,17 +89,6 @@ export interface GetRoleResult {
  * This data source can be used to fetch information about a specific
  * IAM role. By using this data source, you can reference IAM role
  * properties without having to hard code ARNs as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getRole({
- *     name: "an_example_role_name",
- * });
- * ```
  */
 export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {
     return pulumi.output(args).apply((a: any) => getRole(a, opts))

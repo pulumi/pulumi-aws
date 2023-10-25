@@ -12,27 +12,6 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rds.ProxyEndpoint("example", new()
-    ///     {
-    ///         DbProxyName = aws_db_proxy.Test.Name,
-    ///         DbProxyEndpointName = "example",
-    ///         VpcSubnetIds = aws_subnet.Test.Select(__item =&gt; __item.Id).ToList(),
-    ///         TargetRole = "READ_ONLY",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:

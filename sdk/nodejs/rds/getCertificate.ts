@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Information about an RDS Certificate.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.rds.getCertificate({
- *     latestValidTill: true,
- * });
- * ```
  */
 export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     args = args || {};
@@ -79,17 +68,6 @@ export interface GetCertificateResult {
 }
 /**
  * Information about an RDS Certificate.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.rds.getCertificate({
- *     latestValidTill: true,
- * });
- * ```
  */
 export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

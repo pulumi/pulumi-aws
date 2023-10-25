@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
  * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
  *
  * > **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.directconnect.getLocations({});
- * ```
  */
 export function getLocations(opts?: pulumi.InvokeOptions): Promise<GetLocationsResult> {
 
@@ -44,15 +35,6 @@ export interface GetLocationsResult {
  * These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
  *
  * > **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.directconnect.getLocations({});
- * ```
  */
 export function getLocationsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationsResult> {
     return pulumi.output(getLocations(opts))

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -92,18 +92,6 @@ def get_prompt(instance_id: Optional[str] = None,
     """
     Provides details about a specific Amazon Connect Prompt.
 
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_prompt(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Beep.wav")
-    ```
-
 
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str name: Returns information on a specific Prompt by name
@@ -128,18 +116,6 @@ def get_prompt_output(instance_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPromptResult]:
     """
     Provides details about a specific Amazon Connect Prompt.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_prompt(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Beep.wav")
-    ```
 
 
     :param str instance_id: Reference to the hosting Amazon Connect Instance

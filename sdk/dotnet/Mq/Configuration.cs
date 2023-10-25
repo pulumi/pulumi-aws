@@ -15,58 +15,6 @@ namespace Pulumi.Aws.Mq
     /// For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
     /// 
     /// ## Example Usage
-    /// ### ActiveMQ
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Mq.Configuration("example", new()
-    ///     {
-    ///         Data = @"&lt;?xml version=""1.0"" encoding=""UTF-8"" standalone=""yes""?&gt;
-    /// &lt;broker xmlns=""http://activemq.apache.org/schema/core""&gt;
-    ///   &lt;plugins&gt;
-    ///     &lt;forcePersistencyModeBrokerPlugin persistenceFlag=""true""/&gt;
-    ///     &lt;statisticsBrokerPlugin/&gt;
-    ///     &lt;timeStampingBrokerPlugin ttlCeiling=""86400000"" zeroExpirationOverride=""86400000""/&gt;
-    ///   &lt;/plugins&gt;
-    /// &lt;/broker&gt;
-    /// 
-    /// ",
-    ///         Description = "Example Configuration",
-    ///         EngineType = "ActiveMQ",
-    ///         EngineVersion = "5.15.0",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### RabbitMQ
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Mq.Configuration("example", new()
-    ///     {
-    ///         Data = @"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
-    /// consumer_timeout = 1800000
-    /// 
-    /// ",
-    ///         Description = "Example Configuration",
-    ///         EngineType = "RabbitMQ",
-    ///         EngineVersion = "3.11.16",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -13,44 +13,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// Manages an EC2 Transit Gateway Route.
     /// 
     /// ## Example Usage
-    /// ### Standard usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.Route("example", new()
-    ///     {
-    ///         DestinationCidrBlock = "0.0.0.0/0",
-    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_vpc_attachment.Example.Id,
-    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Blackhole route
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.Route("example", new()
-    ///     {
-    ///         DestinationCidrBlock = "0.0.0.0/0",
-    ///         Blackhole = true,
-    ///         TransitGatewayRouteTableId = aws_ec2_transit_gateway.Example.Association_default_route_table_id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

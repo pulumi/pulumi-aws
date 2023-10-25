@@ -13,40 +13,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
     /// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2ClientVpn.Endpoint("example", new()
-    ///     {
-    ///         Description = "clientvpn-example",
-    ///         ServerCertificateArn = aws_acm_certificate.Cert.Arn,
-    ///         ClientCidrBlock = "10.0.0.0/16",
-    ///         AuthenticationOptions = new[]
-    ///         {
-    ///             new Aws.Ec2ClientVpn.Inputs.EndpointAuthenticationOptionArgs
-    ///             {
-    ///                 Type = "certificate-authentication",
-    ///                 RootCertificateChainArn = aws_acm_certificate.Root_cert.Arn,
-    ///             },
-    ///         },
-    ///         ConnectionLogOptions = new Aws.Ec2ClientVpn.Inputs.EndpointConnectionLogOptionsArgs
-    ///         {
-    ///             Enabled = true,
-    ///             CloudwatchLogGroup = aws_cloudwatch_log_group.Lg.Name,
-    ///             CloudwatchLogStream = aws_cloudwatch_log_stream.Ls.Name,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:

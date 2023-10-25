@@ -10,20 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an OpsWorks instance resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const my_instance = new aws.opsworks.Instance("my-instance", {
- *     stackId: aws_opsworks_stack.main.id,
- *     layerIds: [aws_opsworks_custom_layer["my-layer"].id],
- *     instanceType: "t2.micro",
- *     os: "Amazon Linux 2015.09",
- *     state: "stopped",
- * });
- * ```
  * ## Block devices
  *
  * Each of the `*_block_device` attributes controls a portion of the AWS

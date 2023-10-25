@@ -13,68 +13,6 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Code Repository resource.
     /// 
     /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.CodeRepository("example", new()
-    ///     {
-    ///         CodeRepositoryName = "example",
-    ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
-    ///         {
-    ///             RepositoryUrl = "https://github.com/github/docs.git",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Example with Secret
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleSecret = new Aws.SecretsManager.Secret("exampleSecret");
-    /// 
-    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("exampleSecretVersion", new()
-    ///     {
-    ///         SecretId = exampleSecret.Id,
-    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["username"] = "example",
-    ///             ["password"] = "example",
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleCodeRepository = new Aws.Sagemaker.CodeRepository("exampleCodeRepository", new()
-    ///     {
-    ///         CodeRepositoryName = "example",
-    ///         GitConfig = new Aws.Sagemaker.Inputs.CodeRepositoryGitConfigArgs
-    ///         {
-    ///             RepositoryUrl = "https://github.com/github/docs.git",
-    ///             SecretArn = exampleSecret.Arn,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleSecretVersion,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -17,14 +17,14 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionCo
     public static final LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs Empty = new LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+     * The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
      * 
      */
     @Import(name="cmkArn")
     private @Nullable Output<String> cmkArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+     * @return The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
      * 
      */
     public Optional<Output<String>> cmkArn() {
@@ -32,14 +32,14 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionCo
     }
 
     /**
-     * To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+     * To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
      * 
      */
     @Import(name="encrypted")
     private @Nullable Output<Boolean> encrypted;
 
     /**
-     * @return To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+     * @return To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
      * 
      */
     public Optional<Output<Boolean>> encrypted() {
@@ -72,7 +72,7 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionCo
         }
 
         /**
-         * @param cmkArn The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+         * @param cmkArn The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionCo
         }
 
         /**
-         * @param cmkArn The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+         * @param cmkArn The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionCo
         }
 
         /**
-         * @param encrypted To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+         * @param encrypted To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionCo
         }
 
         /**
-         * @param encrypted To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+         * @param encrypted To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
          * 
          * @return builder
          * 

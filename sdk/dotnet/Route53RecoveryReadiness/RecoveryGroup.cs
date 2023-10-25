@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// <summary>
     /// Provides an AWS Route 53 Recovery Readiness Recovery Group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Route53RecoveryReadiness.RecoveryGroup("example", new()
-    ///     {
-    ///         RecoveryGroupName = "my-high-availability-app",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:

@@ -8,17 +8,6 @@ import * as utilities from "../utilities";
  * This data source can be used to fetch information about a specific
  * IAM user. By using this data source, you can reference IAM user
  * properties without having to hard code ARNs or unique IDs as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getUser({
- *     userName: "an_example_user_name",
- * });
- * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
@@ -80,17 +69,6 @@ export interface GetUserResult {
  * This data source can be used to fetch information about a specific
  * IAM user. By using this data source, you can reference IAM user
  * properties without having to hard code ARNs or unique IDs as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.iam.getUser({
- *     userName: "an_example_user_name",
- * });
- * ```
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))

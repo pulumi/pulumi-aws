@@ -16,34 +16,6 @@ namespace Pulumi.Aws.DynamoDB
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.DynamoDB.GetTableItem.Invoke(new()
-        ///     {
-        ///         TableName = aws_dynamodb_table.Example.Name,
-        ///         ExpressionAttributeNames = 
-        ///         {
-        ///             { "#P", "Percentile" },
-        ///         },
-        ///         ProjectionExpression = "#P",
-        ///         Key = @"{
-        /// 	""hashKey"": {""S"": ""example""}
-        /// }
-        /// ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTableItemResult> InvokeAsync(GetTableItemArgs args, InvokeOptions? options = null)
@@ -54,34 +26,6 @@ namespace Pulumi.Aws.DynamoDB
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = Aws.DynamoDB.GetTableItem.Invoke(new()
-        ///     {
-        ///         TableName = aws_dynamodb_table.Example.Name,
-        ///         ExpressionAttributeNames = 
-        ///         {
-        ///             { "#P", "Percentile" },
-        ///         },
-        ///         ProjectionExpression = "#P",
-        ///         Key = @"{
-        /// 	""hashKey"": {""S"": ""example""}
-        /// }
-        /// ",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTableItemResult> Invoke(GetTableItemInvokeArgs args, InvokeOptions? options = null)

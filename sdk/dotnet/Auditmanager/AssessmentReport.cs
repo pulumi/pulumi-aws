@@ -13,23 +13,6 @@ namespace Pulumi.Aws.Auditmanager
     /// Resource for managing an AWS Audit Manager Assessment Report.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Auditmanager.AssessmentReport("test", new()
-    ///     {
-    ///         AssessmentId = aws_auditmanager_assessment.Test.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

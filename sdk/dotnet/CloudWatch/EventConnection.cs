@@ -14,59 +14,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
-    ///     {
-    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
-    ///         {
-    ///             ApiKey = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersApiKeyArgs
-    ///             {
-    ///                 Key = "x-signature",
-    ///                 Value = "1234",
-    ///             },
-    ///         },
-    ///         AuthorizationType = "API_KEY",
-    ///         Description = "A connection description",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Basic Authorization
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CloudWatch.EventConnection("test", new()
-    ///     {
-    ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
-    ///         {
-    ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
-    ///             {
-    ///                 Password = "Pass1234!",
-    ///                 Username = "user",
-    ///             },
-    ///         },
-    ///         AuthorizationType = "BASIC",
-    ///         Description = "A connection description",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:

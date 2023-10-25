@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS QuickSight Account Subscription.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const subscription = new aws.quicksight.AccountSubscription("subscription", {
- *     accountName: "quicksight-pulumi",
- *     authenticationMethod: "IAM_AND_QUICKSIGHT",
- *     edition: "ENTERPRISE",
- *     notificationEmail: "notification@email.com",
- * });
- * ```
- *
  * ## Import
  *
  * You cannot import this resource.

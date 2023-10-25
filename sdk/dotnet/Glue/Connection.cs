@@ -13,61 +13,6 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue Connection resource.
     /// 
     /// ## Example Usage
-    /// ### Non-VPC Connection
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.Connection("example", new()
-    ///     {
-    ///         ConnectionProperties = 
-    ///         {
-    ///             { "JDBC_CONNECTION_URL", "jdbc:mysql://example.com/exampledatabase" },
-    ///             { "PASSWORD", "examplepassword" },
-    ///             { "USERNAME", "exampleusername" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### VPC Connection
-    /// 
-    /// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Glue.Connection("example", new()
-    ///     {
-    ///         ConnectionProperties = 
-    ///         {
-    ///             { "JDBC_CONNECTION_URL", $"jdbc:mysql://{aws_rds_cluster.Example.Endpoint}/exampledatabase" },
-    ///             { "PASSWORD", "examplepassword" },
-    ///             { "USERNAME", "exampleusername" },
-    ///         },
-    ///         PhysicalConnectionRequirements = new Aws.Glue.Inputs.ConnectionPhysicalConnectionRequirementsArgs
-    ///         {
-    ///             AvailabilityZone = aws_subnet.Example.Availability_zone,
-    ///             SecurityGroupIdLists = new[]
-    ///             {
-    ///                 aws_security_group.Example.Id,
-    ///             },
-    ///             SubnetId = aws_subnet.Example.Id,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

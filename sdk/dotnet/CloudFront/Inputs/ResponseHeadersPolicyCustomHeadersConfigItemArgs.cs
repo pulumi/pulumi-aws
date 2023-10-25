@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<string> Header { get; set; } = null!;
 
         /// <summary>
-        /// Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+        /// Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;

@@ -10,29 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Image Builder Distribution Configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.imagebuilder.DistributionConfiguration("example", {distributions: [{
- *     amiDistributionConfiguration: {
- *         amiTags: {
- *             CostCenter: "IT",
- *         },
- *         launchPermission: {
- *             userIds: ["123456789012"],
- *         },
- *         name: "example-{{ imagebuilder:buildDate }}",
- *     },
- *     launchTemplateConfigurations: [{
- *         launchTemplateId: "lt-0aaa1bcde2ff3456",
- *     }],
- *     region: "us-east-1",
- * }]});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:

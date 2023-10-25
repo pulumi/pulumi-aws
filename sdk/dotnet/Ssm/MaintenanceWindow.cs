@@ -12,26 +12,6 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Provides an SSM Maintenance Window resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var production = new Aws.Ssm.MaintenanceWindow("production", new()
-    ///     {
-    ///         Cutoff = 1,
-    ///         Duration = 3,
-    ///         Schedule = "cron(0 16 ? * TUE *)",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM

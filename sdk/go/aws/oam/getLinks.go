@@ -4,36 +4,17 @@
 package oam
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS CloudWatch Observability Access Manager Links.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.GetLinks(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLinks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLinksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLinksResult
@@ -50,4 +31,50 @@ type GetLinksResult struct {
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetLinksOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLinksResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetLinksResult, error) {
+		r, err := GetLinks(ctx, opts...)
+		var s GetLinksResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetLinksResultOutput)
+}
+
+// A collection of values returned by getLinks.
+type GetLinksResultOutput struct{ *pulumi.OutputState }
+
+func (GetLinksResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLinksResult)(nil)).Elem()
+}
+
+func (o GetLinksResultOutput) ToGetLinksResultOutput() GetLinksResultOutput {
+	return o
+}
+
+func (o GetLinksResultOutput) ToGetLinksResultOutputWithContext(ctx context.Context) GetLinksResultOutput {
+	return o
+}
+
+func (o GetLinksResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinksResult] {
+	return pulumix.Output[GetLinksResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Set of ARN of the Links.
+func (o GetLinksResultOutput) Arns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLinksResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetLinksResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinksResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLinksResultOutput{})
 }

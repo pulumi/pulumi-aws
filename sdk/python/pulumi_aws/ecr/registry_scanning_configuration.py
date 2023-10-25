@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,26 @@ class RegistryScanningConfigurationArgs:
         :param pulumi.Input[str] scan_type: the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleArgs']]] rules: One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
         """
-        pulumi.set(__self__, "scan_type", scan_type)
+        RegistryScanningConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scan_type=scan_type,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scan_type: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scan_type is None and 'scanType' in kwargs:
+            scan_type = kwargs['scanType']
+        if scan_type is None:
+            raise TypeError("Missing 'scan_type' argument")
+
+        _setter("scan_type", scan_type)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter(name="scanType")
@@ -64,12 +81,31 @@ class _RegistryScanningConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleArgs']]] rules: One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
         :param pulumi.Input[str] scan_type: the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
         """
+        _RegistryScanningConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_id=registry_id,
+            rules=rules,
+            scan_type=scan_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_id: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleArgs']]]] = None,
+             scan_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_id is None and 'registryId' in kwargs:
+            registry_id = kwargs['registryId']
+        if scan_type is None and 'scanType' in kwargs:
+            scan_type = kwargs['scanType']
+
         if registry_id is not None:
-            pulumi.set(__self__, "registry_id", registry_id)
+            _setter("registry_id", registry_id)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if scan_type is not None:
-            pulumi.set(__self__, "scan_type", scan_type)
+            _setter("scan_type", scan_type)
 
     @property
     @pulumi.getter(name="registryId")
@@ -120,47 +156,6 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         Provides an Elastic Container Registry Scanning Configuration. Can't be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
 
         ## Example Usage
-        ### Basic example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        configuration = aws.ecr.RegistryScanningConfiguration("configuration",
-            rules=[aws.ecr.RegistryScanningConfigurationRuleArgs(
-                repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                    filter="example",
-                    filter_type="WILDCARD",
-                )],
-                scan_frequency="CONTINUOUS_SCAN",
-            )],
-            scan_type="ENHANCED")
-        ```
-        ### Multiple rules
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ecr.RegistryScanningConfiguration("test",
-            rules=[
-                aws.ecr.RegistryScanningConfigurationRuleArgs(
-                    repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                        filter="*",
-                        filter_type="WILDCARD",
-                    )],
-                    scan_frequency="SCAN_ON_PUSH",
-                ),
-                aws.ecr.RegistryScanningConfigurationRuleArgs(
-                    repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                        filter="example",
-                        filter_type="WILDCARD",
-                    )],
-                    scan_frequency="CONTINUOUS_SCAN",
-                ),
-            ],
-            scan_type="ENHANCED")
-        ```
 
         ## Import
 
@@ -185,47 +180,6 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         Provides an Elastic Container Registry Scanning Configuration. Can't be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
 
         ## Example Usage
-        ### Basic example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        configuration = aws.ecr.RegistryScanningConfiguration("configuration",
-            rules=[aws.ecr.RegistryScanningConfigurationRuleArgs(
-                repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                    filter="example",
-                    filter_type="WILDCARD",
-                )],
-                scan_frequency="CONTINUOUS_SCAN",
-            )],
-            scan_type="ENHANCED")
-        ```
-        ### Multiple rules
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.ecr.RegistryScanningConfiguration("test",
-            rules=[
-                aws.ecr.RegistryScanningConfigurationRuleArgs(
-                    repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                        filter="*",
-                        filter_type="WILDCARD",
-                    )],
-                    scan_frequency="SCAN_ON_PUSH",
-                ),
-                aws.ecr.RegistryScanningConfigurationRuleArgs(
-                    repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                        filter="example",
-                        filter_type="WILDCARD",
-                    )],
-                    scan_frequency="CONTINUOUS_SCAN",
-                ),
-            ],
-            scan_type="ENHANCED")
-        ```
 
         ## Import
 
@@ -245,6 +199,10 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryScanningConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

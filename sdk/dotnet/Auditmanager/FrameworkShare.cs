@@ -13,25 +13,6 @@ namespace Pulumi.Aws.Auditmanager
     /// Resource for managing an AWS Audit Manager Framework Share.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Auditmanager.FrameworkShare("example", new()
-    ///     {
-    ///         DestinationAccount = "012345678901",
-    ///         DestinationRegion = "us-east-1",
-    ///         FrameworkId = aws_auditmanager_framework.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

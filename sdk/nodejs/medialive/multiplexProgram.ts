@@ -11,43 +11,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS MediaLive MultiplexProgram.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- * });
- * const exampleMultiplex = new aws.medialive.Multiplex("exampleMultiplex", {
- *     availabilityZones: [
- *         available.then(available => available.names?.[0]),
- *         available.then(available => available.names?.[1]),
- *     ],
- *     multiplexSettings: {
- *         transportStreamBitrate: 1000000,
- *         transportStreamId: 1,
- *         transportStreamReservedBitrate: 1,
- *         maximumVideoBufferDelayMilliseconds: 1000,
- *     },
- *     startMultiplex: true,
- *     tags: {
- *         tag1: "value1",
- *     },
- * });
- * const exampleMultiplexProgram = new aws.medialive.MultiplexProgram("exampleMultiplexProgram", {
- *     programName: "example_program",
- *     multiplexId: exampleMultiplex.id,
- *     multiplexProgramSettings: {
- *         programNumber: 1,
- *         preferredChannelPipeline: "CURRENTLY_ACTIVE",
- *         videoSettings: {
- *             constantBitrate: 100000,
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

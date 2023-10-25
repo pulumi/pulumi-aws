@@ -12,37 +12,6 @@ namespace Pulumi.Aws.AppSync
     /// <summary>
     /// Provides an AppSync Type.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new()
-    ///     {
-    ///         AuthenticationType = "API_KEY",
-    ///     });
-    /// 
-    ///     var exampleType = new Aws.AppSync.Type("exampleType", new()
-    ///     {
-    ///         ApiId = exampleGraphQLApi.Id,
-    ///         Format = "SDL",
-    ///         Definition = @"type Mutation
-    /// 
-    /// {
-    /// putPost(id: ID!,title: String! ): Post
-    /// 
-    /// }
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Appsync Types using the `id`. For example:

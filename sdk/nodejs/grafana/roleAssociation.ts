@@ -8,38 +8,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Managed Grafana workspace role association resource.
  *
  * ## Example Usage
- * ### Basic configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assume = new aws.iam.Role("assume", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "grafana.amazonaws.com",
- *         },
- *     }],
- * })});
- * const exampleWorkspace = new aws.grafana.Workspace("exampleWorkspace", {
- *     accountAccessType: "CURRENT_ACCOUNT",
- *     authenticationProviders: ["SAML"],
- *     permissionType: "SERVICE_MANAGED",
- *     roleArn: assume.arn,
- * });
- * const exampleRoleAssociation = new aws.grafana.RoleAssociation("exampleRoleAssociation", {
- *     role: "ADMIN",
- *     userIds: [
- *         "USER_ID_1",
- *         "USER_ID_2",
- *     ],
- *     workspaceId: exampleWorkspace.id,
- * });
- * ```
  */
 export class RoleAssociation extends pulumi.CustomResource {
     /**

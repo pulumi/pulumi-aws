@@ -15,45 +15,6 @@ import (
 
 // Manages an AppStream User Stack association.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testStack, err := appstream.NewStack(ctx, "testStack", nil)
-//			if err != nil {
-//				return err
-//			}
-//			testUser, err := appstream.NewUser(ctx, "testUser", &appstream.UserArgs{
-//				AuthenticationType: pulumi.String("USERPOOL"),
-//				UserName:           pulumi.String("EMAIL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appstream.NewUserStackAssociation(ctx, "testUserStackAssociation", &appstream.UserStackAssociationArgs{
-//				AuthenticationType: testUser.AuthenticationType,
-//				StackName:          testStack.Name,
-//				UserName:           testUser.UserName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:

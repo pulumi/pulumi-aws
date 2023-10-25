@@ -11,49 +11,6 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Workforce resource.
  *
  * ## Example Usage
- * ### Cognito Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUserPoolClient = new aws.cognito.UserPoolClient("exampleUserPoolClient", {
- *     generateSecret: true,
- *     userPoolId: exampleUserPool.id,
- * });
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("exampleUserPoolDomain", {
- *     domain: "example",
- *     userPoolId: exampleUserPool.id,
- * });
- * const exampleWorkforce = new aws.sagemaker.Workforce("exampleWorkforce", {
- *     workforceName: "example",
- *     cognitoConfig: {
- *         clientId: exampleUserPoolClient.id,
- *         userPool: exampleUserPoolDomain.userPoolId,
- *     },
- * });
- * ```
- * ### Oidc Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.Workforce("example", {
- *     oidcConfig: {
- *         authorizationEndpoint: "https://example.com",
- *         clientId: "example",
- *         clientSecret: "example",
- *         issuer: "https://example.com",
- *         jwksUri: "https://example.com",
- *         logoutEndpoint: "https://example.com",
- *         tokenEndpoint: "https://example.com",
- *         userInfoEndpoint: "https://example.com",
- *     },
- *     workforceName: "example",
- * });
- * ```
  *
  * ## Import
  *

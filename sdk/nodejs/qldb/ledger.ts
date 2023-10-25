@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Deletion protection is enabled by default. To successfully delete this resource via this provider, `deletionProtection = false` must be applied before attempting deletion.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sample_ledger = new aws.qldb.Ledger("sample-ledger", {permissionsMode: "STANDARD"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import QLDB Ledgers using the `name`. For example:

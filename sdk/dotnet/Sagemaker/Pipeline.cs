@@ -13,42 +13,6 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Pipeline resource.
     /// 
     /// ## Example Usage
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.Pipeline("example", new()
-    ///     {
-    ///         PipelineName = "example",
-    ///         PipelineDisplayName = "example",
-    ///         RoleArn = aws_iam_role.Example.Arn,
-    ///         PipelineDefinition = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2020-12-01",
-    ///             ["Steps"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Name"] = "Test",
-    ///                     ["Type"] = "Fail",
-    ///                     ["Arguments"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["ErrorMessage"] = "test",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

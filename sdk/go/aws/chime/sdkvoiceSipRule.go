@@ -16,39 +16,6 @@ import (
 // A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chime.NewSdkvoiceSipRule(ctx, "example", &chime.SdkvoiceSipRuleArgs{
-//				TriggerType:  pulumi.String("RequestUriHostname"),
-//				TriggerValue: pulumi.Any(aws_chime_voice_connector.ExampleVoiceConnector.Outbound_host_name),
-//				TargetApplications: chime.SdkvoiceSipRuleTargetApplicationArray{
-//					&chime.SdkvoiceSipRuleTargetApplicationArgs{
-//						Priority:              pulumi.Int(1),
-//						SipMediaApplicationId: pulumi.Any(aws_chimesdkvoice_sip_media_application.ExampleSma.Id),
-//						AwsRegion:             pulumi.String("us-east-1"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

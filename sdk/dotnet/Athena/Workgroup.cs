@@ -12,37 +12,6 @@ namespace Pulumi.Aws.Athena
     /// <summary>
     /// Provides an Athena Workgroup.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Athena.Workgroup("example", new()
-    ///     {
-    ///         Configuration = new Aws.Athena.Inputs.WorkgroupConfigurationArgs
-    ///         {
-    ///             EnforceWorkgroupConfiguration = true,
-    ///             PublishCloudwatchMetricsEnabled = true,
-    ///             ResultConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationArgs
-    ///             {
-    ///                 OutputLocation = $"s3://{aws_s3_bucket.Example.Bucket}/output/",
-    ///                 EncryptionConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs
-    ///                 {
-    ///                     EncryptionOption = "SSE_KMS",
-    ///                     KmsKeyArn = aws_kms_key.Example.Arn,
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Athena Workgroups using their name. For example:

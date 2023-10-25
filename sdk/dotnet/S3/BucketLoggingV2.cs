@@ -16,42 +16,6 @@ namespace Pulumi.Aws.S3
     /// &gt; **Note:** Amazon S3 supports server access logging, AWS CloudTrail, or a combination of both. Refer to the [Logging options for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/logging-with-S3.html)
     /// to decide which method meets your requirements.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
-    /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    ///     var logBucket = new Aws.S3.BucketV2("logBucket");
-    /// 
-    ///     var logBucketAcl = new Aws.S3.BucketAclV2("logBucketAcl", new()
-    ///     {
-    ///         Bucket = logBucket.Id,
-    ///         Acl = "log-delivery-write",
-    ///     });
-    /// 
-    ///     var exampleBucketLoggingV2 = new Aws.S3.BucketLoggingV2("exampleBucketLoggingV2", new()
-    ///     {
-    ///         Bucket = exampleBucketV2.Id,
-    ///         TargetBucket = logBucket.Id,
-    ///         TargetPrefix = "log/",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):

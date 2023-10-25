@@ -12,33 +12,6 @@ namespace Pulumi.Aws.Neptune
     /// <summary>
     /// Manages a Neptune Cluster Parameter Group
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Neptune.ClusterParameterGroup("example", new()
-    ///     {
-    ///         Description = "neptune cluster parameter group",
-    ///         Family = "neptune1",
-    ///         Parameters = new[]
-    ///         {
-    ///             new Aws.Neptune.Inputs.ClusterParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "neptune_enable_audit_log",
-    ///                 Value = "1",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Neptune Cluster Parameter Groups using the `name`. For example:

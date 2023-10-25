@@ -12,34 +12,6 @@ namespace Pulumi.Aws.AppStream
     /// <summary>
     /// Manages an AppStream User Stack association.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testStack = new Aws.AppStream.Stack("testStack");
-    /// 
-    ///     var testUser = new Aws.AppStream.User("testUser", new()
-    ///     {
-    ///         AuthenticationType = "USERPOOL",
-    ///         UserName = "EMAIL",
-    ///     });
-    /// 
-    ///     var testUserStackAssociation = new Aws.AppStream.UserStackAssociation("testUserStackAssociation", new()
-    ///     {
-    ///         AuthenticationType = testUser.AuthenticationType,
-    ///         StackName = testStack.Name,
-    ///         UserName = testUser.UserName,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:

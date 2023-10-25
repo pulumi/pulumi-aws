@@ -12,32 +12,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// <summary>
     /// Provides a Global Accelerator endpoint group.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GlobalAccelerator.EndpointGroup("example", new()
-    ///     {
-    ///         ListenerArn = aws_globalaccelerator_listener.Example.Id,
-    ///         EndpointConfigurations = new[]
-    ///         {
-    ///             new Aws.GlobalAccelerator.Inputs.EndpointGroupEndpointConfigurationArgs
-    ///             {
-    ///                 EndpointId = aws_lb.Example.Arn,
-    ///                 Weight = 100,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:

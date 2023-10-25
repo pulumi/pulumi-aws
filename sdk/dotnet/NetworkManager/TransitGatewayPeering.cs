@@ -12,25 +12,6 @@ namespace Pulumi.Aws.NetworkManager
     /// <summary>
     /// Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.NetworkManager.TransitGatewayPeering("example", new()
-    ///     {
-    ///         CoreNetworkId = awscc_networkmanager_core_network.Example.Id,
-    ///         TransitGatewayArn = aws_ec2_transit_gateway.Example.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For example:

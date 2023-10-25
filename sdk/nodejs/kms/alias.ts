@@ -9,16 +9,6 @@ import * as utilities from "../utilities";
  * but API (hence this provider too) allows you to create as many aliases as
  * the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const key = new aws.kms.Key("key", {});
- * const alias = new aws.kms.Alias("alias", {targetKeyId: key.keyId});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import KMS aliases using the `name`. For example:

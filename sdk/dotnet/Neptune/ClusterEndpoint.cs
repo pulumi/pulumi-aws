@@ -12,26 +12,6 @@ namespace Pulumi.Aws.Neptune
     /// <summary>
     /// Provides an Neptune Cluster Endpoint Resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Neptune.ClusterEndpoint("example", new()
-    ///     {
-    ///         ClusterIdentifier = aws_neptune_cluster.Test.Cluster_identifier,
-    ///         ClusterEndpointIdentifier = "example",
-    ///         EndpointType = "READER",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:

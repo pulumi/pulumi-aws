@@ -16,38 +16,6 @@ import (
 // Resource for managing an AWS QuickSight IAM Policy Assignment.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewIamPolicyAssignment(ctx, "example", &quicksight.IamPolicyAssignmentArgs{
-//				AssignmentName:   pulumi.String("example"),
-//				AssignmentStatus: pulumi.String("ENABLED"),
-//				PolicyArn:        pulumi.Any(aws_iam_policy.Example.Arn),
-//				Identities: &quicksight.IamPolicyAssignmentIdentitiesArgs{
-//					Users: pulumi.StringArray{
-//						aws_quicksight_user.Example.User_name,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

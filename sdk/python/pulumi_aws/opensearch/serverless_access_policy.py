@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerlessAccessPolicyArgs', 'ServerlessAccessPolicy']
@@ -27,12 +27,33 @@ class ServerlessAccessPolicyArgs:
         :param pulumi.Input[str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
         :param pulumi.Input[str] name: Name of the policy.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "type", type)
+        ServerlessAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            type=type,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("policy", policy)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -103,16 +124,37 @@ class _ServerlessAccessPolicyState:
                
                The following arguments are optional:
         """
+        _ServerlessAccessPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            policy=policy,
+            policy_version=policy_version,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             policy_version: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_version is None and 'policyVersion' in kwargs:
+            policy_version = kwargs['policyVersion']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if policy_version is not None:
-            pulumi.set(__self__, "policy_version", policy_version)
+            _setter("policy_version", policy_version)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -191,92 +233,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
 
         ## Example Usage
-        ### Grant all collection and index permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            type="data",
-            description="read and write permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": ["aoss:*"],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:*"],
-                    },
-                ],
-                "Principal": [current.arn],
-            }]))
-        ```
-        ### Grant read-only collection and index permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            type="data",
-            description="read-only permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": [
-                            "aoss:DescribeIndex",
-                            "aoss:ReadDocument",
-                        ],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:DescribeCollectionItems"],
-                    },
-                ],
-                "Principal": [current.arn],
-            }]))
-        ```
-        ### Grant SAML identity permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            type="data",
-            description="saml permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": ["aoss:*"],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:*"],
-                    },
-                ],
-                "Principal": [
-                    "saml/123456789012/myprovider/user/Annie",
-                    "saml/123456789012/anotherprovider/group/Accounting",
-                ],
-            }]))
-        ```
 
         ## Import
 
@@ -305,92 +261,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
 
         ## Example Usage
-        ### Grant all collection and index permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            type="data",
-            description="read and write permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": ["aoss:*"],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:*"],
-                    },
-                ],
-                "Principal": [current.arn],
-            }]))
-        ```
-        ### Grant read-only collection and index permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            type="data",
-            description="read-only permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": [
-                            "aoss:DescribeIndex",
-                            "aoss:ReadDocument",
-                        ],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:DescribeCollectionItems"],
-                    },
-                ],
-                "Principal": [current.arn],
-            }]))
-        ```
-        ### Grant SAML identity permissions
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.opensearch.ServerlessAccessPolicy("example",
-            type="data",
-            description="saml permissions",
-            policy=json.dumps([{
-                "Rules": [
-                    {
-                        "ResourceType": "index",
-                        "Resource": ["index/example-collection/*"],
-                        "Permission": ["aoss:*"],
-                    },
-                    {
-                        "ResourceType": "collection",
-                        "Resource": ["collection/example-collection"],
-                        "Permission": ["aoss:*"],
-                    },
-                ],
-                "Principal": [
-                    "saml/123456789012/myprovider/user/Annie",
-                    "saml/123456789012/anotherprovider/group/Accounting",
-                ],
-            }]))
-        ```
 
         ## Import
 
@@ -410,6 +280,10 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerlessAccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

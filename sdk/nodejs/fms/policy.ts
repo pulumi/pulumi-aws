@@ -12,39 +12,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Due to limitations with testing, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRuleGroup = new aws.wafregional.RuleGroup("exampleRuleGroup", {metricName: "WAFRuleGroupExample"});
- * const examplePolicy = new aws.fms.Policy("examplePolicy", {
- *     excludeResourceTags: false,
- *     remediationEnabled: false,
- *     resourceType: "AWS::ElasticLoadBalancingV2::LoadBalancer",
- *     securityServicePolicyData: {
- *         type: "WAF",
- *         managedServiceData: exampleRuleGroup.id.apply(id => JSON.stringify({
- *             type: "WAF",
- *             ruleGroups: [{
- *                 id: id,
- *                 overrideAction: {
- *                     type: "COUNT",
- *                 },
- *             }],
- *             defaultAction: {
- *                 type: "BLOCK",
- *             },
- *             overrideCustomerWebACLAssociation: false,
- *         })),
- *     },
- *     tags: {
- *         Name: "example-fms-policy",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Firewall Manager policies using the policy ID. For example:

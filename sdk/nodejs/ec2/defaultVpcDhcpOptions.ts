@@ -16,19 +16,6 @@ import * as utilities from "../utilities";
  * this provider does not _create_ this resource, but instead "adopts" it
  * into management.
  *
- * ## Example Usage
- *
- * Basic usage with tags:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.ec2.DefaultVpcDhcpOptions("default", {tags: {
- *     Name: "Default DHCP Option Set",
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:

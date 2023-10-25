@@ -25,25 +25,25 @@ namespace Pulumi.Aws.AppMesh.Inputs
         }
 
         /// <summary>
-        /// Host name to rewrite.
+        /// Host name to match on.
         /// </summary>
         [Input("hostname")]
         public Input<Inputs.GatewayRouteSpecHttp2RouteMatchHostnameGetArgs>? Hostname { get; set; }
 
         /// <summary>
-        /// Exact path to rewrite.
+        /// Client request path to match on.
         /// </summary>
         [Input("path")]
         public Input<Inputs.GatewayRouteSpecHttp2RouteMatchPathGetArgs>? Path { get; set; }
 
         /// <summary>
-        /// The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+        /// The port number to match from the request.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Specified beginning characters to rewrite.
+        /// Header value sent by the client must begin with the specified characters.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

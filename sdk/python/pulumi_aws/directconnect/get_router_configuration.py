@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -106,24 +106,11 @@ def get_router_configuration(router_type_identifier: Optional[str] = None,
     Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_router_configuration(router_type_identifier="CiscoSystemsInc-2900SeriesRouters-IOS124",
-        virtual_interface_id="dxvif-abcde123")
-    ```
 
 
     :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
            
            There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
-           
-           ```python
-           import pulumi
-           ```
     :param str virtual_interface_id: ID of the Direct Connect Virtual Interface
     """
     __args__ = dict()
@@ -149,24 +136,11 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
     Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_router_configuration(router_type_identifier="CiscoSystemsInc-2900SeriesRouters-IOS124",
-        virtual_interface_id="dxvif-abcde123")
-    ```
 
 
     :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
            
            There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
-           
-           ```python
-           import pulumi
-           ```
     :param str virtual_interface_id: ID of the Direct Connect Virtual Interface
     """
     ...

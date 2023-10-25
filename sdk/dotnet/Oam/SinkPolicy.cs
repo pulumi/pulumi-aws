@@ -13,62 +13,6 @@ namespace Pulumi.Aws.Oam
     /// Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleSink = new Aws.Oam.Sink("exampleSink");
-    /// 
-    ///     var exampleSinkPolicy = new Aws.Oam.SinkPolicy("exampleSinkPolicy", new()
-    ///     {
-    ///         SinkIdentifier = exampleSink.Id,
-    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["Version"] = "2012-10-17",
-    ///             ["Statement"] = new[]
-    ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     ["Action"] = new[]
-    ///                     {
-    ///                         "oam:CreateLink",
-    ///                         "oam:UpdateLink",
-    ///                     },
-    ///                     ["Effect"] = "Allow",
-    ///                     ["Resource"] = "*",
-    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["AWS"] = new[]
-    ///                         {
-    ///                             "1111111111111",
-    ///                             "222222222222",
-    ///                         },
-    ///                     },
-    ///                     ["Condition"] = new Dictionary&lt;string, object?&gt;
-    ///                     {
-    ///                         ["ForAllValues:StringEquals"] = new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             ["oam:ResourceTypes"] = new[]
-    ///                             {
-    ///                                 "AWS::CloudWatch::Metric",
-    ///                                 "AWS::Logs::LogGroup",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

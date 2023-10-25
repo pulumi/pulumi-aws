@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LifecyclePolicyPolicyDetailsSchedule {
     /**
-     * @return Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+     * @return Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
      * 
      */
     private @Nullable Boolean copyTags;
@@ -36,7 +36,7 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
      */
     private @Nullable List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> crossRegionCopyRules;
     /**
-     * @return See the `deprecate_rule` block. Max of 1 per schedule.
+     * @return The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
      * 
      */
     private @Nullable LifecyclePolicyPolicyDetailsScheduleDeprecateRule deprecateRule;
@@ -73,7 +73,7 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
 
     private LifecyclePolicyPolicyDetailsSchedule() {}
     /**
-     * @return Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+     * @return Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
      * 
      */
     public Optional<Boolean> copyTags() {
@@ -94,7 +94,7 @@ public final class LifecyclePolicyPolicyDetailsSchedule {
         return this.crossRegionCopyRules == null ? List.of() : this.crossRegionCopyRules;
     }
     /**
-     * @return See the `deprecate_rule` block. Max of 1 per schedule.
+     * @return The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
      * 
      */
     public Optional<LifecyclePolicyPolicyDetailsScheduleDeprecateRule> deprecateRule() {

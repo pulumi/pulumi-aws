@@ -14,39 +14,6 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// More information about capacity providers can be found in the [ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCluster = new Aws.Ecs.Cluster("exampleCluster");
-    /// 
-    ///     var exampleClusterCapacityProviders = new Aws.Ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", new()
-    ///     {
-    ///         ClusterName = exampleCluster.Name,
-    ///         CapacityProviders = new[]
-    ///         {
-    ///             "FARGATE",
-    ///         },
-    ///         DefaultCapacityProviderStrategies = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs
-    ///             {
-    ///                 Base = 1,
-    ///                 Weight = 100,
-    ///                 CapacityProvider = "FARGATE",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:

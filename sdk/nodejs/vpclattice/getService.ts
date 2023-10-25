@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS VPC Lattice Service.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.vpclattice.getService({
- *     name: "example",
- * });
- * ```
  */
 export function getService(args?: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     args = args || {};
@@ -94,16 +84,6 @@ export interface GetServiceResult {
  * Data source for managing an AWS VPC Lattice Service.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.vpclattice.getService({
- *     name: "example",
- * });
- * ```
  */
 export function getServiceOutput(args?: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

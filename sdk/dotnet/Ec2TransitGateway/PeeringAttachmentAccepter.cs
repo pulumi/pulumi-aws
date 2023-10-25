@@ -12,28 +12,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// <summary>
     /// Manages the accepter's side of an EC2 Transit Gateway Peering Attachment.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2TransitGateway.PeeringAttachmentAccepter("example", new()
-    ///     {
-    ///         TransitGatewayAttachmentId = aws_ec2_transit_gateway_peering_attachment.Example.Id,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example cross-account attachment" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:

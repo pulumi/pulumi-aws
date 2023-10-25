@@ -12,36 +12,6 @@ import * as utilities from "../utilities";
  * join the collaboration and can create memberships.
  *
  * ## Example Usage
- * ### Collaboration with tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testCollaboration = new aws.cleanrooms.Collaboration("testCollaboration", {
- *     creatorDisplayName: "Creator ",
- *     creatorMemberAbilities: [
- *         "CAN_QUERY",
- *         "CAN_RECEIVE_RESULTS",
- *     ],
- *     dataEncryptionMetadata: {
- *         allowClearText: true,
- *         allowDuplicates: true,
- *         allowJoinsOnColumnsWithDifferentNames: true,
- *         preserveNulls: false,
- *     },
- *     description: "I made this collaboration with Pulumi!",
- *     members: [{
- *         accountId: "123456789012",
- *         displayName: "Other member",
- *         memberAbilities: [],
- *     }],
- *     queryLogStatus: "DISABLED",
- *     tags: {
- *         Project: "Pulumi",
- *     },
- * });
- * ```
  *
  * ## Import
  *

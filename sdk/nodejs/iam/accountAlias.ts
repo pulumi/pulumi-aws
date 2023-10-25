@@ -9,15 +9,6 @@ import * as utilities from "../utilities";
  *
  * Manages the account alias for the AWS Account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const alias = new aws.iam.AccountAlias("alias", {accountAlias: "my-account-alias"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:

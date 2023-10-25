@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,20 +33,55 @@ class OrganizationConformancePackArgs:
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         :param pulumi.Input[str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
+        OrganizationConformancePackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_s3_bucket=delivery_s3_bucket,
+            delivery_s3_key_prefix=delivery_s3_key_prefix,
+            excluded_accounts=excluded_accounts,
+            input_parameters=input_parameters,
+            name=name,
+            template_body=template_body,
+            template_s3_uri=template_s3_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
+             delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
+             excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConformancePackInputParameterArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             template_body: Optional[pulumi.Input[str]] = None,
+             template_s3_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_s3_bucket is None and 'deliveryS3Bucket' in kwargs:
+            delivery_s3_bucket = kwargs['deliveryS3Bucket']
+        if delivery_s3_key_prefix is None and 'deliveryS3KeyPrefix' in kwargs:
+            delivery_s3_key_prefix = kwargs['deliveryS3KeyPrefix']
+        if excluded_accounts is None and 'excludedAccounts' in kwargs:
+            excluded_accounts = kwargs['excludedAccounts']
+        if input_parameters is None and 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if template_body is None and 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+        if template_s3_uri is None and 'templateS3Uri' in kwargs:
+            template_s3_uri = kwargs['templateS3Uri']
+
         if delivery_s3_bucket is not None:
-            pulumi.set(__self__, "delivery_s3_bucket", delivery_s3_bucket)
+            _setter("delivery_s3_bucket", delivery_s3_bucket)
         if delivery_s3_key_prefix is not None:
-            pulumi.set(__self__, "delivery_s3_key_prefix", delivery_s3_key_prefix)
+            _setter("delivery_s3_key_prefix", delivery_s3_key_prefix)
         if excluded_accounts is not None:
-            pulumi.set(__self__, "excluded_accounts", excluded_accounts)
+            _setter("excluded_accounts", excluded_accounts)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if template_body is not None:
-            pulumi.set(__self__, "template_body", template_body)
+            _setter("template_body", template_body)
         if template_s3_uri is not None:
-            pulumi.set(__self__, "template_s3_uri", template_s3_uri)
+            _setter("template_s3_uri", template_s3_uri)
 
     @property
     @pulumi.getter(name="deliveryS3Bucket")
@@ -155,22 +190,59 @@ class _OrganizationConformancePackState:
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         :param pulumi.Input[str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
+        _OrganizationConformancePackState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            delivery_s3_bucket=delivery_s3_bucket,
+            delivery_s3_key_prefix=delivery_s3_key_prefix,
+            excluded_accounts=excluded_accounts,
+            input_parameters=input_parameters,
+            name=name,
+            template_body=template_body,
+            template_s3_uri=template_s3_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
+             delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
+             excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConformancePackInputParameterArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             template_body: Optional[pulumi.Input[str]] = None,
+             template_s3_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_s3_bucket is None and 'deliveryS3Bucket' in kwargs:
+            delivery_s3_bucket = kwargs['deliveryS3Bucket']
+        if delivery_s3_key_prefix is None and 'deliveryS3KeyPrefix' in kwargs:
+            delivery_s3_key_prefix = kwargs['deliveryS3KeyPrefix']
+        if excluded_accounts is None and 'excludedAccounts' in kwargs:
+            excluded_accounts = kwargs['excludedAccounts']
+        if input_parameters is None and 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if template_body is None and 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+        if template_s3_uri is None and 'templateS3Uri' in kwargs:
+            template_s3_uri = kwargs['templateS3Uri']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if delivery_s3_bucket is not None:
-            pulumi.set(__self__, "delivery_s3_bucket", delivery_s3_bucket)
+            _setter("delivery_s3_bucket", delivery_s3_bucket)
         if delivery_s3_key_prefix is not None:
-            pulumi.set(__self__, "delivery_s3_key_prefix", delivery_s3_key_prefix)
+            _setter("delivery_s3_key_prefix", delivery_s3_key_prefix)
         if excluded_accounts is not None:
-            pulumi.set(__self__, "excluded_accounts", excluded_accounts)
+            _setter("excluded_accounts", excluded_accounts)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if template_body is not None:
-            pulumi.set(__self__, "template_body", template_body)
+            _setter("template_body", template_body)
         if template_s3_uri is not None:
-            pulumi.set(__self__, "template_s3_uri", template_s3_uri)
+            _setter("template_s3_uri", template_s3_uri)
 
     @property
     @pulumi.getter
@@ -288,65 +360,6 @@ class OrganizationConformancePack(pulumi.CustomResource):
         > **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `cfg.Recorder` resource.
 
         ## Example Usage
-        ### Using Template Body
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
-            feature_set="ALL")
-        example_organization_conformance_pack = aws.cfg.OrganizationConformancePack("exampleOrganizationConformancePack",
-            input_parameters=[aws.cfg.OrganizationConformancePackInputParameterArgs(
-                parameter_name="AccessKeysRotatedParameterMaxAccessKeyAge",
-                parameter_value="90",
-            )],
-            template_body=\"\"\"Parameters:
-          AccessKeysRotatedParameterMaxAccessKeyAge:
-            Type: String
-        Resources:
-          IAMPasswordPolicy:
-            Properties:
-              ConfigRuleName: IAMPasswordPolicy
-              Source:
-                Owner: AWS
-                SourceIdentifier: IAM_PASSWORD_POLICY
-            Type: AWS::Config::ConfigRule
-        \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_config_configuration_recorder["example"],
-                    example_organization,
-                ]))
-        ```
-        ### Using Template S3 URI
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
-            feature_set="ALL")
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_v2.id,
-            key="example-key",
-            content=\"\"\"Resources:
-          IAMPasswordPolicy:
-            Properties:
-              ConfigRuleName: IAMPasswordPolicy
-              Source:
-                Owner: AWS
-                SourceIdentifier: IAM_PASSWORD_POLICY
-            Type: AWS::Config::ConfigRule
-        \"\"\")
-        example_organization_conformance_pack = aws.cfg.OrganizationConformancePack("exampleOrganizationConformancePack", template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"),
-        opts=pulumi.ResourceOptions(depends_on=[
-                aws_config_configuration_recorder["example"],
-                example_organization,
-            ]))
-        ```
 
         ## Import
 
@@ -378,65 +391,6 @@ class OrganizationConformancePack(pulumi.CustomResource):
         > **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `cfg.Recorder` resource.
 
         ## Example Usage
-        ### Using Template Body
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
-            feature_set="ALL")
-        example_organization_conformance_pack = aws.cfg.OrganizationConformancePack("exampleOrganizationConformancePack",
-            input_parameters=[aws.cfg.OrganizationConformancePackInputParameterArgs(
-                parameter_name="AccessKeysRotatedParameterMaxAccessKeyAge",
-                parameter_value="90",
-            )],
-            template_body=\"\"\"Parameters:
-          AccessKeysRotatedParameterMaxAccessKeyAge:
-            Type: String
-        Resources:
-          IAMPasswordPolicy:
-            Properties:
-              ConfigRuleName: IAMPasswordPolicy
-              Source:
-                Owner: AWS
-                SourceIdentifier: IAM_PASSWORD_POLICY
-            Type: AWS::Config::ConfigRule
-        \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    aws_config_configuration_recorder["example"],
-                    example_organization,
-                ]))
-        ```
-        ### Using Template S3 URI
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
-            feature_set="ALL")
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_v2.id,
-            key="example-key",
-            content=\"\"\"Resources:
-          IAMPasswordPolicy:
-            Properties:
-              ConfigRuleName: IAMPasswordPolicy
-              Source:
-                Owner: AWS
-                SourceIdentifier: IAM_PASSWORD_POLICY
-            Type: AWS::Config::ConfigRule
-        \"\"\")
-        example_organization_conformance_pack = aws.cfg.OrganizationConformancePack("exampleOrganizationConformancePack", template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"),
-        opts=pulumi.ResourceOptions(depends_on=[
-                aws_config_configuration_recorder["example"],
-                example_organization,
-            ]))
-        ```
 
         ## Import
 
@@ -456,6 +410,10 @@ class OrganizationConformancePack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationConformancePackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

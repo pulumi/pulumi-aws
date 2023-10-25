@@ -14,42 +14,6 @@ import (
 )
 
 // Imports a disk image from S3 as a Snapshot.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.NewSnapshotImport(ctx, "example", &ebs.SnapshotImportArgs{
-//				DiskContainer: &ebs.SnapshotImportDiskContainerArgs{
-//					Format: pulumi.String("VHD"),
-//					UserBucket: &ebs.SnapshotImportDiskContainerUserBucketArgs{
-//						S3Bucket: pulumi.String("disk-images"),
-//						S3Key:    pulumi.String("source.vhd"),
-//					},
-//				},
-//				RoleName: pulumi.String("disk-image-import"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type SnapshotImport struct {
 	pulumi.CustomResourceState
 

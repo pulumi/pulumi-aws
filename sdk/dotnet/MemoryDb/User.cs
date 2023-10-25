@@ -15,38 +15,6 @@ namespace Pulumi.Aws.MemoryDb
     /// More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
     /// 
     /// &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Random = Pulumi.Random;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleRandomPassword = new Random.RandomPassword("exampleRandomPassword", new()
-    ///     {
-    ///         Length = 16,
-    ///     });
-    /// 
-    ///     var exampleUser = new Aws.MemoryDb.User("exampleUser", new()
-    ///     {
-    ///         UserName = "my-user",
-    ///         AccessString = "on ~* &amp;* +@all",
-    ///         AuthenticationMode = new Aws.MemoryDb.Inputs.UserAuthenticationModeArgs
-    ///         {
-    ///             Type = "password",
-    ///             Passwords = new[]
-    ///             {
-    ///                 exampleRandomPassword.Result,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

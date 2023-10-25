@@ -13,54 +13,6 @@ namespace Pulumi.Aws.Cognito
     /// Provides a Cognito Resource Server.
     /// 
     /// ## Example Usage
-    /// ### Create a basic resource server
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
-    /// 
-    ///     var resource = new Aws.Cognito.ResourceServer("resource", new()
-    ///     {
-    ///         Identifier = "https://example.com",
-    ///         UserPoolId = pool.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Create a resource server with sample-scope
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var pool = new Aws.Cognito.UserPool("pool");
-    /// 
-    ///     var resource = new Aws.Cognito.ResourceServer("resource", new()
-    ///     {
-    ///         Identifier = "https://example.com",
-    ///         Scopes = new[]
-    ///         {
-    ///             new Aws.Cognito.Inputs.ResourceServerScopeArgs
-    ///             {
-    ///                 ScopeName = "sample-scope",
-    ///                 ScopeDescription = "a Sample Scope Description",
-    ///             },
-    ///         },
-    ///         UserPoolId = pool.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

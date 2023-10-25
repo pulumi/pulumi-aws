@@ -14,28 +14,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.CloudWatch.EventApiDestination("test", new()
-    ///     {
-    ///         Description = "An API Destination",
-    ///         InvocationEndpoint = "https://api.destination.com/endpoint",
-    ///         HttpMethod = "POST",
-    ///         InvocationRateLimitPerSecond = 20,
-    ///         ConnectionArn = aws_cloudwatch_event_connection.Test.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:

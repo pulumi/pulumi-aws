@@ -10,25 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an SES configuration set resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ses.ConfigurationSet("test", {});
- * ```
- * ### Require TLS Connections
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ses.ConfigurationSet("test", {deliveryOptions: {
- *     tlsPolicy: "Require",
- * }});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SES Configuration Sets using their `name`. For example:

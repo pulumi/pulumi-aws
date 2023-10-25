@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer AS2 Agreement resource.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Agreement("example", {
- *     accessRole: aws_iam_role.test.arn,
- *     baseDirectory: "/DOC-EXAMPLE-BUCKET/home/mydirectory",
- *     description: "example",
- *     localProfileId: aws_transfer_profile.local.profile_id,
- *     partnerProfileId: aws_transfer_profile.partner.profile_id,
- *     serverId: aws_transfer_server.test.id,
- * });
- * ```
  *
  * ## Import
  *

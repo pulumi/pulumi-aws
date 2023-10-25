@@ -12,31 +12,6 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides a Cognito Risk Configuration resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Cognito.RiskConfiguration("example", new()
-    ///     {
-    ///         UserPoolId = aws_cognito_user_pool.Example.Id,
-    ///         RiskExceptionConfiguration = new Aws.Cognito.Inputs.RiskConfigurationRiskExceptionConfigurationArgs
-    ///         {
-    ///             BlockedIpRangeLists = new[]
-    ///             {
-    ///                 "10.10.10.10/32",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Import using the user pool ID and Client ID separated by a `:`:

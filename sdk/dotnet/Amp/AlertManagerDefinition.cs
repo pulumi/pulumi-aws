@@ -12,32 +12,6 @@ namespace Pulumi.Aws.Amp
     /// <summary>
     /// Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var demoWorkspace = new Aws.Amp.Workspace("demoWorkspace");
-    /// 
-    ///     var demoAlertManagerDefinition = new Aws.Amp.AlertManagerDefinition("demoAlertManagerDefinition", new()
-    ///     {
-    ///         WorkspaceId = demoWorkspace.Id,
-    ///         Definition = @"alertmanager_config: |
-    ///   route:
-    ///     receiver: 'default'
-    ///   receivers:
-    ///     - name: 'default'
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the prometheus alert manager definition using the workspace identifier. For example:

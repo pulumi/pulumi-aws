@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -70,18 +70,6 @@ def get_bucket_policy(bucket: Optional[str] = None,
     """
     The bucket policy data source returns IAM policy of an S3 bucket.
 
-    ## Example Usage
-
-    The following example retrieves IAM policy of a specified S3 bucket.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.s3.get_bucket_policy(bucket="example-bucket-name")
-    pulumi.export("foo", example.policy)
-    ```
-
 
     :param str bucket: Bucket name.
     """
@@ -101,18 +89,6 @@ def get_bucket_policy_output(bucket: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketPolicyResult]:
     """
     The bucket policy data source returns IAM policy of an S3 bucket.
-
-    ## Example Usage
-
-    The following example retrieves IAM policy of a specified S3 bucket.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.s3.get_bucket_policy(bucket="example-bucket-name")
-    pulumi.export("foo", example.policy)
-    ```
 
 
     :param str bucket: Bucket name.

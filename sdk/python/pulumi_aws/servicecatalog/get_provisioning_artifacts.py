@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -82,14 +82,6 @@ def get_provisioning_artifacts(accept_language: Optional[str] = None,
     Lists the provisioning artifacts for the specified product.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_provisioning_artifacts(product_id="prod-yakog5pdriver")
-    ```
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -118,14 +110,6 @@ def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Opt
     Lists the provisioning artifacts for the specified product.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_provisioning_artifacts(product_id="prod-yakog5pdriver")
-    ```
 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.

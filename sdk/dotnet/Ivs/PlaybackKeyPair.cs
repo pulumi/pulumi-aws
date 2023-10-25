@@ -13,24 +13,6 @@ namespace Pulumi.Aws.Ivs
     /// Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ivs.PlaybackKeyPair("example", new()
-    ///     {
-    ///         PublicKey = File.ReadAllText("./public-key.pem"),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

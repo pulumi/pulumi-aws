@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [Amazon Macie Organization Admin Account](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
- * const exampleOrganizationAdminAccount = new aws.macie2.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "ID OF THE ADMIN ACCOUNT"}, {
- *     dependsOn: [exampleAccount],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For example:

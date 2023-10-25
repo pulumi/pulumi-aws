@@ -17,36 +17,6 @@ import (
 //
 // > **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apprunner.NewConnection(ctx, "example", &apprunner.ConnectionArgs{
-//				ConnectionName: pulumi.String("example"),
-//				ProviderType:   pulumi.String("GITHUB"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-apprunner-connection"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:

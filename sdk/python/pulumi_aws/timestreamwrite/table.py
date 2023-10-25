@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,49 @@ class TableArgs:
         :param pulumi.Input['TableSchemaArgs'] schema: The schema of the table. See Schema below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "table_name", table_name)
+        TableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            table_name=table_name,
+            magnetic_store_write_properties=magnetic_store_write_properties,
+            retention_properties=retention_properties,
+            schema=schema,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             magnetic_store_write_properties: Optional[pulumi.Input['TableMagneticStoreWritePropertiesArgs']] = None,
+             retention_properties: Optional[pulumi.Input['TableRetentionPropertiesArgs']] = None,
+             schema: Optional[pulumi.Input['TableSchemaArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if magnetic_store_write_properties is None and 'magneticStoreWriteProperties' in kwargs:
+            magnetic_store_write_properties = kwargs['magneticStoreWriteProperties']
+        if retention_properties is None and 'retentionProperties' in kwargs:
+            retention_properties = kwargs['retentionProperties']
+
+        _setter("database_name", database_name)
+        _setter("table_name", table_name)
         if magnetic_store_write_properties is not None:
-            pulumi.set(__self__, "magnetic_store_write_properties", magnetic_store_write_properties)
+            _setter("magnetic_store_write_properties", magnetic_store_write_properties)
         if retention_properties is not None:
-            pulumi.set(__self__, "retention_properties", retention_properties)
+            _setter("retention_properties", retention_properties)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -137,25 +170,60 @@ class _TableState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _TableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            database_name=database_name,
+            magnetic_store_write_properties=magnetic_store_write_properties,
+            retention_properties=retention_properties,
+            schema=schema,
+            table_name=table_name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             magnetic_store_write_properties: Optional[pulumi.Input['TableMagneticStoreWritePropertiesArgs']] = None,
+             retention_properties: Optional[pulumi.Input['TableRetentionPropertiesArgs']] = None,
+             schema: Optional[pulumi.Input['TableSchemaArgs']] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if magnetic_store_write_properties is None and 'magneticStoreWriteProperties' in kwargs:
+            magnetic_store_write_properties = kwargs['magneticStoreWriteProperties']
+        if retention_properties is None and 'retentionProperties' in kwargs:
+            retention_properties = kwargs['retentionProperties']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if magnetic_store_write_properties is not None:
-            pulumi.set(__self__, "magnetic_store_write_properties", magnetic_store_write_properties)
+            _setter("magnetic_store_write_properties", magnetic_store_write_properties)
         if retention_properties is not None:
-            pulumi.set(__self__, "retention_properties", retention_properties)
+            _setter("retention_properties", retention_properties)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -273,50 +341,6 @@ class Table(pulumi.CustomResource):
         Provides a Timestream table resource.
 
         ## Example Usage
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
-            table_name="example")
-        ```
-        ### Full usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
-            table_name="example",
-            retention_properties=aws.timestreamwrite.TableRetentionPropertiesArgs(
-                magnetic_store_retention_period_in_days=30,
-                memory_store_retention_period_in_hours=8,
-            ),
-            tags={
-                "Name": "example-timestream-table",
-            })
-        ```
-        ### Customer-defined Partition Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
-            table_name="example",
-            schema=aws.timestreamwrite.TableSchemaArgs(
-                composite_partition_key=aws.timestreamwrite.TableSchemaCompositePartitionKeyArgs(
-                    enforcement_in_record="REQUIRED",
-                    name="attr1",
-                    type="DIMENSION",
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -345,50 +369,6 @@ class Table(pulumi.CustomResource):
         Provides a Timestream table resource.
 
         ## Example Usage
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
-            table_name="example")
-        ```
-        ### Full usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
-            table_name="example",
-            retention_properties=aws.timestreamwrite.TableRetentionPropertiesArgs(
-                magnetic_store_retention_period_in_days=30,
-                memory_store_retention_period_in_hours=8,
-            ),
-            tags={
-                "Name": "example-timestream-table",
-            })
-        ```
-        ### Customer-defined Partition Key
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.timestreamwrite.Table("example",
-            database_name=aws_timestreamwrite_database["example"]["database_name"],
-            table_name="example",
-            schema=aws.timestreamwrite.TableSchemaArgs(
-                composite_partition_key=aws.timestreamwrite.TableSchemaCompositePartitionKeyArgs(
-                    enforcement_in_record="REQUIRED",
-                    name="attr1",
-                    type="DIMENSION",
-                ),
-            ))
-        ```
 
         ## Import
 
@@ -408,6 +388,10 @@ class Table(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -431,8 +415,11 @@ class Table(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            magnetic_store_write_properties = _utilities.configure(magnetic_store_write_properties, TableMagneticStoreWritePropertiesArgs, True)
             __props__.__dict__["magnetic_store_write_properties"] = magnetic_store_write_properties
+            retention_properties = _utilities.configure(retention_properties, TableRetentionPropertiesArgs, True)
             __props__.__dict__["retention_properties"] = retention_properties
+            schema = _utilities.configure(schema, TableSchemaArgs, True)
             __props__.__dict__["schema"] = schema
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")

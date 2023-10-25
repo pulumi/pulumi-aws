@@ -14,53 +14,6 @@ namespace Pulumi.Aws.Fsx
     /// See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Fsx.OntapVolume("test", new()
-    ///     {
-    ///         JunctionPath = "/test",
-    ///         SizeInMegabytes = 1024,
-    ///         StorageEfficiencyEnabled = true,
-    ///         StorageVirtualMachineId = aws_fsx_ontap_storage_virtual_machine.Test.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Using Tiering Policy
-    /// 
-    /// Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Fsx.OntapVolume("test", new()
-    ///     {
-    ///         JunctionPath = "/test",
-    ///         SizeInMegabytes = 1024,
-    ///         StorageEfficiencyEnabled = true,
-    ///         StorageVirtualMachineId = aws_fsx_ontap_storage_virtual_machine.Test.Id,
-    ///         TieringPolicy = new Aws.Fsx.Inputs.OntapVolumeTieringPolicyArgs
-    ///         {
-    ///             Name = "AUTO",
-    ///             CoolingPeriod = 31,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

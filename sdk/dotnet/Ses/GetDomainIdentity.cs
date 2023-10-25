@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Ses
     {
         /// <summary>
         /// Retrieve the SES domain identity
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ses.GetDomainIdentity.Invoke(new()
-        ///     {
-        ///         Domain = "example.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDomainIdentityResult> InvokeAsync(GetDomainIdentityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainIdentityResult>("aws:ses/getDomainIdentity:getDomainIdentity", args ?? new GetDomainIdentityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the SES domain identity
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Ses.GetDomainIdentity.Invoke(new()
-        ///     {
-        ///         Domain = "example.com",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDomainIdentityResult> Invoke(GetDomainIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainIdentityResult>("aws:ses/getDomainIdentity:getDomainIdentity", args ?? new GetDomainIdentityInvokeArgs(), options.WithDefaults());

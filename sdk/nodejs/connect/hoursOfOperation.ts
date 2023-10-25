@@ -11,46 +11,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Connect Hours of Operation resource. For more information see
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.HoursOfOperation("test", {
- *     configs: [
- *         {
- *             day: "MONDAY",
- *             endTime: {
- *                 hours: 23,
- *                 minutes: 8,
- *             },
- *             startTime: {
- *                 hours: 8,
- *                 minutes: 0,
- *             },
- *         },
- *         {
- *             day: "TUESDAY",
- *             endTime: {
- *                 hours: 21,
- *                 minutes: 0,
- *             },
- *             startTime: {
- *                 hours: 9,
- *                 minutes: 0,
- *             },
- *         },
- *     ],
- *     description: "Monday office hours",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     tags: {
- *         Name: "Example Hours of Operation",
- *     },
- *     timeZone: "EST",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For example:

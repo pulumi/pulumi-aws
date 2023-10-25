@@ -14,30 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// The `aws.ec2.VpcIpv6CidrBlockAssociation` resource allows IPv6 CIDR blocks to be added to the VPC.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testVpc = new Aws.Ec2.Vpc("testVpc", new()
-    ///     {
-    ///         CidrBlock = "10.0.0.0/16",
-    ///     });
-    /// 
-    ///     var testVpcIpv6CidrBlockAssociation = new Aws.Ec2.VpcIpv6CidrBlockAssociation("testVpcIpv6CidrBlockAssociation", new()
-    ///     {
-    ///         Ipv6IpamPoolId = aws_vpc_ipam_pool.Test.Id,
-    ///         VpcId = testVpc.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_vpc_ipv6_cidr_block_association` using the VPC CIDR Association ID. For example:

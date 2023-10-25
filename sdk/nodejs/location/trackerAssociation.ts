@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS Location Tracker Association.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGeofenceCollection = new aws.location.GeofenceCollection("exampleGeofenceCollection", {collectionName: "example"});
- * const exampleTracker = new aws.location.Tracker("exampleTracker", {trackerName: "example"});
- * const exampleTrackerAssociation = new aws.location.TrackerAssociation("exampleTrackerAssociation", {
- *     consumerArn: exampleGeofenceCollection.collectionArn,
- *     trackerName: exampleTracker.trackerName,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:

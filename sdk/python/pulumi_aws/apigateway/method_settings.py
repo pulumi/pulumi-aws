@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,10 +27,41 @@ class MethodSettingsArgs:
         :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
         :param pulumi.Input[str] stage_name: Name of the stage
         """
-        pulumi.set(__self__, "method_path", method_path)
-        pulumi.set(__self__, "rest_api", rest_api)
-        pulumi.set(__self__, "settings", settings)
-        pulumi.set(__self__, "stage_name", stage_name)
+        MethodSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            method_path=method_path,
+            rest_api=rest_api,
+            settings=settings,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             method_path: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input['MethodSettingsSettingsArgs']] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if method_path is None and 'methodPath' in kwargs:
+            method_path = kwargs['methodPath']
+        if method_path is None:
+            raise TypeError("Missing 'method_path' argument")
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if rest_api is None:
+            raise TypeError("Missing 'rest_api' argument")
+        if settings is None:
+            raise TypeError("Missing 'settings' argument")
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+        if stage_name is None:
+            raise TypeError("Missing 'stage_name' argument")
+
+        _setter("method_path", method_path)
+        _setter("rest_api", rest_api)
+        _setter("settings", settings)
+        _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="methodPath")
@@ -95,14 +126,37 @@ class _MethodSettingsState:
         :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
         :param pulumi.Input[str] stage_name: Name of the stage
         """
+        _MethodSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            method_path=method_path,
+            rest_api=rest_api,
+            settings=settings,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             method_path: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input['MethodSettingsSettingsArgs']] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if method_path is None and 'methodPath' in kwargs:
+            method_path = kwargs['methodPath']
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
         if method_path is not None:
-            pulumi.set(__self__, "method_path", method_path)
+            _setter("method_path", method_path)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="methodPath")
@@ -171,124 +225,10 @@ class MethodSettings(pulumi.CustomResource):
         ## Example Usage
 
         ### End-to-end
-        ### Basic Usage
 
-        ```python
-        import pulumi
-        import hashlib
-        import json
-        import pulumi_aws as aws
-
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
-            },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-                        },
-                    },
-                },
-            },
-        }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
-            rest_api=example_rest_api.id,
-            triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
-            })
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=example_deployment.id,
-            rest_api=example_rest_api.id,
-            stage_name="example")
-        all = aws.apigateway.MethodSettings("all",
-            rest_api=example_rest_api.id,
-            stage_name=example_stage.stage_name,
-            method_path="*/*",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                metrics_enabled=True,
-                logging_level="ERROR",
-            ))
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=example_rest_api.id,
-            stage_name=example_stage.stage_name,
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                metrics_enabled=True,
-                logging_level="INFO",
-            ))
-        ```
         ### CloudWatch Logging and Tracing
 
         The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
-        ### Off
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="OFF",
-            ))
-        ```
-        ### Errors Only
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="ERROR",
-                metrics_enabled=True,
-                data_trace_enabled=False,
-            ))
-        ```
-        ### Errors and Info Logs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="INFO",
-                metrics_enabled=True,
-                data_trace_enabled=False,
-            ))
-        ```
-        ### Full Request and Response Logs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="INFO",
-                metrics_enabled=True,
-                data_trace_enabled=True,
-            ))
-        ```
 
         ## Import
 
@@ -319,124 +259,10 @@ class MethodSettings(pulumi.CustomResource):
         ## Example Usage
 
         ### End-to-end
-        ### Basic Usage
 
-        ```python
-        import pulumi
-        import hashlib
-        import json
-        import pulumi_aws as aws
-
-        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
-            "openapi": "3.0.1",
-            "info": {
-                "title": "example",
-                "version": "1.0",
-            },
-            "paths": {
-                "/path1": {
-                    "get": {
-                        "x-amazon-apigateway-integration": {
-                            "httpMethod": "GET",
-                            "payloadFormatVersion": "1.0",
-                            "type": "HTTP_PROXY",
-                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
-                        },
-                    },
-                },
-            },
-        }))
-        example_deployment = aws.apigateway.Deployment("exampleDeployment",
-            rest_api=example_rest_api.id,
-            triggers={
-                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
-            })
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=example_deployment.id,
-            rest_api=example_rest_api.id,
-            stage_name="example")
-        all = aws.apigateway.MethodSettings("all",
-            rest_api=example_rest_api.id,
-            stage_name=example_stage.stage_name,
-            method_path="*/*",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                metrics_enabled=True,
-                logging_level="ERROR",
-            ))
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=example_rest_api.id,
-            stage_name=example_stage.stage_name,
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                metrics_enabled=True,
-                logging_level="INFO",
-            ))
-        ```
         ### CloudWatch Logging and Tracing
 
         The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
-        ### Off
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="OFF",
-            ))
-        ```
-        ### Errors Only
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="ERROR",
-                metrics_enabled=True,
-                data_trace_enabled=False,
-            ))
-        ```
-        ### Errors and Info Logs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="INFO",
-                metrics_enabled=True,
-                data_trace_enabled=False,
-            ))
-        ```
-        ### Full Request and Response Logs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        path_specific = aws.apigateway.MethodSettings("pathSpecific",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=aws_api_gateway_stage["example"]["stage_name"],
-            method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="INFO",
-                metrics_enabled=True,
-                data_trace_enabled=True,
-            ))
-        ```
 
         ## Import
 
@@ -456,6 +282,10 @@ class MethodSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MethodSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -480,6 +310,7 @@ class MethodSettings(pulumi.CustomResource):
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
+            settings = _utilities.configure(settings, MethodSettingsSettingsArgs, True)
             if settings is None and not opts.urn:
                 raise TypeError("Missing required property 'settings'")
             __props__.__dict__["settings"] = settings

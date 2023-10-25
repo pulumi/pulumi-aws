@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -72,16 +72,6 @@ def get_lbs(tags: Optional[Mapping[str, str]] = None,
     resources.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lb.get_lbs(tags={
-        "elbv2.k8s.aws/cluster": "my-cluster",
-    })
-    ```
 
 
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
@@ -106,16 +96,6 @@ def get_lbs_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = N
     resources.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lb.get_lbs(tags={
-        "elbv2.k8s.aws/cluster": "my-cluster",
-    })
-    ```
 
 
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match

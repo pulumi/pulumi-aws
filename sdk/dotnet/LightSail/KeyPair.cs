@@ -17,56 +17,6 @@ namespace Pulumi.Aws.LightSail
     /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
     /// 
     /// ## Example Usage
-    /// ### Create New Key Pair
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a new Lightsail Key Pair
-    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair");
-    /// 
-    /// });
-    /// ```
-    /// ### Create New Key Pair with PGP Encrypted Private Key
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair", new()
-    ///     {
-    ///         PgpKey = "keybase:keybaseusername",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Existing Public Key Import
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lgKeyPair", new()
-    ///     {
-    ///         PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

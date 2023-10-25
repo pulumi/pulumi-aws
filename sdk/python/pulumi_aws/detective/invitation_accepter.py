@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InvitationAccepterArgs', 'InvitationAccepter']
@@ -19,7 +19,22 @@ class InvitationAccepterArgs:
         The set of arguments for constructing a InvitationAccepter resource.
         :param pulumi.Input[str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
         """
-        pulumi.set(__self__, "graph_arn", graph_arn)
+        InvitationAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            graph_arn=graph_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             graph_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if graph_arn is None and 'graphArn' in kwargs:
+            graph_arn = kwargs['graphArn']
+        if graph_arn is None:
+            raise TypeError("Missing 'graph_arn' argument")
+
+        _setter("graph_arn", graph_arn)
 
     @property
     @pulumi.getter(name="graphArn")
@@ -42,8 +57,21 @@ class _InvitationAccepterState:
         Input properties used for looking up and filtering InvitationAccepter resources.
         :param pulumi.Input[str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
         """
+        _InvitationAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            graph_arn=graph_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             graph_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if graph_arn is None and 'graphArn' in kwargs:
+            graph_arn = kwargs['graphArn']
+
         if graph_arn is not None:
-            pulumi.set(__self__, "graph_arn", graph_arn)
+            _setter("graph_arn", graph_arn)
 
     @property
     @pulumi.getter(name="graphArn")
@@ -68,23 +96,6 @@ class InvitationAccepter(pulumi.CustomResource):
         """
         Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary_graph = aws.detective.Graph("primaryGraph")
-        primary_member = aws.detective.Member("primaryMember",
-            account_id="ACCOUNT ID",
-            email_address="EMAIL",
-            graph_arn=primary_graph.id,
-            message="Message of the invite")
-        member = aws.detective.InvitationAccepter("member", graph_arn=primary_graph.graph_arn,
-        opts=pulumi.ResourceOptions(provider="awsalternate",
-            depends_on=[primary_member]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
@@ -106,23 +117,6 @@ class InvitationAccepter(pulumi.CustomResource):
         """
         Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary_graph = aws.detective.Graph("primaryGraph")
-        primary_member = aws.detective.Member("primaryMember",
-            account_id="ACCOUNT ID",
-            email_address="EMAIL",
-            graph_arn=primary_graph.id,
-            message="Message of the invite")
-        member = aws.detective.InvitationAccepter("member", graph_arn=primary_graph.graph_arn,
-        opts=pulumi.ResourceOptions(provider="awsalternate",
-            depends_on=[primary_member]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
@@ -141,6 +135,10 @@ class InvitationAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InvitationAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

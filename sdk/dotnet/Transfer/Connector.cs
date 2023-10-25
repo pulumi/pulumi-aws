@@ -13,61 +13,6 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer AS2 Connector resource.
     /// 
     /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Transfer.Connector("example", new()
-    ///     {
-    ///         AccessRole = aws_iam_role.Test.Arn,
-    ///         As2Config = new Aws.Transfer.Inputs.ConnectorAs2ConfigArgs
-    ///         {
-    ///             Compression = "DISABLED",
-    ///             EncryptionAlgorithm = "AWS128_CBC",
-    ///             MessageSubject = "For Connector",
-    ///             LocalProfileId = aws_transfer_profile.Local.Profile_id,
-    ///             MdnResponse = "NONE",
-    ///             MdnSigningAlgorithm = "NONE",
-    ///             PartnerProfileId = aws_transfer_profile.Partner.Profile_id,
-    ///             SigningAlgorithm = "NONE",
-    ///         },
-    ///         Url = "http://www.test.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### SFTP Connector
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Transfer.Connector("example", new()
-    ///     {
-    ///         AccessRole = aws_iam_role.Test.Arn,
-    ///         SftpConfig = new Aws.Transfer.Inputs.ConnectorSftpConfigArgs
-    ///         {
-    ///             TrustedHostKeys = new[]
-    ///             {
-    ///                 "ssh-rsa AAAAB3NYourKeysHere",
-    ///             },
-    ///             UserSecretId = aws_secretsmanager_secret.Example.Id,
-    ///         },
-    ///         Url = "sftp://test.com",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

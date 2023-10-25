@@ -3388,9 +3388,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) VcpuCoun
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min *int `pulumi:"min"`
 }
 
@@ -3406,9 +3406,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountInput 
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -3507,12 +3507,12 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOut
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -3547,7 +3547,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtr
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int {
 		if v == nil {
@@ -3557,7 +3557,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int {
 		if v == nil {
@@ -3568,9 +3568,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtr
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min *int `pulumi:"min"`
 }
 
@@ -3586,9 +3586,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemory
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -3687,14 +3687,14 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMem
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		return v.Max
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		return v.Min
@@ -3731,7 +3731,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMem
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		if v == nil {
@@ -3741,7 +3741,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMem
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		if v == nil {
@@ -3752,9 +3752,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMem
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min *int `pulumi:"min"`
 }
 
@@ -3770,9 +3770,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMb
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -3871,14 +3871,14 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidt
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		return v.Max
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		return v.Min
@@ -3915,7 +3915,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidt
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -3925,7 +3925,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -3936,9 +3936,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidt
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -3954,9 +3954,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuInput 
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -4055,12 +4055,12 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOut
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
 }
@@ -4095,7 +4095,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtr
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -4105,7 +4105,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtr
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -4116,9 +4116,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtr
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min int `pulumi:"min"`
 }
 
@@ -4134,9 +4134,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput interfa
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min pulumi.IntInput `pulumi:"min"`
 }
 
@@ -4235,12 +4235,12 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) To
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) int { return v.Min }).(pulumi.IntOutput)
 }
@@ -4275,7 +4275,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int {
 		if v == nil {
@@ -4285,7 +4285,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int {
 		if v == nil {
@@ -4296,9 +4296,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -4314,9 +4314,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsIn
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -4415,14 +4415,14 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbp
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		return v.Max
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		return v.Min
@@ -4459,7 +4459,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbp
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -4469,7 +4469,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbp
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -4480,9 +4480,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbp
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min *int `pulumi:"min"`
 }
 
@@ -4498,9 +4498,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountI
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -4599,12 +4599,12 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCou
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -4639,7 +4639,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCou
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int {
 		if v == nil {
@@ -4649,7 +4649,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCou
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int {
 		if v == nil {
@@ -4660,9 +4660,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCou
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -4678,9 +4678,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbInp
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -4779,14 +4779,14 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		return v.Max
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		return v.Min
@@ -4823,7 +4823,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -4833,7 +4833,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -4844,9 +4844,9 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max *int `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min int `pulumi:"min"`
 }
 
@@ -4862,9 +4862,9 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountInput interfa
 }
 
 type FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// Minimum.
+	// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 	Min pulumi.IntInput `pulumi:"min"`
 }
 
@@ -4963,12 +4963,12 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) To
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) int { return v.Min }).(pulumi.IntOutput)
 }
@@ -5003,7 +5003,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput)
 	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *int {
 		if v == nil {
@@ -5013,7 +5013,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput)
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum.
+// The minimum number of vCPUs. To specify no minimum limit, specify `0`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *int {
 		if v == nil {
@@ -12392,54 +12392,12 @@ type LaunchTemplateInstanceRequirements struct {
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount *LaunchTemplateInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorNames []string `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
 	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
 	//
@@ -12454,58 +12412,16 @@ type LaunchTemplateInstanceRequirements struct {
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	InstanceGenerations []string `pulumi:"instanceGenerations"`
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage *string `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
@@ -12546,54 +12462,12 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount LaunchTemplateInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
 	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
 	//
@@ -12608,58 +12482,16 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
@@ -12788,45 +12620,11 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorCount() LaunchTempl
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorManufacturers }).(pulumi.StringArrayOutput)
 }
 
 // List of accelerator names. Default is any acclerator.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorNames }).(pulumi.StringArrayOutput)
 }
@@ -12839,23 +12637,6 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMib() La
 }
 
 // List of accelerator types. Default is any accelerator type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
 }
@@ -12887,23 +12668,6 @@ func (o LaunchTemplateInstanceRequirementsOutput) BurstablePerformance() pulumi.
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.CpuManufacturers }).(pulumi.StringArrayOutput)
 }
@@ -12916,23 +12680,6 @@ func (o LaunchTemplateInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi
 }
 
 // List of instance generation names. Default is any generation.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.InstanceGenerations }).(pulumi.StringArrayOutput)
 }
@@ -12943,23 +12690,6 @@ func (o LaunchTemplateInstanceRequirementsOutput) LocalStorage() pulumi.StringPt
 }
 
 // List of local storage type names. Default any storage type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
 }
@@ -13066,23 +12796,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorCount() LaunchTe
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -13093,23 +12806,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() 
 }
 
 // List of accelerator names. Default is any acclerator.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -13130,23 +12826,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMib()
 }
 
 // List of accelerator types. Default is any accelerator type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -13201,23 +12880,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) BurstablePerformance() pulu
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -13240,23 +12902,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pul
 }
 
 // List of instance generation names. Default is any generation.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -13277,23 +12922,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorage() pulumi.Strin
 }
 
 // List of local storage type names. Default any storage type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -13398,7 +13026,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) VcpuCount() LaunchTemplateI
 }
 
 type LaunchTemplateInstanceRequirementsAcceleratorCount struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -13416,7 +13044,7 @@ type LaunchTemplateInstanceRequirementsAcceleratorCountInput interface {
 }
 
 type LaunchTemplateInstanceRequirementsAcceleratorCountArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -13517,7 +13145,7 @@ func (o LaunchTemplateInstanceRequirementsAcceleratorCountOutput) ToOutput(ctx c
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsAcceleratorCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -13557,7 +13185,7 @@ func (o LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) Elem() Laun
 	}).(LaunchTemplateInstanceRequirementsAcceleratorCountOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsAcceleratorCount) *int {
 		if v == nil {
@@ -13578,7 +13206,7 @@ func (o LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) Min() pulum
 }
 
 type LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -13596,7 +13224,7 @@ type LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibInput interface 
 }
 
 type LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -13697,7 +13325,7 @@ func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToOut
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -13737,7 +13365,7 @@ func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) El
 	}).(LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		if v == nil {
@@ -13758,7 +13386,7 @@ func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Mi
 }
 
 type LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -13776,7 +13404,7 @@ type LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsInput interface {
 }
 
 type LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -13877,7 +13505,7 @@ func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToOutp
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -13917,7 +13545,7 @@ func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Ele
 	}).(LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -13938,7 +13566,7 @@ func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Min
 }
 
 type LaunchTemplateInstanceRequirementsMemoryGibPerVcpu struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *float64 `pulumi:"max"`
 	// Minimum.
 	Min *float64 `pulumi:"min"`
@@ -13956,7 +13584,7 @@ type LaunchTemplateInstanceRequirementsMemoryGibPerVcpuInput interface {
 }
 
 type LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
@@ -14057,7 +13685,7 @@ func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) ToOutput(ctx c
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
@@ -14097,7 +13725,7 @@ func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Elem() Laun
 	}).(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -14118,7 +13746,7 @@ func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Min() pulum
 }
 
 type LaunchTemplateInstanceRequirementsMemoryMib struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min int `pulumi:"min"`
@@ -14136,7 +13764,7 @@ type LaunchTemplateInstanceRequirementsMemoryMibInput interface {
 }
 
 type LaunchTemplateInstanceRequirementsMemoryMibArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntInput `pulumi:"min"`
@@ -14237,7 +13865,7 @@ func (o LaunchTemplateInstanceRequirementsMemoryMibOutput) ToOutput(ctx context.
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsMemoryMibOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsMemoryMib) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -14277,7 +13905,7 @@ func (o LaunchTemplateInstanceRequirementsMemoryMibPtrOutput) Elem() LaunchTempl
 	}).(LaunchTemplateInstanceRequirementsMemoryMibOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsMemoryMib) *int {
 		if v == nil {
@@ -14298,7 +13926,7 @@ func (o LaunchTemplateInstanceRequirementsMemoryMibPtrOutput) Min() pulumi.IntPt
 }
 
 type LaunchTemplateInstanceRequirementsNetworkBandwidthGbps struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *float64 `pulumi:"max"`
 	// Minimum.
 	Min *float64 `pulumi:"min"`
@@ -14316,7 +13944,7 @@ type LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsInput interface {
 }
 
 type LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
@@ -14417,7 +14045,7 @@ func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) ToOutput(c
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
@@ -14457,7 +14085,7 @@ func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Elem() 
 	}).(LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -14478,7 +14106,7 @@ func (o LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Min() p
 }
 
 type LaunchTemplateInstanceRequirementsNetworkInterfaceCount struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -14496,7 +14124,7 @@ type LaunchTemplateInstanceRequirementsNetworkInterfaceCountInput interface {
 }
 
 type LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -14597,7 +14225,7 @@ func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) ToOutput(
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -14637,7 +14265,7 @@ func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) Elem()
 	}).(LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int {
 		if v == nil {
@@ -14658,7 +14286,7 @@ func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) Min() 
 }
 
 type LaunchTemplateInstanceRequirementsTotalLocalStorageGb struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *float64 `pulumi:"max"`
 	// Minimum.
 	Min *float64 `pulumi:"min"`
@@ -14676,7 +14304,7 @@ type LaunchTemplateInstanceRequirementsTotalLocalStorageGbInput interface {
 }
 
 type LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
@@ -14777,7 +14405,7 @@ func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) ToOutput(ct
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
 }
@@ -14817,7 +14445,7 @@ func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Elem() L
 	}).(LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -14838,7 +14466,7 @@ func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Min() pu
 }
 
 type LaunchTemplateInstanceRequirementsVcpuCount struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min int `pulumi:"min"`
@@ -14856,7 +14484,7 @@ type LaunchTemplateInstanceRequirementsVcpuCountInput interface {
 }
 
 type LaunchTemplateInstanceRequirementsVcpuCountArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntInput `pulumi:"min"`
@@ -14957,7 +14585,7 @@ func (o LaunchTemplateInstanceRequirementsVcpuCountOutput) ToOutput(ctx context.
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsVcpuCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsVcpuCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -14997,7 +14625,7 @@ func (o LaunchTemplateInstanceRequirementsVcpuCountPtrOutput) Elem() LaunchTempl
 	}).(LaunchTemplateInstanceRequirementsVcpuCountOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o LaunchTemplateInstanceRequirementsVcpuCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsVcpuCount) *int {
 		if v == nil {
@@ -30910,54 +30538,12 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorNames []string `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
 	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
 	//
@@ -30972,58 +30558,16 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	InstanceGenerations []string `pulumi:"instanceGenerations"`
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage *string `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
@@ -31064,54 +30608,12 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
 	// List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
 	//
@@ -31126,58 +30628,16 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
 	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
 	//
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
@@ -31306,23 +30766,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.AcceleratorManufacturers
@@ -31330,23 +30773,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of accelerator names. Default is any acclerator.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.AcceleratorNames
@@ -31361,23 +30787,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of accelerator types. Default is any accelerator type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.AcceleratorTypes
@@ -31415,23 +30824,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.CpuManufacturers
@@ -31448,23 +30840,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of instance generation names. Default is any generation.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.InstanceGenerations
@@ -31479,23 +30854,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of local storage type names. Default any storage type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.LocalStorageTypes
@@ -31610,23 +30968,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -31637,23 +30978,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of accelerator names. Default is any acclerator.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -31674,23 +30998,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of accelerator types. Default is any accelerator type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -31745,23 +31052,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -31784,23 +31074,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of instance generation names. Default is any generation.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -31821,23 +31094,6 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of local storage type names. Default any storage type.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -31942,7 +31198,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -31960,7 +31216,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerator
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -32061,7 +31317,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelera
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int {
 		return v.Max
@@ -32105,7 +31361,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelera
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int {
 		if v == nil {
@@ -32126,7 +31382,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelera
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -32144,7 +31400,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerator
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -32245,7 +31501,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelera
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		return v.Max
@@ -32289,7 +31545,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelera
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		if v == nil {
@@ -32310,7 +31566,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelera
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -32328,7 +31584,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbs
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -32429,7 +31685,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaseline
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		return v.Max
@@ -32473,7 +31729,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaseline
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -32494,7 +31750,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaseline
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *float64 `pulumi:"max"`
 	// Minimum.
 	Min *float64 `pulumi:"min"`
@@ -32512,7 +31768,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPe
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
@@ -32613,7 +31869,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGi
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		return v.Max
@@ -32657,7 +31913,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGi
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -32678,7 +31934,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGi
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -32696,7 +31952,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibIn
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -32797,7 +32053,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -32837,7 +32093,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int {
 		if v == nil {
@@ -32858,7 +32114,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMi
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *float64 `pulumi:"max"`
 	// Minimum.
 	Min *float64 `pulumi:"min"`
@@ -32876,7 +32132,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBand
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
@@ -32977,7 +32233,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkB
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		return v.Max
@@ -33021,7 +32277,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkB
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -33042,7 +32298,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkB
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -33060,7 +32316,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInte
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -33161,7 +32417,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int {
 		return v.Max
@@ -33205,7 +32461,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int {
 		if v == nil {
@@ -33226,7 +32482,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkI
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *float64 `pulumi:"max"`
 	// Minimum.
 	Min *float64 `pulumi:"min"`
@@ -33244,7 +32500,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalS
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
@@ -33345,7 +32601,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		return v.Max
@@ -33389,7 +32645,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -33410,7 +32666,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLoc
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -33428,7 +32684,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountIn
 }
 
 type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -33529,7 +32785,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCoun
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
@@ -33569,7 +32825,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCoun
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *int {
 		if v == nil {
@@ -64135,34 +63391,6 @@ type GetSubnetsFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-	// 			Filters: []ec2.GetSubnetsFilter{
-	// 				{
-	// 					Name: "tag:Name",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// Subnet IDs will be selected if any one of the given values match.
@@ -64184,34 +63412,6 @@ type GetSubnetsFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-	// 			Filters: []ec2.GetSubnetsFilter{
-	// 				{
-	// 					Name: "tag:Name",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// Subnet IDs will be selected if any one of the given values match.
@@ -64290,37 +63490,6 @@ func (o GetSubnetsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[Get
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 // For example, if matching against tag `Name`, use:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-//				Filters: []ec2.GetSubnetsFilter{
-//					{
-//						Name: "tag:Name",
-//						Values: []string{
-//							"",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o GetSubnetsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSubnetsFilter) string { return v.Name }).(pulumi.StringOutput)
 }

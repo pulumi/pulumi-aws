@@ -12,25 +12,6 @@ namespace Pulumi.Aws.Rum
     /// <summary>
     /// Provides a CloudWatch RUM Metrics Destination resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Rum.MetricsDestination("example", new()
-    ///     {
-    ///         AppMonitorName = aws_rum_app_monitor.Example.Name,
-    ///         Destination = "CloudWatch",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:

@@ -12,28 +12,6 @@ namespace Pulumi.Aws.LightSail
     /// <summary>
     /// Provides a lightsail certificate.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.LightSail.Certificate("test", new()
-    ///     {
-    ///         DomainName = "testdomain.com",
-    ///         SubjectAlternativeNames = new[]
-    ///         {
-    ///             "www.testdomain.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:

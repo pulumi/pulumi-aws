@@ -20,56 +20,6 @@ import (
 // > **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewContainerServiceDeploymentVersion(ctx, "example", &lightsail.ContainerServiceDeploymentVersionArgs{
-//				Containers: lightsail.ContainerServiceDeploymentVersionContainerArray{
-//					&lightsail.ContainerServiceDeploymentVersionContainerArgs{
-//						ContainerName: pulumi.String("hello-world"),
-//						Image:         pulumi.String("amazon/amazon-lightsail:hello-world"),
-//						Commands:      pulumi.StringArray{},
-//						Environment: pulumi.StringMap{
-//							"MY_ENVIRONMENT_VARIABLE": pulumi.String("my_value"),
-//						},
-//						Ports: pulumi.StringMap{
-//							"80": pulumi.String("HTTP"),
-//						},
-//					},
-//				},
-//				PublicEndpoint: &lightsail.ContainerServiceDeploymentVersionPublicEndpointArgs{
-//					ContainerName: pulumi.String("hello-world"),
-//					ContainerPort: pulumi.Int(80),
-//					HealthCheck: &lightsail.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{
-//						HealthyThreshold:   pulumi.Int(2),
-//						UnhealthyThreshold: pulumi.Int(2),
-//						TimeoutSeconds:     pulumi.Int(2),
-//						IntervalSeconds:    pulumi.Int(5),
-//						Path:               pulumi.String("/"),
-//						SuccessCodes:       pulumi.String("200-499"),
-//					},
-//				},
-//				ServiceName: pulumi.Any(aws_lightsail_container_service.Example.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

@@ -12,21 +12,6 @@ namespace Pulumi.Aws.Iot
     /// <summary>
     /// Creates and manages an AWS IoT Thing Type.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.Iot.ThingType("foo");
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IOT Thing Types using the name. For example:

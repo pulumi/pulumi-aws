@@ -15,53 +15,12 @@ import * as utilities from "../utilities";
  * > **Tip:** For an organization event data store you must create this resource in the management account.
  *
  * ## Example Usage
- * ### Basic
  *
- * The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multiRegionEnabled` must be `true`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudtrail.EventDataStore("example", {});
- * ```
  * ### Data Event Logging
  *
  * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
  *
  * - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
- * ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const table = aws.dynamodb.getTable({
- *     name: "not-important-dynamodb-table",
- * });
- * // ... other configuration ...
- * const example = new aws.cloudtrail.EventDataStore("example", {advancedEventSelectors: [{
- *     name: "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
- *     fieldSelectors: [
- *         {
- *             field: "eventCategory",
- *             equals: ["Data"],
- *         },
- *         {
- *             field: "resources.type",
- *             equals: ["AWS::DynamoDB::Table"],
- *         },
- *         {
- *             field: "eventName",
- *             equals: ["PutItem"],
- *         },
- *         {
- *             field: "resources.ARN",
- *             equals: [table.then(table => table.arn)],
- *         },
- *     ],
- * }]});
- * ```
  *
  * ## Import
  *

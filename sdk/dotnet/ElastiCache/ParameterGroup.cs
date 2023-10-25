@@ -14,37 +14,6 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// &gt; **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in this provider due to an ElastiCache API limitation. Leave that parameter configured with any value to workaround the issue.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.ElastiCache.ParameterGroup("default", new()
-    ///     {
-    ///         Family = "redis2.8",
-    ///         Parameters = new[]
-    ///         {
-    ///             new Aws.ElastiCache.Inputs.ParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "activerehashing",
-    ///                 Value = "yes",
-    ///             },
-    ///             new Aws.ElastiCache.Inputs.ParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "min-slaves-to-write",
-    ///                 Value = "2",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For example:

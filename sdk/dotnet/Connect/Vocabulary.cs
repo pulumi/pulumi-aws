@@ -13,34 +13,6 @@ namespace Pulumi.Aws.Connect
     /// Provides an Amazon Connect Vocabulary resource. For more information see
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.Vocabulary("example", new()
-    ///     {
-    ///         Content = @"Phrase	IPA	SoundsLike	DisplayAs
-    /// Los-Angeles			Los Angeles
-    /// F.B.I.	ɛ f b i aɪ		FBI
-    /// Etienne		eh-tee-en	
-    /// ",
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         LanguageCode = "en-US",
-    ///         Tags = 
-    ///         {
-    ///             { "Key1", "Value1" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect Vocabularies using the `instance_id` and `vocabulary_id` separated by a colon (`:`). For example:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UploadArgs', 'Upload']
@@ -25,12 +25,37 @@ class UploadArgs:
         :param pulumi.Input[str] content_type: The upload's content type (for example, application/octet-stream).
         :param pulumi.Input[str] name: The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
         """
-        pulumi.set(__self__, "project_arn", project_arn)
-        pulumi.set(__self__, "type", type)
+        UploadArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_arn=project_arn,
+            type=type,
+            content_type=content_type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_arn: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_arn is None and 'projectArn' in kwargs:
+            project_arn = kwargs['projectArn']
+        if project_arn is None:
+            raise TypeError("Missing 'project_arn' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
+        _setter("project_arn", project_arn)
+        _setter("type", type)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="projectArn")
@@ -103,22 +128,51 @@ class _UploadState:
         :param pulumi.Input[str] type: The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
         :param pulumi.Input[str] url: The presigned Amazon S3 URL that was used to store a file using a PUT request.
         """
+        _UploadState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            category=category,
+            content_type=content_type,
+            metadata=metadata,
+            name=name,
+            project_arn=project_arn,
+            type=type,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             category: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             project_arn: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if project_arn is None and 'projectArn' in kwargs:
+            project_arn = kwargs['projectArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if project_arn is not None:
-            pulumi.set(__self__, "project_arn", project_arn)
+            _setter("project_arn", project_arn)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -232,18 +286,6 @@ class Upload(pulumi.CustomResource):
 
         > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_project = aws.devicefarm.Project("exampleProject")
-        example_upload = aws.devicefarm.Upload("exampleUpload",
-            project_arn=example_project.arn,
-            type="APPIUM_JAVA_TESTNG_TEST_SPEC")
-        ```
-
         ## Import
 
         Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
@@ -270,18 +312,6 @@ class Upload(pulumi.CustomResource):
 
         > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_project = aws.devicefarm.Project("exampleProject")
-        example_upload = aws.devicefarm.Upload("exampleUpload",
-            project_arn=example_project.arn,
-            type="APPIUM_JAVA_TESTNG_TEST_SPEC")
-        ```
-
         ## Import
 
         Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
@@ -300,6 +330,10 @@ class Upload(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UploadArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

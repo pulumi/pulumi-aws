@@ -20,69 +20,6 @@ import (
 // dead letter queue for a standard or FIFO queue, but need
 // the dead letter queue to exist before setting the redrive policy.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			queue, err := sqs.NewQueue(ctx, "queue", nil)
-//			if err != nil {
-//				return err
-//			}
-//			ddl, err := sqs.NewQueue(ctx, "ddl", &sqs.QueueArgs{
-//				RedriveAllowPolicy: queue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"redrivePermission": "byQueue",
-//						"sourceQueueArns": []string{
-//							arn,
-//						},
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json0 := string(tmpJSON0)
-//					return pulumi.String(json0), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sqs.NewRedrivePolicy(ctx, "redrivePolicy", &sqs.RedrivePolicyArgs{
-//				QueueUrl: queue.ID(),
-//				RedrivePolicy: ddl.Arn.ApplyT(func(arn string) (pulumi.String, error) {
-//					var _zero pulumi.String
-//					tmpJSON1, err := json.Marshal(map[string]interface{}{
-//						"deadLetterTargetArn": arn,
-//						"maxReceiveCount":     4,
-//					})
-//					if err != nil {
-//						return _zero, err
-//					}
-//					json1 := string(tmpJSON1)
-//					return pulumi.String(json1), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:

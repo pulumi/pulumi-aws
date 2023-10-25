@@ -16,29 +16,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
-    ///     {
-    ///         ShardCount = 1,
-    ///     });
-    /// 
-    ///     var exampleStreamConsumer = new Aws.Kinesis.StreamConsumer("exampleStreamConsumer", new()
-    ///     {
-    ///         StreamArn = exampleStream.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For example:

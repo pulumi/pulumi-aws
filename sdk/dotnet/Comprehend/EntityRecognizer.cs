@@ -13,58 +13,6 @@ namespace Pulumi.Aws.Comprehend
     /// Resource for managing an AWS Comprehend Entity Recognizer.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var documents = new Aws.S3.BucketObjectv2("documents");
-    /// 
-    ///     // ...
-    ///     var entities = new Aws.S3.BucketObjectv2("entities");
-    /// 
-    ///     // ...
-    ///     var example = new Aws.Comprehend.EntityRecognizer("example", new()
-    ///     {
-    ///         DataAccessRoleArn = aws_iam_role.Example.Arn,
-    ///         LanguageCode = "en",
-    ///         InputDataConfig = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigArgs
-    ///         {
-    ///             EntityTypes = new[]
-    ///             {
-    ///                 new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigEntityTypeArgs
-    ///                 {
-    ///                     Type = "ENTITY_1",
-    ///                 },
-    ///                 new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigEntityTypeArgs
-    ///                 {
-    ///                     Type = "ENTITY_2",
-    ///                 },
-    ///             },
-    ///             Documents = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigDocumentsArgs
-    ///             {
-    ///                 S3Uri = documents.Id.Apply(id =&gt; $"s3://{aws_s3_bucket.Documents.Bucket}/{id}"),
-    ///             },
-    ///             EntityList = new Aws.Comprehend.Inputs.EntityRecognizerInputDataConfigEntityListArgs
-    ///             {
-    ///                 S3Uri = entities.Id.Apply(id =&gt; $"s3://{aws_s3_bucket.Entities.Bucket}/{id}"),
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             aws_iam_role_policy.Example,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

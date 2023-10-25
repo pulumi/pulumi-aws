@@ -11,42 +11,6 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer AS2 Connector resource.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Connector("example", {
- *     accessRole: aws_iam_role.test.arn,
- *     as2Config: {
- *         compression: "DISABLED",
- *         encryptionAlgorithm: "AWS128_CBC",
- *         messageSubject: "For Connector",
- *         localProfileId: aws_transfer_profile.local.profile_id,
- *         mdnResponse: "NONE",
- *         mdnSigningAlgorithm: "NONE",
- *         partnerProfileId: aws_transfer_profile.partner.profile_id,
- *         signingAlgorithm: "NONE",
- *     },
- *     url: "http://www.test.com",
- * });
- * ```
- * ### SFTP Connector
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Connector("example", {
- *     accessRole: aws_iam_role.test.arn,
- *     sftpConfig: {
- *         trustedHostKeys: ["ssh-rsa AAAAB3NYourKeysHere"],
- *         userSecretId: aws_secretsmanager_secret.example.id,
- *     },
- *     url: "sftp://test.com",
- * });
- * ```
  *
  * ## Import
  *

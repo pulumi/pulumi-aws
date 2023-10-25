@@ -10,18 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a new Amazon Redshift Serverless Workgroup.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshiftserverless.Workgroup("example", {
- *     namespaceName: "concurrency-scaling",
- *     workgroupName: "concurrency-scaling",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:

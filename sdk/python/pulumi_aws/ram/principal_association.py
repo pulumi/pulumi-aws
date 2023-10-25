@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PrincipalAssociationArgs', 'PrincipalAssociation']
@@ -21,8 +21,27 @@ class PrincipalAssociationArgs:
         :param pulumi.Input[str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         :param pulumi.Input[str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
         """
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "resource_share_arn", resource_share_arn)
+        PrincipalAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal=principal,
+            resource_share_arn=resource_share_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal: Optional[pulumi.Input[str]] = None,
+             resource_share_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if resource_share_arn is None and 'resourceShareArn' in kwargs:
+            resource_share_arn = kwargs['resourceShareArn']
+        if resource_share_arn is None:
+            raise TypeError("Missing 'resource_share_arn' argument")
+
+        _setter("principal", principal)
+        _setter("resource_share_arn", resource_share_arn)
 
     @property
     @pulumi.getter
@@ -59,10 +78,25 @@ class _PrincipalAssociationState:
         :param pulumi.Input[str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         :param pulumi.Input[str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
         """
+        _PrincipalAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal=principal,
+            resource_share_arn=resource_share_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal: Optional[pulumi.Input[str]] = None,
+             resource_share_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_share_arn is None and 'resourceShareArn' in kwargs:
+            resource_share_arn = kwargs['resourceShareArn']
+
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if resource_share_arn is not None:
-            pulumi.set(__self__, "resource_share_arn", resource_share_arn)
+            _setter("resource_share_arn", resource_share_arn)
 
     @property
     @pulumi.getter
@@ -111,27 +145,6 @@ class PrincipalAssociation(pulumi.CustomResource):
         - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `ram.ResourceShareAccepter` resource to accept these invitations.
 
         ## Example Usage
-        ### AWS Account ID
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_resource_share = aws.ram.ResourceShare("exampleResourceShare", allow_external_principals=True)
-        example_principal_association = aws.ram.PrincipalAssociation("examplePrincipalAssociation",
-            principal="111111111111",
-            resource_share_arn=example_resource_share.arn)
-        ```
-        ### AWS Organization
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ram.PrincipalAssociation("example",
-            principal=aws_organizations_organization["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
-        ```
 
         ## Import
 
@@ -166,27 +179,6 @@ class PrincipalAssociation(pulumi.CustomResource):
         - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `ram.ResourceShareAccepter` resource to accept these invitations.
 
         ## Example Usage
-        ### AWS Account ID
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_resource_share = aws.ram.ResourceShare("exampleResourceShare", allow_external_principals=True)
-        example_principal_association = aws.ram.PrincipalAssociation("examplePrincipalAssociation",
-            principal="111111111111",
-            resource_share_arn=example_resource_share.arn)
-        ```
-        ### AWS Organization
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ram.PrincipalAssociation("example",
-            principal=aws_organizations_organization["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
-        ```
 
         ## Import
 
@@ -206,6 +198,10 @@ class PrincipalAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrincipalAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

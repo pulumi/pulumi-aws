@@ -7,26 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an ElastiCache user group resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testUser = new aws.elasticache.User("testUser", {
- *     userId: "testUserId",
- *     userName: "default",
- *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
- *     engine: "REDIS",
- *     passwords: ["password123456789"],
- * });
- * const testUserGroup = new aws.elasticache.UserGroup("testUserGroup", {
- *     engine: "REDIS",
- *     userGroupId: "userGroupId",
- *     userIds: [testUser.userId],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:

@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Amplify Backend Environment resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleApp = new aws.amplify.App("exampleApp", {});
- * const exampleBackendEnvironment = new aws.amplify.BackendEnvironment("exampleBackendEnvironment", {
- *     appId: exampleApp.id,
- *     environmentName: "example",
- *     deploymentArtifacts: "app-example-deployment",
- *     stackName: "amplify-app-example",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:

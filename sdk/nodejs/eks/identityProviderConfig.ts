@@ -10,22 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an EKS Identity Provider Configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.eks.IdentityProviderConfig("example", {
- *     clusterName: aws_eks_cluster.example.name,
- *     oidc: {
- *         clientId: "your client_id",
- *         identityProviderConfigName: "example",
- *         issuerUrl: "your issuer_url",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:

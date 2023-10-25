@@ -13,32 +13,6 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing an AWS QuickSight IAM Policy Assignment.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.IamPolicyAssignment("example", new()
-    ///     {
-    ///         AssignmentName = "example",
-    ///         AssignmentStatus = "ENABLED",
-    ///         PolicyArn = aws_iam_policy.Example.Arn,
-    ///         Identities = new Aws.Quicksight.Inputs.IamPolicyAssignmentIdentitiesArgs
-    ///         {
-    ///             Users = new[]
-    ///             {
-    ///                 aws_quicksight_user.Example.User_name,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

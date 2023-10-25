@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS KMS (Key Management) Custom Key Store.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const test = new aws.kms.CustomKeyStore("test", {
- *     cloudHsmClusterId: _var.cloud_hsm_cluster_id,
- *     customKeyStoreName: "kms-custom-key-store-test",
- *     keyStorePassword: "noplaintextpasswords1",
- *     trustAnchorCertificate: fs.readFileSync("anchor-certificate.crt"),
- * });
- * ```
  *
  * ## Import
  *

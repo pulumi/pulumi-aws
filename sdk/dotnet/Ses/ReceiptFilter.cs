@@ -12,25 +12,6 @@ namespace Pulumi.Aws.Ses
     /// <summary>
     /// Provides an SES receipt filter resource
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var filter = new Aws.Ses.ReceiptFilter("filter", new()
-    ///     {
-    ///         Cidr = "10.10.10.10",
-    ///         Policy = "Block",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES Receipt Filter using their `name`. For example:

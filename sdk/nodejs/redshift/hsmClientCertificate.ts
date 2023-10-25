@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.HsmClientCertificate("example", {hsmClientCertificateIdentifier: "example"});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:

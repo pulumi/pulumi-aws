@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The DataSync Agents must be available before creating this resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.LocationObjectStorage("example", {
- *     agentArns: [aws_datasync_agent.example.arn],
- *     serverHostname: "example",
- *     bucketName: "example",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:

@@ -20,33 +20,6 @@ namespace Pulumi.Aws.Neptune
     /// `apply_immediately` flag to instruct the service to apply the change immediately
     /// (see documentation below).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Neptune.Cluster("default", new()
-    ///     {
-    ///         ApplyImmediately = true,
-    ///         BackupRetentionPeriod = 5,
-    ///         ClusterIdentifier = "neptune-cluster-demo",
-    ///         Engine = "neptune",
-    ///         IamDatabaseAuthenticationEnabled = true,
-    ///         PreferredBackupWindow = "07:00-09:00",
-    ///         SkipFinalSnapshot = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// &gt; **Note:** AWS Neptune does not support user name/password–based access control.
-    /// See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:

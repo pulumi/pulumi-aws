@@ -13,55 +13,6 @@ import (
 )
 
 // Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewIndexingConfiguration(ctx, "example", &iot.IndexingConfigurationArgs{
-//				ThingIndexingConfiguration: &iot.IndexingConfigurationThingIndexingConfigurationArgs{
-//					CustomFields: iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArray{
-//						&iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{
-//							Name: pulumi.String("shadow.desired.power"),
-//							Type: pulumi.String("Boolean"),
-//						},
-//						&iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{
-//							Name: pulumi.String("attributes.version"),
-//							Type: pulumi.String("Number"),
-//						},
-//						&iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{
-//							Name: pulumi.String("shadow.name.thing1shadow.desired.DefaultDesired"),
-//							Type: pulumi.String("String"),
-//						},
-//						&iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{
-//							Name: pulumi.String("deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number"),
-//							Type: pulumi.String("Number"),
-//						},
-//					},
-//					DeviceDefenderIndexingMode:    pulumi.String("VIOLATIONS"),
-//					NamedShadowIndexingMode:       pulumi.String("ON"),
-//					ThingConnectivityIndexingMode: pulumi.String("STATUS"),
-//					ThingIndexingMode:             pulumi.String("REGISTRY_AND_SHADOW"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type IndexingConfiguration struct {
 	pulumi.CustomResourceState
 

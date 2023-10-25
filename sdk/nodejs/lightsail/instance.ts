@@ -15,58 +15,6 @@ import * as utilities from "../utilities";
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new GitLab Lightsail Instance
- * const gitlabTest = new aws.lightsail.Instance("gitlabTest", {
- *     availabilityZone: "us-east-1b",
- *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_1_0",
- *     keyPairName: "some_key_name",
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * ```
- * ### Example With User Data
- *
- * Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const custom = new aws.lightsail.Instance("custom", {
- *     availabilityZone: "us-east-1b",
- *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_1_0",
- *     userData: "sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html",
- * });
- * ```
- * ### Enable Auto Snapshots
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lightsail.Instance("test", {
- *     addOn: {
- *         snapshotTime: "06:00",
- *         status: "Enabled",
- *         type: "AutoSnapshot",
- *     },
- *     availabilityZone: "us-east-1b",
- *     blueprintId: "amazon_linux_2",
- *     bundleId: "nano_1_0",
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * ```
  * ## Availability Zones
  *
  * Lightsail currently supports the following Availability Zones (e.g., `us-east-1a`):

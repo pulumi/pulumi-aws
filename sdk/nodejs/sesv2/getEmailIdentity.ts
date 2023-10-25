@@ -11,16 +11,6 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sesv2.getEmailIdentity({
- *     emailIdentity: "example.com",
- * });
- * ```
  */
 export function getEmailIdentity(args: GetEmailIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailIdentityResult> {
 
@@ -80,16 +70,6 @@ export interface GetEmailIdentityResult {
  * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.sesv2.getEmailIdentity({
- *     emailIdentity: "example.com",
- * });
- * ```
  */
 export function getEmailIdentityOutput(args: GetEmailIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailIdentityResult> {
     return pulumi.output(args).apply((a: any) => getEmailIdentity(a, opts))

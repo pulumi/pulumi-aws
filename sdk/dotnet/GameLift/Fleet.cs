@@ -12,37 +12,6 @@ namespace Pulumi.Aws.GameLift
     /// <summary>
     /// Provides a GameLift Fleet resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.GameLift.Fleet("example", new()
-    ///     {
-    ///         BuildId = aws_gamelift_build.Example.Id,
-    ///         Ec2InstanceType = "t2.micro",
-    ///         FleetType = "ON_DEMAND",
-    ///         RuntimeConfiguration = new Aws.GameLift.Inputs.FleetRuntimeConfigurationArgs
-    ///         {
-    ///             ServerProcesses = new[]
-    ///             {
-    ///                 new Aws.GameLift.Inputs.FleetRuntimeConfigurationServerProcessArgs
-    ///                 {
-    ///                     ConcurrentExecutions = 1,
-    ///                     LaunchPath = "C:\\game\\GomokuServer.exe",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GameLift Fleets using the ID. For example:

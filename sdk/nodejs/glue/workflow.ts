@@ -9,35 +9,6 @@ import * as utilities from "../utilities";
  * The workflow graph (DAG) can be build using the `aws.glue.Trigger` resource.
  * See the example below for creating a graph with four nodes (two triggers and two jobs).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Workflow("example", {});
- * const example_start = new aws.glue.Trigger("example-start", {
- *     type: "ON_DEMAND",
- *     workflowName: example.name,
- *     actions: [{
- *         jobName: "example-job",
- *     }],
- * });
- * const example_inner = new aws.glue.Trigger("example-inner", {
- *     type: "CONDITIONAL",
- *     workflowName: example.name,
- *     predicate: {
- *         conditions: [{
- *             jobName: "example-job",
- *             state: "SUCCEEDED",
- *         }],
- *     },
- *     actions: [{
- *         jobName: "another-example-job",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Glue Workflows using `name`. For example:

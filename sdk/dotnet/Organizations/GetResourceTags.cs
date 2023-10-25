@@ -13,56 +13,12 @@ namespace Pulumi.Aws.Organizations
     {
         /// <summary>
         /// Get tags attached to the specified AWS Organizations resource.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var account = Aws.Organizations.GetResourceTags.Invoke(new()
-        ///     {
-        ///         ResourceId = "123456123846",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetResourceTagsResult> InvokeAsync(GetResourceTagsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceTagsResult>("aws:organizations/getResourceTags:getResourceTags", args ?? new GetResourceTagsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get tags attached to the specified AWS Organizations resource.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var account = Aws.Organizations.GetResourceTags.Invoke(new()
-        ///     {
-        ///         ResourceId = "123456123846",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetResourceTagsResult> Invoke(GetResourceTagsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceTagsResult>("aws:organizations/getResourceTags:getResourceTags", args ?? new GetResourceTagsInvokeArgs(), options.WithDefaults());

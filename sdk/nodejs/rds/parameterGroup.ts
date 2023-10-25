@@ -23,50 +23,6 @@ import * as utilities from "../utilities";
  * the `applyMethod` of a parameter, its value must also change.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.rds.ParameterGroup("default", {
- *     family: "mysql5.6",
- *     parameters: [
- *         {
- *             name: "character_set_server",
- *             value: "utf8",
- *         },
- *         {
- *             name: "character_set_client",
- *             value: "utf8",
- *         },
- *     ],
- * });
- * ```
- * ### `createBeforeDestroy` Lifecycle Configuration
- *
- * The `createBeforeDestroy`
- * lifecycle configuration is necessary for modifications that force re-creation of an existing,
- * in-use parameter group. This includes common situations like changing the group `name` or
- * bumping the `family` version during a major version upgrade. This configuration will prevent destruction
- * of the deposed parameter group while still in use by the database during upgrade.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleParameterGroup = new aws.rds.ParameterGroup("exampleParameterGroup", {
- *     family: "postgres13",
- *     parameters: [{
- *         name: "log_connections",
- *         value: "1",
- *     }],
- * });
- * const exampleInstance = new aws.rds.Instance("exampleInstance", {
- *     parameterGroupName: exampleParameterGroup.name,
- *     applyImmediately: true,
- * });
- * ```
  *
  * ## Import
  *

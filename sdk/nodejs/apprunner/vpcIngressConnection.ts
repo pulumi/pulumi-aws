@@ -10,24 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Runner VPC Ingress Connection.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apprunner.VpcIngressConnection("example", {
- *     serviceArn: aws_apprunner_service.example.arn,
- *     ingressVpcConfiguration: {
- *         vpcId: aws_default_vpc["default"].id,
- *         vpcEndpointId: aws_vpc_endpoint.apprunner.id,
- *     },
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For example:

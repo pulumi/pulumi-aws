@@ -16,45 +16,6 @@ import (
 // Resource for managing an AWS Chime SDK Voice Profile Domain.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				Description:          pulumi.String("KMS Key for Voice Profile Domain"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewSdkvoiceVoiceProfileDomain(ctx, "exampleSdkvoiceVoiceProfileDomain", &chime.SdkvoiceVoiceProfileDomainArgs{
-//				ServerSideEncryptionConfiguration: &chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{
-//					KmsKeyArn: exampleKey.Arn,
-//				},
-//				Description: pulumi.String("My Voice Profile Domain"),
-//				Tags: pulumi.StringMap{
-//					"key1": pulumi.String("value1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

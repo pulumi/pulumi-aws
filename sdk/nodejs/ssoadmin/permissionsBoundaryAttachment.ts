@@ -13,20 +13,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `aws.ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
  *
  * ## Example Usage
- * ### Attaching an AWS-managed policy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ssoadmin.PermissionsBoundaryAttachment("example", {
- *     instanceArn: aws_ssoadmin_permission_set.example.instance_arn,
- *     permissionSetArn: aws_ssoadmin_permission_set.example.arn,
- *     permissionsBoundary: {
- *         managedPolicyArn: "arn:aws:iam::aws:policy/ReadOnlyAccess",
- *     },
- * });
- * ```
  *
  * ## Import
  *

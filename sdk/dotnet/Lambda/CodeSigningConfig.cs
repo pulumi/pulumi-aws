@@ -14,36 +14,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var newCsc = new Aws.Lambda.CodeSigningConfig("newCsc", new()
-    ///     {
-    ///         AllowedPublishers = new Aws.Lambda.Inputs.CodeSigningConfigAllowedPublishersArgs
-    ///         {
-    ///             SigningProfileVersionArns = new[]
-    ///             {
-    ///                 aws_signer_signing_profile.Example1.Arn,
-    ///                 aws_signer_signing_profile.Example2.Arn,
-    ///             },
-    ///         },
-    ///         Policies = new Aws.Lambda.Inputs.CodeSigningConfigPoliciesArgs
-    ///         {
-    ///             UntrustedArtifactOnDeployment = "Warn",
-    ///         },
-    ///         Description = "My awesome code signing config.",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Code Signing Configs using their ARN. For example:

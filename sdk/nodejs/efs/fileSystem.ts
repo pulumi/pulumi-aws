@@ -11,26 +11,6 @@ import * as utilities from "../utilities";
  * Provides an Elastic File System (EFS) File System resource.
  *
  * ## Example Usage
- * ### EFS File System w/ tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.efs.FileSystem("foo", {tags: {
- *     Name: "MyProduct",
- * }});
- * ```
- * ### Using lifecycle policy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const fooWithLifecylePolicy = new aws.efs.FileSystem("fooWithLifecylePolicy", {lifecyclePolicies: [{
- *     transitionToIa: "AFTER_30_DAYS",
- * }]});
- * ```
  *
  * ## Import
  *

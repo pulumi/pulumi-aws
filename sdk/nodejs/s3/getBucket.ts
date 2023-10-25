@@ -11,42 +11,6 @@ import * as utilities from "../utilities";
  * Distribution.
  *
  * ## Example Usage
- * ### Route53 Record
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selected = aws.s3.getBucket({
- *     bucket: "bucket.test.com",
- * });
- * const testZone = aws.route53.getZone({
- *     name: "test.com.",
- * });
- * const example = new aws.route53.Record("example", {
- *     zoneId: testZone.then(testZone => testZone.id),
- *     name: "bucket",
- *     type: "A",
- *     aliases: [{
- *         name: selected.then(selected => selected.websiteDomain),
- *         zoneId: selected.then(selected => selected.hostedZoneId),
- *     }],
- * });
- * ```
- * ### CloudFront Origin
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selected = aws.s3.getBucket({
- *     bucket: "a-test-bucket",
- * });
- * const test = new aws.cloudfront.Distribution("test", {origins: [{
- *     domainName: selected.then(selected => selected.bucketDomainName),
- *     originId: "s3-selected-bucket",
- * }]});
- * ```
  */
 export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
 
@@ -111,42 +75,6 @@ export interface GetBucketResult {
  * Distribution.
  *
  * ## Example Usage
- * ### Route53 Record
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selected = aws.s3.getBucket({
- *     bucket: "bucket.test.com",
- * });
- * const testZone = aws.route53.getZone({
- *     name: "test.com.",
- * });
- * const example = new aws.route53.Record("example", {
- *     zoneId: testZone.then(testZone => testZone.id),
- *     name: "bucket",
- *     type: "A",
- *     aliases: [{
- *         name: selected.then(selected => selected.websiteDomain),
- *         zoneId: selected.then(selected => selected.hostedZoneId),
- *     }],
- * });
- * ```
- * ### CloudFront Origin
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selected = aws.s3.getBucket({
- *     bucket: "a-test-bucket",
- * });
- * const test = new aws.cloudfront.Distribution("test", {origins: [{
- *     domainName: selected.then(selected => selected.bucketDomainName),
- *     originId: "s3-selected-bucket",
- * }]});
- * ```
  */
 export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
     return pulumi.output(args).apply((a: any) => getBucket(a, opts))

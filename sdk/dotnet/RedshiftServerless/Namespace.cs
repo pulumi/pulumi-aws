@@ -12,24 +12,6 @@ namespace Pulumi.Aws.RedshiftServerless
     /// <summary>
     /// Creates a new Amazon Redshift Serverless Namespace.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.RedshiftServerless.Namespace("example", new()
-    ///     {
-    ///         NamespaceName = "concurrency-scaling",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:

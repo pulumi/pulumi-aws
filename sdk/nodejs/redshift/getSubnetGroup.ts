@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific redshift subnet group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.redshift.getSubnetGroup({
- *     name: aws_redshift_subnet_group.example.name,
- * });
- * ```
  */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
 
@@ -69,17 +58,6 @@ export interface GetSubnetGroupResult {
 }
 /**
  * Provides details about a specific redshift subnet group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.redshift.getSubnetGroup({
- *     name: aws_redshift_subnet_group.example.name,
- * });
- * ```
  */
 export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
     return pulumi.output(args).apply((a: any) => getSubnetGroup(a, opts))

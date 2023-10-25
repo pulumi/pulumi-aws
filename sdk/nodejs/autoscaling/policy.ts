@@ -16,167 +16,6 @@ import * as utilities from "../utilities";
  * or [dynamic](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html)
  * (policy-based) scaling.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bar = new aws.autoscaling.Group("bar", {
- *     availabilityZones: ["us-east-1a"],
- *     maxSize: 5,
- *     minSize: 2,
- *     healthCheckGracePeriod: 300,
- *     healthCheckType: "ELB",
- *     forceDelete: true,
- *     launchConfiguration: aws_launch_configuration.foo.name,
- * });
- * const bat = new aws.autoscaling.Policy("bat", {
- *     scalingAdjustment: 4,
- *     adjustmentType: "ChangeInCapacity",
- *     cooldown: 300,
- *     autoscalingGroupName: bar.name,
- * });
- * ```
- * ### Create target tracking scaling policy using metric math
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.autoscaling.Policy("example", {
- *     autoscalingGroupName: "my-test-asg",
- *     policyType: "TargetTrackingScaling",
- *     targetTrackingConfiguration: {
- *         customizedMetricSpecification: {
- *             metrics: [
- *                 {
- *                     id: "m1",
- *                     label: "Get the queue size (the number of messages waiting to be processed)",
- *                     metricStat: {
- *                         metric: {
- *                             dimensions: [{
- *                                 name: "QueueName",
- *                                 value: "my-queue",
- *                             }],
- *                             metricName: "ApproximateNumberOfMessagesVisible",
- *                             namespace: "AWS/SQS",
- *                         },
- *                         stat: "Sum",
- *                     },
- *                     returnData: false,
- *                 },
- *                 {
- *                     id: "m2",
- *                     label: "Get the group size (the number of InService instances)",
- *                     metricStat: {
- *                         metric: {
- *                             dimensions: [{
- *                                 name: "AutoScalingGroupName",
- *                                 value: "my-asg",
- *                             }],
- *                             metricName: "GroupInServiceInstances",
- *                             namespace: "AWS/AutoScaling",
- *                         },
- *                         stat: "Average",
- *                     },
- *                     returnData: false,
- *                 },
- *                 {
- *                     expression: "m1 / m2",
- *                     id: "e1",
- *                     label: "Calculate the backlog per instance",
- *                     returnData: true,
- *                 },
- *             ],
- *         },
- *         targetValue: 100,
- *     },
- * });
- * ```
- * ### Create predictive scaling policy using customized metrics
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.autoscaling.Policy("example", {
- *     autoscalingGroupName: "my-test-asg",
- *     policyType: "PredictiveScaling",
- *     predictiveScalingConfiguration: {
- *         metricSpecification: {
- *             customizedCapacityMetricSpecification: {
- *                 metricDataQueries: [{
- *                     expression: "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
- *                     id: "capacity_sum",
- *                 }],
- *             },
- *             customizedLoadMetricSpecification: {
- *                 metricDataQueries: [{
- *                     expression: "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 3600))",
- *                     id: "load_sum",
- *                 }],
- *             },
- *             customizedScalingMetricSpecification: {
- *                 metricDataQueries: [
- *                     {
- *                         expression: "SUM(SEARCH('{AWS/AutoScaling,AutoScalingGroupName} MetricName=\"GroupInServiceIntances\" my-test-asg', 'Average', 300))",
- *                         id: "capacity_sum",
- *                         returnData: false,
- *                     },
- *                     {
- *                         expression: "SUM(SEARCH('{AWS/EC2,AutoScalingGroupName} MetricName=\"CPUUtilization\" my-test-asg', 'Sum', 300))",
- *                         id: "load_sum",
- *                         returnData: false,
- *                     },
- *                     {
- *                         expression: "load_sum / (capacity_sum * PERIOD(capacity_sum) / 60)",
- *                         id: "weighted_average",
- *                     },
- *                 ],
- *             },
- *             targetValue: 10,
- *         },
- *     },
- * });
- * ```
- * ### Create predictive scaling policy using customized scaling and predefined load metric
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.autoscaling.Policy("example", {
- *     autoscalingGroupName: "my-test-asg",
- *     policyType: "PredictiveScaling",
- *     predictiveScalingConfiguration: {
- *         metricSpecification: {
- *             customizedScalingMetricSpecification: {
- *                 metricDataQueries: [{
- *                     id: "scaling",
- *                     metricStat: {
- *                         metric: {
- *                             dimensions: [{
- *                                 name: "AutoScalingGroupName",
- *                                 value: "my-test-asg",
- *                             }],
- *                             metricName: "CPUUtilization",
- *                             namespace: "AWS/EC2",
- *                         },
- *                         stat: "Average",
- *                     },
- *                 }],
- *             },
- *             predefinedLoadMetricSpecification: {
- *                 predefinedMetricType: "ASGTotalCPUUtilization",
- *                 resourceLabel: "testLabel",
- *             },
- *             targetValue: 10,
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
@@ -271,23 +110,6 @@ export class Policy extends pulumi.CustomResource {
      * Set of adjustments that manage
      * group scaling. These have the following structure:
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as aws from "@pulumi/aws";
-     *
-     * const example = new aws.autoscaling.Policy("example", {stepAdjustments: [
-     *     {
-     *         metricIntervalLowerBound: "1",
-     *         metricIntervalUpperBound: "2",
-     *         scalingAdjustment: -1,
-     *     },
-     *     {
-     *         metricIntervalLowerBound: "2",
-     *         metricIntervalUpperBound: "3",
-     *         scalingAdjustment: 1,
-     *     },
-     * ]});
-     * ```
      *
      * The following fields are available in step adjustments:
      */
@@ -295,17 +117,6 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Target tracking policy. These have the following structure:
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as aws from "@pulumi/aws";
-     *
-     * const example = new aws.autoscaling.Policy("example", {targetTrackingConfiguration: {
-     *     predefinedMetricSpecification: {
-     *         predefinedMetricType: "ASGAverageCPUUtilization",
-     *     },
-     *     targetValue: 40,
-     * }});
-     * ```
      *
      * The following fields are available in target tracking configuration:
      */
@@ -425,23 +236,6 @@ export interface PolicyState {
      * Set of adjustments that manage
      * group scaling. These have the following structure:
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as aws from "@pulumi/aws";
-     *
-     * const example = new aws.autoscaling.Policy("example", {stepAdjustments: [
-     *     {
-     *         metricIntervalLowerBound: "1",
-     *         metricIntervalUpperBound: "2",
-     *         scalingAdjustment: -1,
-     *     },
-     *     {
-     *         metricIntervalLowerBound: "2",
-     *         metricIntervalUpperBound: "3",
-     *         scalingAdjustment: 1,
-     *     },
-     * ]});
-     * ```
      *
      * The following fields are available in step adjustments:
      */
@@ -449,17 +243,6 @@ export interface PolicyState {
     /**
      * Target tracking policy. These have the following structure:
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as aws from "@pulumi/aws";
-     *
-     * const example = new aws.autoscaling.Policy("example", {targetTrackingConfiguration: {
-     *     predefinedMetricSpecification: {
-     *         predefinedMetricType: "ASGAverageCPUUtilization",
-     *     },
-     *     targetValue: 40,
-     * }});
-     * ```
      *
      * The following fields are available in target tracking configuration:
      */
@@ -524,23 +307,6 @@ export interface PolicyArgs {
      * Set of adjustments that manage
      * group scaling. These have the following structure:
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as aws from "@pulumi/aws";
-     *
-     * const example = new aws.autoscaling.Policy("example", {stepAdjustments: [
-     *     {
-     *         metricIntervalLowerBound: "1",
-     *         metricIntervalUpperBound: "2",
-     *         scalingAdjustment: -1,
-     *     },
-     *     {
-     *         metricIntervalLowerBound: "2",
-     *         metricIntervalUpperBound: "3",
-     *         scalingAdjustment: 1,
-     *     },
-     * ]});
-     * ```
      *
      * The following fields are available in step adjustments:
      */
@@ -548,17 +314,6 @@ export interface PolicyArgs {
     /**
      * Target tracking policy. These have the following structure:
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * import * as aws from "@pulumi/aws";
-     *
-     * const example = new aws.autoscaling.Policy("example", {targetTrackingConfiguration: {
-     *     predefinedMetricSpecification: {
-     *         predefinedMetricType: "ASGAverageCPUUtilization",
-     *     },
-     *     targetValue: 40,
-     * }});
-     * ```
      *
      * The following fields are available in target tracking configuration:
      */

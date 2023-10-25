@@ -13,61 +13,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * ### Threshold Expression Example
- * ### For a Specific Dimension
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.costexplorer.AnomalySubscription("test", {
- *     frequency: "DAILY",
- *     monitorArnLists: [aws_ce_anomaly_monitor.test.arn],
- *     subscribers: [{
- *         type: "EMAIL",
- *         address: "abc@example.com",
- *     }],
- *     thresholdExpression: {
- *         dimension: {
- *             key: "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
- *             values: ["100.0"],
- *             matchOptions: ["GREATER_THAN_OR_EQUAL"],
- *         },
- *     },
- * });
- * ```
- * ### Using an `and` Expression
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.costexplorer.AnomalySubscription("test", {
- *     frequency: "DAILY",
- *     monitorArnLists: [aws_ce_anomaly_monitor.test.arn],
- *     subscribers: [{
- *         type: "EMAIL",
- *         address: "abc@example.com",
- *     }],
- *     thresholdExpression: {
- *         ands: [
- *             {
- *                 dimension: {
- *                     key: "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
- *                     matchOptions: ["GREATER_THAN_OR_EQUAL"],
- *                     values: ["100"],
- *                 },
- *             },
- *             {
- *                 dimension: {
- *                     key: "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
- *                     matchOptions: ["GREATER_THAN_OR_EQUAL"],
- *                     values: ["50"],
- *                 },
- *             },
- *         ],
- *     },
- * });
- * ```
  *
  * ## Import
  *

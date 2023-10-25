@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiKeyArgs', 'ApiKey']
@@ -23,13 +23,32 @@ class ApiKeyArgs:
         :param pulumi.Input[str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         """
-        pulumi.set(__self__, "api_id", api_id)
+        ApiKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            description=description,
+            expires=expires,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             expires: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+
+        _setter("api_id", api_id)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if expires is not None:
-            pulumi.set(__self__, "expires", expires)
+            _setter("expires", expires)
 
     @property
     @pulumi.getter(name="apiId")
@@ -82,16 +101,35 @@ class _ApiKeyState:
         :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         :param pulumi.Input[str] key: API key
         """
+        _ApiKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            description=description,
+            expires=expires,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             expires: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if expires is not None:
-            pulumi.set(__self__, "expires", expires)
+            _setter("expires", expires)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter(name="apiId")
@@ -154,18 +192,6 @@ class ApiKey(pulumi.CustomResource):
         """
         Provides an AppSync API Key.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_key = aws.appsync.ApiKey("exampleApiKey",
-            api_id=example_graph_ql_api.id,
-            expires="2018-05-03T04:00:00Z")
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
@@ -189,18 +215,6 @@ class ApiKey(pulumi.CustomResource):
         """
         Provides an AppSync API Key.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_key = aws.appsync.ApiKey("exampleApiKey",
-            api_id=example_graph_ql_api.id,
-            expires="2018-05-03T04:00:00Z")
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
@@ -219,6 +233,10 @@ class ApiKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

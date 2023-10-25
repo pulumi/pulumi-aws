@@ -10,18 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a new Amazon Redshift Serverless Endpoint Access.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshiftserverless.EndpointAccess("example", {
- *     endpointName: "example",
- *     workgroupName: "example",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:

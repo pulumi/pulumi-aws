@@ -15,44 +15,6 @@ namespace Pulumi.Aws.Neptune
     /// You can simply add neptune instances and Neptune manages the replication. You can use the count
     /// meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instance_class` sizes.
     /// 
-    /// ## Example Usage
-    /// 
-    /// The following example will create a neptune cluster with two neptune instances(one writer and one reader).
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Neptune.Cluster("default", new()
-    ///     {
-    ///         ClusterIdentifier = "neptune-cluster-demo",
-    ///         Engine = "neptune",
-    ///         BackupRetentionPeriod = 5,
-    ///         PreferredBackupWindow = "07:00-09:00",
-    ///         SkipFinalSnapshot = true,
-    ///         IamDatabaseAuthenticationEnabled = true,
-    ///         ApplyImmediately = true,
-    ///     });
-    /// 
-    ///     var example = new List&lt;Aws.Neptune.ClusterInstance&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
-    ///     {
-    ///         var range = new { Value = rangeIndex };
-    ///         example.Add(new Aws.Neptune.ClusterInstance($"example-{range.Value}", new()
-    ///         {
-    ///             ClusterIdentifier = @default.Id,
-    ///             Engine = "neptune",
-    ///             InstanceClass = "db.r4.large",
-    ///             ApplyImmediately = true,
-    ///         }));
-    ///     }
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
