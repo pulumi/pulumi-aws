@@ -1,13 +1,10 @@
-From ab2abc05d845cf109f90b703ad74ca0a18e27885 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:24:42 +0000
 Subject: [PATCH 07/30] Workaround SSM Parameter tier bug
 
 - Disable "computed".
 - Disable diff suppression & counteractions
----
- internal/service/ssm/parameter.go | 26 +++++++++++++++-----------
- 1 file changed, 15 insertions(+), 11 deletions(-)
 
 diff --git a/internal/service/ssm/parameter.go b/internal/service/ssm/parameter.go
 index 544385cfa6..6f72ffec7a 100644
@@ -56,6 +53,3 @@ index 544385cfa6..6f72ffec7a 100644
  
  		if d.HasChange("data_type") {
  			paramInput.DataType = aws.String(d.Get("data_type").(string))
--- 
-2.39.1
-

@@ -1,4 +1,4 @@
-From 7dc5e886c4ebee9f262a7533456cf5224c73ef61 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ramon Quitales <ramon@pulumi.com>
 Date: Thu, 18 May 2023 15:21:33 -0700
 Subject: [PATCH 26/30] Fix spurrious json diff for redrive_policy
@@ -7,9 +7,6 @@ We need to normalize the json input to compare agasint the one stored
 in state.
 
 Fix for https://github.com/pulumi/pulumi-aws/issues/2307.
----
- internal/service/sqs/queue_redrive_policy.go | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
 
 diff --git a/internal/service/sqs/queue_redrive_policy.go b/internal/service/sqs/queue_redrive_policy.go
 index 7f55a8e6e8..d3a620f555 100644
@@ -37,6 +34,3 @@ index 7f55a8e6e8..d3a620f555 100644
  				StateFunc: func(v interface{}) string {
  					json, _ := structure.NormalizeJsonString(v)
  					return json
--- 
-2.39.1
-

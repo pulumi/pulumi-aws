@@ -1,14 +1,11 @@
-From 8fcc023d59d0dbdc39054bf8c4067c2795a62800 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Mon, 25 Sep 2023 15:22:30 -0400
 Subject: [PATCH 30/30] Restore S3ConnURICleaningDisabled
 
----
- internal/conns/awsclient.go | 9 +++++++++
- 1 file changed, 9 insertions(+)
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index 52a4cd3e48..08befe98fc 100644
+index b1f8680be8..0a6f434326 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
 @@ -11,10 +11,12 @@ import (
@@ -21,10 +18,10 @@ index 52a4cd3e48..08befe98fc 100644
  	apigatewayv2_sdkv1 "github.com/aws/aws-sdk-go/service/apigatewayv2"
  	mediaconvert_sdkv1 "github.com/aws/aws-sdk-go/service/mediaconvert"
 +	s3_sdkv1 "github.com/aws/aws-sdk-go/service/s3"
+ 	baselogging "github.com/hashicorp/aws-sdk-go-base/v2/logging"
  	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
  	"github.com/hashicorp/terraform-provider-aws/names"
- )
-@@ -70,6 +72,13 @@ func (client *AWSClient) S3UsePathStyle() bool {
+@@ -72,6 +74,13 @@ func (client *AWSClient) S3UsePathStyle() bool {
  	return client.s3UsePathStyle
  }
  
@@ -38,6 +35,3 @@ index 52a4cd3e48..08befe98fc 100644
  // SetHTTPClient sets the http.Client used for AWS API calls.
  // To have effect it must be called before the AWS SDK v1 Session is created.
  func (client *AWSClient) SetHTTPClient(httpClient *http.Client) {
--- 
-2.39.1
-

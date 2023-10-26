@@ -1,4 +1,4 @@
-From 112d125de0e3a20ef9fbbd12a2c8fe316f6578a5 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Kyle Pitzen <kpitzen@pulumi.com>
 Date: Thu, 9 Mar 2023 09:47:49 -0600
 Subject: [PATCH 04/30] Marks SSE Configuration as Computed for Legacy S3
@@ -9,9 +9,6 @@ Since we maintain a forked version of the legacy S3 bucket resource,
 this change was not properly propagated to the legacy S3 bucket, which
 appears in pulumi as `aws.s3.Bucket` and is likely the default version of
 the Bucket resource that users will use.
----
- internal/service/s3legacy/bucket_legacy.go | 1 +
- 1 file changed, 1 insertion(+)
 
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
 index 27fe651a83..8879116578 100644
@@ -25,6 +22,3 @@ index 27fe651a83..8879116578 100644
  				Elem: &schema.Resource{
  					Schema: map[string]*schema.Schema{
  						"rule": {
--- 
-2.39.1
-

@@ -1,17 +1,8 @@
-From c3d4f9035e685d466d1e645a024a1f362009961f Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Mon, 10 Jul 2023 11:51:24 +0200
 Subject: [PATCH 27/30] Provide context to conns
 
----
- internal/service/ecr/credentials_data_source.go  |  4 +++-
- internal/service/elasticache/security_group.go   |  4 ++--
- .../gamelift/matchmaking_configuration.go        | 12 ++++++------
- .../service/gamelift/matchmaking_rule_set.go     | 12 ++++++------
- internal/service/rds/security_group.go           |  6 +++---
- internal/service/redshift/security_group.go      |  6 +++---
- internal/service/s3legacy/bucket_legacy.go       | 16 ++++++++--------
- 7 files changed, 31 insertions(+), 29 deletions(-)
 
 diff --git a/internal/service/ecr/credentials_data_source.go b/internal/service/ecr/credentials_data_source.go
 index 572754846f..9dd9fd0e8c 100644
@@ -311,6 +302,3 @@ index ba95f6c2b6..0563bd3a25 100644
  			&s3.GetBucketLocationInput{
  				Bucket: aws.String(bucket),
  			},
--- 
-2.39.1
-

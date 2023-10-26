@@ -1,4 +1,4 @@
-From cbcaa673ac138ef6fc28f72c0123fce667c25688 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Lee Briggs <jaxxstorm@users.noreply.github.com>
 Date: Wed, 21 Dec 2022 12:23:59 -0800
 Subject: [PATCH 16/30] add matchmaking configuration (#72)
@@ -8,27 +8,12 @@ Subject: [PATCH 16/30] add matchmaking configuration (#72)
 * implement flex_match_mode
   * Also fixes error codes for read operations
 * add resource docs
----
- internal/provider/provider.go                 |   4 +
- .../gamelift/matchmaking_configuration.go     | 386 ++++++++++++++++++
- .../matchmaking_configuration_test.go         | 267 ++++++++++++
- .../service/gamelift/matchmaking_rule_set.go  | 163 ++++++++
- .../gamelift/matchmaking_rule_set_test.go     | 138 +++++++
- ...ft_matchmaking_configuration.html.markdown | 106 +++++
- ...amelift_matchmaking_rule_set.html.markdown |  52 +++
- 7 files changed, 1116 insertions(+)
- create mode 100644 internal/service/gamelift/matchmaking_configuration.go
- create mode 100644 internal/service/gamelift/matchmaking_configuration_test.go
- create mode 100644 internal/service/gamelift/matchmaking_rule_set.go
- create mode 100644 internal/service/gamelift/matchmaking_rule_set_test.go
- create mode 100644 website/docs/r/gamelift_matchmaking_configuration.html.markdown
- create mode 100644 website/docs/r/gamelift_matchmaking_rule_set.html.markdown
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index e3e8c2b44c..1b46539c19 100644
+index 29feaebfbd..8d16810a17 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
-@@ -14,6 +14,7 @@ import (
+@@ -15,6 +15,7 @@ import (
  	"github.com/aws/aws-sdk-go-v2/aws"
  
  	"github.com/hashicorp/terraform-provider-aws/internal/service/ecr"
@@ -1194,6 +1179,3 @@ index 0000000000..28013532bf
 +```
 +$ terraform import aws_gamelift_matchmaking_rule_set.example <ruleset-id>
 +```
--- 
-2.39.1
-

@@ -1,16 +1,8 @@
-From b8b656368e81e141a415a393d9d515e7d243041f Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:31:27 +0000
 Subject: [PATCH 08/30] Add EKS cluster default_addons_to_remove
 
----
- internal/service/eks/cluster.go               |   7 +
- internal/service/eks/cluster_addon_removal.go | 128 ++++++++++++++++++
- .../service/eks/cluster_addon_removal_test.go |  83 ++++++++++++
- internal/service/eks/wait.go                  |   3 +
- 4 files changed, 221 insertions(+)
- create mode 100644 internal/service/eks/cluster_addon_removal.go
- create mode 100644 internal/service/eks/cluster_addon_removal_test.go
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
 index 83bf69868e..d8544be700 100644
@@ -267,6 +259,3 @@ index 57a94e414f..6568e06549 100644
  	clusterDeleteRetryTimeout = 60 * time.Minute
  )
  
--- 
-2.39.1
-

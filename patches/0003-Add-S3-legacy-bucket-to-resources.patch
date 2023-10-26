@@ -1,4 +1,4 @@
-From 6890fd0d90ed5c4defe13873a5585bc16e36009f Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:05:11 +0000
 Subject: [PATCH 03/30] Add S3 legacy bucket to resources
@@ -12,37 +12,12 @@ https://github.com/pulumi/terraform-provider-aws/pull/65.
 In the upstream, all resources and datasources now use a different
 scheme for registration: see
 https://github.com/hashicorp/terraform-provider-aws/pull/29717.
----
- internal/provider/provider.go                 |    6 +-
- internal/service/s3legacy/bucket_legacy.go    | 3029 +++++++++++++++++
- internal/service/s3legacy/enum.go             |   32 +
- internal/service/s3legacy/errors.go           |    8 +
- internal/service/s3legacy/generate.go         |    4 +
- internal/service/s3legacy/hosted_zones.go     |   45 +
- internal/service/s3legacy/object.go           |  177 +
- internal/service/s3legacy/retry.go            |   30 +
- internal/service/s3legacy/tags.go             |  174 +
- internal/service/s3legacy/tags_gen.go         |   38 +
- internal/service/s3legacy/wait.go             |   18 +
- website/docs/r/s3_bucket_legacy.html.markdown |  575 ++++
- 14 files changed, 4143 insertions(+), 1 deletion(-)
- create mode 100644 internal/service/s3legacy/bucket_legacy.go
- create mode 100644 internal/service/s3legacy/enum.go
- create mode 100644 internal/service/s3legacy/errors.go
- create mode 100644 internal/service/s3legacy/generate.go
- create mode 100644 internal/service/s3legacy/hosted_zones.go
- create mode 100644 internal/service/s3legacy/object.go
- create mode 100644 internal/service/s3legacy/retry.go
- create mode 100644 internal/service/s3legacy/tags.go
- create mode 100644 internal/service/s3legacy/tags_gen.go
- create mode 100644 internal/service/s3legacy/wait.go
- create mode 100644 website/docs/r/s3_bucket_legacy.html.markdown
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 81932c8792..69bbdaa6ec 100644
+index 0bcb6d6a98..2bc27a3348 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
-@@ -12,6 +12,8 @@ import (
+@@ -13,6 +13,8 @@ import (
  
  	"github.com/YakDriver/regexache"
  	"github.com/aws/aws-sdk-go-v2/aws"
@@ -4258,6 +4233,3 @@ index 0000000000..529368067d
 +```
 +
 +The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
--- 
-2.39.1
-

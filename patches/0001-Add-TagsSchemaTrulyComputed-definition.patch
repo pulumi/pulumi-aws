@@ -1,11 +1,8 @@
-From e4e0106591857ef40f895a3bf1e3366b1fb76572 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 16:49:08 +0000
 Subject: [PATCH 01/30] Add TagsSchemaTrulyComputed definition
 
----
- internal/tags/tags.go | 8 ++++++++
- 1 file changed, 8 insertions(+)
 
 diff --git a/internal/tags/tags.go b/internal/tags/tags.go
 index 12d3b9013e..bc9e14fc19 100644
@@ -23,6 +20,3 @@ index 12d3b9013e..bc9e14fc19 100644
 +		Elem:     &schema.Schema{Type: schema.TypeString},
 +	}
 +}
--- 
-2.39.1
-
