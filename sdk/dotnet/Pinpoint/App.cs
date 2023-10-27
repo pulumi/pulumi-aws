@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Pinpoint
         /// The name of the Pinpoint application. Conflicts with `name`
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own

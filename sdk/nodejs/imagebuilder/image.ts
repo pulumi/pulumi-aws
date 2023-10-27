@@ -84,6 +84,10 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly imageRecipeArn!: pulumi.Output<string | undefined>;
     /**
+     * Configuration block with image scanning configuration. Detailed below.
+     */
+    public readonly imageScanningConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageScanningConfiguration>;
+    /**
      * Configuration block with image tests configuration. Detailed below.
      */
     public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageTestsConfiguration>;
@@ -143,6 +147,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["distributionConfigurationArn"] = state ? state.distributionConfigurationArn : undefined;
             resourceInputs["enhancedImageMetadataEnabled"] = state ? state.enhancedImageMetadataEnabled : undefined;
             resourceInputs["imageRecipeArn"] = state ? state.imageRecipeArn : undefined;
+            resourceInputs["imageScanningConfiguration"] = state ? state.imageScanningConfiguration : undefined;
             resourceInputs["imageTestsConfiguration"] = state ? state.imageTestsConfiguration : undefined;
             resourceInputs["infrastructureConfigurationArn"] = state ? state.infrastructureConfigurationArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -161,6 +166,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
             resourceInputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
             resourceInputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
+            resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
             resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -208,6 +214,10 @@ export interface ImageState {
      * Amazon Resource Name (ARN) of the image recipe.
      */
     imageRecipeArn?: pulumi.Input<string>;
+    /**
+     * Configuration block with image scanning configuration. Detailed below.
+     */
+    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageScanningConfiguration>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
@@ -270,6 +280,10 @@ export interface ImageArgs {
      * Amazon Resource Name (ARN) of the image recipe.
      */
     imageRecipeArn?: pulumi.Input<string>;
+    /**
+     * Configuration block with image scanning configuration. Detailed below.
+     */
+    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageScanningConfiguration>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */

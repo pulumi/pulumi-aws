@@ -215,14 +215,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.engine);
     }
     /**
-     * The neptune engine version.
+     * The neptune engine version. Currently configuring this argumnet has no effect.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return The neptune engine version.
+     * @return The neptune engine version. Currently configuring this argumnet has no effect.
      * 
      */
     public Output<String> engineVersion() {

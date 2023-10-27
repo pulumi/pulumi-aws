@@ -82,6 +82,11 @@ public final class GetEndpointResult {
      */
     private String selfServicePortal;
     /**
+     * @return The URL of the self-service portal.
+     * 
+     */
+    private String selfServicePortalUrl;
+    /**
      * @return The ARN of the server certificate.
      * 
      */
@@ -205,6 +210,13 @@ public final class GetEndpointResult {
         return this.selfServicePortal;
     }
     /**
+     * @return The URL of the self-service portal.
+     * 
+     */
+    public String selfServicePortalUrl() {
+        return this.selfServicePortalUrl;
+    }
+    /**
      * @return The ARN of the server certificate.
      * 
      */
@@ -273,6 +285,7 @@ public final class GetEndpointResult {
         private String id;
         private List<String> securityGroupIds;
         private String selfServicePortal;
+        private String selfServicePortalUrl;
         private String serverCertificateArn;
         private Integer sessionTimeoutHours;
         private Boolean splitTunnel;
@@ -297,6 +310,7 @@ public final class GetEndpointResult {
     	      this.id = defaults.id;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.selfServicePortal = defaults.selfServicePortal;
+    	      this.selfServicePortalUrl = defaults.selfServicePortalUrl;
     	      this.serverCertificateArn = defaults.serverCertificateArn;
     	      this.sessionTimeoutHours = defaults.sessionTimeoutHours;
     	      this.splitTunnel = defaults.splitTunnel;
@@ -398,6 +412,11 @@ public final class GetEndpointResult {
             return this;
         }
         @CustomType.Setter
+        public Builder selfServicePortalUrl(String selfServicePortalUrl) {
+            this.selfServicePortalUrl = Objects.requireNonNull(selfServicePortalUrl);
+            return this;
+        }
+        @CustomType.Setter
         public Builder serverCertificateArn(String serverCertificateArn) {
             this.serverCertificateArn = Objects.requireNonNull(serverCertificateArn);
             return this;
@@ -448,6 +467,7 @@ public final class GetEndpointResult {
             o.id = id;
             o.securityGroupIds = securityGroupIds;
             o.selfServicePortal = selfServicePortal;
+            o.selfServicePortalUrl = selfServicePortalUrl;
             o.serverCertificateArn = serverCertificateArn;
             o.sessionTimeoutHours = sessionTimeoutHours;
             o.splitTunnel = splitTunnel;

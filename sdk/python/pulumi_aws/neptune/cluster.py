@@ -55,7 +55,7 @@ class ClusterArgs:
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
@@ -355,7 +355,7 @@ class ClusterArgs:
     @pulumi.getter(name="enableCloudwatchLogsExports")
     def enable_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+        A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
@@ -656,7 +656,7 @@ class _ClusterState:
         :param pulumi.Input[str] cluster_resource_id: The Neptune Cluster Resource ID
         :param pulumi.Input[bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         :param pulumi.Input[str] endpoint: The DNS address of the Neptune instance
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         :param pulumi.Input[str] engine_version: The database engine version.
@@ -1037,7 +1037,7 @@ class _ClusterState:
     @pulumi.getter(name="enableCloudwatchLogsExports")
     def enable_cloudwatch_logs_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+        A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
@@ -1420,7 +1420,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
@@ -1646,7 +1646,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_resource_id: The Neptune Cluster Resource ID
         :param pulumi.Input[bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         :param pulumi.Input[str] endpoint: The DNS address of the Neptune instance
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         :param pulumi.Input[str] engine_version: The database engine version.
@@ -1806,7 +1806,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="enableCloudwatchLogsExports")
     def enable_cloudwatch_logs_exports(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+        A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Cfg.Outputs
         /// </summary>
         public readonly bool? IncludeGlobalResourceTypes;
         /// <summary>
-        /// Recording Strategy - see below..
+        /// Recording Strategy. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.RecorderRecordingGroupRecordingStrategy> RecordingStrategies;
         /// <summary>

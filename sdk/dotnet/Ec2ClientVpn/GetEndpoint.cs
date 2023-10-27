@@ -260,6 +260,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         public readonly string SelfServicePortal;
         /// <summary>
+        /// The URL of the self-service portal.
+        /// </summary>
+        public readonly string SelfServicePortalUrl;
+        /// <summary>
         /// The ARN of the server certificate.
         /// </summary>
         public readonly string ServerCertificateArn;
@@ -315,6 +319,8 @@ namespace Pulumi.Aws.Ec2ClientVpn
 
             string selfServicePortal,
 
+            string selfServicePortalUrl,
+
             string serverCertificateArn,
 
             int sessionTimeoutHours,
@@ -343,6 +349,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
             Id = id;
             SecurityGroupIds = securityGroupIds;
             SelfServicePortal = selfServicePortal;
+            SelfServicePortalUrl = selfServicePortalUrl;
             ServerCertificateArn = serverCertificateArn;
             SessionTimeoutHours = sessionTimeoutHours;
             SplitTunnel = splitTunnel;

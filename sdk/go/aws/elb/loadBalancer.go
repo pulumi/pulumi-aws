@@ -140,7 +140,7 @@ type LoadBalancer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// A list of security group IDs to assign to the ELB.
 	// Only valid if creating an ELB within a VPC
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
@@ -601,8 +601,8 @@ func (o LoadBalancerOutput) Name() pulumi.StringOutput {
 
 // Creates a unique name beginning with the specified
 // prefix. Conflicts with `name`.
-func (o LoadBalancerOutput) NamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
+func (o LoadBalancerOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
 // A list of security group IDs to assign to the ELB.

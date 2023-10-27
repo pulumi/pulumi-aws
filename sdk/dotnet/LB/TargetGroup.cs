@@ -101,6 +101,32 @@ namespace Pulumi.Aws.LB
     /// 
     /// });
     /// ```
+    /// ### Target group with unhealthy connection termination disabled
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tcp_example = new Aws.LB.TargetGroup("tcp-example", new()
+    ///     {
+    ///         Port = 25,
+    ///         Protocol = "TCP",
+    ///         VpcId = aws_vpc.Main.Id,
+    ///         TargetHealthStates = new[]
+    ///         {
+    ///             new Aws.LB.Inputs.TargetGroupTargetHealthStateArgs
+    ///             {
+    ///                 EnableUnhealthyConnectionTermination = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -129,7 +155,7 @@ namespace Pulumi.Aws.LB
         /// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         /// </summary>
         [Output("connectionTermination")]
-        public Output<bool?> ConnectionTermination { get; private set; } = null!;
+        public Output<bool> ConnectionTermination { get; private set; } = null!;
 
         /// <summary>
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
@@ -177,7 +203,7 @@ namespace Pulumi.Aws.LB
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
@@ -238,6 +264,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Output("targetFailovers")]
         public Output<ImmutableArray<Outputs.TargetGroupTargetFailover>> TargetFailovers { get; private set; } = null!;
+
+        /// <summary>
+        /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+        /// </summary>
+        [Output("targetHealthStates")]
+        public Output<ImmutableArray<Outputs.TargetGroupTargetHealthState>> TargetHealthStates { get; private set; } = null!;
 
         /// <summary>
         /// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
@@ -433,6 +465,18 @@ namespace Pulumi.Aws.LB
             set => _targetFailovers = value;
         }
 
+        [Input("targetHealthStates")]
+        private InputList<Inputs.TargetGroupTargetHealthStateArgs>? _targetHealthStates;
+
+        /// <summary>
+        /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+        /// </summary>
+        public InputList<Inputs.TargetGroupTargetHealthStateArgs> TargetHealthStates
+        {
+            get => _targetHealthStates ?? (_targetHealthStates = new InputList<Inputs.TargetGroupTargetHealthStateArgs>());
+            set => _targetHealthStates = value;
+        }
+
         /// <summary>
         /// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
         /// 
@@ -608,6 +652,18 @@ namespace Pulumi.Aws.LB
         {
             get => _targetFailovers ?? (_targetFailovers = new InputList<Inputs.TargetGroupTargetFailoverGetArgs>());
             set => _targetFailovers = value;
+        }
+
+        [Input("targetHealthStates")]
+        private InputList<Inputs.TargetGroupTargetHealthStateGetArgs>? _targetHealthStates;
+
+        /// <summary>
+        /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+        /// </summary>
+        public InputList<Inputs.TargetGroupTargetHealthStateGetArgs> TargetHealthStates
+        {
+            get => _targetHealthStates ?? (_targetHealthStates = new InputList<Inputs.TargetGroupTargetHealthStateGetArgs>());
+            set => _targetHealthStates = value;
         }
 
         /// <summary>

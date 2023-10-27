@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRegexMatchStatementFieldTo
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs;
@@ -83,6 +84,21 @@ public final class WebAclRuleStatementRegexMatchStatementFieldToMatchArgs extend
      */
     public Optional<Output<List<WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
+    }
+
+    /**
+     * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
+    @Import(name="ja3Fingerprint")
+    private @Nullable Output<WebAclRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
+
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs>> ja3Fingerprint() {
+        return Optional.ofNullable(this.ja3Fingerprint);
     }
 
     /**
@@ -182,6 +198,7 @@ public final class WebAclRuleStatementRegexMatchStatementFieldToMatchArgs extend
         this.body = $.body;
         this.cookies = $.cookies;
         this.headers = $.headers;
+        this.ja3Fingerprint = $.ja3Fingerprint;
         this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
@@ -300,6 +317,27 @@ public final class WebAclRuleStatementRegexMatchStatementFieldToMatchArgs extend
          */
         public Builder headers(WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArgs... headers) {
             return headers(List.of(headers));
+        }
+
+        /**
+         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja3Fingerprint(@Nullable Output<WebAclRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint) {
+            $.ja3Fingerprint = ja3Fingerprint;
+            return this;
+        }
+
+        /**
+         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ja3Fingerprint(WebAclRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint) {
+            return ja3Fingerprint(Output.of(ja3Fingerprint));
         }
 
         /**

@@ -125,6 +125,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<string?> SelfServicePortal { get; private set; } = null!;
 
         /// <summary>
+        /// The URL of the self-service portal.
+        /// </summary>
+        [Output("selfServicePortalUrl")]
+        public Output<string> SelfServicePortalUrl { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the ACM server certificate.
         /// </summary>
         [Output("serverCertificateArn")]
@@ -433,6 +439,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         [Input("selfServicePortal")]
         public Input<string>? SelfServicePortal { get; set; }
+
+        /// <summary>
+        /// The URL of the self-service portal.
+        /// </summary>
+        [Input("selfServicePortalUrl")]
+        public Input<string>? SelfServicePortalUrl { get; set; }
 
         /// <summary>
         /// The ARN of the ACM server certificate.

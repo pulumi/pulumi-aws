@@ -19,6 +19,7 @@ class LoadBalancerArgs:
                  access_logs: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
+                 dns_record_client_routing_policy: Optional[pulumi.Input[str]] = None,
                  drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -43,6 +44,7 @@ class LoadBalancerArgs:
         :param pulumi.Input['LoadBalancerAccessLogsArgs'] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
         :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        :param pulumi.Input[str] dns_record_client_routing_policy: Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
@@ -72,6 +74,7 @@ class LoadBalancerArgs:
             access_logs=access_logs,
             customer_owned_ipv4_pool=customer_owned_ipv4_pool,
             desync_mitigation_mode=desync_mitigation_mode,
+            dns_record_client_routing_policy=dns_record_client_routing_policy,
             drop_invalid_header_fields=drop_invalid_header_fields,
             enable_cross_zone_load_balancing=enable_cross_zone_load_balancing,
             enable_deletion_protection=enable_deletion_protection,
@@ -98,6 +101,7 @@ class LoadBalancerArgs:
              access_logs: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']] = None,
              customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
              desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
+             dns_record_client_routing_policy: Optional[pulumi.Input[str]] = None,
              drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
              enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
              enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -125,6 +129,8 @@ class LoadBalancerArgs:
             customer_owned_ipv4_pool = kwargs['customerOwnedIpv4Pool']
         if desync_mitigation_mode is None and 'desyncMitigationMode' in kwargs:
             desync_mitigation_mode = kwargs['desyncMitigationMode']
+        if dns_record_client_routing_policy is None and 'dnsRecordClientRoutingPolicy' in kwargs:
+            dns_record_client_routing_policy = kwargs['dnsRecordClientRoutingPolicy']
         if drop_invalid_header_fields is None and 'dropInvalidHeaderFields' in kwargs:
             drop_invalid_header_fields = kwargs['dropInvalidHeaderFields']
         if enable_cross_zone_load_balancing is None and 'enableCrossZoneLoadBalancing' in kwargs:
@@ -162,6 +168,8 @@ class LoadBalancerArgs:
             _setter("customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if desync_mitigation_mode is not None:
             _setter("desync_mitigation_mode", desync_mitigation_mode)
+        if dns_record_client_routing_policy is not None:
+            _setter("dns_record_client_routing_policy", dns_record_client_routing_policy)
         if drop_invalid_header_fields is not None:
             _setter("drop_invalid_header_fields", drop_invalid_header_fields)
         if enable_cross_zone_load_balancing is not None:
@@ -236,6 +244,18 @@ class LoadBalancerArgs:
     @desync_mitigation_mode.setter
     def desync_mitigation_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "desync_mitigation_mode", value)
+
+    @property
+    @pulumi.getter(name="dnsRecordClientRoutingPolicy")
+    def dns_record_client_routing_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+        """
+        return pulumi.get(self, "dns_record_client_routing_policy")
+
+    @dns_record_client_routing_policy.setter
+    def dns_record_client_routing_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_record_client_routing_policy", value)
 
     @property
     @pulumi.getter(name="dropInvalidHeaderFields")
@@ -479,6 +499,7 @@ class _LoadBalancerState:
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
+                 dns_record_client_routing_policy: Optional[pulumi.Input[str]] = None,
                  drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -509,6 +530,7 @@ class _LoadBalancerState:
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
         :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input[str] dns_name: The DNS name of the load balancer.
+        :param pulumi.Input[str] dns_record_client_routing_policy: Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
@@ -543,6 +565,7 @@ class _LoadBalancerState:
             customer_owned_ipv4_pool=customer_owned_ipv4_pool,
             desync_mitigation_mode=desync_mitigation_mode,
             dns_name=dns_name,
+            dns_record_client_routing_policy=dns_record_client_routing_policy,
             drop_invalid_header_fields=drop_invalid_header_fields,
             enable_cross_zone_load_balancing=enable_cross_zone_load_balancing,
             enable_deletion_protection=enable_deletion_protection,
@@ -575,6 +598,7 @@ class _LoadBalancerState:
              customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
              desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
              dns_name: Optional[pulumi.Input[str]] = None,
+             dns_record_client_routing_policy: Optional[pulumi.Input[str]] = None,
              drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
              enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
              enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -609,6 +633,8 @@ class _LoadBalancerState:
             desync_mitigation_mode = kwargs['desyncMitigationMode']
         if dns_name is None and 'dnsName' in kwargs:
             dns_name = kwargs['dnsName']
+        if dns_record_client_routing_policy is None and 'dnsRecordClientRoutingPolicy' in kwargs:
+            dns_record_client_routing_policy = kwargs['dnsRecordClientRoutingPolicy']
         if drop_invalid_header_fields is None and 'dropInvalidHeaderFields' in kwargs:
             drop_invalid_header_fields = kwargs['dropInvalidHeaderFields']
         if enable_cross_zone_load_balancing is None and 'enableCrossZoneLoadBalancing' in kwargs:
@@ -658,6 +684,8 @@ class _LoadBalancerState:
             _setter("desync_mitigation_mode", desync_mitigation_mode)
         if dns_name is not None:
             _setter("dns_name", dns_name)
+        if dns_record_client_routing_policy is not None:
+            _setter("dns_record_client_routing_policy", dns_record_client_routing_policy)
         if drop_invalid_header_fields is not None:
             _setter("drop_invalid_header_fields", drop_invalid_header_fields)
         if enable_cross_zone_load_balancing is not None:
@@ -777,6 +805,18 @@ class _LoadBalancerState:
     @dns_name.setter
     def dns_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_name", value)
+
+    @property
+    @pulumi.getter(name="dnsRecordClientRoutingPolicy")
+    def dns_record_client_routing_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+        """
+        return pulumi.get(self, "dns_record_client_routing_policy")
+
+    @dns_record_client_routing_policy.setter
+    def dns_record_client_routing_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_record_client_routing_policy", value)
 
     @property
     @pulumi.getter(name="dropInvalidHeaderFields")
@@ -1055,6 +1095,7 @@ class LoadBalancer(pulumi.CustomResource):
                  access_logs: Optional[pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
+                 dns_record_client_routing_policy: Optional[pulumi.Input[str]] = None,
                  drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -1169,6 +1210,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
         :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        :param pulumi.Input[str] dns_record_client_routing_policy: Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
@@ -1310,6 +1352,7 @@ class LoadBalancer(pulumi.CustomResource):
                  access_logs: Optional[pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
+                 dns_record_client_routing_policy: Optional[pulumi.Input[str]] = None,
                  drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -1342,6 +1385,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["access_logs"] = access_logs
             __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
             __props__.__dict__["desync_mitigation_mode"] = desync_mitigation_mode
+            __props__.__dict__["dns_record_client_routing_policy"] = dns_record_client_routing_policy
             __props__.__dict__["drop_invalid_header_fields"] = drop_invalid_header_fields
             __props__.__dict__["enable_cross_zone_load_balancing"] = enable_cross_zone_load_balancing
             __props__.__dict__["enable_deletion_protection"] = enable_deletion_protection
@@ -1387,6 +1431,7 @@ class LoadBalancer(pulumi.CustomResource):
             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
             desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
+            dns_record_client_routing_policy: Optional[pulumi.Input[str]] = None,
             drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
             enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
             enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -1422,6 +1467,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
         :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input[str] dns_name: The DNS name of the load balancer.
+        :param pulumi.Input[str] dns_record_client_routing_policy: Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
@@ -1458,6 +1504,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
         __props__.__dict__["desync_mitigation_mode"] = desync_mitigation_mode
         __props__.__dict__["dns_name"] = dns_name
+        __props__.__dict__["dns_record_client_routing_policy"] = dns_record_client_routing_policy
         __props__.__dict__["drop_invalid_header_fields"] = drop_invalid_header_fields
         __props__.__dict__["enable_cross_zone_load_balancing"] = enable_cross_zone_load_balancing
         __props__.__dict__["enable_deletion_protection"] = enable_deletion_protection
@@ -1529,6 +1576,14 @@ class LoadBalancer(pulumi.CustomResource):
         The DNS name of the load balancer.
         """
         return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="dnsRecordClientRoutingPolicy")
+    def dns_record_client_routing_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+        """
+        return pulumi.get(self, "dns_record_client_routing_policy")
 
     @property
     @pulumi.getter(name="dropInvalidHeaderFields")
@@ -1630,7 +1685,7 @@ class LoadBalancer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[Optional[str]]:
+    def name_prefix(self) -> pulumi.Output[str]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         """

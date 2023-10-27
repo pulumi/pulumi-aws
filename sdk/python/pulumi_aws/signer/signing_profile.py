@@ -633,7 +633,7 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[Optional[str]]:
+    def name_prefix(self) -> pulumi.Output[str]:
         """
         A signing profile name prefix. The provider will generate a unique suffix. Conflicts with `name`.
         """

@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Signer
     public partial class SigningProfilePermission : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
+        /// An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
         /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Signer
         /// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
         /// </summary>
         [Output("statementIdPrefix")]
-        public Output<string?> StatementIdPrefix { get; private set; } = null!;
+        public Output<string> StatementIdPrefix { get; private set; } = null!;
 
 
         /// <summary>
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Signer
     public sealed class SigningProfilePermissionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
+        /// An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.Signer
     public sealed class SigningProfilePermissionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
+        /// An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }

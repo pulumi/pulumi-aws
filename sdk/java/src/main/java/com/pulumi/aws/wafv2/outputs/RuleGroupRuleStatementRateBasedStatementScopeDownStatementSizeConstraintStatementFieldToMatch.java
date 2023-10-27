@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScop
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString;
@@ -41,6 +42,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
      * 
      */
     private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader> headers;
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -101,6 +103,9 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
     public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
+    public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
+        return Optional.ofNullable(this.ja3Fingerprint);
+    }
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -157,6 +162,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody body;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies cookies;
         private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader> headers;
+        private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod method;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString queryString;
@@ -170,6 +176,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
     	      this.headers = defaults.headers;
+    	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -200,6 +207,11 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
         }
         public Builder headers(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader... headers) {
             return headers(List.of(headers));
+        }
+        @CustomType.Setter
+        public Builder ja3Fingerprint(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
+            this.ja3Fingerprint = ja3Fingerprint;
+            return this;
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody) {
@@ -237,6 +249,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
             o.body = body;
             o.cookies = cookies;
             o.headers = headers;
+            o.ja3Fingerprint = ja3Fingerprint;
             o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;

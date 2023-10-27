@@ -183,7 +183,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      * 
      */
     @Import(name="engineVersion")
@@ -197,7 +197,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -438,14 +438,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more VPC security groups associated with the cache cluster
+     * One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return One or more VPC security groups associated with the cache cluster
+     * @return One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -513,14 +513,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+     * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
      * 
      */
     @Import(name="subnetGroupName")
     private @Nullable Output<String> subnetGroupName;
 
     /**
-     * @return Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+     * @return Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
      * 
      */
     public Optional<Output<String>> subnetGroupName() {
@@ -870,7 +870,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * When the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
          * Otherwise, specify the full version desired, e.g., `5.0.6`.
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
          * 
          * @return builder
          * 
@@ -888,7 +888,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * When the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
          * Otherwise, specify the full version desired, e.g., `5.0.6`.
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
          * 
          * @return builder
          * 
@@ -1241,7 +1241,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds One or more VPC security groups associated with the cache cluster
+         * @param securityGroupIds One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
          * 
          * @return builder
          * 
@@ -1252,7 +1252,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds One or more VPC security groups associated with the cache cluster
+         * @param securityGroupIds One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
          * 
          * @return builder
          * 
@@ -1262,7 +1262,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds One or more VPC security groups associated with the cache cluster
+         * @param securityGroupIds One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
          * 
          * @return builder
          * 
@@ -1356,7 +1356,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetGroupName Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+         * @param subnetGroupName Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
          * 
          * @return builder
          * 
@@ -1367,7 +1367,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetGroupName Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+         * @param subnetGroupName Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
          * 
          * @return builder
          * 

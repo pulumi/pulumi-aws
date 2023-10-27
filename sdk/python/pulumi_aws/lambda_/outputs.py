@@ -1294,6 +1294,8 @@ class FunctionVpcConfig(dict):
             suggest = "security_group_ids"
         elif key == "subnetIds":
             suggest = "subnet_ids"
+        elif key == "ipv6AllowedForDualStack":
+            suggest = "ipv6_allowed_for_dual_stack"
         elif key == "vpcId":
             suggest = "vpc_id"
 
@@ -1311,15 +1313,18 @@ class FunctionVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str],
+                 ipv6_allowed_for_dual_stack: Optional[bool] = None,
                  vpc_id: Optional[str] = None):
         """
         :param Sequence[str] security_group_ids: List of security group IDs associated with the Lambda function.
         :param Sequence[str] subnet_ids: List of subnet IDs associated with the Lambda function.
+        :param bool ipv6_allowed_for_dual_stack: Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
         """
         FunctionVpcConfig._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             security_group_ids=security_group_ids,
             subnet_ids=subnet_ids,
+            ipv6_allowed_for_dual_stack=ipv6_allowed_for_dual_stack,
             vpc_id=vpc_id,
         )
     @staticmethod
@@ -1327,6 +1332,7 @@ class FunctionVpcConfig(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Optional[Sequence[str]] = None,
              subnet_ids: Optional[Sequence[str]] = None,
+             ipv6_allowed_for_dual_stack: Optional[bool] = None,
              vpc_id: Optional[str] = None,
              opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
@@ -1338,11 +1344,15 @@ class FunctionVpcConfig(dict):
             subnet_ids = kwargs['subnetIds']
         if subnet_ids is None:
             raise TypeError("Missing 'subnet_ids' argument")
+        if ipv6_allowed_for_dual_stack is None and 'ipv6AllowedForDualStack' in kwargs:
+            ipv6_allowed_for_dual_stack = kwargs['ipv6AllowedForDualStack']
         if vpc_id is None and 'vpcId' in kwargs:
             vpc_id = kwargs['vpcId']
 
         _setter("security_group_ids", security_group_ids)
         _setter("subnet_ids", subnet_ids)
+        if ipv6_allowed_for_dual_stack is not None:
+            _setter("ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
         if vpc_id is not None:
             _setter("vpc_id", vpc_id)
 
@@ -1361,6 +1371,14 @@ class FunctionVpcConfig(dict):
         List of subnet IDs associated with the Lambda function.
         """
         return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="ipv6AllowedForDualStack")
+    def ipv6_allowed_for_dual_stack(self) -> Optional[bool]:
+        """
+        Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+        """
+        return pulumi.get(self, "ipv6_allowed_for_dual_stack")
 
     @property
     @pulumi.getter(name="vpcId")

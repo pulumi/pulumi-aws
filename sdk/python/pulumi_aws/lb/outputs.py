@@ -39,6 +39,7 @@ __all__ = [
     'TargetGroupHealthCheck',
     'TargetGroupStickiness',
     'TargetGroupTargetFailover',
+    'TargetGroupTargetHealthState',
     'GetListenerDefaultActionResult',
     'GetListenerDefaultActionAuthenticateCognitoResult',
     'GetListenerDefaultActionAuthenticateOidcResult',
@@ -2805,6 +2806,56 @@ class TargetGroupTargetFailover(dict):
         Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
         """
         return pulumi.get(self, "on_unhealthy")
+
+
+@pulumi.output_type
+class TargetGroupTargetHealthState(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableUnhealthyConnectionTermination":
+            suggest = "enable_unhealthy_connection_termination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetGroupTargetHealthState. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetGroupTargetHealthState.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetGroupTargetHealthState.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_unhealthy_connection_termination: bool):
+        """
+        :param bool enable_unhealthy_connection_termination: Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
+        """
+        TargetGroupTargetHealthState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_unhealthy_connection_termination=enable_unhealthy_connection_termination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_unhealthy_connection_termination: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_unhealthy_connection_termination is None and 'enableUnhealthyConnectionTermination' in kwargs:
+            enable_unhealthy_connection_termination = kwargs['enableUnhealthyConnectionTermination']
+        if enable_unhealthy_connection_termination is None:
+            raise TypeError("Missing 'enable_unhealthy_connection_termination' argument")
+
+        _setter("enable_unhealthy_connection_termination", enable_unhealthy_connection_termination)
+
+    @property
+    @pulumi.getter(name="enableUnhealthyConnectionTermination")
+    def enable_unhealthy_connection_termination(self) -> bool:
+        """
+        Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
+        """
+        return pulumi.get(self, "enable_unhealthy_connection_termination")
 
 
 @pulumi.output_type

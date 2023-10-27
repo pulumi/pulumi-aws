@@ -431,14 +431,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
     /**
-     * (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+     * The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
      * 
      */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
     private Output<Integer> allocatedStorage;
 
     /**
-     * @return (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+     * @return The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
      * 
      */
     public Output<Integer> allocatedStorage() {
@@ -487,14 +487,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
+     * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
+     * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+     * A maximum of 3 AZs can be configured.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
     /**
-     * @return List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
+     * @return List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
+     * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
+     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
+     * A maximum of 3 AZs can be configured.
      * 
      */
     public Output<List<String>> availabilityZones() {
@@ -613,14 +619,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.databaseName;
     }
     /**
-     * (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+     * The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
      * 
      */
     @Export(name="dbClusterInstanceClass", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dbClusterInstanceClass;
 
     /**
-     * @return (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+     * @return The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
      * 
      */
     public Output<Optional<String>> dbClusterInstanceClass() {
@@ -655,14 +661,16 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dbInstanceParameterGroupName);
     }
     /**
-     * DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+     * DB subnet group to associate with this DB cluster.
+     * **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
      * 
      */
     @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> dbSubnetGroupName;
 
     /**
-     * @return DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+     * @return DB subnet group to associate with this DB cluster.
+     * **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
      * 
      */
     public Output<String> dbSubnetGroupName() {
@@ -683,14 +691,18 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.dbSystemId;
     }
     /**
-     * If the DB instance should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
+     * If the DB cluster should have deletion protection enabled.
+     * The database can&#39;t be deleted when this value is set to `true`.
+     * The default is `false`.
      * 
      */
     @Export(name="deletionProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deletionProtection;
 
     /**
-     * @return If the DB instance should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
+     * @return If the DB cluster should have deletion protection enabled.
+     * The database can&#39;t be deleted when this value is set to `true`.
+     * The default is `false`.
      * 
      */
     public Output<Optional<Boolean>> deletionProtection() {
@@ -1167,14 +1179,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.storageEncrypted;
     }
     /**
-     * (Required for Multi-AZ DB clusters) (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+     * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output<String> storageType;
 
     /**
-     * @return (Required for Multi-AZ DB clusters) (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+     * @return (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      * 
      */
     public Output<String> storageType() {

@@ -186,14 +186,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+     * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
      * 
      */
     @Import(name="enableCloudwatchLogsExports")
     private @Nullable Output<List<String>> enableCloudwatchLogsExports;
 
     /**
-     * @return A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+     * @return A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
      * 
      */
     public Optional<Output<List<String>>> enableCloudwatchLogsExports() {
@@ -879,7 +879,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCloudwatchLogsExports A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+         * @param enableCloudwatchLogsExports A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
          * 
          * @return builder
          * 
@@ -890,7 +890,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCloudwatchLogsExports A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+         * @param enableCloudwatchLogsExports A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
          * 
          * @return builder
          * 
@@ -900,7 +900,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableCloudwatchLogsExports A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
+         * @param enableCloudwatchLogsExports A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
          * 
          * @return builder
          * 

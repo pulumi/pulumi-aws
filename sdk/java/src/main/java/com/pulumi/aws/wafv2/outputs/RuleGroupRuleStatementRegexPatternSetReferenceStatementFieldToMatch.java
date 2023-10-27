@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferen
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
@@ -41,6 +42,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
      * 
      */
     private @Nullable List<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers;
+    private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -101,6 +103,9 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
     public List<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
+    public Optional<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
+        return Optional.ofNullable(this.ja3Fingerprint);
+    }
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -157,6 +162,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody body;
         private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies cookies;
         private @Nullable List<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader> headers;
+        private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody jsonBody;
         private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod method;
         private @Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString queryString;
@@ -170,6 +176,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
     	      this.headers = defaults.headers;
+    	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -200,6 +207,11 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
         }
         public Builder headers(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader... headers) {
             return headers(List.of(headers));
+        }
+        @CustomType.Setter
+        public Builder ja3Fingerprint(@Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
+            this.ja3Fingerprint = ja3Fingerprint;
+            return this;
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody jsonBody) {
@@ -237,6 +249,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
             o.body = body;
             o.cookies = cookies;
             o.headers = headers;
+            o.ja3Fingerprint = ja3Fingerprint;
             o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;

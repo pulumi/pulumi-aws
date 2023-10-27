@@ -104,7 +104,7 @@ class InstanceArgs:
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which automated backups are created if they are enabled.
                Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         :param pulumi.Input['InstanceBlueGreenUpdateArgs'] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-               See blue_green_update below
+               See `blue_green_update` below.
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] character_set_name: The character set name to use for DB
                encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
@@ -145,8 +145,12 @@ class InstanceArgs:
                See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
-        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
-               SE1) License model information for this DB instance.
+        :param pulumi.Input[str] license_model: License model information for this DB instance. Valid values for this field are as follows:
+               * RDS for MariaDB: `general-public-license`
+               * RDS for Microsoft SQL Server: `license-included`
+               * RDS for MySQL: `general-public-license`
+               * RDS for Oracle: `bring-your-own-license | license-included`
+               * RDS for PostgreSQL: `postgresql-license`
         :param pulumi.Input[str] maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
                Maintenance Window
@@ -713,7 +717,7 @@ class InstanceArgs:
     def blue_green_update(self) -> Optional[pulumi.Input['InstanceBlueGreenUpdateArgs']]:
         """
         Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-        See blue_green_update below
+        See `blue_green_update` below.
         """
         return pulumi.get(self, "blue_green_update")
 
@@ -985,8 +989,12 @@ class InstanceArgs:
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional, but required for some DB engines, i.e., Oracle
-        SE1) License model information for this DB instance.
+        License model information for this DB instance. Valid values for this field are as follows:
+        * RDS for MariaDB: `general-public-license`
+        * RDS for Microsoft SQL Server: `license-included`
+        * RDS for MySQL: `general-public-license`
+        * RDS for Oracle: `bring-your-own-license | license-included`
+        * RDS for PostgreSQL: `postgresql-license`
         """
         return pulumi.get(self, "license_model")
 
@@ -1513,7 +1521,7 @@ class _InstanceState:
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which automated backups are created if they are enabled.
                Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         :param pulumi.Input['InstanceBlueGreenUpdateArgs'] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-               See blue_green_update below
+               See `blue_green_update` below.
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] character_set_name: The character set name to use for DB
                encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
@@ -1559,8 +1567,12 @@ class _InstanceState:
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[str] latest_restorable_time: The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
-        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
-               SE1) License model information for this DB instance.
+        :param pulumi.Input[str] license_model: License model information for this DB instance. Valid values for this field are as follows:
+               * RDS for MariaDB: `general-public-license`
+               * RDS for Microsoft SQL Server: `license-included`
+               * RDS for MySQL: `general-public-license`
+               * RDS for Oracle: `bring-your-own-license | license-included`
+               * RDS for PostgreSQL: `postgresql-license`
         :param pulumi.Input[Sequence[pulumi.Input['InstanceListenerEndpointArgs']]] listener_endpoints: Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
         :param pulumi.Input[str] maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -2208,7 +2220,7 @@ class _InstanceState:
     def blue_green_update(self) -> Optional[pulumi.Input['InstanceBlueGreenUpdateArgs']]:
         """
         Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-        See blue_green_update below
+        See `blue_green_update` below.
         """
         return pulumi.get(self, "blue_green_update")
 
@@ -2540,8 +2552,12 @@ class _InstanceState:
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional, but required for some DB engines, i.e., Oracle
-        SE1) License model information for this DB instance.
+        License model information for this DB instance. Valid values for this field are as follows:
+        * RDS for MariaDB: `general-public-license`
+        * RDS for Microsoft SQL Server: `license-included`
+        * RDS for MySQL: `general-public-license`
+        * RDS for Oracle: `bring-your-own-license | license-included`
+        * RDS for PostgreSQL: `postgresql-license`
         """
         return pulumi.get(self, "license_model")
 
@@ -3247,7 +3263,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which automated backups are created if they are enabled.
                Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         :param pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-               See blue_green_update below
+               See `blue_green_update` below.
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] character_set_name: The character set name to use for DB
                encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
@@ -3289,8 +3305,12 @@ class Instance(pulumi.CustomResource):
                See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
-        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
-               SE1) License model information for this DB instance.
+        :param pulumi.Input[str] license_model: License model information for this DB instance. Valid values for this field are as follows:
+               * RDS for MariaDB: `general-public-license`
+               * RDS for Microsoft SQL Server: `license-included`
+               * RDS for MySQL: `general-public-license`
+               * RDS for Oracle: `bring-your-own-license | license-included`
+               * RDS for PostgreSQL: `postgresql-license`
         :param pulumi.Input[str] maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
                Maintenance Window
@@ -3775,7 +3795,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which automated backups are created if they are enabled.
                Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         :param pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-               See blue_green_update below
+               See `blue_green_update` below.
         :param pulumi.Input[str] ca_cert_identifier: The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] character_set_name: The character set name to use for DB
                encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
@@ -3821,8 +3841,12 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[str] latest_restorable_time: The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
-        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
-               SE1) License model information for this DB instance.
+        :param pulumi.Input[str] license_model: License model information for this DB instance. Valid values for this field are as follows:
+               * RDS for MariaDB: `general-public-license`
+               * RDS for Microsoft SQL Server: `license-included`
+               * RDS for MySQL: `general-public-license`
+               * RDS for Oracle: `bring-your-own-license | license-included`
+               * RDS for PostgreSQL: `postgresql-license`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceListenerEndpointArgs']]]] listener_endpoints: Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
         :param pulumi.Input[str] maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -4080,7 +4104,7 @@ class Instance(pulumi.CustomResource):
     def blue_green_update(self) -> pulumi.Output[Optional['outputs.InstanceBlueGreenUpdate']]:
         """
         Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-        See blue_green_update below
+        See `blue_green_update` below.
         """
         return pulumi.get(self, "blue_green_update")
 
@@ -4308,8 +4332,12 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> pulumi.Output[str]:
         """
-        (Optional, but required for some DB engines, i.e., Oracle
-        SE1) License model information for this DB instance.
+        License model information for this DB instance. Valid values for this field are as follows:
+        * RDS for MariaDB: `general-public-license`
+        * RDS for Microsoft SQL Server: `license-included`
+        * RDS for MySQL: `general-public-license`
+        * RDS for Oracle: `bring-your-own-license | license-included`
+        * RDS for PostgreSQL: `postgresql-license`
         """
         return pulumi.get(self, "license_model")
 

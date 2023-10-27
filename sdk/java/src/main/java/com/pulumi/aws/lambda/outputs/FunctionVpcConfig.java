@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -12,6 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionVpcConfig {
+    /**
+     * @return Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+     * 
+     */
+    private @Nullable Boolean ipv6AllowedForDualStack;
     /**
      * @return List of security group IDs associated with the Lambda function.
      * 
@@ -25,6 +31,13 @@ public final class FunctionVpcConfig {
     private @Nullable String vpcId;
 
     private FunctionVpcConfig() {}
+    /**
+     * @return Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+     * 
+     */
+    public Optional<Boolean> ipv6AllowedForDualStack() {
+        return Optional.ofNullable(this.ipv6AllowedForDualStack);
+    }
     /**
      * @return List of security group IDs associated with the Lambda function.
      * 
@@ -52,17 +65,24 @@ public final class FunctionVpcConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean ipv6AllowedForDualStack;
         private List<String> securityGroupIds;
         private List<String> subnetIds;
         private @Nullable String vpcId;
         public Builder() {}
         public Builder(FunctionVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.ipv6AllowedForDualStack = defaults.ipv6AllowedForDualStack;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnetIds = defaults.subnetIds;
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
+        public Builder ipv6AllowedForDualStack(@Nullable Boolean ipv6AllowedForDualStack) {
+            this.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
+            return this;
+        }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
@@ -86,6 +106,7 @@ public final class FunctionVpcConfig {
         }
         public FunctionVpcConfig build() {
             final var o = new FunctionVpcConfig();
+            o.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
             o.securityGroupIds = securityGroupIds;
             o.subnetIds = subnetIds;
             o.vpcId = vpcId;

@@ -35,6 +35,12 @@ __all__ = [
     'ClusterOpenMonitoringPrometheus',
     'ClusterOpenMonitoringPrometheusJmxExporter',
     'ClusterOpenMonitoringPrometheusNodeExporter',
+    'ReplicatorKafkaCluster',
+    'ReplicatorKafkaClusterAmazonMskCluster',
+    'ReplicatorKafkaClusterVpcConfig',
+    'ReplicatorReplicationInfoList',
+    'ReplicatorReplicationInfoListConsumerGroupReplication',
+    'ReplicatorReplicationInfoListTopicReplication',
     'ServerlessClusterClientAuthentication',
     'ServerlessClusterClientAuthenticationSasl',
     'ServerlessClusterClientAuthenticationSaslIam',
@@ -1424,6 +1430,573 @@ class ClusterOpenMonitoringPrometheusNodeExporter(dict):
         Indicates whether you want to enable or disable the Node Exporter.
         """
         return pulumi.get(self, "enabled_in_broker")
+
+
+@pulumi.output_type
+class ReplicatorKafkaCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amazonMskCluster":
+            suggest = "amazon_msk_cluster"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatorKafkaCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatorKafkaCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatorKafkaCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amazon_msk_cluster: 'outputs.ReplicatorKafkaClusterAmazonMskCluster',
+                 vpc_config: 'outputs.ReplicatorKafkaClusterVpcConfig'):
+        """
+        :param 'ReplicatorKafkaClusterAmazonMskClusterArgs' amazon_msk_cluster: Details of an Amazon MSK cluster.
+        :param 'ReplicatorKafkaClusterVpcConfigArgs' vpc_config: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        """
+        ReplicatorKafkaCluster._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amazon_msk_cluster=amazon_msk_cluster,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amazon_msk_cluster: Optional['outputs.ReplicatorKafkaClusterAmazonMskCluster'] = None,
+             vpc_config: Optional['outputs.ReplicatorKafkaClusterVpcConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if amazon_msk_cluster is None and 'amazonMskCluster' in kwargs:
+            amazon_msk_cluster = kwargs['amazonMskCluster']
+        if amazon_msk_cluster is None:
+            raise TypeError("Missing 'amazon_msk_cluster' argument")
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+        if vpc_config is None:
+            raise TypeError("Missing 'vpc_config' argument")
+
+        _setter("amazon_msk_cluster", amazon_msk_cluster)
+        _setter("vpc_config", vpc_config)
+
+    @property
+    @pulumi.getter(name="amazonMskCluster")
+    def amazon_msk_cluster(self) -> 'outputs.ReplicatorKafkaClusterAmazonMskCluster':
+        """
+        Details of an Amazon MSK cluster.
+        """
+        return pulumi.get(self, "amazon_msk_cluster")
+
+    @property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> 'outputs.ReplicatorKafkaClusterVpcConfig':
+        """
+        Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        """
+        return pulumi.get(self, "vpc_config")
+
+
+@pulumi.output_type
+class ReplicatorKafkaClusterAmazonMskCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mskClusterArn":
+            suggest = "msk_cluster_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatorKafkaClusterAmazonMskCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatorKafkaClusterAmazonMskCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatorKafkaClusterAmazonMskCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 msk_cluster_arn: str):
+        """
+        :param str msk_cluster_arn: The ARN of an Amazon MSK cluster.
+        """
+        ReplicatorKafkaClusterAmazonMskCluster._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            msk_cluster_arn=msk_cluster_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             msk_cluster_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if msk_cluster_arn is None and 'mskClusterArn' in kwargs:
+            msk_cluster_arn = kwargs['mskClusterArn']
+        if msk_cluster_arn is None:
+            raise TypeError("Missing 'msk_cluster_arn' argument")
+
+        _setter("msk_cluster_arn", msk_cluster_arn)
+
+    @property
+    @pulumi.getter(name="mskClusterArn")
+    def msk_cluster_arn(self) -> str:
+        """
+        The ARN of an Amazon MSK cluster.
+        """
+        return pulumi.get(self, "msk_cluster_arn")
+
+
+@pulumi.output_type
+class ReplicatorKafkaClusterVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "securityGroupsIds":
+            suggest = "security_groups_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatorKafkaClusterVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatorKafkaClusterVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatorKafkaClusterVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_ids: Sequence[str],
+                 security_groups_ids: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] subnet_ids: The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+        :param Sequence[str] security_groups_ids: The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+        """
+        ReplicatorKafkaClusterVpcConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_ids=subnet_ids,
+            security_groups_ids=security_groups_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_ids: Optional[Sequence[str]] = None,
+             security_groups_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if security_groups_ids is None and 'securityGroupsIds' in kwargs:
+            security_groups_ids = kwargs['securityGroupsIds']
+
+        _setter("subnet_ids", subnet_ids)
+        if security_groups_ids is not None:
+            _setter("security_groups_ids", security_groups_ids)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        """
+        The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="securityGroupsIds")
+    def security_groups_ids(self) -> Optional[Sequence[str]]:
+        """
+        The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+        """
+        return pulumi.get(self, "security_groups_ids")
+
+
+@pulumi.output_type
+class ReplicatorReplicationInfoList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroupReplications":
+            suggest = "consumer_group_replications"
+        elif key == "sourceKafkaClusterArn":
+            suggest = "source_kafka_cluster_arn"
+        elif key == "targetCompressionType":
+            suggest = "target_compression_type"
+        elif key == "targetKafkaClusterArn":
+            suggest = "target_kafka_cluster_arn"
+        elif key == "topicReplications":
+            suggest = "topic_replications"
+        elif key == "sourceKafkaClusterAlias":
+            suggest = "source_kafka_cluster_alias"
+        elif key == "targetKafkaClusterAlias":
+            suggest = "target_kafka_cluster_alias"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatorReplicationInfoList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatorReplicationInfoList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatorReplicationInfoList.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumer_group_replications: Sequence['outputs.ReplicatorReplicationInfoListConsumerGroupReplication'],
+                 source_kafka_cluster_arn: str,
+                 target_compression_type: str,
+                 target_kafka_cluster_arn: str,
+                 topic_replications: Sequence['outputs.ReplicatorReplicationInfoListTopicReplication'],
+                 source_kafka_cluster_alias: Optional[str] = None,
+                 target_kafka_cluster_alias: Optional[str] = None):
+        """
+        :param Sequence['ReplicatorReplicationInfoListConsumerGroupReplicationArgs'] consumer_group_replications: Confguration relating to consumer group replication.
+        :param str source_kafka_cluster_arn: The ARN of the source Kafka cluster.
+        :param str target_compression_type: The type of compression to use writing records to target Kafka cluster.
+        :param str target_kafka_cluster_arn: The ARN of the target Kafka cluster.
+        :param Sequence['ReplicatorReplicationInfoListTopicReplicationArgs'] topic_replications: Configuration relating to topic replication.
+        """
+        ReplicatorReplicationInfoList._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumer_group_replications=consumer_group_replications,
+            source_kafka_cluster_arn=source_kafka_cluster_arn,
+            target_compression_type=target_compression_type,
+            target_kafka_cluster_arn=target_kafka_cluster_arn,
+            topic_replications=topic_replications,
+            source_kafka_cluster_alias=source_kafka_cluster_alias,
+            target_kafka_cluster_alias=target_kafka_cluster_alias,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumer_group_replications: Optional[Sequence['outputs.ReplicatorReplicationInfoListConsumerGroupReplication']] = None,
+             source_kafka_cluster_arn: Optional[str] = None,
+             target_compression_type: Optional[str] = None,
+             target_kafka_cluster_arn: Optional[str] = None,
+             topic_replications: Optional[Sequence['outputs.ReplicatorReplicationInfoListTopicReplication']] = None,
+             source_kafka_cluster_alias: Optional[str] = None,
+             target_kafka_cluster_alias: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consumer_group_replications is None and 'consumerGroupReplications' in kwargs:
+            consumer_group_replications = kwargs['consumerGroupReplications']
+        if consumer_group_replications is None:
+            raise TypeError("Missing 'consumer_group_replications' argument")
+        if source_kafka_cluster_arn is None and 'sourceKafkaClusterArn' in kwargs:
+            source_kafka_cluster_arn = kwargs['sourceKafkaClusterArn']
+        if source_kafka_cluster_arn is None:
+            raise TypeError("Missing 'source_kafka_cluster_arn' argument")
+        if target_compression_type is None and 'targetCompressionType' in kwargs:
+            target_compression_type = kwargs['targetCompressionType']
+        if target_compression_type is None:
+            raise TypeError("Missing 'target_compression_type' argument")
+        if target_kafka_cluster_arn is None and 'targetKafkaClusterArn' in kwargs:
+            target_kafka_cluster_arn = kwargs['targetKafkaClusterArn']
+        if target_kafka_cluster_arn is None:
+            raise TypeError("Missing 'target_kafka_cluster_arn' argument")
+        if topic_replications is None and 'topicReplications' in kwargs:
+            topic_replications = kwargs['topicReplications']
+        if topic_replications is None:
+            raise TypeError("Missing 'topic_replications' argument")
+        if source_kafka_cluster_alias is None and 'sourceKafkaClusterAlias' in kwargs:
+            source_kafka_cluster_alias = kwargs['sourceKafkaClusterAlias']
+        if target_kafka_cluster_alias is None and 'targetKafkaClusterAlias' in kwargs:
+            target_kafka_cluster_alias = kwargs['targetKafkaClusterAlias']
+
+        _setter("consumer_group_replications", consumer_group_replications)
+        _setter("source_kafka_cluster_arn", source_kafka_cluster_arn)
+        _setter("target_compression_type", target_compression_type)
+        _setter("target_kafka_cluster_arn", target_kafka_cluster_arn)
+        _setter("topic_replications", topic_replications)
+        if source_kafka_cluster_alias is not None:
+            _setter("source_kafka_cluster_alias", source_kafka_cluster_alias)
+        if target_kafka_cluster_alias is not None:
+            _setter("target_kafka_cluster_alias", target_kafka_cluster_alias)
+
+    @property
+    @pulumi.getter(name="consumerGroupReplications")
+    def consumer_group_replications(self) -> Sequence['outputs.ReplicatorReplicationInfoListConsumerGroupReplication']:
+        """
+        Confguration relating to consumer group replication.
+        """
+        return pulumi.get(self, "consumer_group_replications")
+
+    @property
+    @pulumi.getter(name="sourceKafkaClusterArn")
+    def source_kafka_cluster_arn(self) -> str:
+        """
+        The ARN of the source Kafka cluster.
+        """
+        return pulumi.get(self, "source_kafka_cluster_arn")
+
+    @property
+    @pulumi.getter(name="targetCompressionType")
+    def target_compression_type(self) -> str:
+        """
+        The type of compression to use writing records to target Kafka cluster.
+        """
+        return pulumi.get(self, "target_compression_type")
+
+    @property
+    @pulumi.getter(name="targetKafkaClusterArn")
+    def target_kafka_cluster_arn(self) -> str:
+        """
+        The ARN of the target Kafka cluster.
+        """
+        return pulumi.get(self, "target_kafka_cluster_arn")
+
+    @property
+    @pulumi.getter(name="topicReplications")
+    def topic_replications(self) -> Sequence['outputs.ReplicatorReplicationInfoListTopicReplication']:
+        """
+        Configuration relating to topic replication.
+        """
+        return pulumi.get(self, "topic_replications")
+
+    @property
+    @pulumi.getter(name="sourceKafkaClusterAlias")
+    def source_kafka_cluster_alias(self) -> Optional[str]:
+        return pulumi.get(self, "source_kafka_cluster_alias")
+
+    @property
+    @pulumi.getter(name="targetKafkaClusterAlias")
+    def target_kafka_cluster_alias(self) -> Optional[str]:
+        return pulumi.get(self, "target_kafka_cluster_alias")
+
+
+@pulumi.output_type
+class ReplicatorReplicationInfoListConsumerGroupReplication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroupsToReplicates":
+            suggest = "consumer_groups_to_replicates"
+        elif key == "consumerGroupsToExcludes":
+            suggest = "consumer_groups_to_excludes"
+        elif key == "detectAndCopyNewConsumerGroups":
+            suggest = "detect_and_copy_new_consumer_groups"
+        elif key == "synchroniseConsumerGroupOffsets":
+            suggest = "synchronise_consumer_group_offsets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatorReplicationInfoListConsumerGroupReplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatorReplicationInfoListConsumerGroupReplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatorReplicationInfoListConsumerGroupReplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumer_groups_to_replicates: Sequence[str],
+                 consumer_groups_to_excludes: Optional[Sequence[str]] = None,
+                 detect_and_copy_new_consumer_groups: Optional[bool] = None,
+                 synchronise_consumer_group_offsets: Optional[bool] = None):
+        """
+        :param Sequence[str] consumer_groups_to_replicates: List of regular expression patterns indicating the consumer groups to copy.
+        :param Sequence[str] consumer_groups_to_excludes: List of regular expression patterns indicating the consumer groups that should not be replicated.
+        :param bool detect_and_copy_new_consumer_groups: Whether to periodically check for new consumer groups.
+        :param bool synchronise_consumer_group_offsets: Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
+        """
+        ReplicatorReplicationInfoListConsumerGroupReplication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumer_groups_to_replicates=consumer_groups_to_replicates,
+            consumer_groups_to_excludes=consumer_groups_to_excludes,
+            detect_and_copy_new_consumer_groups=detect_and_copy_new_consumer_groups,
+            synchronise_consumer_group_offsets=synchronise_consumer_group_offsets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumer_groups_to_replicates: Optional[Sequence[str]] = None,
+             consumer_groups_to_excludes: Optional[Sequence[str]] = None,
+             detect_and_copy_new_consumer_groups: Optional[bool] = None,
+             synchronise_consumer_group_offsets: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consumer_groups_to_replicates is None and 'consumerGroupsToReplicates' in kwargs:
+            consumer_groups_to_replicates = kwargs['consumerGroupsToReplicates']
+        if consumer_groups_to_replicates is None:
+            raise TypeError("Missing 'consumer_groups_to_replicates' argument")
+        if consumer_groups_to_excludes is None and 'consumerGroupsToExcludes' in kwargs:
+            consumer_groups_to_excludes = kwargs['consumerGroupsToExcludes']
+        if detect_and_copy_new_consumer_groups is None and 'detectAndCopyNewConsumerGroups' in kwargs:
+            detect_and_copy_new_consumer_groups = kwargs['detectAndCopyNewConsumerGroups']
+        if synchronise_consumer_group_offsets is None and 'synchroniseConsumerGroupOffsets' in kwargs:
+            synchronise_consumer_group_offsets = kwargs['synchroniseConsumerGroupOffsets']
+
+        _setter("consumer_groups_to_replicates", consumer_groups_to_replicates)
+        if consumer_groups_to_excludes is not None:
+            _setter("consumer_groups_to_excludes", consumer_groups_to_excludes)
+        if detect_and_copy_new_consumer_groups is not None:
+            _setter("detect_and_copy_new_consumer_groups", detect_and_copy_new_consumer_groups)
+        if synchronise_consumer_group_offsets is not None:
+            _setter("synchronise_consumer_group_offsets", synchronise_consumer_group_offsets)
+
+    @property
+    @pulumi.getter(name="consumerGroupsToReplicates")
+    def consumer_groups_to_replicates(self) -> Sequence[str]:
+        """
+        List of regular expression patterns indicating the consumer groups to copy.
+        """
+        return pulumi.get(self, "consumer_groups_to_replicates")
+
+    @property
+    @pulumi.getter(name="consumerGroupsToExcludes")
+    def consumer_groups_to_excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of regular expression patterns indicating the consumer groups that should not be replicated.
+        """
+        return pulumi.get(self, "consumer_groups_to_excludes")
+
+    @property
+    @pulumi.getter(name="detectAndCopyNewConsumerGroups")
+    def detect_and_copy_new_consumer_groups(self) -> Optional[bool]:
+        """
+        Whether to periodically check for new consumer groups.
+        """
+        return pulumi.get(self, "detect_and_copy_new_consumer_groups")
+
+    @property
+    @pulumi.getter(name="synchroniseConsumerGroupOffsets")
+    def synchronise_consumer_group_offsets(self) -> Optional[bool]:
+        """
+        Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
+        """
+        return pulumi.get(self, "synchronise_consumer_group_offsets")
+
+
+@pulumi.output_type
+class ReplicatorReplicationInfoListTopicReplication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicsToReplicates":
+            suggest = "topics_to_replicates"
+        elif key == "copyAccessControlListsForTopics":
+            suggest = "copy_access_control_lists_for_topics"
+        elif key == "copyTopicConfigurations":
+            suggest = "copy_topic_configurations"
+        elif key == "detectAndCopyNewTopics":
+            suggest = "detect_and_copy_new_topics"
+        elif key == "topicsToExcludes":
+            suggest = "topics_to_excludes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatorReplicationInfoListTopicReplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatorReplicationInfoListTopicReplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatorReplicationInfoListTopicReplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topics_to_replicates: Sequence[str],
+                 copy_access_control_lists_for_topics: Optional[bool] = None,
+                 copy_topic_configurations: Optional[bool] = None,
+                 detect_and_copy_new_topics: Optional[bool] = None,
+                 topics_to_excludes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] topics_to_replicates: List of regular expression patterns indicating the topics to copy.
+        :param bool copy_access_control_lists_for_topics: Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
+        :param bool copy_topic_configurations: Whether to periodically configure remote topics to match their corresponding upstream topics.
+        :param bool detect_and_copy_new_topics: Whether to periodically check for new topics and partitions.
+        :param Sequence[str] topics_to_excludes: List of regular expression patterns indicating the topics that should not be replica.
+        """
+        ReplicatorReplicationInfoListTopicReplication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topics_to_replicates=topics_to_replicates,
+            copy_access_control_lists_for_topics=copy_access_control_lists_for_topics,
+            copy_topic_configurations=copy_topic_configurations,
+            detect_and_copy_new_topics=detect_and_copy_new_topics,
+            topics_to_excludes=topics_to_excludes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topics_to_replicates: Optional[Sequence[str]] = None,
+             copy_access_control_lists_for_topics: Optional[bool] = None,
+             copy_topic_configurations: Optional[bool] = None,
+             detect_and_copy_new_topics: Optional[bool] = None,
+             topics_to_excludes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if topics_to_replicates is None and 'topicsToReplicates' in kwargs:
+            topics_to_replicates = kwargs['topicsToReplicates']
+        if topics_to_replicates is None:
+            raise TypeError("Missing 'topics_to_replicates' argument")
+        if copy_access_control_lists_for_topics is None and 'copyAccessControlListsForTopics' in kwargs:
+            copy_access_control_lists_for_topics = kwargs['copyAccessControlListsForTopics']
+        if copy_topic_configurations is None and 'copyTopicConfigurations' in kwargs:
+            copy_topic_configurations = kwargs['copyTopicConfigurations']
+        if detect_and_copy_new_topics is None and 'detectAndCopyNewTopics' in kwargs:
+            detect_and_copy_new_topics = kwargs['detectAndCopyNewTopics']
+        if topics_to_excludes is None and 'topicsToExcludes' in kwargs:
+            topics_to_excludes = kwargs['topicsToExcludes']
+
+        _setter("topics_to_replicates", topics_to_replicates)
+        if copy_access_control_lists_for_topics is not None:
+            _setter("copy_access_control_lists_for_topics", copy_access_control_lists_for_topics)
+        if copy_topic_configurations is not None:
+            _setter("copy_topic_configurations", copy_topic_configurations)
+        if detect_and_copy_new_topics is not None:
+            _setter("detect_and_copy_new_topics", detect_and_copy_new_topics)
+        if topics_to_excludes is not None:
+            _setter("topics_to_excludes", topics_to_excludes)
+
+    @property
+    @pulumi.getter(name="topicsToReplicates")
+    def topics_to_replicates(self) -> Sequence[str]:
+        """
+        List of regular expression patterns indicating the topics to copy.
+        """
+        return pulumi.get(self, "topics_to_replicates")
+
+    @property
+    @pulumi.getter(name="copyAccessControlListsForTopics")
+    def copy_access_control_lists_for_topics(self) -> Optional[bool]:
+        """
+        Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
+        """
+        return pulumi.get(self, "copy_access_control_lists_for_topics")
+
+    @property
+    @pulumi.getter(name="copyTopicConfigurations")
+    def copy_topic_configurations(self) -> Optional[bool]:
+        """
+        Whether to periodically configure remote topics to match their corresponding upstream topics.
+        """
+        return pulumi.get(self, "copy_topic_configurations")
+
+    @property
+    @pulumi.getter(name="detectAndCopyNewTopics")
+    def detect_and_copy_new_topics(self) -> Optional[bool]:
+        """
+        Whether to periodically check for new topics and partitions.
+        """
+        return pulumi.get(self, "detect_and_copy_new_topics")
+
+    @property
+    @pulumi.getter(name="topicsToExcludes")
+    def topics_to_excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of regular expression patterns indicating the topics that should not be replica.
+        """
+        return pulumi.get(self, "topics_to_excludes")
 
 
 @pulumi.output_type

@@ -123,6 +123,21 @@ public final class ProvisioningTemplateArgs extends com.pulumi.resources.Resourc
         return this.templateBody;
     }
 
+    /**
+     * The type you define in a provisioning template.
+     * 
+     */
+    @Import(name="type")
+    private @Nullable Output<String> type;
+
+    /**
+     * @return The type you define in a provisioning template.
+     * 
+     */
+    public Optional<Output<String>> type() {
+        return Optional.ofNullable(this.type);
+    }
+
     private ProvisioningTemplateArgs() {}
 
     private ProvisioningTemplateArgs(ProvisioningTemplateArgs $) {
@@ -133,6 +148,7 @@ public final class ProvisioningTemplateArgs extends com.pulumi.resources.Resourc
         this.provisioningRoleArn = $.provisioningRoleArn;
         this.tags = $.tags;
         this.templateBody = $.templateBody;
+        this.type = $.type;
     }
 
     public static Builder builder() {
@@ -298,6 +314,27 @@ public final class ProvisioningTemplateArgs extends com.pulumi.resources.Resourc
          */
         public Builder templateBody(String templateBody) {
             return templateBody(Output.of(templateBody));
+        }
+
+        /**
+         * @param type The type you define in a provisioning template.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(@Nullable Output<String> type) {
+            $.type = type;
+            return this;
+        }
+
+        /**
+         * @param type The type you define in a provisioning template.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder type(String type) {
+            return type(Output.of(type));
         }
 
         public ProvisioningTemplateArgs build() {

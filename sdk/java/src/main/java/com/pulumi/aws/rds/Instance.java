@@ -538,7 +538,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See blue_green_update below
+     * See `blue_green_update` below.
      * 
      */
     @Export(name="blueGreenUpdate", refs={InstanceBlueGreenUpdate.class}, tree="[0]")
@@ -546,7 +546,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See blue_green_update below
+     * See `blue_green_update` below.
      * 
      */
     public Output<Optional<InstanceBlueGreenUpdate>> blueGreenUpdate() {
@@ -943,16 +943,24 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.latestRestorableTime;
     }
     /**
-     * (Optional, but required for some DB engines, i.e., Oracle
-     * SE1) License model information for this DB instance.
+     * License model information for this DB instance. Valid values for this field are as follows:
+     * * RDS for MariaDB: `general-public-license`
+     * * RDS for Microsoft SQL Server: `license-included`
+     * * RDS for MySQL: `general-public-license`
+     * * RDS for Oracle: `bring-your-own-license | license-included`
+     * * RDS for PostgreSQL: `postgresql-license`
      * 
      */
     @Export(name="licenseModel", refs={String.class}, tree="[0]")
     private Output<String> licenseModel;
 
     /**
-     * @return (Optional, but required for some DB engines, i.e., Oracle
-     * SE1) License model information for this DB instance.
+     * @return License model information for this DB instance. Valid values for this field are as follows:
+     * * RDS for MariaDB: `general-public-license`
+     * * RDS for Microsoft SQL Server: `license-included`
+     * * RDS for MySQL: `general-public-license`
+     * * RDS for Oracle: `bring-your-own-license | license-included`
+     * * RDS for PostgreSQL: `postgresql-license`
      * 
      */
     public Output<String> licenseModel() {

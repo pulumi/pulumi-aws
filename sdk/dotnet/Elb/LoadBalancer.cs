@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Elb
         /// prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// A list of security group IDs to assign to the ELB.

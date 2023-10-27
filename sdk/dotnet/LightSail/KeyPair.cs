@@ -106,7 +106,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> Name { get; private set; } = null!;
 
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// An optional PGP key to encrypt the resulting private key material. Only used when creating a new key pair

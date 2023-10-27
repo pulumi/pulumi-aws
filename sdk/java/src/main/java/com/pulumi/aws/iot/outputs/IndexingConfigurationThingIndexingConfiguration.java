@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.aws.iot.outputs.IndexingConfigurationThingIndexingConfigurationCustomField;
+import com.pulumi.aws.iot.outputs.IndexingConfigurationThingIndexingConfigurationFilter;
 import com.pulumi.aws.iot.outputs.IndexingConfigurationThingIndexingConfigurationManagedField;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -24,6 +25,11 @@ public final class IndexingConfigurationThingIndexingConfiguration {
      * 
      */
     private @Nullable String deviceDefenderIndexingMode;
+    /**
+     * @return Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
+     * 
+     */
+    private @Nullable IndexingConfigurationThingIndexingConfigurationFilter filter;
     /**
      * @return Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
      * 
@@ -59,6 +65,13 @@ public final class IndexingConfigurationThingIndexingConfiguration {
      */
     public Optional<String> deviceDefenderIndexingMode() {
         return Optional.ofNullable(this.deviceDefenderIndexingMode);
+    }
+    /**
+     * @return Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
+     * 
+     */
+    public Optional<IndexingConfigurationThingIndexingConfigurationFilter> filter() {
+        return Optional.ofNullable(this.filter);
     }
     /**
      * @return Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
@@ -100,6 +113,7 @@ public final class IndexingConfigurationThingIndexingConfiguration {
     public static final class Builder {
         private @Nullable List<IndexingConfigurationThingIndexingConfigurationCustomField> customFields;
         private @Nullable String deviceDefenderIndexingMode;
+        private @Nullable IndexingConfigurationThingIndexingConfigurationFilter filter;
         private @Nullable List<IndexingConfigurationThingIndexingConfigurationManagedField> managedFields;
         private @Nullable String namedShadowIndexingMode;
         private @Nullable String thingConnectivityIndexingMode;
@@ -109,6 +123,7 @@ public final class IndexingConfigurationThingIndexingConfiguration {
     	      Objects.requireNonNull(defaults);
     	      this.customFields = defaults.customFields;
     	      this.deviceDefenderIndexingMode = defaults.deviceDefenderIndexingMode;
+    	      this.filter = defaults.filter;
     	      this.managedFields = defaults.managedFields;
     	      this.namedShadowIndexingMode = defaults.namedShadowIndexingMode;
     	      this.thingConnectivityIndexingMode = defaults.thingConnectivityIndexingMode;
@@ -126,6 +141,11 @@ public final class IndexingConfigurationThingIndexingConfiguration {
         @CustomType.Setter
         public Builder deviceDefenderIndexingMode(@Nullable String deviceDefenderIndexingMode) {
             this.deviceDefenderIndexingMode = deviceDefenderIndexingMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder filter(@Nullable IndexingConfigurationThingIndexingConfigurationFilter filter) {
+            this.filter = filter;
             return this;
         }
         @CustomType.Setter
@@ -155,6 +175,7 @@ public final class IndexingConfigurationThingIndexingConfiguration {
             final var o = new IndexingConfigurationThingIndexingConfiguration();
             o.customFields = customFields;
             o.deviceDefenderIndexingMode = deviceDefenderIndexingMode;
+            o.filter = filter;
             o.managedFields = managedFields;
             o.namedShadowIndexingMode = namedShadowIndexingMode;
             o.thingConnectivityIndexingMode = thingConnectivityIndexingMode;

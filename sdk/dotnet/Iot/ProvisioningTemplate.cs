@@ -197,6 +197,12 @@ namespace Pulumi.Aws.Iot
         [Output("templateBody")]
         public Output<string> TemplateBody { get; private set; } = null!;
 
+        /// <summary>
+        /// The type you define in a provisioning template.
+        /// </summary>
+        [Output("type")]
+        public Output<string> Type { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ProvisioningTemplate resource with the given unique name, arguments, and options.
@@ -295,6 +301,12 @@ namespace Pulumi.Aws.Iot
         [Input("templateBody", required: true)]
         public Input<string> TemplateBody { get; set; } = null!;
 
+        /// <summary>
+        /// The type you define in a provisioning template.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         public ProvisioningTemplateArgs()
         {
         }
@@ -379,6 +391,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("templateBody")]
         public Input<string>? TemplateBody { get; set; }
+
+        /// <summary>
+        /// The type you define in a provisioning template.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public ProvisioningTemplateState()
         {

@@ -45,6 +45,11 @@ export const getVpcConnection: typeof import("./getVpcConnection").getVpcConnect
 export const getVpcConnectionOutput: typeof import("./getVpcConnection").getVpcConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcConnection","getVpcConnectionOutput"], () => require("./getVpcConnection"));
 
+export { ReplicatorArgs, ReplicatorState } from "./replicator";
+export type Replicator = import("./replicator").Replicator;
+export const Replicator: typeof import("./replicator").Replicator = null as any;
+utilities.lazyLoad(exports, ["Replicator"], () => require("./replicator"));
+
 export { ScramSecretAssociationArgs, ScramSecretAssociationState } from "./scramSecretAssociation";
 export type ScramSecretAssociation = import("./scramSecretAssociation").ScramSecretAssociation;
 export const ScramSecretAssociation: typeof import("./scramSecretAssociation").ScramSecretAssociation = null as any;
@@ -71,6 +76,8 @@ const _module = {
                 return new ClusterPolicy(name, <any>undefined, { urn })
             case "aws:msk/configuration:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
+            case "aws:msk/replicator:Replicator":
+                return new Replicator(name, <any>undefined, { urn })
             case "aws:msk/scramSecretAssociation:ScramSecretAssociation":
                 return new ScramSecretAssociation(name, <any>undefined, { urn })
             case "aws:msk/serverlessCluster:ServerlessCluster":
@@ -85,6 +92,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "msk/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/clusterPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/configuration", _module)
+pulumi.runtime.registerResourceModule("aws", "msk/replicator", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/scramSecretAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/serverlessCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/vpcConnection", _module)

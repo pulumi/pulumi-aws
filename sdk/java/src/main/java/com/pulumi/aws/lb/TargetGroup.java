@@ -9,6 +9,7 @@ import com.pulumi.aws.lb.inputs.TargetGroupState;
 import com.pulumi.aws.lb.outputs.TargetGroupHealthCheck;
 import com.pulumi.aws.lb.outputs.TargetGroupStickiness;
 import com.pulumi.aws.lb.outputs.TargetGroupTargetFailover;
+import com.pulumi.aws.lb.outputs.TargetGroupTargetHealthState;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -164,6 +165,41 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Target group with unhealthy connection termination disabled
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lb.TargetGroup;
+ * import com.pulumi.aws.lb.TargetGroupArgs;
+ * import com.pulumi.aws.lb.inputs.TargetGroupTargetHealthStateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var tcp_example = new TargetGroup(&#34;tcp-example&#34;, TargetGroupArgs.builder()        
+ *             .port(25)
+ *             .protocol(&#34;TCP&#34;)
+ *             .vpcId(aws_vpc.main().id())
+ *             .targetHealthStates(TargetGroupTargetHealthStateArgs.builder()
+ *                 .enableUnhealthyConnectionTermination(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -209,14 +245,14 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="connectionTermination", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> connectionTermination;
+    private Output<Boolean> connectionTermination;
 
     /**
      * @return Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
      * 
      */
-    public Output<Optional<Boolean>> connectionTermination() {
-        return Codegen.optional(this.connectionTermination);
+    public Output<Boolean> connectionTermination() {
+        return this.connectionTermination;
     }
     /**
      * Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
@@ -321,14 +357,14 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> namePrefix;
+    private Output<String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
      * 
      */
-    public Output<Optional<String>> namePrefix() {
-        return Codegen.optional(this.namePrefix);
+    public Output<String> namePrefix() {
+        return this.namePrefix;
     }
     /**
      * Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
@@ -473,6 +509,20 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<List<TargetGroupTargetFailover>> targetFailovers() {
         return this.targetFailovers;
+    }
+    /**
+     * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+     * 
+     */
+    @Export(name="targetHealthStates", refs={List.class,TargetGroupTargetHealthState.class}, tree="[0,1]")
+    private Output<List<TargetGroupTargetHealthState>> targetHealthStates;
+
+    /**
+     * @return Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+     * 
+     */
+    public Output<List<TargetGroupTargetHealthState>> targetHealthStates() {
+        return this.targetHealthStates;
     }
     /**
      * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.

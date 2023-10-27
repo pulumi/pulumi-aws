@@ -173,7 +173,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See blue_green_update below
+     * See `blue_green_update` below.
      * 
      */
     @Import(name="blueGreenUpdate")
@@ -181,7 +181,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See blue_green_update below
+     * See `blue_green_update` below.
      * 
      */
     public Optional<Output<InstanceBlueGreenUpdateArgs>> blueGreenUpdate() {
@@ -544,16 +544,24 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional, but required for some DB engines, i.e., Oracle
-     * SE1) License model information for this DB instance.
+     * License model information for this DB instance. Valid values for this field are as follows:
+     * * RDS for MariaDB: `general-public-license`
+     * * RDS for Microsoft SQL Server: `license-included`
+     * * RDS for MySQL: `general-public-license`
+     * * RDS for Oracle: `bring-your-own-license | license-included`
+     * * RDS for PostgreSQL: `postgresql-license`
      * 
      */
     @Import(name="licenseModel")
     private @Nullable Output<String> licenseModel;
 
     /**
-     * @return (Optional, but required for some DB engines, i.e., Oracle
-     * SE1) License model information for this DB instance.
+     * @return License model information for this DB instance. Valid values for this field are as follows:
+     * * RDS for MariaDB: `general-public-license`
+     * * RDS for Microsoft SQL Server: `license-included`
+     * * RDS for MySQL: `general-public-license`
+     * * RDS for Oracle: `bring-your-own-license | license-included`
+     * * RDS for PostgreSQL: `postgresql-license`
      * 
      */
     public Optional<Output<String>> licenseModel() {
@@ -1396,7 +1404,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param blueGreenUpdate Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-         * See blue_green_update below
+         * See `blue_green_update` below.
          * 
          * @return builder
          * 
@@ -1408,7 +1416,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param blueGreenUpdate Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-         * See blue_green_update below
+         * See `blue_green_update` below.
          * 
          * @return builder
          * 
@@ -1929,8 +1937,12 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param licenseModel (Optional, but required for some DB engines, i.e., Oracle
-         * SE1) License model information for this DB instance.
+         * @param licenseModel License model information for this DB instance. Valid values for this field are as follows:
+         * * RDS for MariaDB: `general-public-license`
+         * * RDS for Microsoft SQL Server: `license-included`
+         * * RDS for MySQL: `general-public-license`
+         * * RDS for Oracle: `bring-your-own-license | license-included`
+         * * RDS for PostgreSQL: `postgresql-license`
          * 
          * @return builder
          * 
@@ -1941,8 +1953,12 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param licenseModel (Optional, but required for some DB engines, i.e., Oracle
-         * SE1) License model information for this DB instance.
+         * @param licenseModel License model information for this DB instance. Valid values for this field are as follows:
+         * * RDS for MariaDB: `general-public-license`
+         * * RDS for Microsoft SQL Server: `license-included`
+         * * RDS for MySQL: `general-public-license`
+         * * RDS for Oracle: `bring-your-own-license | license-included`
+         * * RDS for PostgreSQL: `postgresql-license`
          * 
          * @return builder
          * 

@@ -50,6 +50,13 @@ namespace Pulumi.Aws.Iot
     ///                 },
     ///             },
     ///             DeviceDefenderIndexingMode = "VIOLATIONS",
+    ///             Filter = new Aws.Iot.Inputs.IndexingConfigurationThingIndexingConfigurationFilterArgs
+    ///             {
+    ///                 NamedShadowNames = new[]
+    ///                 {
+    ///                     "thing1shadow",
+    ///                 },
+    ///             },
     ///             NamedShadowIndexingMode = "ON",
     ///             ThingConnectivityIndexingMode = "STATUS",
     ///             ThingIndexingMode = "REGISTRY_AND_SHADOW",

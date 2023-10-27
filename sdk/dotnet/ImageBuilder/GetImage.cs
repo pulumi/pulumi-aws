@@ -157,6 +157,10 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string ImageRecipeArn;
         /// <summary>
+        /// List of an object with image scanning configuration fields.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetImageImageScanningConfigurationResult> ImageScanningConfigurations;
+        /// <summary>
         /// List of an object with image tests configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageImageTestsConfigurationResult> ImageTestsConfigurations;
@@ -207,6 +211,8 @@ namespace Pulumi.Aws.ImageBuilder
 
             string imageRecipeArn,
 
+            ImmutableArray<Outputs.GetImageImageScanningConfigurationResult> imageScanningConfigurations,
+
             ImmutableArray<Outputs.GetImageImageTestsConfigurationResult> imageTestsConfigurations,
 
             string infrastructureConfigurationArn,
@@ -231,6 +237,7 @@ namespace Pulumi.Aws.ImageBuilder
             EnhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
             Id = id;
             ImageRecipeArn = imageRecipeArn;
+            ImageScanningConfigurations = imageScanningConfigurations;
             ImageTestsConfigurations = imageTestsConfigurations;
             InfrastructureConfigurationArn = infrastructureConfigurationArn;
             Name = name;

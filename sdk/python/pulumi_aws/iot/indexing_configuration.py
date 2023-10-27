@@ -164,6 +164,9 @@ class IndexingConfiguration(pulumi.CustomResource):
                 ),
             ],
             device_defender_indexing_mode="VIOLATIONS",
+            filter=aws.iot.IndexingConfigurationThingIndexingConfigurationFilterArgs(
+                named_shadow_names=["thing1shadow"],
+            ),
             named_shadow_indexing_mode="ON",
             thing_connectivity_indexing_mode="STATUS",
             thing_indexing_mode="REGISTRY_AND_SHADOW",
@@ -210,6 +213,9 @@ class IndexingConfiguration(pulumi.CustomResource):
                 ),
             ],
             device_defender_indexing_mode="VIOLATIONS",
+            filter=aws.iot.IndexingConfigurationThingIndexingConfigurationFilterArgs(
+                named_shadow_names=["thing1shadow"],
+            ),
             named_shadow_indexing_mode="ON",
             thing_connectivity_indexing_mode="STATUS",
             thing_indexing_mode="REGISTRY_AND_SHADOW",

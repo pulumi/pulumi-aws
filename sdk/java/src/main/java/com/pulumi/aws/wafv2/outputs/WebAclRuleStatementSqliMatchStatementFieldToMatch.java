@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldTo
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString;
@@ -41,6 +42,11 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatch {
      * 
      */
     private @Nullable List<WebAclRuleStatementSqliMatchStatementFieldToMatchHeader> headers;
+    /**
+     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
     /**
      * @return Inspect the request body as JSON. See `json_body` for details.
      * 
@@ -102,6 +108,13 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatch {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
+     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
+        return Optional.ofNullable(this.ja3Fingerprint);
+    }
+    /**
      * @return Inspect the request body as JSON. See `json_body` for details.
      * 
      */
@@ -157,6 +170,7 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatch {
         private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchBody body;
         private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchCookies cookies;
         private @Nullable List<WebAclRuleStatementSqliMatchStatementFieldToMatchHeader> headers;
+        private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody jsonBody;
         private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchMethod method;
         private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString queryString;
@@ -170,6 +184,7 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatch {
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
     	      this.headers = defaults.headers;
+    	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -200,6 +215,11 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatch {
         }
         public Builder headers(WebAclRuleStatementSqliMatchStatementFieldToMatchHeader... headers) {
             return headers(List.of(headers));
+        }
+        @CustomType.Setter
+        public Builder ja3Fingerprint(@Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
+            this.ja3Fingerprint = ja3Fingerprint;
+            return this;
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody jsonBody) {
@@ -237,6 +257,7 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatch {
             o.body = body;
             o.cookies = cookies;
             o.headers = headers;
+            o.ja3Fingerprint = ja3Fingerprint;
             o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;

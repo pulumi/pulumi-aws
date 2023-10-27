@@ -75,6 +75,8 @@ type LookupImageResult struct {
 	Id string `pulumi:"id"`
 	// ARN of the image recipe.
 	ImageRecipeArn string `pulumi:"imageRecipeArn"`
+	// List of an object with image scanning configuration fields.
+	ImageScanningConfigurations []GetImageImageScanningConfiguration `pulumi:"imageScanningConfigurations"`
 	// List of an object with image tests configuration.
 	ImageTestsConfigurations []GetImageImageTestsConfiguration `pulumi:"imageTestsConfigurations"`
 	// ARN of the Image Builder Infrastructure Configuration.
@@ -176,6 +178,11 @@ func (o LookupImageResultOutput) Id() pulumi.StringOutput {
 // ARN of the image recipe.
 func (o LookupImageResultOutput) ImageRecipeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.ImageRecipeArn }).(pulumi.StringOutput)
+}
+
+// List of an object with image scanning configuration fields.
+func (o LookupImageResultOutput) ImageScanningConfigurations() GetImageImageScanningConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupImageResult) []GetImageImageScanningConfiguration { return v.ImageScanningConfigurations }).(GetImageImageScanningConfigurationArrayOutput)
 }
 
 // List of an object with image tests configuration.

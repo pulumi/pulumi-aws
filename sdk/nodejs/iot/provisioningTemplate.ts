@@ -149,6 +149,10 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
      * The JSON formatted contents of the fleet provisioning template.
      */
     public readonly templateBody!: pulumi.Output<string>;
+    /**
+     * The type you define in a provisioning template.
+     */
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a ProvisioningTemplate resource with the given unique name, arguments, and options.
@@ -173,6 +177,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["templateBody"] = state ? state.templateBody : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ProvisioningTemplateArgs | undefined;
             if ((!args || args.provisioningRoleArn === undefined) && !opts.urn) {
@@ -188,6 +193,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
             resourceInputs["provisioningRoleArn"] = args ? args.provisioningRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templateBody"] = args ? args.templateBody : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultVersionId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -245,6 +251,10 @@ export interface ProvisioningTemplateState {
      * The JSON formatted contents of the fleet provisioning template.
      */
     templateBody?: pulumi.Input<string>;
+    /**
+     * The type you define in a provisioning template.
+     */
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -279,4 +289,8 @@ export interface ProvisioningTemplateArgs {
      * The JSON formatted contents of the fleet provisioning template.
      */
     templateBody: pulumi.Input<string>;
+    /**
+     * The type you define in a provisioning template.
+     */
+    type?: pulumi.Input<string>;
 }

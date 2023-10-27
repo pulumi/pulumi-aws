@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.imagebuilder.inputs;
 
+import com.pulumi.aws.imagebuilder.inputs.ImageImageScanningConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImageImageTestsConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImageOutputResourceArgs;
 import com.pulumi.core.Output;
@@ -108,6 +109,21 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> imageRecipeArn() {
         return Optional.ofNullable(this.imageRecipeArn);
+    }
+
+    /**
+     * Configuration block with image scanning configuration. Detailed below.
+     * 
+     */
+    @Import(name="imageScanningConfiguration")
+    private @Nullable Output<ImageImageScanningConfigurationArgs> imageScanningConfiguration;
+
+    /**
+     * @return Configuration block with image scanning configuration. Detailed below.
+     * 
+     */
+    public Optional<Output<ImageImageScanningConfigurationArgs>> imageScanningConfiguration() {
+        return Optional.ofNullable(this.imageScanningConfiguration);
     }
 
     /**
@@ -266,6 +282,7 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
         this.distributionConfigurationArn = $.distributionConfigurationArn;
         this.enhancedImageMetadataEnabled = $.enhancedImageMetadataEnabled;
         this.imageRecipeArn = $.imageRecipeArn;
+        this.imageScanningConfiguration = $.imageScanningConfiguration;
         this.imageTestsConfiguration = $.imageTestsConfiguration;
         this.infrastructureConfigurationArn = $.infrastructureConfigurationArn;
         this.name = $.name;
@@ -419,6 +436,27 @@ public final class ImageState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder imageRecipeArn(String imageRecipeArn) {
             return imageRecipeArn(Output.of(imageRecipeArn));
+        }
+
+        /**
+         * @param imageScanningConfiguration Configuration block with image scanning configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageScanningConfiguration(@Nullable Output<ImageImageScanningConfigurationArgs> imageScanningConfiguration) {
+            $.imageScanningConfiguration = imageScanningConfiguration;
+            return this;
+        }
+
+        /**
+         * @param imageScanningConfiguration Configuration block with image scanning configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder imageScanningConfiguration(ImageImageScanningConfigurationArgs imageScanningConfiguration) {
+            return imageScanningConfiguration(Output.of(imageScanningConfiguration));
         }
 
         /**

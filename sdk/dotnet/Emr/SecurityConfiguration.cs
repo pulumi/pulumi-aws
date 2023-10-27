@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Emr
         /// prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
 
         /// <summary>

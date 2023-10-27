@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFie
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString;
@@ -41,6 +42,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
      * 
      */
     private @Nullable List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader> headers;
+    private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -101,6 +103,9 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
     public List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
+    public Optional<RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
+        return Optional.ofNullable(this.ja3Fingerprint);
+    }
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -157,6 +162,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
         private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody body;
         private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies cookies;
         private @Nullable List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader> headers;
+        private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody jsonBody;
         private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethod method;
         private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString queryString;
@@ -170,6 +176,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
     	      this.headers = defaults.headers;
+    	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -200,6 +207,11 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
         }
         public Builder headers(RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader... headers) {
             return headers(List.of(headers));
+        }
+        @CustomType.Setter
+        public Builder ja3Fingerprint(@Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
+            this.ja3Fingerprint = ja3Fingerprint;
+            return this;
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody jsonBody) {
@@ -237,6 +249,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
             o.body = body;
             o.cookies = cookies;
             o.headers = headers;
+            o.ja3Fingerprint = ja3Fingerprint;
             o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;

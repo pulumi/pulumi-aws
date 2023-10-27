@@ -112,7 +112,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
-     * The neptune engine version.
+     * The neptune engine version. Currently configuring this argumnet has no effect.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -300,7 +300,7 @@ export interface ClusterInstanceState {
      */
     engine?: pulumi.Input<string>;
     /**
-     * The neptune engine version.
+     * The neptune engine version. Currently configuring this argumnet has no effect.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -394,7 +394,7 @@ export interface ClusterInstanceArgs {
      */
     engine?: pulumi.Input<string>;
     /**
-     * The neptune engine version.
+     * The neptune engine version. Currently configuring this argumnet has no effect.
      */
     engineVersion?: pulumi.Input<string>;
     /**
