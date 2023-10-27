@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -171,39 +171,14 @@ class AccessPointPublicAccessBlockConfiguration(dict):
         :param bool restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
                * Only the bucket owner and AWS Services can access buckets with public policies.
         """
-        AccessPointPublicAccessBlockConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            block_public_acls=block_public_acls,
-            block_public_policy=block_public_policy,
-            ignore_public_acls=ignore_public_acls,
-            restrict_public_buckets=restrict_public_buckets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             block_public_acls: Optional[bool] = None,
-             block_public_policy: Optional[bool] = None,
-             ignore_public_acls: Optional[bool] = None,
-             restrict_public_buckets: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if block_public_acls is None and 'blockPublicAcls' in kwargs:
-            block_public_acls = kwargs['blockPublicAcls']
-        if block_public_policy is None and 'blockPublicPolicy' in kwargs:
-            block_public_policy = kwargs['blockPublicPolicy']
-        if ignore_public_acls is None and 'ignorePublicAcls' in kwargs:
-            ignore_public_acls = kwargs['ignorePublicAcls']
-        if restrict_public_buckets is None and 'restrictPublicBuckets' in kwargs:
-            restrict_public_buckets = kwargs['restrictPublicBuckets']
-
         if block_public_acls is not None:
-            _setter("block_public_acls", block_public_acls)
+            pulumi.set(__self__, "block_public_acls", block_public_acls)
         if block_public_policy is not None:
-            _setter("block_public_policy", block_public_policy)
+            pulumi.set(__self__, "block_public_policy", block_public_policy)
         if ignore_public_acls is not None:
-            _setter("ignore_public_acls", ignore_public_acls)
+            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
         if restrict_public_buckets is not None:
-            _setter("restrict_public_buckets", restrict_public_buckets)
+            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
 
     @property
     @pulumi.getter(name="blockPublicAcls")
@@ -268,22 +243,7 @@ class AccessPointVpcConfiguration(dict):
         """
         :param str vpc_id: This access point will only allow connections from the specified VPC ID.
         """
-        AccessPointVpcConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-        if vpc_id is None:
-            raise TypeError("Missing 'vpc_id' argument")
-
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -303,23 +263,10 @@ class AnalyticsConfigurationFilter(dict):
         :param str prefix: Object prefix for filtering.
         :param Mapping[str, str] tags: Set of object tags for filtering.
         """
-        AnalyticsConfigurationFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prefix=prefix,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prefix: Optional[str] = None,
-             tags: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -362,22 +309,7 @@ class AnalyticsConfigurationStorageClassAnalysis(dict):
         """
         :param 'AnalyticsConfigurationStorageClassAnalysisDataExportArgs' data_export: Data export configuration (documented below).
         """
-        AnalyticsConfigurationStorageClassAnalysis._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_export=data_export,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_export: Optional['outputs.AnalyticsConfigurationStorageClassAnalysisDataExport'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_export is None and 'dataExport' in kwargs:
-            data_export = kwargs['dataExport']
-        if data_export is None:
-            raise TypeError("Missing 'data_export' argument")
-
-        _setter("data_export", data_export)
+        pulumi.set(__self__, "data_export", data_export)
 
     @property
     @pulumi.getter(name="dataExport")
@@ -414,26 +346,9 @@ class AnalyticsConfigurationStorageClassAnalysisDataExport(dict):
         :param 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs' destination: Specifies the destination for the exported analytics data (documented below).
         :param str output_schema_version: Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
         """
-        AnalyticsConfigurationStorageClassAnalysisDataExport._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            output_schema_version=output_schema_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional['outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestination'] = None,
-             output_schema_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if output_schema_version is None and 'outputSchemaVersion' in kwargs:
-            output_schema_version = kwargs['outputSchemaVersion']
-
-        _setter("destination", destination)
+        pulumi.set(__self__, "destination", destination)
         if output_schema_version is not None:
-            _setter("output_schema_version", output_schema_version)
+            pulumi.set(__self__, "output_schema_version", output_schema_version)
 
     @property
     @pulumi.getter
@@ -478,22 +393,7 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestination(dict):
                
                The `s3_bucket_destination` configuration supports the following:
         """
-        AnalyticsConfigurationStorageClassAnalysisDataExportDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_bucket_destination=s3_bucket_destination,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_bucket_destination: Optional['outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if s3_bucket_destination is None and 's3BucketDestination' in kwargs:
-            s3_bucket_destination = kwargs['s3BucketDestination']
-        if s3_bucket_destination is None:
-            raise TypeError("Missing 's3_bucket_destination' argument")
-
-        _setter("s3_bucket_destination", s3_bucket_destination)
+        pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
 
     @property
     @pulumi.getter(name="s3BucketDestination")
@@ -538,36 +438,13 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDes
         :param str format: Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
         :param str prefix: Prefix to append to exported analytics data.
         """
-        AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            bucket_account_id=bucket_account_id,
-            format=format,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: Optional[str] = None,
-             bucket_account_id: Optional[str] = None,
-             format: Optional[str] = None,
-             prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket_arn is None and 'bucketArn' in kwargs:
-            bucket_arn = kwargs['bucketArn']
-        if bucket_arn is None:
-            raise TypeError("Missing 'bucket_arn' argument")
-        if bucket_account_id is None and 'bucketAccountId' in kwargs:
-            bucket_account_id = kwargs['bucketAccountId']
-
-        _setter("bucket_arn", bucket_arn)
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
         if bucket_account_id is not None:
-            _setter("bucket_account_id", bucket_account_id)
+            pulumi.set(__self__, "bucket_account_id", bucket_account_id)
         if format is not None:
-            _setter("format", format)
+            pulumi.set(__self__, "format", format)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter(name="bucketArn")
@@ -611,24 +488,9 @@ class BucketAclV2AccessControlPolicy(dict):
         :param 'BucketAclV2AccessControlPolicyOwnerArgs' owner: Configuration block of the bucket owner's display name and ID. See below.
         :param Sequence['BucketAclV2AccessControlPolicyGrantArgs'] grants: Set of `grant` configuration blocks. See below.
         """
-        BucketAclV2AccessControlPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            owner=owner,
-            grants=grants,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             owner: Optional['outputs.BucketAclV2AccessControlPolicyOwner'] = None,
-             grants: Optional[Sequence['outputs.BucketAclV2AccessControlPolicyGrant']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if owner is None:
-            raise TypeError("Missing 'owner' argument")
-
-        _setter("owner", owner)
+        pulumi.set(__self__, "owner", owner)
         if grants is not None:
-            _setter("grants", grants)
+            pulumi.set(__self__, "grants", grants)
 
     @property
     @pulumi.getter
@@ -656,24 +518,9 @@ class BucketAclV2AccessControlPolicyGrant(dict):
         :param str permission: Logging permissions assigned to the grantee for the bucket.
         :param 'BucketAclV2AccessControlPolicyGrantGranteeArgs' grantee: Configuration block for the person being granted permissions. See below.
         """
-        BucketAclV2AccessControlPolicyGrant._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            permission=permission,
-            grantee=grantee,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             permission: Optional[str] = None,
-             grantee: Optional['outputs.BucketAclV2AccessControlPolicyGrantGrantee'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if permission is None:
-            raise TypeError("Missing 'permission' argument")
-
-        _setter("permission", permission)
+        pulumi.set(__self__, "permission", permission)
         if grantee is not None:
-            _setter("grantee", grantee)
+            pulumi.set(__self__, "grantee", grantee)
 
     @property
     @pulumi.getter
@@ -726,40 +573,15 @@ class BucketAclV2AccessControlPolicyGrantGrantee(dict):
         :param str id: Canonical user ID of the grantee.
         :param str uri: URI of the grantee group.
         """
-        BucketAclV2AccessControlPolicyGrantGrantee._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            display_name=display_name,
-            email_address=email_address,
-            id=id,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             display_name: Optional[str] = None,
-             email_address: Optional[str] = None,
-             id: Optional[str] = None,
-             uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if email_address is None and 'emailAddress' in kwargs:
-            email_address = kwargs['emailAddress']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if email_address is not None:
-            _setter("email_address", email_address)
+            pulumi.set(__self__, "email_address", email_address)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
@@ -828,26 +650,9 @@ class BucketAclV2AccessControlPolicyOwner(dict):
         :param str id: ID of the owner.
         :param str display_name: Display name of the owner.
         """
-        BucketAclV2AccessControlPolicyOwner._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            display_name=display_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             display_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
 
     @property
     @pulumi.getter
@@ -908,51 +713,16 @@ class BucketCorsConfigurationV2CorsRule(dict):
         :param str id: Unique identifier for the rule. The value cannot be longer than 255 characters.
         :param int max_age_seconds: Time in seconds that your browser is to cache the preflight response for the specified resource.
         """
-        BucketCorsConfigurationV2CorsRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_methods=allowed_methods,
-            allowed_origins=allowed_origins,
-            allowed_headers=allowed_headers,
-            expose_headers=expose_headers,
-            id=id,
-            max_age_seconds=max_age_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_methods: Optional[Sequence[str]] = None,
-             allowed_origins: Optional[Sequence[str]] = None,
-             allowed_headers: Optional[Sequence[str]] = None,
-             expose_headers: Optional[Sequence[str]] = None,
-             id: Optional[str] = None,
-             max_age_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allowed_methods is None and 'allowedMethods' in kwargs:
-            allowed_methods = kwargs['allowedMethods']
-        if allowed_methods is None:
-            raise TypeError("Missing 'allowed_methods' argument")
-        if allowed_origins is None and 'allowedOrigins' in kwargs:
-            allowed_origins = kwargs['allowedOrigins']
-        if allowed_origins is None:
-            raise TypeError("Missing 'allowed_origins' argument")
-        if allowed_headers is None and 'allowedHeaders' in kwargs:
-            allowed_headers = kwargs['allowedHeaders']
-        if expose_headers is None and 'exposeHeaders' in kwargs:
-            expose_headers = kwargs['exposeHeaders']
-        if max_age_seconds is None and 'maxAgeSeconds' in kwargs:
-            max_age_seconds = kwargs['maxAgeSeconds']
-
-        _setter("allowed_methods", allowed_methods)
-        _setter("allowed_origins", allowed_origins)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
         if allowed_headers is not None:
-            _setter("allowed_headers", allowed_headers)
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
         if expose_headers is not None:
-            _setter("expose_headers", expose_headers)
+            pulumi.set(__self__, "expose_headers", expose_headers)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if max_age_seconds is not None:
-            _setter("max_age_seconds", max_age_seconds)
+            pulumi.set(__self__, "max_age_seconds", max_age_seconds)
 
     @property
     @pulumi.getter(name="allowedMethods")
@@ -1043,47 +813,14 @@ class BucketCorsRule(dict):
         :param Sequence[str] expose_headers: Specifies expose header in the response.
         :param int max_age_seconds: Specifies time in seconds that browser can cache the response for a preflight request.
         """
-        BucketCorsRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_methods=allowed_methods,
-            allowed_origins=allowed_origins,
-            allowed_headers=allowed_headers,
-            expose_headers=expose_headers,
-            max_age_seconds=max_age_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_methods: Optional[Sequence[str]] = None,
-             allowed_origins: Optional[Sequence[str]] = None,
-             allowed_headers: Optional[Sequence[str]] = None,
-             expose_headers: Optional[Sequence[str]] = None,
-             max_age_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allowed_methods is None and 'allowedMethods' in kwargs:
-            allowed_methods = kwargs['allowedMethods']
-        if allowed_methods is None:
-            raise TypeError("Missing 'allowed_methods' argument")
-        if allowed_origins is None and 'allowedOrigins' in kwargs:
-            allowed_origins = kwargs['allowedOrigins']
-        if allowed_origins is None:
-            raise TypeError("Missing 'allowed_origins' argument")
-        if allowed_headers is None and 'allowedHeaders' in kwargs:
-            allowed_headers = kwargs['allowedHeaders']
-        if expose_headers is None and 'exposeHeaders' in kwargs:
-            expose_headers = kwargs['exposeHeaders']
-        if max_age_seconds is None and 'maxAgeSeconds' in kwargs:
-            max_age_seconds = kwargs['maxAgeSeconds']
-
-        _setter("allowed_methods", allowed_methods)
-        _setter("allowed_origins", allowed_origins)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
         if allowed_headers is not None:
-            _setter("allowed_headers", allowed_headers)
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
         if expose_headers is not None:
-            _setter("expose_headers", expose_headers)
+            pulumi.set(__self__, "expose_headers", expose_headers)
         if max_age_seconds is not None:
-            _setter("max_age_seconds", max_age_seconds)
+            pulumi.set(__self__, "max_age_seconds", max_age_seconds)
 
     @property
     @pulumi.getter(name="allowedMethods")
@@ -1139,33 +876,12 @@ class BucketGrant(dict):
         :param str id: Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
         :param str uri: Uri address to grant for. Used only when `type` is `Group`.
         """
-        BucketGrant._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            permissions=permissions,
-            type=type,
-            id=id,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             permissions: Optional[Sequence[str]] = None,
-             type: Optional[str] = None,
-             id: Optional[str] = None,
-             uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("permissions", permissions)
-        _setter("type", type)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "type", type)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
@@ -1209,23 +925,10 @@ class BucketIntelligentTieringConfigurationFilter(dict):
         :param str prefix: Object key name prefix that identifies the subset of objects to which the configuration applies.
         :param Mapping[str, str] tags: All of these tags must exist in the object's tag set in order for the configuration to apply.
         """
-        BucketIntelligentTieringConfigurationFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prefix=prefix,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prefix: Optional[str] = None,
-             tags: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -1270,27 +973,8 @@ class BucketIntelligentTieringConfigurationTiering(dict):
         :param str access_tier: S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_ACCESS`, `DEEP_ARCHIVE_ACCESS`.
         :param int days: Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
         """
-        BucketIntelligentTieringConfigurationTiering._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_tier=access_tier,
-            days=days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_tier: Optional[str] = None,
-             days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_tier is None and 'accessTier' in kwargs:
-            access_tier = kwargs['accessTier']
-        if access_tier is None:
-            raise TypeError("Missing 'access_tier' argument")
-        if days is None:
-            raise TypeError("Missing 'days' argument")
-
-        _setter("access_tier", access_tier)
-        _setter("days", days)
+        pulumi.set(__self__, "access_tier", access_tier)
+        pulumi.set(__self__, "days", days)
 
     @property
     @pulumi.getter(name="accessTier")
@@ -1353,59 +1037,22 @@ class BucketLifecycleConfigurationV2Rule(dict):
         :param str prefix: **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
         :param Sequence['BucketLifecycleConfigurationV2RuleTransitionArgs'] transitions: Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
         """
-        BucketLifecycleConfigurationV2Rule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            status=status,
-            abort_incomplete_multipart_upload=abort_incomplete_multipart_upload,
-            expiration=expiration,
-            filter=filter,
-            noncurrent_version_expiration=noncurrent_version_expiration,
-            noncurrent_version_transitions=noncurrent_version_transitions,
-            prefix=prefix,
-            transitions=transitions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             status: Optional[str] = None,
-             abort_incomplete_multipart_upload: Optional['outputs.BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload'] = None,
-             expiration: Optional['outputs.BucketLifecycleConfigurationV2RuleExpiration'] = None,
-             filter: Optional['outputs.BucketLifecycleConfigurationV2RuleFilter'] = None,
-             noncurrent_version_expiration: Optional['outputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration'] = None,
-             noncurrent_version_transitions: Optional[Sequence['outputs.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition']] = None,
-             prefix: Optional[str] = None,
-             transitions: Optional[Sequence['outputs.BucketLifecycleConfigurationV2RuleTransition']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if abort_incomplete_multipart_upload is None and 'abortIncompleteMultipartUpload' in kwargs:
-            abort_incomplete_multipart_upload = kwargs['abortIncompleteMultipartUpload']
-        if noncurrent_version_expiration is None and 'noncurrentVersionExpiration' in kwargs:
-            noncurrent_version_expiration = kwargs['noncurrentVersionExpiration']
-        if noncurrent_version_transitions is None and 'noncurrentVersionTransitions' in kwargs:
-            noncurrent_version_transitions = kwargs['noncurrentVersionTransitions']
-
-        _setter("id", id)
-        _setter("status", status)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "status", status)
         if abort_incomplete_multipart_upload is not None:
-            _setter("abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
+            pulumi.set(__self__, "abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
         if expiration is not None:
-            _setter("expiration", expiration)
+            pulumi.set(__self__, "expiration", expiration)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
         if noncurrent_version_expiration is not None:
-            _setter("noncurrent_version_expiration", noncurrent_version_expiration)
+            pulumi.set(__self__, "noncurrent_version_expiration", noncurrent_version_expiration)
         if noncurrent_version_transitions is not None:
-            _setter("noncurrent_version_transitions", noncurrent_version_transitions)
+            pulumi.set(__self__, "noncurrent_version_transitions", noncurrent_version_transitions)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if transitions is not None:
-            _setter("transitions", transitions)
+            pulumi.set(__self__, "transitions", transitions)
 
     @property
     @pulumi.getter
@@ -1507,21 +1154,8 @@ class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload(dict):
         """
         :param int days_after_initiation: Number of days after which Amazon S3 aborts an incomplete multipart upload.
         """
-        BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            days_after_initiation=days_after_initiation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             days_after_initiation: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if days_after_initiation is None and 'daysAfterInitiation' in kwargs:
-            days_after_initiation = kwargs['daysAfterInitiation']
-
         if days_after_initiation is not None:
-            _setter("days_after_initiation", days_after_initiation)
+            pulumi.set(__self__, "days_after_initiation", days_after_initiation)
 
     @property
     @pulumi.getter(name="daysAfterInitiation")
@@ -1560,29 +1194,12 @@ class BucketLifecycleConfigurationV2RuleExpiration(dict):
         :param int days: Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
         :param bool expired_object_delete_marker: Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
         """
-        BucketLifecycleConfigurationV2RuleExpiration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date=date,
-            days=days,
-            expired_object_delete_marker=expired_object_delete_marker,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date: Optional[str] = None,
-             days: Optional[int] = None,
-             expired_object_delete_marker: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if expired_object_delete_marker is None and 'expiredObjectDeleteMarker' in kwargs:
-            expired_object_delete_marker = kwargs['expiredObjectDeleteMarker']
-
         if date is not None:
-            _setter("date", date)
+            pulumi.set(__self__, "date", date)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
         if expired_object_delete_marker is not None:
-            _setter("expired_object_delete_marker", expired_object_delete_marker)
+            pulumi.set(__self__, "expired_object_delete_marker", expired_object_delete_marker)
 
     @property
     @pulumi.getter
@@ -1645,41 +1262,16 @@ class BucketLifecycleConfigurationV2RuleFilter(dict):
         :param str prefix: Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
         :param 'BucketLifecycleConfigurationV2RuleFilterTagArgs' tag: Configuration block for specifying a tag key and value. See below.
         """
-        BucketLifecycleConfigurationV2RuleFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            and_=and_,
-            object_size_greater_than=object_size_greater_than,
-            object_size_less_than=object_size_less_than,
-            prefix=prefix,
-            tag=tag,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             and_: Optional['outputs.BucketLifecycleConfigurationV2RuleFilterAnd'] = None,
-             object_size_greater_than: Optional[str] = None,
-             object_size_less_than: Optional[str] = None,
-             prefix: Optional[str] = None,
-             tag: Optional['outputs.BucketLifecycleConfigurationV2RuleFilterTag'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if and_ is None and 'and' in kwargs:
-            and_ = kwargs['and']
-        if object_size_greater_than is None and 'objectSizeGreaterThan' in kwargs:
-            object_size_greater_than = kwargs['objectSizeGreaterThan']
-        if object_size_less_than is None and 'objectSizeLessThan' in kwargs:
-            object_size_less_than = kwargs['objectSizeLessThan']
-
         if and_ is not None:
-            _setter("and_", and_)
+            pulumi.set(__self__, "and_", and_)
         if object_size_greater_than is not None:
-            _setter("object_size_greater_than", object_size_greater_than)
+            pulumi.set(__self__, "object_size_greater_than", object_size_greater_than)
         if object_size_less_than is not None:
-            _setter("object_size_less_than", object_size_less_than)
+            pulumi.set(__self__, "object_size_less_than", object_size_less_than)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tag is not None:
-            _setter("tag", tag)
+            pulumi.set(__self__, "tag", tag)
 
     @property
     @pulumi.getter(name="and")
@@ -1754,35 +1346,14 @@ class BucketLifecycleConfigurationV2RuleFilterAnd(dict):
         :param str prefix: Prefix identifying one or more objects to which the rule applies.
         :param Mapping[str, str] tags: Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
         """
-        BucketLifecycleConfigurationV2RuleFilterAnd._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object_size_greater_than=object_size_greater_than,
-            object_size_less_than=object_size_less_than,
-            prefix=prefix,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object_size_greater_than: Optional[int] = None,
-             object_size_less_than: Optional[int] = None,
-             prefix: Optional[str] = None,
-             tags: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if object_size_greater_than is None and 'objectSizeGreaterThan' in kwargs:
-            object_size_greater_than = kwargs['objectSizeGreaterThan']
-        if object_size_less_than is None and 'objectSizeLessThan' in kwargs:
-            object_size_less_than = kwargs['objectSizeLessThan']
-
         if object_size_greater_than is not None:
-            _setter("object_size_greater_than", object_size_greater_than)
+            pulumi.set(__self__, "object_size_greater_than", object_size_greater_than)
         if object_size_less_than is not None:
-            _setter("object_size_less_than", object_size_less_than)
+            pulumi.set(__self__, "object_size_less_than", object_size_less_than)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="objectSizeGreaterThan")
@@ -1826,25 +1397,8 @@ class BucketLifecycleConfigurationV2RuleFilterTag(dict):
         :param str key: Name of the object key.
         :param str value: Value of the tag.
         """
-        BucketLifecycleConfigurationV2RuleFilterTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1891,27 +1445,10 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(dict):
         :param str newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         :param int noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
         """
-        BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            newer_noncurrent_versions=newer_noncurrent_versions,
-            noncurrent_days=noncurrent_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             newer_noncurrent_versions: Optional[str] = None,
-             noncurrent_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if newer_noncurrent_versions is None and 'newerNoncurrentVersions' in kwargs:
-            newer_noncurrent_versions = kwargs['newerNoncurrentVersions']
-        if noncurrent_days is None and 'noncurrentDays' in kwargs:
-            noncurrent_days = kwargs['noncurrentDays']
-
         if newer_noncurrent_versions is not None:
-            _setter("newer_noncurrent_versions", newer_noncurrent_versions)
+            pulumi.set(__self__, "newer_noncurrent_versions", newer_noncurrent_versions)
         if noncurrent_days is not None:
-            _setter("noncurrent_days", noncurrent_days)
+            pulumi.set(__self__, "noncurrent_days", noncurrent_days)
 
     @property
     @pulumi.getter(name="newerNoncurrentVersions")
@@ -1962,34 +1499,11 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(dict):
         :param str newer_noncurrent_versions: Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         :param int noncurrent_days: Number of days an object is noncurrent before Amazon S3 can perform the associated action.
         """
-        BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_class=storage_class,
-            newer_noncurrent_versions=newer_noncurrent_versions,
-            noncurrent_days=noncurrent_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_class: Optional[str] = None,
-             newer_noncurrent_versions: Optional[str] = None,
-             noncurrent_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_class is None and 'storageClass' in kwargs:
-            storage_class = kwargs['storageClass']
-        if storage_class is None:
-            raise TypeError("Missing 'storage_class' argument")
-        if newer_noncurrent_versions is None and 'newerNoncurrentVersions' in kwargs:
-            newer_noncurrent_versions = kwargs['newerNoncurrentVersions']
-        if noncurrent_days is None and 'noncurrentDays' in kwargs:
-            noncurrent_days = kwargs['noncurrentDays']
-
-        _setter("storage_class", storage_class)
+        pulumi.set(__self__, "storage_class", storage_class)
         if newer_noncurrent_versions is not None:
-            _setter("newer_noncurrent_versions", newer_noncurrent_versions)
+            pulumi.set(__self__, "newer_noncurrent_versions", newer_noncurrent_versions)
         if noncurrent_days is not None:
-            _setter("noncurrent_days", noncurrent_days)
+            pulumi.set(__self__, "noncurrent_days", noncurrent_days)
 
     @property
     @pulumi.getter(name="storageClass")
@@ -2044,30 +1558,11 @@ class BucketLifecycleConfigurationV2RuleTransition(dict):
         :param str date: Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
         :param int days: Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
         """
-        BucketLifecycleConfigurationV2RuleTransition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_class=storage_class,
-            date=date,
-            days=days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_class: Optional[str] = None,
-             date: Optional[str] = None,
-             days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_class is None and 'storageClass' in kwargs:
-            storage_class = kwargs['storageClass']
-        if storage_class is None:
-            raise TypeError("Missing 'storage_class' argument")
-
-        _setter("storage_class", storage_class)
+        pulumi.set(__self__, "storage_class", storage_class)
         if date is not None:
-            _setter("date", date)
+            pulumi.set(__self__, "date", date)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
 
     @property
     @pulumi.getter(name="storageClass")
@@ -2140,58 +1635,23 @@ class BucketLifecycleRule(dict):
         :param Mapping[str, str] tags: Specifies object tags key and value.
         :param Sequence['BucketLifecycleRuleTransitionArgs'] transitions: Specifies a period in the object's transitions (documented below).
         """
-        BucketLifecycleRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            abort_incomplete_multipart_upload_days=abort_incomplete_multipart_upload_days,
-            expiration=expiration,
-            id=id,
-            noncurrent_version_expiration=noncurrent_version_expiration,
-            noncurrent_version_transitions=noncurrent_version_transitions,
-            prefix=prefix,
-            tags=tags,
-            transitions=transitions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             abort_incomplete_multipart_upload_days: Optional[int] = None,
-             expiration: Optional['outputs.BucketLifecycleRuleExpiration'] = None,
-             id: Optional[str] = None,
-             noncurrent_version_expiration: Optional['outputs.BucketLifecycleRuleNoncurrentVersionExpiration'] = None,
-             noncurrent_version_transitions: Optional[Sequence['outputs.BucketLifecycleRuleNoncurrentVersionTransition']] = None,
-             prefix: Optional[str] = None,
-             tags: Optional[Mapping[str, str]] = None,
-             transitions: Optional[Sequence['outputs.BucketLifecycleRuleTransition']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if abort_incomplete_multipart_upload_days is None and 'abortIncompleteMultipartUploadDays' in kwargs:
-            abort_incomplete_multipart_upload_days = kwargs['abortIncompleteMultipartUploadDays']
-        if noncurrent_version_expiration is None and 'noncurrentVersionExpiration' in kwargs:
-            noncurrent_version_expiration = kwargs['noncurrentVersionExpiration']
-        if noncurrent_version_transitions is None and 'noncurrentVersionTransitions' in kwargs:
-            noncurrent_version_transitions = kwargs['noncurrentVersionTransitions']
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if abort_incomplete_multipart_upload_days is not None:
-            _setter("abort_incomplete_multipart_upload_days", abort_incomplete_multipart_upload_days)
+            pulumi.set(__self__, "abort_incomplete_multipart_upload_days", abort_incomplete_multipart_upload_days)
         if expiration is not None:
-            _setter("expiration", expiration)
+            pulumi.set(__self__, "expiration", expiration)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if noncurrent_version_expiration is not None:
-            _setter("noncurrent_version_expiration", noncurrent_version_expiration)
+            pulumi.set(__self__, "noncurrent_version_expiration", noncurrent_version_expiration)
         if noncurrent_version_transitions is not None:
-            _setter("noncurrent_version_transitions", noncurrent_version_transitions)
+            pulumi.set(__self__, "noncurrent_version_transitions", noncurrent_version_transitions)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if transitions is not None:
-            _setter("transitions", transitions)
+            pulumi.set(__self__, "transitions", transitions)
 
     @property
     @pulumi.getter
@@ -2296,29 +1756,12 @@ class BucketLifecycleRuleExpiration(dict):
         :param int days: Specifies the number of days after object creation when the specific rule action takes effect.
         :param bool expired_object_delete_marker: On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
         """
-        BucketLifecycleRuleExpiration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date=date,
-            days=days,
-            expired_object_delete_marker=expired_object_delete_marker,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date: Optional[str] = None,
-             days: Optional[int] = None,
-             expired_object_delete_marker: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if expired_object_delete_marker is None and 'expiredObjectDeleteMarker' in kwargs:
-            expired_object_delete_marker = kwargs['expiredObjectDeleteMarker']
-
         if date is not None:
-            _setter("date", date)
+            pulumi.set(__self__, "date", date)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
         if expired_object_delete_marker is not None:
-            _setter("expired_object_delete_marker", expired_object_delete_marker)
+            pulumi.set(__self__, "expired_object_delete_marker", expired_object_delete_marker)
 
     @property
     @pulumi.getter
@@ -2352,19 +1795,8 @@ class BucketLifecycleRuleNoncurrentVersionExpiration(dict):
         """
         :param int days: Specifies the number of days noncurrent object versions expire.
         """
-        BucketLifecycleRuleNoncurrentVersionExpiration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            days=days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
 
     @property
     @pulumi.getter
@@ -2401,26 +1833,9 @@ class BucketLifecycleRuleNoncurrentVersionTransition(dict):
         :param str storage_class: Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
         :param int days: Specifies the number of days noncurrent object versions transition.
         """
-        BucketLifecycleRuleNoncurrentVersionTransition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_class=storage_class,
-            days=days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_class: Optional[str] = None,
-             days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_class is None and 'storageClass' in kwargs:
-            storage_class = kwargs['storageClass']
-        if storage_class is None:
-            raise TypeError("Missing 'storage_class' argument")
-
-        _setter("storage_class", storage_class)
+        pulumi.set(__self__, "storage_class", storage_class)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
 
     @property
     @pulumi.getter(name="storageClass")
@@ -2467,30 +1882,11 @@ class BucketLifecycleRuleTransition(dict):
         :param str date: Specifies the date after which you want the corresponding action to take effect.
         :param int days: Specifies the number of days after object creation when the specific rule action takes effect.
         """
-        BucketLifecycleRuleTransition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_class=storage_class,
-            date=date,
-            days=days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_class: Optional[str] = None,
-             date: Optional[str] = None,
-             days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_class is None and 'storageClass' in kwargs:
-            storage_class = kwargs['storageClass']
-        if storage_class is None:
-            raise TypeError("Missing 'storage_class' argument")
-
-        _setter("storage_class", storage_class)
+        pulumi.set(__self__, "storage_class", storage_class)
         if date is not None:
-            _setter("date", date)
+            pulumi.set(__self__, "date", date)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
 
     @property
     @pulumi.getter(name="storageClass")
@@ -2545,28 +1941,9 @@ class BucketLogging(dict):
         :param str target_bucket: The name of the bucket that will receive the log objects.
         :param str target_prefix: To specify a key prefix for log objects.
         """
-        BucketLogging._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_bucket=target_bucket,
-            target_prefix=target_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_bucket: Optional[str] = None,
-             target_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if target_bucket is None and 'targetBucket' in kwargs:
-            target_bucket = kwargs['targetBucket']
-        if target_bucket is None:
-            raise TypeError("Missing 'target_bucket' argument")
-        if target_prefix is None and 'targetPrefix' in kwargs:
-            target_prefix = kwargs['targetPrefix']
-
-        _setter("target_bucket", target_bucket)
+        pulumi.set(__self__, "target_bucket", target_bucket)
         if target_prefix is not None:
-            _setter("target_prefix", target_prefix)
+            pulumi.set(__self__, "target_prefix", target_prefix)
 
     @property
     @pulumi.getter(name="targetBucket")
@@ -2594,25 +1971,8 @@ class BucketLoggingV2TargetGrant(dict):
         :param 'BucketLoggingV2TargetGrantGranteeArgs' grantee: Configuration block for the person being granted permissions. See below.
         :param str permission: Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
         """
-        BucketLoggingV2TargetGrant._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grantee=grantee,
-            permission=permission,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grantee: Optional['outputs.BucketLoggingV2TargetGrantGrantee'] = None,
-             permission: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if grantee is None:
-            raise TypeError("Missing 'grantee' argument")
-        if permission is None:
-            raise TypeError("Missing 'permission' argument")
-
-        _setter("grantee", grantee)
-        _setter("permission", permission)
+        pulumi.set(__self__, "grantee", grantee)
+        pulumi.set(__self__, "permission", permission)
 
     @property
     @pulumi.getter
@@ -2664,40 +2024,15 @@ class BucketLoggingV2TargetGrantGrantee(dict):
         :param str id: Canonical user ID of the grantee.
         :param str uri: URI of the grantee group.
         """
-        BucketLoggingV2TargetGrantGrantee._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            display_name=display_name,
-            email_address=email_address,
-            id=id,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             display_name: Optional[str] = None,
-             email_address: Optional[str] = None,
-             id: Optional[str] = None,
-             uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if email_address is None and 'emailAddress' in kwargs:
-            email_address = kwargs['emailAddress']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if email_address is not None:
-            _setter("email_address", email_address)
+            pulumi.set(__self__, "email_address", email_address)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
@@ -2746,23 +2081,10 @@ class BucketMetricFilter(dict):
         :param str prefix: Object prefix for filtering (singular).
         :param Mapping[str, str] tags: Object tags for filtering (up to 10).
         """
-        BucketMetricFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prefix=prefix,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prefix: Optional[str] = None,
-             tags: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -2817,42 +2139,15 @@ class BucketNotificationLambdaFunction(dict):
         :param str id: Unique identifier for each of the notification configurations.
         :param str lambda_function_arn: Lambda function ARN.
         """
-        BucketNotificationLambdaFunction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            events=events,
-            filter_prefix=filter_prefix,
-            filter_suffix=filter_suffix,
-            id=id,
-            lambda_function_arn=lambda_function_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             events: Optional[Sequence[str]] = None,
-             filter_prefix: Optional[str] = None,
-             filter_suffix: Optional[str] = None,
-             id: Optional[str] = None,
-             lambda_function_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if events is None:
-            raise TypeError("Missing 'events' argument")
-        if filter_prefix is None and 'filterPrefix' in kwargs:
-            filter_prefix = kwargs['filterPrefix']
-        if filter_suffix is None and 'filterSuffix' in kwargs:
-            filter_suffix = kwargs['filterSuffix']
-        if lambda_function_arn is None and 'lambdaFunctionArn' in kwargs:
-            lambda_function_arn = kwargs['lambdaFunctionArn']
-
-        _setter("events", events)
+        pulumi.set(__self__, "events", events)
         if filter_prefix is not None:
-            _setter("filter_prefix", filter_prefix)
+            pulumi.set(__self__, "filter_prefix", filter_prefix)
         if filter_suffix is not None:
-            _setter("filter_suffix", filter_suffix)
+            pulumi.set(__self__, "filter_suffix", filter_suffix)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if lambda_function_arn is not None:
-            _setter("lambda_function_arn", lambda_function_arn)
+            pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
 
     @property
     @pulumi.getter
@@ -2931,43 +2226,14 @@ class BucketNotificationQueue(dict):
         :param str filter_suffix: Object key name suffix.
         :param str id: Unique identifier for each of the notification configurations.
         """
-        BucketNotificationQueue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            events=events,
-            queue_arn=queue_arn,
-            filter_prefix=filter_prefix,
-            filter_suffix=filter_suffix,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             events: Optional[Sequence[str]] = None,
-             queue_arn: Optional[str] = None,
-             filter_prefix: Optional[str] = None,
-             filter_suffix: Optional[str] = None,
-             id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if events is None:
-            raise TypeError("Missing 'events' argument")
-        if queue_arn is None and 'queueArn' in kwargs:
-            queue_arn = kwargs['queueArn']
-        if queue_arn is None:
-            raise TypeError("Missing 'queue_arn' argument")
-        if filter_prefix is None and 'filterPrefix' in kwargs:
-            filter_prefix = kwargs['filterPrefix']
-        if filter_suffix is None and 'filterSuffix' in kwargs:
-            filter_suffix = kwargs['filterSuffix']
-
-        _setter("events", events)
-        _setter("queue_arn", queue_arn)
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "queue_arn", queue_arn)
         if filter_prefix is not None:
-            _setter("filter_prefix", filter_prefix)
+            pulumi.set(__self__, "filter_prefix", filter_prefix)
         if filter_suffix is not None:
-            _setter("filter_suffix", filter_suffix)
+            pulumi.set(__self__, "filter_suffix", filter_suffix)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -3046,43 +2312,14 @@ class BucketNotificationTopic(dict):
         :param str filter_suffix: Object key name suffix.
         :param str id: Unique identifier for each of the notification configurations.
         """
-        BucketNotificationTopic._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            events=events,
-            topic_arn=topic_arn,
-            filter_prefix=filter_prefix,
-            filter_suffix=filter_suffix,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             events: Optional[Sequence[str]] = None,
-             topic_arn: Optional[str] = None,
-             filter_prefix: Optional[str] = None,
-             filter_suffix: Optional[str] = None,
-             id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if events is None:
-            raise TypeError("Missing 'events' argument")
-        if topic_arn is None and 'topicArn' in kwargs:
-            topic_arn = kwargs['topicArn']
-        if topic_arn is None:
-            raise TypeError("Missing 'topic_arn' argument")
-        if filter_prefix is None and 'filterPrefix' in kwargs:
-            filter_prefix = kwargs['filterPrefix']
-        if filter_suffix is None and 'filterSuffix' in kwargs:
-            filter_suffix = kwargs['filterSuffix']
-
-        _setter("events", events)
-        _setter("topic_arn", topic_arn)
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "topic_arn", topic_arn)
         if filter_prefix is not None:
-            _setter("filter_prefix", filter_prefix)
+            pulumi.set(__self__, "filter_prefix", filter_prefix)
         if filter_suffix is not None:
-            _setter("filter_suffix", filter_suffix)
+            pulumi.set(__self__, "filter_suffix", filter_suffix)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -3151,26 +2388,9 @@ class BucketObjectLockConfiguration(dict):
         :param str object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
         :param 'BucketObjectLockConfigurationRuleArgs' rule: The Object Lock rule in place for this bucket.
         """
-        BucketObjectLockConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object_lock_enabled=object_lock_enabled,
-            rule=rule,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object_lock_enabled: Optional[str] = None,
-             rule: Optional['outputs.BucketObjectLockConfigurationRule'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if object_lock_enabled is None and 'objectLockEnabled' in kwargs:
-            object_lock_enabled = kwargs['objectLockEnabled']
-        if object_lock_enabled is None:
-            raise TypeError("Missing 'object_lock_enabled' argument")
-
-        _setter("object_lock_enabled", object_lock_enabled)
+        pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
         if rule is not None:
-            _setter("rule", rule)
+            pulumi.set(__self__, "rule", rule)
 
     @property
     @pulumi.getter(name="objectLockEnabled")
@@ -3213,22 +2433,7 @@ class BucketObjectLockConfigurationRule(dict):
         """
         :param 'BucketObjectLockConfigurationRuleDefaultRetentionArgs' default_retention: The default retention period that you want to apply to new objects placed in this bucket.
         """
-        BucketObjectLockConfigurationRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_retention=default_retention,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_retention: Optional['outputs.BucketObjectLockConfigurationRuleDefaultRetention'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_retention is None and 'defaultRetention' in kwargs:
-            default_retention = kwargs['defaultRetention']
-        if default_retention is None:
-            raise TypeError("Missing 'default_retention' argument")
-
-        _setter("default_retention", default_retention)
+        pulumi.set(__self__, "default_retention", default_retention)
 
     @property
     @pulumi.getter(name="defaultRetention")
@@ -3256,28 +2461,11 @@ class BucketObjectLockConfigurationRuleDefaultRetention(dict):
                When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
                Once you create a bucket with S3 Object Lock enabled, you can't disable Object Lock or suspend versioning for the bucket.
         """
-        BucketObjectLockConfigurationRuleDefaultRetention._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            days=days,
-            years=years,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             days: Optional[int] = None,
-             years: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-
-        _setter("mode", mode)
+        pulumi.set(__self__, "mode", mode)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
         if years is not None:
-            _setter("years", years)
+            pulumi.set(__self__, "years", years)
 
     @property
     @pulumi.getter
@@ -3334,22 +2522,7 @@ class BucketObjectLockConfigurationV2Rule(dict):
         """
         :param 'BucketObjectLockConfigurationV2RuleDefaultRetentionArgs' default_retention: Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
         """
-        BucketObjectLockConfigurationV2Rule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_retention=default_retention,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_retention: Optional['outputs.BucketObjectLockConfigurationV2RuleDefaultRetention'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_retention is None and 'defaultRetention' in kwargs:
-            default_retention = kwargs['defaultRetention']
-        if default_retention is None:
-            raise TypeError("Missing 'default_retention' argument")
-
-        _setter("default_retention", default_retention)
+        pulumi.set(__self__, "default_retention", default_retention)
 
     @property
     @pulumi.getter(name="defaultRetention")
@@ -3371,27 +2544,12 @@ class BucketObjectLockConfigurationV2RuleDefaultRetention(dict):
         :param str mode: Default Object Lock retention mode you want to apply to new objects placed in the specified bucket. Valid values: `COMPLIANCE`, `GOVERNANCE`.
         :param int years: Number of years that you want to specify for the default retention period.
         """
-        BucketObjectLockConfigurationV2RuleDefaultRetention._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            days=days,
-            mode=mode,
-            years=years,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             days: Optional[int] = None,
-             mode: Optional[str] = None,
-             years: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if years is not None:
-            _setter("years", years)
+            pulumi.set(__self__, "years", years)
 
     @property
     @pulumi.getter
@@ -3442,22 +2600,7 @@ class BucketOwnershipControlsRule(dict):
         """
         :param str object_ownership: Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
         """
-        BucketOwnershipControlsRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object_ownership=object_ownership,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object_ownership: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if object_ownership is None and 'objectOwnership' in kwargs:
-            object_ownership = kwargs['objectOwnership']
-        if object_ownership is None:
-            raise TypeError("Missing 'object_ownership' argument")
-
-        _setter("object_ownership", object_ownership)
+        pulumi.set(__self__, "object_ownership", object_ownership)
 
     @property
     @pulumi.getter(name="objectOwnership")
@@ -3512,59 +2655,22 @@ class BucketReplicationConfigRule(dict):
         :param int priority: Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         :param 'BucketReplicationConfigRuleSourceSelectionCriteriaArgs' source_selection_criteria: Specifies special object selection criteria. See below.
         """
-        BucketReplicationConfigRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            status=status,
-            delete_marker_replication=delete_marker_replication,
-            existing_object_replication=existing_object_replication,
-            filter=filter,
-            id=id,
-            prefix=prefix,
-            priority=priority,
-            source_selection_criteria=source_selection_criteria,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional['outputs.BucketReplicationConfigRuleDestination'] = None,
-             status: Optional[str] = None,
-             delete_marker_replication: Optional['outputs.BucketReplicationConfigRuleDeleteMarkerReplication'] = None,
-             existing_object_replication: Optional['outputs.BucketReplicationConfigRuleExistingObjectReplication'] = None,
-             filter: Optional['outputs.BucketReplicationConfigRuleFilter'] = None,
-             id: Optional[str] = None,
-             prefix: Optional[str] = None,
-             priority: Optional[int] = None,
-             source_selection_criteria: Optional['outputs.BucketReplicationConfigRuleSourceSelectionCriteria'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if delete_marker_replication is None and 'deleteMarkerReplication' in kwargs:
-            delete_marker_replication = kwargs['deleteMarkerReplication']
-        if existing_object_replication is None and 'existingObjectReplication' in kwargs:
-            existing_object_replication = kwargs['existingObjectReplication']
-        if source_selection_criteria is None and 'sourceSelectionCriteria' in kwargs:
-            source_selection_criteria = kwargs['sourceSelectionCriteria']
-
-        _setter("destination", destination)
-        _setter("status", status)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "status", status)
         if delete_marker_replication is not None:
-            _setter("delete_marker_replication", delete_marker_replication)
+            pulumi.set(__self__, "delete_marker_replication", delete_marker_replication)
         if existing_object_replication is not None:
-            _setter("existing_object_replication", existing_object_replication)
+            pulumi.set(__self__, "existing_object_replication", existing_object_replication)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if source_selection_criteria is not None:
-            _setter("source_selection_criteria", source_selection_criteria)
+            pulumi.set(__self__, "source_selection_criteria", source_selection_criteria)
 
     @property
     @pulumi.getter
@@ -3649,20 +2755,7 @@ class BucketReplicationConfigRuleDeleteMarkerReplication(dict):
         """
         :param str status: Whether delete markers should be replicated. Either `"Enabled"` or `"Disabled"`.
         """
-        BucketReplicationConfigRuleDeleteMarkerReplication._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -3715,52 +2808,19 @@ class BucketReplicationConfigRuleDestination(dict):
         :param 'BucketReplicationConfigRuleDestinationReplicationTimeArgs' replication_time: Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
         :param str storage_class: The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         """
-        BucketReplicationConfigRuleDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            access_control_translation=access_control_translation,
-            account=account,
-            encryption_configuration=encryption_configuration,
-            metrics=metrics,
-            replication_time=replication_time,
-            storage_class=storage_class,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[str] = None,
-             access_control_translation: Optional['outputs.BucketReplicationConfigRuleDestinationAccessControlTranslation'] = None,
-             account: Optional[str] = None,
-             encryption_configuration: Optional['outputs.BucketReplicationConfigRuleDestinationEncryptionConfiguration'] = None,
-             metrics: Optional['outputs.BucketReplicationConfigRuleDestinationMetrics'] = None,
-             replication_time: Optional['outputs.BucketReplicationConfigRuleDestinationReplicationTime'] = None,
-             storage_class: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket is None:
-            raise TypeError("Missing 'bucket' argument")
-        if access_control_translation is None and 'accessControlTranslation' in kwargs:
-            access_control_translation = kwargs['accessControlTranslation']
-        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
-            encryption_configuration = kwargs['encryptionConfiguration']
-        if replication_time is None and 'replicationTime' in kwargs:
-            replication_time = kwargs['replicationTime']
-        if storage_class is None and 'storageClass' in kwargs:
-            storage_class = kwargs['storageClass']
-
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if access_control_translation is not None:
-            _setter("access_control_translation", access_control_translation)
+            pulumi.set(__self__, "access_control_translation", access_control_translation)
         if account is not None:
-            _setter("account", account)
+            pulumi.set(__self__, "account", account)
         if encryption_configuration is not None:
-            _setter("encryption_configuration", encryption_configuration)
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if metrics is not None:
-            _setter("metrics", metrics)
+            pulumi.set(__self__, "metrics", metrics)
         if replication_time is not None:
-            _setter("replication_time", replication_time)
+            pulumi.set(__self__, "replication_time", replication_time)
         if storage_class is not None:
-            _setter("storage_class", storage_class)
+            pulumi.set(__self__, "storage_class", storage_class)
 
     @property
     @pulumi.getter
@@ -3826,20 +2886,7 @@ class BucketReplicationConfigRuleDestinationAccessControlTranslation(dict):
         """
         :param str owner: Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
         """
-        BucketReplicationConfigRuleDestinationAccessControlTranslation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            owner=owner,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             owner: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if owner is None:
-            raise TypeError("Missing 'owner' argument")
-
-        _setter("owner", owner)
+        pulumi.set(__self__, "owner", owner)
 
     @property
     @pulumi.getter
@@ -3874,22 +2921,7 @@ class BucketReplicationConfigRuleDestinationEncryptionConfiguration(dict):
         """
         :param str replica_kms_key_id: ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
         """
-        BucketReplicationConfigRuleDestinationEncryptionConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            replica_kms_key_id=replica_kms_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             replica_kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if replica_kms_key_id is None and 'replicaKmsKeyId' in kwargs:
-            replica_kms_key_id = kwargs['replicaKmsKeyId']
-        if replica_kms_key_id is None:
-            raise TypeError("Missing 'replica_kms_key_id' argument")
-
-        _setter("replica_kms_key_id", replica_kms_key_id)
+        pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
 
     @property
     @pulumi.getter(name="replicaKmsKeyId")
@@ -3926,26 +2958,9 @@ class BucketReplicationConfigRuleDestinationMetrics(dict):
         :param str status: Status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
         :param 'BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs' event_threshold: Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See below.
         """
-        BucketReplicationConfigRuleDestinationMetrics._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            event_threshold=event_threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[str] = None,
-             event_threshold: Optional['outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if event_threshold is None and 'eventThreshold' in kwargs:
-            event_threshold = kwargs['eventThreshold']
-
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
         if event_threshold is not None:
-            _setter("event_threshold", event_threshold)
+            pulumi.set(__self__, "event_threshold", event_threshold)
 
     @property
     @pulumi.getter
@@ -3971,20 +2986,7 @@ class BucketReplicationConfigRuleDestinationMetricsEventThreshold(dict):
         """
         :param int minutes: Time in minutes. Valid values: `15`.
         """
-        BucketReplicationConfigRuleDestinationMetricsEventThreshold._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            minutes=minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if minutes is None:
-            raise TypeError("Missing 'minutes' argument")
-
-        _setter("minutes", minutes)
+        pulumi.set(__self__, "minutes", minutes)
 
     @property
     @pulumi.getter
@@ -4004,25 +3006,8 @@ class BucketReplicationConfigRuleDestinationReplicationTime(dict):
         :param str status: Status of the Replication Time Control. Either `"Enabled"` or `"Disabled"`.
         :param 'BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs' time: Configuration block specifying the time by which replication should be complete for all objects and operations on objects. See below.
         """
-        BucketReplicationConfigRuleDestinationReplicationTime._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            time=time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[str] = None,
-             time: Optional['outputs.BucketReplicationConfigRuleDestinationReplicationTimeTime'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if time is None:
-            raise TypeError("Missing 'time' argument")
-
-        _setter("status", status)
-        _setter("time", time)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter
@@ -4048,20 +3033,7 @@ class BucketReplicationConfigRuleDestinationReplicationTimeTime(dict):
         """
         :param int minutes: Time in minutes. Valid values: `15`.
         """
-        BucketReplicationConfigRuleDestinationReplicationTimeTime._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            minutes=minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if minutes is None:
-            raise TypeError("Missing 'minutes' argument")
-
-        _setter("minutes", minutes)
+        pulumi.set(__self__, "minutes", minutes)
 
     @property
     @pulumi.getter
@@ -4079,20 +3051,7 @@ class BucketReplicationConfigRuleExistingObjectReplication(dict):
         """
         :param str status: Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
         """
-        BucketReplicationConfigRuleExistingObjectReplication._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -4131,29 +3090,12 @@ class BucketReplicationConfigRuleFilter(dict):
         :param str prefix: Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         :param 'BucketReplicationConfigRuleFilterTagArgs' tag: Configuration block for specifying a tag key and value. See below.
         """
-        BucketReplicationConfigRuleFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            and_=and_,
-            prefix=prefix,
-            tag=tag,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             and_: Optional['outputs.BucketReplicationConfigRuleFilterAnd'] = None,
-             prefix: Optional[str] = None,
-             tag: Optional['outputs.BucketReplicationConfigRuleFilterTag'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if and_ is None and 'and' in kwargs:
-            and_ = kwargs['and']
-
         if and_ is not None:
-            _setter("and_", and_)
+            pulumi.set(__self__, "and_", and_)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tag is not None:
-            _setter("tag", tag)
+            pulumi.set(__self__, "tag", tag)
 
     @property
     @pulumi.getter(name="and")
@@ -4189,23 +3131,10 @@ class BucketReplicationConfigRuleFilterAnd(dict):
         :param str prefix: Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         :param Mapping[str, str] tags: Map of tags (key and value pairs) that identifies a subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
         """
-        BucketReplicationConfigRuleFilterAnd._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prefix=prefix,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prefix: Optional[str] = None,
-             tags: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -4233,25 +3162,8 @@ class BucketReplicationConfigRuleFilterTag(dict):
         :param str key: Name of the object key.
         :param str value: Value of the tag.
         """
-        BucketReplicationConfigRuleFilterTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4298,27 +3210,10 @@ class BucketReplicationConfigRuleSourceSelectionCriteria(dict):
         :param 'BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs' replica_modifications: Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn't replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
         :param 'BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs' sse_kms_encrypted_objects: Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
         """
-        BucketReplicationConfigRuleSourceSelectionCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            replica_modifications=replica_modifications,
-            sse_kms_encrypted_objects=sse_kms_encrypted_objects,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             replica_modifications: Optional['outputs.BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications'] = None,
-             sse_kms_encrypted_objects: Optional['outputs.BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if replica_modifications is None and 'replicaModifications' in kwargs:
-            replica_modifications = kwargs['replicaModifications']
-        if sse_kms_encrypted_objects is None and 'sseKmsEncryptedObjects' in kwargs:
-            sse_kms_encrypted_objects = kwargs['sseKmsEncryptedObjects']
-
         if replica_modifications is not None:
-            _setter("replica_modifications", replica_modifications)
+            pulumi.set(__self__, "replica_modifications", replica_modifications)
         if sse_kms_encrypted_objects is not None:
-            _setter("sse_kms_encrypted_objects", sse_kms_encrypted_objects)
+            pulumi.set(__self__, "sse_kms_encrypted_objects", sse_kms_encrypted_objects)
 
     @property
     @pulumi.getter(name="replicaModifications")
@@ -4344,20 +3239,7 @@ class BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications(dic
         """
         :param str status: Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
         """
-        BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -4375,20 +3257,7 @@ class BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects(d
         """
         :param str status: Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
         """
-        BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -4408,25 +3277,8 @@ class BucketReplicationConfiguration(dict):
         :param str role: The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         :param Sequence['BucketReplicationConfigurationRuleArgs'] rules: Specifies the rules managing the replication (documented below).
         """
-        BucketReplicationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role=role,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role: Optional[str] = None,
-             rules: Optional[Sequence['outputs.BucketReplicationConfigurationRule']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if role is None:
-            raise TypeError("Missing 'role' argument")
-        if rules is None:
-            raise TypeError("Missing 'rules' argument")
-
-        _setter("role", role)
-        _setter("rules", rules)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -4487,53 +3339,20 @@ class BucketReplicationConfigurationRule(dict):
         :param int priority: The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         :param 'BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs' source_selection_criteria: Specifies special object selection criteria (documented below).
         """
-        BucketReplicationConfigurationRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            status=status,
-            delete_marker_replication_status=delete_marker_replication_status,
-            filter=filter,
-            id=id,
-            prefix=prefix,
-            priority=priority,
-            source_selection_criteria=source_selection_criteria,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional['outputs.BucketReplicationConfigurationRuleDestination'] = None,
-             status: Optional[str] = None,
-             delete_marker_replication_status: Optional[str] = None,
-             filter: Optional['outputs.BucketReplicationConfigurationRuleFilter'] = None,
-             id: Optional[str] = None,
-             prefix: Optional[str] = None,
-             priority: Optional[int] = None,
-             source_selection_criteria: Optional['outputs.BucketReplicationConfigurationRuleSourceSelectionCriteria'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if delete_marker_replication_status is None and 'deleteMarkerReplicationStatus' in kwargs:
-            delete_marker_replication_status = kwargs['deleteMarkerReplicationStatus']
-        if source_selection_criteria is None and 'sourceSelectionCriteria' in kwargs:
-            source_selection_criteria = kwargs['sourceSelectionCriteria']
-
-        _setter("destination", destination)
-        _setter("status", status)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "status", status)
         if delete_marker_replication_status is not None:
-            _setter("delete_marker_replication_status", delete_marker_replication_status)
+            pulumi.set(__self__, "delete_marker_replication_status", delete_marker_replication_status)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if source_selection_criteria is not None:
-            _setter("source_selection_criteria", source_selection_criteria)
+            pulumi.set(__self__, "source_selection_criteria", source_selection_criteria)
 
     @property
     @pulumi.getter
@@ -4647,54 +3466,19 @@ class BucketReplicationConfigurationRuleDestination(dict):
         :param 'BucketReplicationConfigurationRuleDestinationReplicationTimeArgs' replication_time: Enables S3 Replication Time Control (S3 RTC) (documented below).
         :param str storage_class: The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         """
-        BucketReplicationConfigurationRuleDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            access_control_translation=access_control_translation,
-            account_id=account_id,
-            metrics=metrics,
-            replica_kms_key_id=replica_kms_key_id,
-            replication_time=replication_time,
-            storage_class=storage_class,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[str] = None,
-             access_control_translation: Optional['outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation'] = None,
-             account_id: Optional[str] = None,
-             metrics: Optional['outputs.BucketReplicationConfigurationRuleDestinationMetrics'] = None,
-             replica_kms_key_id: Optional[str] = None,
-             replication_time: Optional['outputs.BucketReplicationConfigurationRuleDestinationReplicationTime'] = None,
-             storage_class: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket is None:
-            raise TypeError("Missing 'bucket' argument")
-        if access_control_translation is None and 'accessControlTranslation' in kwargs:
-            access_control_translation = kwargs['accessControlTranslation']
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if replica_kms_key_id is None and 'replicaKmsKeyId' in kwargs:
-            replica_kms_key_id = kwargs['replicaKmsKeyId']
-        if replication_time is None and 'replicationTime' in kwargs:
-            replication_time = kwargs['replicationTime']
-        if storage_class is None and 'storageClass' in kwargs:
-            storage_class = kwargs['storageClass']
-
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if access_control_translation is not None:
-            _setter("access_control_translation", access_control_translation)
+            pulumi.set(__self__, "access_control_translation", access_control_translation)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if metrics is not None:
-            _setter("metrics", metrics)
+            pulumi.set(__self__, "metrics", metrics)
         if replica_kms_key_id is not None:
-            _setter("replica_kms_key_id", replica_kms_key_id)
+            pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
         if replication_time is not None:
-            _setter("replication_time", replication_time)
+            pulumi.set(__self__, "replication_time", replication_time)
         if storage_class is not None:
-            _setter("storage_class", storage_class)
+            pulumi.set(__self__, "storage_class", storage_class)
 
     @property
     @pulumi.getter
@@ -4761,20 +3545,7 @@ class BucketReplicationConfigurationRuleDestinationAccessControlTranslation(dict
         """
         :param str owner: The override value for the owner on replicated objects. Currently only `Destination` is supported.
         """
-        BucketReplicationConfigurationRuleDestinationAccessControlTranslation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            owner=owner,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             owner: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if owner is None:
-            raise TypeError("Missing 'owner' argument")
-
-        _setter("owner", owner)
+        pulumi.set(__self__, "owner", owner)
 
     @property
     @pulumi.getter
@@ -4794,23 +3565,10 @@ class BucketReplicationConfigurationRuleDestinationMetrics(dict):
         :param int minutes: Threshold within which objects are to be replicated. The only valid value is `15`.
         :param str status: The status of replication metrics. Either `Enabled` or `Disabled`.
         """
-        BucketReplicationConfigurationRuleDestinationMetrics._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            minutes=minutes,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             minutes: Optional[int] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if minutes is not None:
-            _setter("minutes", minutes)
+            pulumi.set(__self__, "minutes", minutes)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -4838,23 +3596,10 @@ class BucketReplicationConfigurationRuleDestinationReplicationTime(dict):
         :param int minutes: Threshold within which objects are to be replicated. The only valid value is `15`.
         :param str status: The status of RTC. Either `Enabled` or `Disabled`.
         """
-        BucketReplicationConfigurationRuleDestinationReplicationTime._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            minutes=minutes,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             minutes: Optional[int] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if minutes is not None:
-            _setter("minutes", minutes)
+            pulumi.set(__self__, "minutes", minutes)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -4883,23 +3628,10 @@ class BucketReplicationConfigurationRuleFilter(dict):
         :param Mapping[str, str] tags: A map of tags that identifies subset of objects to which the rule applies.
                The rule applies only to objects having all the tags in its tagset.
         """
-        BucketReplicationConfigurationRuleFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prefix=prefix,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prefix: Optional[str] = None,
-             tags: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -4944,21 +3676,8 @@ class BucketReplicationConfigurationRuleSourceSelectionCriteria(dict):
         :param 'BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs' sse_kms_encrypted_objects: Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
                in `destination` must be specified as well.
         """
-        BucketReplicationConfigurationRuleSourceSelectionCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sse_kms_encrypted_objects=sse_kms_encrypted_objects,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sse_kms_encrypted_objects: Optional['outputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if sse_kms_encrypted_objects is None and 'sseKmsEncryptedObjects' in kwargs:
-            sse_kms_encrypted_objects = kwargs['sseKmsEncryptedObjects']
-
         if sse_kms_encrypted_objects is not None:
-            _setter("sse_kms_encrypted_objects", sse_kms_encrypted_objects)
+            pulumi.set(__self__, "sse_kms_encrypted_objects", sse_kms_encrypted_objects)
 
     @property
     @pulumi.getter(name="sseKmsEncryptedObjects")
@@ -4977,20 +3696,7 @@ class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedOb
         """
         :param bool enabled: Boolean which indicates if this criteria is enabled.
         """
-        BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -5008,20 +3714,7 @@ class BucketServerSideEncryptionConfiguration(dict):
         """
         :param 'BucketServerSideEncryptionConfigurationRuleArgs' rule: A single object for server-side encryption by default configuration. (documented below)
         """
-        BucketServerSideEncryptionConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rule=rule,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rule: Optional['outputs.BucketServerSideEncryptionConfigurationRule'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rule is None:
-            raise TypeError("Missing 'rule' argument")
-
-        _setter("rule", rule)
+        pulumi.set(__self__, "rule", rule)
 
     @property
     @pulumi.getter
@@ -5060,28 +3753,9 @@ class BucketServerSideEncryptionConfigurationRule(dict):
         :param 'BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs' apply_server_side_encryption_by_default: A single object for setting server-side encryption by default. (documented below)
         :param bool bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
-        BucketServerSideEncryptionConfigurationRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_server_side_encryption_by_default=apply_server_side_encryption_by_default,
-            bucket_key_enabled=bucket_key_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_server_side_encryption_by_default: Optional['outputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault'] = None,
-             bucket_key_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if apply_server_side_encryption_by_default is None and 'applyServerSideEncryptionByDefault' in kwargs:
-            apply_server_side_encryption_by_default = kwargs['applyServerSideEncryptionByDefault']
-        if apply_server_side_encryption_by_default is None:
-            raise TypeError("Missing 'apply_server_side_encryption_by_default' argument")
-        if bucket_key_enabled is None and 'bucketKeyEnabled' in kwargs:
-            bucket_key_enabled = kwargs['bucketKeyEnabled']
-
-        _setter("apply_server_side_encryption_by_default", apply_server_side_encryption_by_default)
+        pulumi.set(__self__, "apply_server_side_encryption_by_default", apply_server_side_encryption_by_default)
         if bucket_key_enabled is not None:
-            _setter("bucket_key_enabled", bucket_key_enabled)
+            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
 
     @property
     @pulumi.getter(name="applyServerSideEncryptionByDefault")
@@ -5128,28 +3802,9 @@ class BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefa
         :param str sse_algorithm: The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
         :param str kms_master_key_id: The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
         """
-        BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sse_algorithm=sse_algorithm,
-            kms_master_key_id=kms_master_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sse_algorithm: Optional[str] = None,
-             kms_master_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if sse_algorithm is None and 'sseAlgorithm' in kwargs:
-            sse_algorithm = kwargs['sseAlgorithm']
-        if sse_algorithm is None:
-            raise TypeError("Missing 'sse_algorithm' argument")
-        if kms_master_key_id is None and 'kmsMasterKeyId' in kwargs:
-            kms_master_key_id = kwargs['kmsMasterKeyId']
-
-        _setter("sse_algorithm", sse_algorithm)
+        pulumi.set(__self__, "sse_algorithm", sse_algorithm)
         if kms_master_key_id is not None:
-            _setter("kms_master_key_id", kms_master_key_id)
+            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
 
     @property
     @pulumi.getter(name="sseAlgorithm")
@@ -5196,27 +3851,10 @@ class BucketServerSideEncryptionConfigurationV2Rule(dict):
         :param 'BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs' apply_server_side_encryption_by_default: Single object for setting server-side encryption by default. See below.
         :param bool bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
-        BucketServerSideEncryptionConfigurationV2Rule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_server_side_encryption_by_default=apply_server_side_encryption_by_default,
-            bucket_key_enabled=bucket_key_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_server_side_encryption_by_default: Optional['outputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault'] = None,
-             bucket_key_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if apply_server_side_encryption_by_default is None and 'applyServerSideEncryptionByDefault' in kwargs:
-            apply_server_side_encryption_by_default = kwargs['applyServerSideEncryptionByDefault']
-        if bucket_key_enabled is None and 'bucketKeyEnabled' in kwargs:
-            bucket_key_enabled = kwargs['bucketKeyEnabled']
-
         if apply_server_side_encryption_by_default is not None:
-            _setter("apply_server_side_encryption_by_default", apply_server_side_encryption_by_default)
+            pulumi.set(__self__, "apply_server_side_encryption_by_default", apply_server_side_encryption_by_default)
         if bucket_key_enabled is not None:
-            _setter("bucket_key_enabled", bucket_key_enabled)
+            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
 
     @property
     @pulumi.getter(name="applyServerSideEncryptionByDefault")
@@ -5263,28 +3901,9 @@ class BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDe
         :param str sse_algorithm: Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
         :param str kms_master_key_id: AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
         """
-        BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sse_algorithm=sse_algorithm,
-            kms_master_key_id=kms_master_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sse_algorithm: Optional[str] = None,
-             kms_master_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if sse_algorithm is None and 'sseAlgorithm' in kwargs:
-            sse_algorithm = kwargs['sseAlgorithm']
-        if sse_algorithm is None:
-            raise TypeError("Missing 'sse_algorithm' argument")
-        if kms_master_key_id is None and 'kmsMasterKeyId' in kwargs:
-            kms_master_key_id = kwargs['kmsMasterKeyId']
-
-        _setter("sse_algorithm", sse_algorithm)
+        pulumi.set(__self__, "sse_algorithm", sse_algorithm)
         if kms_master_key_id is not None:
-            _setter("kms_master_key_id", kms_master_key_id)
+            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
 
     @property
     @pulumi.getter(name="sseAlgorithm")
@@ -5343,47 +3962,14 @@ class BucketV2CorsRule(dict):
         :param Sequence[str] expose_headers: One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
         :param int max_age_seconds: Specifies time in seconds that browser can cache the response for a preflight request.
         """
-        BucketV2CorsRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_methods=allowed_methods,
-            allowed_origins=allowed_origins,
-            allowed_headers=allowed_headers,
-            expose_headers=expose_headers,
-            max_age_seconds=max_age_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_methods: Optional[Sequence[str]] = None,
-             allowed_origins: Optional[Sequence[str]] = None,
-             allowed_headers: Optional[Sequence[str]] = None,
-             expose_headers: Optional[Sequence[str]] = None,
-             max_age_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allowed_methods is None and 'allowedMethods' in kwargs:
-            allowed_methods = kwargs['allowedMethods']
-        if allowed_methods is None:
-            raise TypeError("Missing 'allowed_methods' argument")
-        if allowed_origins is None and 'allowedOrigins' in kwargs:
-            allowed_origins = kwargs['allowedOrigins']
-        if allowed_origins is None:
-            raise TypeError("Missing 'allowed_origins' argument")
-        if allowed_headers is None and 'allowedHeaders' in kwargs:
-            allowed_headers = kwargs['allowedHeaders']
-        if expose_headers is None and 'exposeHeaders' in kwargs:
-            expose_headers = kwargs['exposeHeaders']
-        if max_age_seconds is None and 'maxAgeSeconds' in kwargs:
-            max_age_seconds = kwargs['maxAgeSeconds']
-
-        _setter("allowed_methods", allowed_methods)
-        _setter("allowed_origins", allowed_origins)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
         if allowed_headers is not None:
-            _setter("allowed_headers", allowed_headers)
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
         if expose_headers is not None:
-            _setter("expose_headers", expose_headers)
+            pulumi.set(__self__, "expose_headers", expose_headers)
         if max_age_seconds is not None:
-            _setter("max_age_seconds", max_age_seconds)
+            pulumi.set(__self__, "max_age_seconds", max_age_seconds)
 
     @property
     @pulumi.getter(name="allowedMethods")
@@ -5439,33 +4025,12 @@ class BucketV2Grant(dict):
         :param str id: Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
         :param str uri: Uri address to grant for. Used only when `type` is `Group`.
         """
-        BucketV2Grant._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            permissions=permissions,
-            type=type,
-            id=id,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             permissions: Optional[Sequence[str]] = None,
-             type: Optional[str] = None,
-             id: Optional[str] = None,
-             uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("permissions", permissions)
-        _setter("type", type)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "type", type)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
@@ -5544,58 +4109,23 @@ class BucketV2LifecycleRule(dict):
         :param Mapping[str, str] tags: Specifies object tags key and value.
         :param Sequence['BucketV2LifecycleRuleTransitionArgs'] transitions: Specifies a period in the object's transitions. See Transition below for details.
         """
-        BucketV2LifecycleRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            abort_incomplete_multipart_upload_days=abort_incomplete_multipart_upload_days,
-            expirations=expirations,
-            id=id,
-            noncurrent_version_expirations=noncurrent_version_expirations,
-            noncurrent_version_transitions=noncurrent_version_transitions,
-            prefix=prefix,
-            tags=tags,
-            transitions=transitions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             abort_incomplete_multipart_upload_days: Optional[int] = None,
-             expirations: Optional[Sequence['outputs.BucketV2LifecycleRuleExpiration']] = None,
-             id: Optional[str] = None,
-             noncurrent_version_expirations: Optional[Sequence['outputs.BucketV2LifecycleRuleNoncurrentVersionExpiration']] = None,
-             noncurrent_version_transitions: Optional[Sequence['outputs.BucketV2LifecycleRuleNoncurrentVersionTransition']] = None,
-             prefix: Optional[str] = None,
-             tags: Optional[Mapping[str, str]] = None,
-             transitions: Optional[Sequence['outputs.BucketV2LifecycleRuleTransition']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if abort_incomplete_multipart_upload_days is None and 'abortIncompleteMultipartUploadDays' in kwargs:
-            abort_incomplete_multipart_upload_days = kwargs['abortIncompleteMultipartUploadDays']
-        if noncurrent_version_expirations is None and 'noncurrentVersionExpirations' in kwargs:
-            noncurrent_version_expirations = kwargs['noncurrentVersionExpirations']
-        if noncurrent_version_transitions is None and 'noncurrentVersionTransitions' in kwargs:
-            noncurrent_version_transitions = kwargs['noncurrentVersionTransitions']
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if abort_incomplete_multipart_upload_days is not None:
-            _setter("abort_incomplete_multipart_upload_days", abort_incomplete_multipart_upload_days)
+            pulumi.set(__self__, "abort_incomplete_multipart_upload_days", abort_incomplete_multipart_upload_days)
         if expirations is not None:
-            _setter("expirations", expirations)
+            pulumi.set(__self__, "expirations", expirations)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if noncurrent_version_expirations is not None:
-            _setter("noncurrent_version_expirations", noncurrent_version_expirations)
+            pulumi.set(__self__, "noncurrent_version_expirations", noncurrent_version_expirations)
         if noncurrent_version_transitions is not None:
-            _setter("noncurrent_version_transitions", noncurrent_version_transitions)
+            pulumi.set(__self__, "noncurrent_version_transitions", noncurrent_version_transitions)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if transitions is not None:
-            _setter("transitions", transitions)
+            pulumi.set(__self__, "transitions", transitions)
 
     @property
     @pulumi.getter
@@ -5698,29 +4228,12 @@ class BucketV2LifecycleRuleExpiration(dict):
         :param int days: Specifies the number of days after object creation when the specific rule action takes effect.
         :param bool expired_object_delete_marker: On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
         """
-        BucketV2LifecycleRuleExpiration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date=date,
-            days=days,
-            expired_object_delete_marker=expired_object_delete_marker,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date: Optional[str] = None,
-             days: Optional[int] = None,
-             expired_object_delete_marker: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if expired_object_delete_marker is None and 'expiredObjectDeleteMarker' in kwargs:
-            expired_object_delete_marker = kwargs['expiredObjectDeleteMarker']
-
         if date is not None:
-            _setter("date", date)
+            pulumi.set(__self__, "date", date)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
         if expired_object_delete_marker is not None:
-            _setter("expired_object_delete_marker", expired_object_delete_marker)
+            pulumi.set(__self__, "expired_object_delete_marker", expired_object_delete_marker)
 
     @property
     @pulumi.getter
@@ -5754,19 +4267,8 @@ class BucketV2LifecycleRuleNoncurrentVersionExpiration(dict):
         """
         :param int days: Specifies the number of days noncurrent object versions expire.
         """
-        BucketV2LifecycleRuleNoncurrentVersionExpiration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            days=days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
 
     @property
     @pulumi.getter
@@ -5803,26 +4305,9 @@ class BucketV2LifecycleRuleNoncurrentVersionTransition(dict):
         :param str storage_class: Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
         :param int days: Specifies the number of days noncurrent object versions transition.
         """
-        BucketV2LifecycleRuleNoncurrentVersionTransition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_class=storage_class,
-            days=days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_class: Optional[str] = None,
-             days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_class is None and 'storageClass' in kwargs:
-            storage_class = kwargs['storageClass']
-        if storage_class is None:
-            raise TypeError("Missing 'storage_class' argument")
-
-        _setter("storage_class", storage_class)
+        pulumi.set(__self__, "storage_class", storage_class)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
 
     @property
     @pulumi.getter(name="storageClass")
@@ -5869,30 +4354,11 @@ class BucketV2LifecycleRuleTransition(dict):
         :param str date: Specifies the date after which you want the corresponding action to take effect.
         :param int days: Specifies the number of days after object creation when the specific rule action takes effect.
         """
-        BucketV2LifecycleRuleTransition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_class=storage_class,
-            date=date,
-            days=days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_class: Optional[str] = None,
-             date: Optional[str] = None,
-             days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_class is None and 'storageClass' in kwargs:
-            storage_class = kwargs['storageClass']
-        if storage_class is None:
-            raise TypeError("Missing 'storage_class' argument")
-
-        _setter("storage_class", storage_class)
+        pulumi.set(__self__, "storage_class", storage_class)
         if date is not None:
-            _setter("date", date)
+            pulumi.set(__self__, "date", date)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
 
     @property
     @pulumi.getter(name="storageClass")
@@ -5947,28 +4413,9 @@ class BucketV2Logging(dict):
         :param str target_bucket: Name of the bucket that will receive the log objects.
         :param str target_prefix: To specify a key prefix for log objects.
         """
-        BucketV2Logging._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_bucket=target_bucket,
-            target_prefix=target_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_bucket: Optional[str] = None,
-             target_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if target_bucket is None and 'targetBucket' in kwargs:
-            target_bucket = kwargs['targetBucket']
-        if target_bucket is None:
-            raise TypeError("Missing 'target_bucket' argument")
-        if target_prefix is None and 'targetPrefix' in kwargs:
-            target_prefix = kwargs['targetPrefix']
-
-        _setter("target_bucket", target_bucket)
+        pulumi.set(__self__, "target_bucket", target_bucket)
         if target_prefix is not None:
-            _setter("target_prefix", target_prefix)
+            pulumi.set(__self__, "target_prefix", target_prefix)
 
     @property
     @pulumi.getter(name="targetBucket")
@@ -6013,25 +4460,10 @@ class BucketV2ObjectLockConfiguration(dict):
         :param str object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         :param Sequence['BucketV2ObjectLockConfigurationRuleArgs'] rules: Object Lock rule in place for this bucket (documented below).
         """
-        BucketV2ObjectLockConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object_lock_enabled=object_lock_enabled,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object_lock_enabled: Optional[str] = None,
-             rules: Optional[Sequence['outputs.BucketV2ObjectLockConfigurationRule']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if object_lock_enabled is None and 'objectLockEnabled' in kwargs:
-            object_lock_enabled = kwargs['objectLockEnabled']
-
         if object_lock_enabled is not None:
-            _setter("object_lock_enabled", object_lock_enabled)
+            pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter(name="objectLockEnabled")
@@ -6080,22 +4512,7 @@ class BucketV2ObjectLockConfigurationRule(dict):
         """
         :param Sequence['BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs'] default_retentions: Default retention period that you want to apply to new objects placed in this bucket (documented below).
         """
-        BucketV2ObjectLockConfigurationRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_retentions=default_retentions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_retentions: Optional[Sequence['outputs.BucketV2ObjectLockConfigurationRuleDefaultRetention']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_retentions is None and 'defaultRetentions' in kwargs:
-            default_retentions = kwargs['defaultRetentions']
-        if default_retentions is None:
-            raise TypeError("Missing 'default_retentions' argument")
-
-        _setter("default_retentions", default_retentions)
+        pulumi.set(__self__, "default_retentions", default_retentions)
 
     @property
     @pulumi.getter(name="defaultRetentions")
@@ -6117,28 +4534,11 @@ class BucketV2ObjectLockConfigurationRuleDefaultRetention(dict):
         :param int days: Number of days that you want to specify for the default retention period.
         :param int years: Number of years that you want to specify for the default retention period.
         """
-        BucketV2ObjectLockConfigurationRuleDefaultRetention._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            days=days,
-            years=years,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             days: Optional[int] = None,
-             years: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-
-        _setter("mode", mode)
+        pulumi.set(__self__, "mode", mode)
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
         if years is not None:
-            _setter("years", years)
+            pulumi.set(__self__, "years", years)
 
     @property
     @pulumi.getter
@@ -6174,25 +4574,8 @@ class BucketV2ReplicationConfiguration(dict):
         :param str role: ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         :param Sequence['BucketV2ReplicationConfigurationRuleArgs'] rules: Specifies the rules managing the replication (documented below).
         """
-        BucketV2ReplicationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role=role,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role: Optional[str] = None,
-             rules: Optional[Sequence['outputs.BucketV2ReplicationConfigurationRule']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if role is None:
-            raise TypeError("Missing 'role' argument")
-        if rules is None:
-            raise TypeError("Missing 'rules' argument")
-
-        _setter("role", role)
-        _setter("rules", rules)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -6251,53 +4634,20 @@ class BucketV2ReplicationConfigurationRule(dict):
         :param int priority: Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         :param Sequence['BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs'] source_selection_criterias: Specifies special object selection criteria (documented below).
         """
-        BucketV2ReplicationConfigurationRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destinations=destinations,
-            status=status,
-            delete_marker_replication_status=delete_marker_replication_status,
-            filters=filters,
-            id=id,
-            prefix=prefix,
-            priority=priority,
-            source_selection_criterias=source_selection_criterias,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destinations: Optional[Sequence['outputs.BucketV2ReplicationConfigurationRuleDestination']] = None,
-             status: Optional[str] = None,
-             delete_marker_replication_status: Optional[str] = None,
-             filters: Optional[Sequence['outputs.BucketV2ReplicationConfigurationRuleFilter']] = None,
-             id: Optional[str] = None,
-             prefix: Optional[str] = None,
-             priority: Optional[int] = None,
-             source_selection_criterias: Optional[Sequence['outputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destinations is None:
-            raise TypeError("Missing 'destinations' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if delete_marker_replication_status is None and 'deleteMarkerReplicationStatus' in kwargs:
-            delete_marker_replication_status = kwargs['deleteMarkerReplicationStatus']
-        if source_selection_criterias is None and 'sourceSelectionCriterias' in kwargs:
-            source_selection_criterias = kwargs['sourceSelectionCriterias']
-
-        _setter("destinations", destinations)
-        _setter("status", status)
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "status", status)
         if delete_marker_replication_status is not None:
-            _setter("delete_marker_replication_status", delete_marker_replication_status)
+            pulumi.set(__self__, "delete_marker_replication_status", delete_marker_replication_status)
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if source_selection_criterias is not None:
-            _setter("source_selection_criterias", source_selection_criterias)
+            pulumi.set(__self__, "source_selection_criterias", source_selection_criterias)
 
     @property
     @pulumi.getter
@@ -6409,54 +4759,19 @@ class BucketV2ReplicationConfigurationRuleDestination(dict):
         :param Sequence['BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs'] replication_times: Enables S3 Replication Time Control (S3 RTC) (documented below).
         :param str storage_class: The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         """
-        BucketV2ReplicationConfigurationRuleDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            access_control_translations=access_control_translations,
-            account_id=account_id,
-            metrics=metrics,
-            replica_kms_key_id=replica_kms_key_id,
-            replication_times=replication_times,
-            storage_class=storage_class,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[str] = None,
-             access_control_translations: Optional[Sequence['outputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation']] = None,
-             account_id: Optional[str] = None,
-             metrics: Optional[Sequence['outputs.BucketV2ReplicationConfigurationRuleDestinationMetric']] = None,
-             replica_kms_key_id: Optional[str] = None,
-             replication_times: Optional[Sequence['outputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTime']] = None,
-             storage_class: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket is None:
-            raise TypeError("Missing 'bucket' argument")
-        if access_control_translations is None and 'accessControlTranslations' in kwargs:
-            access_control_translations = kwargs['accessControlTranslations']
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if replica_kms_key_id is None and 'replicaKmsKeyId' in kwargs:
-            replica_kms_key_id = kwargs['replicaKmsKeyId']
-        if replication_times is None and 'replicationTimes' in kwargs:
-            replication_times = kwargs['replicationTimes']
-        if storage_class is None and 'storageClass' in kwargs:
-            storage_class = kwargs['storageClass']
-
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if access_control_translations is not None:
-            _setter("access_control_translations", access_control_translations)
+            pulumi.set(__self__, "access_control_translations", access_control_translations)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if metrics is not None:
-            _setter("metrics", metrics)
+            pulumi.set(__self__, "metrics", metrics)
         if replica_kms_key_id is not None:
-            _setter("replica_kms_key_id", replica_kms_key_id)
+            pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
         if replication_times is not None:
-            _setter("replication_times", replication_times)
+            pulumi.set(__self__, "replication_times", replication_times)
         if storage_class is not None:
-            _setter("storage_class", storage_class)
+            pulumi.set(__self__, "storage_class", storage_class)
 
     @property
     @pulumi.getter
@@ -6520,20 +4835,7 @@ class BucketV2ReplicationConfigurationRuleDestination(dict):
 class BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation(dict):
     def __init__(__self__, *,
                  owner: str):
-        BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            owner=owner,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             owner: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if owner is None:
-            raise TypeError("Missing 'owner' argument")
-
-        _setter("owner", owner)
+        pulumi.set(__self__, "owner", owner)
 
     @property
     @pulumi.getter
@@ -6550,23 +4852,10 @@ class BucketV2ReplicationConfigurationRuleDestinationMetric(dict):
         :param int minutes: Threshold within which objects are to be replicated. The only valid value is `15`.
         :param str status: Status of replication metrics. Either `Enabled` or `Disabled`.
         """
-        BucketV2ReplicationConfigurationRuleDestinationMetric._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            minutes=minutes,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             minutes: Optional[int] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if minutes is not None:
-            _setter("minutes", minutes)
+            pulumi.set(__self__, "minutes", minutes)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -6594,23 +4883,10 @@ class BucketV2ReplicationConfigurationRuleDestinationReplicationTime(dict):
         :param int minutes: Threshold within which objects are to be replicated. The only valid value is `15`.
         :param str status: Status of RTC. Either `Enabled` or `Disabled`.
         """
-        BucketV2ReplicationConfigurationRuleDestinationReplicationTime._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            minutes=minutes,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             minutes: Optional[int] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if minutes is not None:
-            _setter("minutes", minutes)
+            pulumi.set(__self__, "minutes", minutes)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -6639,23 +4915,10 @@ class BucketV2ReplicationConfigurationRuleFilter(dict):
         :param Mapping[str, str] tags: A map of tags that identifies subset of objects to which the rule applies.
                The rule applies only to objects having all the tags in its tagset.
         """
-        BucketV2ReplicationConfigurationRuleFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prefix=prefix,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prefix: Optional[str] = None,
-             tags: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -6700,21 +4963,8 @@ class BucketV2ReplicationConfigurationRuleSourceSelectionCriteria(dict):
         :param Sequence['BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs'] sse_kms_encrypted_objects: Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
                in `destination` must be specified as well.
         """
-        BucketV2ReplicationConfigurationRuleSourceSelectionCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sse_kms_encrypted_objects=sse_kms_encrypted_objects,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sse_kms_encrypted_objects: Optional[Sequence['outputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if sse_kms_encrypted_objects is None and 'sseKmsEncryptedObjects' in kwargs:
-            sse_kms_encrypted_objects = kwargs['sseKmsEncryptedObjects']
-
         if sse_kms_encrypted_objects is not None:
-            _setter("sse_kms_encrypted_objects", sse_kms_encrypted_objects)
+            pulumi.set(__self__, "sse_kms_encrypted_objects", sse_kms_encrypted_objects)
 
     @property
     @pulumi.getter(name="sseKmsEncryptedObjects")
@@ -6733,20 +4983,7 @@ class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
         """
         :param bool enabled: Boolean which indicates if this criteria is enabled.
         """
-        BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -6764,20 +5001,7 @@ class BucketV2ServerSideEncryptionConfiguration(dict):
         """
         :param Sequence['BucketV2ServerSideEncryptionConfigurationRuleArgs'] rules: Single object for server-side encryption by default configuration. (documented below)
         """
-        BucketV2ServerSideEncryptionConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rules: Optional[Sequence['outputs.BucketV2ServerSideEncryptionConfigurationRule']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rules is None:
-            raise TypeError("Missing 'rules' argument")
-
-        _setter("rules", rules)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -6816,28 +5040,9 @@ class BucketV2ServerSideEncryptionConfigurationRule(dict):
         :param Sequence['BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs'] apply_server_side_encryption_by_defaults: Single object for setting server-side encryption by default. (documented below)
         :param bool bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
-        BucketV2ServerSideEncryptionConfigurationRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_server_side_encryption_by_defaults=apply_server_side_encryption_by_defaults,
-            bucket_key_enabled=bucket_key_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_server_side_encryption_by_defaults: Optional[Sequence['outputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault']] = None,
-             bucket_key_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if apply_server_side_encryption_by_defaults is None and 'applyServerSideEncryptionByDefaults' in kwargs:
-            apply_server_side_encryption_by_defaults = kwargs['applyServerSideEncryptionByDefaults']
-        if apply_server_side_encryption_by_defaults is None:
-            raise TypeError("Missing 'apply_server_side_encryption_by_defaults' argument")
-        if bucket_key_enabled is None and 'bucketKeyEnabled' in kwargs:
-            bucket_key_enabled = kwargs['bucketKeyEnabled']
-
-        _setter("apply_server_side_encryption_by_defaults", apply_server_side_encryption_by_defaults)
+        pulumi.set(__self__, "apply_server_side_encryption_by_defaults", apply_server_side_encryption_by_defaults)
         if bucket_key_enabled is not None:
-            _setter("bucket_key_enabled", bucket_key_enabled)
+            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
 
     @property
     @pulumi.getter(name="applyServerSideEncryptionByDefaults")
@@ -6884,28 +5089,9 @@ class BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
         :param str sse_algorithm: Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
         :param str kms_master_key_id: AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
         """
-        BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sse_algorithm=sse_algorithm,
-            kms_master_key_id=kms_master_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sse_algorithm: Optional[str] = None,
-             kms_master_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if sse_algorithm is None and 'sseAlgorithm' in kwargs:
-            sse_algorithm = kwargs['sseAlgorithm']
-        if sse_algorithm is None:
-            raise TypeError("Missing 'sse_algorithm' argument")
-        if kms_master_key_id is None and 'kmsMasterKeyId' in kwargs:
-            kms_master_key_id = kwargs['kmsMasterKeyId']
-
-        _setter("sse_algorithm", sse_algorithm)
+        pulumi.set(__self__, "sse_algorithm", sse_algorithm)
         if kms_master_key_id is not None:
-            _setter("kms_master_key_id", kms_master_key_id)
+            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
 
     @property
     @pulumi.getter(name="sseAlgorithm")
@@ -6950,25 +5136,10 @@ class BucketV2Versioning(dict):
         :param bool enabled: Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
         :param bool mfa_delete: Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
         """
-        BucketV2Versioning._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            mfa_delete=mfa_delete,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             mfa_delete: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mfa_delete is None and 'mfaDelete' in kwargs:
-            mfa_delete = kwargs['mfaDelete']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if mfa_delete is not None:
-            _setter("mfa_delete", mfa_delete)
+            pulumi.set(__self__, "mfa_delete", mfa_delete)
 
     @property
     @pulumi.getter
@@ -7024,39 +5195,14 @@ class BucketV2Website(dict):
         :param str routing_rules: JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
                describing redirect behavior and when redirects are applied.
         """
-        BucketV2Website._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            error_document=error_document,
-            index_document=index_document,
-            redirect_all_requests_to=redirect_all_requests_to,
-            routing_rules=routing_rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             error_document: Optional[str] = None,
-             index_document: Optional[str] = None,
-             redirect_all_requests_to: Optional[str] = None,
-             routing_rules: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if error_document is None and 'errorDocument' in kwargs:
-            error_document = kwargs['errorDocument']
-        if index_document is None and 'indexDocument' in kwargs:
-            index_document = kwargs['indexDocument']
-        if redirect_all_requests_to is None and 'redirectAllRequestsTo' in kwargs:
-            redirect_all_requests_to = kwargs['redirectAllRequestsTo']
-        if routing_rules is None and 'routingRules' in kwargs:
-            routing_rules = kwargs['routingRules']
-
         if error_document is not None:
-            _setter("error_document", error_document)
+            pulumi.set(__self__, "error_document", error_document)
         if index_document is not None:
-            _setter("index_document", index_document)
+            pulumi.set(__self__, "index_document", index_document)
         if redirect_all_requests_to is not None:
-            _setter("redirect_all_requests_to", redirect_all_requests_to)
+            pulumi.set(__self__, "redirect_all_requests_to", redirect_all_requests_to)
         if routing_rules is not None:
-            _setter("routing_rules", routing_rules)
+            pulumi.set(__self__, "routing_rules", routing_rules)
 
     @property
     @pulumi.getter(name="errorDocument")
@@ -7118,25 +5264,10 @@ class BucketVersioning(dict):
         :param bool enabled: Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
         :param bool mfa_delete: Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
         """
-        BucketVersioning._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            mfa_delete=mfa_delete,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             mfa_delete: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mfa_delete is None and 'mfaDelete' in kwargs:
-            mfa_delete = kwargs['mfaDelete']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if mfa_delete is not None:
-            _setter("mfa_delete", mfa_delete)
+            pulumi.set(__self__, "mfa_delete", mfa_delete)
 
     @property
     @pulumi.getter
@@ -7181,26 +5312,9 @@ class BucketVersioningV2VersioningConfiguration(dict):
         :param str status: Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
         :param str mfa_delete: Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
         """
-        BucketVersioningV2VersioningConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            mfa_delete=mfa_delete,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[str] = None,
-             mfa_delete: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if mfa_delete is None and 'mfaDelete' in kwargs:
-            mfa_delete = kwargs['mfaDelete']
-
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
         if mfa_delete is not None:
-            _setter("mfa_delete", mfa_delete)
+            pulumi.set(__self__, "mfa_delete", mfa_delete)
 
     @property
     @pulumi.getter
@@ -7258,39 +5372,14 @@ class BucketWebsite(dict):
                
                The `CORS` object supports the following:
         """
-        BucketWebsite._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            error_document=error_document,
-            index_document=index_document,
-            redirect_all_requests_to=redirect_all_requests_to,
-            routing_rules=routing_rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             error_document: Optional[str] = None,
-             index_document: Optional[str] = None,
-             redirect_all_requests_to: Optional[str] = None,
-             routing_rules: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if error_document is None and 'errorDocument' in kwargs:
-            error_document = kwargs['errorDocument']
-        if index_document is None and 'indexDocument' in kwargs:
-            index_document = kwargs['indexDocument']
-        if redirect_all_requests_to is None and 'redirectAllRequestsTo' in kwargs:
-            redirect_all_requests_to = kwargs['redirectAllRequestsTo']
-        if routing_rules is None and 'routingRules' in kwargs:
-            routing_rules = kwargs['routingRules']
-
         if error_document is not None:
-            _setter("error_document", error_document)
+            pulumi.set(__self__, "error_document", error_document)
         if index_document is not None:
-            _setter("index_document", index_document)
+            pulumi.set(__self__, "index_document", index_document)
         if redirect_all_requests_to is not None:
-            _setter("redirect_all_requests_to", redirect_all_requests_to)
+            pulumi.set(__self__, "redirect_all_requests_to", redirect_all_requests_to)
         if routing_rules is not None:
-            _setter("routing_rules", routing_rules)
+            pulumi.set(__self__, "routing_rules", routing_rules)
 
     @property
     @pulumi.getter(name="errorDocument")
@@ -7335,20 +5424,7 @@ class BucketWebsiteConfigurationV2ErrorDocument(dict):
         """
         :param str key: Object key name to use when a 4XX class error occurs.
         """
-        BucketWebsiteConfigurationV2ErrorDocument._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
@@ -7368,20 +5444,7 @@ class BucketWebsiteConfigurationV2IndexDocument(dict):
                For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
                The suffix must not be empty and must not include a slash character.
         """
-        BucketWebsiteConfigurationV2IndexDocument._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if suffix is None:
-            raise TypeError("Missing 'suffix' argument")
-
-        _setter("suffix", suffix)
+        pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -7420,26 +5483,9 @@ class BucketWebsiteConfigurationV2RedirectAllRequestsTo(dict):
         :param str host_name: Name of the host where requests are redirected.
         :param str protocol: Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
         """
-        BucketWebsiteConfigurationV2RedirectAllRequestsTo._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if host_name is None:
-            raise TypeError("Missing 'host_name' argument")
-
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "host_name", host_name)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter(name="hostName")
@@ -7467,24 +5513,9 @@ class BucketWebsiteConfigurationV2RoutingRule(dict):
         :param 'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs' redirect: Configuration block for redirect information. See below.
         :param 'BucketWebsiteConfigurationV2RoutingRuleConditionArgs' condition: Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
         """
-        BucketWebsiteConfigurationV2RoutingRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            redirect=redirect,
-            condition=condition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             redirect: Optional['outputs.BucketWebsiteConfigurationV2RoutingRuleRedirect'] = None,
-             condition: Optional['outputs.BucketWebsiteConfigurationV2RoutingRuleCondition'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if redirect is None:
-            raise TypeError("Missing 'redirect' argument")
-
-        _setter("redirect", redirect)
+        pulumi.set(__self__, "redirect", redirect)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
 
     @property
     @pulumi.getter
@@ -7531,27 +5562,10 @@ class BucketWebsiteConfigurationV2RoutingRuleCondition(dict):
         :param str http_error_code_returned_equals: HTTP error code when the redirect is applied. If specified with `key_prefix_equals`, then both must be true for the redirect to be applied.
         :param str key_prefix_equals: Object key name prefix when the redirect is applied. If specified with `http_error_code_returned_equals`, then both must be true for the redirect to be applied.
         """
-        BucketWebsiteConfigurationV2RoutingRuleCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            http_error_code_returned_equals=http_error_code_returned_equals,
-            key_prefix_equals=key_prefix_equals,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             http_error_code_returned_equals: Optional[str] = None,
-             key_prefix_equals: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if http_error_code_returned_equals is None and 'httpErrorCodeReturnedEquals' in kwargs:
-            http_error_code_returned_equals = kwargs['httpErrorCodeReturnedEquals']
-        if key_prefix_equals is None and 'keyPrefixEquals' in kwargs:
-            key_prefix_equals = kwargs['keyPrefixEquals']
-
         if http_error_code_returned_equals is not None:
-            _setter("http_error_code_returned_equals", http_error_code_returned_equals)
+            pulumi.set(__self__, "http_error_code_returned_equals", http_error_code_returned_equals)
         if key_prefix_equals is not None:
-            _setter("key_prefix_equals", key_prefix_equals)
+            pulumi.set(__self__, "key_prefix_equals", key_prefix_equals)
 
     @property
     @pulumi.getter(name="httpErrorCodeReturnedEquals")
@@ -7608,43 +5622,16 @@ class BucketWebsiteConfigurationV2RoutingRuleRedirect(dict):
         :param str replace_key_prefix_with: Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
         :param str replace_key_with: Specific object key to use in the redirect request. For example, redirect request to `error.html`.
         """
-        BucketWebsiteConfigurationV2RoutingRuleRedirect._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            http_redirect_code=http_redirect_code,
-            protocol=protocol,
-            replace_key_prefix_with=replace_key_prefix_with,
-            replace_key_with=replace_key_with,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[str] = None,
-             http_redirect_code: Optional[str] = None,
-             protocol: Optional[str] = None,
-             replace_key_prefix_with: Optional[str] = None,
-             replace_key_with: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host_name is None and 'hostName' in kwargs:
-            host_name = kwargs['hostName']
-        if http_redirect_code is None and 'httpRedirectCode' in kwargs:
-            http_redirect_code = kwargs['httpRedirectCode']
-        if replace_key_prefix_with is None and 'replaceKeyPrefixWith' in kwargs:
-            replace_key_prefix_with = kwargs['replaceKeyPrefixWith']
-        if replace_key_with is None and 'replaceKeyWith' in kwargs:
-            replace_key_with = kwargs['replaceKeyWith']
-
         if host_name is not None:
-            _setter("host_name", host_name)
+            pulumi.set(__self__, "host_name", host_name)
         if http_redirect_code is not None:
-            _setter("http_redirect_code", http_redirect_code)
+            pulumi.set(__self__, "http_redirect_code", http_redirect_code)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if replace_key_prefix_with is not None:
-            _setter("replace_key_prefix_with", replace_key_prefix_with)
+            pulumi.set(__self__, "replace_key_prefix_with", replace_key_prefix_with)
         if replace_key_with is not None:
-            _setter("replace_key_with", replace_key_with)
+            pulumi.set(__self__, "replace_key_with", replace_key_with)
 
     @property
     @pulumi.getter(name="hostName")
@@ -7694,20 +5681,7 @@ class InventoryDestination(dict):
         """
         :param 'InventoryDestinationBucketArgs' bucket: S3 bucket configuration where inventory results are published (documented below).
         """
-        InventoryDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional['outputs.InventoryDestinationBucket'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket is None:
-            raise TypeError("Missing 'bucket' argument")
-
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
 
     @property
     @pulumi.getter
@@ -7752,41 +5726,14 @@ class InventoryDestinationBucket(dict):
         :param 'InventoryDestinationBucketEncryptionArgs' encryption: Contains the type of server-side encryption to use to encrypt the inventory (documented below).
         :param str prefix: Prefix that is prepended to all inventory results.
         """
-        InventoryDestinationBucket._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            format=format,
-            account_id=account_id,
-            encryption=encryption,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: Optional[str] = None,
-             format: Optional[str] = None,
-             account_id: Optional[str] = None,
-             encryption: Optional['outputs.InventoryDestinationBucketEncryption'] = None,
-             prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket_arn is None and 'bucketArn' in kwargs:
-            bucket_arn = kwargs['bucketArn']
-        if bucket_arn is None:
-            raise TypeError("Missing 'bucket_arn' argument")
-        if format is None:
-            raise TypeError("Missing 'format' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-
-        _setter("bucket_arn", bucket_arn)
-        _setter("format", format)
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "format", format)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter(name="bucketArn")
@@ -7857,27 +5804,10 @@ class InventoryDestinationBucketEncryption(dict):
         :param 'InventoryDestinationBucketEncryptionSseKmsArgs' sse_kms: Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
         :param 'InventoryDestinationBucketEncryptionSseS3Args' sse_s3: Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
         """
-        InventoryDestinationBucketEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sse_kms=sse_kms,
-            sse_s3=sse_s3,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sse_kms: Optional['outputs.InventoryDestinationBucketEncryptionSseKms'] = None,
-             sse_s3: Optional['outputs.InventoryDestinationBucketEncryptionSseS3'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if sse_kms is None and 'sseKms' in kwargs:
-            sse_kms = kwargs['sseKms']
-        if sse_s3 is None and 'sseS3' in kwargs:
-            sse_s3 = kwargs['sseS3']
-
         if sse_kms is not None:
-            _setter("sse_kms", sse_kms)
+            pulumi.set(__self__, "sse_kms", sse_kms)
         if sse_s3 is not None:
-            _setter("sse_s3", sse_s3)
+            pulumi.set(__self__, "sse_s3", sse_s3)
 
     @property
     @pulumi.getter(name="sseKms")
@@ -7920,22 +5850,7 @@ class InventoryDestinationBucketEncryptionSseKms(dict):
         """
         :param str key_id: ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
         """
-        InventoryDestinationBucketEncryptionSseKms._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_id=key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_id is None and 'keyId' in kwargs:
-            key_id = kwargs['keyId']
-        if key_id is None:
-            raise TypeError("Missing 'key_id' argument")
-
-        _setter("key_id", key_id)
+        pulumi.set(__self__, "key_id", key_id)
 
     @property
     @pulumi.getter(name="keyId")
@@ -7950,13 +5865,6 @@ class InventoryDestinationBucketEncryptionSseKms(dict):
 class InventoryDestinationBucketEncryptionSseS3(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        pass
-
 
 
 @pulumi.output_type
@@ -7966,19 +5874,8 @@ class InventoryFilter(dict):
         """
         :param str prefix: Prefix that an object must have to be included in the inventory results.
         """
-        InventoryFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter
@@ -7996,20 +5893,7 @@ class InventorySchedule(dict):
         """
         :param str frequency: Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
         """
-        InventorySchedule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            frequency=frequency,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             frequency: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if frequency is None:
-            raise TypeError("Missing 'frequency' argument")
-
-        _setter("frequency", frequency)
+        pulumi.set(__self__, "frequency", frequency)
 
     @property
     @pulumi.getter
@@ -8037,37 +5921,14 @@ class ObjectCopyGrant(dict):
         :param str id: Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
         :param str uri: URI of the grantee group. Used only when `type` is `Group`.
         """
-        ObjectCopyGrant._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            permissions=permissions,
-            type=type,
-            email=email,
-            id=id,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             permissions: Optional[Sequence[str]] = None,
-             type: Optional[str] = None,
-             email: Optional[str] = None,
-             id: Optional[str] = None,
-             uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("permissions", permissions)
-        _setter("type", type)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "type", type)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter

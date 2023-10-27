@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,25 +23,10 @@ class XssMatchSetArgs:
         :param pulumi.Input[str] name: The name of the set
         :param pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
         """
-        XssMatchSetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            xss_match_tuples=xss_match_tuples,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             xss_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if xss_match_tuples is None and 'xssMatchTuples' in kwargs:
-            xss_match_tuples = kwargs['xssMatchTuples']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if xss_match_tuples is not None:
-            _setter("xss_match_tuples", xss_match_tuples)
+            pulumi.set(__self__, "xss_match_tuples", xss_match_tuples)
 
     @property
     @pulumi.getter
@@ -78,25 +63,10 @@ class _XssMatchSetState:
         :param pulumi.Input[str] name: The name of the set
         :param pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
         """
-        _XssMatchSetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            xss_match_tuples=xss_match_tuples,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             xss_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if xss_match_tuples is None and 'xssMatchTuples' in kwargs:
-            xss_match_tuples = kwargs['xssMatchTuples']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if xss_match_tuples is not None:
-            _setter("xss_match_tuples", xss_match_tuples)
+            pulumi.set(__self__, "xss_match_tuples", xss_match_tuples)
 
     @property
     @pulumi.getter
@@ -218,10 +188,6 @@ class XssMatchSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            XssMatchSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

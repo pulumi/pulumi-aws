@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -42,35 +42,16 @@ class OrganizationAccount(dict):
         :param str name: The name of the policy type
         :param str status: The status of the policy type as it relates to the associated root
         """
-        OrganizationAccount._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            email=email,
-            id=id,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             email: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -128,35 +109,16 @@ class OrganizationNonMasterAccount(dict):
         :param str name: The name of the policy type
         :param str status: The status of the policy type as it relates to the associated root
         """
-        OrganizationNonMasterAccount._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            email=email,
-            id=id,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             email: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -229,33 +191,14 @@ class OrganizationRoot(dict):
         :param str name: The name of the policy type
         :param Sequence['OrganizationRootPolicyTypeArgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
         """
-        OrganizationRoot._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            id=id,
-            name=name,
-            policy_types=policy_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             policy_types: Optional[Sequence['outputs.OrganizationRootPolicyType']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_types is None and 'policyTypes' in kwargs:
-            policy_types = kwargs['policyTypes']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy_types is not None:
-            _setter("policy_types", policy_types)
+            pulumi.set(__self__, "policy_types", policy_types)
 
     @property
     @pulumi.getter
@@ -298,23 +241,10 @@ class OrganizationRootPolicyType(dict):
         """
         :param str status: The status of the policy type as it relates to the associated root
         """
-        OrganizationRootPolicyType._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -343,31 +273,14 @@ class OrganizationalUnitAccount(dict):
         :param str id: Identifier of the organization unit
         :param str name: The name for the organizational unit
         """
-        OrganizationalUnitAccount._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            email=email,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             email: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -423,61 +336,14 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
         :param str name: The friendly name of the delegated administrator's account.
         :param str status: The status of the delegated administrator's account in the organization.
         """
-        GetDelegatedAdministratorsDelegatedAdministratorResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            delegation_enabled_date=delegation_enabled_date,
-            email=email,
-            id=id,
-            joined_method=joined_method,
-            joined_timestamp=joined_timestamp,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             delegation_enabled_date: Optional[str] = None,
-             email: Optional[str] = None,
-             id: Optional[str] = None,
-             joined_method: Optional[str] = None,
-             joined_timestamp: Optional[str] = None,
-             name: Optional[str] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arn is None:
-            raise TypeError("Missing 'arn' argument")
-        if delegation_enabled_date is None and 'delegationEnabledDate' in kwargs:
-            delegation_enabled_date = kwargs['delegationEnabledDate']
-        if delegation_enabled_date is None:
-            raise TypeError("Missing 'delegation_enabled_date' argument")
-        if email is None:
-            raise TypeError("Missing 'email' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if joined_method is None and 'joinedMethod' in kwargs:
-            joined_method = kwargs['joinedMethod']
-        if joined_method is None:
-            raise TypeError("Missing 'joined_method' argument")
-        if joined_timestamp is None and 'joinedTimestamp' in kwargs:
-            joined_timestamp = kwargs['joinedTimestamp']
-        if joined_timestamp is None:
-            raise TypeError("Missing 'joined_timestamp' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("arn", arn)
-        _setter("delegation_enabled_date", delegation_enabled_date)
-        _setter("email", email)
-        _setter("id", id)
-        _setter("joined_method", joined_method)
-        _setter("joined_timestamp", joined_timestamp)
-        _setter("name", name)
-        _setter("status", status)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "delegation_enabled_date", delegation_enabled_date)
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "joined_method", joined_method)
+        pulumi.set(__self__, "joined_timestamp", joined_timestamp)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -553,29 +419,8 @@ class GetDelegatedServicesDelegatedServiceResult(dict):
         :param str delegation_enabled_date: The date that the account became a delegated administrator for this service.
         :param str service_principal: The name of an AWS service that can request an operation for the specified service.
         """
-        GetDelegatedServicesDelegatedServiceResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delegation_enabled_date=delegation_enabled_date,
-            service_principal=service_principal,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delegation_enabled_date: Optional[str] = None,
-             service_principal: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if delegation_enabled_date is None and 'delegationEnabledDate' in kwargs:
-            delegation_enabled_date = kwargs['delegationEnabledDate']
-        if delegation_enabled_date is None:
-            raise TypeError("Missing 'delegation_enabled_date' argument")
-        if service_principal is None and 'servicePrincipal' in kwargs:
-            service_principal = kwargs['servicePrincipal']
-        if service_principal is None:
-            raise TypeError("Missing 'service_principal' argument")
-
-        _setter("delegation_enabled_date", delegation_enabled_date)
-        _setter("service_principal", service_principal)
+        pulumi.set(__self__, "delegation_enabled_date", delegation_enabled_date)
+        pulumi.set(__self__, "service_principal", service_principal)
 
     @property
     @pulumi.getter(name="delegationEnabledDate")
@@ -609,40 +454,11 @@ class GetOrganizationAccountResult(dict):
         :param str name: The name of the policy type
         :param str status: The status of the policy type as it relates to the associated root
         """
-        GetOrganizationAccountResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            email=email,
-            id=id,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             email: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arn is None:
-            raise TypeError("Missing 'arn' argument")
-        if email is None:
-            raise TypeError("Missing 'email' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("arn", arn)
-        _setter("email", email)
-        _setter("id", id)
-        _setter("name", name)
-        _setter("status", status)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -700,40 +516,11 @@ class GetOrganizationNonMasterAccountResult(dict):
         :param str name: The name of the policy type
         :param str status: The status of the policy type as it relates to the associated root
         """
-        GetOrganizationNonMasterAccountResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            email=email,
-            id=id,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             email: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arn is None:
-            raise TypeError("Missing 'arn' argument")
-        if email is None:
-            raise TypeError("Missing 'email' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("arn", arn)
-        _setter("email", email)
-        _setter("id", id)
-        _setter("name", name)
-        _setter("status", status)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -789,37 +576,10 @@ class GetOrganizationRootResult(dict):
         :param str name: The name of the policy type
         :param Sequence['GetOrganizationRootPolicyTypeArgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
         """
-        GetOrganizationRootResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            id=id,
-            name=name,
-            policy_types=policy_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             policy_types: Optional[Sequence['outputs.GetOrganizationRootPolicyTypeResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arn is None:
-            raise TypeError("Missing 'arn' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if policy_types is None and 'policyTypes' in kwargs:
-            policy_types = kwargs['policyTypes']
-        if policy_types is None:
-            raise TypeError("Missing 'policy_types' argument")
-
-        _setter("arn", arn)
-        _setter("id", id)
-        _setter("name", name)
-        _setter("policy_types", policy_types)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "policy_types", policy_types)
 
     @property
     @pulumi.getter
@@ -862,25 +622,8 @@ class GetOrganizationRootPolicyTypeResult(dict):
         """
         :param str status: The status of the policy type as it relates to the associated root
         """
-        GetOrganizationRootPolicyTypeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("status", status)
-        _setter("type", type)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -911,40 +654,11 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
         :param str name: The friendly name of the account.
         :param str status: The status of the account in the organization.
         """
-        GetOrganizationalUnitChildAccountsAccountResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            email=email,
-            id=id,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             email: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arn is None:
-            raise TypeError("Missing 'arn' argument")
-        if email is None:
-            raise TypeError("Missing 'email' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("arn", arn)
-        _setter("email", email)
-        _setter("id", id)
-        _setter("name", name)
-        _setter("status", status)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -1002,40 +716,11 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
         :param str name: The friendly name of the account.
         :param str status: The status of the account in the organization.
         """
-        GetOrganizationalUnitDescendantAccountsAccountResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            email=email,
-            id=id,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             email: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arn is None:
-            raise TypeError("Missing 'arn' argument")
-        if email is None:
-            raise TypeError("Missing 'email' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("arn", arn)
-        _setter("email", email)
-        _setter("id", id)
-        _setter("name", name)
-        _setter("status", status)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -1089,30 +774,9 @@ class GetOrganizationalUnitsChildResult(dict):
         :param str id: Parent identifier of the organizational units.
         :param str name: Name of the organizational unit
         """
-        GetOrganizationalUnitsChildResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arn is None:
-            raise TypeError("Missing 'arn' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("arn", arn)
-        _setter("id", id)
-        _setter("name", name)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter

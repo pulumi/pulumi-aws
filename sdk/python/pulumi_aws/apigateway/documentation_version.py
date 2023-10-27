@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DocumentationVersionArgs', 'DocumentationVersion']
@@ -23,31 +23,10 @@ class DocumentationVersionArgs:
         :param pulumi.Input[str] version: Version identifier of the API documentation snapshot.
         :param pulumi.Input[str] description: Description of the API documentation version.
         """
-        DocumentationVersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rest_api_id=rest_api_id,
-            version=version,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rest_api_id: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rest_api_id is None and 'restApiId' in kwargs:
-            rest_api_id = kwargs['restApiId']
-        if rest_api_id is None:
-            raise TypeError("Missing 'rest_api_id' argument")
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-
-        _setter("rest_api_id", rest_api_id)
-        _setter("version", version)
+        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        pulumi.set(__self__, "version", version)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="restApiId")
@@ -98,29 +77,12 @@ class _DocumentationVersionState:
         :param pulumi.Input[str] rest_api_id: ID of the associated Rest API
         :param pulumi.Input[str] version: Version identifier of the API documentation snapshot.
         """
-        _DocumentationVersionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            rest_api_id=rest_api_id,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             rest_api_id: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rest_api_id is None and 'restApiId' in kwargs:
-            rest_api_id = kwargs['restApiId']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if rest_api_id is not None:
-            _setter("rest_api_id", rest_api_id)
+            pulumi.set(__self__, "rest_api_id", rest_api_id)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -252,10 +214,6 @@ class DocumentationVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DocumentationVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

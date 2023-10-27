@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InboundConnectionAccepterArgs', 'InboundConnectionAccepter']
@@ -19,22 +19,7 @@ class InboundConnectionAccepterArgs:
         The set of arguments for constructing a InboundConnectionAccepter resource.
         :param pulumi.Input[str] connection_id: Specifies the ID of the connection to accept.
         """
-        InboundConnectionAccepterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connection_id=connection_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connection_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_id is None and 'connectionId' in kwargs:
-            connection_id = kwargs['connectionId']
-        if connection_id is None:
-            raise TypeError("Missing 'connection_id' argument")
-
-        _setter("connection_id", connection_id)
+        pulumi.set(__self__, "connection_id", connection_id)
 
     @property
     @pulumi.getter(name="connectionId")
@@ -59,27 +44,10 @@ class _InboundConnectionAccepterState:
         :param pulumi.Input[str] connection_id: Specifies the ID of the connection to accept.
         :param pulumi.Input[str] connection_status: Status of the connection request.
         """
-        _InboundConnectionAccepterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connection_id=connection_id,
-            connection_status=connection_status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connection_id: Optional[pulumi.Input[str]] = None,
-             connection_status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_id is None and 'connectionId' in kwargs:
-            connection_id = kwargs['connectionId']
-        if connection_status is None and 'connectionStatus' in kwargs:
-            connection_status = kwargs['connectionStatus']
-
         if connection_id is not None:
-            _setter("connection_id", connection_id)
+            pulumi.set(__self__, "connection_id", connection_id)
         if connection_status is not None:
-            _setter("connection_status", connection_status)
+            pulumi.set(__self__, "connection_status", connection_status)
 
     @property
     @pulumi.getter(name="connectionId")
@@ -203,10 +171,6 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InboundConnectionAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

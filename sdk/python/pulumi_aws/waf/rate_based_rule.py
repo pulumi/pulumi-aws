@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,48 +31,15 @@ class RateBasedRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        RateBasedRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metric_name=metric_name,
-            rate_key=rate_key,
-            rate_limit=rate_limit,
-            name=name,
-            predicates=predicates,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metric_name: Optional[pulumi.Input[str]] = None,
-             rate_key: Optional[pulumi.Input[str]] = None,
-             rate_limit: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if metric_name is None and 'metricName' in kwargs:
-            metric_name = kwargs['metricName']
-        if metric_name is None:
-            raise TypeError("Missing 'metric_name' argument")
-        if rate_key is None and 'rateKey' in kwargs:
-            rate_key = kwargs['rateKey']
-        if rate_key is None:
-            raise TypeError("Missing 'rate_key' argument")
-        if rate_limit is None and 'rateLimit' in kwargs:
-            rate_limit = kwargs['rateLimit']
-        if rate_limit is None:
-            raise TypeError("Missing 'rate_limit' argument")
-
-        _setter("metric_name", metric_name)
-        _setter("rate_key", rate_key)
-        _setter("rate_limit", rate_limit)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "rate_key", rate_key)
+        pulumi.set(__self__, "rate_limit", rate_limit)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if predicates is not None:
-            _setter("predicates", predicates)
+            pulumi.set(__self__, "predicates", predicates)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="metricName")
@@ -169,58 +136,25 @@ class _RateBasedRuleState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _RateBasedRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            metric_name=metric_name,
-            name=name,
-            predicates=predicates,
-            rate_key=rate_key,
-            rate_limit=rate_limit,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             metric_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
-             rate_key: Optional[pulumi.Input[str]] = None,
-             rate_limit: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if metric_name is None and 'metricName' in kwargs:
-            metric_name = kwargs['metricName']
-        if rate_key is None and 'rateKey' in kwargs:
-            rate_key = kwargs['rateKey']
-        if rate_limit is None and 'rateLimit' in kwargs:
-            rate_limit = kwargs['rateLimit']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if metric_name is not None:
-            _setter("metric_name", metric_name)
+            pulumi.set(__self__, "metric_name", metric_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if predicates is not None:
-            _setter("predicates", predicates)
+            pulumi.set(__self__, "predicates", predicates)
         if rate_key is not None:
-            _setter("rate_key", rate_key)
+            pulumi.set(__self__, "rate_key", rate_key)
         if rate_limit is not None:
-            _setter("rate_limit", rate_limit)
+            pulumi.set(__self__, "rate_limit", rate_limit)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -425,10 +359,6 @@ class RateBasedRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RateBasedRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

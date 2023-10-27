@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConnectionArgs', 'Connection']
@@ -23,33 +23,10 @@ class ConnectionArgs:
         :param pulumi.Input[str] provider_type: Source repository provider. Valid values: `GITHUB`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ConnectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connection_name=connection_name,
-            provider_type=provider_type,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connection_name: Optional[pulumi.Input[str]] = None,
-             provider_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_name is None and 'connectionName' in kwargs:
-            connection_name = kwargs['connectionName']
-        if connection_name is None:
-            raise TypeError("Missing 'connection_name' argument")
-        if provider_type is None and 'providerType' in kwargs:
-            provider_type = kwargs['providerType']
-        if provider_type is None:
-            raise TypeError("Missing 'provider_type' argument")
-
-        _setter("connection_name", connection_name)
-        _setter("provider_type", provider_type)
+        pulumi.set(__self__, "connection_name", connection_name)
+        pulumi.set(__self__, "provider_type", provider_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -106,48 +83,21 @@ class _ConnectionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _ConnectionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            connection_name=connection_name,
-            provider_type=provider_type,
-            status=status,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             connection_name: Optional[pulumi.Input[str]] = None,
-             provider_type: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_name is None and 'connectionName' in kwargs:
-            connection_name = kwargs['connectionName']
-        if provider_type is None and 'providerType' in kwargs:
-            provider_type = kwargs['providerType']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if connection_name is not None:
-            _setter("connection_name", connection_name)
+            pulumi.set(__self__, "connection_name", connection_name)
         if provider_type is not None:
-            _setter("provider_type", provider_type)
+            pulumi.set(__self__, "provider_type", provider_type)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -310,10 +260,6 @@ class Connection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

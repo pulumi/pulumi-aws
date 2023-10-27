@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,43 +31,14 @@ class PlaceIndexArgs:
         :param pulumi.Input[str] description: The optional description for the place index resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        PlaceIndexArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_source=data_source,
-            index_name=index_name,
-            data_source_configuration=data_source_configuration,
-            description=description,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_source: Optional[pulumi.Input[str]] = None,
-             index_name: Optional[pulumi.Input[str]] = None,
-             data_source_configuration: Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_source is None and 'dataSource' in kwargs:
-            data_source = kwargs['dataSource']
-        if data_source is None:
-            raise TypeError("Missing 'data_source' argument")
-        if index_name is None and 'indexName' in kwargs:
-            index_name = kwargs['indexName']
-        if index_name is None:
-            raise TypeError("Missing 'index_name' argument")
-        if data_source_configuration is None and 'dataSourceConfiguration' in kwargs:
-            data_source_configuration = kwargs['dataSourceConfiguration']
-
-        _setter("data_source", data_source)
-        _setter("index_name", index_name)
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "index_name", index_name)
         if data_source_configuration is not None:
-            _setter("data_source_configuration", data_source_configuration)
+            pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -158,68 +129,27 @@ class _PlaceIndexState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] update_time: The timestamp for when the place index resource was last update in ISO 8601.
         """
-        _PlaceIndexState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            create_time=create_time,
-            data_source=data_source,
-            data_source_configuration=data_source_configuration,
-            description=description,
-            index_arn=index_arn,
-            index_name=index_name,
-            tags=tags,
-            tags_all=tags_all,
-            update_time=update_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             create_time: Optional[pulumi.Input[str]] = None,
-             data_source: Optional[pulumi.Input[str]] = None,
-             data_source_configuration: Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             index_arn: Optional[pulumi.Input[str]] = None,
-             index_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             update_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if create_time is None and 'createTime' in kwargs:
-            create_time = kwargs['createTime']
-        if data_source is None and 'dataSource' in kwargs:
-            data_source = kwargs['dataSource']
-        if data_source_configuration is None and 'dataSourceConfiguration' in kwargs:
-            data_source_configuration = kwargs['dataSourceConfiguration']
-        if index_arn is None and 'indexArn' in kwargs:
-            index_arn = kwargs['indexArn']
-        if index_name is None and 'indexName' in kwargs:
-            index_name = kwargs['indexName']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if update_time is None and 'updateTime' in kwargs:
-            update_time = kwargs['updateTime']
-
         if create_time is not None:
-            _setter("create_time", create_time)
+            pulumi.set(__self__, "create_time", create_time)
         if data_source is not None:
-            _setter("data_source", data_source)
+            pulumi.set(__self__, "data_source", data_source)
         if data_source_configuration is not None:
-            _setter("data_source_configuration", data_source_configuration)
+            pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if index_arn is not None:
-            _setter("index_arn", index_arn)
+            pulumi.set(__self__, "index_arn", index_arn)
         if index_name is not None:
-            _setter("index_name", index_name)
+            pulumi.set(__self__, "index_name", index_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if update_time is not None:
-            _setter("update_time", update_time)
+            pulumi.set(__self__, "update_time", update_time)
 
     @property
     @pulumi.getter(name="createTime")
@@ -416,10 +346,6 @@ class PlaceIndex(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PlaceIndexArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -442,7 +368,6 @@ class PlaceIndex(pulumi.CustomResource):
             if data_source is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source'")
             __props__.__dict__["data_source"] = data_source
-            data_source_configuration = _utilities.configure(data_source_configuration, PlaceIndexDataSourceConfigurationArgs, True)
             __props__.__dict__["data_source_configuration"] = data_source_configuration
             __props__.__dict__["description"] = description
             if index_name is None and not opts.urn:

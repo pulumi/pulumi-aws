@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,39 +29,12 @@ class RefreshScheduleArgs:
                
                The following arguments are optional:
         """
-        RefreshScheduleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_set_id=data_set_id,
-            schedule_id=schedule_id,
-            aws_account_id=aws_account_id,
-            schedule=schedule,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_set_id: Optional[pulumi.Input[str]] = None,
-             schedule_id: Optional[pulumi.Input[str]] = None,
-             aws_account_id: Optional[pulumi.Input[str]] = None,
-             schedule: Optional[pulumi.Input['RefreshScheduleScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_set_id is None and 'dataSetId' in kwargs:
-            data_set_id = kwargs['dataSetId']
-        if data_set_id is None:
-            raise TypeError("Missing 'data_set_id' argument")
-        if schedule_id is None and 'scheduleId' in kwargs:
-            schedule_id = kwargs['scheduleId']
-        if schedule_id is None:
-            raise TypeError("Missing 'schedule_id' argument")
-        if aws_account_id is None and 'awsAccountId' in kwargs:
-            aws_account_id = kwargs['awsAccountId']
-
-        _setter("data_set_id", data_set_id)
-        _setter("schedule_id", schedule_id)
+        pulumi.set(__self__, "data_set_id", data_set_id)
+        pulumi.set(__self__, "schedule_id", schedule_id)
         if aws_account_id is not None:
-            _setter("aws_account_id", aws_account_id)
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
 
     @property
     @pulumi.getter(name="dataSetId")
@@ -132,41 +105,16 @@ class _RefreshScheduleState:
                The following arguments are optional:
         :param pulumi.Input[str] schedule_id: The ID of the refresh schedule.
         """
-        _RefreshScheduleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            aws_account_id=aws_account_id,
-            data_set_id=data_set_id,
-            schedule=schedule,
-            schedule_id=schedule_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             aws_account_id: Optional[pulumi.Input[str]] = None,
-             data_set_id: Optional[pulumi.Input[str]] = None,
-             schedule: Optional[pulumi.Input['RefreshScheduleScheduleArgs']] = None,
-             schedule_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if aws_account_id is None and 'awsAccountId' in kwargs:
-            aws_account_id = kwargs['awsAccountId']
-        if data_set_id is None and 'dataSetId' in kwargs:
-            data_set_id = kwargs['dataSetId']
-        if schedule_id is None and 'scheduleId' in kwargs:
-            schedule_id = kwargs['scheduleId']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if aws_account_id is not None:
-            _setter("aws_account_id", aws_account_id)
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
         if data_set_id is not None:
-            _setter("data_set_id", data_set_id)
+            pulumi.set(__self__, "data_set_id", data_set_id)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if schedule_id is not None:
-            _setter("schedule_id", schedule_id)
+            pulumi.set(__self__, "schedule_id", schedule_id)
 
     @property
     @pulumi.getter
@@ -408,10 +356,6 @@ class RefreshSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RefreshScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -434,7 +378,6 @@ class RefreshSchedule(pulumi.CustomResource):
             if data_set_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_set_id'")
             __props__.__dict__["data_set_id"] = data_set_id
-            schedule = _utilities.configure(schedule, RefreshScheduleScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
             if schedule_id is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_id'")

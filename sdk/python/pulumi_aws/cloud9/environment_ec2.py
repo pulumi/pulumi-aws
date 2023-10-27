@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EnvironmentEC2Args', 'EnvironmentEC2']
@@ -43,64 +43,23 @@ class EnvironmentEC2Args:
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        EnvironmentEC2Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_type=instance_type,
-            automatic_stop_time_minutes=automatic_stop_time_minutes,
-            connection_type=connection_type,
-            description=description,
-            image_id=image_id,
-            name=name,
-            owner_arn=owner_arn,
-            subnet_id=subnet_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_type: Optional[pulumi.Input[str]] = None,
-             automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
-             connection_type: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             image_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_arn: Optional[pulumi.Input[str]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if instance_type is None and 'instanceType' in kwargs:
-            instance_type = kwargs['instanceType']
-        if instance_type is None:
-            raise TypeError("Missing 'instance_type' argument")
-        if automatic_stop_time_minutes is None and 'automaticStopTimeMinutes' in kwargs:
-            automatic_stop_time_minutes = kwargs['automaticStopTimeMinutes']
-        if connection_type is None and 'connectionType' in kwargs:
-            connection_type = kwargs['connectionType']
-        if image_id is None and 'imageId' in kwargs:
-            image_id = kwargs['imageId']
-        if owner_arn is None and 'ownerArn' in kwargs:
-            owner_arn = kwargs['ownerArn']
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-
-        _setter("instance_type", instance_type)
+        pulumi.set(__self__, "instance_type", instance_type)
         if automatic_stop_time_minutes is not None:
-            _setter("automatic_stop_time_minutes", automatic_stop_time_minutes)
+            pulumi.set(__self__, "automatic_stop_time_minutes", automatic_stop_time_minutes)
         if connection_type is not None:
-            _setter("connection_type", connection_type)
+            pulumi.set(__self__, "connection_type", connection_type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if image_id is not None:
-            _setter("image_id", image_id)
+            pulumi.set(__self__, "image_id", image_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_arn is not None:
-            _setter("owner_arn", owner_arn)
+            pulumi.set(__self__, "owner_arn", owner_arn)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -257,80 +216,33 @@ class _EnvironmentEC2State:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the environment (e.g., `ssh` or `ec2`)
         """
-        _EnvironmentEC2State._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            automatic_stop_time_minutes=automatic_stop_time_minutes,
-            connection_type=connection_type,
-            description=description,
-            image_id=image_id,
-            instance_type=instance_type,
-            name=name,
-            owner_arn=owner_arn,
-            subnet_id=subnet_id,
-            tags=tags,
-            tags_all=tags_all,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
-             connection_type: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             image_id: Optional[pulumi.Input[str]] = None,
-             instance_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_arn: Optional[pulumi.Input[str]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automatic_stop_time_minutes is None and 'automaticStopTimeMinutes' in kwargs:
-            automatic_stop_time_minutes = kwargs['automaticStopTimeMinutes']
-        if connection_type is None and 'connectionType' in kwargs:
-            connection_type = kwargs['connectionType']
-        if image_id is None and 'imageId' in kwargs:
-            image_id = kwargs['imageId']
-        if instance_type is None and 'instanceType' in kwargs:
-            instance_type = kwargs['instanceType']
-        if owner_arn is None and 'ownerArn' in kwargs:
-            owner_arn = kwargs['ownerArn']
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if automatic_stop_time_minutes is not None:
-            _setter("automatic_stop_time_minutes", automatic_stop_time_minutes)
+            pulumi.set(__self__, "automatic_stop_time_minutes", automatic_stop_time_minutes)
         if connection_type is not None:
-            _setter("connection_type", connection_type)
+            pulumi.set(__self__, "connection_type", connection_type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if image_id is not None:
-            _setter("image_id", image_id)
+            pulumi.set(__self__, "image_id", image_id)
         if instance_type is not None:
-            _setter("instance_type", instance_type)
+            pulumi.set(__self__, "instance_type", instance_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_arn is not None:
-            _setter("owner_arn", owner_arn)
+            pulumi.set(__self__, "owner_arn", owner_arn)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -629,10 +541,6 @@ class EnvironmentEC2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EnvironmentEC2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

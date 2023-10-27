@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,38 +27,13 @@ class LbCertificateArgs:
         :param pulumi.Input[str] name: The SSL/TLS certificate name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         """
-        LbCertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            lb_name=lb_name,
-            domain_name=domain_name,
-            name=name,
-            subject_alternative_names=subject_alternative_names,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             lb_name: Optional[pulumi.Input[str]] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if lb_name is None and 'lbName' in kwargs:
-            lb_name = kwargs['lbName']
-        if lb_name is None:
-            raise TypeError("Missing 'lb_name' argument")
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
-            subject_alternative_names = kwargs['subjectAlternativeNames']
-
-        _setter("lb_name", lb_name)
+        pulumi.set(__self__, "lb_name", lb_name)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if subject_alternative_names is not None:
-            _setter("subject_alternative_names", subject_alternative_names)
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter(name="lbName")
@@ -129,59 +104,22 @@ class _LbCertificateState:
         :param pulumi.Input[str] name: The SSL/TLS certificate name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         """
-        _LbCertificateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_at=created_at,
-            domain_name=domain_name,
-            domain_validation_records=domain_validation_records,
-            lb_name=lb_name,
-            name=name,
-            subject_alternative_names=subject_alternative_names,
-            support_code=support_code,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             created_at: Optional[pulumi.Input[str]] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             domain_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input['LbCertificateDomainValidationRecordArgs']]]] = None,
-             lb_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             support_code: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if domain_validation_records is None and 'domainValidationRecords' in kwargs:
-            domain_validation_records = kwargs['domainValidationRecords']
-        if lb_name is None and 'lbName' in kwargs:
-            lb_name = kwargs['lbName']
-        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
-            subject_alternative_names = kwargs['subjectAlternativeNames']
-        if support_code is None and 'supportCode' in kwargs:
-            support_code = kwargs['supportCode']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if domain_validation_records is not None:
-            _setter("domain_validation_records", domain_validation_records)
+            pulumi.set(__self__, "domain_validation_records", domain_validation_records)
         if lb_name is not None:
-            _setter("lb_name", lb_name)
+            pulumi.set(__self__, "lb_name", lb_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if subject_alternative_names is not None:
-            _setter("subject_alternative_names", subject_alternative_names)
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         if support_code is not None:
-            _setter("support_code", support_code)
+            pulumi.set(__self__, "support_code", support_code)
 
     @property
     @pulumi.getter
@@ -363,10 +301,6 @@ class LbCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LbCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

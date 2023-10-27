@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -22,25 +22,8 @@ class GetProductFilterArgs:
         :param str field: Product attribute name that you want to filter on.
         :param str value: Product attribute value that you want to filter on.
         """
-        GetProductFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("field", field)
-        _setter("value", value)
+        pulumi.set(__self__, "field", field)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -64,99 +64,30 @@ class ClusterArgs:
                cluster
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_name=cluster_name,
-            iam_role_arn=iam_role_arn,
-            node_type=node_type,
-            replication_factor=replication_factor,
-            availability_zones=availability_zones,
-            cluster_endpoint_encryption_type=cluster_endpoint_encryption_type,
-            description=description,
-            maintenance_window=maintenance_window,
-            notification_topic_arn=notification_topic_arn,
-            parameter_group_name=parameter_group_name,
-            security_group_ids=security_group_ids,
-            server_side_encryption=server_side_encryption,
-            subnet_group_name=subnet_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_name: Optional[pulumi.Input[str]] = None,
-             iam_role_arn: Optional[pulumi.Input[str]] = None,
-             node_type: Optional[pulumi.Input[str]] = None,
-             replication_factor: Optional[pulumi.Input[int]] = None,
-             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             cluster_endpoint_encryption_type: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             maintenance_window: Optional[pulumi.Input[str]] = None,
-             notification_topic_arn: Optional[pulumi.Input[str]] = None,
-             parameter_group_name: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             server_side_encryption: Optional[pulumi.Input['ClusterServerSideEncryptionArgs']] = None,
-             subnet_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_name is None and 'clusterName' in kwargs:
-            cluster_name = kwargs['clusterName']
-        if cluster_name is None:
-            raise TypeError("Missing 'cluster_name' argument")
-        if iam_role_arn is None and 'iamRoleArn' in kwargs:
-            iam_role_arn = kwargs['iamRoleArn']
-        if iam_role_arn is None:
-            raise TypeError("Missing 'iam_role_arn' argument")
-        if node_type is None and 'nodeType' in kwargs:
-            node_type = kwargs['nodeType']
-        if node_type is None:
-            raise TypeError("Missing 'node_type' argument")
-        if replication_factor is None and 'replicationFactor' in kwargs:
-            replication_factor = kwargs['replicationFactor']
-        if replication_factor is None:
-            raise TypeError("Missing 'replication_factor' argument")
-        if availability_zones is None and 'availabilityZones' in kwargs:
-            availability_zones = kwargs['availabilityZones']
-        if cluster_endpoint_encryption_type is None and 'clusterEndpointEncryptionType' in kwargs:
-            cluster_endpoint_encryption_type = kwargs['clusterEndpointEncryptionType']
-        if maintenance_window is None and 'maintenanceWindow' in kwargs:
-            maintenance_window = kwargs['maintenanceWindow']
-        if notification_topic_arn is None and 'notificationTopicArn' in kwargs:
-            notification_topic_arn = kwargs['notificationTopicArn']
-        if parameter_group_name is None and 'parameterGroupName' in kwargs:
-            parameter_group_name = kwargs['parameterGroupName']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if server_side_encryption is None and 'serverSideEncryption' in kwargs:
-            server_side_encryption = kwargs['serverSideEncryption']
-        if subnet_group_name is None and 'subnetGroupName' in kwargs:
-            subnet_group_name = kwargs['subnetGroupName']
-
-        _setter("cluster_name", cluster_name)
-        _setter("iam_role_arn", iam_role_arn)
-        _setter("node_type", node_type)
-        _setter("replication_factor", replication_factor)
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        pulumi.set(__self__, "node_type", node_type)
+        pulumi.set(__self__, "replication_factor", replication_factor)
         if availability_zones is not None:
-            _setter("availability_zones", availability_zones)
+            pulumi.set(__self__, "availability_zones", availability_zones)
         if cluster_endpoint_encryption_type is not None:
-            _setter("cluster_endpoint_encryption_type", cluster_endpoint_encryption_type)
+            pulumi.set(__self__, "cluster_endpoint_encryption_type", cluster_endpoint_encryption_type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if maintenance_window is not None:
-            _setter("maintenance_window", maintenance_window)
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if notification_topic_arn is not None:
-            _setter("notification_topic_arn", notification_topic_arn)
+            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
         if parameter_group_name is not None:
-            _setter("parameter_group_name", parameter_group_name)
+            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if server_side_encryption is not None:
-            _setter("server_side_encryption", server_side_encryption)
+            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
         if subnet_group_name is not None:
-            _setter("subnet_group_name", subnet_group_name)
+            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -410,128 +341,49 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _ClusterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            availability_zones=availability_zones,
-            cluster_address=cluster_address,
-            cluster_endpoint_encryption_type=cluster_endpoint_encryption_type,
-            cluster_name=cluster_name,
-            configuration_endpoint=configuration_endpoint,
-            description=description,
-            iam_role_arn=iam_role_arn,
-            maintenance_window=maintenance_window,
-            node_type=node_type,
-            nodes=nodes,
-            notification_topic_arn=notification_topic_arn,
-            parameter_group_name=parameter_group_name,
-            port=port,
-            replication_factor=replication_factor,
-            security_group_ids=security_group_ids,
-            server_side_encryption=server_side_encryption,
-            subnet_group_name=subnet_group_name,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             cluster_address: Optional[pulumi.Input[str]] = None,
-             cluster_endpoint_encryption_type: Optional[pulumi.Input[str]] = None,
-             cluster_name: Optional[pulumi.Input[str]] = None,
-             configuration_endpoint: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             iam_role_arn: Optional[pulumi.Input[str]] = None,
-             maintenance_window: Optional[pulumi.Input[str]] = None,
-             node_type: Optional[pulumi.Input[str]] = None,
-             nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]]] = None,
-             notification_topic_arn: Optional[pulumi.Input[str]] = None,
-             parameter_group_name: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             replication_factor: Optional[pulumi.Input[int]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             server_side_encryption: Optional[pulumi.Input['ClusterServerSideEncryptionArgs']] = None,
-             subnet_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zones is None and 'availabilityZones' in kwargs:
-            availability_zones = kwargs['availabilityZones']
-        if cluster_address is None and 'clusterAddress' in kwargs:
-            cluster_address = kwargs['clusterAddress']
-        if cluster_endpoint_encryption_type is None and 'clusterEndpointEncryptionType' in kwargs:
-            cluster_endpoint_encryption_type = kwargs['clusterEndpointEncryptionType']
-        if cluster_name is None and 'clusterName' in kwargs:
-            cluster_name = kwargs['clusterName']
-        if configuration_endpoint is None and 'configurationEndpoint' in kwargs:
-            configuration_endpoint = kwargs['configurationEndpoint']
-        if iam_role_arn is None and 'iamRoleArn' in kwargs:
-            iam_role_arn = kwargs['iamRoleArn']
-        if maintenance_window is None and 'maintenanceWindow' in kwargs:
-            maintenance_window = kwargs['maintenanceWindow']
-        if node_type is None and 'nodeType' in kwargs:
-            node_type = kwargs['nodeType']
-        if notification_topic_arn is None and 'notificationTopicArn' in kwargs:
-            notification_topic_arn = kwargs['notificationTopicArn']
-        if parameter_group_name is None and 'parameterGroupName' in kwargs:
-            parameter_group_name = kwargs['parameterGroupName']
-        if replication_factor is None and 'replicationFactor' in kwargs:
-            replication_factor = kwargs['replicationFactor']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if server_side_encryption is None and 'serverSideEncryption' in kwargs:
-            server_side_encryption = kwargs['serverSideEncryption']
-        if subnet_group_name is None and 'subnetGroupName' in kwargs:
-            subnet_group_name = kwargs['subnetGroupName']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if availability_zones is not None:
-            _setter("availability_zones", availability_zones)
+            pulumi.set(__self__, "availability_zones", availability_zones)
         if cluster_address is not None:
-            _setter("cluster_address", cluster_address)
+            pulumi.set(__self__, "cluster_address", cluster_address)
         if cluster_endpoint_encryption_type is not None:
-            _setter("cluster_endpoint_encryption_type", cluster_endpoint_encryption_type)
+            pulumi.set(__self__, "cluster_endpoint_encryption_type", cluster_endpoint_encryption_type)
         if cluster_name is not None:
-            _setter("cluster_name", cluster_name)
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if configuration_endpoint is not None:
-            _setter("configuration_endpoint", configuration_endpoint)
+            pulumi.set(__self__, "configuration_endpoint", configuration_endpoint)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if iam_role_arn is not None:
-            _setter("iam_role_arn", iam_role_arn)
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         if maintenance_window is not None:
-            _setter("maintenance_window", maintenance_window)
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if node_type is not None:
-            _setter("node_type", node_type)
+            pulumi.set(__self__, "node_type", node_type)
         if nodes is not None:
-            _setter("nodes", nodes)
+            pulumi.set(__self__, "nodes", nodes)
         if notification_topic_arn is not None:
-            _setter("notification_topic_arn", notification_topic_arn)
+            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
         if parameter_group_name is not None:
-            _setter("parameter_group_name", parameter_group_name)
+            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if replication_factor is not None:
-            _setter("replication_factor", replication_factor)
+            pulumi.set(__self__, "replication_factor", replication_factor)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if server_side_encryption is not None:
-            _setter("server_side_encryption", server_side_encryption)
+            pulumi.set(__self__, "server_side_encryption", server_side_encryption)
         if subnet_group_name is not None:
-            _setter("subnet_group_name", subnet_group_name)
+            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -915,10 +767,6 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -966,7 +814,6 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'replication_factor'")
             __props__.__dict__["replication_factor"] = replication_factor
             __props__.__dict__["security_group_ids"] = security_group_ids
-            server_side_encryption = _utilities.configure(server_side_encryption, ClusterServerSideEncryptionArgs, True)
             __props__.__dict__["server_side_encryption"] = server_side_encryption
             __props__.__dict__["subnet_group_name"] = subnet_group_name
             __props__.__dict__["tags"] = tags

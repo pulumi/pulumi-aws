@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResolverQueryLogConfigAssociationArgs', 'ResolverQueryLogConfigAssociation']
@@ -21,29 +21,8 @@ class ResolverQueryLogConfigAssociationArgs:
         :param pulumi.Input[str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         :param pulumi.Input[str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         """
-        ResolverQueryLogConfigAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resolver_query_log_config_id=resolver_query_log_config_id,
-            resource_id=resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resolver_query_log_config_id: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resolver_query_log_config_id is None and 'resolverQueryLogConfigId' in kwargs:
-            resolver_query_log_config_id = kwargs['resolverQueryLogConfigId']
-        if resolver_query_log_config_id is None:
-            raise TypeError("Missing 'resolver_query_log_config_id' argument")
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-        if resource_id is None:
-            raise TypeError("Missing 'resource_id' argument")
-
-        _setter("resolver_query_log_config_id", resolver_query_log_config_id)
-        _setter("resource_id", resource_id)
+        pulumi.set(__self__, "resolver_query_log_config_id", resolver_query_log_config_id)
+        pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resolverQueryLogConfigId")
@@ -80,27 +59,10 @@ class _ResolverQueryLogConfigAssociationState:
         :param pulumi.Input[str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         :param pulumi.Input[str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         """
-        _ResolverQueryLogConfigAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resolver_query_log_config_id=resolver_query_log_config_id,
-            resource_id=resource_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resolver_query_log_config_id: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resolver_query_log_config_id is None and 'resolverQueryLogConfigId' in kwargs:
-            resolver_query_log_config_id = kwargs['resolverQueryLogConfigId']
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-
         if resolver_query_log_config_id is not None:
-            _setter("resolver_query_log_config_id", resolver_query_log_config_id)
+            pulumi.set(__self__, "resolver_query_log_config_id", resolver_query_log_config_id)
         if resource_id is not None:
-            _setter("resource_id", resource_id)
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resolverQueryLogConfigId")
@@ -204,10 +166,6 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResolverQueryLogConfigAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

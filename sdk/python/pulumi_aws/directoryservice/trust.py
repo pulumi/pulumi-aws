@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TrustArgs', 'Trust']
@@ -42,67 +42,18 @@ class TrustArgs:
                Valid values are `Forest` and `External`.
                Default value is `Forest`.
         """
-        TrustArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            directory_id=directory_id,
-            remote_domain_name=remote_domain_name,
-            trust_direction=trust_direction,
-            trust_password=trust_password,
-            conditional_forwarder_ip_addrs=conditional_forwarder_ip_addrs,
-            delete_associated_conditional_forwarder=delete_associated_conditional_forwarder,
-            selective_auth=selective_auth,
-            trust_type=trust_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             directory_id: Optional[pulumi.Input[str]] = None,
-             remote_domain_name: Optional[pulumi.Input[str]] = None,
-             trust_direction: Optional[pulumi.Input[str]] = None,
-             trust_password: Optional[pulumi.Input[str]] = None,
-             conditional_forwarder_ip_addrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             delete_associated_conditional_forwarder: Optional[pulumi.Input[bool]] = None,
-             selective_auth: Optional[pulumi.Input[str]] = None,
-             trust_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if directory_id is None and 'directoryId' in kwargs:
-            directory_id = kwargs['directoryId']
-        if directory_id is None:
-            raise TypeError("Missing 'directory_id' argument")
-        if remote_domain_name is None and 'remoteDomainName' in kwargs:
-            remote_domain_name = kwargs['remoteDomainName']
-        if remote_domain_name is None:
-            raise TypeError("Missing 'remote_domain_name' argument")
-        if trust_direction is None and 'trustDirection' in kwargs:
-            trust_direction = kwargs['trustDirection']
-        if trust_direction is None:
-            raise TypeError("Missing 'trust_direction' argument")
-        if trust_password is None and 'trustPassword' in kwargs:
-            trust_password = kwargs['trustPassword']
-        if trust_password is None:
-            raise TypeError("Missing 'trust_password' argument")
-        if conditional_forwarder_ip_addrs is None and 'conditionalForwarderIpAddrs' in kwargs:
-            conditional_forwarder_ip_addrs = kwargs['conditionalForwarderIpAddrs']
-        if delete_associated_conditional_forwarder is None and 'deleteAssociatedConditionalForwarder' in kwargs:
-            delete_associated_conditional_forwarder = kwargs['deleteAssociatedConditionalForwarder']
-        if selective_auth is None and 'selectiveAuth' in kwargs:
-            selective_auth = kwargs['selectiveAuth']
-        if trust_type is None and 'trustType' in kwargs:
-            trust_type = kwargs['trustType']
-
-        _setter("directory_id", directory_id)
-        _setter("remote_domain_name", remote_domain_name)
-        _setter("trust_direction", trust_direction)
-        _setter("trust_password", trust_password)
+        pulumi.set(__self__, "directory_id", directory_id)
+        pulumi.set(__self__, "remote_domain_name", remote_domain_name)
+        pulumi.set(__self__, "trust_direction", trust_direction)
+        pulumi.set(__self__, "trust_password", trust_password)
         if conditional_forwarder_ip_addrs is not None:
-            _setter("conditional_forwarder_ip_addrs", conditional_forwarder_ip_addrs)
+            pulumi.set(__self__, "conditional_forwarder_ip_addrs", conditional_forwarder_ip_addrs)
         if delete_associated_conditional_forwarder is not None:
-            _setter("delete_associated_conditional_forwarder", delete_associated_conditional_forwarder)
+            pulumi.set(__self__, "delete_associated_conditional_forwarder", delete_associated_conditional_forwarder)
         if selective_auth is not None:
-            _setter("selective_auth", selective_auth)
+            pulumi.set(__self__, "selective_auth", selective_auth)
         if trust_type is not None:
-            _setter("trust_type", trust_type)
+            pulumi.set(__self__, "trust_type", trust_type)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -252,93 +203,32 @@ class _TrustState:
                Valid values are `Forest` and `External`.
                Default value is `Forest`.
         """
-        _TrustState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            conditional_forwarder_ip_addrs=conditional_forwarder_ip_addrs,
-            created_date_time=created_date_time,
-            delete_associated_conditional_forwarder=delete_associated_conditional_forwarder,
-            directory_id=directory_id,
-            last_updated_date_time=last_updated_date_time,
-            remote_domain_name=remote_domain_name,
-            selective_auth=selective_auth,
-            state_last_updated_date_time=state_last_updated_date_time,
-            trust_direction=trust_direction,
-            trust_password=trust_password,
-            trust_state=trust_state,
-            trust_state_reason=trust_state_reason,
-            trust_type=trust_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             conditional_forwarder_ip_addrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             created_date_time: Optional[pulumi.Input[str]] = None,
-             delete_associated_conditional_forwarder: Optional[pulumi.Input[bool]] = None,
-             directory_id: Optional[pulumi.Input[str]] = None,
-             last_updated_date_time: Optional[pulumi.Input[str]] = None,
-             remote_domain_name: Optional[pulumi.Input[str]] = None,
-             selective_auth: Optional[pulumi.Input[str]] = None,
-             state_last_updated_date_time: Optional[pulumi.Input[str]] = None,
-             trust_direction: Optional[pulumi.Input[str]] = None,
-             trust_password: Optional[pulumi.Input[str]] = None,
-             trust_state: Optional[pulumi.Input[str]] = None,
-             trust_state_reason: Optional[pulumi.Input[str]] = None,
-             trust_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if conditional_forwarder_ip_addrs is None and 'conditionalForwarderIpAddrs' in kwargs:
-            conditional_forwarder_ip_addrs = kwargs['conditionalForwarderIpAddrs']
-        if created_date_time is None and 'createdDateTime' in kwargs:
-            created_date_time = kwargs['createdDateTime']
-        if delete_associated_conditional_forwarder is None and 'deleteAssociatedConditionalForwarder' in kwargs:
-            delete_associated_conditional_forwarder = kwargs['deleteAssociatedConditionalForwarder']
-        if directory_id is None and 'directoryId' in kwargs:
-            directory_id = kwargs['directoryId']
-        if last_updated_date_time is None and 'lastUpdatedDateTime' in kwargs:
-            last_updated_date_time = kwargs['lastUpdatedDateTime']
-        if remote_domain_name is None and 'remoteDomainName' in kwargs:
-            remote_domain_name = kwargs['remoteDomainName']
-        if selective_auth is None and 'selectiveAuth' in kwargs:
-            selective_auth = kwargs['selectiveAuth']
-        if state_last_updated_date_time is None and 'stateLastUpdatedDateTime' in kwargs:
-            state_last_updated_date_time = kwargs['stateLastUpdatedDateTime']
-        if trust_direction is None and 'trustDirection' in kwargs:
-            trust_direction = kwargs['trustDirection']
-        if trust_password is None and 'trustPassword' in kwargs:
-            trust_password = kwargs['trustPassword']
-        if trust_state is None and 'trustState' in kwargs:
-            trust_state = kwargs['trustState']
-        if trust_state_reason is None and 'trustStateReason' in kwargs:
-            trust_state_reason = kwargs['trustStateReason']
-        if trust_type is None and 'trustType' in kwargs:
-            trust_type = kwargs['trustType']
-
         if conditional_forwarder_ip_addrs is not None:
-            _setter("conditional_forwarder_ip_addrs", conditional_forwarder_ip_addrs)
+            pulumi.set(__self__, "conditional_forwarder_ip_addrs", conditional_forwarder_ip_addrs)
         if created_date_time is not None:
-            _setter("created_date_time", created_date_time)
+            pulumi.set(__self__, "created_date_time", created_date_time)
         if delete_associated_conditional_forwarder is not None:
-            _setter("delete_associated_conditional_forwarder", delete_associated_conditional_forwarder)
+            pulumi.set(__self__, "delete_associated_conditional_forwarder", delete_associated_conditional_forwarder)
         if directory_id is not None:
-            _setter("directory_id", directory_id)
+            pulumi.set(__self__, "directory_id", directory_id)
         if last_updated_date_time is not None:
-            _setter("last_updated_date_time", last_updated_date_time)
+            pulumi.set(__self__, "last_updated_date_time", last_updated_date_time)
         if remote_domain_name is not None:
-            _setter("remote_domain_name", remote_domain_name)
+            pulumi.set(__self__, "remote_domain_name", remote_domain_name)
         if selective_auth is not None:
-            _setter("selective_auth", selective_auth)
+            pulumi.set(__self__, "selective_auth", selective_auth)
         if state_last_updated_date_time is not None:
-            _setter("state_last_updated_date_time", state_last_updated_date_time)
+            pulumi.set(__self__, "state_last_updated_date_time", state_last_updated_date_time)
         if trust_direction is not None:
-            _setter("trust_direction", trust_direction)
+            pulumi.set(__self__, "trust_direction", trust_direction)
         if trust_password is not None:
-            _setter("trust_password", trust_password)
+            pulumi.set(__self__, "trust_password", trust_password)
         if trust_state is not None:
-            _setter("trust_state", trust_state)
+            pulumi.set(__self__, "trust_state", trust_state)
         if trust_state_reason is not None:
-            _setter("trust_state_reason", trust_state_reason)
+            pulumi.set(__self__, "trust_state_reason", trust_state_reason)
         if trust_type is not None:
-            _setter("trust_type", trust_type)
+            pulumi.set(__self__, "trust_type", trust_type)
 
     @property
     @pulumi.getter(name="conditionalForwarderIpAddrs")
@@ -703,10 +593,6 @@ class Trust(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TrustArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

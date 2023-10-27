@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccountArgs', 'Account']
@@ -23,33 +23,12 @@ class AccountArgs:
         :param pulumi.Input[str] control_finding_generator: Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         :param pulumi.Input[bool] enable_default_standards: Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
         """
-        AccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_enable_controls=auto_enable_controls,
-            control_finding_generator=control_finding_generator,
-            enable_default_standards=enable_default_standards,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_enable_controls: Optional[pulumi.Input[bool]] = None,
-             control_finding_generator: Optional[pulumi.Input[str]] = None,
-             enable_default_standards: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_enable_controls is None and 'autoEnableControls' in kwargs:
-            auto_enable_controls = kwargs['autoEnableControls']
-        if control_finding_generator is None and 'controlFindingGenerator' in kwargs:
-            control_finding_generator = kwargs['controlFindingGenerator']
-        if enable_default_standards is None and 'enableDefaultStandards' in kwargs:
-            enable_default_standards = kwargs['enableDefaultStandards']
-
         if auto_enable_controls is not None:
-            _setter("auto_enable_controls", auto_enable_controls)
+            pulumi.set(__self__, "auto_enable_controls", auto_enable_controls)
         if control_finding_generator is not None:
-            _setter("control_finding_generator", control_finding_generator)
+            pulumi.set(__self__, "control_finding_generator", control_finding_generator)
         if enable_default_standards is not None:
-            _setter("enable_default_standards", enable_default_standards)
+            pulumi.set(__self__, "enable_default_standards", enable_default_standards)
 
     @property
     @pulumi.getter(name="autoEnableControls")
@@ -102,37 +81,14 @@ class _AccountState:
         :param pulumi.Input[str] control_finding_generator: Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         :param pulumi.Input[bool] enable_default_standards: Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
         """
-        _AccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            auto_enable_controls=auto_enable_controls,
-            control_finding_generator=control_finding_generator,
-            enable_default_standards=enable_default_standards,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             auto_enable_controls: Optional[pulumi.Input[bool]] = None,
-             control_finding_generator: Optional[pulumi.Input[str]] = None,
-             enable_default_standards: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_enable_controls is None and 'autoEnableControls' in kwargs:
-            auto_enable_controls = kwargs['autoEnableControls']
-        if control_finding_generator is None and 'controlFindingGenerator' in kwargs:
-            control_finding_generator = kwargs['controlFindingGenerator']
-        if enable_default_standards is None and 'enableDefaultStandards' in kwargs:
-            enable_default_standards = kwargs['enableDefaultStandards']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if auto_enable_controls is not None:
-            _setter("auto_enable_controls", auto_enable_controls)
+            pulumi.set(__self__, "auto_enable_controls", auto_enable_controls)
         if control_finding_generator is not None:
-            _setter("control_finding_generator", control_finding_generator)
+            pulumi.set(__self__, "control_finding_generator", control_finding_generator)
         if enable_default_standards is not None:
-            _setter("enable_default_standards", enable_default_standards)
+            pulumi.set(__self__, "enable_default_standards", enable_default_standards)
 
     @property
     @pulumi.getter
@@ -258,10 +214,6 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

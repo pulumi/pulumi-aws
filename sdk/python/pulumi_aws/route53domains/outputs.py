@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -84,91 +84,34 @@ class RegisteredDomainAdminContact(dict):
         :param str state: The state or province of the contact's city.
         :param str zip_code: The zip or postal code of the contact's address.
         """
-        RegisteredDomainAdminContact._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address_line1=address_line1,
-            address_line2=address_line2,
-            city=city,
-            contact_type=contact_type,
-            country_code=country_code,
-            email=email,
-            extra_params=extra_params,
-            fax=fax,
-            first_name=first_name,
-            last_name=last_name,
-            organization_name=organization_name,
-            phone_number=phone_number,
-            state=state,
-            zip_code=zip_code,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address_line1: Optional[str] = None,
-             address_line2: Optional[str] = None,
-             city: Optional[str] = None,
-             contact_type: Optional[str] = None,
-             country_code: Optional[str] = None,
-             email: Optional[str] = None,
-             extra_params: Optional[Mapping[str, str]] = None,
-             fax: Optional[str] = None,
-             first_name: Optional[str] = None,
-             last_name: Optional[str] = None,
-             organization_name: Optional[str] = None,
-             phone_number: Optional[str] = None,
-             state: Optional[str] = None,
-             zip_code: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if address_line1 is None and 'addressLine1' in kwargs:
-            address_line1 = kwargs['addressLine1']
-        if address_line2 is None and 'addressLine2' in kwargs:
-            address_line2 = kwargs['addressLine2']
-        if contact_type is None and 'contactType' in kwargs:
-            contact_type = kwargs['contactType']
-        if country_code is None and 'countryCode' in kwargs:
-            country_code = kwargs['countryCode']
-        if extra_params is None and 'extraParams' in kwargs:
-            extra_params = kwargs['extraParams']
-        if first_name is None and 'firstName' in kwargs:
-            first_name = kwargs['firstName']
-        if last_name is None and 'lastName' in kwargs:
-            last_name = kwargs['lastName']
-        if organization_name is None and 'organizationName' in kwargs:
-            organization_name = kwargs['organizationName']
-        if phone_number is None and 'phoneNumber' in kwargs:
-            phone_number = kwargs['phoneNumber']
-        if zip_code is None and 'zipCode' in kwargs:
-            zip_code = kwargs['zipCode']
-
         if address_line1 is not None:
-            _setter("address_line1", address_line1)
+            pulumi.set(__self__, "address_line1", address_line1)
         if address_line2 is not None:
-            _setter("address_line2", address_line2)
+            pulumi.set(__self__, "address_line2", address_line2)
         if city is not None:
-            _setter("city", city)
+            pulumi.set(__self__, "city", city)
         if contact_type is not None:
-            _setter("contact_type", contact_type)
+            pulumi.set(__self__, "contact_type", contact_type)
         if country_code is not None:
-            _setter("country_code", country_code)
+            pulumi.set(__self__, "country_code", country_code)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if extra_params is not None:
-            _setter("extra_params", extra_params)
+            pulumi.set(__self__, "extra_params", extra_params)
         if fax is not None:
-            _setter("fax", fax)
+            pulumi.set(__self__, "fax", fax)
         if first_name is not None:
-            _setter("first_name", first_name)
+            pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
-            _setter("last_name", last_name)
+            pulumi.set(__self__, "last_name", last_name)
         if organization_name is not None:
-            _setter("organization_name", organization_name)
+            pulumi.set(__self__, "organization_name", organization_name)
         if phone_number is not None:
-            _setter("phone_number", phone_number)
+            pulumi.set(__self__, "phone_number", phone_number)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if zip_code is not None:
-            _setter("zip_code", zip_code)
+            pulumi.set(__self__, "zip_code", zip_code)
 
     @property
     @pulumi.getter(name="addressLine1")
@@ -309,26 +252,9 @@ class RegisteredDomainNameServer(dict):
         :param str name: The fully qualified host name of the name server.
         :param Sequence[str] glue_ips: Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
         """
-        RegisteredDomainNameServer._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            glue_ips=glue_ips,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             glue_ips: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if glue_ips is None and 'glueIps' in kwargs:
-            glue_ips = kwargs['glueIps']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if glue_ips is not None:
-            _setter("glue_ips", glue_ips)
+            pulumi.set(__self__, "glue_ips", glue_ips)
 
     @property
     @pulumi.getter
@@ -415,91 +341,34 @@ class RegisteredDomainRegistrantContact(dict):
         :param str state: The state or province of the contact's city.
         :param str zip_code: The zip or postal code of the contact's address.
         """
-        RegisteredDomainRegistrantContact._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address_line1=address_line1,
-            address_line2=address_line2,
-            city=city,
-            contact_type=contact_type,
-            country_code=country_code,
-            email=email,
-            extra_params=extra_params,
-            fax=fax,
-            first_name=first_name,
-            last_name=last_name,
-            organization_name=organization_name,
-            phone_number=phone_number,
-            state=state,
-            zip_code=zip_code,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address_line1: Optional[str] = None,
-             address_line2: Optional[str] = None,
-             city: Optional[str] = None,
-             contact_type: Optional[str] = None,
-             country_code: Optional[str] = None,
-             email: Optional[str] = None,
-             extra_params: Optional[Mapping[str, str]] = None,
-             fax: Optional[str] = None,
-             first_name: Optional[str] = None,
-             last_name: Optional[str] = None,
-             organization_name: Optional[str] = None,
-             phone_number: Optional[str] = None,
-             state: Optional[str] = None,
-             zip_code: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if address_line1 is None and 'addressLine1' in kwargs:
-            address_line1 = kwargs['addressLine1']
-        if address_line2 is None and 'addressLine2' in kwargs:
-            address_line2 = kwargs['addressLine2']
-        if contact_type is None and 'contactType' in kwargs:
-            contact_type = kwargs['contactType']
-        if country_code is None and 'countryCode' in kwargs:
-            country_code = kwargs['countryCode']
-        if extra_params is None and 'extraParams' in kwargs:
-            extra_params = kwargs['extraParams']
-        if first_name is None and 'firstName' in kwargs:
-            first_name = kwargs['firstName']
-        if last_name is None and 'lastName' in kwargs:
-            last_name = kwargs['lastName']
-        if organization_name is None and 'organizationName' in kwargs:
-            organization_name = kwargs['organizationName']
-        if phone_number is None and 'phoneNumber' in kwargs:
-            phone_number = kwargs['phoneNumber']
-        if zip_code is None and 'zipCode' in kwargs:
-            zip_code = kwargs['zipCode']
-
         if address_line1 is not None:
-            _setter("address_line1", address_line1)
+            pulumi.set(__self__, "address_line1", address_line1)
         if address_line2 is not None:
-            _setter("address_line2", address_line2)
+            pulumi.set(__self__, "address_line2", address_line2)
         if city is not None:
-            _setter("city", city)
+            pulumi.set(__self__, "city", city)
         if contact_type is not None:
-            _setter("contact_type", contact_type)
+            pulumi.set(__self__, "contact_type", contact_type)
         if country_code is not None:
-            _setter("country_code", country_code)
+            pulumi.set(__self__, "country_code", country_code)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if extra_params is not None:
-            _setter("extra_params", extra_params)
+            pulumi.set(__self__, "extra_params", extra_params)
         if fax is not None:
-            _setter("fax", fax)
+            pulumi.set(__self__, "fax", fax)
         if first_name is not None:
-            _setter("first_name", first_name)
+            pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
-            _setter("last_name", last_name)
+            pulumi.set(__self__, "last_name", last_name)
         if organization_name is not None:
-            _setter("organization_name", organization_name)
+            pulumi.set(__self__, "organization_name", organization_name)
         if phone_number is not None:
-            _setter("phone_number", phone_number)
+            pulumi.set(__self__, "phone_number", phone_number)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if zip_code is not None:
-            _setter("zip_code", zip_code)
+            pulumi.set(__self__, "zip_code", zip_code)
 
     @property
     @pulumi.getter(name="addressLine1")
@@ -682,91 +551,34 @@ class RegisteredDomainTechContact(dict):
         :param str state: The state or province of the contact's city.
         :param str zip_code: The zip or postal code of the contact's address.
         """
-        RegisteredDomainTechContact._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address_line1=address_line1,
-            address_line2=address_line2,
-            city=city,
-            contact_type=contact_type,
-            country_code=country_code,
-            email=email,
-            extra_params=extra_params,
-            fax=fax,
-            first_name=first_name,
-            last_name=last_name,
-            organization_name=organization_name,
-            phone_number=phone_number,
-            state=state,
-            zip_code=zip_code,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address_line1: Optional[str] = None,
-             address_line2: Optional[str] = None,
-             city: Optional[str] = None,
-             contact_type: Optional[str] = None,
-             country_code: Optional[str] = None,
-             email: Optional[str] = None,
-             extra_params: Optional[Mapping[str, str]] = None,
-             fax: Optional[str] = None,
-             first_name: Optional[str] = None,
-             last_name: Optional[str] = None,
-             organization_name: Optional[str] = None,
-             phone_number: Optional[str] = None,
-             state: Optional[str] = None,
-             zip_code: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if address_line1 is None and 'addressLine1' in kwargs:
-            address_line1 = kwargs['addressLine1']
-        if address_line2 is None and 'addressLine2' in kwargs:
-            address_line2 = kwargs['addressLine2']
-        if contact_type is None and 'contactType' in kwargs:
-            contact_type = kwargs['contactType']
-        if country_code is None and 'countryCode' in kwargs:
-            country_code = kwargs['countryCode']
-        if extra_params is None and 'extraParams' in kwargs:
-            extra_params = kwargs['extraParams']
-        if first_name is None and 'firstName' in kwargs:
-            first_name = kwargs['firstName']
-        if last_name is None and 'lastName' in kwargs:
-            last_name = kwargs['lastName']
-        if organization_name is None and 'organizationName' in kwargs:
-            organization_name = kwargs['organizationName']
-        if phone_number is None and 'phoneNumber' in kwargs:
-            phone_number = kwargs['phoneNumber']
-        if zip_code is None and 'zipCode' in kwargs:
-            zip_code = kwargs['zipCode']
-
         if address_line1 is not None:
-            _setter("address_line1", address_line1)
+            pulumi.set(__self__, "address_line1", address_line1)
         if address_line2 is not None:
-            _setter("address_line2", address_line2)
+            pulumi.set(__self__, "address_line2", address_line2)
         if city is not None:
-            _setter("city", city)
+            pulumi.set(__self__, "city", city)
         if contact_type is not None:
-            _setter("contact_type", contact_type)
+            pulumi.set(__self__, "contact_type", contact_type)
         if country_code is not None:
-            _setter("country_code", country_code)
+            pulumi.set(__self__, "country_code", country_code)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if extra_params is not None:
-            _setter("extra_params", extra_params)
+            pulumi.set(__self__, "extra_params", extra_params)
         if fax is not None:
-            _setter("fax", fax)
+            pulumi.set(__self__, "fax", fax)
         if first_name is not None:
-            _setter("first_name", first_name)
+            pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
-            _setter("last_name", last_name)
+            pulumi.set(__self__, "last_name", last_name)
         if organization_name is not None:
-            _setter("organization_name", organization_name)
+            pulumi.set(__self__, "organization_name", organization_name)
         if phone_number is not None:
-            _setter("phone_number", phone_number)
+            pulumi.set(__self__, "phone_number", phone_number)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if zip_code is not None:
-            _setter("zip_code", zip_code)
+            pulumi.set(__self__, "zip_code", zip_code)
 
     @property
     @pulumi.getter(name="addressLine1")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -32,35 +32,16 @@ class OrganizationAccountArgs:
         :param pulumi.Input[str] name: The name of the policy type
         :param pulumi.Input[str] status: The status of the policy type as it relates to the associated root
         """
-        OrganizationAccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            email=email,
-            id=id,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -138,35 +119,16 @@ class OrganizationNonMasterAccountArgs:
         :param pulumi.Input[str] name: The name of the policy type
         :param pulumi.Input[str] status: The status of the policy type as it relates to the associated root
         """
-        OrganizationNonMasterAccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            email=email,
-            id=id,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -242,33 +204,14 @@ class OrganizationRootArgs:
         :param pulumi.Input[str] name: The name of the policy type
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]] policy_types: List of policy types enabled for this root. All elements have these attributes:
         """
-        OrganizationRootArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            id=id,
-            name=name,
-            policy_types=policy_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             policy_types: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_types is None and 'policyTypes' in kwargs:
-            policy_types = kwargs['policyTypes']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy_types is not None:
-            _setter("policy_types", policy_types)
+            pulumi.set(__self__, "policy_types", policy_types)
 
     @property
     @pulumi.getter
@@ -327,23 +270,10 @@ class OrganizationRootPolicyTypeArgs:
         """
         :param pulumi.Input[str] status: The status of the policy type as it relates to the associated root
         """
-        OrganizationRootPolicyTypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -380,31 +310,14 @@ class OrganizationalUnitAccountArgs:
         :param pulumi.Input[str] id: Identifier of the organization unit
         :param pulumi.Input[str] name: The name for the organizational unit
         """
-        OrganizationalUnitAccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            email=email,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupArgs', 'Group']
@@ -26,36 +26,13 @@ class GroupArgs:
         :param pulumi.Input[str] description: Description of the verified access group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        GroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            verifiedaccess_instance_id=verifiedaccess_instance_id,
-            description=description,
-            policy_document=policy_document,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             verifiedaccess_instance_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             policy_document: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if verifiedaccess_instance_id is None and 'verifiedaccessInstanceId' in kwargs:
-            verifiedaccess_instance_id = kwargs['verifiedaccessInstanceId']
-        if verifiedaccess_instance_id is None:
-            raise TypeError("Missing 'verifiedaccess_instance_id' argument")
-        if policy_document is None and 'policyDocument' in kwargs:
-            policy_document = kwargs['policyDocument']
-
-        _setter("verifiedaccess_instance_id", verifiedaccess_instance_id)
+        pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if policy_document is not None:
-            _setter("policy_document", policy_document)
+            pulumi.set(__self__, "policy_document", policy_document)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="verifiedaccessInstanceId")
@@ -133,78 +110,31 @@ class _GroupState:
                
                The following arguments are optional:
         """
-        _GroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            creation_time=creation_time,
-            deletion_time=deletion_time,
-            description=description,
-            last_updated_time=last_updated_time,
-            owner=owner,
-            policy_document=policy_document,
-            tags=tags,
-            tags_all=tags_all,
-            verifiedaccess_group_arn=verifiedaccess_group_arn,
-            verifiedaccess_group_id=verifiedaccess_group_id,
-            verifiedaccess_instance_id=verifiedaccess_instance_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             creation_time: Optional[pulumi.Input[str]] = None,
-             deletion_time: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             last_updated_time: Optional[pulumi.Input[str]] = None,
-             owner: Optional[pulumi.Input[str]] = None,
-             policy_document: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             verifiedaccess_group_arn: Optional[pulumi.Input[str]] = None,
-             verifiedaccess_group_id: Optional[pulumi.Input[str]] = None,
-             verifiedaccess_instance_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if creation_time is None and 'creationTime' in kwargs:
-            creation_time = kwargs['creationTime']
-        if deletion_time is None and 'deletionTime' in kwargs:
-            deletion_time = kwargs['deletionTime']
-        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
-            last_updated_time = kwargs['lastUpdatedTime']
-        if policy_document is None and 'policyDocument' in kwargs:
-            policy_document = kwargs['policyDocument']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if verifiedaccess_group_arn is None and 'verifiedaccessGroupArn' in kwargs:
-            verifiedaccess_group_arn = kwargs['verifiedaccessGroupArn']
-        if verifiedaccess_group_id is None and 'verifiedaccessGroupId' in kwargs:
-            verifiedaccess_group_id = kwargs['verifiedaccessGroupId']
-        if verifiedaccess_instance_id is None and 'verifiedaccessInstanceId' in kwargs:
-            verifiedaccess_instance_id = kwargs['verifiedaccessInstanceId']
-
         if creation_time is not None:
-            _setter("creation_time", creation_time)
+            pulumi.set(__self__, "creation_time", creation_time)
         if deletion_time is not None:
-            _setter("deletion_time", deletion_time)
+            pulumi.set(__self__, "deletion_time", deletion_time)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if owner is not None:
-            _setter("owner", owner)
+            pulumi.set(__self__, "owner", owner)
         if policy_document is not None:
-            _setter("policy_document", policy_document)
+            pulumi.set(__self__, "policy_document", policy_document)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if verifiedaccess_group_arn is not None:
-            _setter("verifiedaccess_group_arn", verifiedaccess_group_arn)
+            pulumi.set(__self__, "verifiedaccess_group_arn", verifiedaccess_group_arn)
         if verifiedaccess_group_id is not None:
-            _setter("verifiedaccess_group_id", verifiedaccess_group_id)
+            pulumi.set(__self__, "verifiedaccess_group_id", verifiedaccess_group_id)
         if verifiedaccess_instance_id is not None:
-            _setter("verifiedaccess_instance_id", verifiedaccess_instance_id)
+            pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
 
     @property
     @pulumi.getter(name="creationTime")
@@ -398,10 +328,6 @@ class Group(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

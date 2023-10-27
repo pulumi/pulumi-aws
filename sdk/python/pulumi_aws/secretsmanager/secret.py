@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,59 +37,24 @@ class SecretArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]] replicas: Configuration block to support secret replication. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        SecretArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            force_overwrite_replica_secret=force_overwrite_replica_secret,
-            kms_key_id=kms_key_id,
-            name=name,
-            name_prefix=name_prefix,
-            policy=policy,
-            recovery_window_in_days=recovery_window_in_days,
-            replicas=replicas,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             force_overwrite_replica_secret: Optional[pulumi.Input[bool]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             recovery_window_in_days: Optional[pulumi.Input[int]] = None,
-             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if force_overwrite_replica_secret is None and 'forceOverwriteReplicaSecret' in kwargs:
-            force_overwrite_replica_secret = kwargs['forceOverwriteReplicaSecret']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if recovery_window_in_days is None and 'recoveryWindowInDays' in kwargs:
-            recovery_window_in_days = kwargs['recoveryWindowInDays']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if force_overwrite_replica_secret is not None:
-            _setter("force_overwrite_replica_secret", force_overwrite_replica_secret)
+            pulumi.set(__self__, "force_overwrite_replica_secret", force_overwrite_replica_secret)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if recovery_window_in_days is not None:
-            _setter("recovery_window_in_days", recovery_window_in_days)
+            pulumi.set(__self__, "recovery_window_in_days", recovery_window_in_days)
         if replicas is not None:
-            _setter("replicas", replicas)
+            pulumi.set(__self__, "replicas", replicas)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -228,72 +193,31 @@ class _SecretState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _SecretState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            description=description,
-            force_overwrite_replica_secret=force_overwrite_replica_secret,
-            kms_key_id=kms_key_id,
-            name=name,
-            name_prefix=name_prefix,
-            policy=policy,
-            recovery_window_in_days=recovery_window_in_days,
-            replicas=replicas,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             force_overwrite_replica_secret: Optional[pulumi.Input[bool]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             recovery_window_in_days: Optional[pulumi.Input[int]] = None,
-             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if force_overwrite_replica_secret is None and 'forceOverwriteReplicaSecret' in kwargs:
-            force_overwrite_replica_secret = kwargs['forceOverwriteReplicaSecret']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if recovery_window_in_days is None and 'recoveryWindowInDays' in kwargs:
-            recovery_window_in_days = kwargs['recoveryWindowInDays']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if force_overwrite_replica_secret is not None:
-            _setter("force_overwrite_replica_secret", force_overwrite_replica_secret)
+            pulumi.set(__self__, "force_overwrite_replica_secret", force_overwrite_replica_secret)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if recovery_window_in_days is not None:
-            _setter("recovery_window_in_days", recovery_window_in_days)
+            pulumi.set(__self__, "recovery_window_in_days", recovery_window_in_days)
         if replicas is not None:
-            _setter("replicas", replicas)
+            pulumi.set(__self__, "replicas", replicas)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -516,10 +440,6 @@ class Secret(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SecretArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

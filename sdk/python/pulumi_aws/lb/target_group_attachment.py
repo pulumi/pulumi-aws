@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TargetGroupAttachmentArgs', 'TargetGroupAttachment']
@@ -27,39 +27,12 @@ class TargetGroupAttachmentArgs:
         :param pulumi.Input[str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         :param pulumi.Input[int] port: The port on which targets receive traffic.
         """
-        TargetGroupAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_group_arn=target_group_arn,
-            target_id=target_id,
-            availability_zone=availability_zone,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_group_arn: Optional[pulumi.Input[str]] = None,
-             target_id: Optional[pulumi.Input[str]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if target_group_arn is None and 'targetGroupArn' in kwargs:
-            target_group_arn = kwargs['targetGroupArn']
-        if target_group_arn is None:
-            raise TypeError("Missing 'target_group_arn' argument")
-        if target_id is None and 'targetId' in kwargs:
-            target_id = kwargs['targetId']
-        if target_id is None:
-            raise TypeError("Missing 'target_id' argument")
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-
-        _setter("target_group_arn", target_group_arn)
-        _setter("target_id", target_id)
+        pulumi.set(__self__, "target_group_arn", target_group_arn)
+        pulumi.set(__self__, "target_id", target_id)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="targetGroupArn")
@@ -128,37 +101,14 @@ class _TargetGroupAttachmentState:
                
                The following arguments are optional:
         """
-        _TargetGroupAttachmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone=availability_zone,
-            port=port,
-            target_group_arn=target_group_arn,
-            target_id=target_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             target_group_arn: Optional[pulumi.Input[str]] = None,
-             target_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if target_group_arn is None and 'targetGroupArn' in kwargs:
-            target_group_arn = kwargs['targetGroupArn']
-        if target_id is None and 'targetId' in kwargs:
-            target_id = kwargs['targetId']
-
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if target_group_arn is not None:
-            _setter("target_group_arn", target_group_arn)
+            pulumi.set(__self__, "target_group_arn", target_group_arn)
         if target_id is not None:
-            _setter("target_id", target_id)
+            pulumi.set(__self__, "target_id", target_id)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -380,10 +330,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TargetGroupAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

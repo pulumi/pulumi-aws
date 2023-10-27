@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ScheduleArgs', 'Schedule']
@@ -39,69 +39,22 @@ class ScheduleArgs:
                
                > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
-        ScheduleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            autoscaling_group_name=autoscaling_group_name,
-            scheduled_action_name=scheduled_action_name,
-            desired_capacity=desired_capacity,
-            end_time=end_time,
-            max_size=max_size,
-            min_size=min_size,
-            recurrence=recurrence,
-            start_time=start_time,
-            time_zone=time_zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-             scheduled_action_name: Optional[pulumi.Input[str]] = None,
-             desired_capacity: Optional[pulumi.Input[int]] = None,
-             end_time: Optional[pulumi.Input[str]] = None,
-             max_size: Optional[pulumi.Input[int]] = None,
-             min_size: Optional[pulumi.Input[int]] = None,
-             recurrence: Optional[pulumi.Input[str]] = None,
-             start_time: Optional[pulumi.Input[str]] = None,
-             time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if autoscaling_group_name is None and 'autoscalingGroupName' in kwargs:
-            autoscaling_group_name = kwargs['autoscalingGroupName']
-        if autoscaling_group_name is None:
-            raise TypeError("Missing 'autoscaling_group_name' argument")
-        if scheduled_action_name is None and 'scheduledActionName' in kwargs:
-            scheduled_action_name = kwargs['scheduledActionName']
-        if scheduled_action_name is None:
-            raise TypeError("Missing 'scheduled_action_name' argument")
-        if desired_capacity is None and 'desiredCapacity' in kwargs:
-            desired_capacity = kwargs['desiredCapacity']
-        if end_time is None and 'endTime' in kwargs:
-            end_time = kwargs['endTime']
-        if max_size is None and 'maxSize' in kwargs:
-            max_size = kwargs['maxSize']
-        if min_size is None and 'minSize' in kwargs:
-            min_size = kwargs['minSize']
-        if start_time is None and 'startTime' in kwargs:
-            start_time = kwargs['startTime']
-        if time_zone is None and 'timeZone' in kwargs:
-            time_zone = kwargs['timeZone']
-
-        _setter("autoscaling_group_name", autoscaling_group_name)
-        _setter("scheduled_action_name", scheduled_action_name)
+        pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
+        pulumi.set(__self__, "scheduled_action_name", scheduled_action_name)
         if desired_capacity is not None:
-            _setter("desired_capacity", desired_capacity)
+            pulumi.set(__self__, "desired_capacity", desired_capacity)
         if end_time is not None:
-            _setter("end_time", end_time)
+            pulumi.set(__self__, "end_time", end_time)
         if max_size is not None:
-            _setter("max_size", max_size)
+            pulumi.set(__self__, "max_size", max_size)
         if min_size is not None:
-            _setter("min_size", min_size)
+            pulumi.set(__self__, "min_size", min_size)
         if recurrence is not None:
-            _setter("recurrence", recurrence)
+            pulumi.set(__self__, "recurrence", recurrence)
         if start_time is not None:
-            _setter("start_time", start_time)
+            pulumi.set(__self__, "start_time", start_time)
         if time_zone is not None:
-            _setter("time_zone", time_zone)
+            pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -246,71 +199,26 @@ class _ScheduleState:
                
                > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
-        _ScheduleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            autoscaling_group_name=autoscaling_group_name,
-            desired_capacity=desired_capacity,
-            end_time=end_time,
-            max_size=max_size,
-            min_size=min_size,
-            recurrence=recurrence,
-            scheduled_action_name=scheduled_action_name,
-            start_time=start_time,
-            time_zone=time_zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-             desired_capacity: Optional[pulumi.Input[int]] = None,
-             end_time: Optional[pulumi.Input[str]] = None,
-             max_size: Optional[pulumi.Input[int]] = None,
-             min_size: Optional[pulumi.Input[int]] = None,
-             recurrence: Optional[pulumi.Input[str]] = None,
-             scheduled_action_name: Optional[pulumi.Input[str]] = None,
-             start_time: Optional[pulumi.Input[str]] = None,
-             time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if autoscaling_group_name is None and 'autoscalingGroupName' in kwargs:
-            autoscaling_group_name = kwargs['autoscalingGroupName']
-        if desired_capacity is None and 'desiredCapacity' in kwargs:
-            desired_capacity = kwargs['desiredCapacity']
-        if end_time is None and 'endTime' in kwargs:
-            end_time = kwargs['endTime']
-        if max_size is None and 'maxSize' in kwargs:
-            max_size = kwargs['maxSize']
-        if min_size is None and 'minSize' in kwargs:
-            min_size = kwargs['minSize']
-        if scheduled_action_name is None and 'scheduledActionName' in kwargs:
-            scheduled_action_name = kwargs['scheduledActionName']
-        if start_time is None and 'startTime' in kwargs:
-            start_time = kwargs['startTime']
-        if time_zone is None and 'timeZone' in kwargs:
-            time_zone = kwargs['timeZone']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if autoscaling_group_name is not None:
-            _setter("autoscaling_group_name", autoscaling_group_name)
+            pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         if desired_capacity is not None:
-            _setter("desired_capacity", desired_capacity)
+            pulumi.set(__self__, "desired_capacity", desired_capacity)
         if end_time is not None:
-            _setter("end_time", end_time)
+            pulumi.set(__self__, "end_time", end_time)
         if max_size is not None:
-            _setter("max_size", max_size)
+            pulumi.set(__self__, "max_size", max_size)
         if min_size is not None:
-            _setter("min_size", min_size)
+            pulumi.set(__self__, "min_size", min_size)
         if recurrence is not None:
-            _setter("recurrence", recurrence)
+            pulumi.set(__self__, "recurrence", recurrence)
         if scheduled_action_name is not None:
-            _setter("scheduled_action_name", scheduled_action_name)
+            pulumi.set(__self__, "scheduled_action_name", scheduled_action_name)
         if start_time is not None:
-            _setter("start_time", start_time)
+            pulumi.set(__self__, "start_time", start_time)
         if time_zone is not None:
-            _setter("time_zone", time_zone)
+            pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -554,10 +462,6 @@ class Schedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

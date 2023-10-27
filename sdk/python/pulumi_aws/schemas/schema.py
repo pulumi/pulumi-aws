@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SchemaArgs', 'Schema']
@@ -29,44 +29,15 @@ class SchemaArgs:
         :param pulumi.Input[str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        SchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            registry_name=registry_name,
-            type=type,
-            description=description,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[pulumi.Input[str]] = None,
-             registry_name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if registry_name is None and 'registryName' in kwargs:
-            registry_name = kwargs['registryName']
-        if registry_name is None:
-            raise TypeError("Missing 'registry_name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("content", content)
-        _setter("registry_name", registry_name)
-        _setter("type", type)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "registry_name", registry_name)
+        pulumi.set(__self__, "type", type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -169,70 +140,31 @@ class _SchemaState:
         :param pulumi.Input[str] version: The version of the schema.
         :param pulumi.Input[str] version_created_date: The created date of the version of the schema.
         """
-        _SchemaState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            content=content,
-            description=description,
-            last_modified=last_modified,
-            name=name,
-            registry_name=registry_name,
-            tags=tags,
-            tags_all=tags_all,
-            type=type,
-            version=version,
-            version_created_date=version_created_date,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             last_modified: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             registry_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             version_created_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if last_modified is None and 'lastModified' in kwargs:
-            last_modified = kwargs['lastModified']
-        if registry_name is None and 'registryName' in kwargs:
-            registry_name = kwargs['registryName']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if version_created_date is None and 'versionCreatedDate' in kwargs:
-            version_created_date = kwargs['versionCreatedDate']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if last_modified is not None:
-            _setter("last_modified", last_modified)
+            pulumi.set(__self__, "last_modified", last_modified)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if registry_name is not None:
-            _setter("registry_name", registry_name)
+            pulumi.set(__self__, "registry_name", registry_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
         if version_created_date is not None:
-            _setter("version_created_date", version_created_date)
+            pulumi.set(__self__, "version_created_date", version_created_date)
 
     @property
     @pulumi.getter
@@ -501,10 +433,6 @@ class Schema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

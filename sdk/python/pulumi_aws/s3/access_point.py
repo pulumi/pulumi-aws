@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,52 +35,19 @@ class AccessPointArgs:
         :param pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
         :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
         """
-        AccessPointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            account_id=account_id,
-            bucket_account_id=bucket_account_id,
-            name=name,
-            policy=policy,
-            public_access_block_configuration=public_access_block_configuration,
-            vpc_configuration=vpc_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[pulumi.Input[str]] = None,
-             account_id: Optional[pulumi.Input[str]] = None,
-             bucket_account_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             public_access_block_configuration: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']] = None,
-             vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket is None:
-            raise TypeError("Missing 'bucket' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if bucket_account_id is None and 'bucketAccountId' in kwargs:
-            bucket_account_id = kwargs['bucketAccountId']
-        if public_access_block_configuration is None and 'publicAccessBlockConfiguration' in kwargs:
-            public_access_block_configuration = kwargs['publicAccessBlockConfiguration']
-        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
-            vpc_configuration = kwargs['vpcConfiguration']
-
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if bucket_account_id is not None:
-            _setter("bucket_account_id", bucket_account_id)
+            pulumi.set(__self__, "bucket_account_id", bucket_account_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if public_access_block_configuration is not None:
-            _setter("public_access_block_configuration", public_access_block_configuration)
+            pulumi.set(__self__, "public_access_block_configuration", public_access_block_configuration)
         if vpc_configuration is not None:
-            _setter("vpc_configuration", vpc_configuration)
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter
@@ -204,81 +171,32 @@ class _AccessPointState:
         :param pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
         :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
         """
-        _AccessPointState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            alias=alias,
-            arn=arn,
-            bucket=bucket,
-            bucket_account_id=bucket_account_id,
-            domain_name=domain_name,
-            endpoints=endpoints,
-            has_public_access_policy=has_public_access_policy,
-            name=name,
-            network_origin=network_origin,
-            policy=policy,
-            public_access_block_configuration=public_access_block_configuration,
-            vpc_configuration=vpc_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             alias: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             bucket: Optional[pulumi.Input[str]] = None,
-             bucket_account_id: Optional[pulumi.Input[str]] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             has_public_access_policy: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_origin: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             public_access_block_configuration: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']] = None,
-             vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if bucket_account_id is None and 'bucketAccountId' in kwargs:
-            bucket_account_id = kwargs['bucketAccountId']
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if has_public_access_policy is None and 'hasPublicAccessPolicy' in kwargs:
-            has_public_access_policy = kwargs['hasPublicAccessPolicy']
-        if network_origin is None and 'networkOrigin' in kwargs:
-            network_origin = kwargs['networkOrigin']
-        if public_access_block_configuration is None and 'publicAccessBlockConfiguration' in kwargs:
-            public_access_block_configuration = kwargs['publicAccessBlockConfiguration']
-        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
-            vpc_configuration = kwargs['vpcConfiguration']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if alias is not None:
-            _setter("alias", alias)
+            pulumi.set(__self__, "alias", alias)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if bucket is not None:
-            _setter("bucket", bucket)
+            pulumi.set(__self__, "bucket", bucket)
         if bucket_account_id is not None:
-            _setter("bucket_account_id", bucket_account_id)
+            pulumi.set(__self__, "bucket_account_id", bucket_account_id)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if endpoints is not None:
-            _setter("endpoints", endpoints)
+            pulumi.set(__self__, "endpoints", endpoints)
         if has_public_access_policy is not None:
-            _setter("has_public_access_policy", has_public_access_policy)
+            pulumi.set(__self__, "has_public_access_policy", has_public_access_policy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_origin is not None:
-            _setter("network_origin", network_origin)
+            pulumi.set(__self__, "network_origin", network_origin)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if public_access_block_configuration is not None:
-            _setter("public_access_block_configuration", public_access_block_configuration)
+            pulumi.set(__self__, "public_access_block_configuration", public_access_block_configuration)
         if vpc_configuration is not None:
-            _setter("vpc_configuration", vpc_configuration)
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="accountId")
@@ -579,10 +497,6 @@ class AccessPoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccessPointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -611,9 +525,7 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["bucket_account_id"] = bucket_account_id
             __props__.__dict__["name"] = name
             __props__.__dict__["policy"] = policy
-            public_access_block_configuration = _utilities.configure(public_access_block_configuration, AccessPointPublicAccessBlockConfigurationArgs, True)
             __props__.__dict__["public_access_block_configuration"] = public_access_block_configuration
-            vpc_configuration = _utilities.configure(vpc_configuration, AccessPointVpcConfigurationArgs, True)
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["alias"] = None
             __props__.__dict__["arn"] = None

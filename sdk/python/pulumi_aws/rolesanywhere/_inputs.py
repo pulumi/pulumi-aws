@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -23,29 +23,8 @@ class TrustAnchorSourceArgs:
         :param pulumi.Input['TrustAnchorSourceSourceDataArgs'] source_data: The data denoting the source of trust, documented below
         :param pulumi.Input[str] source_type: The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
         """
-        TrustAnchorSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_data=source_data,
-            source_type=source_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_data: Optional[pulumi.Input['TrustAnchorSourceSourceDataArgs']] = None,
-             source_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if source_data is None and 'sourceData' in kwargs:
-            source_data = kwargs['sourceData']
-        if source_data is None:
-            raise TypeError("Missing 'source_data' argument")
-        if source_type is None and 'sourceType' in kwargs:
-            source_type = kwargs['sourceType']
-        if source_type is None:
-            raise TypeError("Missing 'source_type' argument")
-
-        _setter("source_data", source_data)
-        _setter("source_type", source_type)
+        pulumi.set(__self__, "source_data", source_data)
+        pulumi.set(__self__, "source_type", source_type)
 
     @property
     @pulumi.getter(name="sourceData")
@@ -80,27 +59,10 @@ class TrustAnchorSourceSourceDataArgs:
         """
         :param pulumi.Input[str] acm_pca_arn: The ARN of an ACM Private Certificate Authority.
         """
-        TrustAnchorSourceSourceDataArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acm_pca_arn=acm_pca_arn,
-            x509_certificate_data=x509_certificate_data,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acm_pca_arn: Optional[pulumi.Input[str]] = None,
-             x509_certificate_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if acm_pca_arn is None and 'acmPcaArn' in kwargs:
-            acm_pca_arn = kwargs['acmPcaArn']
-        if x509_certificate_data is None and 'x509CertificateData' in kwargs:
-            x509_certificate_data = kwargs['x509CertificateData']
-
         if acm_pca_arn is not None:
-            _setter("acm_pca_arn", acm_pca_arn)
+            pulumi.set(__self__, "acm_pca_arn", acm_pca_arn)
         if x509_certificate_data is not None:
-            _setter("x509_certificate_data", x509_certificate_data)
+            pulumi.set(__self__, "x509_certificate_data", x509_certificate_data)
 
     @property
     @pulumi.getter(name="acmPcaArn")

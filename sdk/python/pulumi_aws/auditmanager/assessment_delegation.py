@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AssessmentDelegationArgs', 'AssessmentDelegation']
@@ -29,47 +29,12 @@ class AssessmentDelegationArgs:
                The following arguments are optional:
         :param pulumi.Input[str] comment: Comment describing the delegation request.
         """
-        AssessmentDelegationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assessment_id=assessment_id,
-            control_set_id=control_set_id,
-            role_arn=role_arn,
-            role_type=role_type,
-            comment=comment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assessment_id: Optional[pulumi.Input[str]] = None,
-             control_set_id: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             role_type: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assessment_id is None and 'assessmentId' in kwargs:
-            assessment_id = kwargs['assessmentId']
-        if assessment_id is None:
-            raise TypeError("Missing 'assessment_id' argument")
-        if control_set_id is None and 'controlSetId' in kwargs:
-            control_set_id = kwargs['controlSetId']
-        if control_set_id is None:
-            raise TypeError("Missing 'control_set_id' argument")
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if role_type is None and 'roleType' in kwargs:
-            role_type = kwargs['roleType']
-        if role_type is None:
-            raise TypeError("Missing 'role_type' argument")
-
-        _setter("assessment_id", assessment_id)
-        _setter("control_set_id", control_set_id)
-        _setter("role_arn", role_arn)
-        _setter("role_type", role_type)
+        pulumi.set(__self__, "assessment_id", assessment_id)
+        pulumi.set(__self__, "control_set_id", control_set_id)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "role_type", role_type)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
 
     @property
     @pulumi.getter(name="assessmentId")
@@ -156,53 +121,20 @@ class _AssessmentDelegationState:
                The following arguments are optional:
         :param pulumi.Input[str] status: Status of the delegation.
         """
-        _AssessmentDelegationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assessment_id=assessment_id,
-            comment=comment,
-            control_set_id=control_set_id,
-            delegation_id=delegation_id,
-            role_arn=role_arn,
-            role_type=role_type,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assessment_id: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             control_set_id: Optional[pulumi.Input[str]] = None,
-             delegation_id: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             role_type: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assessment_id is None and 'assessmentId' in kwargs:
-            assessment_id = kwargs['assessmentId']
-        if control_set_id is None and 'controlSetId' in kwargs:
-            control_set_id = kwargs['controlSetId']
-        if delegation_id is None and 'delegationId' in kwargs:
-            delegation_id = kwargs['delegationId']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_type is None and 'roleType' in kwargs:
-            role_type = kwargs['roleType']
-
         if assessment_id is not None:
-            _setter("assessment_id", assessment_id)
+            pulumi.set(__self__, "assessment_id", assessment_id)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if control_set_id is not None:
-            _setter("control_set_id", control_set_id)
+            pulumi.set(__self__, "control_set_id", control_set_id)
         if delegation_id is not None:
-            _setter("delegation_id", delegation_id)
+            pulumi.set(__self__, "delegation_id", delegation_id)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if role_type is not None:
-            _setter("role_type", role_type)
+            pulumi.set(__self__, "role_type", role_type)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="assessmentId")
@@ -378,10 +310,6 @@ class AssessmentDelegation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AssessmentDelegationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

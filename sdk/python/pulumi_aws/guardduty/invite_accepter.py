@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InviteAccepterArgs', 'InviteAccepter']
@@ -21,29 +21,8 @@ class InviteAccepterArgs:
         :param pulumi.Input[str] detector_id: The detector ID of the member GuardDuty account.
         :param pulumi.Input[str] master_account_id: AWS account ID for primary account.
         """
-        InviteAccepterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            detector_id=detector_id,
-            master_account_id=master_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             detector_id: Optional[pulumi.Input[str]] = None,
-             master_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if detector_id is None and 'detectorId' in kwargs:
-            detector_id = kwargs['detectorId']
-        if detector_id is None:
-            raise TypeError("Missing 'detector_id' argument")
-        if master_account_id is None and 'masterAccountId' in kwargs:
-            master_account_id = kwargs['masterAccountId']
-        if master_account_id is None:
-            raise TypeError("Missing 'master_account_id' argument")
-
-        _setter("detector_id", detector_id)
-        _setter("master_account_id", master_account_id)
+        pulumi.set(__self__, "detector_id", detector_id)
+        pulumi.set(__self__, "master_account_id", master_account_id)
 
     @property
     @pulumi.getter(name="detectorId")
@@ -80,27 +59,10 @@ class _InviteAccepterState:
         :param pulumi.Input[str] detector_id: The detector ID of the member GuardDuty account.
         :param pulumi.Input[str] master_account_id: AWS account ID for primary account.
         """
-        _InviteAccepterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            detector_id=detector_id,
-            master_account_id=master_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             detector_id: Optional[pulumi.Input[str]] = None,
-             master_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if detector_id is None and 'detectorId' in kwargs:
-            detector_id = kwargs['detectorId']
-        if master_account_id is None and 'masterAccountId' in kwargs:
-            master_account_id = kwargs['masterAccountId']
-
         if detector_id is not None:
-            _setter("detector_id", detector_id)
+            pulumi.set(__self__, "detector_id", detector_id)
         if master_account_id is not None:
-            _setter("master_account_id", master_account_id)
+            pulumi.set(__self__, "master_account_id", master_account_id)
 
     @property
     @pulumi.getter(name="detectorId")
@@ -224,10 +186,6 @@ class InviteAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InviteAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterPolicyArgs', 'ClusterPolicy']
@@ -21,27 +21,8 @@ class ClusterPolicyArgs:
         :param pulumi.Input[str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
         :param pulumi.Input[str] policy: Resource policy for cluster.
         """
-        ClusterPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_arn=cluster_arn,
-            policy=policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_arn: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_arn is None and 'clusterArn' in kwargs:
-            cluster_arn = kwargs['clusterArn']
-        if cluster_arn is None:
-            raise TypeError("Missing 'cluster_arn' argument")
-        if policy is None:
-            raise TypeError("Missing 'policy' argument")
-
-        _setter("cluster_arn", cluster_arn)
-        _setter("policy", policy)
+        pulumi.set(__self__, "cluster_arn", cluster_arn)
+        pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -79,31 +60,12 @@ class _ClusterPolicyState:
         :param pulumi.Input[str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
         :param pulumi.Input[str] policy: Resource policy for cluster.
         """
-        _ClusterPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_arn=cluster_arn,
-            current_version=current_version,
-            policy=policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_arn: Optional[pulumi.Input[str]] = None,
-             current_version: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_arn is None and 'clusterArn' in kwargs:
-            cluster_arn = kwargs['clusterArn']
-        if current_version is None and 'currentVersion' in kwargs:
-            current_version = kwargs['currentVersion']
-
         if cluster_arn is not None:
-            _setter("cluster_arn", cluster_arn)
+            pulumi.set(__self__, "cluster_arn", cluster_arn)
         if current_version is not None:
-            _setter("current_version", current_version)
+            pulumi.set(__self__, "current_version", current_version)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -252,10 +214,6 @@ class ClusterPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClusterPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

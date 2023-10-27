@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -22,19 +22,8 @@ class FindingsFilterFindingCriteria(dict):
         """
         :param Sequence['FindingsFilterFindingCriteriaCriterionArgs'] criterions: A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
         """
-        FindingsFilterFindingCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            criterions=criterions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             criterions: Optional[Sequence['outputs.FindingsFilterFindingCriteriaCriterion']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if criterions is not None:
-            _setter("criterions", criterions)
+            pulumi.set(__self__, "criterions", criterions)
 
     @property
     @pulumi.getter
@@ -83,50 +72,21 @@ class FindingsFilterFindingCriteriaCriterion(dict):
         :param str lte: The value for the property is less than or equal to the specified value.
         :param Sequence[str] neqs: The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
         """
-        FindingsFilterFindingCriteriaCriterion._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            eq_exact_matches=eq_exact_matches,
-            eqs=eqs,
-            gt=gt,
-            gte=gte,
-            lt=lt,
-            lte=lte,
-            neqs=neqs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             eq_exact_matches: Optional[Sequence[str]] = None,
-             eqs: Optional[Sequence[str]] = None,
-             gt: Optional[str] = None,
-             gte: Optional[str] = None,
-             lt: Optional[str] = None,
-             lte: Optional[str] = None,
-             neqs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if eq_exact_matches is None and 'eqExactMatches' in kwargs:
-            eq_exact_matches = kwargs['eqExactMatches']
-
-        _setter("field", field)
+        pulumi.set(__self__, "field", field)
         if eq_exact_matches is not None:
-            _setter("eq_exact_matches", eq_exact_matches)
+            pulumi.set(__self__, "eq_exact_matches", eq_exact_matches)
         if eqs is not None:
-            _setter("eqs", eqs)
+            pulumi.set(__self__, "eqs", eqs)
         if gt is not None:
-            _setter("gt", gt)
+            pulumi.set(__self__, "gt", gt)
         if gte is not None:
-            _setter("gte", gte)
+            pulumi.set(__self__, "gte", gte)
         if lt is not None:
-            _setter("lt", lt)
+            pulumi.set(__self__, "lt", lt)
         if lte is not None:
-            _setter("lte", lte)
+            pulumi.set(__self__, "lte", lte)
         if neqs is not None:
-            _setter("neqs", neqs)
+            pulumi.set(__self__, "neqs", neqs)
 
     @property
     @pulumi.getter

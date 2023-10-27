@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -53,27 +53,8 @@ class AssessmentAssessmentReportsDestination(dict):
         :param str destination: Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
         :param str destination_type: Destination type. Currently, `S3` is the only valid value.
         """
-        AssessmentAssessmentReportsDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            destination_type=destination_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[str] = None,
-             destination_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if destination_type is None and 'destinationType' in kwargs:
-            destination_type = kwargs['destinationType']
-        if destination_type is None:
-            raise TypeError("Missing 'destination_type' argument")
-
-        _setter("destination", destination)
-        _setter("destination_type", destination_type)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_type", destination_type)
 
     @property
     @pulumi.getter
@@ -120,29 +101,8 @@ class AssessmentRole(dict):
         :param str role_arn: Amazon Resource Name (ARN) of the IAM role.
         :param str role_type: Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
         """
-        AssessmentRole._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            role_type=role_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: Optional[str] = None,
-             role_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if role_type is None and 'roleType' in kwargs:
-            role_type = kwargs['roleType']
-        if role_type is None:
-            raise TypeError("Missing 'role_type' argument")
-
-        _setter("role_arn", role_arn)
-        _setter("role_type", role_type)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "role_type", role_type)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -189,29 +149,8 @@ class AssessmentRolesAll(dict):
         :param str role_arn: Amazon Resource Name (ARN) of the IAM role.
         :param str role_type: Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
         """
-        AssessmentRolesAll._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            role_type=role_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: Optional[str] = None,
-             role_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if role_type is None and 'roleType' in kwargs:
-            role_type = kwargs['roleType']
-        if role_type is None:
-            raise TypeError("Missing 'role_type' argument")
-
-        _setter("role_arn", role_arn)
-        _setter("role_type", role_type)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "role_type", role_type)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -258,27 +197,10 @@ class AssessmentScope(dict):
         :param Sequence['AssessmentScopeAwsAccountArgs'] aws_accounts: Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
         :param Sequence['AssessmentScopeAwsServiceArgs'] aws_services: Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
         """
-        AssessmentScope._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_accounts=aws_accounts,
-            aws_services=aws_services,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_accounts: Optional[Sequence['outputs.AssessmentScopeAwsAccount']] = None,
-             aws_services: Optional[Sequence['outputs.AssessmentScopeAwsService']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if aws_accounts is None and 'awsAccounts' in kwargs:
-            aws_accounts = kwargs['awsAccounts']
-        if aws_services is None and 'awsServices' in kwargs:
-            aws_services = kwargs['awsServices']
-
         if aws_accounts is not None:
-            _setter("aws_accounts", aws_accounts)
+            pulumi.set(__self__, "aws_accounts", aws_accounts)
         if aws_services is not None:
-            _setter("aws_services", aws_services)
+            pulumi.set(__self__, "aws_services", aws_services)
 
     @property
     @pulumi.getter(name="awsAccounts")
@@ -304,20 +226,7 @@ class AssessmentScopeAwsAccount(dict):
         """
         :param str id: Identifier for the Amazon Web Services account.
         """
-        AssessmentScopeAwsAccount._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -352,22 +261,7 @@ class AssessmentScopeAwsService(dict):
         """
         :param str service_name: Name of the Amazon Web Service.
         """
-        AssessmentScopeAwsService._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            service_name=service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-        if service_name is None:
-            raise TypeError("Missing 'service_name' argument")
-
-        _setter("service_name", service_name)
+        pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -431,66 +325,19 @@ class ControlControlMappingSource(dict):
         :param 'ControlControlMappingSourceSourceKeywordArgs' source_keyword: The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
         :param str troubleshooting_text: Instructions for troubleshooting the control.
         """
-        ControlControlMappingSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_name=source_name,
-            source_set_up_option=source_set_up_option,
-            source_type=source_type,
-            source_description=source_description,
-            source_frequency=source_frequency,
-            source_id=source_id,
-            source_keyword=source_keyword,
-            troubleshooting_text=troubleshooting_text,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_name: Optional[str] = None,
-             source_set_up_option: Optional[str] = None,
-             source_type: Optional[str] = None,
-             source_description: Optional[str] = None,
-             source_frequency: Optional[str] = None,
-             source_id: Optional[str] = None,
-             source_keyword: Optional['outputs.ControlControlMappingSourceSourceKeyword'] = None,
-             troubleshooting_text: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if source_name is None and 'sourceName' in kwargs:
-            source_name = kwargs['sourceName']
-        if source_name is None:
-            raise TypeError("Missing 'source_name' argument")
-        if source_set_up_option is None and 'sourceSetUpOption' in kwargs:
-            source_set_up_option = kwargs['sourceSetUpOption']
-        if source_set_up_option is None:
-            raise TypeError("Missing 'source_set_up_option' argument")
-        if source_type is None and 'sourceType' in kwargs:
-            source_type = kwargs['sourceType']
-        if source_type is None:
-            raise TypeError("Missing 'source_type' argument")
-        if source_description is None and 'sourceDescription' in kwargs:
-            source_description = kwargs['sourceDescription']
-        if source_frequency is None and 'sourceFrequency' in kwargs:
-            source_frequency = kwargs['sourceFrequency']
-        if source_id is None and 'sourceId' in kwargs:
-            source_id = kwargs['sourceId']
-        if source_keyword is None and 'sourceKeyword' in kwargs:
-            source_keyword = kwargs['sourceKeyword']
-        if troubleshooting_text is None and 'troubleshootingText' in kwargs:
-            troubleshooting_text = kwargs['troubleshootingText']
-
-        _setter("source_name", source_name)
-        _setter("source_set_up_option", source_set_up_option)
-        _setter("source_type", source_type)
+        pulumi.set(__self__, "source_name", source_name)
+        pulumi.set(__self__, "source_set_up_option", source_set_up_option)
+        pulumi.set(__self__, "source_type", source_type)
         if source_description is not None:
-            _setter("source_description", source_description)
+            pulumi.set(__self__, "source_description", source_description)
         if source_frequency is not None:
-            _setter("source_frequency", source_frequency)
+            pulumi.set(__self__, "source_frequency", source_frequency)
         if source_id is not None:
-            _setter("source_id", source_id)
+            pulumi.set(__self__, "source_id", source_id)
         if source_keyword is not None:
-            _setter("source_keyword", source_keyword)
+            pulumi.set(__self__, "source_keyword", source_keyword)
         if troubleshooting_text is not None:
-            _setter("troubleshooting_text", troubleshooting_text)
+            pulumi.set(__self__, "troubleshooting_text", troubleshooting_text)
 
     @property
     @pulumi.getter(name="sourceName")
@@ -584,29 +431,8 @@ class ControlControlMappingSourceSourceKeyword(dict):
         :param str keyword_input_type: Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
         :param str keyword_value: The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
         """
-        ControlControlMappingSourceSourceKeyword._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            keyword_input_type=keyword_input_type,
-            keyword_value=keyword_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             keyword_input_type: Optional[str] = None,
-             keyword_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if keyword_input_type is None and 'keywordInputType' in kwargs:
-            keyword_input_type = kwargs['keywordInputType']
-        if keyword_input_type is None:
-            raise TypeError("Missing 'keyword_input_type' argument")
-        if keyword_value is None and 'keywordValue' in kwargs:
-            keyword_value = kwargs['keywordValue']
-        if keyword_value is None:
-            raise TypeError("Missing 'keyword_value' argument")
-
-        _setter("keyword_input_type", keyword_input_type)
-        _setter("keyword_value", keyword_value)
+        pulumi.set(__self__, "keyword_input_type", keyword_input_type)
+        pulumi.set(__self__, "keyword_value", keyword_value)
 
     @property
     @pulumi.getter(name="keywordInputType")
@@ -636,28 +462,11 @@ class FrameworkControlSet(dict):
         :param Sequence['FrameworkControlSetControlArgs'] controls: List of controls within the control set. See `controls` below.
         :param str id: Unique identifier of the control.
         """
-        FrameworkControlSet._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            controls=controls,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             controls: Optional[Sequence['outputs.FrameworkControlSetControl']] = None,
-             id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if controls is not None:
-            _setter("controls", controls)
+            pulumi.set(__self__, "controls", controls)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -691,20 +500,7 @@ class FrameworkControlSetControl(dict):
         """
         :param str id: Unique identifier of the control.
         """
-        FrameworkControlSetControl._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -726,70 +522,15 @@ class GetControlControlMappingSourceResult(dict):
                  source_type: str,
                  troubleshooting_text: str,
                  source_keyword: Optional['outputs.GetControlControlMappingSourceSourceKeywordResult'] = None):
-        GetControlControlMappingSourceResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_description=source_description,
-            source_frequency=source_frequency,
-            source_id=source_id,
-            source_name=source_name,
-            source_set_up_option=source_set_up_option,
-            source_type=source_type,
-            troubleshooting_text=troubleshooting_text,
-            source_keyword=source_keyword,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_description: Optional[str] = None,
-             source_frequency: Optional[str] = None,
-             source_id: Optional[str] = None,
-             source_name: Optional[str] = None,
-             source_set_up_option: Optional[str] = None,
-             source_type: Optional[str] = None,
-             troubleshooting_text: Optional[str] = None,
-             source_keyword: Optional['outputs.GetControlControlMappingSourceSourceKeywordResult'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if source_description is None and 'sourceDescription' in kwargs:
-            source_description = kwargs['sourceDescription']
-        if source_description is None:
-            raise TypeError("Missing 'source_description' argument")
-        if source_frequency is None and 'sourceFrequency' in kwargs:
-            source_frequency = kwargs['sourceFrequency']
-        if source_frequency is None:
-            raise TypeError("Missing 'source_frequency' argument")
-        if source_id is None and 'sourceId' in kwargs:
-            source_id = kwargs['sourceId']
-        if source_id is None:
-            raise TypeError("Missing 'source_id' argument")
-        if source_name is None and 'sourceName' in kwargs:
-            source_name = kwargs['sourceName']
-        if source_name is None:
-            raise TypeError("Missing 'source_name' argument")
-        if source_set_up_option is None and 'sourceSetUpOption' in kwargs:
-            source_set_up_option = kwargs['sourceSetUpOption']
-        if source_set_up_option is None:
-            raise TypeError("Missing 'source_set_up_option' argument")
-        if source_type is None and 'sourceType' in kwargs:
-            source_type = kwargs['sourceType']
-        if source_type is None:
-            raise TypeError("Missing 'source_type' argument")
-        if troubleshooting_text is None and 'troubleshootingText' in kwargs:
-            troubleshooting_text = kwargs['troubleshootingText']
-        if troubleshooting_text is None:
-            raise TypeError("Missing 'troubleshooting_text' argument")
-        if source_keyword is None and 'sourceKeyword' in kwargs:
-            source_keyword = kwargs['sourceKeyword']
-
-        _setter("source_description", source_description)
-        _setter("source_frequency", source_frequency)
-        _setter("source_id", source_id)
-        _setter("source_name", source_name)
-        _setter("source_set_up_option", source_set_up_option)
-        _setter("source_type", source_type)
-        _setter("troubleshooting_text", troubleshooting_text)
+        pulumi.set(__self__, "source_description", source_description)
+        pulumi.set(__self__, "source_frequency", source_frequency)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "source_name", source_name)
+        pulumi.set(__self__, "source_set_up_option", source_set_up_option)
+        pulumi.set(__self__, "source_type", source_type)
+        pulumi.set(__self__, "troubleshooting_text", troubleshooting_text)
         if source_keyword is not None:
-            _setter("source_keyword", source_keyword)
+            pulumi.set(__self__, "source_keyword", source_keyword)
 
     @property
     @pulumi.getter(name="sourceDescription")
@@ -837,29 +578,8 @@ class GetControlControlMappingSourceSourceKeywordResult(dict):
     def __init__(__self__, *,
                  keyword_input_type: str,
                  keyword_value: str):
-        GetControlControlMappingSourceSourceKeywordResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            keyword_input_type=keyword_input_type,
-            keyword_value=keyword_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             keyword_input_type: Optional[str] = None,
-             keyword_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if keyword_input_type is None and 'keywordInputType' in kwargs:
-            keyword_input_type = kwargs['keywordInputType']
-        if keyword_input_type is None:
-            raise TypeError("Missing 'keyword_input_type' argument")
-        if keyword_value is None and 'keywordValue' in kwargs:
-            keyword_value = kwargs['keywordValue']
-        if keyword_value is None:
-            raise TypeError("Missing 'keyword_value' argument")
-
-        _setter("keyword_input_type", keyword_input_type)
-        _setter("keyword_value", keyword_value)
+        pulumi.set(__self__, "keyword_input_type", keyword_input_type)
+        pulumi.set(__self__, "keyword_value", keyword_value)
 
     @property
     @pulumi.getter(name="keywordInputType")
@@ -881,29 +601,10 @@ class GetFrameworkControlSetResult(dict):
         """
         :param str name: Name of the framework.
         """
-        GetFrameworkControlSetResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-            controls=controls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             controls: Optional[Sequence['outputs.GetFrameworkControlSetControlResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("id", id)
-        _setter("name", name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
         if controls is not None:
-            _setter("controls", controls)
+            pulumi.set(__self__, "controls", controls)
 
     @property
     @pulumi.getter
@@ -928,20 +629,7 @@ class GetFrameworkControlSetResult(dict):
 class GetFrameworkControlSetControlResult(dict):
     def __init__(__self__, *,
                  id: str):
-        GetFrameworkControlSetControlResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter

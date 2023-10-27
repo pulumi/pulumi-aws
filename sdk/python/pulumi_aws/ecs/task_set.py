@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,100 +51,33 @@ class TaskSetArgs:
         :param pulumi.Input[bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
         :param pulumi.Input[str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         """
-        TaskSetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster=cluster,
-            service=service,
-            task_definition=task_definition,
-            capacity_provider_strategies=capacity_provider_strategies,
-            external_id=external_id,
-            force_delete=force_delete,
-            launch_type=launch_type,
-            load_balancers=load_balancers,
-            network_configuration=network_configuration,
-            platform_version=platform_version,
-            scale=scale,
-            service_registries=service_registries,
-            tags=tags,
-            wait_until_stable=wait_until_stable,
-            wait_until_stable_timeout=wait_until_stable_timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster: Optional[pulumi.Input[str]] = None,
-             service: Optional[pulumi.Input[str]] = None,
-             task_definition: Optional[pulumi.Input[str]] = None,
-             capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]]] = None,
-             external_id: Optional[pulumi.Input[str]] = None,
-             force_delete: Optional[pulumi.Input[bool]] = None,
-             launch_type: Optional[pulumi.Input[str]] = None,
-             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]] = None,
-             network_configuration: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']] = None,
-             platform_version: Optional[pulumi.Input[str]] = None,
-             scale: Optional[pulumi.Input['TaskSetScaleArgs']] = None,
-             service_registries: Optional[pulumi.Input['TaskSetServiceRegistriesArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             wait_until_stable: Optional[pulumi.Input[bool]] = None,
-             wait_until_stable_timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster is None:
-            raise TypeError("Missing 'cluster' argument")
-        if service is None:
-            raise TypeError("Missing 'service' argument")
-        if task_definition is None and 'taskDefinition' in kwargs:
-            task_definition = kwargs['taskDefinition']
-        if task_definition is None:
-            raise TypeError("Missing 'task_definition' argument")
-        if capacity_provider_strategies is None and 'capacityProviderStrategies' in kwargs:
-            capacity_provider_strategies = kwargs['capacityProviderStrategies']
-        if external_id is None and 'externalId' in kwargs:
-            external_id = kwargs['externalId']
-        if force_delete is None and 'forceDelete' in kwargs:
-            force_delete = kwargs['forceDelete']
-        if launch_type is None and 'launchType' in kwargs:
-            launch_type = kwargs['launchType']
-        if load_balancers is None and 'loadBalancers' in kwargs:
-            load_balancers = kwargs['loadBalancers']
-        if network_configuration is None and 'networkConfiguration' in kwargs:
-            network_configuration = kwargs['networkConfiguration']
-        if platform_version is None and 'platformVersion' in kwargs:
-            platform_version = kwargs['platformVersion']
-        if service_registries is None and 'serviceRegistries' in kwargs:
-            service_registries = kwargs['serviceRegistries']
-        if wait_until_stable is None and 'waitUntilStable' in kwargs:
-            wait_until_stable = kwargs['waitUntilStable']
-        if wait_until_stable_timeout is None and 'waitUntilStableTimeout' in kwargs:
-            wait_until_stable_timeout = kwargs['waitUntilStableTimeout']
-
-        _setter("cluster", cluster)
-        _setter("service", service)
-        _setter("task_definition", task_definition)
+        pulumi.set(__self__, "cluster", cluster)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "task_definition", task_definition)
         if capacity_provider_strategies is not None:
-            _setter("capacity_provider_strategies", capacity_provider_strategies)
+            pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
         if external_id is not None:
-            _setter("external_id", external_id)
+            pulumi.set(__self__, "external_id", external_id)
         if force_delete is not None:
-            _setter("force_delete", force_delete)
+            pulumi.set(__self__, "force_delete", force_delete)
         if launch_type is not None:
-            _setter("launch_type", launch_type)
+            pulumi.set(__self__, "launch_type", launch_type)
         if load_balancers is not None:
-            _setter("load_balancers", load_balancers)
+            pulumi.set(__self__, "load_balancers", load_balancers)
         if network_configuration is not None:
-            _setter("network_configuration", network_configuration)
+            pulumi.set(__self__, "network_configuration", network_configuration)
         if platform_version is not None:
-            _setter("platform_version", platform_version)
+            pulumi.set(__self__, "platform_version", platform_version)
         if scale is not None:
-            _setter("scale", scale)
+            pulumi.set(__self__, "scale", scale)
         if service_registries is not None:
-            _setter("service_registries", service_registries)
+            pulumi.set(__self__, "service_registries", service_registries)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if wait_until_stable is not None:
-            _setter("wait_until_stable", wait_until_stable)
+            pulumi.set(__self__, "wait_until_stable", wait_until_stable)
         if wait_until_stable_timeout is not None:
-            _setter("wait_until_stable_timeout", wait_until_stable_timeout)
+            pulumi.set(__self__, "wait_until_stable_timeout", wait_until_stable_timeout)
 
     @property
     @pulumi.getter
@@ -377,126 +310,49 @@ class _TaskSetState:
         :param pulumi.Input[bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
         :param pulumi.Input[str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         """
-        _TaskSetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            capacity_provider_strategies=capacity_provider_strategies,
-            cluster=cluster,
-            external_id=external_id,
-            force_delete=force_delete,
-            launch_type=launch_type,
-            load_balancers=load_balancers,
-            network_configuration=network_configuration,
-            platform_version=platform_version,
-            scale=scale,
-            service=service,
-            service_registries=service_registries,
-            stability_status=stability_status,
-            status=status,
-            tags=tags,
-            tags_all=tags_all,
-            task_definition=task_definition,
-            task_set_id=task_set_id,
-            wait_until_stable=wait_until_stable,
-            wait_until_stable_timeout=wait_until_stable_timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]]] = None,
-             cluster: Optional[pulumi.Input[str]] = None,
-             external_id: Optional[pulumi.Input[str]] = None,
-             force_delete: Optional[pulumi.Input[bool]] = None,
-             launch_type: Optional[pulumi.Input[str]] = None,
-             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]] = None,
-             network_configuration: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']] = None,
-             platform_version: Optional[pulumi.Input[str]] = None,
-             scale: Optional[pulumi.Input['TaskSetScaleArgs']] = None,
-             service: Optional[pulumi.Input[str]] = None,
-             service_registries: Optional[pulumi.Input['TaskSetServiceRegistriesArgs']] = None,
-             stability_status: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             task_definition: Optional[pulumi.Input[str]] = None,
-             task_set_id: Optional[pulumi.Input[str]] = None,
-             wait_until_stable: Optional[pulumi.Input[bool]] = None,
-             wait_until_stable_timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if capacity_provider_strategies is None and 'capacityProviderStrategies' in kwargs:
-            capacity_provider_strategies = kwargs['capacityProviderStrategies']
-        if external_id is None and 'externalId' in kwargs:
-            external_id = kwargs['externalId']
-        if force_delete is None and 'forceDelete' in kwargs:
-            force_delete = kwargs['forceDelete']
-        if launch_type is None and 'launchType' in kwargs:
-            launch_type = kwargs['launchType']
-        if load_balancers is None and 'loadBalancers' in kwargs:
-            load_balancers = kwargs['loadBalancers']
-        if network_configuration is None and 'networkConfiguration' in kwargs:
-            network_configuration = kwargs['networkConfiguration']
-        if platform_version is None and 'platformVersion' in kwargs:
-            platform_version = kwargs['platformVersion']
-        if service_registries is None and 'serviceRegistries' in kwargs:
-            service_registries = kwargs['serviceRegistries']
-        if stability_status is None and 'stabilityStatus' in kwargs:
-            stability_status = kwargs['stabilityStatus']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if task_definition is None and 'taskDefinition' in kwargs:
-            task_definition = kwargs['taskDefinition']
-        if task_set_id is None and 'taskSetId' in kwargs:
-            task_set_id = kwargs['taskSetId']
-        if wait_until_stable is None and 'waitUntilStable' in kwargs:
-            wait_until_stable = kwargs['waitUntilStable']
-        if wait_until_stable_timeout is None and 'waitUntilStableTimeout' in kwargs:
-            wait_until_stable_timeout = kwargs['waitUntilStableTimeout']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if capacity_provider_strategies is not None:
-            _setter("capacity_provider_strategies", capacity_provider_strategies)
+            pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
         if cluster is not None:
-            _setter("cluster", cluster)
+            pulumi.set(__self__, "cluster", cluster)
         if external_id is not None:
-            _setter("external_id", external_id)
+            pulumi.set(__self__, "external_id", external_id)
         if force_delete is not None:
-            _setter("force_delete", force_delete)
+            pulumi.set(__self__, "force_delete", force_delete)
         if launch_type is not None:
-            _setter("launch_type", launch_type)
+            pulumi.set(__self__, "launch_type", launch_type)
         if load_balancers is not None:
-            _setter("load_balancers", load_balancers)
+            pulumi.set(__self__, "load_balancers", load_balancers)
         if network_configuration is not None:
-            _setter("network_configuration", network_configuration)
+            pulumi.set(__self__, "network_configuration", network_configuration)
         if platform_version is not None:
-            _setter("platform_version", platform_version)
+            pulumi.set(__self__, "platform_version", platform_version)
         if scale is not None:
-            _setter("scale", scale)
+            pulumi.set(__self__, "scale", scale)
         if service is not None:
-            _setter("service", service)
+            pulumi.set(__self__, "service", service)
         if service_registries is not None:
-            _setter("service_registries", service_registries)
+            pulumi.set(__self__, "service_registries", service_registries)
         if stability_status is not None:
-            _setter("stability_status", stability_status)
+            pulumi.set(__self__, "stability_status", stability_status)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if task_definition is not None:
-            _setter("task_definition", task_definition)
+            pulumi.set(__self__, "task_definition", task_definition)
         if task_set_id is not None:
-            _setter("task_set_id", task_set_id)
+            pulumi.set(__self__, "task_set_id", task_set_id)
         if wait_until_stable is not None:
-            _setter("wait_until_stable", wait_until_stable)
+            pulumi.set(__self__, "wait_until_stable", wait_until_stable)
         if wait_until_stable_timeout is not None:
-            _setter("wait_until_stable_timeout", wait_until_stable_timeout)
+            pulumi.set(__self__, "wait_until_stable_timeout", wait_until_stable_timeout)
 
     @property
     @pulumi.getter
@@ -861,10 +717,6 @@ class TaskSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TaskSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -902,15 +754,12 @@ class TaskSet(pulumi.CustomResource):
             __props__.__dict__["force_delete"] = force_delete
             __props__.__dict__["launch_type"] = launch_type
             __props__.__dict__["load_balancers"] = load_balancers
-            network_configuration = _utilities.configure(network_configuration, TaskSetNetworkConfigurationArgs, True)
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["platform_version"] = platform_version
-            scale = _utilities.configure(scale, TaskSetScaleArgs, True)
             __props__.__dict__["scale"] = scale
             if service is None and not opts.urn:
                 raise TypeError("Missing required property 'service'")
             __props__.__dict__["service"] = service
-            service_registries = _utilities.configure(service_registries, TaskSetServiceRegistriesArgs, True)
             __props__.__dict__["service_registries"] = service_registries
             __props__.__dict__["tags"] = tags
             if task_definition is None and not opts.urn:

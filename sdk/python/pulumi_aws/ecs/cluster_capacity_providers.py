@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,34 +25,11 @@ class ClusterCapacityProvidersArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capacity_providers: Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: Set of capacity provider strategies to use by default for the cluster. Detailed below.
         """
-        ClusterCapacityProvidersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_name=cluster_name,
-            capacity_providers=capacity_providers,
-            default_capacity_provider_strategies=default_capacity_provider_strategies,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_name: Optional[pulumi.Input[str]] = None,
-             capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_name is None and 'clusterName' in kwargs:
-            cluster_name = kwargs['clusterName']
-        if cluster_name is None:
-            raise TypeError("Missing 'cluster_name' argument")
-        if capacity_providers is None and 'capacityProviders' in kwargs:
-            capacity_providers = kwargs['capacityProviders']
-        if default_capacity_provider_strategies is None and 'defaultCapacityProviderStrategies' in kwargs:
-            default_capacity_provider_strategies = kwargs['defaultCapacityProviderStrategies']
-
-        _setter("cluster_name", cluster_name)
+        pulumi.set(__self__, "cluster_name", cluster_name)
         if capacity_providers is not None:
-            _setter("capacity_providers", capacity_providers)
+            pulumi.set(__self__, "capacity_providers", capacity_providers)
         if default_capacity_provider_strategies is not None:
-            _setter("default_capacity_provider_strategies", default_capacity_provider_strategies)
+            pulumi.set(__self__, "default_capacity_provider_strategies", default_capacity_provider_strategies)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -103,33 +80,12 @@ class _ClusterCapacityProvidersState:
         :param pulumi.Input[str] cluster_name: Name of the ECS cluster to manage capacity providers for.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: Set of capacity provider strategies to use by default for the cluster. Detailed below.
         """
-        _ClusterCapacityProvidersState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capacity_providers=capacity_providers,
-            cluster_name=cluster_name,
-            default_capacity_provider_strategies=default_capacity_provider_strategies,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             cluster_name: Optional[pulumi.Input[str]] = None,
-             default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if capacity_providers is None and 'capacityProviders' in kwargs:
-            capacity_providers = kwargs['capacityProviders']
-        if cluster_name is None and 'clusterName' in kwargs:
-            cluster_name = kwargs['clusterName']
-        if default_capacity_provider_strategies is None and 'defaultCapacityProviderStrategies' in kwargs:
-            default_capacity_provider_strategies = kwargs['defaultCapacityProviderStrategies']
-
         if capacity_providers is not None:
-            _setter("capacity_providers", capacity_providers)
+            pulumi.set(__self__, "capacity_providers", capacity_providers)
         if cluster_name is not None:
-            _setter("cluster_name", cluster_name)
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if default_capacity_provider_strategies is not None:
-            _setter("default_capacity_provider_strategies", default_capacity_provider_strategies)
+            pulumi.set(__self__, "default_capacity_provider_strategies", default_capacity_provider_strategies)
 
     @property
     @pulumi.getter(name="capacityProviders")
@@ -259,10 +215,6 @@ class ClusterCapacityProviders(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClusterCapacityProvidersArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -27,24 +27,9 @@ class ConfigurationProfileValidatorArgs:
         :param pulumi.Input[str] type: Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
         :param pulumi.Input[str] content: Either the JSON Schema content or the ARN of an AWS Lambda function.
         """
-        ConfigurationProfileValidatorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            content=content,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
 
     @property
     @pulumi.getter
@@ -80,28 +65,9 @@ class EnvironmentMonitorArgs:
         :param pulumi.Input[str] alarm_arn: ARN of the Amazon CloudWatch alarm.
         :param pulumi.Input[str] alarm_role_arn: ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
         """
-        EnvironmentMonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alarm_arn=alarm_arn,
-            alarm_role_arn=alarm_role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alarm_arn: Optional[pulumi.Input[str]] = None,
-             alarm_role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if alarm_arn is None and 'alarmArn' in kwargs:
-            alarm_arn = kwargs['alarmArn']
-        if alarm_arn is None:
-            raise TypeError("Missing 'alarm_arn' argument")
-        if alarm_role_arn is None and 'alarmRoleArn' in kwargs:
-            alarm_role_arn = kwargs['alarmRoleArn']
-
-        _setter("alarm_arn", alarm_arn)
+        pulumi.set(__self__, "alarm_arn", alarm_arn)
         if alarm_role_arn is not None:
-            _setter("alarm_role_arn", alarm_role_arn)
+            pulumi.set(__self__, "alarm_role_arn", alarm_role_arn)
 
     @property
     @pulumi.getter(name="alarmArn")
@@ -135,20 +101,7 @@ class EventIntegrationEventFilterArgs:
         """
         :param pulumi.Input[str] source: Source of the events.
         """
-        EventIntegrationEventFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source=source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if source is None:
-            raise TypeError("Missing 'source' argument")
-
-        _setter("source", source)
+        pulumi.set(__self__, "source", source)
 
     @property
     @pulumi.getter
@@ -172,25 +125,8 @@ class ExtensionActionPointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgs']]] actions: An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
         :param pulumi.Input[str] point: The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
         """
-        ExtensionActionPointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            point=point,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgs']]]] = None,
-             point: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if point is None:
-            raise TypeError("Missing 'point' argument")
-
-        _setter("actions", actions)
-        _setter("point", point)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "point", point)
 
     @property
     @pulumi.getter
@@ -230,36 +166,11 @@ class ExtensionActionPointActionArgs:
         :param pulumi.Input[str] uri: The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
         :param pulumi.Input[str] description: Information about the action.
         """
-        ExtensionActionPointActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            role_arn=role_arn,
-            uri=uri,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             uri: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if uri is None:
-            raise TypeError("Missing 'uri' argument")
-
-        _setter("name", name)
-        _setter("role_arn", role_arn)
-        _setter("uri", uri)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "uri", uri)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -321,28 +232,11 @@ class ExtensionParameterArgs:
         :param pulumi.Input[str] description: Information about the parameter.
         :param pulumi.Input[bool] required: Determines if a parameter value must be specified in the extension association.
         """
-        ExtensionParameterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            description=description,
-            required=required,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             required: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if required is not None:
-            _setter("required", required)
+            pulumi.set(__self__, "required", required)
 
     @property
     @pulumi.getter

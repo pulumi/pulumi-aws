@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -56,22 +56,7 @@ class GlobalTableReplica(dict):
         """
         :param str region_name: AWS region name of replica DynamoDB TableE.g., `us-east-1`
         """
-        GlobalTableReplica._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            region_name=region_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             region_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if region_name is None and 'regionName' in kwargs:
-            region_name = kwargs['regionName']
-        if region_name is None:
-            raise TypeError("Missing 'region_name' argument")
-
-        _setter("region_name", region_name)
+        pulumi.set(__self__, "region_name", region_name)
 
     @property
     @pulumi.getter(name="regionName")
@@ -91,25 +76,8 @@ class TableAttribute(dict):
         :param str name: Name of the attribute
         :param str type: Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
         """
-        TableAttribute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -174,58 +142,17 @@ class TableGlobalSecondaryIndex(dict):
         :param int read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         :param int write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
-        TableGlobalSecondaryIndex._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hash_key=hash_key,
-            name=name,
-            projection_type=projection_type,
-            non_key_attributes=non_key_attributes,
-            range_key=range_key,
-            read_capacity=read_capacity,
-            write_capacity=write_capacity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hash_key: Optional[str] = None,
-             name: Optional[str] = None,
-             projection_type: Optional[str] = None,
-             non_key_attributes: Optional[Sequence[str]] = None,
-             range_key: Optional[str] = None,
-             read_capacity: Optional[int] = None,
-             write_capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hash_key is None and 'hashKey' in kwargs:
-            hash_key = kwargs['hashKey']
-        if hash_key is None:
-            raise TypeError("Missing 'hash_key' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if projection_type is None and 'projectionType' in kwargs:
-            projection_type = kwargs['projectionType']
-        if projection_type is None:
-            raise TypeError("Missing 'projection_type' argument")
-        if non_key_attributes is None and 'nonKeyAttributes' in kwargs:
-            non_key_attributes = kwargs['nonKeyAttributes']
-        if range_key is None and 'rangeKey' in kwargs:
-            range_key = kwargs['rangeKey']
-        if read_capacity is None and 'readCapacity' in kwargs:
-            read_capacity = kwargs['readCapacity']
-        if write_capacity is None and 'writeCapacity' in kwargs:
-            write_capacity = kwargs['writeCapacity']
-
-        _setter("hash_key", hash_key)
-        _setter("name", name)
-        _setter("projection_type", projection_type)
+        pulumi.set(__self__, "hash_key", hash_key)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "projection_type", projection_type)
         if non_key_attributes is not None:
-            _setter("non_key_attributes", non_key_attributes)
+            pulumi.set(__self__, "non_key_attributes", non_key_attributes)
         if range_key is not None:
-            _setter("range_key", range_key)
+            pulumi.set(__self__, "range_key", range_key)
         if read_capacity is not None:
-            _setter("read_capacity", read_capacity)
+            pulumi.set(__self__, "read_capacity", read_capacity)
         if write_capacity is not None:
-            _setter("write_capacity", write_capacity)
+            pulumi.set(__self__, "write_capacity", write_capacity)
 
     @property
     @pulumi.getter(name="hashKey")
@@ -320,41 +247,12 @@ class TableImportTable(dict):
         :param str input_compression_type: Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
         :param 'TableImportTableInputFormatOptionsArgs' input_format_options: Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
         """
-        TableImportTable._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_format=input_format,
-            s3_bucket_source=s3_bucket_source,
-            input_compression_type=input_compression_type,
-            input_format_options=input_format_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_format: Optional[str] = None,
-             s3_bucket_source: Optional['outputs.TableImportTableS3BucketSource'] = None,
-             input_compression_type: Optional[str] = None,
-             input_format_options: Optional['outputs.TableImportTableInputFormatOptions'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if input_format is None and 'inputFormat' in kwargs:
-            input_format = kwargs['inputFormat']
-        if input_format is None:
-            raise TypeError("Missing 'input_format' argument")
-        if s3_bucket_source is None and 's3BucketSource' in kwargs:
-            s3_bucket_source = kwargs['s3BucketSource']
-        if s3_bucket_source is None:
-            raise TypeError("Missing 's3_bucket_source' argument")
-        if input_compression_type is None and 'inputCompressionType' in kwargs:
-            input_compression_type = kwargs['inputCompressionType']
-        if input_format_options is None and 'inputFormatOptions' in kwargs:
-            input_format_options = kwargs['inputFormatOptions']
-
-        _setter("input_format", input_format)
-        _setter("s3_bucket_source", s3_bucket_source)
+        pulumi.set(__self__, "input_format", input_format)
+        pulumi.set(__self__, "s3_bucket_source", s3_bucket_source)
         if input_compression_type is not None:
-            _setter("input_compression_type", input_compression_type)
+            pulumi.set(__self__, "input_compression_type", input_compression_type)
         if input_format_options is not None:
-            _setter("input_format_options", input_format_options)
+            pulumi.set(__self__, "input_format_options", input_format_options)
 
     @property
     @pulumi.getter(name="inputFormat")
@@ -396,19 +294,8 @@ class TableImportTableInputFormatOptions(dict):
         """
         :param 'TableImportTableInputFormatOptionsCsvArgs' csv: This block contains the processing options for the CSV file being imported:
         """
-        TableImportTableInputFormatOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            csv=csv,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             csv: Optional['outputs.TableImportTableInputFormatOptionsCsv'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if csv is not None:
-            _setter("csv", csv)
+            pulumi.set(__self__, "csv", csv)
 
     @property
     @pulumi.getter
@@ -445,25 +332,10 @@ class TableImportTableInputFormatOptionsCsv(dict):
         :param str delimiter: The delimiter used for separating items in the CSV file being imported.
         :param Sequence[str] header_lists: List of the headers used to specify a common header for all source CSV files being imported.
         """
-        TableImportTableInputFormatOptionsCsv._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delimiter=delimiter,
-            header_lists=header_lists,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delimiter: Optional[str] = None,
-             header_lists: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if header_lists is None and 'headerLists' in kwargs:
-            header_lists = kwargs['headerLists']
-
         if delimiter is not None:
-            _setter("delimiter", delimiter)
+            pulumi.set(__self__, "delimiter", delimiter)
         if header_lists is not None:
-            _setter("header_lists", header_lists)
+            pulumi.set(__self__, "header_lists", header_lists)
 
     @property
     @pulumi.getter
@@ -512,32 +384,11 @@ class TableImportTableS3BucketSource(dict):
         :param str bucket_owner: The account number of the S3 bucket that is being imported from.
         :param str key_prefix: The key prefix shared by all S3 Objects that are being imported.
         """
-        TableImportTableS3BucketSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            bucket_owner=bucket_owner,
-            key_prefix=key_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[str] = None,
-             bucket_owner: Optional[str] = None,
-             key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket is None:
-            raise TypeError("Missing 'bucket' argument")
-        if bucket_owner is None and 'bucketOwner' in kwargs:
-            bucket_owner = kwargs['bucketOwner']
-        if key_prefix is None and 'keyPrefix' in kwargs:
-            key_prefix = kwargs['keyPrefix']
-
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if bucket_owner is not None:
-            _setter("bucket_owner", bucket_owner)
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
         if key_prefix is not None:
-            _setter("key_prefix", key_prefix)
+            pulumi.set(__self__, "key_prefix", key_prefix)
 
     @property
     @pulumi.getter
@@ -598,40 +449,11 @@ class TableLocalSecondaryIndex(dict):
         :param str range_key: Name of the range key.
         :param Sequence[str] non_key_attributes: Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         """
-        TableLocalSecondaryIndex._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            projection_type=projection_type,
-            range_key=range_key,
-            non_key_attributes=non_key_attributes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             projection_type: Optional[str] = None,
-             range_key: Optional[str] = None,
-             non_key_attributes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if projection_type is None and 'projectionType' in kwargs:
-            projection_type = kwargs['projectionType']
-        if projection_type is None:
-            raise TypeError("Missing 'projection_type' argument")
-        if range_key is None and 'rangeKey' in kwargs:
-            range_key = kwargs['rangeKey']
-        if range_key is None:
-            raise TypeError("Missing 'range_key' argument")
-        if non_key_attributes is None and 'nonKeyAttributes' in kwargs:
-            non_key_attributes = kwargs['nonKeyAttributes']
-
-        _setter("name", name)
-        _setter("projection_type", projection_type)
-        _setter("range_key", range_key)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "projection_type", projection_type)
+        pulumi.set(__self__, "range_key", range_key)
         if non_key_attributes is not None:
-            _setter("non_key_attributes", non_key_attributes)
+            pulumi.set(__self__, "non_key_attributes", non_key_attributes)
 
     @property
     @pulumi.getter
@@ -673,20 +495,7 @@ class TablePointInTimeRecovery(dict):
         """
         :param bool enabled: Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
         """
-        TablePointInTimeRecovery._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -743,56 +552,19 @@ class TableReplica(dict):
         :param str stream_arn: ARN of the Table Stream. Only available when `stream_enabled = true`
         :param str stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         """
-        TableReplica._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            region_name=region_name,
-            arn=arn,
-            kms_key_arn=kms_key_arn,
-            point_in_time_recovery=point_in_time_recovery,
-            propagate_tags=propagate_tags,
-            stream_arn=stream_arn,
-            stream_label=stream_label,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             region_name: Optional[str] = None,
-             arn: Optional[str] = None,
-             kms_key_arn: Optional[str] = None,
-             point_in_time_recovery: Optional[bool] = None,
-             propagate_tags: Optional[bool] = None,
-             stream_arn: Optional[str] = None,
-             stream_label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if region_name is None and 'regionName' in kwargs:
-            region_name = kwargs['regionName']
-        if region_name is None:
-            raise TypeError("Missing 'region_name' argument")
-        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
-            kms_key_arn = kwargs['kmsKeyArn']
-        if point_in_time_recovery is None and 'pointInTimeRecovery' in kwargs:
-            point_in_time_recovery = kwargs['pointInTimeRecovery']
-        if propagate_tags is None and 'propagateTags' in kwargs:
-            propagate_tags = kwargs['propagateTags']
-        if stream_arn is None and 'streamArn' in kwargs:
-            stream_arn = kwargs['streamArn']
-        if stream_label is None and 'streamLabel' in kwargs:
-            stream_label = kwargs['streamLabel']
-
-        _setter("region_name", region_name)
+        pulumi.set(__self__, "region_name", region_name)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if point_in_time_recovery is not None:
-            _setter("point_in_time_recovery", point_in_time_recovery)
+            pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
         if propagate_tags is not None:
-            _setter("propagate_tags", propagate_tags)
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
         if stream_arn is not None:
-            _setter("stream_arn", stream_arn)
+            pulumi.set(__self__, "stream_arn", stream_arn)
         if stream_label is not None:
-            _setter("stream_label", stream_label)
+            pulumi.set(__self__, "stream_label", stream_label)
 
     @property
     @pulumi.getter(name="regionName")
@@ -877,26 +649,9 @@ class TableServerSideEncryption(dict):
         :param bool enabled: Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS-_owned_ key (shown as `DEFAULT` in the AWS console). Potentially confusingly, if `enabled` is `true` and no `kms_key_arn` is specified then server-side encryption is set to the _default_ KMS-_managed_ key (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS-_owned_ and KMS-_managed_ keys.
         :param str kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         """
-        TableServerSideEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            kms_key_arn=kms_key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
-            kms_key_arn = kwargs['kmsKeyArn']
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter
@@ -941,26 +696,9 @@ class TableTtl(dict):
         :param str attribute_name: Name of the table attribute to store the TTL timestamp in.
         :param bool enabled: Whether TTL is enabled.
         """
-        TableTtl._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute_name=attribute_name,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute_name: Optional[str] = None,
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attribute_name is None and 'attributeName' in kwargs:
-            attribute_name = kwargs['attributeName']
-        if attribute_name is None:
-            raise TypeError("Missing 'attribute_name' argument")
-
-        _setter("attribute_name", attribute_name)
+        pulumi.set(__self__, "attribute_name", attribute_name)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="attributeName")
@@ -987,25 +725,8 @@ class GetTableAttributeResult(dict):
         """
         :param str name: Name of the DynamoDB table.
         """
-        GetTableAttributeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1034,62 +755,13 @@ class GetTableGlobalSecondaryIndexResult(dict):
         """
         :param str name: Name of the DynamoDB table.
         """
-        GetTableGlobalSecondaryIndexResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hash_key=hash_key,
-            name=name,
-            non_key_attributes=non_key_attributes,
-            projection_type=projection_type,
-            range_key=range_key,
-            read_capacity=read_capacity,
-            write_capacity=write_capacity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hash_key: Optional[str] = None,
-             name: Optional[str] = None,
-             non_key_attributes: Optional[Sequence[str]] = None,
-             projection_type: Optional[str] = None,
-             range_key: Optional[str] = None,
-             read_capacity: Optional[int] = None,
-             write_capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hash_key is None and 'hashKey' in kwargs:
-            hash_key = kwargs['hashKey']
-        if hash_key is None:
-            raise TypeError("Missing 'hash_key' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if non_key_attributes is None and 'nonKeyAttributes' in kwargs:
-            non_key_attributes = kwargs['nonKeyAttributes']
-        if non_key_attributes is None:
-            raise TypeError("Missing 'non_key_attributes' argument")
-        if projection_type is None and 'projectionType' in kwargs:
-            projection_type = kwargs['projectionType']
-        if projection_type is None:
-            raise TypeError("Missing 'projection_type' argument")
-        if range_key is None and 'rangeKey' in kwargs:
-            range_key = kwargs['rangeKey']
-        if range_key is None:
-            raise TypeError("Missing 'range_key' argument")
-        if read_capacity is None and 'readCapacity' in kwargs:
-            read_capacity = kwargs['readCapacity']
-        if read_capacity is None:
-            raise TypeError("Missing 'read_capacity' argument")
-        if write_capacity is None and 'writeCapacity' in kwargs:
-            write_capacity = kwargs['writeCapacity']
-        if write_capacity is None:
-            raise TypeError("Missing 'write_capacity' argument")
-
-        _setter("hash_key", hash_key)
-        _setter("name", name)
-        _setter("non_key_attributes", non_key_attributes)
-        _setter("projection_type", projection_type)
-        _setter("range_key", range_key)
-        _setter("read_capacity", read_capacity)
-        _setter("write_capacity", write_capacity)
+        pulumi.set(__self__, "hash_key", hash_key)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "non_key_attributes", non_key_attributes)
+        pulumi.set(__self__, "projection_type", projection_type)
+        pulumi.set(__self__, "range_key", range_key)
+        pulumi.set(__self__, "read_capacity", read_capacity)
+        pulumi.set(__self__, "write_capacity", write_capacity)
 
     @property
     @pulumi.getter(name="hashKey")
@@ -1140,41 +812,10 @@ class GetTableLocalSecondaryIndexResult(dict):
         """
         :param str name: Name of the DynamoDB table.
         """
-        GetTableLocalSecondaryIndexResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            non_key_attributes=non_key_attributes,
-            projection_type=projection_type,
-            range_key=range_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             non_key_attributes: Optional[Sequence[str]] = None,
-             projection_type: Optional[str] = None,
-             range_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if non_key_attributes is None and 'nonKeyAttributes' in kwargs:
-            non_key_attributes = kwargs['nonKeyAttributes']
-        if non_key_attributes is None:
-            raise TypeError("Missing 'non_key_attributes' argument")
-        if projection_type is None and 'projectionType' in kwargs:
-            projection_type = kwargs['projectionType']
-        if projection_type is None:
-            raise TypeError("Missing 'projection_type' argument")
-        if range_key is None and 'rangeKey' in kwargs:
-            range_key = kwargs['rangeKey']
-        if range_key is None:
-            raise TypeError("Missing 'range_key' argument")
-
-        _setter("name", name)
-        _setter("non_key_attributes", non_key_attributes)
-        _setter("projection_type", projection_type)
-        _setter("range_key", range_key)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "non_key_attributes", non_key_attributes)
+        pulumi.set(__self__, "projection_type", projection_type)
+        pulumi.set(__self__, "range_key", range_key)
 
     @property
     @pulumi.getter
@@ -1204,20 +845,7 @@ class GetTableLocalSecondaryIndexResult(dict):
 class GetTablePointInTimeRecoveryResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
-        GetTablePointInTimeRecoveryResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -1230,29 +858,8 @@ class GetTableReplicaResult(dict):
     def __init__(__self__, *,
                  kms_key_arn: str,
                  region_name: str):
-        GetTableReplicaResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kms_key_arn=kms_key_arn,
-            region_name=region_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kms_key_arn: Optional[str] = None,
-             region_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
-            kms_key_arn = kwargs['kmsKeyArn']
-        if kms_key_arn is None:
-            raise TypeError("Missing 'kms_key_arn' argument")
-        if region_name is None and 'regionName' in kwargs:
-            region_name = kwargs['regionName']
-        if region_name is None:
-            raise TypeError("Missing 'region_name' argument")
-
-        _setter("kms_key_arn", kms_key_arn)
-        _setter("region_name", region_name)
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        pulumi.set(__self__, "region_name", region_name)
 
     @property
     @pulumi.getter(name="kmsKeyArn")
@@ -1270,27 +877,8 @@ class GetTableServerSideEncryptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  kms_key_arn: str):
-        GetTableServerSideEncryptionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            kms_key_arn=kms_key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
-            kms_key_arn = kwargs['kmsKeyArn']
-        if kms_key_arn is None:
-            raise TypeError("Missing 'kms_key_arn' argument")
-
-        _setter("enabled", enabled)
-        _setter("kms_key_arn", kms_key_arn)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter
@@ -1308,27 +896,8 @@ class GetTableTtlResult(dict):
     def __init__(__self__, *,
                  attribute_name: str,
                  enabled: bool):
-        GetTableTtlResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute_name=attribute_name,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute_name: Optional[str] = None,
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attribute_name is None and 'attributeName' in kwargs:
-            attribute_name = kwargs['attributeName']
-        if attribute_name is None:
-            raise TypeError("Missing 'attribute_name' argument")
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-
-        _setter("attribute_name", attribute_name)
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="attributeName")

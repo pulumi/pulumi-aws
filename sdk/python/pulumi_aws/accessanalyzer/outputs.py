@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -28,36 +28,15 @@ class ArchiveRuleFilter(dict):
         :param str exists: Boolean comparator.
         :param Sequence[str] neqs: Not Equals comparator.
         """
-        ArchiveRuleFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            criteria=criteria,
-            contains=contains,
-            eqs=eqs,
-            exists=exists,
-            neqs=neqs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             criteria: Optional[str] = None,
-             contains: Optional[Sequence[str]] = None,
-             eqs: Optional[Sequence[str]] = None,
-             exists: Optional[str] = None,
-             neqs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if criteria is None:
-            raise TypeError("Missing 'criteria' argument")
-
-        _setter("criteria", criteria)
+        pulumi.set(__self__, "criteria", criteria)
         if contains is not None:
-            _setter("contains", contains)
+            pulumi.set(__self__, "contains", contains)
         if eqs is not None:
-            _setter("eqs", eqs)
+            pulumi.set(__self__, "eqs", eqs)
         if exists is not None:
-            _setter("exists", exists)
+            pulumi.set(__self__, "exists", exists)
         if neqs is not None:
-            _setter("neqs", neqs)
+            pulumi.set(__self__, "neqs", neqs)
 
     @property
     @pulumi.getter

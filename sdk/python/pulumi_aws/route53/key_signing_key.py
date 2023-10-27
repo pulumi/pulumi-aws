@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['KeySigningKeyArgs', 'KeySigningKey']
@@ -27,37 +27,12 @@ class KeySigningKeyArgs:
                The following arguments are optional:
         :param pulumi.Input[str] status: Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
         """
-        KeySigningKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hosted_zone_id=hosted_zone_id,
-            key_management_service_arn=key_management_service_arn,
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hosted_zone_id: Optional[pulumi.Input[str]] = None,
-             key_management_service_arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
-            hosted_zone_id = kwargs['hostedZoneId']
-        if hosted_zone_id is None:
-            raise TypeError("Missing 'hosted_zone_id' argument")
-        if key_management_service_arn is None and 'keyManagementServiceArn' in kwargs:
-            key_management_service_arn = kwargs['keyManagementServiceArn']
-        if key_management_service_arn is None:
-            raise TypeError("Missing 'key_management_service_arn' argument")
-
-        _setter("hosted_zone_id", hosted_zone_id)
-        _setter("key_management_service_arn", key_management_service_arn)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        pulumi.set(__self__, "key_management_service_arn", key_management_service_arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -146,93 +121,34 @@ class _KeySigningKeyState:
         :param pulumi.Input[int] signing_algorithm_type: An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         :param pulumi.Input[str] status: Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
         """
-        _KeySigningKeyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            digest_algorithm_mnemonic=digest_algorithm_mnemonic,
-            digest_algorithm_type=digest_algorithm_type,
-            digest_value=digest_value,
-            dnskey_record=dnskey_record,
-            ds_record=ds_record,
-            flag=flag,
-            hosted_zone_id=hosted_zone_id,
-            key_management_service_arn=key_management_service_arn,
-            key_tag=key_tag,
-            name=name,
-            public_key=public_key,
-            signing_algorithm_mnemonic=signing_algorithm_mnemonic,
-            signing_algorithm_type=signing_algorithm_type,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             digest_algorithm_mnemonic: Optional[pulumi.Input[str]] = None,
-             digest_algorithm_type: Optional[pulumi.Input[int]] = None,
-             digest_value: Optional[pulumi.Input[str]] = None,
-             dnskey_record: Optional[pulumi.Input[str]] = None,
-             ds_record: Optional[pulumi.Input[str]] = None,
-             flag: Optional[pulumi.Input[int]] = None,
-             hosted_zone_id: Optional[pulumi.Input[str]] = None,
-             key_management_service_arn: Optional[pulumi.Input[str]] = None,
-             key_tag: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             public_key: Optional[pulumi.Input[str]] = None,
-             signing_algorithm_mnemonic: Optional[pulumi.Input[str]] = None,
-             signing_algorithm_type: Optional[pulumi.Input[int]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if digest_algorithm_mnemonic is None and 'digestAlgorithmMnemonic' in kwargs:
-            digest_algorithm_mnemonic = kwargs['digestAlgorithmMnemonic']
-        if digest_algorithm_type is None and 'digestAlgorithmType' in kwargs:
-            digest_algorithm_type = kwargs['digestAlgorithmType']
-        if digest_value is None and 'digestValue' in kwargs:
-            digest_value = kwargs['digestValue']
-        if dnskey_record is None and 'dnskeyRecord' in kwargs:
-            dnskey_record = kwargs['dnskeyRecord']
-        if ds_record is None and 'dsRecord' in kwargs:
-            ds_record = kwargs['dsRecord']
-        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
-            hosted_zone_id = kwargs['hostedZoneId']
-        if key_management_service_arn is None and 'keyManagementServiceArn' in kwargs:
-            key_management_service_arn = kwargs['keyManagementServiceArn']
-        if key_tag is None and 'keyTag' in kwargs:
-            key_tag = kwargs['keyTag']
-        if public_key is None and 'publicKey' in kwargs:
-            public_key = kwargs['publicKey']
-        if signing_algorithm_mnemonic is None and 'signingAlgorithmMnemonic' in kwargs:
-            signing_algorithm_mnemonic = kwargs['signingAlgorithmMnemonic']
-        if signing_algorithm_type is None and 'signingAlgorithmType' in kwargs:
-            signing_algorithm_type = kwargs['signingAlgorithmType']
-
         if digest_algorithm_mnemonic is not None:
-            _setter("digest_algorithm_mnemonic", digest_algorithm_mnemonic)
+            pulumi.set(__self__, "digest_algorithm_mnemonic", digest_algorithm_mnemonic)
         if digest_algorithm_type is not None:
-            _setter("digest_algorithm_type", digest_algorithm_type)
+            pulumi.set(__self__, "digest_algorithm_type", digest_algorithm_type)
         if digest_value is not None:
-            _setter("digest_value", digest_value)
+            pulumi.set(__self__, "digest_value", digest_value)
         if dnskey_record is not None:
-            _setter("dnskey_record", dnskey_record)
+            pulumi.set(__self__, "dnskey_record", dnskey_record)
         if ds_record is not None:
-            _setter("ds_record", ds_record)
+            pulumi.set(__self__, "ds_record", ds_record)
         if flag is not None:
-            _setter("flag", flag)
+            pulumi.set(__self__, "flag", flag)
         if hosted_zone_id is not None:
-            _setter("hosted_zone_id", hosted_zone_id)
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         if key_management_service_arn is not None:
-            _setter("key_management_service_arn", key_management_service_arn)
+            pulumi.set(__self__, "key_management_service_arn", key_management_service_arn)
         if key_tag is not None:
-            _setter("key_tag", key_tag)
+            pulumi.set(__self__, "key_tag", key_tag)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_key is not None:
-            _setter("public_key", public_key)
+            pulumi.set(__self__, "public_key", public_key)
         if signing_algorithm_mnemonic is not None:
-            _setter("signing_algorithm_mnemonic", signing_algorithm_mnemonic)
+            pulumi.set(__self__, "signing_algorithm_mnemonic", signing_algorithm_mnemonic)
         if signing_algorithm_type is not None:
-            _setter("signing_algorithm_type", signing_algorithm_type)
+            pulumi.set(__self__, "signing_algorithm_type", signing_algorithm_type)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="digestAlgorithmMnemonic")
@@ -600,10 +516,6 @@ class KeySigningKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            KeySigningKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

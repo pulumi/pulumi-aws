@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcNetworkPerformanceMetricSubscriptionArgs', 'VpcNetworkPerformanceMetricSubscription']
@@ -25,33 +25,12 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
         :param pulumi.Input[str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         :param pulumi.Input[str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
-        VpcNetworkPerformanceMetricSubscriptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            source=source,
-            metric=metric,
-            statistic=statistic,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             metric: Optional[pulumi.Input[str]] = None,
-             statistic: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if source is None:
-            raise TypeError("Missing 'source' argument")
-
-        _setter("destination", destination)
-        _setter("source", source)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "source", source)
         if metric is not None:
-            _setter("metric", metric)
+            pulumi.set(__self__, "metric", metric)
         if statistic is not None:
-            _setter("statistic", statistic)
+            pulumi.set(__self__, "statistic", statistic)
 
     @property
     @pulumi.getter
@@ -118,35 +97,16 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
         :param pulumi.Input[str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         :param pulumi.Input[str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
-        _VpcNetworkPerformanceMetricSubscriptionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            metric=metric,
-            period=period,
-            source=source,
-            statistic=statistic,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[pulumi.Input[str]] = None,
-             metric: Optional[pulumi.Input[str]] = None,
-             period: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             statistic: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if destination is not None:
-            _setter("destination", destination)
+            pulumi.set(__self__, "destination", destination)
         if metric is not None:
-            _setter("metric", metric)
+            pulumi.set(__self__, "metric", metric)
         if period is not None:
-            _setter("period", period)
+            pulumi.set(__self__, "period", period)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if statistic is not None:
-            _setter("statistic", statistic)
+            pulumi.set(__self__, "statistic", statistic)
 
     @property
     @pulumi.getter
@@ -270,10 +230,6 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcNetworkPerformanceMetricSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

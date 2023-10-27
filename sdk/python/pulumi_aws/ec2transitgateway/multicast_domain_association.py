@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MulticastDomainAssociationArgs', 'MulticastDomainAssociation']
@@ -23,36 +23,9 @@ class MulticastDomainAssociationArgs:
         :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
         :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
-        MulticastDomainAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_id=subnet_id,
-            transit_gateway_attachment_id=transit_gateway_attachment_id,
-            transit_gateway_multicast_domain_id=transit_gateway_multicast_domain_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
-             transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
-            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
-        if transit_gateway_attachment_id is None:
-            raise TypeError("Missing 'transit_gateway_attachment_id' argument")
-        if transit_gateway_multicast_domain_id is None and 'transitGatewayMulticastDomainId' in kwargs:
-            transit_gateway_multicast_domain_id = kwargs['transitGatewayMulticastDomainId']
-        if transit_gateway_multicast_domain_id is None:
-            raise TypeError("Missing 'transit_gateway_multicast_domain_id' argument")
-
-        _setter("subnet_id", subnet_id)
-        _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
-        _setter("transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+        pulumi.set(__self__, "transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -103,33 +76,12 @@ class _MulticastDomainAssociationState:
         :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
         :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
-        _MulticastDomainAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_id=subnet_id,
-            transit_gateway_attachment_id=transit_gateway_attachment_id,
-            transit_gateway_multicast_domain_id=transit_gateway_multicast_domain_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
-             transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
-            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
-        if transit_gateway_multicast_domain_id is None and 'transitGatewayMulticastDomainId' in kwargs:
-            transit_gateway_multicast_domain_id = kwargs['transitGatewayMulticastDomainId']
-
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if transit_gateway_attachment_id is not None:
-            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
+            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_multicast_domain_id is not None:
-            _setter("transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)
+            pulumi.set(__self__, "transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -241,10 +193,6 @@ class MulticastDomainAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MulticastDomainAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

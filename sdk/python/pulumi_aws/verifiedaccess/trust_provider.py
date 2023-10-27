@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,61 +37,20 @@ class TrustProviderArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_trust_provider_type: The type of user-based trust provider.
         """
-        TrustProviderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_reference_name=policy_reference_name,
-            trust_provider_type=trust_provider_type,
-            description=description,
-            device_options=device_options,
-            device_trust_provider_type=device_trust_provider_type,
-            oidc_options=oidc_options,
-            tags=tags,
-            user_trust_provider_type=user_trust_provider_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_reference_name: Optional[pulumi.Input[str]] = None,
-             trust_provider_type: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             device_options: Optional[pulumi.Input['TrustProviderDeviceOptionsArgs']] = None,
-             device_trust_provider_type: Optional[pulumi.Input[str]] = None,
-             oidc_options: Optional[pulumi.Input['TrustProviderOidcOptionsArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             user_trust_provider_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_reference_name is None and 'policyReferenceName' in kwargs:
-            policy_reference_name = kwargs['policyReferenceName']
-        if policy_reference_name is None:
-            raise TypeError("Missing 'policy_reference_name' argument")
-        if trust_provider_type is None and 'trustProviderType' in kwargs:
-            trust_provider_type = kwargs['trustProviderType']
-        if trust_provider_type is None:
-            raise TypeError("Missing 'trust_provider_type' argument")
-        if device_options is None and 'deviceOptions' in kwargs:
-            device_options = kwargs['deviceOptions']
-        if device_trust_provider_type is None and 'deviceTrustProviderType' in kwargs:
-            device_trust_provider_type = kwargs['deviceTrustProviderType']
-        if oidc_options is None and 'oidcOptions' in kwargs:
-            oidc_options = kwargs['oidcOptions']
-        if user_trust_provider_type is None and 'userTrustProviderType' in kwargs:
-            user_trust_provider_type = kwargs['userTrustProviderType']
-
-        _setter("policy_reference_name", policy_reference_name)
-        _setter("trust_provider_type", trust_provider_type)
+        pulumi.set(__self__, "policy_reference_name", policy_reference_name)
+        pulumi.set(__self__, "trust_provider_type", trust_provider_type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if device_options is not None:
-            _setter("device_options", device_options)
+            pulumi.set(__self__, "device_options", device_options)
         if device_trust_provider_type is not None:
-            _setter("device_trust_provider_type", device_trust_provider_type)
+            pulumi.set(__self__, "device_trust_provider_type", device_trust_provider_type)
         if oidc_options is not None:
-            _setter("oidc_options", oidc_options)
+            pulumi.set(__self__, "oidc_options", oidc_options)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if user_trust_provider_type is not None:
-            _setter("user_trust_provider_type", user_trust_provider_type)
+            pulumi.set(__self__, "user_trust_provider_type", user_trust_provider_type)
 
     @property
     @pulumi.getter(name="policyReferenceName")
@@ -217,68 +176,27 @@ class _TrustProviderState:
                The following arguments are optional:
         :param pulumi.Input[str] user_trust_provider_type: The type of user-based trust provider.
         """
-        _TrustProviderState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            device_options=device_options,
-            device_trust_provider_type=device_trust_provider_type,
-            oidc_options=oidc_options,
-            policy_reference_name=policy_reference_name,
-            tags=tags,
-            tags_all=tags_all,
-            trust_provider_type=trust_provider_type,
-            user_trust_provider_type=user_trust_provider_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             device_options: Optional[pulumi.Input['TrustProviderDeviceOptionsArgs']] = None,
-             device_trust_provider_type: Optional[pulumi.Input[str]] = None,
-             oidc_options: Optional[pulumi.Input['TrustProviderOidcOptionsArgs']] = None,
-             policy_reference_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             trust_provider_type: Optional[pulumi.Input[str]] = None,
-             user_trust_provider_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if device_options is None and 'deviceOptions' in kwargs:
-            device_options = kwargs['deviceOptions']
-        if device_trust_provider_type is None and 'deviceTrustProviderType' in kwargs:
-            device_trust_provider_type = kwargs['deviceTrustProviderType']
-        if oidc_options is None and 'oidcOptions' in kwargs:
-            oidc_options = kwargs['oidcOptions']
-        if policy_reference_name is None and 'policyReferenceName' in kwargs:
-            policy_reference_name = kwargs['policyReferenceName']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if trust_provider_type is None and 'trustProviderType' in kwargs:
-            trust_provider_type = kwargs['trustProviderType']
-        if user_trust_provider_type is None and 'userTrustProviderType' in kwargs:
-            user_trust_provider_type = kwargs['userTrustProviderType']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if device_options is not None:
-            _setter("device_options", device_options)
+            pulumi.set(__self__, "device_options", device_options)
         if device_trust_provider_type is not None:
-            _setter("device_trust_provider_type", device_trust_provider_type)
+            pulumi.set(__self__, "device_trust_provider_type", device_trust_provider_type)
         if oidc_options is not None:
-            _setter("oidc_options", oidc_options)
+            pulumi.set(__self__, "oidc_options", oidc_options)
         if policy_reference_name is not None:
-            _setter("policy_reference_name", policy_reference_name)
+            pulumi.set(__self__, "policy_reference_name", policy_reference_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if trust_provider_type is not None:
-            _setter("trust_provider_type", trust_provider_type)
+            pulumi.set(__self__, "trust_provider_type", trust_provider_type)
         if user_trust_provider_type is not None:
-            _setter("user_trust_provider_type", user_trust_provider_type)
+            pulumi.set(__self__, "user_trust_provider_type", user_trust_provider_type)
 
     @property
     @pulumi.getter
@@ -484,10 +402,6 @@ class TrustProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TrustProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -511,10 +425,8 @@ class TrustProvider(pulumi.CustomResource):
             __props__ = TrustProviderArgs.__new__(TrustProviderArgs)
 
             __props__.__dict__["description"] = description
-            device_options = _utilities.configure(device_options, TrustProviderDeviceOptionsArgs, True)
             __props__.__dict__["device_options"] = device_options
             __props__.__dict__["device_trust_provider_type"] = device_trust_provider_type
-            oidc_options = _utilities.configure(oidc_options, TrustProviderOidcOptionsArgs, True)
             __props__.__dict__["oidc_options"] = oidc_options
             if policy_reference_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_reference_name'")

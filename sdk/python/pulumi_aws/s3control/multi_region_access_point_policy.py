@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,26 +23,9 @@ class MultiRegionAccessPointPolicyArgs:
         :param pulumi.Input['MultiRegionAccessPointPolicyDetailsArgs'] details: A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
         :param pulumi.Input[str] account_id: The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         """
-        MultiRegionAccessPointPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            details=details,
-            account_id=account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             details: Optional[pulumi.Input['MultiRegionAccessPointPolicyDetailsArgs']] = None,
-             account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if details is None:
-            raise TypeError("Missing 'details' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-
-        _setter("details", details)
+        pulumi.set(__self__, "details", details)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
 
     @property
     @pulumi.getter
@@ -83,33 +66,14 @@ class _MultiRegionAccessPointPolicyState:
         :param pulumi.Input[str] established: The last established policy for the Multi-Region Access Point.
         :param pulumi.Input[str] proposed: The proposed policy for the Multi-Region Access Point.
         """
-        _MultiRegionAccessPointPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            details=details,
-            established=established,
-            proposed=proposed,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             details: Optional[pulumi.Input['MultiRegionAccessPointPolicyDetailsArgs']] = None,
-             established: Optional[pulumi.Input[str]] = None,
-             proposed: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if details is not None:
-            _setter("details", details)
+            pulumi.set(__self__, "details", details)
         if established is not None:
-            _setter("established", established)
+            pulumi.set(__self__, "established", established)
         if proposed is not None:
-            _setter("proposed", proposed)
+            pulumi.set(__self__, "proposed", proposed)
 
     @property
     @pulumi.getter(name="accountId")
@@ -285,10 +249,6 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MultiRegionAccessPointPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -306,7 +266,6 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
             __props__ = MultiRegionAccessPointPolicyArgs.__new__(MultiRegionAccessPointPolicyArgs)
 
             __props__.__dict__["account_id"] = account_id
-            details = _utilities.configure(details, MultiRegionAccessPointPolicyDetailsArgs, True)
             if details is None and not opts.urn:
                 raise TypeError("Missing required property 'details'")
             __props__.__dict__["details"] = details

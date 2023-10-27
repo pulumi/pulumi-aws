@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -71,146 +71,49 @@ class UserPoolClientArgs:
         :param pulumi.Input['UserPoolClientTokenValidityUnitsArgs'] token_validity_units: Configuration block for units in which the validity times are represented in. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
         """
-        UserPoolClientArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            user_pool_id=user_pool_id,
-            access_token_validity=access_token_validity,
-            allowed_oauth_flows=allowed_oauth_flows,
-            allowed_oauth_flows_user_pool_client=allowed_oauth_flows_user_pool_client,
-            allowed_oauth_scopes=allowed_oauth_scopes,
-            analytics_configuration=analytics_configuration,
-            auth_session_validity=auth_session_validity,
-            callback_urls=callback_urls,
-            default_redirect_uri=default_redirect_uri,
-            enable_propagate_additional_user_context_data=enable_propagate_additional_user_context_data,
-            enable_token_revocation=enable_token_revocation,
-            explicit_auth_flows=explicit_auth_flows,
-            generate_secret=generate_secret,
-            id_token_validity=id_token_validity,
-            logout_urls=logout_urls,
-            name=name,
-            prevent_user_existence_errors=prevent_user_existence_errors,
-            read_attributes=read_attributes,
-            refresh_token_validity=refresh_token_validity,
-            supported_identity_providers=supported_identity_providers,
-            token_validity_units=token_validity_units,
-            write_attributes=write_attributes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             user_pool_id: Optional[pulumi.Input[str]] = None,
-             access_token_validity: Optional[pulumi.Input[int]] = None,
-             allowed_oauth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             allowed_oauth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
-             allowed_oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             analytics_configuration: Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']] = None,
-             auth_session_validity: Optional[pulumi.Input[int]] = None,
-             callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             default_redirect_uri: Optional[pulumi.Input[str]] = None,
-             enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
-             enable_token_revocation: Optional[pulumi.Input[bool]] = None,
-             explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             generate_secret: Optional[pulumi.Input[bool]] = None,
-             id_token_validity: Optional[pulumi.Input[int]] = None,
-             logout_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             prevent_user_existence_errors: Optional[pulumi.Input[str]] = None,
-             read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             refresh_token_validity: Optional[pulumi.Input[int]] = None,
-             supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             token_validity_units: Optional[pulumi.Input['UserPoolClientTokenValidityUnitsArgs']] = None,
-             write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if user_pool_id is None and 'userPoolId' in kwargs:
-            user_pool_id = kwargs['userPoolId']
-        if user_pool_id is None:
-            raise TypeError("Missing 'user_pool_id' argument")
-        if access_token_validity is None and 'accessTokenValidity' in kwargs:
-            access_token_validity = kwargs['accessTokenValidity']
-        if allowed_oauth_flows is None and 'allowedOauthFlows' in kwargs:
-            allowed_oauth_flows = kwargs['allowedOauthFlows']
-        if allowed_oauth_flows_user_pool_client is None and 'allowedOauthFlowsUserPoolClient' in kwargs:
-            allowed_oauth_flows_user_pool_client = kwargs['allowedOauthFlowsUserPoolClient']
-        if allowed_oauth_scopes is None and 'allowedOauthScopes' in kwargs:
-            allowed_oauth_scopes = kwargs['allowedOauthScopes']
-        if analytics_configuration is None and 'analyticsConfiguration' in kwargs:
-            analytics_configuration = kwargs['analyticsConfiguration']
-        if auth_session_validity is None and 'authSessionValidity' in kwargs:
-            auth_session_validity = kwargs['authSessionValidity']
-        if callback_urls is None and 'callbackUrls' in kwargs:
-            callback_urls = kwargs['callbackUrls']
-        if default_redirect_uri is None and 'defaultRedirectUri' in kwargs:
-            default_redirect_uri = kwargs['defaultRedirectUri']
-        if enable_propagate_additional_user_context_data is None and 'enablePropagateAdditionalUserContextData' in kwargs:
-            enable_propagate_additional_user_context_data = kwargs['enablePropagateAdditionalUserContextData']
-        if enable_token_revocation is None and 'enableTokenRevocation' in kwargs:
-            enable_token_revocation = kwargs['enableTokenRevocation']
-        if explicit_auth_flows is None and 'explicitAuthFlows' in kwargs:
-            explicit_auth_flows = kwargs['explicitAuthFlows']
-        if generate_secret is None and 'generateSecret' in kwargs:
-            generate_secret = kwargs['generateSecret']
-        if id_token_validity is None and 'idTokenValidity' in kwargs:
-            id_token_validity = kwargs['idTokenValidity']
-        if logout_urls is None and 'logoutUrls' in kwargs:
-            logout_urls = kwargs['logoutUrls']
-        if prevent_user_existence_errors is None and 'preventUserExistenceErrors' in kwargs:
-            prevent_user_existence_errors = kwargs['preventUserExistenceErrors']
-        if read_attributes is None and 'readAttributes' in kwargs:
-            read_attributes = kwargs['readAttributes']
-        if refresh_token_validity is None and 'refreshTokenValidity' in kwargs:
-            refresh_token_validity = kwargs['refreshTokenValidity']
-        if supported_identity_providers is None and 'supportedIdentityProviders' in kwargs:
-            supported_identity_providers = kwargs['supportedIdentityProviders']
-        if token_validity_units is None and 'tokenValidityUnits' in kwargs:
-            token_validity_units = kwargs['tokenValidityUnits']
-        if write_attributes is None and 'writeAttributes' in kwargs:
-            write_attributes = kwargs['writeAttributes']
-
-        _setter("user_pool_id", user_pool_id)
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
         if access_token_validity is not None:
-            _setter("access_token_validity", access_token_validity)
+            pulumi.set(__self__, "access_token_validity", access_token_validity)
         if allowed_oauth_flows is not None:
-            _setter("allowed_oauth_flows", allowed_oauth_flows)
+            pulumi.set(__self__, "allowed_oauth_flows", allowed_oauth_flows)
         if allowed_oauth_flows_user_pool_client is not None:
-            _setter("allowed_oauth_flows_user_pool_client", allowed_oauth_flows_user_pool_client)
+            pulumi.set(__self__, "allowed_oauth_flows_user_pool_client", allowed_oauth_flows_user_pool_client)
         if allowed_oauth_scopes is not None:
-            _setter("allowed_oauth_scopes", allowed_oauth_scopes)
+            pulumi.set(__self__, "allowed_oauth_scopes", allowed_oauth_scopes)
         if analytics_configuration is not None:
-            _setter("analytics_configuration", analytics_configuration)
+            pulumi.set(__self__, "analytics_configuration", analytics_configuration)
         if auth_session_validity is not None:
-            _setter("auth_session_validity", auth_session_validity)
+            pulumi.set(__self__, "auth_session_validity", auth_session_validity)
         if callback_urls is not None:
-            _setter("callback_urls", callback_urls)
+            pulumi.set(__self__, "callback_urls", callback_urls)
         if default_redirect_uri is not None:
-            _setter("default_redirect_uri", default_redirect_uri)
+            pulumi.set(__self__, "default_redirect_uri", default_redirect_uri)
         if enable_propagate_additional_user_context_data is not None:
-            _setter("enable_propagate_additional_user_context_data", enable_propagate_additional_user_context_data)
+            pulumi.set(__self__, "enable_propagate_additional_user_context_data", enable_propagate_additional_user_context_data)
         if enable_token_revocation is not None:
-            _setter("enable_token_revocation", enable_token_revocation)
+            pulumi.set(__self__, "enable_token_revocation", enable_token_revocation)
         if explicit_auth_flows is not None:
-            _setter("explicit_auth_flows", explicit_auth_flows)
+            pulumi.set(__self__, "explicit_auth_flows", explicit_auth_flows)
         if generate_secret is not None:
-            _setter("generate_secret", generate_secret)
+            pulumi.set(__self__, "generate_secret", generate_secret)
         if id_token_validity is not None:
-            _setter("id_token_validity", id_token_validity)
+            pulumi.set(__self__, "id_token_validity", id_token_validity)
         if logout_urls is not None:
-            _setter("logout_urls", logout_urls)
+            pulumi.set(__self__, "logout_urls", logout_urls)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if prevent_user_existence_errors is not None:
-            _setter("prevent_user_existence_errors", prevent_user_existence_errors)
+            pulumi.set(__self__, "prevent_user_existence_errors", prevent_user_existence_errors)
         if read_attributes is not None:
-            _setter("read_attributes", read_attributes)
+            pulumi.set(__self__, "read_attributes", read_attributes)
         if refresh_token_validity is not None:
-            _setter("refresh_token_validity", refresh_token_validity)
+            pulumi.set(__self__, "refresh_token_validity", refresh_token_validity)
         if supported_identity_providers is not None:
-            _setter("supported_identity_providers", supported_identity_providers)
+            pulumi.set(__self__, "supported_identity_providers", supported_identity_providers)
         if token_validity_units is not None:
-            _setter("token_validity_units", token_validity_units)
+            pulumi.set(__self__, "token_validity_units", token_validity_units)
         if write_attributes is not None:
-            _setter("write_attributes", write_attributes)
+            pulumi.set(__self__, "write_attributes", write_attributes)
 
     @property
     @pulumi.getter(name="userPoolId")
@@ -545,151 +448,52 @@ class _UserPoolClientState:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
         """
-        _UserPoolClientState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_token_validity=access_token_validity,
-            allowed_oauth_flows=allowed_oauth_flows,
-            allowed_oauth_flows_user_pool_client=allowed_oauth_flows_user_pool_client,
-            allowed_oauth_scopes=allowed_oauth_scopes,
-            analytics_configuration=analytics_configuration,
-            auth_session_validity=auth_session_validity,
-            callback_urls=callback_urls,
-            client_secret=client_secret,
-            default_redirect_uri=default_redirect_uri,
-            enable_propagate_additional_user_context_data=enable_propagate_additional_user_context_data,
-            enable_token_revocation=enable_token_revocation,
-            explicit_auth_flows=explicit_auth_flows,
-            generate_secret=generate_secret,
-            id_token_validity=id_token_validity,
-            logout_urls=logout_urls,
-            name=name,
-            prevent_user_existence_errors=prevent_user_existence_errors,
-            read_attributes=read_attributes,
-            refresh_token_validity=refresh_token_validity,
-            supported_identity_providers=supported_identity_providers,
-            token_validity_units=token_validity_units,
-            user_pool_id=user_pool_id,
-            write_attributes=write_attributes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_token_validity: Optional[pulumi.Input[int]] = None,
-             allowed_oauth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             allowed_oauth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
-             allowed_oauth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             analytics_configuration: Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']] = None,
-             auth_session_validity: Optional[pulumi.Input[int]] = None,
-             callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             client_secret: Optional[pulumi.Input[str]] = None,
-             default_redirect_uri: Optional[pulumi.Input[str]] = None,
-             enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
-             enable_token_revocation: Optional[pulumi.Input[bool]] = None,
-             explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             generate_secret: Optional[pulumi.Input[bool]] = None,
-             id_token_validity: Optional[pulumi.Input[int]] = None,
-             logout_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             prevent_user_existence_errors: Optional[pulumi.Input[str]] = None,
-             read_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             refresh_token_validity: Optional[pulumi.Input[int]] = None,
-             supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             token_validity_units: Optional[pulumi.Input['UserPoolClientTokenValidityUnitsArgs']] = None,
-             user_pool_id: Optional[pulumi.Input[str]] = None,
-             write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_token_validity is None and 'accessTokenValidity' in kwargs:
-            access_token_validity = kwargs['accessTokenValidity']
-        if allowed_oauth_flows is None and 'allowedOauthFlows' in kwargs:
-            allowed_oauth_flows = kwargs['allowedOauthFlows']
-        if allowed_oauth_flows_user_pool_client is None and 'allowedOauthFlowsUserPoolClient' in kwargs:
-            allowed_oauth_flows_user_pool_client = kwargs['allowedOauthFlowsUserPoolClient']
-        if allowed_oauth_scopes is None and 'allowedOauthScopes' in kwargs:
-            allowed_oauth_scopes = kwargs['allowedOauthScopes']
-        if analytics_configuration is None and 'analyticsConfiguration' in kwargs:
-            analytics_configuration = kwargs['analyticsConfiguration']
-        if auth_session_validity is None and 'authSessionValidity' in kwargs:
-            auth_session_validity = kwargs['authSessionValidity']
-        if callback_urls is None and 'callbackUrls' in kwargs:
-            callback_urls = kwargs['callbackUrls']
-        if client_secret is None and 'clientSecret' in kwargs:
-            client_secret = kwargs['clientSecret']
-        if default_redirect_uri is None and 'defaultRedirectUri' in kwargs:
-            default_redirect_uri = kwargs['defaultRedirectUri']
-        if enable_propagate_additional_user_context_data is None and 'enablePropagateAdditionalUserContextData' in kwargs:
-            enable_propagate_additional_user_context_data = kwargs['enablePropagateAdditionalUserContextData']
-        if enable_token_revocation is None and 'enableTokenRevocation' in kwargs:
-            enable_token_revocation = kwargs['enableTokenRevocation']
-        if explicit_auth_flows is None and 'explicitAuthFlows' in kwargs:
-            explicit_auth_flows = kwargs['explicitAuthFlows']
-        if generate_secret is None and 'generateSecret' in kwargs:
-            generate_secret = kwargs['generateSecret']
-        if id_token_validity is None and 'idTokenValidity' in kwargs:
-            id_token_validity = kwargs['idTokenValidity']
-        if logout_urls is None and 'logoutUrls' in kwargs:
-            logout_urls = kwargs['logoutUrls']
-        if prevent_user_existence_errors is None and 'preventUserExistenceErrors' in kwargs:
-            prevent_user_existence_errors = kwargs['preventUserExistenceErrors']
-        if read_attributes is None and 'readAttributes' in kwargs:
-            read_attributes = kwargs['readAttributes']
-        if refresh_token_validity is None and 'refreshTokenValidity' in kwargs:
-            refresh_token_validity = kwargs['refreshTokenValidity']
-        if supported_identity_providers is None and 'supportedIdentityProviders' in kwargs:
-            supported_identity_providers = kwargs['supportedIdentityProviders']
-        if token_validity_units is None and 'tokenValidityUnits' in kwargs:
-            token_validity_units = kwargs['tokenValidityUnits']
-        if user_pool_id is None and 'userPoolId' in kwargs:
-            user_pool_id = kwargs['userPoolId']
-        if write_attributes is None and 'writeAttributes' in kwargs:
-            write_attributes = kwargs['writeAttributes']
-
         if access_token_validity is not None:
-            _setter("access_token_validity", access_token_validity)
+            pulumi.set(__self__, "access_token_validity", access_token_validity)
         if allowed_oauth_flows is not None:
-            _setter("allowed_oauth_flows", allowed_oauth_flows)
+            pulumi.set(__self__, "allowed_oauth_flows", allowed_oauth_flows)
         if allowed_oauth_flows_user_pool_client is not None:
-            _setter("allowed_oauth_flows_user_pool_client", allowed_oauth_flows_user_pool_client)
+            pulumi.set(__self__, "allowed_oauth_flows_user_pool_client", allowed_oauth_flows_user_pool_client)
         if allowed_oauth_scopes is not None:
-            _setter("allowed_oauth_scopes", allowed_oauth_scopes)
+            pulumi.set(__self__, "allowed_oauth_scopes", allowed_oauth_scopes)
         if analytics_configuration is not None:
-            _setter("analytics_configuration", analytics_configuration)
+            pulumi.set(__self__, "analytics_configuration", analytics_configuration)
         if auth_session_validity is not None:
-            _setter("auth_session_validity", auth_session_validity)
+            pulumi.set(__self__, "auth_session_validity", auth_session_validity)
         if callback_urls is not None:
-            _setter("callback_urls", callback_urls)
+            pulumi.set(__self__, "callback_urls", callback_urls)
         if client_secret is not None:
-            _setter("client_secret", client_secret)
+            pulumi.set(__self__, "client_secret", client_secret)
         if default_redirect_uri is not None:
-            _setter("default_redirect_uri", default_redirect_uri)
+            pulumi.set(__self__, "default_redirect_uri", default_redirect_uri)
         if enable_propagate_additional_user_context_data is not None:
-            _setter("enable_propagate_additional_user_context_data", enable_propagate_additional_user_context_data)
+            pulumi.set(__self__, "enable_propagate_additional_user_context_data", enable_propagate_additional_user_context_data)
         if enable_token_revocation is not None:
-            _setter("enable_token_revocation", enable_token_revocation)
+            pulumi.set(__self__, "enable_token_revocation", enable_token_revocation)
         if explicit_auth_flows is not None:
-            _setter("explicit_auth_flows", explicit_auth_flows)
+            pulumi.set(__self__, "explicit_auth_flows", explicit_auth_flows)
         if generate_secret is not None:
-            _setter("generate_secret", generate_secret)
+            pulumi.set(__self__, "generate_secret", generate_secret)
         if id_token_validity is not None:
-            _setter("id_token_validity", id_token_validity)
+            pulumi.set(__self__, "id_token_validity", id_token_validity)
         if logout_urls is not None:
-            _setter("logout_urls", logout_urls)
+            pulumi.set(__self__, "logout_urls", logout_urls)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if prevent_user_existence_errors is not None:
-            _setter("prevent_user_existence_errors", prevent_user_existence_errors)
+            pulumi.set(__self__, "prevent_user_existence_errors", prevent_user_existence_errors)
         if read_attributes is not None:
-            _setter("read_attributes", read_attributes)
+            pulumi.set(__self__, "read_attributes", read_attributes)
         if refresh_token_validity is not None:
-            _setter("refresh_token_validity", refresh_token_validity)
+            pulumi.set(__self__, "refresh_token_validity", refresh_token_validity)
         if supported_identity_providers is not None:
-            _setter("supported_identity_providers", supported_identity_providers)
+            pulumi.set(__self__, "supported_identity_providers", supported_identity_providers)
         if token_validity_units is not None:
-            _setter("token_validity_units", token_validity_units)
+            pulumi.set(__self__, "token_validity_units", token_validity_units)
         if user_pool_id is not None:
-            _setter("user_pool_id", user_pool_id)
+            pulumi.set(__self__, "user_pool_id", user_pool_id)
         if write_attributes is not None:
-            _setter("write_attributes", write_attributes)
+            pulumi.set(__self__, "write_attributes", write_attributes)
 
     @property
     @pulumi.getter(name="accessTokenValidity")
@@ -1245,10 +1049,6 @@ class UserPoolClient(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserPoolClientArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1289,7 +1089,6 @@ class UserPoolClient(pulumi.CustomResource):
             __props__.__dict__["allowed_oauth_flows"] = allowed_oauth_flows
             __props__.__dict__["allowed_oauth_flows_user_pool_client"] = allowed_oauth_flows_user_pool_client
             __props__.__dict__["allowed_oauth_scopes"] = allowed_oauth_scopes
-            analytics_configuration = _utilities.configure(analytics_configuration, UserPoolClientAnalyticsConfigurationArgs, True)
             __props__.__dict__["analytics_configuration"] = analytics_configuration
             __props__.__dict__["auth_session_validity"] = auth_session_validity
             __props__.__dict__["callback_urls"] = callback_urls
@@ -1305,7 +1104,6 @@ class UserPoolClient(pulumi.CustomResource):
             __props__.__dict__["read_attributes"] = read_attributes
             __props__.__dict__["refresh_token_validity"] = refresh_token_validity
             __props__.__dict__["supported_identity_providers"] = supported_identity_providers
-            token_validity_units = _utilities.configure(token_validity_units, UserPoolClientTokenValidityUnitsArgs, True)
             __props__.__dict__["token_validity_units"] = token_validity_units
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")

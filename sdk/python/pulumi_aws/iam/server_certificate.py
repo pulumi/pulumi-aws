@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerCertificateArgs', 'ServerCertificate']
@@ -41,53 +41,18 @@ class ServerCertificateArgs:
                
                > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
         """
-        ServerCertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_body=certificate_body,
-            private_key=private_key,
-            certificate_chain=certificate_chain,
-            name=name,
-            name_prefix=name_prefix,
-            path=path,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_body: Optional[pulumi.Input[str]] = None,
-             private_key: Optional[pulumi.Input[str]] = None,
-             certificate_chain: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             path: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_body is None and 'certificateBody' in kwargs:
-            certificate_body = kwargs['certificateBody']
-        if certificate_body is None:
-            raise TypeError("Missing 'certificate_body' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-
-        _setter("certificate_body", certificate_body)
-        _setter("private_key", private_key)
+        pulumi.set(__self__, "certificate_body", certificate_body)
+        pulumi.set(__self__, "private_key", private_key)
         if certificate_chain is not None:
-            _setter("certificate_chain", certificate_chain)
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="certificateBody")
@@ -222,74 +187,31 @@ class _ServerCertificateState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] upload_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
         """
-        _ServerCertificateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            certificate_body=certificate_body,
-            certificate_chain=certificate_chain,
-            expiration=expiration,
-            name=name,
-            name_prefix=name_prefix,
-            path=path,
-            private_key=private_key,
-            tags=tags,
-            tags_all=tags_all,
-            upload_date=upload_date,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             certificate_body: Optional[pulumi.Input[str]] = None,
-             certificate_chain: Optional[pulumi.Input[str]] = None,
-             expiration: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             path: Optional[pulumi.Input[str]] = None,
-             private_key: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             upload_date: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_body is None and 'certificateBody' in kwargs:
-            certificate_body = kwargs['certificateBody']
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if upload_date is None and 'uploadDate' in kwargs:
-            upload_date = kwargs['uploadDate']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if certificate_body is not None:
-            _setter("certificate_body", certificate_body)
+            pulumi.set(__self__, "certificate_body", certificate_body)
         if certificate_chain is not None:
-            _setter("certificate_chain", certificate_chain)
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
         if expiration is not None:
-            _setter("expiration", expiration)
+            pulumi.set(__self__, "expiration", expiration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if private_key is not None:
-            _setter("private_key", private_key)
+            pulumi.set(__self__, "private_key", private_key)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if upload_date is not None:
-            _setter("upload_date", upload_date)
+            pulumi.set(__self__, "upload_date", upload_date)
 
     @property
     @pulumi.getter
@@ -648,10 +570,6 @@ class ServerCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServerCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

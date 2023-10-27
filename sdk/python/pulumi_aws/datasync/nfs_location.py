@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,44 +29,13 @@ class NfsLocationArgs:
         :param pulumi.Input['NfsLocationMountOptionsArgs'] mount_options: Configuration block containing mount options used by DataSync to access the NFS Server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        NfsLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            on_prem_config=on_prem_config,
-            server_hostname=server_hostname,
-            subdirectory=subdirectory,
-            mount_options=mount_options,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             on_prem_config: Optional[pulumi.Input['NfsLocationOnPremConfigArgs']] = None,
-             server_hostname: Optional[pulumi.Input[str]] = None,
-             subdirectory: Optional[pulumi.Input[str]] = None,
-             mount_options: Optional[pulumi.Input['NfsLocationMountOptionsArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if on_prem_config is None and 'onPremConfig' in kwargs:
-            on_prem_config = kwargs['onPremConfig']
-        if on_prem_config is None:
-            raise TypeError("Missing 'on_prem_config' argument")
-        if server_hostname is None and 'serverHostname' in kwargs:
-            server_hostname = kwargs['serverHostname']
-        if server_hostname is None:
-            raise TypeError("Missing 'server_hostname' argument")
-        if subdirectory is None:
-            raise TypeError("Missing 'subdirectory' argument")
-        if mount_options is None and 'mountOptions' in kwargs:
-            mount_options = kwargs['mountOptions']
-
-        _setter("on_prem_config", on_prem_config)
-        _setter("server_hostname", server_hostname)
-        _setter("subdirectory", subdirectory)
+        pulumi.set(__self__, "on_prem_config", on_prem_config)
+        pulumi.set(__self__, "server_hostname", server_hostname)
+        pulumi.set(__self__, "subdirectory", subdirectory)
         if mount_options is not None:
-            _setter("mount_options", mount_options)
+            pulumi.set(__self__, "mount_options", mount_options)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="onPremConfig")
@@ -150,58 +119,25 @@ class _NfsLocationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _NfsLocationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            mount_options=mount_options,
-            on_prem_config=on_prem_config,
-            server_hostname=server_hostname,
-            subdirectory=subdirectory,
-            tags=tags,
-            tags_all=tags_all,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             mount_options: Optional[pulumi.Input['NfsLocationMountOptionsArgs']] = None,
-             on_prem_config: Optional[pulumi.Input['NfsLocationOnPremConfigArgs']] = None,
-             server_hostname: Optional[pulumi.Input[str]] = None,
-             subdirectory: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mount_options is None and 'mountOptions' in kwargs:
-            mount_options = kwargs['mountOptions']
-        if on_prem_config is None and 'onPremConfig' in kwargs:
-            on_prem_config = kwargs['onPremConfig']
-        if server_hostname is None and 'serverHostname' in kwargs:
-            server_hostname = kwargs['serverHostname']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if mount_options is not None:
-            _setter("mount_options", mount_options)
+            pulumi.set(__self__, "mount_options", mount_options)
         if on_prem_config is not None:
-            _setter("on_prem_config", on_prem_config)
+            pulumi.set(__self__, "on_prem_config", on_prem_config)
         if server_hostname is not None:
-            _setter("server_hostname", server_hostname)
+            pulumi.set(__self__, "server_hostname", server_hostname)
         if subdirectory is not None:
-            _setter("subdirectory", subdirectory)
+            pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
@@ -389,10 +325,6 @@ class NfsLocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NfsLocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -412,9 +344,7 @@ class NfsLocation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NfsLocationArgs.__new__(NfsLocationArgs)
 
-            mount_options = _utilities.configure(mount_options, NfsLocationMountOptionsArgs, True)
             __props__.__dict__["mount_options"] = mount_options
-            on_prem_config = _utilities.configure(on_prem_config, NfsLocationOnPremConfigArgs, True)
             if on_prem_config is None and not opts.urn:
                 raise TypeError("Missing required property 'on_prem_config'")
             __props__.__dict__["on_prem_config"] = on_prem_config

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TargetArgs', 'Target']
@@ -31,60 +31,15 @@ class TargetArgs:
         :param pulumi.Input[str] role_arn: ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        TargetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_capacity=max_capacity,
-            min_capacity=min_capacity,
-            resource_id=resource_id,
-            scalable_dimension=scalable_dimension,
-            service_namespace=service_namespace,
-            role_arn=role_arn,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_capacity: Optional[pulumi.Input[int]] = None,
-             min_capacity: Optional[pulumi.Input[int]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             scalable_dimension: Optional[pulumi.Input[str]] = None,
-             service_namespace: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_capacity is None and 'maxCapacity' in kwargs:
-            max_capacity = kwargs['maxCapacity']
-        if max_capacity is None:
-            raise TypeError("Missing 'max_capacity' argument")
-        if min_capacity is None and 'minCapacity' in kwargs:
-            min_capacity = kwargs['minCapacity']
-        if min_capacity is None:
-            raise TypeError("Missing 'min_capacity' argument")
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-        if resource_id is None:
-            raise TypeError("Missing 'resource_id' argument")
-        if scalable_dimension is None and 'scalableDimension' in kwargs:
-            scalable_dimension = kwargs['scalableDimension']
-        if scalable_dimension is None:
-            raise TypeError("Missing 'scalable_dimension' argument")
-        if service_namespace is None and 'serviceNamespace' in kwargs:
-            service_namespace = kwargs['serviceNamespace']
-        if service_namespace is None:
-            raise TypeError("Missing 'service_namespace' argument")
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-
-        _setter("max_capacity", max_capacity)
-        _setter("min_capacity", min_capacity)
-        _setter("resource_id", resource_id)
-        _setter("scalable_dimension", scalable_dimension)
-        _setter("service_namespace", service_namespace)
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "scalable_dimension", scalable_dimension)
+        pulumi.set(__self__, "service_namespace", service_namespace)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -195,68 +150,27 @@ class _TargetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _TargetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            max_capacity=max_capacity,
-            min_capacity=min_capacity,
-            resource_id=resource_id,
-            role_arn=role_arn,
-            scalable_dimension=scalable_dimension,
-            service_namespace=service_namespace,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             max_capacity: Optional[pulumi.Input[int]] = None,
-             min_capacity: Optional[pulumi.Input[int]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             scalable_dimension: Optional[pulumi.Input[str]] = None,
-             service_namespace: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_capacity is None and 'maxCapacity' in kwargs:
-            max_capacity = kwargs['maxCapacity']
-        if min_capacity is None and 'minCapacity' in kwargs:
-            min_capacity = kwargs['minCapacity']
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if scalable_dimension is None and 'scalableDimension' in kwargs:
-            scalable_dimension = kwargs['scalableDimension']
-        if service_namespace is None and 'serviceNamespace' in kwargs:
-            service_namespace = kwargs['serviceNamespace']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if max_capacity is not None:
-            _setter("max_capacity", max_capacity)
+            pulumi.set(__self__, "max_capacity", max_capacity)
         if min_capacity is not None:
-            _setter("min_capacity", min_capacity)
+            pulumi.set(__self__, "min_capacity", min_capacity)
         if resource_id is not None:
-            _setter("resource_id", resource_id)
+            pulumi.set(__self__, "resource_id", resource_id)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if scalable_dimension is not None:
-            _setter("scalable_dimension", scalable_dimension)
+            pulumi.set(__self__, "scalable_dimension", scalable_dimension)
         if service_namespace is not None:
-            _setter("service_namespace", service_namespace)
+            pulumi.set(__self__, "service_namespace", service_namespace)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -599,10 +513,6 @@ class Target(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

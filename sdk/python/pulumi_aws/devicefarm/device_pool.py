@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,45 +31,16 @@ class DevicePoolArgs:
         :param pulumi.Input[str] name: The name of the Device Pool
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        DevicePoolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            project_arn=project_arn,
-            rules=rules,
-            description=description,
-            max_devices=max_devices,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             project_arn: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             max_devices: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if project_arn is None and 'projectArn' in kwargs:
-            project_arn = kwargs['projectArn']
-        if project_arn is None:
-            raise TypeError("Missing 'project_arn' argument")
-        if rules is None:
-            raise TypeError("Missing 'rules' argument")
-        if max_devices is None and 'maxDevices' in kwargs:
-            max_devices = kwargs['maxDevices']
-
-        _setter("project_arn", project_arn)
-        _setter("rules", rules)
+        pulumi.set(__self__, "project_arn", project_arn)
+        pulumi.set(__self__, "rules", rules)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if max_devices is not None:
-            _setter("max_devices", max_devices)
+            pulumi.set(__self__, "max_devices", max_devices)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="projectArn")
@@ -167,60 +138,27 @@ class _DevicePoolState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _DevicePoolState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            description=description,
-            max_devices=max_devices,
-            name=name,
-            project_arn=project_arn,
-            rules=rules,
-            tags=tags,
-            tags_all=tags_all,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             max_devices: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             project_arn: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_devices is None and 'maxDevices' in kwargs:
-            max_devices = kwargs['maxDevices']
-        if project_arn is None and 'projectArn' in kwargs:
-            project_arn = kwargs['projectArn']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if max_devices is not None:
-            _setter("max_devices", max_devices)
+            pulumi.set(__self__, "max_devices", max_devices)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if project_arn is not None:
-            _setter("project_arn", project_arn)
+            pulumi.set(__self__, "project_arn", project_arn)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -420,10 +358,6 @@ class DevicePool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DevicePoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,52 +35,15 @@ class ListenerRuleArgs:
         :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ListenerRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            listener_identifier=listener_identifier,
-            match=match,
-            priority=priority,
-            service_identifier=service_identifier,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input['ListenerRuleActionArgs']] = None,
-             listener_identifier: Optional[pulumi.Input[str]] = None,
-             match: Optional[pulumi.Input['ListenerRuleMatchArgs']] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             service_identifier: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if listener_identifier is None and 'listenerIdentifier' in kwargs:
-            listener_identifier = kwargs['listenerIdentifier']
-        if listener_identifier is None:
-            raise TypeError("Missing 'listener_identifier' argument")
-        if match is None:
-            raise TypeError("Missing 'match' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-        if service_identifier is None and 'serviceIdentifier' in kwargs:
-            service_identifier = kwargs['serviceIdentifier']
-        if service_identifier is None:
-            raise TypeError("Missing 'service_identifier' argument")
-
-        _setter("action", action)
-        _setter("listener_identifier", listener_identifier)
-        _setter("match", match)
-        _setter("priority", priority)
-        _setter("service_identifier", service_identifier)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "listener_identifier", listener_identifier)
+        pulumi.set(__self__, "match", match)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "service_identifier", service_identifier)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -197,66 +160,29 @@ class _ListenerRuleState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _ListenerRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            arn=arn,
-            listener_identifier=listener_identifier,
-            match=match,
-            name=name,
-            priority=priority,
-            rule_id=rule_id,
-            service_identifier=service_identifier,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input['ListenerRuleActionArgs']] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             listener_identifier: Optional[pulumi.Input[str]] = None,
-             match: Optional[pulumi.Input['ListenerRuleMatchArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             rule_id: Optional[pulumi.Input[str]] = None,
-             service_identifier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if listener_identifier is None and 'listenerIdentifier' in kwargs:
-            listener_identifier = kwargs['listenerIdentifier']
-        if rule_id is None and 'ruleId' in kwargs:
-            rule_id = kwargs['ruleId']
-        if service_identifier is None and 'serviceIdentifier' in kwargs:
-            service_identifier = kwargs['serviceIdentifier']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if listener_identifier is not None:
-            _setter("listener_identifier", listener_identifier)
+            pulumi.set(__self__, "listener_identifier", listener_identifier)
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if rule_id is not None:
-            _setter("rule_id", rule_id)
+            pulumi.set(__self__, "rule_id", rule_id)
         if service_identifier is not None:
-            _setter("service_identifier", service_identifier)
+            pulumi.set(__self__, "service_identifier", service_identifier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -585,10 +511,6 @@ class ListenerRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ListenerRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -610,14 +532,12 @@ class ListenerRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ListenerRuleArgs.__new__(ListenerRuleArgs)
 
-            action = _utilities.configure(action, ListenerRuleActionArgs, True)
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
             if listener_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'listener_identifier'")
             __props__.__dict__["listener_identifier"] = listener_identifier
-            match = _utilities.configure(match, ListenerRuleMatchArgs, True)
             if match is None and not opts.urn:
                 raise TypeError("Missing required property 'match'")
             __props__.__dict__["match"] = match

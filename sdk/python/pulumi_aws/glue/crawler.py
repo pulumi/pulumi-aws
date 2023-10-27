@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -62,135 +62,48 @@ class CrawlerArgs:
         :param pulumi.Input[str] table_prefix: The table prefix used for catalog tables that are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        CrawlerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database_name=database_name,
-            role=role,
-            catalog_targets=catalog_targets,
-            classifiers=classifiers,
-            configuration=configuration,
-            delta_targets=delta_targets,
-            description=description,
-            dynamodb_targets=dynamodb_targets,
-            hudi_targets=hudi_targets,
-            iceberg_targets=iceberg_targets,
-            jdbc_targets=jdbc_targets,
-            lake_formation_configuration=lake_formation_configuration,
-            lineage_configuration=lineage_configuration,
-            mongodb_targets=mongodb_targets,
-            name=name,
-            recrawl_policy=recrawl_policy,
-            s3_targets=s3_targets,
-            schedule=schedule,
-            schema_change_policy=schema_change_policy,
-            security_configuration=security_configuration,
-            table_prefix=table_prefix,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database_name: Optional[pulumi.Input[str]] = None,
-             role: Optional[pulumi.Input[str]] = None,
-             catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]] = None,
-             classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             configuration: Optional[pulumi.Input[str]] = None,
-             delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]] = None,
-             hudi_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]] = None,
-             iceberg_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]] = None,
-             jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
-             lake_formation_configuration: Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']] = None,
-             lineage_configuration: Optional[pulumi.Input['CrawlerLineageConfigurationArgs']] = None,
-             mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recrawl_policy: Optional[pulumi.Input['CrawlerRecrawlPolicyArgs']] = None,
-             s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None,
-             schedule: Optional[pulumi.Input[str]] = None,
-             schema_change_policy: Optional[pulumi.Input['CrawlerSchemaChangePolicyArgs']] = None,
-             security_configuration: Optional[pulumi.Input[str]] = None,
-             table_prefix: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if database_name is None:
-            raise TypeError("Missing 'database_name' argument")
-        if role is None:
-            raise TypeError("Missing 'role' argument")
-        if catalog_targets is None and 'catalogTargets' in kwargs:
-            catalog_targets = kwargs['catalogTargets']
-        if delta_targets is None and 'deltaTargets' in kwargs:
-            delta_targets = kwargs['deltaTargets']
-        if dynamodb_targets is None and 'dynamodbTargets' in kwargs:
-            dynamodb_targets = kwargs['dynamodbTargets']
-        if hudi_targets is None and 'hudiTargets' in kwargs:
-            hudi_targets = kwargs['hudiTargets']
-        if iceberg_targets is None and 'icebergTargets' in kwargs:
-            iceberg_targets = kwargs['icebergTargets']
-        if jdbc_targets is None and 'jdbcTargets' in kwargs:
-            jdbc_targets = kwargs['jdbcTargets']
-        if lake_formation_configuration is None and 'lakeFormationConfiguration' in kwargs:
-            lake_formation_configuration = kwargs['lakeFormationConfiguration']
-        if lineage_configuration is None and 'lineageConfiguration' in kwargs:
-            lineage_configuration = kwargs['lineageConfiguration']
-        if mongodb_targets is None and 'mongodbTargets' in kwargs:
-            mongodb_targets = kwargs['mongodbTargets']
-        if recrawl_policy is None and 'recrawlPolicy' in kwargs:
-            recrawl_policy = kwargs['recrawlPolicy']
-        if s3_targets is None and 's3Targets' in kwargs:
-            s3_targets = kwargs['s3Targets']
-        if schema_change_policy is None and 'schemaChangePolicy' in kwargs:
-            schema_change_policy = kwargs['schemaChangePolicy']
-        if security_configuration is None and 'securityConfiguration' in kwargs:
-            security_configuration = kwargs['securityConfiguration']
-        if table_prefix is None and 'tablePrefix' in kwargs:
-            table_prefix = kwargs['tablePrefix']
-
-        _setter("database_name", database_name)
-        _setter("role", role)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "role", role)
         if catalog_targets is not None:
-            _setter("catalog_targets", catalog_targets)
+            pulumi.set(__self__, "catalog_targets", catalog_targets)
         if classifiers is not None:
-            _setter("classifiers", classifiers)
+            pulumi.set(__self__, "classifiers", classifiers)
         if configuration is not None:
-            _setter("configuration", configuration)
+            pulumi.set(__self__, "configuration", configuration)
         if delta_targets is not None:
-            _setter("delta_targets", delta_targets)
+            pulumi.set(__self__, "delta_targets", delta_targets)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if dynamodb_targets is not None:
-            _setter("dynamodb_targets", dynamodb_targets)
+            pulumi.set(__self__, "dynamodb_targets", dynamodb_targets)
         if hudi_targets is not None:
-            _setter("hudi_targets", hudi_targets)
+            pulumi.set(__self__, "hudi_targets", hudi_targets)
         if iceberg_targets is not None:
-            _setter("iceberg_targets", iceberg_targets)
+            pulumi.set(__self__, "iceberg_targets", iceberg_targets)
         if jdbc_targets is not None:
-            _setter("jdbc_targets", jdbc_targets)
+            pulumi.set(__self__, "jdbc_targets", jdbc_targets)
         if lake_formation_configuration is not None:
-            _setter("lake_formation_configuration", lake_formation_configuration)
+            pulumi.set(__self__, "lake_formation_configuration", lake_formation_configuration)
         if lineage_configuration is not None:
-            _setter("lineage_configuration", lineage_configuration)
+            pulumi.set(__self__, "lineage_configuration", lineage_configuration)
         if mongodb_targets is not None:
-            _setter("mongodb_targets", mongodb_targets)
+            pulumi.set(__self__, "mongodb_targets", mongodb_targets)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recrawl_policy is not None:
-            _setter("recrawl_policy", recrawl_policy)
+            pulumi.set(__self__, "recrawl_policy", recrawl_policy)
         if s3_targets is not None:
-            _setter("s3_targets", s3_targets)
+            pulumi.set(__self__, "s3_targets", s3_targets)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if schema_change_policy is not None:
-            _setter("schema_change_policy", schema_change_policy)
+            pulumi.set(__self__, "schema_change_policy", schema_change_policy)
         if security_configuration is not None:
-            _setter("security_configuration", security_configuration)
+            pulumi.set(__self__, "security_configuration", security_configuration)
         if table_prefix is not None:
-            _setter("table_prefix", table_prefix)
+            pulumi.set(__self__, "table_prefix", table_prefix)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -507,146 +420,57 @@ class _CrawlerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _CrawlerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            catalog_targets=catalog_targets,
-            classifiers=classifiers,
-            configuration=configuration,
-            database_name=database_name,
-            delta_targets=delta_targets,
-            description=description,
-            dynamodb_targets=dynamodb_targets,
-            hudi_targets=hudi_targets,
-            iceberg_targets=iceberg_targets,
-            jdbc_targets=jdbc_targets,
-            lake_formation_configuration=lake_formation_configuration,
-            lineage_configuration=lineage_configuration,
-            mongodb_targets=mongodb_targets,
-            name=name,
-            recrawl_policy=recrawl_policy,
-            role=role,
-            s3_targets=s3_targets,
-            schedule=schedule,
-            schema_change_policy=schema_change_policy,
-            security_configuration=security_configuration,
-            table_prefix=table_prefix,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]] = None,
-             classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             configuration: Optional[pulumi.Input[str]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             delta_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             dynamodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]]] = None,
-             hudi_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]] = None,
-             iceberg_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]] = None,
-             jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
-             lake_formation_configuration: Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']] = None,
-             lineage_configuration: Optional[pulumi.Input['CrawlerLineageConfigurationArgs']] = None,
-             mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recrawl_policy: Optional[pulumi.Input['CrawlerRecrawlPolicyArgs']] = None,
-             role: Optional[pulumi.Input[str]] = None,
-             s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None,
-             schedule: Optional[pulumi.Input[str]] = None,
-             schema_change_policy: Optional[pulumi.Input['CrawlerSchemaChangePolicyArgs']] = None,
-             security_configuration: Optional[pulumi.Input[str]] = None,
-             table_prefix: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if catalog_targets is None and 'catalogTargets' in kwargs:
-            catalog_targets = kwargs['catalogTargets']
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if delta_targets is None and 'deltaTargets' in kwargs:
-            delta_targets = kwargs['deltaTargets']
-        if dynamodb_targets is None and 'dynamodbTargets' in kwargs:
-            dynamodb_targets = kwargs['dynamodbTargets']
-        if hudi_targets is None and 'hudiTargets' in kwargs:
-            hudi_targets = kwargs['hudiTargets']
-        if iceberg_targets is None and 'icebergTargets' in kwargs:
-            iceberg_targets = kwargs['icebergTargets']
-        if jdbc_targets is None and 'jdbcTargets' in kwargs:
-            jdbc_targets = kwargs['jdbcTargets']
-        if lake_formation_configuration is None and 'lakeFormationConfiguration' in kwargs:
-            lake_formation_configuration = kwargs['lakeFormationConfiguration']
-        if lineage_configuration is None and 'lineageConfiguration' in kwargs:
-            lineage_configuration = kwargs['lineageConfiguration']
-        if mongodb_targets is None and 'mongodbTargets' in kwargs:
-            mongodb_targets = kwargs['mongodbTargets']
-        if recrawl_policy is None and 'recrawlPolicy' in kwargs:
-            recrawl_policy = kwargs['recrawlPolicy']
-        if s3_targets is None and 's3Targets' in kwargs:
-            s3_targets = kwargs['s3Targets']
-        if schema_change_policy is None and 'schemaChangePolicy' in kwargs:
-            schema_change_policy = kwargs['schemaChangePolicy']
-        if security_configuration is None and 'securityConfiguration' in kwargs:
-            security_configuration = kwargs['securityConfiguration']
-        if table_prefix is None and 'tablePrefix' in kwargs:
-            table_prefix = kwargs['tablePrefix']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if catalog_targets is not None:
-            _setter("catalog_targets", catalog_targets)
+            pulumi.set(__self__, "catalog_targets", catalog_targets)
         if classifiers is not None:
-            _setter("classifiers", classifiers)
+            pulumi.set(__self__, "classifiers", classifiers)
         if configuration is not None:
-            _setter("configuration", configuration)
+            pulumi.set(__self__, "configuration", configuration)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if delta_targets is not None:
-            _setter("delta_targets", delta_targets)
+            pulumi.set(__self__, "delta_targets", delta_targets)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if dynamodb_targets is not None:
-            _setter("dynamodb_targets", dynamodb_targets)
+            pulumi.set(__self__, "dynamodb_targets", dynamodb_targets)
         if hudi_targets is not None:
-            _setter("hudi_targets", hudi_targets)
+            pulumi.set(__self__, "hudi_targets", hudi_targets)
         if iceberg_targets is not None:
-            _setter("iceberg_targets", iceberg_targets)
+            pulumi.set(__self__, "iceberg_targets", iceberg_targets)
         if jdbc_targets is not None:
-            _setter("jdbc_targets", jdbc_targets)
+            pulumi.set(__self__, "jdbc_targets", jdbc_targets)
         if lake_formation_configuration is not None:
-            _setter("lake_formation_configuration", lake_formation_configuration)
+            pulumi.set(__self__, "lake_formation_configuration", lake_formation_configuration)
         if lineage_configuration is not None:
-            _setter("lineage_configuration", lineage_configuration)
+            pulumi.set(__self__, "lineage_configuration", lineage_configuration)
         if mongodb_targets is not None:
-            _setter("mongodb_targets", mongodb_targets)
+            pulumi.set(__self__, "mongodb_targets", mongodb_targets)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recrawl_policy is not None:
-            _setter("recrawl_policy", recrawl_policy)
+            pulumi.set(__self__, "recrawl_policy", recrawl_policy)
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
         if s3_targets is not None:
-            _setter("s3_targets", s3_targets)
+            pulumi.set(__self__, "s3_targets", s3_targets)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if schema_change_policy is not None:
-            _setter("schema_change_policy", schema_change_policy)
+            pulumi.set(__self__, "schema_change_policy", schema_change_policy)
         if security_configuration is not None:
-            _setter("security_configuration", security_configuration)
+            pulumi.set(__self__, "security_configuration", security_configuration)
         if table_prefix is not None:
-            _setter("table_prefix", table_prefix)
+            pulumi.set(__self__, "table_prefix", table_prefix)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -1241,10 +1065,6 @@ class Crawler(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CrawlerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1293,20 +1113,16 @@ class Crawler(pulumi.CustomResource):
             __props__.__dict__["hudi_targets"] = hudi_targets
             __props__.__dict__["iceberg_targets"] = iceberg_targets
             __props__.__dict__["jdbc_targets"] = jdbc_targets
-            lake_formation_configuration = _utilities.configure(lake_formation_configuration, CrawlerLakeFormationConfigurationArgs, True)
             __props__.__dict__["lake_formation_configuration"] = lake_formation_configuration
-            lineage_configuration = _utilities.configure(lineage_configuration, CrawlerLineageConfigurationArgs, True)
             __props__.__dict__["lineage_configuration"] = lineage_configuration
             __props__.__dict__["mongodb_targets"] = mongodb_targets
             __props__.__dict__["name"] = name
-            recrawl_policy = _utilities.configure(recrawl_policy, CrawlerRecrawlPolicyArgs, True)
             __props__.__dict__["recrawl_policy"] = recrawl_policy
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
             __props__.__dict__["s3_targets"] = s3_targets
             __props__.__dict__["schedule"] = schedule
-            schema_change_policy = _utilities.configure(schema_change_policy, CrawlerSchemaChangePolicyArgs, True)
             __props__.__dict__["schema_change_policy"] = schema_change_policy
             __props__.__dict__["security_configuration"] = security_configuration
             __props__.__dict__["table_prefix"] = table_prefix

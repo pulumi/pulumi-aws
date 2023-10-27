@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,88 +43,27 @@ class ClusterArgs:
         :param pulumi.Input[str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            broker_node_group_info=broker_node_group_info,
-            kafka_version=kafka_version,
-            number_of_broker_nodes=number_of_broker_nodes,
-            client_authentication=client_authentication,
-            cluster_name=cluster_name,
-            configuration_info=configuration_info,
-            encryption_info=encryption_info,
-            enhanced_monitoring=enhanced_monitoring,
-            logging_info=logging_info,
-            open_monitoring=open_monitoring,
-            storage_mode=storage_mode,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             broker_node_group_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoArgs']] = None,
-             kafka_version: Optional[pulumi.Input[str]] = None,
-             number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
-             client_authentication: Optional[pulumi.Input['ClusterClientAuthenticationArgs']] = None,
-             cluster_name: Optional[pulumi.Input[str]] = None,
-             configuration_info: Optional[pulumi.Input['ClusterConfigurationInfoArgs']] = None,
-             encryption_info: Optional[pulumi.Input['ClusterEncryptionInfoArgs']] = None,
-             enhanced_monitoring: Optional[pulumi.Input[str]] = None,
-             logging_info: Optional[pulumi.Input['ClusterLoggingInfoArgs']] = None,
-             open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
-             storage_mode: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if broker_node_group_info is None and 'brokerNodeGroupInfo' in kwargs:
-            broker_node_group_info = kwargs['brokerNodeGroupInfo']
-        if broker_node_group_info is None:
-            raise TypeError("Missing 'broker_node_group_info' argument")
-        if kafka_version is None and 'kafkaVersion' in kwargs:
-            kafka_version = kwargs['kafkaVersion']
-        if kafka_version is None:
-            raise TypeError("Missing 'kafka_version' argument")
-        if number_of_broker_nodes is None and 'numberOfBrokerNodes' in kwargs:
-            number_of_broker_nodes = kwargs['numberOfBrokerNodes']
-        if number_of_broker_nodes is None:
-            raise TypeError("Missing 'number_of_broker_nodes' argument")
-        if client_authentication is None and 'clientAuthentication' in kwargs:
-            client_authentication = kwargs['clientAuthentication']
-        if cluster_name is None and 'clusterName' in kwargs:
-            cluster_name = kwargs['clusterName']
-        if configuration_info is None and 'configurationInfo' in kwargs:
-            configuration_info = kwargs['configurationInfo']
-        if encryption_info is None and 'encryptionInfo' in kwargs:
-            encryption_info = kwargs['encryptionInfo']
-        if enhanced_monitoring is None and 'enhancedMonitoring' in kwargs:
-            enhanced_monitoring = kwargs['enhancedMonitoring']
-        if logging_info is None and 'loggingInfo' in kwargs:
-            logging_info = kwargs['loggingInfo']
-        if open_monitoring is None and 'openMonitoring' in kwargs:
-            open_monitoring = kwargs['openMonitoring']
-        if storage_mode is None and 'storageMode' in kwargs:
-            storage_mode = kwargs['storageMode']
-
-        _setter("broker_node_group_info", broker_node_group_info)
-        _setter("kafka_version", kafka_version)
-        _setter("number_of_broker_nodes", number_of_broker_nodes)
+        pulumi.set(__self__, "broker_node_group_info", broker_node_group_info)
+        pulumi.set(__self__, "kafka_version", kafka_version)
+        pulumi.set(__self__, "number_of_broker_nodes", number_of_broker_nodes)
         if client_authentication is not None:
-            _setter("client_authentication", client_authentication)
+            pulumi.set(__self__, "client_authentication", client_authentication)
         if cluster_name is not None:
-            _setter("cluster_name", cluster_name)
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if configuration_info is not None:
-            _setter("configuration_info", configuration_info)
+            pulumi.set(__self__, "configuration_info", configuration_info)
         if encryption_info is not None:
-            _setter("encryption_info", encryption_info)
+            pulumi.set(__self__, "encryption_info", encryption_info)
         if enhanced_monitoring is not None:
-            _setter("enhanced_monitoring", enhanced_monitoring)
+            pulumi.set(__self__, "enhanced_monitoring", enhanced_monitoring)
         if logging_info is not None:
-            _setter("logging_info", logging_info)
+            pulumi.set(__self__, "logging_info", logging_info)
         if open_monitoring is not None:
-            _setter("open_monitoring", open_monitoring)
+            pulumi.set(__self__, "open_monitoring", open_monitoring)
         if storage_mode is not None:
-            _setter("storage_mode", storage_mode)
+            pulumi.set(__self__, "storage_mode", storage_mode)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="brokerNodeGroupInfo")
@@ -334,182 +273,65 @@ class _ClusterState:
         :param pulumi.Input[str] zookeeper_connect_string: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         :param pulumi.Input[str] zookeeper_connect_string_tls: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
-        _ClusterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            bootstrap_brokers=bootstrap_brokers,
-            bootstrap_brokers_public_sasl_iam=bootstrap_brokers_public_sasl_iam,
-            bootstrap_brokers_public_sasl_scram=bootstrap_brokers_public_sasl_scram,
-            bootstrap_brokers_public_tls=bootstrap_brokers_public_tls,
-            bootstrap_brokers_sasl_iam=bootstrap_brokers_sasl_iam,
-            bootstrap_brokers_sasl_scram=bootstrap_brokers_sasl_scram,
-            bootstrap_brokers_tls=bootstrap_brokers_tls,
-            bootstrap_brokers_vpc_connectivity_sasl_iam=bootstrap_brokers_vpc_connectivity_sasl_iam,
-            bootstrap_brokers_vpc_connectivity_sasl_scram=bootstrap_brokers_vpc_connectivity_sasl_scram,
-            bootstrap_brokers_vpc_connectivity_tls=bootstrap_brokers_vpc_connectivity_tls,
-            broker_node_group_info=broker_node_group_info,
-            client_authentication=client_authentication,
-            cluster_name=cluster_name,
-            cluster_uuid=cluster_uuid,
-            configuration_info=configuration_info,
-            current_version=current_version,
-            encryption_info=encryption_info,
-            enhanced_monitoring=enhanced_monitoring,
-            kafka_version=kafka_version,
-            logging_info=logging_info,
-            number_of_broker_nodes=number_of_broker_nodes,
-            open_monitoring=open_monitoring,
-            storage_mode=storage_mode,
-            tags=tags,
-            tags_all=tags_all,
-            zookeeper_connect_string=zookeeper_connect_string,
-            zookeeper_connect_string_tls=zookeeper_connect_string_tls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             bootstrap_brokers: Optional[pulumi.Input[str]] = None,
-             bootstrap_brokers_public_sasl_iam: Optional[pulumi.Input[str]] = None,
-             bootstrap_brokers_public_sasl_scram: Optional[pulumi.Input[str]] = None,
-             bootstrap_brokers_public_tls: Optional[pulumi.Input[str]] = None,
-             bootstrap_brokers_sasl_iam: Optional[pulumi.Input[str]] = None,
-             bootstrap_brokers_sasl_scram: Optional[pulumi.Input[str]] = None,
-             bootstrap_brokers_tls: Optional[pulumi.Input[str]] = None,
-             bootstrap_brokers_vpc_connectivity_sasl_iam: Optional[pulumi.Input[str]] = None,
-             bootstrap_brokers_vpc_connectivity_sasl_scram: Optional[pulumi.Input[str]] = None,
-             bootstrap_brokers_vpc_connectivity_tls: Optional[pulumi.Input[str]] = None,
-             broker_node_group_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoArgs']] = None,
-             client_authentication: Optional[pulumi.Input['ClusterClientAuthenticationArgs']] = None,
-             cluster_name: Optional[pulumi.Input[str]] = None,
-             cluster_uuid: Optional[pulumi.Input[str]] = None,
-             configuration_info: Optional[pulumi.Input['ClusterConfigurationInfoArgs']] = None,
-             current_version: Optional[pulumi.Input[str]] = None,
-             encryption_info: Optional[pulumi.Input['ClusterEncryptionInfoArgs']] = None,
-             enhanced_monitoring: Optional[pulumi.Input[str]] = None,
-             kafka_version: Optional[pulumi.Input[str]] = None,
-             logging_info: Optional[pulumi.Input['ClusterLoggingInfoArgs']] = None,
-             number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
-             open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
-             storage_mode: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             zookeeper_connect_string: Optional[pulumi.Input[str]] = None,
-             zookeeper_connect_string_tls: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bootstrap_brokers is None and 'bootstrapBrokers' in kwargs:
-            bootstrap_brokers = kwargs['bootstrapBrokers']
-        if bootstrap_brokers_public_sasl_iam is None and 'bootstrapBrokersPublicSaslIam' in kwargs:
-            bootstrap_brokers_public_sasl_iam = kwargs['bootstrapBrokersPublicSaslIam']
-        if bootstrap_brokers_public_sasl_scram is None and 'bootstrapBrokersPublicSaslScram' in kwargs:
-            bootstrap_brokers_public_sasl_scram = kwargs['bootstrapBrokersPublicSaslScram']
-        if bootstrap_brokers_public_tls is None and 'bootstrapBrokersPublicTls' in kwargs:
-            bootstrap_brokers_public_tls = kwargs['bootstrapBrokersPublicTls']
-        if bootstrap_brokers_sasl_iam is None and 'bootstrapBrokersSaslIam' in kwargs:
-            bootstrap_brokers_sasl_iam = kwargs['bootstrapBrokersSaslIam']
-        if bootstrap_brokers_sasl_scram is None and 'bootstrapBrokersSaslScram' in kwargs:
-            bootstrap_brokers_sasl_scram = kwargs['bootstrapBrokersSaslScram']
-        if bootstrap_brokers_tls is None and 'bootstrapBrokersTls' in kwargs:
-            bootstrap_brokers_tls = kwargs['bootstrapBrokersTls']
-        if bootstrap_brokers_vpc_connectivity_sasl_iam is None and 'bootstrapBrokersVpcConnectivitySaslIam' in kwargs:
-            bootstrap_brokers_vpc_connectivity_sasl_iam = kwargs['bootstrapBrokersVpcConnectivitySaslIam']
-        if bootstrap_brokers_vpc_connectivity_sasl_scram is None and 'bootstrapBrokersVpcConnectivitySaslScram' in kwargs:
-            bootstrap_brokers_vpc_connectivity_sasl_scram = kwargs['bootstrapBrokersVpcConnectivitySaslScram']
-        if bootstrap_brokers_vpc_connectivity_tls is None and 'bootstrapBrokersVpcConnectivityTls' in kwargs:
-            bootstrap_brokers_vpc_connectivity_tls = kwargs['bootstrapBrokersVpcConnectivityTls']
-        if broker_node_group_info is None and 'brokerNodeGroupInfo' in kwargs:
-            broker_node_group_info = kwargs['brokerNodeGroupInfo']
-        if client_authentication is None and 'clientAuthentication' in kwargs:
-            client_authentication = kwargs['clientAuthentication']
-        if cluster_name is None and 'clusterName' in kwargs:
-            cluster_name = kwargs['clusterName']
-        if cluster_uuid is None and 'clusterUuid' in kwargs:
-            cluster_uuid = kwargs['clusterUuid']
-        if configuration_info is None and 'configurationInfo' in kwargs:
-            configuration_info = kwargs['configurationInfo']
-        if current_version is None and 'currentVersion' in kwargs:
-            current_version = kwargs['currentVersion']
-        if encryption_info is None and 'encryptionInfo' in kwargs:
-            encryption_info = kwargs['encryptionInfo']
-        if enhanced_monitoring is None and 'enhancedMonitoring' in kwargs:
-            enhanced_monitoring = kwargs['enhancedMonitoring']
-        if kafka_version is None and 'kafkaVersion' in kwargs:
-            kafka_version = kwargs['kafkaVersion']
-        if logging_info is None and 'loggingInfo' in kwargs:
-            logging_info = kwargs['loggingInfo']
-        if number_of_broker_nodes is None and 'numberOfBrokerNodes' in kwargs:
-            number_of_broker_nodes = kwargs['numberOfBrokerNodes']
-        if open_monitoring is None and 'openMonitoring' in kwargs:
-            open_monitoring = kwargs['openMonitoring']
-        if storage_mode is None and 'storageMode' in kwargs:
-            storage_mode = kwargs['storageMode']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if zookeeper_connect_string is None and 'zookeeperConnectString' in kwargs:
-            zookeeper_connect_string = kwargs['zookeeperConnectString']
-        if zookeeper_connect_string_tls is None and 'zookeeperConnectStringTls' in kwargs:
-            zookeeper_connect_string_tls = kwargs['zookeeperConnectStringTls']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if bootstrap_brokers is not None:
-            _setter("bootstrap_brokers", bootstrap_brokers)
+            pulumi.set(__self__, "bootstrap_brokers", bootstrap_brokers)
         if bootstrap_brokers_public_sasl_iam is not None:
-            _setter("bootstrap_brokers_public_sasl_iam", bootstrap_brokers_public_sasl_iam)
+            pulumi.set(__self__, "bootstrap_brokers_public_sasl_iam", bootstrap_brokers_public_sasl_iam)
         if bootstrap_brokers_public_sasl_scram is not None:
-            _setter("bootstrap_brokers_public_sasl_scram", bootstrap_brokers_public_sasl_scram)
+            pulumi.set(__self__, "bootstrap_brokers_public_sasl_scram", bootstrap_brokers_public_sasl_scram)
         if bootstrap_brokers_public_tls is not None:
-            _setter("bootstrap_brokers_public_tls", bootstrap_brokers_public_tls)
+            pulumi.set(__self__, "bootstrap_brokers_public_tls", bootstrap_brokers_public_tls)
         if bootstrap_brokers_sasl_iam is not None:
-            _setter("bootstrap_brokers_sasl_iam", bootstrap_brokers_sasl_iam)
+            pulumi.set(__self__, "bootstrap_brokers_sasl_iam", bootstrap_brokers_sasl_iam)
         if bootstrap_brokers_sasl_scram is not None:
-            _setter("bootstrap_brokers_sasl_scram", bootstrap_brokers_sasl_scram)
+            pulumi.set(__self__, "bootstrap_brokers_sasl_scram", bootstrap_brokers_sasl_scram)
         if bootstrap_brokers_tls is not None:
-            _setter("bootstrap_brokers_tls", bootstrap_brokers_tls)
+            pulumi.set(__self__, "bootstrap_brokers_tls", bootstrap_brokers_tls)
         if bootstrap_brokers_vpc_connectivity_sasl_iam is not None:
-            _setter("bootstrap_brokers_vpc_connectivity_sasl_iam", bootstrap_brokers_vpc_connectivity_sasl_iam)
+            pulumi.set(__self__, "bootstrap_brokers_vpc_connectivity_sasl_iam", bootstrap_brokers_vpc_connectivity_sasl_iam)
         if bootstrap_brokers_vpc_connectivity_sasl_scram is not None:
-            _setter("bootstrap_brokers_vpc_connectivity_sasl_scram", bootstrap_brokers_vpc_connectivity_sasl_scram)
+            pulumi.set(__self__, "bootstrap_brokers_vpc_connectivity_sasl_scram", bootstrap_brokers_vpc_connectivity_sasl_scram)
         if bootstrap_brokers_vpc_connectivity_tls is not None:
-            _setter("bootstrap_brokers_vpc_connectivity_tls", bootstrap_brokers_vpc_connectivity_tls)
+            pulumi.set(__self__, "bootstrap_brokers_vpc_connectivity_tls", bootstrap_brokers_vpc_connectivity_tls)
         if broker_node_group_info is not None:
-            _setter("broker_node_group_info", broker_node_group_info)
+            pulumi.set(__self__, "broker_node_group_info", broker_node_group_info)
         if client_authentication is not None:
-            _setter("client_authentication", client_authentication)
+            pulumi.set(__self__, "client_authentication", client_authentication)
         if cluster_name is not None:
-            _setter("cluster_name", cluster_name)
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if cluster_uuid is not None:
-            _setter("cluster_uuid", cluster_uuid)
+            pulumi.set(__self__, "cluster_uuid", cluster_uuid)
         if configuration_info is not None:
-            _setter("configuration_info", configuration_info)
+            pulumi.set(__self__, "configuration_info", configuration_info)
         if current_version is not None:
-            _setter("current_version", current_version)
+            pulumi.set(__self__, "current_version", current_version)
         if encryption_info is not None:
-            _setter("encryption_info", encryption_info)
+            pulumi.set(__self__, "encryption_info", encryption_info)
         if enhanced_monitoring is not None:
-            _setter("enhanced_monitoring", enhanced_monitoring)
+            pulumi.set(__self__, "enhanced_monitoring", enhanced_monitoring)
         if kafka_version is not None:
-            _setter("kafka_version", kafka_version)
+            pulumi.set(__self__, "kafka_version", kafka_version)
         if logging_info is not None:
-            _setter("logging_info", logging_info)
+            pulumi.set(__self__, "logging_info", logging_info)
         if number_of_broker_nodes is not None:
-            _setter("number_of_broker_nodes", number_of_broker_nodes)
+            pulumi.set(__self__, "number_of_broker_nodes", number_of_broker_nodes)
         if open_monitoring is not None:
-            _setter("open_monitoring", open_monitoring)
+            pulumi.set(__self__, "open_monitoring", open_monitoring)
         if storage_mode is not None:
-            _setter("storage_mode", storage_mode)
+            pulumi.set(__self__, "storage_mode", storage_mode)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if zookeeper_connect_string is not None:
-            _setter("zookeeper_connect_string", zookeeper_connect_string)
+            pulumi.set(__self__, "zookeeper_connect_string", zookeeper_connect_string)
         if zookeeper_connect_string_tls is not None:
-            _setter("zookeeper_connect_string_tls", zookeeper_connect_string_tls)
+            pulumi.set(__self__, "zookeeper_connect_string_tls", zookeeper_connect_string_tls)
 
     @property
     @pulumi.getter
@@ -1183,10 +1005,6 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1213,27 +1031,21 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            broker_node_group_info = _utilities.configure(broker_node_group_info, ClusterBrokerNodeGroupInfoArgs, True)
             if broker_node_group_info is None and not opts.urn:
                 raise TypeError("Missing required property 'broker_node_group_info'")
             __props__.__dict__["broker_node_group_info"] = broker_node_group_info
-            client_authentication = _utilities.configure(client_authentication, ClusterClientAuthenticationArgs, True)
             __props__.__dict__["client_authentication"] = client_authentication
             __props__.__dict__["cluster_name"] = cluster_name
-            configuration_info = _utilities.configure(configuration_info, ClusterConfigurationInfoArgs, True)
             __props__.__dict__["configuration_info"] = configuration_info
-            encryption_info = _utilities.configure(encryption_info, ClusterEncryptionInfoArgs, True)
             __props__.__dict__["encryption_info"] = encryption_info
             __props__.__dict__["enhanced_monitoring"] = enhanced_monitoring
             if kafka_version is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_version'")
             __props__.__dict__["kafka_version"] = kafka_version
-            logging_info = _utilities.configure(logging_info, ClusterLoggingInfoArgs, True)
             __props__.__dict__["logging_info"] = logging_info
             if number_of_broker_nodes is None and not opts.urn:
                 raise TypeError("Missing required property 'number_of_broker_nodes'")
             __props__.__dict__["number_of_broker_nodes"] = number_of_broker_nodes
-            open_monitoring = _utilities.configure(open_monitoring, ClusterOpenMonitoringArgs, True)
             __props__.__dict__["open_monitoring"] = open_monitoring
             __props__.__dict__["storage_mode"] = storage_mode
             __props__.__dict__["tags"] = tags

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,28 +23,9 @@ class ProxyDefaultTargetGroupArgs:
         :param pulumi.Input[str] db_proxy_name: Name of the RDS DB Proxy.
         :param pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs'] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
         """
-        ProxyDefaultTargetGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            db_proxy_name=db_proxy_name,
-            connection_pool_config=connection_pool_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             db_proxy_name: Optional[pulumi.Input[str]] = None,
-             connection_pool_config: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if db_proxy_name is None and 'dbProxyName' in kwargs:
-            db_proxy_name = kwargs['dbProxyName']
-        if db_proxy_name is None:
-            raise TypeError("Missing 'db_proxy_name' argument")
-        if connection_pool_config is None and 'connectionPoolConfig' in kwargs:
-            connection_pool_config = kwargs['connectionPoolConfig']
-
-        _setter("db_proxy_name", db_proxy_name)
+        pulumi.set(__self__, "db_proxy_name", db_proxy_name)
         if connection_pool_config is not None:
-            _setter("connection_pool_config", connection_pool_config)
+            pulumi.set(__self__, "connection_pool_config", connection_pool_config)
 
     @property
     @pulumi.getter(name="dbProxyName")
@@ -85,35 +66,14 @@ class _ProxyDefaultTargetGroupState:
         :param pulumi.Input[str] db_proxy_name: Name of the RDS DB Proxy.
         :param pulumi.Input[str] name: The name of the default target group.
         """
-        _ProxyDefaultTargetGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            connection_pool_config=connection_pool_config,
-            db_proxy_name=db_proxy_name,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             connection_pool_config: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']] = None,
-             db_proxy_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_pool_config is None and 'connectionPoolConfig' in kwargs:
-            connection_pool_config = kwargs['connectionPoolConfig']
-        if db_proxy_name is None and 'dbProxyName' in kwargs:
-            db_proxy_name = kwargs['dbProxyName']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if connection_pool_config is not None:
-            _setter("connection_pool_config", connection_pool_config)
+            pulumi.set(__self__, "connection_pool_config", connection_pool_config)
         if db_proxy_name is not None:
-            _setter("db_proxy_name", db_proxy_name)
+            pulumi.set(__self__, "db_proxy_name", db_proxy_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -289,10 +249,6 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProxyDefaultTargetGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -309,7 +265,6 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProxyDefaultTargetGroupArgs.__new__(ProxyDefaultTargetGroupArgs)
 
-            connection_pool_config = _utilities.configure(connection_pool_config, ProxyDefaultTargetGroupConnectionPoolConfigArgs, True)
             __props__.__dict__["connection_pool_config"] = connection_pool_config
             if db_proxy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'db_proxy_name'")

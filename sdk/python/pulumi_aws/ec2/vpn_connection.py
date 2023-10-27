@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -127,337 +127,112 @@ class VpnConnectionArgs:
         :param pulumi.Input[str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
-        VpnConnectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            customer_gateway_id=customer_gateway_id,
-            type=type,
-            enable_acceleration=enable_acceleration,
-            local_ipv4_network_cidr=local_ipv4_network_cidr,
-            local_ipv6_network_cidr=local_ipv6_network_cidr,
-            outside_ip_address_type=outside_ip_address_type,
-            remote_ipv4_network_cidr=remote_ipv4_network_cidr,
-            remote_ipv6_network_cidr=remote_ipv6_network_cidr,
-            static_routes_only=static_routes_only,
-            tags=tags,
-            transit_gateway_id=transit_gateway_id,
-            transport_transit_gateway_attachment_id=transport_transit_gateway_attachment_id,
-            tunnel1_dpd_timeout_action=tunnel1_dpd_timeout_action,
-            tunnel1_dpd_timeout_seconds=tunnel1_dpd_timeout_seconds,
-            tunnel1_enable_tunnel_lifecycle_control=tunnel1_enable_tunnel_lifecycle_control,
-            tunnel1_ike_versions=tunnel1_ike_versions,
-            tunnel1_inside_cidr=tunnel1_inside_cidr,
-            tunnel1_inside_ipv6_cidr=tunnel1_inside_ipv6_cidr,
-            tunnel1_log_options=tunnel1_log_options,
-            tunnel1_phase1_dh_group_numbers=tunnel1_phase1_dh_group_numbers,
-            tunnel1_phase1_encryption_algorithms=tunnel1_phase1_encryption_algorithms,
-            tunnel1_phase1_integrity_algorithms=tunnel1_phase1_integrity_algorithms,
-            tunnel1_phase1_lifetime_seconds=tunnel1_phase1_lifetime_seconds,
-            tunnel1_phase2_dh_group_numbers=tunnel1_phase2_dh_group_numbers,
-            tunnel1_phase2_encryption_algorithms=tunnel1_phase2_encryption_algorithms,
-            tunnel1_phase2_integrity_algorithms=tunnel1_phase2_integrity_algorithms,
-            tunnel1_phase2_lifetime_seconds=tunnel1_phase2_lifetime_seconds,
-            tunnel1_preshared_key=tunnel1_preshared_key,
-            tunnel1_rekey_fuzz_percentage=tunnel1_rekey_fuzz_percentage,
-            tunnel1_rekey_margin_time_seconds=tunnel1_rekey_margin_time_seconds,
-            tunnel1_replay_window_size=tunnel1_replay_window_size,
-            tunnel1_startup_action=tunnel1_startup_action,
-            tunnel2_dpd_timeout_action=tunnel2_dpd_timeout_action,
-            tunnel2_dpd_timeout_seconds=tunnel2_dpd_timeout_seconds,
-            tunnel2_enable_tunnel_lifecycle_control=tunnel2_enable_tunnel_lifecycle_control,
-            tunnel2_ike_versions=tunnel2_ike_versions,
-            tunnel2_inside_cidr=tunnel2_inside_cidr,
-            tunnel2_inside_ipv6_cidr=tunnel2_inside_ipv6_cidr,
-            tunnel2_log_options=tunnel2_log_options,
-            tunnel2_phase1_dh_group_numbers=tunnel2_phase1_dh_group_numbers,
-            tunnel2_phase1_encryption_algorithms=tunnel2_phase1_encryption_algorithms,
-            tunnel2_phase1_integrity_algorithms=tunnel2_phase1_integrity_algorithms,
-            tunnel2_phase1_lifetime_seconds=tunnel2_phase1_lifetime_seconds,
-            tunnel2_phase2_dh_group_numbers=tunnel2_phase2_dh_group_numbers,
-            tunnel2_phase2_encryption_algorithms=tunnel2_phase2_encryption_algorithms,
-            tunnel2_phase2_integrity_algorithms=tunnel2_phase2_integrity_algorithms,
-            tunnel2_phase2_lifetime_seconds=tunnel2_phase2_lifetime_seconds,
-            tunnel2_preshared_key=tunnel2_preshared_key,
-            tunnel2_rekey_fuzz_percentage=tunnel2_rekey_fuzz_percentage,
-            tunnel2_rekey_margin_time_seconds=tunnel2_rekey_margin_time_seconds,
-            tunnel2_replay_window_size=tunnel2_replay_window_size,
-            tunnel2_startup_action=tunnel2_startup_action,
-            tunnel_inside_ip_version=tunnel_inside_ip_version,
-            vpn_gateway_id=vpn_gateway_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             customer_gateway_id: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             enable_acceleration: Optional[pulumi.Input[bool]] = None,
-             local_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
-             local_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
-             outside_ip_address_type: Optional[pulumi.Input[str]] = None,
-             remote_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
-             remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
-             static_routes_only: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             transit_gateway_id: Optional[pulumi.Input[str]] = None,
-             transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
-             tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
-             tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel1_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
-             tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
-             tunnel1_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
-             tunnel1_log_options: Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsArgs']] = None,
-             tunnel1_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             tunnel1_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel1_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel1_phase1_lifetime_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel1_phase2_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             tunnel1_phase2_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel1_phase2_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel1_phase2_lifetime_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel1_preshared_key: Optional[pulumi.Input[str]] = None,
-             tunnel1_rekey_fuzz_percentage: Optional[pulumi.Input[int]] = None,
-             tunnel1_rekey_margin_time_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel1_replay_window_size: Optional[pulumi.Input[int]] = None,
-             tunnel1_startup_action: Optional[pulumi.Input[str]] = None,
-             tunnel2_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
-             tunnel2_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel2_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
-             tunnel2_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
-             tunnel2_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
-             tunnel2_log_options: Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsArgs']] = None,
-             tunnel2_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             tunnel2_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel2_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel2_phase1_lifetime_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel2_phase2_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             tunnel2_phase2_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel2_phase2_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel2_phase2_lifetime_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel2_preshared_key: Optional[pulumi.Input[str]] = None,
-             tunnel2_rekey_fuzz_percentage: Optional[pulumi.Input[int]] = None,
-             tunnel2_rekey_margin_time_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel2_replay_window_size: Optional[pulumi.Input[int]] = None,
-             tunnel2_startup_action: Optional[pulumi.Input[str]] = None,
-             tunnel_inside_ip_version: Optional[pulumi.Input[str]] = None,
-             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if customer_gateway_id is None and 'customerGatewayId' in kwargs:
-            customer_gateway_id = kwargs['customerGatewayId']
-        if customer_gateway_id is None:
-            raise TypeError("Missing 'customer_gateway_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if enable_acceleration is None and 'enableAcceleration' in kwargs:
-            enable_acceleration = kwargs['enableAcceleration']
-        if local_ipv4_network_cidr is None and 'localIpv4NetworkCidr' in kwargs:
-            local_ipv4_network_cidr = kwargs['localIpv4NetworkCidr']
-        if local_ipv6_network_cidr is None and 'localIpv6NetworkCidr' in kwargs:
-            local_ipv6_network_cidr = kwargs['localIpv6NetworkCidr']
-        if outside_ip_address_type is None and 'outsideIpAddressType' in kwargs:
-            outside_ip_address_type = kwargs['outsideIpAddressType']
-        if remote_ipv4_network_cidr is None and 'remoteIpv4NetworkCidr' in kwargs:
-            remote_ipv4_network_cidr = kwargs['remoteIpv4NetworkCidr']
-        if remote_ipv6_network_cidr is None and 'remoteIpv6NetworkCidr' in kwargs:
-            remote_ipv6_network_cidr = kwargs['remoteIpv6NetworkCidr']
-        if static_routes_only is None and 'staticRoutesOnly' in kwargs:
-            static_routes_only = kwargs['staticRoutesOnly']
-        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
-            transit_gateway_id = kwargs['transitGatewayId']
-        if transport_transit_gateway_attachment_id is None and 'transportTransitGatewayAttachmentId' in kwargs:
-            transport_transit_gateway_attachment_id = kwargs['transportTransitGatewayAttachmentId']
-        if tunnel1_dpd_timeout_action is None and 'tunnel1DpdTimeoutAction' in kwargs:
-            tunnel1_dpd_timeout_action = kwargs['tunnel1DpdTimeoutAction']
-        if tunnel1_dpd_timeout_seconds is None and 'tunnel1DpdTimeoutSeconds' in kwargs:
-            tunnel1_dpd_timeout_seconds = kwargs['tunnel1DpdTimeoutSeconds']
-        if tunnel1_enable_tunnel_lifecycle_control is None and 'tunnel1EnableTunnelLifecycleControl' in kwargs:
-            tunnel1_enable_tunnel_lifecycle_control = kwargs['tunnel1EnableTunnelLifecycleControl']
-        if tunnel1_ike_versions is None and 'tunnel1IkeVersions' in kwargs:
-            tunnel1_ike_versions = kwargs['tunnel1IkeVersions']
-        if tunnel1_inside_cidr is None and 'tunnel1InsideCidr' in kwargs:
-            tunnel1_inside_cidr = kwargs['tunnel1InsideCidr']
-        if tunnel1_inside_ipv6_cidr is None and 'tunnel1InsideIpv6Cidr' in kwargs:
-            tunnel1_inside_ipv6_cidr = kwargs['tunnel1InsideIpv6Cidr']
-        if tunnel1_log_options is None and 'tunnel1LogOptions' in kwargs:
-            tunnel1_log_options = kwargs['tunnel1LogOptions']
-        if tunnel1_phase1_dh_group_numbers is None and 'tunnel1Phase1DhGroupNumbers' in kwargs:
-            tunnel1_phase1_dh_group_numbers = kwargs['tunnel1Phase1DhGroupNumbers']
-        if tunnel1_phase1_encryption_algorithms is None and 'tunnel1Phase1EncryptionAlgorithms' in kwargs:
-            tunnel1_phase1_encryption_algorithms = kwargs['tunnel1Phase1EncryptionAlgorithms']
-        if tunnel1_phase1_integrity_algorithms is None and 'tunnel1Phase1IntegrityAlgorithms' in kwargs:
-            tunnel1_phase1_integrity_algorithms = kwargs['tunnel1Phase1IntegrityAlgorithms']
-        if tunnel1_phase1_lifetime_seconds is None and 'tunnel1Phase1LifetimeSeconds' in kwargs:
-            tunnel1_phase1_lifetime_seconds = kwargs['tunnel1Phase1LifetimeSeconds']
-        if tunnel1_phase2_dh_group_numbers is None and 'tunnel1Phase2DhGroupNumbers' in kwargs:
-            tunnel1_phase2_dh_group_numbers = kwargs['tunnel1Phase2DhGroupNumbers']
-        if tunnel1_phase2_encryption_algorithms is None and 'tunnel1Phase2EncryptionAlgorithms' in kwargs:
-            tunnel1_phase2_encryption_algorithms = kwargs['tunnel1Phase2EncryptionAlgorithms']
-        if tunnel1_phase2_integrity_algorithms is None and 'tunnel1Phase2IntegrityAlgorithms' in kwargs:
-            tunnel1_phase2_integrity_algorithms = kwargs['tunnel1Phase2IntegrityAlgorithms']
-        if tunnel1_phase2_lifetime_seconds is None and 'tunnel1Phase2LifetimeSeconds' in kwargs:
-            tunnel1_phase2_lifetime_seconds = kwargs['tunnel1Phase2LifetimeSeconds']
-        if tunnel1_preshared_key is None and 'tunnel1PresharedKey' in kwargs:
-            tunnel1_preshared_key = kwargs['tunnel1PresharedKey']
-        if tunnel1_rekey_fuzz_percentage is None and 'tunnel1RekeyFuzzPercentage' in kwargs:
-            tunnel1_rekey_fuzz_percentage = kwargs['tunnel1RekeyFuzzPercentage']
-        if tunnel1_rekey_margin_time_seconds is None and 'tunnel1RekeyMarginTimeSeconds' in kwargs:
-            tunnel1_rekey_margin_time_seconds = kwargs['tunnel1RekeyMarginTimeSeconds']
-        if tunnel1_replay_window_size is None and 'tunnel1ReplayWindowSize' in kwargs:
-            tunnel1_replay_window_size = kwargs['tunnel1ReplayWindowSize']
-        if tunnel1_startup_action is None and 'tunnel1StartupAction' in kwargs:
-            tunnel1_startup_action = kwargs['tunnel1StartupAction']
-        if tunnel2_dpd_timeout_action is None and 'tunnel2DpdTimeoutAction' in kwargs:
-            tunnel2_dpd_timeout_action = kwargs['tunnel2DpdTimeoutAction']
-        if tunnel2_dpd_timeout_seconds is None and 'tunnel2DpdTimeoutSeconds' in kwargs:
-            tunnel2_dpd_timeout_seconds = kwargs['tunnel2DpdTimeoutSeconds']
-        if tunnel2_enable_tunnel_lifecycle_control is None and 'tunnel2EnableTunnelLifecycleControl' in kwargs:
-            tunnel2_enable_tunnel_lifecycle_control = kwargs['tunnel2EnableTunnelLifecycleControl']
-        if tunnel2_ike_versions is None and 'tunnel2IkeVersions' in kwargs:
-            tunnel2_ike_versions = kwargs['tunnel2IkeVersions']
-        if tunnel2_inside_cidr is None and 'tunnel2InsideCidr' in kwargs:
-            tunnel2_inside_cidr = kwargs['tunnel2InsideCidr']
-        if tunnel2_inside_ipv6_cidr is None and 'tunnel2InsideIpv6Cidr' in kwargs:
-            tunnel2_inside_ipv6_cidr = kwargs['tunnel2InsideIpv6Cidr']
-        if tunnel2_log_options is None and 'tunnel2LogOptions' in kwargs:
-            tunnel2_log_options = kwargs['tunnel2LogOptions']
-        if tunnel2_phase1_dh_group_numbers is None and 'tunnel2Phase1DhGroupNumbers' in kwargs:
-            tunnel2_phase1_dh_group_numbers = kwargs['tunnel2Phase1DhGroupNumbers']
-        if tunnel2_phase1_encryption_algorithms is None and 'tunnel2Phase1EncryptionAlgorithms' in kwargs:
-            tunnel2_phase1_encryption_algorithms = kwargs['tunnel2Phase1EncryptionAlgorithms']
-        if tunnel2_phase1_integrity_algorithms is None and 'tunnel2Phase1IntegrityAlgorithms' in kwargs:
-            tunnel2_phase1_integrity_algorithms = kwargs['tunnel2Phase1IntegrityAlgorithms']
-        if tunnel2_phase1_lifetime_seconds is None and 'tunnel2Phase1LifetimeSeconds' in kwargs:
-            tunnel2_phase1_lifetime_seconds = kwargs['tunnel2Phase1LifetimeSeconds']
-        if tunnel2_phase2_dh_group_numbers is None and 'tunnel2Phase2DhGroupNumbers' in kwargs:
-            tunnel2_phase2_dh_group_numbers = kwargs['tunnel2Phase2DhGroupNumbers']
-        if tunnel2_phase2_encryption_algorithms is None and 'tunnel2Phase2EncryptionAlgorithms' in kwargs:
-            tunnel2_phase2_encryption_algorithms = kwargs['tunnel2Phase2EncryptionAlgorithms']
-        if tunnel2_phase2_integrity_algorithms is None and 'tunnel2Phase2IntegrityAlgorithms' in kwargs:
-            tunnel2_phase2_integrity_algorithms = kwargs['tunnel2Phase2IntegrityAlgorithms']
-        if tunnel2_phase2_lifetime_seconds is None and 'tunnel2Phase2LifetimeSeconds' in kwargs:
-            tunnel2_phase2_lifetime_seconds = kwargs['tunnel2Phase2LifetimeSeconds']
-        if tunnel2_preshared_key is None and 'tunnel2PresharedKey' in kwargs:
-            tunnel2_preshared_key = kwargs['tunnel2PresharedKey']
-        if tunnel2_rekey_fuzz_percentage is None and 'tunnel2RekeyFuzzPercentage' in kwargs:
-            tunnel2_rekey_fuzz_percentage = kwargs['tunnel2RekeyFuzzPercentage']
-        if tunnel2_rekey_margin_time_seconds is None and 'tunnel2RekeyMarginTimeSeconds' in kwargs:
-            tunnel2_rekey_margin_time_seconds = kwargs['tunnel2RekeyMarginTimeSeconds']
-        if tunnel2_replay_window_size is None and 'tunnel2ReplayWindowSize' in kwargs:
-            tunnel2_replay_window_size = kwargs['tunnel2ReplayWindowSize']
-        if tunnel2_startup_action is None and 'tunnel2StartupAction' in kwargs:
-            tunnel2_startup_action = kwargs['tunnel2StartupAction']
-        if tunnel_inside_ip_version is None and 'tunnelInsideIpVersion' in kwargs:
-            tunnel_inside_ip_version = kwargs['tunnelInsideIpVersion']
-        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
-            vpn_gateway_id = kwargs['vpnGatewayId']
-
-        _setter("customer_gateway_id", customer_gateway_id)
-        _setter("type", type)
+        pulumi.set(__self__, "customer_gateway_id", customer_gateway_id)
+        pulumi.set(__self__, "type", type)
         if enable_acceleration is not None:
-            _setter("enable_acceleration", enable_acceleration)
+            pulumi.set(__self__, "enable_acceleration", enable_acceleration)
         if local_ipv4_network_cidr is not None:
-            _setter("local_ipv4_network_cidr", local_ipv4_network_cidr)
+            pulumi.set(__self__, "local_ipv4_network_cidr", local_ipv4_network_cidr)
         if local_ipv6_network_cidr is not None:
-            _setter("local_ipv6_network_cidr", local_ipv6_network_cidr)
+            pulumi.set(__self__, "local_ipv6_network_cidr", local_ipv6_network_cidr)
         if outside_ip_address_type is not None:
-            _setter("outside_ip_address_type", outside_ip_address_type)
+            pulumi.set(__self__, "outside_ip_address_type", outside_ip_address_type)
         if remote_ipv4_network_cidr is not None:
-            _setter("remote_ipv4_network_cidr", remote_ipv4_network_cidr)
+            pulumi.set(__self__, "remote_ipv4_network_cidr", remote_ipv4_network_cidr)
         if remote_ipv6_network_cidr is not None:
-            _setter("remote_ipv6_network_cidr", remote_ipv6_network_cidr)
+            pulumi.set(__self__, "remote_ipv6_network_cidr", remote_ipv6_network_cidr)
         if static_routes_only is not None:
-            _setter("static_routes_only", static_routes_only)
+            pulumi.set(__self__, "static_routes_only", static_routes_only)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if transit_gateway_id is not None:
-            _setter("transit_gateway_id", transit_gateway_id)
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if transport_transit_gateway_attachment_id is not None:
-            _setter("transport_transit_gateway_attachment_id", transport_transit_gateway_attachment_id)
+            pulumi.set(__self__, "transport_transit_gateway_attachment_id", transport_transit_gateway_attachment_id)
         if tunnel1_dpd_timeout_action is not None:
-            _setter("tunnel1_dpd_timeout_action", tunnel1_dpd_timeout_action)
+            pulumi.set(__self__, "tunnel1_dpd_timeout_action", tunnel1_dpd_timeout_action)
         if tunnel1_dpd_timeout_seconds is not None:
-            _setter("tunnel1_dpd_timeout_seconds", tunnel1_dpd_timeout_seconds)
+            pulumi.set(__self__, "tunnel1_dpd_timeout_seconds", tunnel1_dpd_timeout_seconds)
         if tunnel1_enable_tunnel_lifecycle_control is not None:
-            _setter("tunnel1_enable_tunnel_lifecycle_control", tunnel1_enable_tunnel_lifecycle_control)
+            pulumi.set(__self__, "tunnel1_enable_tunnel_lifecycle_control", tunnel1_enable_tunnel_lifecycle_control)
         if tunnel1_ike_versions is not None:
-            _setter("tunnel1_ike_versions", tunnel1_ike_versions)
+            pulumi.set(__self__, "tunnel1_ike_versions", tunnel1_ike_versions)
         if tunnel1_inside_cidr is not None:
-            _setter("tunnel1_inside_cidr", tunnel1_inside_cidr)
+            pulumi.set(__self__, "tunnel1_inside_cidr", tunnel1_inside_cidr)
         if tunnel1_inside_ipv6_cidr is not None:
-            _setter("tunnel1_inside_ipv6_cidr", tunnel1_inside_ipv6_cidr)
+            pulumi.set(__self__, "tunnel1_inside_ipv6_cidr", tunnel1_inside_ipv6_cidr)
         if tunnel1_log_options is not None:
-            _setter("tunnel1_log_options", tunnel1_log_options)
+            pulumi.set(__self__, "tunnel1_log_options", tunnel1_log_options)
         if tunnel1_phase1_dh_group_numbers is not None:
-            _setter("tunnel1_phase1_dh_group_numbers", tunnel1_phase1_dh_group_numbers)
+            pulumi.set(__self__, "tunnel1_phase1_dh_group_numbers", tunnel1_phase1_dh_group_numbers)
         if tunnel1_phase1_encryption_algorithms is not None:
-            _setter("tunnel1_phase1_encryption_algorithms", tunnel1_phase1_encryption_algorithms)
+            pulumi.set(__self__, "tunnel1_phase1_encryption_algorithms", tunnel1_phase1_encryption_algorithms)
         if tunnel1_phase1_integrity_algorithms is not None:
-            _setter("tunnel1_phase1_integrity_algorithms", tunnel1_phase1_integrity_algorithms)
+            pulumi.set(__self__, "tunnel1_phase1_integrity_algorithms", tunnel1_phase1_integrity_algorithms)
         if tunnel1_phase1_lifetime_seconds is not None:
-            _setter("tunnel1_phase1_lifetime_seconds", tunnel1_phase1_lifetime_seconds)
+            pulumi.set(__self__, "tunnel1_phase1_lifetime_seconds", tunnel1_phase1_lifetime_seconds)
         if tunnel1_phase2_dh_group_numbers is not None:
-            _setter("tunnel1_phase2_dh_group_numbers", tunnel1_phase2_dh_group_numbers)
+            pulumi.set(__self__, "tunnel1_phase2_dh_group_numbers", tunnel1_phase2_dh_group_numbers)
         if tunnel1_phase2_encryption_algorithms is not None:
-            _setter("tunnel1_phase2_encryption_algorithms", tunnel1_phase2_encryption_algorithms)
+            pulumi.set(__self__, "tunnel1_phase2_encryption_algorithms", tunnel1_phase2_encryption_algorithms)
         if tunnel1_phase2_integrity_algorithms is not None:
-            _setter("tunnel1_phase2_integrity_algorithms", tunnel1_phase2_integrity_algorithms)
+            pulumi.set(__self__, "tunnel1_phase2_integrity_algorithms", tunnel1_phase2_integrity_algorithms)
         if tunnel1_phase2_lifetime_seconds is not None:
-            _setter("tunnel1_phase2_lifetime_seconds", tunnel1_phase2_lifetime_seconds)
+            pulumi.set(__self__, "tunnel1_phase2_lifetime_seconds", tunnel1_phase2_lifetime_seconds)
         if tunnel1_preshared_key is not None:
-            _setter("tunnel1_preshared_key", tunnel1_preshared_key)
+            pulumi.set(__self__, "tunnel1_preshared_key", tunnel1_preshared_key)
         if tunnel1_rekey_fuzz_percentage is not None:
-            _setter("tunnel1_rekey_fuzz_percentage", tunnel1_rekey_fuzz_percentage)
+            pulumi.set(__self__, "tunnel1_rekey_fuzz_percentage", tunnel1_rekey_fuzz_percentage)
         if tunnel1_rekey_margin_time_seconds is not None:
-            _setter("tunnel1_rekey_margin_time_seconds", tunnel1_rekey_margin_time_seconds)
+            pulumi.set(__self__, "tunnel1_rekey_margin_time_seconds", tunnel1_rekey_margin_time_seconds)
         if tunnel1_replay_window_size is not None:
-            _setter("tunnel1_replay_window_size", tunnel1_replay_window_size)
+            pulumi.set(__self__, "tunnel1_replay_window_size", tunnel1_replay_window_size)
         if tunnel1_startup_action is not None:
-            _setter("tunnel1_startup_action", tunnel1_startup_action)
+            pulumi.set(__self__, "tunnel1_startup_action", tunnel1_startup_action)
         if tunnel2_dpd_timeout_action is not None:
-            _setter("tunnel2_dpd_timeout_action", tunnel2_dpd_timeout_action)
+            pulumi.set(__self__, "tunnel2_dpd_timeout_action", tunnel2_dpd_timeout_action)
         if tunnel2_dpd_timeout_seconds is not None:
-            _setter("tunnel2_dpd_timeout_seconds", tunnel2_dpd_timeout_seconds)
+            pulumi.set(__self__, "tunnel2_dpd_timeout_seconds", tunnel2_dpd_timeout_seconds)
         if tunnel2_enable_tunnel_lifecycle_control is not None:
-            _setter("tunnel2_enable_tunnel_lifecycle_control", tunnel2_enable_tunnel_lifecycle_control)
+            pulumi.set(__self__, "tunnel2_enable_tunnel_lifecycle_control", tunnel2_enable_tunnel_lifecycle_control)
         if tunnel2_ike_versions is not None:
-            _setter("tunnel2_ike_versions", tunnel2_ike_versions)
+            pulumi.set(__self__, "tunnel2_ike_versions", tunnel2_ike_versions)
         if tunnel2_inside_cidr is not None:
-            _setter("tunnel2_inside_cidr", tunnel2_inside_cidr)
+            pulumi.set(__self__, "tunnel2_inside_cidr", tunnel2_inside_cidr)
         if tunnel2_inside_ipv6_cidr is not None:
-            _setter("tunnel2_inside_ipv6_cidr", tunnel2_inside_ipv6_cidr)
+            pulumi.set(__self__, "tunnel2_inside_ipv6_cidr", tunnel2_inside_ipv6_cidr)
         if tunnel2_log_options is not None:
-            _setter("tunnel2_log_options", tunnel2_log_options)
+            pulumi.set(__self__, "tunnel2_log_options", tunnel2_log_options)
         if tunnel2_phase1_dh_group_numbers is not None:
-            _setter("tunnel2_phase1_dh_group_numbers", tunnel2_phase1_dh_group_numbers)
+            pulumi.set(__self__, "tunnel2_phase1_dh_group_numbers", tunnel2_phase1_dh_group_numbers)
         if tunnel2_phase1_encryption_algorithms is not None:
-            _setter("tunnel2_phase1_encryption_algorithms", tunnel2_phase1_encryption_algorithms)
+            pulumi.set(__self__, "tunnel2_phase1_encryption_algorithms", tunnel2_phase1_encryption_algorithms)
         if tunnel2_phase1_integrity_algorithms is not None:
-            _setter("tunnel2_phase1_integrity_algorithms", tunnel2_phase1_integrity_algorithms)
+            pulumi.set(__self__, "tunnel2_phase1_integrity_algorithms", tunnel2_phase1_integrity_algorithms)
         if tunnel2_phase1_lifetime_seconds is not None:
-            _setter("tunnel2_phase1_lifetime_seconds", tunnel2_phase1_lifetime_seconds)
+            pulumi.set(__self__, "tunnel2_phase1_lifetime_seconds", tunnel2_phase1_lifetime_seconds)
         if tunnel2_phase2_dh_group_numbers is not None:
-            _setter("tunnel2_phase2_dh_group_numbers", tunnel2_phase2_dh_group_numbers)
+            pulumi.set(__self__, "tunnel2_phase2_dh_group_numbers", tunnel2_phase2_dh_group_numbers)
         if tunnel2_phase2_encryption_algorithms is not None:
-            _setter("tunnel2_phase2_encryption_algorithms", tunnel2_phase2_encryption_algorithms)
+            pulumi.set(__self__, "tunnel2_phase2_encryption_algorithms", tunnel2_phase2_encryption_algorithms)
         if tunnel2_phase2_integrity_algorithms is not None:
-            _setter("tunnel2_phase2_integrity_algorithms", tunnel2_phase2_integrity_algorithms)
+            pulumi.set(__self__, "tunnel2_phase2_integrity_algorithms", tunnel2_phase2_integrity_algorithms)
         if tunnel2_phase2_lifetime_seconds is not None:
-            _setter("tunnel2_phase2_lifetime_seconds", tunnel2_phase2_lifetime_seconds)
+            pulumi.set(__self__, "tunnel2_phase2_lifetime_seconds", tunnel2_phase2_lifetime_seconds)
         if tunnel2_preshared_key is not None:
-            _setter("tunnel2_preshared_key", tunnel2_preshared_key)
+            pulumi.set(__self__, "tunnel2_preshared_key", tunnel2_preshared_key)
         if tunnel2_rekey_fuzz_percentage is not None:
-            _setter("tunnel2_rekey_fuzz_percentage", tunnel2_rekey_fuzz_percentage)
+            pulumi.set(__self__, "tunnel2_rekey_fuzz_percentage", tunnel2_rekey_fuzz_percentage)
         if tunnel2_rekey_margin_time_seconds is not None:
-            _setter("tunnel2_rekey_margin_time_seconds", tunnel2_rekey_margin_time_seconds)
+            pulumi.set(__self__, "tunnel2_rekey_margin_time_seconds", tunnel2_rekey_margin_time_seconds)
         if tunnel2_replay_window_size is not None:
-            _setter("tunnel2_replay_window_size", tunnel2_replay_window_size)
+            pulumi.set(__self__, "tunnel2_replay_window_size", tunnel2_replay_window_size)
         if tunnel2_startup_action is not None:
-            _setter("tunnel2_startup_action", tunnel2_startup_action)
+            pulumi.set(__self__, "tunnel2_startup_action", tunnel2_startup_action)
         if tunnel_inside_ip_version is not None:
-            _setter("tunnel_inside_ip_version", tunnel_inside_ip_version)
+            pulumi.set(__self__, "tunnel_inside_ip_version", tunnel_inside_ip_version)
         if vpn_gateway_id is not None:
-            _setter("vpn_gateway_id", vpn_gateway_id)
+            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
 
     @property
     @pulumi.getter(name="customerGatewayId")
@@ -1258,442 +1033,153 @@ class _VpnConnectionState:
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionVgwTelemetryArgs']]] vgw_telemetries: Telemetry for the VPN tunnels. Detailed below.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the Virtual Private Gateway.
         """
-        _VpnConnectionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            core_network_arn=core_network_arn,
-            core_network_attachment_arn=core_network_attachment_arn,
-            customer_gateway_configuration=customer_gateway_configuration,
-            customer_gateway_id=customer_gateway_id,
-            enable_acceleration=enable_acceleration,
-            local_ipv4_network_cidr=local_ipv4_network_cidr,
-            local_ipv6_network_cidr=local_ipv6_network_cidr,
-            outside_ip_address_type=outside_ip_address_type,
-            remote_ipv4_network_cidr=remote_ipv4_network_cidr,
-            remote_ipv6_network_cidr=remote_ipv6_network_cidr,
-            routes=routes,
-            static_routes_only=static_routes_only,
-            tags=tags,
-            tags_all=tags_all,
-            transit_gateway_attachment_id=transit_gateway_attachment_id,
-            transit_gateway_id=transit_gateway_id,
-            transport_transit_gateway_attachment_id=transport_transit_gateway_attachment_id,
-            tunnel1_address=tunnel1_address,
-            tunnel1_bgp_asn=tunnel1_bgp_asn,
-            tunnel1_bgp_holdtime=tunnel1_bgp_holdtime,
-            tunnel1_cgw_inside_address=tunnel1_cgw_inside_address,
-            tunnel1_dpd_timeout_action=tunnel1_dpd_timeout_action,
-            tunnel1_dpd_timeout_seconds=tunnel1_dpd_timeout_seconds,
-            tunnel1_enable_tunnel_lifecycle_control=tunnel1_enable_tunnel_lifecycle_control,
-            tunnel1_ike_versions=tunnel1_ike_versions,
-            tunnel1_inside_cidr=tunnel1_inside_cidr,
-            tunnel1_inside_ipv6_cidr=tunnel1_inside_ipv6_cidr,
-            tunnel1_log_options=tunnel1_log_options,
-            tunnel1_phase1_dh_group_numbers=tunnel1_phase1_dh_group_numbers,
-            tunnel1_phase1_encryption_algorithms=tunnel1_phase1_encryption_algorithms,
-            tunnel1_phase1_integrity_algorithms=tunnel1_phase1_integrity_algorithms,
-            tunnel1_phase1_lifetime_seconds=tunnel1_phase1_lifetime_seconds,
-            tunnel1_phase2_dh_group_numbers=tunnel1_phase2_dh_group_numbers,
-            tunnel1_phase2_encryption_algorithms=tunnel1_phase2_encryption_algorithms,
-            tunnel1_phase2_integrity_algorithms=tunnel1_phase2_integrity_algorithms,
-            tunnel1_phase2_lifetime_seconds=tunnel1_phase2_lifetime_seconds,
-            tunnel1_preshared_key=tunnel1_preshared_key,
-            tunnel1_rekey_fuzz_percentage=tunnel1_rekey_fuzz_percentage,
-            tunnel1_rekey_margin_time_seconds=tunnel1_rekey_margin_time_seconds,
-            tunnel1_replay_window_size=tunnel1_replay_window_size,
-            tunnel1_startup_action=tunnel1_startup_action,
-            tunnel1_vgw_inside_address=tunnel1_vgw_inside_address,
-            tunnel2_address=tunnel2_address,
-            tunnel2_bgp_asn=tunnel2_bgp_asn,
-            tunnel2_bgp_holdtime=tunnel2_bgp_holdtime,
-            tunnel2_cgw_inside_address=tunnel2_cgw_inside_address,
-            tunnel2_dpd_timeout_action=tunnel2_dpd_timeout_action,
-            tunnel2_dpd_timeout_seconds=tunnel2_dpd_timeout_seconds,
-            tunnel2_enable_tunnel_lifecycle_control=tunnel2_enable_tunnel_lifecycle_control,
-            tunnel2_ike_versions=tunnel2_ike_versions,
-            tunnel2_inside_cidr=tunnel2_inside_cidr,
-            tunnel2_inside_ipv6_cidr=tunnel2_inside_ipv6_cidr,
-            tunnel2_log_options=tunnel2_log_options,
-            tunnel2_phase1_dh_group_numbers=tunnel2_phase1_dh_group_numbers,
-            tunnel2_phase1_encryption_algorithms=tunnel2_phase1_encryption_algorithms,
-            tunnel2_phase1_integrity_algorithms=tunnel2_phase1_integrity_algorithms,
-            tunnel2_phase1_lifetime_seconds=tunnel2_phase1_lifetime_seconds,
-            tunnel2_phase2_dh_group_numbers=tunnel2_phase2_dh_group_numbers,
-            tunnel2_phase2_encryption_algorithms=tunnel2_phase2_encryption_algorithms,
-            tunnel2_phase2_integrity_algorithms=tunnel2_phase2_integrity_algorithms,
-            tunnel2_phase2_lifetime_seconds=tunnel2_phase2_lifetime_seconds,
-            tunnel2_preshared_key=tunnel2_preshared_key,
-            tunnel2_rekey_fuzz_percentage=tunnel2_rekey_fuzz_percentage,
-            tunnel2_rekey_margin_time_seconds=tunnel2_rekey_margin_time_seconds,
-            tunnel2_replay_window_size=tunnel2_replay_window_size,
-            tunnel2_startup_action=tunnel2_startup_action,
-            tunnel2_vgw_inside_address=tunnel2_vgw_inside_address,
-            tunnel_inside_ip_version=tunnel_inside_ip_version,
-            type=type,
-            vgw_telemetries=vgw_telemetries,
-            vpn_gateway_id=vpn_gateway_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             core_network_arn: Optional[pulumi.Input[str]] = None,
-             core_network_attachment_arn: Optional[pulumi.Input[str]] = None,
-             customer_gateway_configuration: Optional[pulumi.Input[str]] = None,
-             customer_gateway_id: Optional[pulumi.Input[str]] = None,
-             enable_acceleration: Optional[pulumi.Input[bool]] = None,
-             local_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
-             local_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
-             outside_ip_address_type: Optional[pulumi.Input[str]] = None,
-             remote_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
-             remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
-             routes: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionRouteArgs']]]] = None,
-             static_routes_only: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
-             transit_gateway_id: Optional[pulumi.Input[str]] = None,
-             transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
-             tunnel1_address: Optional[pulumi.Input[str]] = None,
-             tunnel1_bgp_asn: Optional[pulumi.Input[str]] = None,
-             tunnel1_bgp_holdtime: Optional[pulumi.Input[int]] = None,
-             tunnel1_cgw_inside_address: Optional[pulumi.Input[str]] = None,
-             tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
-             tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel1_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
-             tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
-             tunnel1_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
-             tunnel1_log_options: Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsArgs']] = None,
-             tunnel1_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             tunnel1_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel1_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel1_phase1_lifetime_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel1_phase2_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             tunnel1_phase2_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel1_phase2_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel1_phase2_lifetime_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel1_preshared_key: Optional[pulumi.Input[str]] = None,
-             tunnel1_rekey_fuzz_percentage: Optional[pulumi.Input[int]] = None,
-             tunnel1_rekey_margin_time_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel1_replay_window_size: Optional[pulumi.Input[int]] = None,
-             tunnel1_startup_action: Optional[pulumi.Input[str]] = None,
-             tunnel1_vgw_inside_address: Optional[pulumi.Input[str]] = None,
-             tunnel2_address: Optional[pulumi.Input[str]] = None,
-             tunnel2_bgp_asn: Optional[pulumi.Input[str]] = None,
-             tunnel2_bgp_holdtime: Optional[pulumi.Input[int]] = None,
-             tunnel2_cgw_inside_address: Optional[pulumi.Input[str]] = None,
-             tunnel2_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
-             tunnel2_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel2_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
-             tunnel2_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
-             tunnel2_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
-             tunnel2_log_options: Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsArgs']] = None,
-             tunnel2_phase1_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             tunnel2_phase1_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel2_phase1_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel2_phase1_lifetime_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel2_phase2_dh_group_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             tunnel2_phase2_encryption_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel2_phase2_integrity_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tunnel2_phase2_lifetime_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel2_preshared_key: Optional[pulumi.Input[str]] = None,
-             tunnel2_rekey_fuzz_percentage: Optional[pulumi.Input[int]] = None,
-             tunnel2_rekey_margin_time_seconds: Optional[pulumi.Input[int]] = None,
-             tunnel2_replay_window_size: Optional[pulumi.Input[int]] = None,
-             tunnel2_startup_action: Optional[pulumi.Input[str]] = None,
-             tunnel2_vgw_inside_address: Optional[pulumi.Input[str]] = None,
-             tunnel_inside_ip_version: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             vgw_telemetries: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVgwTelemetryArgs']]]] = None,
-             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if core_network_arn is None and 'coreNetworkArn' in kwargs:
-            core_network_arn = kwargs['coreNetworkArn']
-        if core_network_attachment_arn is None and 'coreNetworkAttachmentArn' in kwargs:
-            core_network_attachment_arn = kwargs['coreNetworkAttachmentArn']
-        if customer_gateway_configuration is None and 'customerGatewayConfiguration' in kwargs:
-            customer_gateway_configuration = kwargs['customerGatewayConfiguration']
-        if customer_gateway_id is None and 'customerGatewayId' in kwargs:
-            customer_gateway_id = kwargs['customerGatewayId']
-        if enable_acceleration is None and 'enableAcceleration' in kwargs:
-            enable_acceleration = kwargs['enableAcceleration']
-        if local_ipv4_network_cidr is None and 'localIpv4NetworkCidr' in kwargs:
-            local_ipv4_network_cidr = kwargs['localIpv4NetworkCidr']
-        if local_ipv6_network_cidr is None and 'localIpv6NetworkCidr' in kwargs:
-            local_ipv6_network_cidr = kwargs['localIpv6NetworkCidr']
-        if outside_ip_address_type is None and 'outsideIpAddressType' in kwargs:
-            outside_ip_address_type = kwargs['outsideIpAddressType']
-        if remote_ipv4_network_cidr is None and 'remoteIpv4NetworkCidr' in kwargs:
-            remote_ipv4_network_cidr = kwargs['remoteIpv4NetworkCidr']
-        if remote_ipv6_network_cidr is None and 'remoteIpv6NetworkCidr' in kwargs:
-            remote_ipv6_network_cidr = kwargs['remoteIpv6NetworkCidr']
-        if static_routes_only is None and 'staticRoutesOnly' in kwargs:
-            static_routes_only = kwargs['staticRoutesOnly']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
-            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
-        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
-            transit_gateway_id = kwargs['transitGatewayId']
-        if transport_transit_gateway_attachment_id is None and 'transportTransitGatewayAttachmentId' in kwargs:
-            transport_transit_gateway_attachment_id = kwargs['transportTransitGatewayAttachmentId']
-        if tunnel1_address is None and 'tunnel1Address' in kwargs:
-            tunnel1_address = kwargs['tunnel1Address']
-        if tunnel1_bgp_asn is None and 'tunnel1BgpAsn' in kwargs:
-            tunnel1_bgp_asn = kwargs['tunnel1BgpAsn']
-        if tunnel1_bgp_holdtime is None and 'tunnel1BgpHoldtime' in kwargs:
-            tunnel1_bgp_holdtime = kwargs['tunnel1BgpHoldtime']
-        if tunnel1_cgw_inside_address is None and 'tunnel1CgwInsideAddress' in kwargs:
-            tunnel1_cgw_inside_address = kwargs['tunnel1CgwInsideAddress']
-        if tunnel1_dpd_timeout_action is None and 'tunnel1DpdTimeoutAction' in kwargs:
-            tunnel1_dpd_timeout_action = kwargs['tunnel1DpdTimeoutAction']
-        if tunnel1_dpd_timeout_seconds is None and 'tunnel1DpdTimeoutSeconds' in kwargs:
-            tunnel1_dpd_timeout_seconds = kwargs['tunnel1DpdTimeoutSeconds']
-        if tunnel1_enable_tunnel_lifecycle_control is None and 'tunnel1EnableTunnelLifecycleControl' in kwargs:
-            tunnel1_enable_tunnel_lifecycle_control = kwargs['tunnel1EnableTunnelLifecycleControl']
-        if tunnel1_ike_versions is None and 'tunnel1IkeVersions' in kwargs:
-            tunnel1_ike_versions = kwargs['tunnel1IkeVersions']
-        if tunnel1_inside_cidr is None and 'tunnel1InsideCidr' in kwargs:
-            tunnel1_inside_cidr = kwargs['tunnel1InsideCidr']
-        if tunnel1_inside_ipv6_cidr is None and 'tunnel1InsideIpv6Cidr' in kwargs:
-            tunnel1_inside_ipv6_cidr = kwargs['tunnel1InsideIpv6Cidr']
-        if tunnel1_log_options is None and 'tunnel1LogOptions' in kwargs:
-            tunnel1_log_options = kwargs['tunnel1LogOptions']
-        if tunnel1_phase1_dh_group_numbers is None and 'tunnel1Phase1DhGroupNumbers' in kwargs:
-            tunnel1_phase1_dh_group_numbers = kwargs['tunnel1Phase1DhGroupNumbers']
-        if tunnel1_phase1_encryption_algorithms is None and 'tunnel1Phase1EncryptionAlgorithms' in kwargs:
-            tunnel1_phase1_encryption_algorithms = kwargs['tunnel1Phase1EncryptionAlgorithms']
-        if tunnel1_phase1_integrity_algorithms is None and 'tunnel1Phase1IntegrityAlgorithms' in kwargs:
-            tunnel1_phase1_integrity_algorithms = kwargs['tunnel1Phase1IntegrityAlgorithms']
-        if tunnel1_phase1_lifetime_seconds is None and 'tunnel1Phase1LifetimeSeconds' in kwargs:
-            tunnel1_phase1_lifetime_seconds = kwargs['tunnel1Phase1LifetimeSeconds']
-        if tunnel1_phase2_dh_group_numbers is None and 'tunnel1Phase2DhGroupNumbers' in kwargs:
-            tunnel1_phase2_dh_group_numbers = kwargs['tunnel1Phase2DhGroupNumbers']
-        if tunnel1_phase2_encryption_algorithms is None and 'tunnel1Phase2EncryptionAlgorithms' in kwargs:
-            tunnel1_phase2_encryption_algorithms = kwargs['tunnel1Phase2EncryptionAlgorithms']
-        if tunnel1_phase2_integrity_algorithms is None and 'tunnel1Phase2IntegrityAlgorithms' in kwargs:
-            tunnel1_phase2_integrity_algorithms = kwargs['tunnel1Phase2IntegrityAlgorithms']
-        if tunnel1_phase2_lifetime_seconds is None and 'tunnel1Phase2LifetimeSeconds' in kwargs:
-            tunnel1_phase2_lifetime_seconds = kwargs['tunnel1Phase2LifetimeSeconds']
-        if tunnel1_preshared_key is None and 'tunnel1PresharedKey' in kwargs:
-            tunnel1_preshared_key = kwargs['tunnel1PresharedKey']
-        if tunnel1_rekey_fuzz_percentage is None and 'tunnel1RekeyFuzzPercentage' in kwargs:
-            tunnel1_rekey_fuzz_percentage = kwargs['tunnel1RekeyFuzzPercentage']
-        if tunnel1_rekey_margin_time_seconds is None and 'tunnel1RekeyMarginTimeSeconds' in kwargs:
-            tunnel1_rekey_margin_time_seconds = kwargs['tunnel1RekeyMarginTimeSeconds']
-        if tunnel1_replay_window_size is None and 'tunnel1ReplayWindowSize' in kwargs:
-            tunnel1_replay_window_size = kwargs['tunnel1ReplayWindowSize']
-        if tunnel1_startup_action is None and 'tunnel1StartupAction' in kwargs:
-            tunnel1_startup_action = kwargs['tunnel1StartupAction']
-        if tunnel1_vgw_inside_address is None and 'tunnel1VgwInsideAddress' in kwargs:
-            tunnel1_vgw_inside_address = kwargs['tunnel1VgwInsideAddress']
-        if tunnel2_address is None and 'tunnel2Address' in kwargs:
-            tunnel2_address = kwargs['tunnel2Address']
-        if tunnel2_bgp_asn is None and 'tunnel2BgpAsn' in kwargs:
-            tunnel2_bgp_asn = kwargs['tunnel2BgpAsn']
-        if tunnel2_bgp_holdtime is None and 'tunnel2BgpHoldtime' in kwargs:
-            tunnel2_bgp_holdtime = kwargs['tunnel2BgpHoldtime']
-        if tunnel2_cgw_inside_address is None and 'tunnel2CgwInsideAddress' in kwargs:
-            tunnel2_cgw_inside_address = kwargs['tunnel2CgwInsideAddress']
-        if tunnel2_dpd_timeout_action is None and 'tunnel2DpdTimeoutAction' in kwargs:
-            tunnel2_dpd_timeout_action = kwargs['tunnel2DpdTimeoutAction']
-        if tunnel2_dpd_timeout_seconds is None and 'tunnel2DpdTimeoutSeconds' in kwargs:
-            tunnel2_dpd_timeout_seconds = kwargs['tunnel2DpdTimeoutSeconds']
-        if tunnel2_enable_tunnel_lifecycle_control is None and 'tunnel2EnableTunnelLifecycleControl' in kwargs:
-            tunnel2_enable_tunnel_lifecycle_control = kwargs['tunnel2EnableTunnelLifecycleControl']
-        if tunnel2_ike_versions is None and 'tunnel2IkeVersions' in kwargs:
-            tunnel2_ike_versions = kwargs['tunnel2IkeVersions']
-        if tunnel2_inside_cidr is None and 'tunnel2InsideCidr' in kwargs:
-            tunnel2_inside_cidr = kwargs['tunnel2InsideCidr']
-        if tunnel2_inside_ipv6_cidr is None and 'tunnel2InsideIpv6Cidr' in kwargs:
-            tunnel2_inside_ipv6_cidr = kwargs['tunnel2InsideIpv6Cidr']
-        if tunnel2_log_options is None and 'tunnel2LogOptions' in kwargs:
-            tunnel2_log_options = kwargs['tunnel2LogOptions']
-        if tunnel2_phase1_dh_group_numbers is None and 'tunnel2Phase1DhGroupNumbers' in kwargs:
-            tunnel2_phase1_dh_group_numbers = kwargs['tunnel2Phase1DhGroupNumbers']
-        if tunnel2_phase1_encryption_algorithms is None and 'tunnel2Phase1EncryptionAlgorithms' in kwargs:
-            tunnel2_phase1_encryption_algorithms = kwargs['tunnel2Phase1EncryptionAlgorithms']
-        if tunnel2_phase1_integrity_algorithms is None and 'tunnel2Phase1IntegrityAlgorithms' in kwargs:
-            tunnel2_phase1_integrity_algorithms = kwargs['tunnel2Phase1IntegrityAlgorithms']
-        if tunnel2_phase1_lifetime_seconds is None and 'tunnel2Phase1LifetimeSeconds' in kwargs:
-            tunnel2_phase1_lifetime_seconds = kwargs['tunnel2Phase1LifetimeSeconds']
-        if tunnel2_phase2_dh_group_numbers is None and 'tunnel2Phase2DhGroupNumbers' in kwargs:
-            tunnel2_phase2_dh_group_numbers = kwargs['tunnel2Phase2DhGroupNumbers']
-        if tunnel2_phase2_encryption_algorithms is None and 'tunnel2Phase2EncryptionAlgorithms' in kwargs:
-            tunnel2_phase2_encryption_algorithms = kwargs['tunnel2Phase2EncryptionAlgorithms']
-        if tunnel2_phase2_integrity_algorithms is None and 'tunnel2Phase2IntegrityAlgorithms' in kwargs:
-            tunnel2_phase2_integrity_algorithms = kwargs['tunnel2Phase2IntegrityAlgorithms']
-        if tunnel2_phase2_lifetime_seconds is None and 'tunnel2Phase2LifetimeSeconds' in kwargs:
-            tunnel2_phase2_lifetime_seconds = kwargs['tunnel2Phase2LifetimeSeconds']
-        if tunnel2_preshared_key is None and 'tunnel2PresharedKey' in kwargs:
-            tunnel2_preshared_key = kwargs['tunnel2PresharedKey']
-        if tunnel2_rekey_fuzz_percentage is None and 'tunnel2RekeyFuzzPercentage' in kwargs:
-            tunnel2_rekey_fuzz_percentage = kwargs['tunnel2RekeyFuzzPercentage']
-        if tunnel2_rekey_margin_time_seconds is None and 'tunnel2RekeyMarginTimeSeconds' in kwargs:
-            tunnel2_rekey_margin_time_seconds = kwargs['tunnel2RekeyMarginTimeSeconds']
-        if tunnel2_replay_window_size is None and 'tunnel2ReplayWindowSize' in kwargs:
-            tunnel2_replay_window_size = kwargs['tunnel2ReplayWindowSize']
-        if tunnel2_startup_action is None and 'tunnel2StartupAction' in kwargs:
-            tunnel2_startup_action = kwargs['tunnel2StartupAction']
-        if tunnel2_vgw_inside_address is None and 'tunnel2VgwInsideAddress' in kwargs:
-            tunnel2_vgw_inside_address = kwargs['tunnel2VgwInsideAddress']
-        if tunnel_inside_ip_version is None and 'tunnelInsideIpVersion' in kwargs:
-            tunnel_inside_ip_version = kwargs['tunnelInsideIpVersion']
-        if vgw_telemetries is None and 'vgwTelemetries' in kwargs:
-            vgw_telemetries = kwargs['vgwTelemetries']
-        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
-            vpn_gateway_id = kwargs['vpnGatewayId']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if core_network_arn is not None:
-            _setter("core_network_arn", core_network_arn)
+            pulumi.set(__self__, "core_network_arn", core_network_arn)
         if core_network_attachment_arn is not None:
-            _setter("core_network_attachment_arn", core_network_attachment_arn)
+            pulumi.set(__self__, "core_network_attachment_arn", core_network_attachment_arn)
         if customer_gateway_configuration is not None:
-            _setter("customer_gateway_configuration", customer_gateway_configuration)
+            pulumi.set(__self__, "customer_gateway_configuration", customer_gateway_configuration)
         if customer_gateway_id is not None:
-            _setter("customer_gateway_id", customer_gateway_id)
+            pulumi.set(__self__, "customer_gateway_id", customer_gateway_id)
         if enable_acceleration is not None:
-            _setter("enable_acceleration", enable_acceleration)
+            pulumi.set(__self__, "enable_acceleration", enable_acceleration)
         if local_ipv4_network_cidr is not None:
-            _setter("local_ipv4_network_cidr", local_ipv4_network_cidr)
+            pulumi.set(__self__, "local_ipv4_network_cidr", local_ipv4_network_cidr)
         if local_ipv6_network_cidr is not None:
-            _setter("local_ipv6_network_cidr", local_ipv6_network_cidr)
+            pulumi.set(__self__, "local_ipv6_network_cidr", local_ipv6_network_cidr)
         if outside_ip_address_type is not None:
-            _setter("outside_ip_address_type", outside_ip_address_type)
+            pulumi.set(__self__, "outside_ip_address_type", outside_ip_address_type)
         if remote_ipv4_network_cidr is not None:
-            _setter("remote_ipv4_network_cidr", remote_ipv4_network_cidr)
+            pulumi.set(__self__, "remote_ipv4_network_cidr", remote_ipv4_network_cidr)
         if remote_ipv6_network_cidr is not None:
-            _setter("remote_ipv6_network_cidr", remote_ipv6_network_cidr)
+            pulumi.set(__self__, "remote_ipv6_network_cidr", remote_ipv6_network_cidr)
         if routes is not None:
-            _setter("routes", routes)
+            pulumi.set(__self__, "routes", routes)
         if static_routes_only is not None:
-            _setter("static_routes_only", static_routes_only)
+            pulumi.set(__self__, "static_routes_only", static_routes_only)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_attachment_id is not None:
-            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
+            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_id is not None:
-            _setter("transit_gateway_id", transit_gateway_id)
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if transport_transit_gateway_attachment_id is not None:
-            _setter("transport_transit_gateway_attachment_id", transport_transit_gateway_attachment_id)
+            pulumi.set(__self__, "transport_transit_gateway_attachment_id", transport_transit_gateway_attachment_id)
         if tunnel1_address is not None:
-            _setter("tunnel1_address", tunnel1_address)
+            pulumi.set(__self__, "tunnel1_address", tunnel1_address)
         if tunnel1_bgp_asn is not None:
-            _setter("tunnel1_bgp_asn", tunnel1_bgp_asn)
+            pulumi.set(__self__, "tunnel1_bgp_asn", tunnel1_bgp_asn)
         if tunnel1_bgp_holdtime is not None:
-            _setter("tunnel1_bgp_holdtime", tunnel1_bgp_holdtime)
+            pulumi.set(__self__, "tunnel1_bgp_holdtime", tunnel1_bgp_holdtime)
         if tunnel1_cgw_inside_address is not None:
-            _setter("tunnel1_cgw_inside_address", tunnel1_cgw_inside_address)
+            pulumi.set(__self__, "tunnel1_cgw_inside_address", tunnel1_cgw_inside_address)
         if tunnel1_dpd_timeout_action is not None:
-            _setter("tunnel1_dpd_timeout_action", tunnel1_dpd_timeout_action)
+            pulumi.set(__self__, "tunnel1_dpd_timeout_action", tunnel1_dpd_timeout_action)
         if tunnel1_dpd_timeout_seconds is not None:
-            _setter("tunnel1_dpd_timeout_seconds", tunnel1_dpd_timeout_seconds)
+            pulumi.set(__self__, "tunnel1_dpd_timeout_seconds", tunnel1_dpd_timeout_seconds)
         if tunnel1_enable_tunnel_lifecycle_control is not None:
-            _setter("tunnel1_enable_tunnel_lifecycle_control", tunnel1_enable_tunnel_lifecycle_control)
+            pulumi.set(__self__, "tunnel1_enable_tunnel_lifecycle_control", tunnel1_enable_tunnel_lifecycle_control)
         if tunnel1_ike_versions is not None:
-            _setter("tunnel1_ike_versions", tunnel1_ike_versions)
+            pulumi.set(__self__, "tunnel1_ike_versions", tunnel1_ike_versions)
         if tunnel1_inside_cidr is not None:
-            _setter("tunnel1_inside_cidr", tunnel1_inside_cidr)
+            pulumi.set(__self__, "tunnel1_inside_cidr", tunnel1_inside_cidr)
         if tunnel1_inside_ipv6_cidr is not None:
-            _setter("tunnel1_inside_ipv6_cidr", tunnel1_inside_ipv6_cidr)
+            pulumi.set(__self__, "tunnel1_inside_ipv6_cidr", tunnel1_inside_ipv6_cidr)
         if tunnel1_log_options is not None:
-            _setter("tunnel1_log_options", tunnel1_log_options)
+            pulumi.set(__self__, "tunnel1_log_options", tunnel1_log_options)
         if tunnel1_phase1_dh_group_numbers is not None:
-            _setter("tunnel1_phase1_dh_group_numbers", tunnel1_phase1_dh_group_numbers)
+            pulumi.set(__self__, "tunnel1_phase1_dh_group_numbers", tunnel1_phase1_dh_group_numbers)
         if tunnel1_phase1_encryption_algorithms is not None:
-            _setter("tunnel1_phase1_encryption_algorithms", tunnel1_phase1_encryption_algorithms)
+            pulumi.set(__self__, "tunnel1_phase1_encryption_algorithms", tunnel1_phase1_encryption_algorithms)
         if tunnel1_phase1_integrity_algorithms is not None:
-            _setter("tunnel1_phase1_integrity_algorithms", tunnel1_phase1_integrity_algorithms)
+            pulumi.set(__self__, "tunnel1_phase1_integrity_algorithms", tunnel1_phase1_integrity_algorithms)
         if tunnel1_phase1_lifetime_seconds is not None:
-            _setter("tunnel1_phase1_lifetime_seconds", tunnel1_phase1_lifetime_seconds)
+            pulumi.set(__self__, "tunnel1_phase1_lifetime_seconds", tunnel1_phase1_lifetime_seconds)
         if tunnel1_phase2_dh_group_numbers is not None:
-            _setter("tunnel1_phase2_dh_group_numbers", tunnel1_phase2_dh_group_numbers)
+            pulumi.set(__self__, "tunnel1_phase2_dh_group_numbers", tunnel1_phase2_dh_group_numbers)
         if tunnel1_phase2_encryption_algorithms is not None:
-            _setter("tunnel1_phase2_encryption_algorithms", tunnel1_phase2_encryption_algorithms)
+            pulumi.set(__self__, "tunnel1_phase2_encryption_algorithms", tunnel1_phase2_encryption_algorithms)
         if tunnel1_phase2_integrity_algorithms is not None:
-            _setter("tunnel1_phase2_integrity_algorithms", tunnel1_phase2_integrity_algorithms)
+            pulumi.set(__self__, "tunnel1_phase2_integrity_algorithms", tunnel1_phase2_integrity_algorithms)
         if tunnel1_phase2_lifetime_seconds is not None:
-            _setter("tunnel1_phase2_lifetime_seconds", tunnel1_phase2_lifetime_seconds)
+            pulumi.set(__self__, "tunnel1_phase2_lifetime_seconds", tunnel1_phase2_lifetime_seconds)
         if tunnel1_preshared_key is not None:
-            _setter("tunnel1_preshared_key", tunnel1_preshared_key)
+            pulumi.set(__self__, "tunnel1_preshared_key", tunnel1_preshared_key)
         if tunnel1_rekey_fuzz_percentage is not None:
-            _setter("tunnel1_rekey_fuzz_percentage", tunnel1_rekey_fuzz_percentage)
+            pulumi.set(__self__, "tunnel1_rekey_fuzz_percentage", tunnel1_rekey_fuzz_percentage)
         if tunnel1_rekey_margin_time_seconds is not None:
-            _setter("tunnel1_rekey_margin_time_seconds", tunnel1_rekey_margin_time_seconds)
+            pulumi.set(__self__, "tunnel1_rekey_margin_time_seconds", tunnel1_rekey_margin_time_seconds)
         if tunnel1_replay_window_size is not None:
-            _setter("tunnel1_replay_window_size", tunnel1_replay_window_size)
+            pulumi.set(__self__, "tunnel1_replay_window_size", tunnel1_replay_window_size)
         if tunnel1_startup_action is not None:
-            _setter("tunnel1_startup_action", tunnel1_startup_action)
+            pulumi.set(__self__, "tunnel1_startup_action", tunnel1_startup_action)
         if tunnel1_vgw_inside_address is not None:
-            _setter("tunnel1_vgw_inside_address", tunnel1_vgw_inside_address)
+            pulumi.set(__self__, "tunnel1_vgw_inside_address", tunnel1_vgw_inside_address)
         if tunnel2_address is not None:
-            _setter("tunnel2_address", tunnel2_address)
+            pulumi.set(__self__, "tunnel2_address", tunnel2_address)
         if tunnel2_bgp_asn is not None:
-            _setter("tunnel2_bgp_asn", tunnel2_bgp_asn)
+            pulumi.set(__self__, "tunnel2_bgp_asn", tunnel2_bgp_asn)
         if tunnel2_bgp_holdtime is not None:
-            _setter("tunnel2_bgp_holdtime", tunnel2_bgp_holdtime)
+            pulumi.set(__self__, "tunnel2_bgp_holdtime", tunnel2_bgp_holdtime)
         if tunnel2_cgw_inside_address is not None:
-            _setter("tunnel2_cgw_inside_address", tunnel2_cgw_inside_address)
+            pulumi.set(__self__, "tunnel2_cgw_inside_address", tunnel2_cgw_inside_address)
         if tunnel2_dpd_timeout_action is not None:
-            _setter("tunnel2_dpd_timeout_action", tunnel2_dpd_timeout_action)
+            pulumi.set(__self__, "tunnel2_dpd_timeout_action", tunnel2_dpd_timeout_action)
         if tunnel2_dpd_timeout_seconds is not None:
-            _setter("tunnel2_dpd_timeout_seconds", tunnel2_dpd_timeout_seconds)
+            pulumi.set(__self__, "tunnel2_dpd_timeout_seconds", tunnel2_dpd_timeout_seconds)
         if tunnel2_enable_tunnel_lifecycle_control is not None:
-            _setter("tunnel2_enable_tunnel_lifecycle_control", tunnel2_enable_tunnel_lifecycle_control)
+            pulumi.set(__self__, "tunnel2_enable_tunnel_lifecycle_control", tunnel2_enable_tunnel_lifecycle_control)
         if tunnel2_ike_versions is not None:
-            _setter("tunnel2_ike_versions", tunnel2_ike_versions)
+            pulumi.set(__self__, "tunnel2_ike_versions", tunnel2_ike_versions)
         if tunnel2_inside_cidr is not None:
-            _setter("tunnel2_inside_cidr", tunnel2_inside_cidr)
+            pulumi.set(__self__, "tunnel2_inside_cidr", tunnel2_inside_cidr)
         if tunnel2_inside_ipv6_cidr is not None:
-            _setter("tunnel2_inside_ipv6_cidr", tunnel2_inside_ipv6_cidr)
+            pulumi.set(__self__, "tunnel2_inside_ipv6_cidr", tunnel2_inside_ipv6_cidr)
         if tunnel2_log_options is not None:
-            _setter("tunnel2_log_options", tunnel2_log_options)
+            pulumi.set(__self__, "tunnel2_log_options", tunnel2_log_options)
         if tunnel2_phase1_dh_group_numbers is not None:
-            _setter("tunnel2_phase1_dh_group_numbers", tunnel2_phase1_dh_group_numbers)
+            pulumi.set(__self__, "tunnel2_phase1_dh_group_numbers", tunnel2_phase1_dh_group_numbers)
         if tunnel2_phase1_encryption_algorithms is not None:
-            _setter("tunnel2_phase1_encryption_algorithms", tunnel2_phase1_encryption_algorithms)
+            pulumi.set(__self__, "tunnel2_phase1_encryption_algorithms", tunnel2_phase1_encryption_algorithms)
         if tunnel2_phase1_integrity_algorithms is not None:
-            _setter("tunnel2_phase1_integrity_algorithms", tunnel2_phase1_integrity_algorithms)
+            pulumi.set(__self__, "tunnel2_phase1_integrity_algorithms", tunnel2_phase1_integrity_algorithms)
         if tunnel2_phase1_lifetime_seconds is not None:
-            _setter("tunnel2_phase1_lifetime_seconds", tunnel2_phase1_lifetime_seconds)
+            pulumi.set(__self__, "tunnel2_phase1_lifetime_seconds", tunnel2_phase1_lifetime_seconds)
         if tunnel2_phase2_dh_group_numbers is not None:
-            _setter("tunnel2_phase2_dh_group_numbers", tunnel2_phase2_dh_group_numbers)
+            pulumi.set(__self__, "tunnel2_phase2_dh_group_numbers", tunnel2_phase2_dh_group_numbers)
         if tunnel2_phase2_encryption_algorithms is not None:
-            _setter("tunnel2_phase2_encryption_algorithms", tunnel2_phase2_encryption_algorithms)
+            pulumi.set(__self__, "tunnel2_phase2_encryption_algorithms", tunnel2_phase2_encryption_algorithms)
         if tunnel2_phase2_integrity_algorithms is not None:
-            _setter("tunnel2_phase2_integrity_algorithms", tunnel2_phase2_integrity_algorithms)
+            pulumi.set(__self__, "tunnel2_phase2_integrity_algorithms", tunnel2_phase2_integrity_algorithms)
         if tunnel2_phase2_lifetime_seconds is not None:
-            _setter("tunnel2_phase2_lifetime_seconds", tunnel2_phase2_lifetime_seconds)
+            pulumi.set(__self__, "tunnel2_phase2_lifetime_seconds", tunnel2_phase2_lifetime_seconds)
         if tunnel2_preshared_key is not None:
-            _setter("tunnel2_preshared_key", tunnel2_preshared_key)
+            pulumi.set(__self__, "tunnel2_preshared_key", tunnel2_preshared_key)
         if tunnel2_rekey_fuzz_percentage is not None:
-            _setter("tunnel2_rekey_fuzz_percentage", tunnel2_rekey_fuzz_percentage)
+            pulumi.set(__self__, "tunnel2_rekey_fuzz_percentage", tunnel2_rekey_fuzz_percentage)
         if tunnel2_rekey_margin_time_seconds is not None:
-            _setter("tunnel2_rekey_margin_time_seconds", tunnel2_rekey_margin_time_seconds)
+            pulumi.set(__self__, "tunnel2_rekey_margin_time_seconds", tunnel2_rekey_margin_time_seconds)
         if tunnel2_replay_window_size is not None:
-            _setter("tunnel2_replay_window_size", tunnel2_replay_window_size)
+            pulumi.set(__self__, "tunnel2_replay_window_size", tunnel2_replay_window_size)
         if tunnel2_startup_action is not None:
-            _setter("tunnel2_startup_action", tunnel2_startup_action)
+            pulumi.set(__self__, "tunnel2_startup_action", tunnel2_startup_action)
         if tunnel2_vgw_inside_address is not None:
-            _setter("tunnel2_vgw_inside_address", tunnel2_vgw_inside_address)
+            pulumi.set(__self__, "tunnel2_vgw_inside_address", tunnel2_vgw_inside_address)
         if tunnel_inside_ip_version is not None:
-            _setter("tunnel_inside_ip_version", tunnel_inside_ip_version)
+            pulumi.set(__self__, "tunnel_inside_ip_version", tunnel_inside_ip_version)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if vgw_telemetries is not None:
-            _setter("vgw_telemetries", vgw_telemetries)
+            pulumi.set(__self__, "vgw_telemetries", vgw_telemetries)
         if vpn_gateway_id is not None:
-            _setter("vpn_gateway_id", vpn_gateway_id)
+            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
 
     @property
     @pulumi.getter
@@ -2866,10 +2352,6 @@ class VpnConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpnConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2957,7 +2439,6 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["tunnel1_ike_versions"] = tunnel1_ike_versions
             __props__.__dict__["tunnel1_inside_cidr"] = tunnel1_inside_cidr
             __props__.__dict__["tunnel1_inside_ipv6_cidr"] = tunnel1_inside_ipv6_cidr
-            tunnel1_log_options = _utilities.configure(tunnel1_log_options, VpnConnectionTunnel1LogOptionsArgs, True)
             __props__.__dict__["tunnel1_log_options"] = tunnel1_log_options
             __props__.__dict__["tunnel1_phase1_dh_group_numbers"] = tunnel1_phase1_dh_group_numbers
             __props__.__dict__["tunnel1_phase1_encryption_algorithms"] = tunnel1_phase1_encryption_algorithms
@@ -2978,7 +2459,6 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["tunnel2_ike_versions"] = tunnel2_ike_versions
             __props__.__dict__["tunnel2_inside_cidr"] = tunnel2_inside_cidr
             __props__.__dict__["tunnel2_inside_ipv6_cidr"] = tunnel2_inside_ipv6_cidr
-            tunnel2_log_options = _utilities.configure(tunnel2_log_options, VpnConnectionTunnel2LogOptionsArgs, True)
             __props__.__dict__["tunnel2_log_options"] = tunnel2_log_options
             __props__.__dict__["tunnel2_phase1_dh_group_numbers"] = tunnel2_phase1_dh_group_numbers
             __props__.__dict__["tunnel2_phase1_encryption_algorithms"] = tunnel2_phase1_encryption_algorithms
