@@ -24,6 +24,9 @@ replace (
 	github.com/pulumi/pulumi-aws/provider/v6 => ../provider
 )
 
+// This replace is copied from upstream/go.mod, and should be maintained only as long as upstream maintains the same replace.
+replace github.com/hashicorp/terraform-plugin-log => github.com/gdavison/terraform-plugin-log v0.0.0-20230928191232-6c653d8ef8fb
+
 require (
 	cloud.google.com/go v0.110.7 // indirect
 	cloud.google.com/go/compute v1.23.0 // indirect

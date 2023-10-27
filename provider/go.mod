@@ -17,7 +17,11 @@ require (
 	pgregory.net/rapid v0.6.1
 )
 
-// This replace is copied from upstream/go.mod, and should be maintained only as long as upstream maintains the same replace.
+// This replace is copied from upstream/go.mod, and should be maintained only as long as
+// upstream maintains the same replace.
+//
+// There is an equivalent replace in examples/go.mod. It should be updated/removed inline
+// with this replace.
 replace github.com/hashicorp/terraform-plugin-log => github.com/gdavison/terraform-plugin-log v0.0.0-20230928191232-6c653d8ef8fb
 
 replace (
