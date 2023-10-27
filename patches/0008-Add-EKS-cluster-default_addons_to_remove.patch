@@ -24,10 +24,10 @@ index 83bf69868e..d8544be700 100644
  				Optional: true,
 diff --git a/internal/service/eks/cluster_addon_removal.go b/internal/service/eks/cluster_addon_removal.go
 new file mode 100644
-index 0000000000..faa4fb9c6a
+index 0000000000..52351474a8
 --- /dev/null
 +++ b/internal/service/eks/cluster_addon_removal.go
-@@ -0,0 +1,128 @@
+@@ -0,0 +1,129 @@
 +package eks
 +
 +import (
@@ -40,8 +40,9 @@ index 0000000000..faa4fb9c6a
 +	"github.com/aws/aws-sdk-go/service/eks"
 +	"github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
 +	"github.com/hashicorp/go-multierror"
-+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/id"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 +
 +	"github.com/hashicorp/terraform-provider-aws/internal/flex"
 +	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
@@ -75,24 +76,24 @@ index 0000000000..faa4fb9c6a
 +	log.Printf("[DEBUG] Creating EKS Add-On: %s", addonName)
 +	createAddonInput := &eks.CreateAddonInput{
 +		AddonName:          aws.String(addonName),
-+		ClientRequestToken: aws.String(resource.UniqueId()),
++		ClientRequestToken: aws.String(id.UniqueId()),
 +		ClusterName:        aws.String(d.Id()),
 +		ResolveConflicts:   aws.String(eks.ResolveConflictsOverwrite),
 +	}
 +
-+	err := resource.RetryContext(ctx, propagationTimeout, func() *resource.RetryError {
++	err := retry.RetryContext(ctx, propagationTimeout, func() *retry.RetryError {
 +		_, err := conn.CreateAddonWithContext(ctx, createAddonInput)
 +
 +		if tfawserr.ErrMessageContains(err, eks.ErrCodeInvalidParameterException, "CREATE_FAILED") {
-+			return resource.RetryableError(err)
++			return retry.RetryableError(err)
 +		}
 +
 +		if tfawserr.ErrMessageContains(err, eks.ErrCodeInvalidParameterException, "does not exist") {
-+			return resource.RetryableError(err)
++			return retry.RetryableError(err)
 +		}
 +
 +		if err != nil {
-+			return resource.NonRetryableError(err)
++			return retry.NonRetryableError(err)
 +		}
 +
 +		return nil
@@ -137,7 +138,7 @@ index 0000000000..faa4fb9c6a
 +func waitAddonCreatedAllowDegraded(ctx context.Context, conn *eks.EKS, clusterName, addonName string) (*eks.Addon, error) {
 +	// We do not care about the addons actually being created successfully here. We only want them to be adopted by
 +	// Terraform to be able to fully remove them afterwards again.
-+	stateConf := resource.StateChangeConf{
++	stateConf := retry.StateChangeConf{
 +		Pending: []string{eks.AddonStatusCreating},
 +		Target:  []string{eks.AddonStatusActive, eks.AddonStatusDegraded},
 +		Refresh: statusAddon(ctx, conn, clusterName, addonName),
@@ -158,10 +159,10 @@ index 0000000000..faa4fb9c6a
 +}
 diff --git a/internal/service/eks/cluster_addon_removal_test.go b/internal/service/eks/cluster_addon_removal_test.go
 new file mode 100644
-index 0000000000..7ec8d0303e
+index 0000000000..a88fc53c4d
 --- /dev/null
 +++ b/internal/service/eks/cluster_addon_removal_test.go
-@@ -0,0 +1,83 @@
+@@ -0,0 +1,84 @@
 +package eks_test
 +
 +import (
@@ -170,8 +171,9 @@ index 0000000000..7ec8d0303e
 +	"testing"
 +
 +	"github.com/aws/aws-sdk-go/service/eks"
-+	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
-+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
++	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
++	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 +
 +	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
@@ -236,7 +238,7 @@ index 0000000000..7ec8d0303e
 +		_, err := tfeks.FindAddonByClusterNameAndAddonName(context.Background(), conn, rs.Primary.ID, addonName)
 +
 +		if err != nil {
-+			_, ok := err.(*resource.NotFoundError)
++			_, ok := err.(*retry.NotFoundError)
 +			if ok {
 +				return nil
 +			}

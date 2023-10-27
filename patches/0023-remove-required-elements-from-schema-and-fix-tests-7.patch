@@ -43,7 +43,7 @@ index e17f71e6b6..4a0ccf149d 100644
  
  	return nil
 diff --git a/internal/service/gamelift/matchmaking_configuration_test.go b/internal/service/gamelift/matchmaking_configuration_test.go
-index 7bd8451404..ce5ee93c99 100644
+index 94c9a8c29b..339f9dd6df 100644
 --- a/internal/service/gamelift/matchmaking_configuration_test.go
 +++ b/internal/service/gamelift/matchmaking_configuration_test.go
 @@ -1,6 +1,7 @@
@@ -188,7 +188,7 @@ index 254c96efc6..54b86a0426 100644
  
  	return nil
 diff --git a/internal/service/gamelift/matchmaking_rule_set_test.go b/internal/service/gamelift/matchmaking_rule_set_test.go
-index 8788ef5b45..0d6b961c5b 100644
+index 9dbf039588..061e93f186 100644
 --- a/internal/service/gamelift/matchmaking_rule_set_test.go
 +++ b/internal/service/gamelift/matchmaking_rule_set_test.go
 @@ -1,6 +1,7 @@

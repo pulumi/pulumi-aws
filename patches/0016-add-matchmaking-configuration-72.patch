@@ -425,7 +425,7 @@ index 0000000000..0a7c8ea635
 +}
 diff --git a/internal/service/gamelift/matchmaking_configuration_test.go b/internal/service/gamelift/matchmaking_configuration_test.go
 new file mode 100644
-index 0000000000..7bd8451404
+index 0000000000..94c9a8c29b
 --- /dev/null
 +++ b/internal/service/gamelift/matchmaking_configuration_test.go
 @@ -0,0 +1,267 @@
@@ -439,8 +439,8 @@ index 0000000000..7bd8451404
 +	"github.com/aws/aws-sdk-go/aws"
 +	"github.com/aws/aws-sdk-go/service/gamelift"
 +
-+	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
-+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
++	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
++	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 +	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
 +	"github.com/hashicorp/terraform-provider-aws/internal/conns"
@@ -867,7 +867,7 @@ index 0000000000..28d15ecf5e
 +}
 diff --git a/internal/service/gamelift/matchmaking_rule_set_test.go b/internal/service/gamelift/matchmaking_rule_set_test.go
 new file mode 100644
-index 0000000000..8788ef5b45
+index 0000000000..9dbf039588
 --- /dev/null
 +++ b/internal/service/gamelift/matchmaking_rule_set_test.go
 @@ -0,0 +1,138 @@
@@ -880,8 +880,8 @@ index 0000000000..8788ef5b45
 +
 +	"github.com/aws/aws-sdk-go/aws"
 +	"github.com/aws/aws-sdk-go/service/gamelift"
-+	sdkacctest "github.com/hashicorp/terraform-plugin-sdk/v2/helper/acctest"
-+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
++	sdkacctest "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
++	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 +	"github.com/hashicorp/terraform-provider-aws/internal/acctest"
 +	"github.com/hashicorp/terraform-provider-aws/internal/conns"

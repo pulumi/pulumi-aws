@@ -5,10 +5,10 @@ Subject: [PATCH 28/30] Match the "tags" behavior of other resources
 
 
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index 0563bd3a25..e6bd8e7013 100644
+index 575767763b..007c2f2dc1 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
-@@ -30,6 +30,7 @@ import (
+@@ -31,6 +31,7 @@ import (
  	"github.com/hashicorp/terraform-provider-aws/internal/flex"
  	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
  	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
@@ -16,7 +16,7 @@ index 0563bd3a25..e6bd8e7013 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/verify"
  )
  
-@@ -854,8 +855,6 @@ func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, met
+@@ -855,8 +856,6 @@ func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, met
  
  func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
  	conn := meta.(*conns.AWSClient).S3Conn(ctx)
@@ -25,7 +25,7 @@ index 0563bd3a25..e6bd8e7013 100644
  
  	input := &s3.HeadBucketInput{
  		Bucket: aws.String(d.Id()),
-@@ -1392,15 +1391,8 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -1393,15 +1392,8 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		return diag.Errorf("error listing tags for S3 Bucket (%s): unable to convert tags", d.Id())
  	}
  

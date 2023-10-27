@@ -39,10 +39,10 @@ index 0bcb6d6a98..2bc27a3348 100644
  	provider.ConfigureContextFunc = func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
 new file mode 100644
-index 0000000000..27fe651a83
+index 0000000000..fd117b2971
 --- /dev/null
 +++ b/internal/service/s3legacy/bucket_legacy.go
-@@ -0,0 +1,3029 @@
+@@ -0,0 +1,3030 @@
 +package s3legacy
 +
 +import (
@@ -65,7 +65,8 @@ index 0000000000..27fe651a83
 +	"github.com/aws/aws-sdk-go/service/s3"
 +	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 +	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
-+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/id"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
@@ -101,7 +102,7 @@ index 0000000000..27fe651a83
 +				Optional:      true,
 +				ForceNew:      true,
 +				ConflictsWith: []string{"bucket"},
-+				ValidateFunc:  validation.StringLenBetween(0, 63-resource.UniqueIDSuffixLength),
++				ValidateFunc:  validation.StringLenBetween(0, 63-id.UniqueIDSuffixLength),
 +			},
 +
 +			"bucket_domain_name": {
@@ -722,9 +723,9 @@ index 0000000000..27fe651a83
 +	if v, ok := d.GetOk("bucket"); ok {
 +		bucket = v.(string)
 +	} else if v, ok := d.GetOk("bucket_prefix"); ok {
-+		bucket = resource.PrefixedUniqueId(v.(string))
++		bucket = id.PrefixedUniqueId(v.(string))
 +	} else {
-+		bucket = resource.UniqueId()
++		bucket = id.UniqueId()
 +	}
 +	d.Set("bucket", bucket)
 +
@@ -761,16 +762,16 @@ index 0000000000..27fe651a83
 +		req.ObjectLockEnabledForBucket = aws.Bool(true)
 +	}
 +
-+	err := resource.Retry(5*time.Minute, func() *resource.RetryError {
++	err := retry.Retry(5*time.Minute, func() *retry.RetryError {
 +		_, err := conn.CreateBucket(req)
 +		if awsErr, ok := err.(awserr.Error); ok {
 +			if awsErr.Code() == "OperationAborted" {
-+				return resource.RetryableError(
++				return retry.RetryableError(
 +					fmt.Errorf("Error creating S3 bucket %s, retrying: %s", bucket, err))
 +			}
 +		}
 +		if err != nil {
-+			return resource.NonRetryableError(err)
++			return retry.NonRetryableError(err)
 +		}
 +
 +		return nil
@@ -904,19 +905,19 @@ index 0000000000..27fe651a83
 +		Bucket: aws.String(d.Id()),
 +	}
 +
-+	err := resource.Retry(bucketCreatedTimeout, func() *resource.RetryError {
++	err := retry.Retry(bucketCreatedTimeout, func() *retry.RetryError {
 +		_, err := conn.HeadBucket(input)
 +
 +		if d.IsNewResource() && tfawserr.ErrStatusCodeEquals(err, http.StatusNotFound) {
-+			return resource.RetryableError(err)
++			return retry.RetryableError(err)
 +		}
 +
 +		if d.IsNewResource() && tfawserr.ErrCodeEquals(err, s3.ErrCodeNoSuchBucket) {
-+			return resource.RetryableError(err)
++			return retry.RetryableError(err)
 +		}
 +
 +		if err != nil {
-+			return resource.NonRetryableError(err)
++			return retry.NonRetryableError(err)
 +		}
 +
 +		return nil
@@ -1520,13 +1521,13 @@ index 0000000000..27fe651a83
 +			Policy: aws.String(policy),
 +		}
 +
-+		err := resource.Retry(1*time.Minute, func() *resource.RetryError {
++		err := retry.Retry(1*time.Minute, func() *retry.RetryError {
 +			_, err := conn.PutBucketPolicy(params)
 +			if tfawserr.ErrMessageContains(err, "MalformedPolicy", "") || tfawserr.ErrMessageContains(err, s3.ErrCodeNoSuchBucket, "") {
-+				return resource.RetryableError(err)
++				return retry.RetryableError(err)
 +			}
 +			if err != nil {
-+				return resource.NonRetryableError(err)
++				return retry.NonRetryableError(err)
 +			}
 +			return nil
 +		})
@@ -2238,13 +2239,13 @@ index 0000000000..27fe651a83
 +	}
 +	log.Printf("[DEBUG] S3 put bucket replication configuration: %#v", i)
 +
-+	err := resource.Retry(1*time.Minute, func() *resource.RetryError {
++	err := retry.Retry(1*time.Minute, func() *retry.RetryError {
 +		_, err := conn.PutBucketReplication(i)
 +		if tfawserr.ErrMessageContains(err, s3.ErrCodeNoSuchBucket, "") || tfawserr.ErrMessageContains(err, "InvalidRequest", "Versioning must be 'Enabled' on the bucket") {
-+			return resource.RetryableError(err)
++			return retry.RetryableError(err)
 +		}
 +		if err != nil {
-+			return resource.NonRetryableError(err)
++			return retry.NonRetryableError(err)
 +		}
 +		return nil
 +	})
@@ -2299,7 +2300,7 @@ index 0000000000..27fe651a83
 +		if val, ok := r["id"].(string); ok && val != "" {
 +			rule.ID = aws.String(val)
 +		} else {
-+			rule.ID = aws.String(resource.PrefixedUniqueId("tf-s3-lifecycle-"))
++			rule.ID = aws.String(id.PrefixedUniqueId("tf-s3-lifecycle-"))
 +		}
 +
 +		// Enabled
@@ -3370,7 +3371,7 @@ index 0000000000..f44b435af6
 +}
 diff --git a/internal/service/s3legacy/retry.go b/internal/service/s3legacy/retry.go
 new file mode 100644
-index 0000000000..0dab58b0a3
+index 0000000000..dcf7e39759
 --- /dev/null
 +++ b/internal/service/s3legacy/retry.go
 @@ -0,0 +1,30 @@
@@ -3378,7 +3379,7 @@ index 0000000000..0dab58b0a3
 +
 +import (
 +	"github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
-+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 +	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 +	"time"
 +)
@@ -3386,14 +3387,14 @@ index 0000000000..0dab58b0a3
 +// FORK: Adding the retryOnAWSCode to the fork for the old AWS S3 Logic
 +func retryOnAWSCode(code string, f func() (interface{}, error)) (interface{}, error) {
 +	var resp interface{}
-+	err := resource.Retry(2*time.Minute, func() *resource.RetryError {
++	err := retry.Retry(2*time.Minute, func() *retry.RetryError {
 +		var err error
 +		resp, err = f()
 +		if err != nil {
 +			if tfawserr.ErrCodeEquals(err, code) {
-+				return resource.RetryableError(err)
++				return retry.RetryableError(err)
 +			}
-+			return resource.NonRetryableError(err)
++			return retry.NonRetryableError(err)
 +		}
 +		return nil
 +	})
@@ -3406,7 +3407,7 @@ index 0000000000..0dab58b0a3
 +}
 diff --git a/internal/service/s3legacy/tags.go b/internal/service/s3legacy/tags.go
 new file mode 100644
-index 0000000000..543d41715a
+index 0000000000..669813747b
 --- /dev/null
 +++ b/internal/service/s3legacy/tags.go
 @@ -0,0 +1,174 @@
@@ -3424,7 +3425,7 @@ index 0000000000..543d41715a
 +	"github.com/aws/aws-sdk-go/aws/awserr"
 +	"github.com/aws/aws-sdk-go/service/s3"
 +	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
-+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 +	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
 +	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 +)
@@ -3510,18 +3511,18 @@ index 0000000000..543d41715a
 +
 +	var output *s3.GetObjectTaggingOutput
 +
-+	err := resource.Retry(1*time.Minute, func() *resource.RetryError {
++	err := retry.Retry(1*time.Minute, func() *retry.RetryError {
 +		var err error
 +		output, err = conn.GetObjectTagging(input)
 +		if awsErr, ok := err.(awserr.Error); ok {
 +			if awsErr.Code() == "NoSuchKey" {
-+				return resource.RetryableError(
++				return retry.RetryableError(
 +					fmt.Errorf("getting object tagging %s, retrying: %w", bucket, err),
 +				)
 +			}
 +		}
 +		if err != nil {
-+			return resource.NonRetryableError(err)
++			return retry.NonRetryableError(err)
 +		}
 +
 +		return nil
