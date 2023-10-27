@@ -12,6 +12,17 @@ on:
         required: false
         type: string
         default: "latest"
+      target-pulumi-version:
+        description: |
+             Set the version of `pulumi/pkg` and `pulumi/sdk` to depend on for bridged providers. Currently,
+             these versions inform the linked runtime and SDK generation in all languages except Java. Valid
+             options are:
+             - "": Use the same version as pulumi-terraform-bridge
+             - A go version such as "v3.90.1"
+             - A commit SHA in pulumi/pulumi such as "ac71ebc1d34e5ccfd1a7fed61e6ff43a3160f3cb"
+        required: false
+        type: string
+        default: ""
       pr-reviewers:
         description: Reviewers to assign to the auto-opened pull request
         required: false
@@ -37,23 +48,25 @@ jobs:
     steps:
     - name: Call upgrade provider action
       if: github.event_name == 'workflow_dispatch'
-      uses: pulumi/pulumi-upgrade-provider-action@v0.0.9
+      uses: pulumi/pulumi-upgrade-provider-action@v0.0.10
       with:
         kind: bridge
         email: bot@pulumi.com
         username: pulumi-bot
         automerge: ${{ inputs.automerge }}
         target-bridge-version: ${{ inputs.target-bridge-version }}
+        target-pulumi-version: ${{ inputs.target-pulumi-version }}
         pr-reviewers: ${{ inputs.pr-reviewers }}
         pr-description: ${{ inputs.pr-description }}
     - name: Call upgrade provider action
       if: github.event_name == 'repository_dispatch'
-      uses: pulumi/pulumi-upgrade-provider-action@v0.0.9
+      uses: pulumi/pulumi-upgrade-provider-action@v0.0.10
       with:
         kind: bridge
         email: bot@pulumi.com
         username: pulumi-bot
         automerge: ${{ github.event.client_payload.automerge }}
+        target-pulumi-version: ${{ github.event.client_payload.target-pulumi-version }}
         target-bridge-version: ${{ github.event.client_payload.target-bridge-version }}
         pr-reviewers: ${{ github.event.client_payload.pr-reviewers }}
         pr-description: ${{ github.event.client_payload.pr-description }}
