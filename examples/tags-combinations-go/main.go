@@ -1,0 +1,67 @@
+// Copyright 2016-2023, Pulumi Corporation.  All rights reserved.
+
+package main
+
+import (
+	"encoding/json"
+
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+)
+
+type state struct {
+	DefaultTags  map[string]string `json:"defaultTags"`
+	ResourceTags map[string]string `json:"resourceTags"`
+}
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		conf := config.New(ctx, "")
+		tagsState := conf.Require("state1")
+
+		var s state
+
+		err := json.Unmarshal([]byte(tagsState), &s)
+		if err != nil {
+			return err
+		}
+
+		tagsMap := pulumi.StringMap{}
+		for k, v := range s.ResourceTags {
+			tagsMap[k] = pulumi.String(v)
+		}
+
+		defaultTagsMap := pulumi.StringMap{}
+		for k, v := range s.DefaultTags {
+			defaultTagsMap[k] = pulumi.String(v)
+		}
+
+		p, err := aws.NewProvider(ctx, "prov", &aws.ProviderArgs{
+			DefaultTags: aws.ProviderDefaultTagsArgs{
+				Tags: defaultTagsMap,
+			},
+		})
+		if err != nil {
+			return err
+		}
+
+		r1, err := ec2.NewDefaultVpc(ctx, "go-web-default-vpc", &ec2.DefaultVpcArgs{
+			Tags: tagsMap,
+		}, pulumi.Provider(p))
+		if err != nil {
+			return err
+		}
+
+		ctx.Export("r1", r1.Tags.ApplyT(func(x interface{}) string {
+			b, err := json.Marshal(x.(map[string]string))
+			if err != nil {
+				panic(err)
+			}
+			return string(b)
+		}))
+
+		return nil
+	})
+}
