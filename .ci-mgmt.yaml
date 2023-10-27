@@ -85,7 +85,9 @@ extraTests:
        cache-dependency-path: 'provider/go.sum'
     - name: go test
       run: |
-        cd upstream/shim
+        cd upstream
+        go get github.com/hashicorp/aws-sdk-go-base@v1.1.0
+        cd shim
         go test -v -coverprofile="coverage.txt" .
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
