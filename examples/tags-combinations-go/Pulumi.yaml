@@ -1,0 +1,3 @@
+name: tags-combinations-go
+description: Testing provider capability to tag resources correctly
+runtime: go
