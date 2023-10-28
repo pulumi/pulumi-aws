@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,41 +27,12 @@ class CustomRoutingEndpointGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]] endpoint_configurations: The list of endpoint objects. Fields documented below.
         :param pulumi.Input[str] endpoint_group_region: The name of the AWS Region where the custom routing endpoint group is located.
         """
-        CustomRoutingEndpointGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_configurations=destination_configurations,
-            listener_arn=listener_arn,
-            endpoint_configurations=endpoint_configurations,
-            endpoint_group_region=endpoint_group_region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]]] = None,
-             listener_arn: Optional[pulumi.Input[str]] = None,
-             endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]] = None,
-             endpoint_group_region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination_configurations is None and 'destinationConfigurations' in kwargs:
-            destination_configurations = kwargs['destinationConfigurations']
-        if destination_configurations is None:
-            raise TypeError("Missing 'destination_configurations' argument")
-        if listener_arn is None and 'listenerArn' in kwargs:
-            listener_arn = kwargs['listenerArn']
-        if listener_arn is None:
-            raise TypeError("Missing 'listener_arn' argument")
-        if endpoint_configurations is None and 'endpointConfigurations' in kwargs:
-            endpoint_configurations = kwargs['endpointConfigurations']
-        if endpoint_group_region is None and 'endpointGroupRegion' in kwargs:
-            endpoint_group_region = kwargs['endpointGroupRegion']
-
-        _setter("destination_configurations", destination_configurations)
-        _setter("listener_arn", listener_arn)
+        pulumi.set(__self__, "destination_configurations", destination_configurations)
+        pulumi.set(__self__, "listener_arn", listener_arn)
         if endpoint_configurations is not None:
-            _setter("endpoint_configurations", endpoint_configurations)
+            pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
         if endpoint_group_region is not None:
-            _setter("endpoint_group_region", endpoint_group_region)
+            pulumi.set(__self__, "endpoint_group_region", endpoint_group_region)
 
     @property
     @pulumi.getter(name="destinationConfigurations")
@@ -128,43 +99,16 @@ class _CustomRoutingEndpointGroupState:
         :param pulumi.Input[str] endpoint_group_region: The name of the AWS Region where the custom routing endpoint group is located.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the custom routing listener.
         """
-        _CustomRoutingEndpointGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            destination_configurations=destination_configurations,
-            endpoint_configurations=endpoint_configurations,
-            endpoint_group_region=endpoint_group_region,
-            listener_arn=listener_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupDestinationConfigurationArgs']]]] = None,
-             endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingEndpointGroupEndpointConfigurationArgs']]]] = None,
-             endpoint_group_region: Optional[pulumi.Input[str]] = None,
-             listener_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination_configurations is None and 'destinationConfigurations' in kwargs:
-            destination_configurations = kwargs['destinationConfigurations']
-        if endpoint_configurations is None and 'endpointConfigurations' in kwargs:
-            endpoint_configurations = kwargs['endpointConfigurations']
-        if endpoint_group_region is None and 'endpointGroupRegion' in kwargs:
-            endpoint_group_region = kwargs['endpointGroupRegion']
-        if listener_arn is None and 'listenerArn' in kwargs:
-            listener_arn = kwargs['listenerArn']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if destination_configurations is not None:
-            _setter("destination_configurations", destination_configurations)
+            pulumi.set(__self__, "destination_configurations", destination_configurations)
         if endpoint_configurations is not None:
-            _setter("endpoint_configurations", endpoint_configurations)
+            pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
         if endpoint_group_region is not None:
-            _setter("endpoint_group_region", endpoint_group_region)
+            pulumi.set(__self__, "endpoint_group_region", endpoint_group_region)
         if listener_arn is not None:
-            _setter("listener_arn", listener_arn)
+            pulumi.set(__self__, "listener_arn", listener_arn)
 
     @property
     @pulumi.getter
@@ -318,10 +262,6 @@ class CustomRoutingEndpointGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CustomRoutingEndpointGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

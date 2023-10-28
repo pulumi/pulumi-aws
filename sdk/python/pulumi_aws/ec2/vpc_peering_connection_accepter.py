@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,40 +31,15 @@ class VpcPeeringConnectionAccepterInitArgs:
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        VpcPeeringConnectionAccepterInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            vpc_peering_connection_id=vpc_peering_connection_id,
-            accepter=accepter,
-            auto_accept=auto_accept,
-            requester=requester,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
-             accepter: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs']] = None,
-             auto_accept: Optional[pulumi.Input[bool]] = None,
-             requester: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if vpc_peering_connection_id is None and 'vpcPeeringConnectionId' in kwargs:
-            vpc_peering_connection_id = kwargs['vpcPeeringConnectionId']
-        if vpc_peering_connection_id is None:
-            raise TypeError("Missing 'vpc_peering_connection_id' argument")
-        if auto_accept is None and 'autoAccept' in kwargs:
-            auto_accept = kwargs['autoAccept']
-
-        _setter("vpc_peering_connection_id", vpc_peering_connection_id)
+        pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
         if accepter is not None:
-            _setter("accepter", accepter)
+            pulumi.set(__self__, "accepter", accepter)
         if auto_accept is not None:
-            _setter("auto_accept", auto_accept)
+            pulumi.set(__self__, "auto_accept", auto_accept)
         if requester is not None:
-            _setter("requester", requester)
+            pulumi.set(__self__, "requester", requester)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
@@ -159,78 +134,31 @@ class _VpcPeeringConnectionAccepterState:
         :param pulumi.Input[str] vpc_id: The ID of the accepter VPC.
         :param pulumi.Input[str] vpc_peering_connection_id: The VPC Peering Connection ID to manage.
         """
-        _VpcPeeringConnectionAccepterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            accept_status=accept_status,
-            accepter=accepter,
-            auto_accept=auto_accept,
-            peer_owner_id=peer_owner_id,
-            peer_region=peer_region,
-            peer_vpc_id=peer_vpc_id,
-            requester=requester,
-            tags=tags,
-            tags_all=tags_all,
-            vpc_id=vpc_id,
-            vpc_peering_connection_id=vpc_peering_connection_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             accept_status: Optional[pulumi.Input[str]] = None,
-             accepter: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs']] = None,
-             auto_accept: Optional[pulumi.Input[bool]] = None,
-             peer_owner_id: Optional[pulumi.Input[str]] = None,
-             peer_region: Optional[pulumi.Input[str]] = None,
-             peer_vpc_id: Optional[pulumi.Input[str]] = None,
-             requester: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vpc_id: Optional[pulumi.Input[str]] = None,
-             vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if accept_status is None and 'acceptStatus' in kwargs:
-            accept_status = kwargs['acceptStatus']
-        if auto_accept is None and 'autoAccept' in kwargs:
-            auto_accept = kwargs['autoAccept']
-        if peer_owner_id is None and 'peerOwnerId' in kwargs:
-            peer_owner_id = kwargs['peerOwnerId']
-        if peer_region is None and 'peerRegion' in kwargs:
-            peer_region = kwargs['peerRegion']
-        if peer_vpc_id is None and 'peerVpcId' in kwargs:
-            peer_vpc_id = kwargs['peerVpcId']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-        if vpc_peering_connection_id is None and 'vpcPeeringConnectionId' in kwargs:
-            vpc_peering_connection_id = kwargs['vpcPeeringConnectionId']
-
         if accept_status is not None:
-            _setter("accept_status", accept_status)
+            pulumi.set(__self__, "accept_status", accept_status)
         if accepter is not None:
-            _setter("accepter", accepter)
+            pulumi.set(__self__, "accepter", accepter)
         if auto_accept is not None:
-            _setter("auto_accept", auto_accept)
+            pulumi.set(__self__, "auto_accept", auto_accept)
         if peer_owner_id is not None:
-            _setter("peer_owner_id", peer_owner_id)
+            pulumi.set(__self__, "peer_owner_id", peer_owner_id)
         if peer_region is not None:
-            _setter("peer_region", peer_region)
+            pulumi.set(__self__, "peer_region", peer_region)
         if peer_vpc_id is not None:
-            _setter("peer_vpc_id", peer_vpc_id)
+            pulumi.set(__self__, "peer_vpc_id", peer_vpc_id)
         if requester is not None:
-            _setter("requester", requester)
+            pulumi.set(__self__, "requester", requester)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
         if vpc_peering_connection_id is not None:
-            _setter("vpc_peering_connection_id", vpc_peering_connection_id)
+            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
     @pulumi.getter(name="acceptStatus")
@@ -509,10 +437,6 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcPeeringConnectionAccepterInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -532,10 +456,8 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpcPeeringConnectionAccepterInitArgs.__new__(VpcPeeringConnectionAccepterInitArgs)
 
-            accepter = _utilities.configure(accepter, VpcPeeringConnectionAccepterAccepterArgs, True)
             __props__.__dict__["accepter"] = accepter
             __props__.__dict__["auto_accept"] = auto_accept
-            requester = _utilities.configure(requester, VpcPeeringConnectionAccepterRequesterArgs, True)
             __props__.__dict__["requester"] = requester
             __props__.__dict__["tags"] = tags
             if vpc_peering_connection_id is None and not opts.urn:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LayerVersionArgs', 'LayerVersion']
@@ -41,78 +41,27 @@ class LayerVersionArgs:
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         """
-        LayerVersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            layer_name=layer_name,
-            code=code,
-            compatible_architectures=compatible_architectures,
-            compatible_runtimes=compatible_runtimes,
-            description=description,
-            license_info=license_info,
-            s3_bucket=s3_bucket,
-            s3_key=s3_key,
-            s3_object_version=s3_object_version,
-            skip_destroy=skip_destroy,
-            source_code_hash=source_code_hash,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             layer_name: Optional[pulumi.Input[str]] = None,
-             code: Optional[pulumi.Input[pulumi.Archive]] = None,
-             compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             license_info: Optional[pulumi.Input[str]] = None,
-             s3_bucket: Optional[pulumi.Input[str]] = None,
-             s3_key: Optional[pulumi.Input[str]] = None,
-             s3_object_version: Optional[pulumi.Input[str]] = None,
-             skip_destroy: Optional[pulumi.Input[bool]] = None,
-             source_code_hash: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if layer_name is None and 'layerName' in kwargs:
-            layer_name = kwargs['layerName']
-        if layer_name is None:
-            raise TypeError("Missing 'layer_name' argument")
-        if compatible_architectures is None and 'compatibleArchitectures' in kwargs:
-            compatible_architectures = kwargs['compatibleArchitectures']
-        if compatible_runtimes is None and 'compatibleRuntimes' in kwargs:
-            compatible_runtimes = kwargs['compatibleRuntimes']
-        if license_info is None and 'licenseInfo' in kwargs:
-            license_info = kwargs['licenseInfo']
-        if s3_bucket is None and 's3Bucket' in kwargs:
-            s3_bucket = kwargs['s3Bucket']
-        if s3_key is None and 's3Key' in kwargs:
-            s3_key = kwargs['s3Key']
-        if s3_object_version is None and 's3ObjectVersion' in kwargs:
-            s3_object_version = kwargs['s3ObjectVersion']
-        if skip_destroy is None and 'skipDestroy' in kwargs:
-            skip_destroy = kwargs['skipDestroy']
-        if source_code_hash is None and 'sourceCodeHash' in kwargs:
-            source_code_hash = kwargs['sourceCodeHash']
-
-        _setter("layer_name", layer_name)
+        pulumi.set(__self__, "layer_name", layer_name)
         if code is not None:
-            _setter("code", code)
+            pulumi.set(__self__, "code", code)
         if compatible_architectures is not None:
-            _setter("compatible_architectures", compatible_architectures)
+            pulumi.set(__self__, "compatible_architectures", compatible_architectures)
         if compatible_runtimes is not None:
-            _setter("compatible_runtimes", compatible_runtimes)
+            pulumi.set(__self__, "compatible_runtimes", compatible_runtimes)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if license_info is not None:
-            _setter("license_info", license_info)
+            pulumi.set(__self__, "license_info", license_info)
         if s3_bucket is not None:
-            _setter("s3_bucket", s3_bucket)
+            pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
-            _setter("s3_key", s3_key)
+            pulumi.set(__self__, "s3_key", s3_key)
         if s3_object_version is not None:
-            _setter("s3_object_version", s3_object_version)
+            pulumi.set(__self__, "s3_object_version", s3_object_version)
         if skip_destroy is not None:
-            _setter("skip_destroy", skip_destroy)
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if source_code_hash is not None:
-            _setter("source_code_hash", source_code_hash)
+            pulumi.set(__self__, "source_code_hash", source_code_hash)
 
     @property
     @pulumi.getter(name="layerName")
@@ -293,115 +242,42 @@ class _LayerVersionState:
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[str] version: Lambda Layer version.
         """
-        _LayerVersionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            code=code,
-            compatible_architectures=compatible_architectures,
-            compatible_runtimes=compatible_runtimes,
-            created_date=created_date,
-            description=description,
-            layer_arn=layer_arn,
-            layer_name=layer_name,
-            license_info=license_info,
-            s3_bucket=s3_bucket,
-            s3_key=s3_key,
-            s3_object_version=s3_object_version,
-            signing_job_arn=signing_job_arn,
-            signing_profile_version_arn=signing_profile_version_arn,
-            skip_destroy=skip_destroy,
-            source_code_hash=source_code_hash,
-            source_code_size=source_code_size,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             code: Optional[pulumi.Input[pulumi.Archive]] = None,
-             compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             created_date: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             layer_arn: Optional[pulumi.Input[str]] = None,
-             layer_name: Optional[pulumi.Input[str]] = None,
-             license_info: Optional[pulumi.Input[str]] = None,
-             s3_bucket: Optional[pulumi.Input[str]] = None,
-             s3_key: Optional[pulumi.Input[str]] = None,
-             s3_object_version: Optional[pulumi.Input[str]] = None,
-             signing_job_arn: Optional[pulumi.Input[str]] = None,
-             signing_profile_version_arn: Optional[pulumi.Input[str]] = None,
-             skip_destroy: Optional[pulumi.Input[bool]] = None,
-             source_code_hash: Optional[pulumi.Input[str]] = None,
-             source_code_size: Optional[pulumi.Input[int]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if compatible_architectures is None and 'compatibleArchitectures' in kwargs:
-            compatible_architectures = kwargs['compatibleArchitectures']
-        if compatible_runtimes is None and 'compatibleRuntimes' in kwargs:
-            compatible_runtimes = kwargs['compatibleRuntimes']
-        if created_date is None and 'createdDate' in kwargs:
-            created_date = kwargs['createdDate']
-        if layer_arn is None and 'layerArn' in kwargs:
-            layer_arn = kwargs['layerArn']
-        if layer_name is None and 'layerName' in kwargs:
-            layer_name = kwargs['layerName']
-        if license_info is None and 'licenseInfo' in kwargs:
-            license_info = kwargs['licenseInfo']
-        if s3_bucket is None and 's3Bucket' in kwargs:
-            s3_bucket = kwargs['s3Bucket']
-        if s3_key is None and 's3Key' in kwargs:
-            s3_key = kwargs['s3Key']
-        if s3_object_version is None and 's3ObjectVersion' in kwargs:
-            s3_object_version = kwargs['s3ObjectVersion']
-        if signing_job_arn is None and 'signingJobArn' in kwargs:
-            signing_job_arn = kwargs['signingJobArn']
-        if signing_profile_version_arn is None and 'signingProfileVersionArn' in kwargs:
-            signing_profile_version_arn = kwargs['signingProfileVersionArn']
-        if skip_destroy is None and 'skipDestroy' in kwargs:
-            skip_destroy = kwargs['skipDestroy']
-        if source_code_hash is None and 'sourceCodeHash' in kwargs:
-            source_code_hash = kwargs['sourceCodeHash']
-        if source_code_size is None and 'sourceCodeSize' in kwargs:
-            source_code_size = kwargs['sourceCodeSize']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if code is not None:
-            _setter("code", code)
+            pulumi.set(__self__, "code", code)
         if compatible_architectures is not None:
-            _setter("compatible_architectures", compatible_architectures)
+            pulumi.set(__self__, "compatible_architectures", compatible_architectures)
         if compatible_runtimes is not None:
-            _setter("compatible_runtimes", compatible_runtimes)
+            pulumi.set(__self__, "compatible_runtimes", compatible_runtimes)
         if created_date is not None:
-            _setter("created_date", created_date)
+            pulumi.set(__self__, "created_date", created_date)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if layer_arn is not None:
-            _setter("layer_arn", layer_arn)
+            pulumi.set(__self__, "layer_arn", layer_arn)
         if layer_name is not None:
-            _setter("layer_name", layer_name)
+            pulumi.set(__self__, "layer_name", layer_name)
         if license_info is not None:
-            _setter("license_info", license_info)
+            pulumi.set(__self__, "license_info", license_info)
         if s3_bucket is not None:
-            _setter("s3_bucket", s3_bucket)
+            pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
-            _setter("s3_key", s3_key)
+            pulumi.set(__self__, "s3_key", s3_key)
         if s3_object_version is not None:
-            _setter("s3_object_version", s3_object_version)
+            pulumi.set(__self__, "s3_object_version", s3_object_version)
         if signing_job_arn is not None:
-            _setter("signing_job_arn", signing_job_arn)
+            pulumi.set(__self__, "signing_job_arn", signing_job_arn)
         if signing_profile_version_arn is not None:
-            _setter("signing_profile_version_arn", signing_profile_version_arn)
+            pulumi.set(__self__, "signing_profile_version_arn", signing_profile_version_arn)
         if skip_destroy is not None:
-            _setter("skip_destroy", skip_destroy)
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if source_code_hash is not None:
-            _setter("source_code_hash", source_code_hash)
+            pulumi.set(__self__, "source_code_hash", source_code_hash)
         if source_code_size is not None:
-            _setter("source_code_size", source_code_size)
+            pulumi.set(__self__, "source_code_size", source_code_size)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -745,10 +621,6 @@ class LayerVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LayerVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

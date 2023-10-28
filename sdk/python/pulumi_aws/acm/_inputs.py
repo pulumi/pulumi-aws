@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -29,39 +29,14 @@ class CertificateDomainValidationOptionArgs:
         :param pulumi.Input[str] resource_record_type: The type of DNS record to create
         :param pulumi.Input[str] resource_record_value: The value the DNS record needs to have
         """
-        CertificateDomainValidationOptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            resource_record_name=resource_record_name,
-            resource_record_type=resource_record_type,
-            resource_record_value=resource_record_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[pulumi.Input[str]] = None,
-             resource_record_name: Optional[pulumi.Input[str]] = None,
-             resource_record_type: Optional[pulumi.Input[str]] = None,
-             resource_record_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if resource_record_name is None and 'resourceRecordName' in kwargs:
-            resource_record_name = kwargs['resourceRecordName']
-        if resource_record_type is None and 'resourceRecordType' in kwargs:
-            resource_record_type = kwargs['resourceRecordType']
-        if resource_record_value is None and 'resourceRecordValue' in kwargs:
-            resource_record_value = kwargs['resourceRecordValue']
-
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if resource_record_name is not None:
-            _setter("resource_record_name", resource_record_name)
+            pulumi.set(__self__, "resource_record_name", resource_record_name)
         if resource_record_type is not None:
-            _setter("resource_record_type", resource_record_type)
+            pulumi.set(__self__, "resource_record_type", resource_record_type)
         if resource_record_value is not None:
-            _setter("resource_record_value", resource_record_value)
+            pulumi.set(__self__, "resource_record_value", resource_record_value)
 
     @property
     @pulumi.getter(name="domainName")
@@ -119,21 +94,8 @@ class CertificateOptionsArgs:
         """
         :param pulumi.Input[str] certificate_transparency_logging_preference: Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         """
-        CertificateOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_transparency_logging_preference=certificate_transparency_logging_preference,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_transparency_logging_preference: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_transparency_logging_preference is None and 'certificateTransparencyLoggingPreference' in kwargs:
-            certificate_transparency_logging_preference = kwargs['certificateTransparencyLoggingPreference']
-
         if certificate_transparency_logging_preference is not None:
-            _setter("certificate_transparency_logging_preference", certificate_transparency_logging_preference)
+            pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
 
     @property
     @pulumi.getter(name="certificateTransparencyLoggingPreference")
@@ -158,33 +120,12 @@ class CertificateRenewalSummaryArgs:
         :param pulumi.Input[str] renewal_status: The status of ACM's managed renewal of the certificate
         :param pulumi.Input[str] renewal_status_reason: The reason that a renewal request was unsuccessful or is pending
         """
-        CertificateRenewalSummaryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            renewal_status=renewal_status,
-            renewal_status_reason=renewal_status_reason,
-            updated_at=updated_at,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             renewal_status: Optional[pulumi.Input[str]] = None,
-             renewal_status_reason: Optional[pulumi.Input[str]] = None,
-             updated_at: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if renewal_status is None and 'renewalStatus' in kwargs:
-            renewal_status = kwargs['renewalStatus']
-        if renewal_status_reason is None and 'renewalStatusReason' in kwargs:
-            renewal_status_reason = kwargs['renewalStatusReason']
-        if updated_at is None and 'updatedAt' in kwargs:
-            updated_at = kwargs['updatedAt']
-
         if renewal_status is not None:
-            _setter("renewal_status", renewal_status)
+            pulumi.set(__self__, "renewal_status", renewal_status)
         if renewal_status_reason is not None:
-            _setter("renewal_status_reason", renewal_status_reason)
+            pulumi.set(__self__, "renewal_status_reason", renewal_status_reason)
         if updated_at is not None:
-            _setter("updated_at", updated_at)
+            pulumi.set(__self__, "updated_at", updated_at)
 
     @property
     @pulumi.getter(name="renewalStatus")
@@ -229,29 +170,8 @@ class CertificateValidationOptionArgs:
         :param pulumi.Input[str] domain_name: Fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[str] validation_domain: Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
         """
-        CertificateValidationOptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            validation_domain=validation_domain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[pulumi.Input[str]] = None,
-             validation_domain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if domain_name is None:
-            raise TypeError("Missing 'domain_name' argument")
-        if validation_domain is None and 'validationDomain' in kwargs:
-            validation_domain = kwargs['validationDomain']
-        if validation_domain is None:
-            raise TypeError("Missing 'validation_domain' argument")
-
-        _setter("domain_name", domain_name)
-        _setter("validation_domain", validation_domain)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "validation_domain", validation_domain)
 
     @property
     @pulumi.getter(name="domainName")

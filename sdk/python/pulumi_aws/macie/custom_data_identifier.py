@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CustomDataIdentifierArgs', 'CustomDataIdentifier']
@@ -33,53 +33,22 @@ class CustomDataIdentifierArgs:
         :param pulumi.Input[str] regex: The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the custom data identifier.
         """
-        CustomDataIdentifierArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            ignore_words=ignore_words,
-            keywords=keywords,
-            maximum_match_distance=maximum_match_distance,
-            name=name,
-            name_prefix=name_prefix,
-            regex=regex,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             ignore_words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             keywords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             maximum_match_distance: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             regex: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ignore_words is None and 'ignoreWords' in kwargs:
-            ignore_words = kwargs['ignoreWords']
-        if maximum_match_distance is None and 'maximumMatchDistance' in kwargs:
-            maximum_match_distance = kwargs['maximumMatchDistance']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if ignore_words is not None:
-            _setter("ignore_words", ignore_words)
+            pulumi.set(__self__, "ignore_words", ignore_words)
         if keywords is not None:
-            _setter("keywords", keywords)
+            pulumi.set(__self__, "keywords", keywords)
         if maximum_match_distance is not None:
-            _setter("maximum_match_distance", maximum_match_distance)
+            pulumi.set(__self__, "maximum_match_distance", maximum_match_distance)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if regex is not None:
-            _setter("regex", regex)
+            pulumi.set(__self__, "regex", regex)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -205,72 +174,31 @@ class _CustomDataIdentifierState:
         :param pulumi.Input[str] regex: The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the custom data identifier.
         """
-        _CustomDataIdentifierState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_at=created_at,
-            description=description,
-            ignore_words=ignore_words,
-            keywords=keywords,
-            maximum_match_distance=maximum_match_distance,
-            name=name,
-            name_prefix=name_prefix,
-            regex=regex,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             created_at: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             ignore_words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             keywords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             maximum_match_distance: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             regex: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if ignore_words is None and 'ignoreWords' in kwargs:
-            ignore_words = kwargs['ignoreWords']
-        if maximum_match_distance is None and 'maximumMatchDistance' in kwargs:
-            maximum_match_distance = kwargs['maximumMatchDistance']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if ignore_words is not None:
-            _setter("ignore_words", ignore_words)
+            pulumi.set(__self__, "ignore_words", ignore_words)
         if keywords is not None:
-            _setter("keywords", keywords)
+            pulumi.set(__self__, "keywords", keywords)
         if maximum_match_distance is not None:
-            _setter("maximum_match_distance", maximum_match_distance)
+            pulumi.set(__self__, "maximum_match_distance", maximum_match_distance)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if regex is not None:
-            _setter("regex", regex)
+            pulumi.set(__self__, "regex", regex)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -500,10 +428,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CustomDataIdentifierArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

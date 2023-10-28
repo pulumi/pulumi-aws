@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NotebookInstanceLifecycleConfigurationArgs', 'NotebookInstanceLifecycleConfiguration']
@@ -23,31 +23,12 @@ class NotebookInstanceLifecycleConfigurationArgs:
         :param pulumi.Input[str] on_create: A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
         :param pulumi.Input[str] on_start: A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
         """
-        NotebookInstanceLifecycleConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            on_create=on_create,
-            on_start=on_start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             on_create: Optional[pulumi.Input[str]] = None,
-             on_start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if on_create is None and 'onCreate' in kwargs:
-            on_create = kwargs['onCreate']
-        if on_start is None and 'onStart' in kwargs:
-            on_start = kwargs['onStart']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if on_create is not None:
-            _setter("on_create", on_create)
+            pulumi.set(__self__, "on_create", on_create)
         if on_start is not None:
-            _setter("on_start", on_start)
+            pulumi.set(__self__, "on_start", on_start)
 
     @property
     @pulumi.getter
@@ -100,35 +81,14 @@ class _NotebookInstanceLifecycleConfigurationState:
         :param pulumi.Input[str] on_create: A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
         :param pulumi.Input[str] on_start: A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it's created.
         """
-        _NotebookInstanceLifecycleConfigurationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            name=name,
-            on_create=on_create,
-            on_start=on_start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             on_create: Optional[pulumi.Input[str]] = None,
-             on_start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if on_create is None and 'onCreate' in kwargs:
-            on_create = kwargs['onCreate']
-        if on_start is None and 'onStart' in kwargs:
-            on_start = kwargs['onStart']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if on_create is not None:
-            _setter("on_create", on_create)
+            pulumi.set(__self__, "on_create", on_create)
         if on_start is not None:
-            _setter("on_start", on_start)
+            pulumi.set(__self__, "on_start", on_start)
 
     @property
     @pulumi.getter
@@ -232,10 +192,6 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NotebookInstanceLifecycleConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

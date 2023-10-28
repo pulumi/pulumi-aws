@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -42,23 +42,10 @@ class GroupExternalId(dict):
         :param str id: The identifier issued to this resource by an external identity provider.
         :param str issuer: The issuer for an external identifier.
         """
-        GroupExternalId._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            issuer=issuer,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             issuer: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if issuer is not None:
-            _setter("issuer", issuer)
+            pulumi.set(__self__, "issuer", issuer)
 
     @property
     @pulumi.getter
@@ -117,51 +104,22 @@ class UserAddresses(dict):
         :param str street_address: The street of the address.
         :param str type: The type of address.
         """
-        UserAddresses._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            country=country,
-            formatted=formatted,
-            locality=locality,
-            postal_code=postal_code,
-            primary=primary,
-            region=region,
-            street_address=street_address,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             country: Optional[str] = None,
-             formatted: Optional[str] = None,
-             locality: Optional[str] = None,
-             postal_code: Optional[str] = None,
-             primary: Optional[bool] = None,
-             region: Optional[str] = None,
-             street_address: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if postal_code is None and 'postalCode' in kwargs:
-            postal_code = kwargs['postalCode']
-        if street_address is None and 'streetAddress' in kwargs:
-            street_address = kwargs['streetAddress']
-
         if country is not None:
-            _setter("country", country)
+            pulumi.set(__self__, "country", country)
         if formatted is not None:
-            _setter("formatted", formatted)
+            pulumi.set(__self__, "formatted", formatted)
         if locality is not None:
-            _setter("locality", locality)
+            pulumi.set(__self__, "locality", locality)
         if postal_code is not None:
-            _setter("postal_code", postal_code)
+            pulumi.set(__self__, "postal_code", postal_code)
         if primary is not None:
-            _setter("primary", primary)
+            pulumi.set(__self__, "primary", primary)
         if region is not None:
-            _setter("region", region)
+            pulumi.set(__self__, "region", region)
         if street_address is not None:
-            _setter("street_address", street_address)
+            pulumi.set(__self__, "street_address", street_address)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -239,27 +197,12 @@ class UserEmails(dict):
         :param str type: The type of email.
         :param str value: The email address. This value must be unique across the identity store.
         """
-        UserEmails._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            primary=primary,
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             primary: Optional[bool] = None,
-             type: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if primary is not None:
-            _setter("primary", primary)
+            pulumi.set(__self__, "primary", primary)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -295,23 +238,10 @@ class UserExternalId(dict):
         :param str id: The identifier issued to this resource by an external identity provider.
         :param str issuer: The issuer for an external identifier.
         """
-        UserExternalId._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            issuer=issuer,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             issuer: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if issuer is not None:
-            _setter("issuer", issuer)
+            pulumi.set(__self__, "issuer", issuer)
 
     @property
     @pulumi.getter
@@ -374,51 +304,16 @@ class UserName(dict):
         :param str honorific_suffix: The honorific suffix of the user.
         :param str middle_name: The middle name of the user.
         """
-        UserName._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            family_name=family_name,
-            given_name=given_name,
-            formatted=formatted,
-            honorific_prefix=honorific_prefix,
-            honorific_suffix=honorific_suffix,
-            middle_name=middle_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             family_name: Optional[str] = None,
-             given_name: Optional[str] = None,
-             formatted: Optional[str] = None,
-             honorific_prefix: Optional[str] = None,
-             honorific_suffix: Optional[str] = None,
-             middle_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if family_name is None and 'familyName' in kwargs:
-            family_name = kwargs['familyName']
-        if family_name is None:
-            raise TypeError("Missing 'family_name' argument")
-        if given_name is None and 'givenName' in kwargs:
-            given_name = kwargs['givenName']
-        if given_name is None:
-            raise TypeError("Missing 'given_name' argument")
-        if honorific_prefix is None and 'honorificPrefix' in kwargs:
-            honorific_prefix = kwargs['honorificPrefix']
-        if honorific_suffix is None and 'honorificSuffix' in kwargs:
-            honorific_suffix = kwargs['honorificSuffix']
-        if middle_name is None and 'middleName' in kwargs:
-            middle_name = kwargs['middleName']
-
-        _setter("family_name", family_name)
-        _setter("given_name", given_name)
+        pulumi.set(__self__, "family_name", family_name)
+        pulumi.set(__self__, "given_name", given_name)
         if formatted is not None:
-            _setter("formatted", formatted)
+            pulumi.set(__self__, "formatted", formatted)
         if honorific_prefix is not None:
-            _setter("honorific_prefix", honorific_prefix)
+            pulumi.set(__self__, "honorific_prefix", honorific_prefix)
         if honorific_suffix is not None:
-            _setter("honorific_suffix", honorific_suffix)
+            pulumi.set(__self__, "honorific_suffix", honorific_suffix)
         if middle_name is not None:
-            _setter("middle_name", middle_name)
+            pulumi.set(__self__, "middle_name", middle_name)
 
     @property
     @pulumi.getter(name="familyName")
@@ -482,27 +377,12 @@ class UserPhoneNumbers(dict):
         :param str type: The type of phone number.
         :param str value: The user's phone number.
         """
-        UserPhoneNumbers._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            primary=primary,
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             primary: Optional[bool] = None,
-             type: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if primary is not None:
-            _setter("primary", primary)
+            pulumi.set(__self__, "primary", primary)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -540,27 +420,10 @@ class GetGroupAlternateIdentifierResult(dict):
                
                > Exactly one of the above arguments must be provided.
         """
-        GetGroupAlternateIdentifierResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            external_id=external_id,
-            unique_attribute=unique_attribute,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             external_id: Optional['outputs.GetGroupAlternateIdentifierExternalIdResult'] = None,
-             unique_attribute: Optional['outputs.GetGroupAlternateIdentifierUniqueAttributeResult'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if external_id is None and 'externalId' in kwargs:
-            external_id = kwargs['externalId']
-        if unique_attribute is None and 'uniqueAttribute' in kwargs:
-            unique_attribute = kwargs['uniqueAttribute']
-
         if external_id is not None:
-            _setter("external_id", external_id)
+            pulumi.set(__self__, "external_id", external_id)
         if unique_attribute is not None:
-            _setter("unique_attribute", unique_attribute)
+            pulumi.set(__self__, "unique_attribute", unique_attribute)
 
     @property
     @pulumi.getter(name="externalId")
@@ -590,25 +453,8 @@ class GetGroupAlternateIdentifierExternalIdResult(dict):
         :param str id: The identifier issued to this resource by an external identity provider.
         :param str issuer: The issuer for an external identifier.
         """
-        GetGroupAlternateIdentifierExternalIdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            issuer=issuer,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             issuer: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if issuer is None:
-            raise TypeError("Missing 'issuer' argument")
-
-        _setter("id", id)
-        _setter("issuer", issuer)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "issuer", issuer)
 
     @property
     @pulumi.getter
@@ -636,29 +482,8 @@ class GetGroupAlternateIdentifierUniqueAttributeResult(dict):
         :param str attribute_path: Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
         :param str attribute_value: Value for an attribute.
         """
-        GetGroupAlternateIdentifierUniqueAttributeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute_path=attribute_path,
-            attribute_value=attribute_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute_path: Optional[str] = None,
-             attribute_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attribute_path is None and 'attributePath' in kwargs:
-            attribute_path = kwargs['attributePath']
-        if attribute_path is None:
-            raise TypeError("Missing 'attribute_path' argument")
-        if attribute_value is None and 'attributeValue' in kwargs:
-            attribute_value = kwargs['attributeValue']
-        if attribute_value is None:
-            raise TypeError("Missing 'attribute_value' argument")
-
-        _setter("attribute_path", attribute_path)
-        _setter("attribute_value", attribute_value)
+        pulumi.set(__self__, "attribute_path", attribute_path)
+        pulumi.set(__self__, "attribute_value", attribute_value)
 
     @property
     @pulumi.getter(name="attributePath")
@@ -686,25 +511,8 @@ class GetGroupExternalIdResult(dict):
         :param str id: The identifier issued to this resource by an external identity provider.
         :param str issuer: The issuer for an external identifier.
         """
-        GetGroupExternalIdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            issuer=issuer,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             issuer: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if issuer is None:
-            raise TypeError("Missing 'issuer' argument")
-
-        _setter("id", id)
-        _setter("issuer", issuer)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "issuer", issuer)
 
     @property
     @pulumi.getter
@@ -732,29 +540,8 @@ class GetGroupFilterResult(dict):
         :param str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
         :param str attribute_value: Value for an attribute.
         """
-        GetGroupFilterResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute_path=attribute_path,
-            attribute_value=attribute_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute_path: Optional[str] = None,
-             attribute_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attribute_path is None and 'attributePath' in kwargs:
-            attribute_path = kwargs['attributePath']
-        if attribute_path is None:
-            raise TypeError("Missing 'attribute_path' argument")
-        if attribute_value is None and 'attributeValue' in kwargs:
-            attribute_value = kwargs['attributeValue']
-        if attribute_value is None:
-            raise TypeError("Missing 'attribute_value' argument")
-
-        _setter("attribute_path", attribute_path)
-        _setter("attribute_value", attribute_value)
+        pulumi.set(__self__, "attribute_path", attribute_path)
+        pulumi.set(__self__, "attribute_value", attribute_value)
 
     @property
     @pulumi.getter(name="attributePath")
@@ -794,59 +581,14 @@ class GetUserAddressResult(dict):
         :param str street_address: The street of the address.
         :param str type: The type of phone number.
         """
-        GetUserAddressResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            country=country,
-            formatted=formatted,
-            locality=locality,
-            postal_code=postal_code,
-            primary=primary,
-            region=region,
-            street_address=street_address,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             country: Optional[str] = None,
-             formatted: Optional[str] = None,
-             locality: Optional[str] = None,
-             postal_code: Optional[str] = None,
-             primary: Optional[bool] = None,
-             region: Optional[str] = None,
-             street_address: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if country is None:
-            raise TypeError("Missing 'country' argument")
-        if formatted is None:
-            raise TypeError("Missing 'formatted' argument")
-        if locality is None:
-            raise TypeError("Missing 'locality' argument")
-        if postal_code is None and 'postalCode' in kwargs:
-            postal_code = kwargs['postalCode']
-        if postal_code is None:
-            raise TypeError("Missing 'postal_code' argument")
-        if primary is None:
-            raise TypeError("Missing 'primary' argument")
-        if region is None:
-            raise TypeError("Missing 'region' argument")
-        if street_address is None and 'streetAddress' in kwargs:
-            street_address = kwargs['streetAddress']
-        if street_address is None:
-            raise TypeError("Missing 'street_address' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("country", country)
-        _setter("formatted", formatted)
-        _setter("locality", locality)
-        _setter("postal_code", postal_code)
-        _setter("primary", primary)
-        _setter("region", region)
-        _setter("street_address", street_address)
-        _setter("type", type)
+        pulumi.set(__self__, "country", country)
+        pulumi.set(__self__, "formatted", formatted)
+        pulumi.set(__self__, "locality", locality)
+        pulumi.set(__self__, "postal_code", postal_code)
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "street_address", street_address)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -924,27 +666,10 @@ class GetUserAlternateIdentifierResult(dict):
                
                > Exactly one of the above arguments must be provided.
         """
-        GetUserAlternateIdentifierResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            external_id=external_id,
-            unique_attribute=unique_attribute,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             external_id: Optional['outputs.GetUserAlternateIdentifierExternalIdResult'] = None,
-             unique_attribute: Optional['outputs.GetUserAlternateIdentifierUniqueAttributeResult'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if external_id is None and 'externalId' in kwargs:
-            external_id = kwargs['externalId']
-        if unique_attribute is None and 'uniqueAttribute' in kwargs:
-            unique_attribute = kwargs['uniqueAttribute']
-
         if external_id is not None:
-            _setter("external_id", external_id)
+            pulumi.set(__self__, "external_id", external_id)
         if unique_attribute is not None:
-            _setter("unique_attribute", unique_attribute)
+            pulumi.set(__self__, "unique_attribute", unique_attribute)
 
     @property
     @pulumi.getter(name="externalId")
@@ -974,25 +699,8 @@ class GetUserAlternateIdentifierExternalIdResult(dict):
         :param str id: The identifier issued to this resource by an external identity provider.
         :param str issuer: The issuer for an external identifier.
         """
-        GetUserAlternateIdentifierExternalIdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            issuer=issuer,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             issuer: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if issuer is None:
-            raise TypeError("Missing 'issuer' argument")
-
-        _setter("id", id)
-        _setter("issuer", issuer)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "issuer", issuer)
 
     @property
     @pulumi.getter
@@ -1020,29 +728,8 @@ class GetUserAlternateIdentifierUniqueAttributeResult(dict):
         :param str attribute_path: Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
         :param str attribute_value: Value for an attribute.
         """
-        GetUserAlternateIdentifierUniqueAttributeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute_path=attribute_path,
-            attribute_value=attribute_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute_path: Optional[str] = None,
-             attribute_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attribute_path is None and 'attributePath' in kwargs:
-            attribute_path = kwargs['attributePath']
-        if attribute_path is None:
-            raise TypeError("Missing 'attribute_path' argument")
-        if attribute_value is None and 'attributeValue' in kwargs:
-            attribute_value = kwargs['attributeValue']
-        if attribute_value is None:
-            raise TypeError("Missing 'attribute_value' argument")
-
-        _setter("attribute_path", attribute_path)
-        _setter("attribute_value", attribute_value)
+        pulumi.set(__self__, "attribute_path", attribute_path)
+        pulumi.set(__self__, "attribute_value", attribute_value)
 
     @property
     @pulumi.getter(name="attributePath")
@@ -1072,30 +759,9 @@ class GetUserEmailResult(dict):
         :param str type: The type of phone number.
         :param str value: The user's phone number.
         """
-        GetUserEmailResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            primary=primary,
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             primary: Optional[bool] = None,
-             type: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if primary is None:
-            raise TypeError("Missing 'primary' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("primary", primary)
-        _setter("type", type)
-        _setter("value", value)
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1131,25 +797,8 @@ class GetUserExternalIdResult(dict):
         :param str id: The identifier issued to this resource by an external identity provider.
         :param str issuer: The issuer for an external identifier.
         """
-        GetUserExternalIdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            issuer=issuer,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             issuer: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if issuer is None:
-            raise TypeError("Missing 'issuer' argument")
-
-        _setter("id", id)
-        _setter("issuer", issuer)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "issuer", issuer)
 
     @property
     @pulumi.getter
@@ -1177,29 +826,8 @@ class GetUserFilterResult(dict):
         :param str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
         :param str attribute_value: Value for an attribute.
         """
-        GetUserFilterResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute_path=attribute_path,
-            attribute_value=attribute_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute_path: Optional[str] = None,
-             attribute_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attribute_path is None and 'attributePath' in kwargs:
-            attribute_path = kwargs['attributePath']
-        if attribute_path is None:
-            raise TypeError("Missing 'attribute_path' argument")
-        if attribute_value is None and 'attributeValue' in kwargs:
-            attribute_value = kwargs['attributeValue']
-        if attribute_value is None:
-            raise TypeError("Missing 'attribute_value' argument")
-
-        _setter("attribute_path", attribute_path)
-        _setter("attribute_value", attribute_value)
+        pulumi.set(__self__, "attribute_path", attribute_path)
+        pulumi.set(__self__, "attribute_value", attribute_value)
 
     @property
     @pulumi.getter(name="attributePath")
@@ -1235,55 +863,12 @@ class GetUserNameResult(dict):
         :param str honorific_suffix: The honorific suffix of the user.
         :param str middle_name: The middle name of the user.
         """
-        GetUserNameResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            family_name=family_name,
-            formatted=formatted,
-            given_name=given_name,
-            honorific_prefix=honorific_prefix,
-            honorific_suffix=honorific_suffix,
-            middle_name=middle_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             family_name: Optional[str] = None,
-             formatted: Optional[str] = None,
-             given_name: Optional[str] = None,
-             honorific_prefix: Optional[str] = None,
-             honorific_suffix: Optional[str] = None,
-             middle_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if family_name is None and 'familyName' in kwargs:
-            family_name = kwargs['familyName']
-        if family_name is None:
-            raise TypeError("Missing 'family_name' argument")
-        if formatted is None:
-            raise TypeError("Missing 'formatted' argument")
-        if given_name is None and 'givenName' in kwargs:
-            given_name = kwargs['givenName']
-        if given_name is None:
-            raise TypeError("Missing 'given_name' argument")
-        if honorific_prefix is None and 'honorificPrefix' in kwargs:
-            honorific_prefix = kwargs['honorificPrefix']
-        if honorific_prefix is None:
-            raise TypeError("Missing 'honorific_prefix' argument")
-        if honorific_suffix is None and 'honorificSuffix' in kwargs:
-            honorific_suffix = kwargs['honorificSuffix']
-        if honorific_suffix is None:
-            raise TypeError("Missing 'honorific_suffix' argument")
-        if middle_name is None and 'middleName' in kwargs:
-            middle_name = kwargs['middleName']
-        if middle_name is None:
-            raise TypeError("Missing 'middle_name' argument")
-
-        _setter("family_name", family_name)
-        _setter("formatted", formatted)
-        _setter("given_name", given_name)
-        _setter("honorific_prefix", honorific_prefix)
-        _setter("honorific_suffix", honorific_suffix)
-        _setter("middle_name", middle_name)
+        pulumi.set(__self__, "family_name", family_name)
+        pulumi.set(__self__, "formatted", formatted)
+        pulumi.set(__self__, "given_name", given_name)
+        pulumi.set(__self__, "honorific_prefix", honorific_prefix)
+        pulumi.set(__self__, "honorific_suffix", honorific_suffix)
+        pulumi.set(__self__, "middle_name", middle_name)
 
     @property
     @pulumi.getter(name="familyName")
@@ -1345,30 +930,9 @@ class GetUserPhoneNumberResult(dict):
         :param str type: The type of phone number.
         :param str value: The user's phone number.
         """
-        GetUserPhoneNumberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            primary=primary,
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             primary: Optional[bool] = None,
-             type: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if primary is None:
-            raise TypeError("Missing 'primary' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("primary", primary)
-        _setter("type", type)
-        _setter("value", value)
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

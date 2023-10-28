@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,49 +33,16 @@ class ResolverRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
                This argument should only be specified for `FORWARD` type rules.
         """
-        ResolverRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            rule_type=rule_type,
-            name=name,
-            resolver_endpoint_id=resolver_endpoint_id,
-            tags=tags,
-            target_ips=target_ips,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[pulumi.Input[str]] = None,
-             rule_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if domain_name is None:
-            raise TypeError("Missing 'domain_name' argument")
-        if rule_type is None and 'ruleType' in kwargs:
-            rule_type = kwargs['ruleType']
-        if rule_type is None:
-            raise TypeError("Missing 'rule_type' argument")
-        if resolver_endpoint_id is None and 'resolverEndpointId' in kwargs:
-            resolver_endpoint_id = kwargs['resolverEndpointId']
-        if target_ips is None and 'targetIps' in kwargs:
-            target_ips = kwargs['targetIps']
-
-        _setter("domain_name", domain_name)
-        _setter("rule_type", rule_type)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "rule_type", rule_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resolver_endpoint_id is not None:
-            _setter("resolver_endpoint_id", resolver_endpoint_id)
+            pulumi.set(__self__, "resolver_endpoint_id", resolver_endpoint_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if target_ips is not None:
-            _setter("target_ips", target_ips)
+            pulumi.set(__self__, "target_ips", target_ips)
 
     @property
     @pulumi.getter(name="domainName")
@@ -181,72 +148,29 @@ class _ResolverRuleState:
         :param pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]] target_ips: Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
                This argument should only be specified for `FORWARD` type rules.
         """
-        _ResolverRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            domain_name=domain_name,
-            name=name,
-            owner_id=owner_id,
-            resolver_endpoint_id=resolver_endpoint_id,
-            rule_type=rule_type,
-            share_status=share_status,
-            tags=tags,
-            tags_all=tags_all,
-            target_ips=target_ips,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_id: Optional[pulumi.Input[str]] = None,
-             resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
-             rule_type: Optional[pulumi.Input[str]] = None,
-             share_status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if owner_id is None and 'ownerId' in kwargs:
-            owner_id = kwargs['ownerId']
-        if resolver_endpoint_id is None and 'resolverEndpointId' in kwargs:
-            resolver_endpoint_id = kwargs['resolverEndpointId']
-        if rule_type is None and 'ruleType' in kwargs:
-            rule_type = kwargs['ruleType']
-        if share_status is None and 'shareStatus' in kwargs:
-            share_status = kwargs['shareStatus']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if target_ips is None and 'targetIps' in kwargs:
-            target_ips = kwargs['targetIps']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_id is not None:
-            _setter("owner_id", owner_id)
+            pulumi.set(__self__, "owner_id", owner_id)
         if resolver_endpoint_id is not None:
-            _setter("resolver_endpoint_id", resolver_endpoint_id)
+            pulumi.set(__self__, "resolver_endpoint_id", resolver_endpoint_id)
         if rule_type is not None:
-            _setter("rule_type", rule_type)
+            pulumi.set(__self__, "rule_type", rule_type)
         if share_status is not None:
-            _setter("share_status", share_status)
+            pulumi.set(__self__, "share_status", share_status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if target_ips is not None:
-            _setter("target_ips", target_ips)
+            pulumi.set(__self__, "target_ips", target_ips)
 
     @property
     @pulumi.getter
@@ -494,10 +418,6 @@ class ResolverRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResolverRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

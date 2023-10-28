@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -25,33 +25,14 @@ class ClusterNodeArgs:
         """
         :param pulumi.Input[int] port: The port used by the configuration endpoint
         """
-        ClusterNodeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            availability_zone=availability_zone,
-            id=id,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input[str]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -100,19 +81,8 @@ class ClusterServerSideEncryptionArgs:
         """
         :param pulumi.Input[bool] enabled: Whether to enable encryption at rest. Defaults to `false`.
         """
-        ClusterServerSideEncryptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -136,25 +106,8 @@ class ParameterGroupParameterArgs:
         :param pulumi.Input[str] name: The name of the parameter.
         :param pulumi.Input[str] value: The value for the parameter.
         """
-        ParameterGroupParameterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,77 +41,26 @@ class ClassificationJobArgs:
         :param pulumi.Input['ClassificationJobScheduleFrequencyArgs'] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
         """
-        ClassificationJobArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            job_type=job_type,
-            s3_job_definition=s3_job_definition,
-            custom_data_identifier_ids=custom_data_identifier_ids,
-            description=description,
-            initial_run=initial_run,
-            job_status=job_status,
-            name=name,
-            name_prefix=name_prefix,
-            sampling_percentage=sampling_percentage,
-            schedule_frequency=schedule_frequency,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             job_type: Optional[pulumi.Input[str]] = None,
-             s3_job_definition: Optional[pulumi.Input['ClassificationJobS3JobDefinitionArgs']] = None,
-             custom_data_identifier_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             initial_run: Optional[pulumi.Input[bool]] = None,
-             job_status: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             sampling_percentage: Optional[pulumi.Input[int]] = None,
-             schedule_frequency: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if job_type is None and 'jobType' in kwargs:
-            job_type = kwargs['jobType']
-        if job_type is None:
-            raise TypeError("Missing 'job_type' argument")
-        if s3_job_definition is None and 's3JobDefinition' in kwargs:
-            s3_job_definition = kwargs['s3JobDefinition']
-        if s3_job_definition is None:
-            raise TypeError("Missing 's3_job_definition' argument")
-        if custom_data_identifier_ids is None and 'customDataIdentifierIds' in kwargs:
-            custom_data_identifier_ids = kwargs['customDataIdentifierIds']
-        if initial_run is None and 'initialRun' in kwargs:
-            initial_run = kwargs['initialRun']
-        if job_status is None and 'jobStatus' in kwargs:
-            job_status = kwargs['jobStatus']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if sampling_percentage is None and 'samplingPercentage' in kwargs:
-            sampling_percentage = kwargs['samplingPercentage']
-        if schedule_frequency is None and 'scheduleFrequency' in kwargs:
-            schedule_frequency = kwargs['scheduleFrequency']
-
-        _setter("job_type", job_type)
-        _setter("s3_job_definition", s3_job_definition)
+        pulumi.set(__self__, "job_type", job_type)
+        pulumi.set(__self__, "s3_job_definition", s3_job_definition)
         if custom_data_identifier_ids is not None:
-            _setter("custom_data_identifier_ids", custom_data_identifier_ids)
+            pulumi.set(__self__, "custom_data_identifier_ids", custom_data_identifier_ids)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if initial_run is not None:
-            _setter("initial_run", initial_run)
+            pulumi.set(__self__, "initial_run", initial_run)
         if job_status is not None:
-            _setter("job_status", job_status)
+            pulumi.set(__self__, "job_status", job_status)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if sampling_percentage is not None:
-            _setter("sampling_percentage", sampling_percentage)
+            pulumi.set(__self__, "sampling_percentage", sampling_percentage)
         if schedule_frequency is not None:
-            _setter("schedule_frequency", schedule_frequency)
+            pulumi.set(__self__, "schedule_frequency", schedule_frequency)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="jobType")
@@ -281,108 +230,41 @@ class _ClassificationJobState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
         :param pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]] user_paused_details: If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         """
-        _ClassificationJobState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            created_at=created_at,
-            custom_data_identifier_ids=custom_data_identifier_ids,
-            description=description,
-            initial_run=initial_run,
-            job_arn=job_arn,
-            job_id=job_id,
-            job_status=job_status,
-            job_type=job_type,
-            name=name,
-            name_prefix=name_prefix,
-            s3_job_definition=s3_job_definition,
-            sampling_percentage=sampling_percentage,
-            schedule_frequency=schedule_frequency,
-            tags=tags,
-            tags_all=tags_all,
-            user_paused_details=user_paused_details,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             created_at: Optional[pulumi.Input[str]] = None,
-             custom_data_identifier_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             initial_run: Optional[pulumi.Input[bool]] = None,
-             job_arn: Optional[pulumi.Input[str]] = None,
-             job_id: Optional[pulumi.Input[str]] = None,
-             job_status: Optional[pulumi.Input[str]] = None,
-             job_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             s3_job_definition: Optional[pulumi.Input['ClassificationJobS3JobDefinitionArgs']] = None,
-             sampling_percentage: Optional[pulumi.Input[int]] = None,
-             schedule_frequency: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             user_paused_details: Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if custom_data_identifier_ids is None and 'customDataIdentifierIds' in kwargs:
-            custom_data_identifier_ids = kwargs['customDataIdentifierIds']
-        if initial_run is None and 'initialRun' in kwargs:
-            initial_run = kwargs['initialRun']
-        if job_arn is None and 'jobArn' in kwargs:
-            job_arn = kwargs['jobArn']
-        if job_id is None and 'jobId' in kwargs:
-            job_id = kwargs['jobId']
-        if job_status is None and 'jobStatus' in kwargs:
-            job_status = kwargs['jobStatus']
-        if job_type is None and 'jobType' in kwargs:
-            job_type = kwargs['jobType']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if s3_job_definition is None and 's3JobDefinition' in kwargs:
-            s3_job_definition = kwargs['s3JobDefinition']
-        if sampling_percentage is None and 'samplingPercentage' in kwargs:
-            sampling_percentage = kwargs['samplingPercentage']
-        if schedule_frequency is None and 'scheduleFrequency' in kwargs:
-            schedule_frequency = kwargs['scheduleFrequency']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if user_paused_details is None and 'userPausedDetails' in kwargs:
-            user_paused_details = kwargs['userPausedDetails']
-
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if custom_data_identifier_ids is not None:
-            _setter("custom_data_identifier_ids", custom_data_identifier_ids)
+            pulumi.set(__self__, "custom_data_identifier_ids", custom_data_identifier_ids)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if initial_run is not None:
-            _setter("initial_run", initial_run)
+            pulumi.set(__self__, "initial_run", initial_run)
         if job_arn is not None:
-            _setter("job_arn", job_arn)
+            pulumi.set(__self__, "job_arn", job_arn)
         if job_id is not None:
-            _setter("job_id", job_id)
+            pulumi.set(__self__, "job_id", job_id)
         if job_status is not None:
-            _setter("job_status", job_status)
+            pulumi.set(__self__, "job_status", job_status)
         if job_type is not None:
-            _setter("job_type", job_type)
+            pulumi.set(__self__, "job_type", job_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if s3_job_definition is not None:
-            _setter("s3_job_definition", s3_job_definition)
+            pulumi.set(__self__, "s3_job_definition", s3_job_definition)
         if sampling_percentage is not None:
-            _setter("sampling_percentage", sampling_percentage)
+            pulumi.set(__self__, "sampling_percentage", sampling_percentage)
         if schedule_frequency is not None:
-            _setter("schedule_frequency", schedule_frequency)
+            pulumi.set(__self__, "schedule_frequency", schedule_frequency)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if user_paused_details is not None:
-            _setter("user_paused_details", user_paused_details)
+            pulumi.set(__self__, "user_paused_details", user_paused_details)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -676,10 +558,6 @@ class ClassificationJob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClassificationJobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -714,12 +592,10 @@ class ClassificationJob(pulumi.CustomResource):
             __props__.__dict__["job_type"] = job_type
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
-            s3_job_definition = _utilities.configure(s3_job_definition, ClassificationJobS3JobDefinitionArgs, True)
             if s3_job_definition is None and not opts.urn:
                 raise TypeError("Missing required property 's3_job_definition'")
             __props__.__dict__["s3_job_definition"] = s3_job_definition
             __props__.__dict__["sampling_percentage"] = sampling_percentage
-            schedule_frequency = _utilities.configure(schedule_frequency, ClassificationJobScheduleFrequencyArgs, True)
             __props__.__dict__["schedule_frequency"] = schedule_frequency
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None

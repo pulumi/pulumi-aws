@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WebAclAssociationArgs', 'WebAclAssociation']
@@ -21,29 +21,8 @@ class WebAclAssociationArgs:
         :param pulumi.Input[str] resource_arn: ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
         :param pulumi.Input[str] web_acl_id: The ID of the WAF Regional WebACL to create an association.
         """
-        WebAclAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-            web_acl_id=web_acl_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: Optional[pulumi.Input[str]] = None,
-             web_acl_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_arn is None and 'resourceArn' in kwargs:
-            resource_arn = kwargs['resourceArn']
-        if resource_arn is None:
-            raise TypeError("Missing 'resource_arn' argument")
-        if web_acl_id is None and 'webAclId' in kwargs:
-            web_acl_id = kwargs['webAclId']
-        if web_acl_id is None:
-            raise TypeError("Missing 'web_acl_id' argument")
-
-        _setter("resource_arn", resource_arn)
-        _setter("web_acl_id", web_acl_id)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "web_acl_id", web_acl_id)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -80,27 +59,10 @@ class _WebAclAssociationState:
         :param pulumi.Input[str] resource_arn: ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
         :param pulumi.Input[str] web_acl_id: The ID of the WAF Regional WebACL to create an association.
         """
-        _WebAclAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-            web_acl_id=web_acl_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: Optional[pulumi.Input[str]] = None,
-             web_acl_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_arn is None and 'resourceArn' in kwargs:
-            resource_arn = kwargs['resourceArn']
-        if web_acl_id is None and 'webAclId' in kwargs:
-            web_acl_id = kwargs['webAclId']
-
         if resource_arn is not None:
-            _setter("resource_arn", resource_arn)
+            pulumi.set(__self__, "resource_arn", resource_arn)
         if web_acl_id is not None:
-            _setter("web_acl_id", web_acl_id)
+            pulumi.set(__self__, "web_acl_id", web_acl_id)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -410,10 +372,6 @@ class WebAclAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WebAclAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

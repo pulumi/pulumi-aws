@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IpSetArgs', 'IpSet']
@@ -29,43 +29,16 @@ class IpSetArgs:
         :param pulumi.Input[str] name: A friendly name of the IP set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        IpSetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_address_version=ip_address_version,
-            scope=scope,
-            addresses=addresses,
-            description=description,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_address_version: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input[str]] = None,
-             addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_address_version is None and 'ipAddressVersion' in kwargs:
-            ip_address_version = kwargs['ipAddressVersion']
-        if ip_address_version is None:
-            raise TypeError("Missing 'ip_address_version' argument")
-        if scope is None:
-            raise TypeError("Missing 'scope' argument")
-
-        _setter("ip_address_version", ip_address_version)
-        _setter("scope", scope)
+        pulumi.set(__self__, "ip_address_version", ip_address_version)
+        pulumi.set(__self__, "scope", scope)
         if addresses is not None:
-            _setter("addresses", addresses)
+            pulumi.set(__self__, "addresses", addresses)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="ipAddressVersion")
@@ -163,60 +136,27 @@ class _IpSetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _IpSetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            addresses=addresses,
-            arn=arn,
-            description=description,
-            ip_address_version=ip_address_version,
-            lock_token=lock_token,
-            name=name,
-            scope=scope,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             ip_address_version: Optional[pulumi.Input[str]] = None,
-             lock_token: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_address_version is None and 'ipAddressVersion' in kwargs:
-            ip_address_version = kwargs['ipAddressVersion']
-        if lock_token is None and 'lockToken' in kwargs:
-            lock_token = kwargs['lockToken']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if addresses is not None:
-            _setter("addresses", addresses)
+            pulumi.set(__self__, "addresses", addresses)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if ip_address_version is not None:
-            _setter("ip_address_version", ip_address_version)
+            pulumi.set(__self__, "ip_address_version", ip_address_version)
         if lock_token is not None:
-            _setter("lock_token", lock_token)
+            pulumi.set(__self__, "lock_token", lock_token)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -426,10 +366,6 @@ class IpSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IpSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

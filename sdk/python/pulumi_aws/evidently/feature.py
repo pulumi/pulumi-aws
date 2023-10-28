@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,55 +35,20 @@ class FeatureArgs:
         :param pulumi.Input[str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        FeatureArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            project=project,
-            variations=variations,
-            default_variation=default_variation,
-            description=description,
-            entity_overrides=entity_overrides,
-            evaluation_strategy=evaluation_strategy,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             project: Optional[pulumi.Input[str]] = None,
-             variations: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureVariationArgs']]]] = None,
-             default_variation: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             entity_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             evaluation_strategy: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if project is None:
-            raise TypeError("Missing 'project' argument")
-        if variations is None:
-            raise TypeError("Missing 'variations' argument")
-        if default_variation is None and 'defaultVariation' in kwargs:
-            default_variation = kwargs['defaultVariation']
-        if entity_overrides is None and 'entityOverrides' in kwargs:
-            entity_overrides = kwargs['entityOverrides']
-        if evaluation_strategy is None and 'evaluationStrategy' in kwargs:
-            evaluation_strategy = kwargs['evaluationStrategy']
-
-        _setter("project", project)
-        _setter("variations", variations)
+        pulumi.set(__self__, "project", project)
+        pulumi.set(__self__, "variations", variations)
         if default_variation is not None:
-            _setter("default_variation", default_variation)
+            pulumi.set(__self__, "default_variation", default_variation)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if entity_overrides is not None:
-            _setter("entity_overrides", entity_overrides)
+            pulumi.set(__self__, "entity_overrides", entity_overrides)
         if evaluation_strategy is not None:
-            _setter("evaluation_strategy", evaluation_strategy)
+            pulumi.set(__self__, "evaluation_strategy", evaluation_strategy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -218,94 +183,39 @@ class _FeatureState:
         :param pulumi.Input[str] value_type: Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
         :param pulumi.Input[Sequence[pulumi.Input['FeatureVariationArgs']]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
         """
-        _FeatureState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_time=created_time,
-            default_variation=default_variation,
-            description=description,
-            entity_overrides=entity_overrides,
-            evaluation_rules=evaluation_rules,
-            evaluation_strategy=evaluation_strategy,
-            last_updated_time=last_updated_time,
-            name=name,
-            project=project,
-            status=status,
-            tags=tags,
-            tags_all=tags_all,
-            value_type=value_type,
-            variations=variations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             created_time: Optional[pulumi.Input[str]] = None,
-             default_variation: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             entity_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             evaluation_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureEvaluationRuleArgs']]]] = None,
-             evaluation_strategy: Optional[pulumi.Input[str]] = None,
-             last_updated_time: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             project: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             value_type: Optional[pulumi.Input[str]] = None,
-             variations: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureVariationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_time is None and 'createdTime' in kwargs:
-            created_time = kwargs['createdTime']
-        if default_variation is None and 'defaultVariation' in kwargs:
-            default_variation = kwargs['defaultVariation']
-        if entity_overrides is None and 'entityOverrides' in kwargs:
-            entity_overrides = kwargs['entityOverrides']
-        if evaluation_rules is None and 'evaluationRules' in kwargs:
-            evaluation_rules = kwargs['evaluationRules']
-        if evaluation_strategy is None and 'evaluationStrategy' in kwargs:
-            evaluation_strategy = kwargs['evaluationStrategy']
-        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
-            last_updated_time = kwargs['lastUpdatedTime']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if value_type is None and 'valueType' in kwargs:
-            value_type = kwargs['valueType']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if default_variation is not None:
-            _setter("default_variation", default_variation)
+            pulumi.set(__self__, "default_variation", default_variation)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if entity_overrides is not None:
-            _setter("entity_overrides", entity_overrides)
+            pulumi.set(__self__, "entity_overrides", entity_overrides)
         if evaluation_rules is not None:
-            _setter("evaluation_rules", evaluation_rules)
+            pulumi.set(__self__, "evaluation_rules", evaluation_rules)
         if evaluation_strategy is not None:
-            _setter("evaluation_strategy", evaluation_strategy)
+            pulumi.set(__self__, "evaluation_strategy", evaluation_strategy)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if project is not None:
-            _setter("project", project)
+            pulumi.set(__self__, "project", project)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if value_type is not None:
-            _setter("value_type", value_type)
+            pulumi.set(__self__, "value_type", value_type)
         if variations is not None:
-            _setter("variations", variations)
+            pulumi.set(__self__, "variations", variations)
 
     @property
     @pulumi.getter
@@ -734,10 +644,6 @@ class Feature(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FeatureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,44 +29,13 @@ class OriginRequestPolicyArgs:
         :param pulumi.Input[str] comment: Comment to describe the origin request policy.
         :param pulumi.Input[str] name: Unique name to identify the origin request policy.
         """
-        OriginRequestPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cookies_config=cookies_config,
-            headers_config=headers_config,
-            query_strings_config=query_strings_config,
-            comment=comment,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cookies_config: Optional[pulumi.Input['OriginRequestPolicyCookiesConfigArgs']] = None,
-             headers_config: Optional[pulumi.Input['OriginRequestPolicyHeadersConfigArgs']] = None,
-             query_strings_config: Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cookies_config is None and 'cookiesConfig' in kwargs:
-            cookies_config = kwargs['cookiesConfig']
-        if cookies_config is None:
-            raise TypeError("Missing 'cookies_config' argument")
-        if headers_config is None and 'headersConfig' in kwargs:
-            headers_config = kwargs['headersConfig']
-        if headers_config is None:
-            raise TypeError("Missing 'headers_config' argument")
-        if query_strings_config is None and 'queryStringsConfig' in kwargs:
-            query_strings_config = kwargs['queryStringsConfig']
-        if query_strings_config is None:
-            raise TypeError("Missing 'query_strings_config' argument")
-
-        _setter("cookies_config", cookies_config)
-        _setter("headers_config", headers_config)
-        _setter("query_strings_config", query_strings_config)
+        pulumi.set(__self__, "cookies_config", cookies_config)
+        pulumi.set(__self__, "headers_config", headers_config)
+        pulumi.set(__self__, "query_strings_config", query_strings_config)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="cookiesConfig")
@@ -147,45 +116,18 @@ class _OriginRequestPolicyState:
         :param pulumi.Input[str] name: Unique name to identify the origin request policy.
         :param pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs'] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         """
-        _OriginRequestPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comment=comment,
-            cookies_config=cookies_config,
-            etag=etag,
-            headers_config=headers_config,
-            name=name,
-            query_strings_config=query_strings_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comment: Optional[pulumi.Input[str]] = None,
-             cookies_config: Optional[pulumi.Input['OriginRequestPolicyCookiesConfigArgs']] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             headers_config: Optional[pulumi.Input['OriginRequestPolicyHeadersConfigArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             query_strings_config: Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cookies_config is None and 'cookiesConfig' in kwargs:
-            cookies_config = kwargs['cookiesConfig']
-        if headers_config is None and 'headersConfig' in kwargs:
-            headers_config = kwargs['headersConfig']
-        if query_strings_config is None and 'queryStringsConfig' in kwargs:
-            query_strings_config = kwargs['queryStringsConfig']
-
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if cookies_config is not None:
-            _setter("cookies_config", cookies_config)
+            pulumi.set(__self__, "cookies_config", cookies_config)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if headers_config is not None:
-            _setter("headers_config", headers_config)
+            pulumi.set(__self__, "headers_config", headers_config)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if query_strings_config is not None:
-            _setter("query_strings_config", query_strings_config)
+            pulumi.set(__self__, "query_strings_config", query_strings_config)
 
     @property
     @pulumi.getter
@@ -373,10 +315,6 @@ class OriginRequestPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OriginRequestPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -397,16 +335,13 @@ class OriginRequestPolicy(pulumi.CustomResource):
             __props__ = OriginRequestPolicyArgs.__new__(OriginRequestPolicyArgs)
 
             __props__.__dict__["comment"] = comment
-            cookies_config = _utilities.configure(cookies_config, OriginRequestPolicyCookiesConfigArgs, True)
             if cookies_config is None and not opts.urn:
                 raise TypeError("Missing required property 'cookies_config'")
             __props__.__dict__["cookies_config"] = cookies_config
-            headers_config = _utilities.configure(headers_config, OriginRequestPolicyHeadersConfigArgs, True)
             if headers_config is None and not opts.urn:
                 raise TypeError("Missing required property 'headers_config'")
             __props__.__dict__["headers_config"] = headers_config
             __props__.__dict__["name"] = name
-            query_strings_config = _utilities.configure(query_strings_config, OriginRequestPolicyQueryStringsConfigArgs, True)
             if query_strings_config is None and not opts.urn:
                 raise TypeError("Missing required property 'query_strings_config'")
             __props__.__dict__["query_strings_config"] = query_strings_config

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,38 +29,13 @@ class ReservedInstanceArgs:
         :param pulumi.Input[str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ReservedInstanceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            offering_id=offering_id,
-            instance_count=instance_count,
-            reservation_id=reservation_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             offering_id: Optional[pulumi.Input[str]] = None,
-             instance_count: Optional[pulumi.Input[int]] = None,
-             reservation_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if offering_id is None and 'offeringId' in kwargs:
-            offering_id = kwargs['offeringId']
-        if offering_id is None:
-            raise TypeError("Missing 'offering_id' argument")
-        if instance_count is None and 'instanceCount' in kwargs:
-            instance_count = kwargs['instanceCount']
-        if reservation_id is None and 'reservationId' in kwargs:
-            reservation_id = kwargs['reservationId']
-
-        _setter("offering_id", offering_id)
+        pulumi.set(__self__, "offering_id", offering_id)
         if instance_count is not None:
-            _setter("instance_count", instance_count)
+            pulumi.set(__self__, "instance_count", instance_count)
         if reservation_id is not None:
-            _setter("reservation_id", reservation_id)
+            pulumi.set(__self__, "reservation_id", reservation_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="offeringId")
@@ -157,118 +132,45 @@ class _ReservedInstanceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[float] usage_price: Hourly price charged for this reserved DB instance.
         """
-        _ReservedInstanceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            currency_code=currency_code,
-            db_instance_class=db_instance_class,
-            duration=duration,
-            fixed_price=fixed_price,
-            instance_count=instance_count,
-            lease_id=lease_id,
-            multi_az=multi_az,
-            offering_id=offering_id,
-            offering_type=offering_type,
-            product_description=product_description,
-            recurring_charges=recurring_charges,
-            reservation_id=reservation_id,
-            start_time=start_time,
-            state=state,
-            tags=tags,
-            tags_all=tags_all,
-            usage_price=usage_price,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             currency_code: Optional[pulumi.Input[str]] = None,
-             db_instance_class: Optional[pulumi.Input[str]] = None,
-             duration: Optional[pulumi.Input[int]] = None,
-             fixed_price: Optional[pulumi.Input[float]] = None,
-             instance_count: Optional[pulumi.Input[int]] = None,
-             lease_id: Optional[pulumi.Input[str]] = None,
-             multi_az: Optional[pulumi.Input[bool]] = None,
-             offering_id: Optional[pulumi.Input[str]] = None,
-             offering_type: Optional[pulumi.Input[str]] = None,
-             product_description: Optional[pulumi.Input[str]] = None,
-             recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]] = None,
-             reservation_id: Optional[pulumi.Input[str]] = None,
-             start_time: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             usage_price: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if currency_code is None and 'currencyCode' in kwargs:
-            currency_code = kwargs['currencyCode']
-        if db_instance_class is None and 'dbInstanceClass' in kwargs:
-            db_instance_class = kwargs['dbInstanceClass']
-        if fixed_price is None and 'fixedPrice' in kwargs:
-            fixed_price = kwargs['fixedPrice']
-        if instance_count is None and 'instanceCount' in kwargs:
-            instance_count = kwargs['instanceCount']
-        if lease_id is None and 'leaseId' in kwargs:
-            lease_id = kwargs['leaseId']
-        if multi_az is None and 'multiAz' in kwargs:
-            multi_az = kwargs['multiAz']
-        if offering_id is None and 'offeringId' in kwargs:
-            offering_id = kwargs['offeringId']
-        if offering_type is None and 'offeringType' in kwargs:
-            offering_type = kwargs['offeringType']
-        if product_description is None and 'productDescription' in kwargs:
-            product_description = kwargs['productDescription']
-        if recurring_charges is None and 'recurringCharges' in kwargs:
-            recurring_charges = kwargs['recurringCharges']
-        if reservation_id is None and 'reservationId' in kwargs:
-            reservation_id = kwargs['reservationId']
-        if start_time is None and 'startTime' in kwargs:
-            start_time = kwargs['startTime']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if usage_price is None and 'usagePrice' in kwargs:
-            usage_price = kwargs['usagePrice']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if currency_code is not None:
-            _setter("currency_code", currency_code)
+            pulumi.set(__self__, "currency_code", currency_code)
         if db_instance_class is not None:
-            _setter("db_instance_class", db_instance_class)
+            pulumi.set(__self__, "db_instance_class", db_instance_class)
         if duration is not None:
-            _setter("duration", duration)
+            pulumi.set(__self__, "duration", duration)
         if fixed_price is not None:
-            _setter("fixed_price", fixed_price)
+            pulumi.set(__self__, "fixed_price", fixed_price)
         if instance_count is not None:
-            _setter("instance_count", instance_count)
+            pulumi.set(__self__, "instance_count", instance_count)
         if lease_id is not None:
-            _setter("lease_id", lease_id)
+            pulumi.set(__self__, "lease_id", lease_id)
         if multi_az is not None:
-            _setter("multi_az", multi_az)
+            pulumi.set(__self__, "multi_az", multi_az)
         if offering_id is not None:
-            _setter("offering_id", offering_id)
+            pulumi.set(__self__, "offering_id", offering_id)
         if offering_type is not None:
-            _setter("offering_type", offering_type)
+            pulumi.set(__self__, "offering_type", offering_type)
         if product_description is not None:
-            _setter("product_description", product_description)
+            pulumi.set(__self__, "product_description", product_description)
         if recurring_charges is not None:
-            _setter("recurring_charges", recurring_charges)
+            pulumi.set(__self__, "recurring_charges", recurring_charges)
         if reservation_id is not None:
-            _setter("reservation_id", reservation_id)
+            pulumi.set(__self__, "reservation_id", reservation_id)
         if start_time is not None:
-            _setter("start_time", start_time)
+            pulumi.set(__self__, "start_time", start_time)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if usage_price is not None:
-            _setter("usage_price", usage_price)
+            pulumi.set(__self__, "usage_price", usage_price)
 
     @property
     @pulumi.getter
@@ -591,10 +493,6 @@ class ReservedInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReservedInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,78 +45,29 @@ class ImagePipelineArgs:
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ImagePipelineArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            infrastructure_configuration_arn=infrastructure_configuration_arn,
-            container_recipe_arn=container_recipe_arn,
-            description=description,
-            distribution_configuration_arn=distribution_configuration_arn,
-            enhanced_image_metadata_enabled=enhanced_image_metadata_enabled,
-            image_recipe_arn=image_recipe_arn,
-            image_scanning_configuration=image_scanning_configuration,
-            image_tests_configuration=image_tests_configuration,
-            name=name,
-            schedule=schedule,
-            status=status,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
-             container_recipe_arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
-             enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
-             image_recipe_arn: Optional[pulumi.Input[str]] = None,
-             image_scanning_configuration: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']] = None,
-             image_tests_configuration: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if infrastructure_configuration_arn is None and 'infrastructureConfigurationArn' in kwargs:
-            infrastructure_configuration_arn = kwargs['infrastructureConfigurationArn']
-        if infrastructure_configuration_arn is None:
-            raise TypeError("Missing 'infrastructure_configuration_arn' argument")
-        if container_recipe_arn is None and 'containerRecipeArn' in kwargs:
-            container_recipe_arn = kwargs['containerRecipeArn']
-        if distribution_configuration_arn is None and 'distributionConfigurationArn' in kwargs:
-            distribution_configuration_arn = kwargs['distributionConfigurationArn']
-        if enhanced_image_metadata_enabled is None and 'enhancedImageMetadataEnabled' in kwargs:
-            enhanced_image_metadata_enabled = kwargs['enhancedImageMetadataEnabled']
-        if image_recipe_arn is None and 'imageRecipeArn' in kwargs:
-            image_recipe_arn = kwargs['imageRecipeArn']
-        if image_scanning_configuration is None and 'imageScanningConfiguration' in kwargs:
-            image_scanning_configuration = kwargs['imageScanningConfiguration']
-        if image_tests_configuration is None and 'imageTestsConfiguration' in kwargs:
-            image_tests_configuration = kwargs['imageTestsConfiguration']
-
-        _setter("infrastructure_configuration_arn", infrastructure_configuration_arn)
+        pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
         if container_recipe_arn is not None:
-            _setter("container_recipe_arn", container_recipe_arn)
+            pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if distribution_configuration_arn is not None:
-            _setter("distribution_configuration_arn", distribution_configuration_arn)
+            pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
         if enhanced_image_metadata_enabled is not None:
-            _setter("enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+            pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
         if image_recipe_arn is not None:
-            _setter("image_recipe_arn", image_recipe_arn)
+            pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
         if image_scanning_configuration is not None:
-            _setter("image_scanning_configuration", image_scanning_configuration)
+            pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
         if image_tests_configuration is not None:
-            _setter("image_tests_configuration", image_tests_configuration)
+            pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="infrastructureConfigurationArn")
@@ -311,118 +262,47 @@ class _ImagePipelineState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _ImagePipelineState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            container_recipe_arn=container_recipe_arn,
-            date_created=date_created,
-            date_last_run=date_last_run,
-            date_next_run=date_next_run,
-            date_updated=date_updated,
-            description=description,
-            distribution_configuration_arn=distribution_configuration_arn,
-            enhanced_image_metadata_enabled=enhanced_image_metadata_enabled,
-            image_recipe_arn=image_recipe_arn,
-            image_scanning_configuration=image_scanning_configuration,
-            image_tests_configuration=image_tests_configuration,
-            infrastructure_configuration_arn=infrastructure_configuration_arn,
-            name=name,
-            platform=platform,
-            schedule=schedule,
-            status=status,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             container_recipe_arn: Optional[pulumi.Input[str]] = None,
-             date_created: Optional[pulumi.Input[str]] = None,
-             date_last_run: Optional[pulumi.Input[str]] = None,
-             date_next_run: Optional[pulumi.Input[str]] = None,
-             date_updated: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
-             enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
-             image_recipe_arn: Optional[pulumi.Input[str]] = None,
-             image_scanning_configuration: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']] = None,
-             image_tests_configuration: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']] = None,
-             infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             platform: Optional[pulumi.Input[str]] = None,
-             schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_recipe_arn is None and 'containerRecipeArn' in kwargs:
-            container_recipe_arn = kwargs['containerRecipeArn']
-        if date_created is None and 'dateCreated' in kwargs:
-            date_created = kwargs['dateCreated']
-        if date_last_run is None and 'dateLastRun' in kwargs:
-            date_last_run = kwargs['dateLastRun']
-        if date_next_run is None and 'dateNextRun' in kwargs:
-            date_next_run = kwargs['dateNextRun']
-        if date_updated is None and 'dateUpdated' in kwargs:
-            date_updated = kwargs['dateUpdated']
-        if distribution_configuration_arn is None and 'distributionConfigurationArn' in kwargs:
-            distribution_configuration_arn = kwargs['distributionConfigurationArn']
-        if enhanced_image_metadata_enabled is None and 'enhancedImageMetadataEnabled' in kwargs:
-            enhanced_image_metadata_enabled = kwargs['enhancedImageMetadataEnabled']
-        if image_recipe_arn is None and 'imageRecipeArn' in kwargs:
-            image_recipe_arn = kwargs['imageRecipeArn']
-        if image_scanning_configuration is None and 'imageScanningConfiguration' in kwargs:
-            image_scanning_configuration = kwargs['imageScanningConfiguration']
-        if image_tests_configuration is None and 'imageTestsConfiguration' in kwargs:
-            image_tests_configuration = kwargs['imageTestsConfiguration']
-        if infrastructure_configuration_arn is None and 'infrastructureConfigurationArn' in kwargs:
-            infrastructure_configuration_arn = kwargs['infrastructureConfigurationArn']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if container_recipe_arn is not None:
-            _setter("container_recipe_arn", container_recipe_arn)
+            pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
         if date_created is not None:
-            _setter("date_created", date_created)
+            pulumi.set(__self__, "date_created", date_created)
         if date_last_run is not None:
-            _setter("date_last_run", date_last_run)
+            pulumi.set(__self__, "date_last_run", date_last_run)
         if date_next_run is not None:
-            _setter("date_next_run", date_next_run)
+            pulumi.set(__self__, "date_next_run", date_next_run)
         if date_updated is not None:
-            _setter("date_updated", date_updated)
+            pulumi.set(__self__, "date_updated", date_updated)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if distribution_configuration_arn is not None:
-            _setter("distribution_configuration_arn", distribution_configuration_arn)
+            pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
         if enhanced_image_metadata_enabled is not None:
-            _setter("enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+            pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
         if image_recipe_arn is not None:
-            _setter("image_recipe_arn", image_recipe_arn)
+            pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
         if image_scanning_configuration is not None:
-            _setter("image_scanning_configuration", image_scanning_configuration)
+            pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
         if image_tests_configuration is not None:
-            _setter("image_tests_configuration", image_tests_configuration)
+            pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
         if infrastructure_configuration_arn is not None:
-            _setter("infrastructure_configuration_arn", infrastructure_configuration_arn)
+            pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if platform is not None:
-            _setter("platform", platform)
+            pulumi.set(__self__, "platform", platform)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -759,10 +639,6 @@ class ImagePipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ImagePipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -794,15 +670,12 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
             __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
             __props__.__dict__["image_recipe_arn"] = image_recipe_arn
-            image_scanning_configuration = _utilities.configure(image_scanning_configuration, ImagePipelineImageScanningConfigurationArgs, True)
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
-            image_tests_configuration = _utilities.configure(image_tests_configuration, ImagePipelineImageTestsConfigurationArgs, True)
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
             if infrastructure_configuration_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'infrastructure_configuration_arn'")
             __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
             __props__.__dict__["name"] = name
-            schedule = _utilities.configure(schedule, ImagePipelineScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags

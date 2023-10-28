@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,23 +34,10 @@ class RoleInlinePolicy(dict):
         :param str name: Name of the role policy.
         :param str policy: Policy document as a JSON formatted string.
         """
-        RoleInlinePolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            policy=policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter
@@ -80,34 +67,9 @@ class GetAccessKeysAccessKeyResult(dict):
         :param str create_date: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
         :param str status: Access key status. Possible values are `Active` and `Inactive`.
         """
-        GetAccessKeysAccessKeyResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_key_id=access_key_id,
-            create_date=create_date,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_key_id: Optional[str] = None,
-             create_date: Optional[str] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_key_id is None and 'accessKeyId' in kwargs:
-            access_key_id = kwargs['accessKeyId']
-        if access_key_id is None:
-            raise TypeError("Missing 'access_key_id' argument")
-        if create_date is None and 'createDate' in kwargs:
-            create_date = kwargs['createDate']
-        if create_date is None:
-            raise TypeError("Missing 'create_date' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("access_key_id", access_key_id)
-        _setter("create_date", create_date)
-        _setter("status", status)
+        pulumi.set(__self__, "access_key_id", access_key_id)
+        pulumi.set(__self__, "create_date", create_date)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="accessKeyId")
@@ -147,39 +109,10 @@ class GetGroupUserResult(dict):
         :param str user_id: Stable and unique string identifying the IAM user.
         :param str user_name: Name of the IAM user.
         """
-        GetGroupUserResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            path=path,
-            user_id=user_id,
-            user_name=user_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             path: Optional[str] = None,
-             user_id: Optional[str] = None,
-             user_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arn is None:
-            raise TypeError("Missing 'arn' argument")
-        if path is None:
-            raise TypeError("Missing 'path' argument")
-        if user_id is None and 'userId' in kwargs:
-            user_id = kwargs['userId']
-        if user_id is None:
-            raise TypeError("Missing 'user_id' argument")
-        if user_name is None and 'userName' in kwargs:
-            user_name = kwargs['userName']
-        if user_name is None:
-            raise TypeError("Missing 'user_name' argument")
-
-        _setter("arn", arn)
-        _setter("path", path)
-        _setter("user_id", user_id)
-        _setter("user_name", user_name)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "user_id", user_id)
+        pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter
@@ -237,57 +170,24 @@ class GetPolicyDocumentStatementResult(dict):
         :param Sequence[str] resources: List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
         :param str sid: Sid (statement ID) is an identifier for a policy statement.
         """
-        GetPolicyDocumentStatementResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            conditions=conditions,
-            effect=effect,
-            not_actions=not_actions,
-            not_principals=not_principals,
-            not_resources=not_resources,
-            principals=principals,
-            resources=resources,
-            sid=sid,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[Sequence[str]] = None,
-             conditions: Optional[Sequence['outputs.GetPolicyDocumentStatementConditionResult']] = None,
-             effect: Optional[str] = None,
-             not_actions: Optional[Sequence[str]] = None,
-             not_principals: Optional[Sequence['outputs.GetPolicyDocumentStatementNotPrincipalResult']] = None,
-             not_resources: Optional[Sequence[str]] = None,
-             principals: Optional[Sequence['outputs.GetPolicyDocumentStatementPrincipalResult']] = None,
-             resources: Optional[Sequence[str]] = None,
-             sid: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if not_actions is None and 'notActions' in kwargs:
-            not_actions = kwargs['notActions']
-        if not_principals is None and 'notPrincipals' in kwargs:
-            not_principals = kwargs['notPrincipals']
-        if not_resources is None and 'notResources' in kwargs:
-            not_resources = kwargs['notResources']
-
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
         if effect is not None:
-            _setter("effect", effect)
+            pulumi.set(__self__, "effect", effect)
         if not_actions is not None:
-            _setter("not_actions", not_actions)
+            pulumi.set(__self__, "not_actions", not_actions)
         if not_principals is not None:
-            _setter("not_principals", not_principals)
+            pulumi.set(__self__, "not_principals", not_principals)
         if not_resources is not None:
-            _setter("not_resources", not_resources)
+            pulumi.set(__self__, "not_resources", not_resources)
         if principals is not None:
-            _setter("principals", principals)
+            pulumi.set(__self__, "principals", principals)
         if resources is not None:
-            _setter("resources", resources)
+            pulumi.set(__self__, "resources", resources)
         if sid is not None:
-            _setter("sid", sid)
+            pulumi.set(__self__, "sid", sid)
 
     @property
     @pulumi.getter
@@ -373,30 +273,9 @@ class GetPolicyDocumentStatementConditionResult(dict):
         :param Sequence[str] values: Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
         :param str variable: Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
         """
-        GetPolicyDocumentStatementConditionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            test=test,
-            values=values,
-            variable=variable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             test: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             variable: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if test is None:
-            raise TypeError("Missing 'test' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-        if variable is None:
-            raise TypeError("Missing 'variable' argument")
-
-        _setter("test", test)
-        _setter("values", values)
-        _setter("variable", variable)
+        pulumi.set(__self__, "test", test)
+        pulumi.set(__self__, "values", values)
+        pulumi.set(__self__, "variable", variable)
 
     @property
     @pulumi.getter
@@ -432,25 +311,8 @@ class GetPolicyDocumentStatementNotPrincipalResult(dict):
         :param Sequence[str] identifiers: List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
         :param str type: Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
         """
-        GetPolicyDocumentStatementNotPrincipalResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identifiers=identifiers,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identifiers: Optional[Sequence[str]] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identifiers is None:
-            raise TypeError("Missing 'identifiers' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("identifiers", identifiers)
-        _setter("type", type)
+        pulumi.set(__self__, "identifiers", identifiers)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -478,25 +340,8 @@ class GetPolicyDocumentStatementPrincipalResult(dict):
         :param Sequence[str] identifiers: List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
         :param str type: Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
         """
-        GetPolicyDocumentStatementPrincipalResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identifiers=identifiers,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identifiers: Optional[Sequence[str]] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identifiers is None:
-            raise TypeError("Missing 'identifiers' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("identifiers", identifiers)
-        _setter("type", type)
+        pulumi.set(__self__, "identifiers", identifiers)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -530,30 +375,9 @@ class GetPrincipalPolicySimulationContextResult(dict):
                For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
         :param Sequence[str] values: A set of one or more values for this context entry.
         """
-        GetPrincipalPolicySimulationContextResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            type=type,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             type: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("key", key)
-        _setter("type", type)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -603,60 +427,13 @@ class GetPrincipalPolicySimulationResultResult(dict):
         :param Sequence[str] missing_context_keys: A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
         :param str resource_arn: ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
         """
-        GetPrincipalPolicySimulationResultResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_name=action_name,
-            allowed=allowed,
-            decision=decision,
-            decision_details=decision_details,
-            matched_statements=matched_statements,
-            missing_context_keys=missing_context_keys,
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_name: Optional[str] = None,
-             allowed: Optional[bool] = None,
-             decision: Optional[str] = None,
-             decision_details: Optional[Mapping[str, str]] = None,
-             matched_statements: Optional[Sequence['outputs.GetPrincipalPolicySimulationResultMatchedStatementResult']] = None,
-             missing_context_keys: Optional[Sequence[str]] = None,
-             resource_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action_name is None and 'actionName' in kwargs:
-            action_name = kwargs['actionName']
-        if action_name is None:
-            raise TypeError("Missing 'action_name' argument")
-        if allowed is None:
-            raise TypeError("Missing 'allowed' argument")
-        if decision is None:
-            raise TypeError("Missing 'decision' argument")
-        if decision_details is None and 'decisionDetails' in kwargs:
-            decision_details = kwargs['decisionDetails']
-        if decision_details is None:
-            raise TypeError("Missing 'decision_details' argument")
-        if matched_statements is None and 'matchedStatements' in kwargs:
-            matched_statements = kwargs['matchedStatements']
-        if matched_statements is None:
-            raise TypeError("Missing 'matched_statements' argument")
-        if missing_context_keys is None and 'missingContextKeys' in kwargs:
-            missing_context_keys = kwargs['missingContextKeys']
-        if missing_context_keys is None:
-            raise TypeError("Missing 'missing_context_keys' argument")
-        if resource_arn is None and 'resourceArn' in kwargs:
-            resource_arn = kwargs['resourceArn']
-        if resource_arn is None:
-            raise TypeError("Missing 'resource_arn' argument")
-
-        _setter("action_name", action_name)
-        _setter("allowed", allowed)
-        _setter("decision", decision)
-        _setter("decision_details", decision_details)
-        _setter("matched_statements", matched_statements)
-        _setter("missing_context_keys", missing_context_keys)
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "action_name", action_name)
+        pulumi.set(__self__, "allowed", allowed)
+        pulumi.set(__self__, "decision", decision)
+        pulumi.set(__self__, "decision_details", decision_details)
+        pulumi.set(__self__, "matched_statements", matched_statements)
+        pulumi.set(__self__, "missing_context_keys", missing_context_keys)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="actionName")
@@ -720,29 +497,8 @@ class GetPrincipalPolicySimulationResultMatchedStatementResult(dict):
     def __init__(__self__, *,
                  source_policy_id: str,
                  source_policy_type: str):
-        GetPrincipalPolicySimulationResultMatchedStatementResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_policy_id=source_policy_id,
-            source_policy_type=source_policy_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_policy_id: Optional[str] = None,
-             source_policy_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if source_policy_id is None and 'sourcePolicyId' in kwargs:
-            source_policy_id = kwargs['sourcePolicyId']
-        if source_policy_id is None:
-            raise TypeError("Missing 'source_policy_id' argument")
-        if source_policy_type is None and 'sourcePolicyType' in kwargs:
-            source_policy_type = kwargs['sourcePolicyType']
-        if source_policy_type is None:
-            raise TypeError("Missing 'source_policy_type' argument")
-
-        _setter("source_policy_id", source_policy_id)
-        _setter("source_policy_type", source_policy_type)
+        pulumi.set(__self__, "source_policy_id", source_policy_id)
+        pulumi.set(__self__, "source_policy_type", source_policy_type)
 
     @property
     @pulumi.getter(name="sourcePolicyId")
@@ -764,27 +520,8 @@ class GetRoleRoleLastUsedResult(dict):
         :param str last_used_date: The date and time, in RFC 3339 format, that the role was last used.
         :param str region: The name of the AWS Region in which the role was last used.
         """
-        GetRoleRoleLastUsedResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            last_used_date=last_used_date,
-            region=region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             last_used_date: Optional[str] = None,
-             region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if last_used_date is None and 'lastUsedDate' in kwargs:
-            last_used_date = kwargs['lastUsedDate']
-        if last_used_date is None:
-            raise TypeError("Missing 'last_used_date' argument")
-        if region is None:
-            raise TypeError("Missing 'region' argument")
-
-        _setter("last_used_date", last_used_date)
-        _setter("region", region)
+        pulumi.set(__self__, "last_used_date", last_used_date)
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="lastUsedDate")

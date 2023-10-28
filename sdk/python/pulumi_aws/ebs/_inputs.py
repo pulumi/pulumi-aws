@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -32,37 +32,14 @@ class SnapshotImportClientDataArgs:
         :param pulumi.Input[float] upload_size: The size of the uploaded disk image, in GiB.
         :param pulumi.Input[str] upload_start: The time that the disk upload starts.
         """
-        SnapshotImportClientDataArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comment=comment,
-            upload_end=upload_end,
-            upload_size=upload_size,
-            upload_start=upload_start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comment: Optional[pulumi.Input[str]] = None,
-             upload_end: Optional[pulumi.Input[str]] = None,
-             upload_size: Optional[pulumi.Input[float]] = None,
-             upload_start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if upload_end is None and 'uploadEnd' in kwargs:
-            upload_end = kwargs['uploadEnd']
-        if upload_size is None and 'uploadSize' in kwargs:
-            upload_size = kwargs['uploadSize']
-        if upload_start is None and 'uploadStart' in kwargs:
-            upload_start = kwargs['uploadStart']
-
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if upload_end is not None:
-            _setter("upload_end", upload_end)
+            pulumi.set(__self__, "upload_end", upload_end)
         if upload_size is not None:
-            _setter("upload_size", upload_size)
+            pulumi.set(__self__, "upload_size", upload_size)
         if upload_start is not None:
-            _setter("upload_start", upload_start)
+            pulumi.set(__self__, "upload_start", upload_start)
 
     @property
     @pulumi.getter
@@ -126,34 +103,13 @@ class SnapshotImportDiskContainerArgs:
         :param pulumi.Input[str] url: The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
         :param pulumi.Input['SnapshotImportDiskContainerUserBucketArgs'] user_bucket: The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
         """
-        SnapshotImportDiskContainerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            format=format,
-            description=description,
-            url=url,
-            user_bucket=user_bucket,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             format: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             user_bucket: Optional[pulumi.Input['SnapshotImportDiskContainerUserBucketArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if format is None:
-            raise TypeError("Missing 'format' argument")
-        if user_bucket is None and 'userBucket' in kwargs:
-            user_bucket = kwargs['userBucket']
-
-        _setter("format", format)
+        pulumi.set(__self__, "format", format)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
         if user_bucket is not None:
-            _setter("user_bucket", user_bucket)
+            pulumi.set(__self__, "user_bucket", user_bucket)
 
     @property
     @pulumi.getter
@@ -213,29 +169,8 @@ class SnapshotImportDiskContainerUserBucketArgs:
         :param pulumi.Input[str] s3_bucket: The name of the Amazon S3 bucket where the disk image is located.
         :param pulumi.Input[str] s3_key: The file name of the disk image.
         """
-        SnapshotImportDiskContainerUserBucketArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_bucket=s3_bucket,
-            s3_key=s3_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_bucket: Optional[pulumi.Input[str]] = None,
-             s3_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if s3_bucket is None and 's3Bucket' in kwargs:
-            s3_bucket = kwargs['s3Bucket']
-        if s3_bucket is None:
-            raise TypeError("Missing 's3_bucket' argument")
-        if s3_key is None and 's3Key' in kwargs:
-            s3_key = kwargs['s3Key']
-        if s3_key is None:
-            raise TypeError("Missing 's3_key' argument")
-
-        _setter("s3_bucket", s3_bucket)
-        _setter("s3_key", s3_key)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -287,25 +222,8 @@ class GetEbsVolumesFilterArgs:
         :param Sequence[str] values: Set of values that are accepted for the given field.
                EBS Volume IDs will be selected if any one of the given values match.
         """
-        GetEbsVolumesFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -353,25 +271,8 @@ class GetSnapshotFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        GetSnapshotFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -397,25 +298,8 @@ class GetSnapshotIdsFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        GetSnapshotIdsFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -441,25 +325,8 @@ class GetVolumeFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        GetVolumeFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter

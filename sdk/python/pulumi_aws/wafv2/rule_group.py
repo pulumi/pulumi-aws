@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,60 +36,21 @@ class RuleGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        RuleGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capacity=capacity,
-            scope=scope,
-            visibility_config=visibility_config,
-            custom_response_bodies=custom_response_bodies,
-            description=description,
-            name=name,
-            name_prefix=name_prefix,
-            rules=rules,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capacity: Optional[pulumi.Input[int]] = None,
-             scope: Optional[pulumi.Input[str]] = None,
-             visibility_config: Optional[pulumi.Input['RuleGroupVisibilityConfigArgs']] = None,
-             custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if capacity is None:
-            raise TypeError("Missing 'capacity' argument")
-        if scope is None:
-            raise TypeError("Missing 'scope' argument")
-        if visibility_config is None and 'visibilityConfig' in kwargs:
-            visibility_config = kwargs['visibilityConfig']
-        if visibility_config is None:
-            raise TypeError("Missing 'visibility_config' argument")
-        if custom_response_bodies is None and 'customResponseBodies' in kwargs:
-            custom_response_bodies = kwargs['customResponseBodies']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-
-        _setter("capacity", capacity)
-        _setter("scope", scope)
-        _setter("visibility_config", visibility_config)
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "visibility_config", visibility_config)
         if custom_response_bodies is not None:
-            _setter("custom_response_bodies", custom_response_bodies)
+            pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -225,76 +186,33 @@ class _RuleGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['RuleGroupVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """
-        _RuleGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            capacity=capacity,
-            custom_response_bodies=custom_response_bodies,
-            description=description,
-            lock_token=lock_token,
-            name=name,
-            name_prefix=name_prefix,
-            rules=rules,
-            scope=scope,
-            tags=tags,
-            tags_all=tags_all,
-            visibility_config=visibility_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             capacity: Optional[pulumi.Input[int]] = None,
-             custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             lock_token: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
-             scope: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             visibility_config: Optional[pulumi.Input['RuleGroupVisibilityConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if custom_response_bodies is None and 'customResponseBodies' in kwargs:
-            custom_response_bodies = kwargs['customResponseBodies']
-        if lock_token is None and 'lockToken' in kwargs:
-            lock_token = kwargs['lockToken']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if visibility_config is None and 'visibilityConfig' in kwargs:
-            visibility_config = kwargs['visibilityConfig']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if capacity is not None:
-            _setter("capacity", capacity)
+            pulumi.set(__self__, "capacity", capacity)
         if custom_response_bodies is not None:
-            _setter("custom_response_bodies", custom_response_bodies)
+            pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if lock_token is not None:
-            _setter("lock_token", lock_token)
+            pulumi.set(__self__, "lock_token", lock_token)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if visibility_config is not None:
-            _setter("visibility_config", visibility_config)
+            pulumi.set(__self__, "visibility_config", visibility_config)
 
     @property
     @pulumi.getter
@@ -484,10 +402,6 @@ class RuleGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RuleGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -523,7 +437,6 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
-            visibility_config = _utilities.configure(visibility_config, RuleGroupVisibilityConfigArgs, True)
             if visibility_config is None and not opts.urn:
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config

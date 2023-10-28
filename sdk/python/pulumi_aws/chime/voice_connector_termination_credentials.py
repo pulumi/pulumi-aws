@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,27 +23,8 @@ class VoiceConnectorTerminationCredentialsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]] credentials: List of termination SIP credentials.
         :param pulumi.Input[str] voice_connector_id: Amazon Chime Voice Connector ID.
         """
-        VoiceConnectorTerminationCredentialsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            credentials=credentials,
-            voice_connector_id=voice_connector_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             credentials: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]]] = None,
-             voice_connector_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if credentials is None:
-            raise TypeError("Missing 'credentials' argument")
-        if voice_connector_id is None and 'voiceConnectorId' in kwargs:
-            voice_connector_id = kwargs['voiceConnectorId']
-        if voice_connector_id is None:
-            raise TypeError("Missing 'voice_connector_id' argument")
-
-        _setter("credentials", credentials)
-        _setter("voice_connector_id", voice_connector_id)
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "voice_connector_id", voice_connector_id)
 
     @property
     @pulumi.getter
@@ -80,25 +61,10 @@ class _VoiceConnectorTerminationCredentialsState:
         :param pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]] credentials: List of termination SIP credentials.
         :param pulumi.Input[str] voice_connector_id: Amazon Chime Voice Connector ID.
         """
-        _VoiceConnectorTerminationCredentialsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            credentials=credentials,
-            voice_connector_id=voice_connector_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             credentials: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]]] = None,
-             voice_connector_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if voice_connector_id is None and 'voiceConnectorId' in kwargs:
-            voice_connector_id = kwargs['voiceConnectorId']
-
         if credentials is not None:
-            _setter("credentials", credentials)
+            pulumi.set(__self__, "credentials", credentials)
         if voice_connector_id is not None:
-            _setter("voice_connector_id", voice_connector_id)
+            pulumi.set(__self__, "voice_connector_id", voice_connector_id)
 
     @property
     @pulumi.getter
@@ -230,10 +196,6 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VoiceConnectorTerminationCredentialsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

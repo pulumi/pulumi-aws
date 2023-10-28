@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -60,113 +60,40 @@ class JobArgs:
                * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
                * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
         """
-        JobArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            command=command,
-            role_arn=role_arn,
-            connections=connections,
-            default_arguments=default_arguments,
-            description=description,
-            execution_class=execution_class,
-            execution_property=execution_property,
-            glue_version=glue_version,
-            max_capacity=max_capacity,
-            max_retries=max_retries,
-            name=name,
-            non_overridable_arguments=non_overridable_arguments,
-            notification_property=notification_property,
-            number_of_workers=number_of_workers,
-            security_configuration=security_configuration,
-            tags=tags,
-            timeout=timeout,
-            worker_type=worker_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             command: Optional[pulumi.Input['JobCommandArgs']] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             execution_class: Optional[pulumi.Input[str]] = None,
-             execution_property: Optional[pulumi.Input['JobExecutionPropertyArgs']] = None,
-             glue_version: Optional[pulumi.Input[str]] = None,
-             max_capacity: Optional[pulumi.Input[float]] = None,
-             max_retries: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             notification_property: Optional[pulumi.Input['JobNotificationPropertyArgs']] = None,
-             number_of_workers: Optional[pulumi.Input[int]] = None,
-             security_configuration: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeout: Optional[pulumi.Input[int]] = None,
-             worker_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if command is None:
-            raise TypeError("Missing 'command' argument")
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if default_arguments is None and 'defaultArguments' in kwargs:
-            default_arguments = kwargs['defaultArguments']
-        if execution_class is None and 'executionClass' in kwargs:
-            execution_class = kwargs['executionClass']
-        if execution_property is None and 'executionProperty' in kwargs:
-            execution_property = kwargs['executionProperty']
-        if glue_version is None and 'glueVersion' in kwargs:
-            glue_version = kwargs['glueVersion']
-        if max_capacity is None and 'maxCapacity' in kwargs:
-            max_capacity = kwargs['maxCapacity']
-        if max_retries is None and 'maxRetries' in kwargs:
-            max_retries = kwargs['maxRetries']
-        if non_overridable_arguments is None and 'nonOverridableArguments' in kwargs:
-            non_overridable_arguments = kwargs['nonOverridableArguments']
-        if notification_property is None and 'notificationProperty' in kwargs:
-            notification_property = kwargs['notificationProperty']
-        if number_of_workers is None and 'numberOfWorkers' in kwargs:
-            number_of_workers = kwargs['numberOfWorkers']
-        if security_configuration is None and 'securityConfiguration' in kwargs:
-            security_configuration = kwargs['securityConfiguration']
-        if worker_type is None and 'workerType' in kwargs:
-            worker_type = kwargs['workerType']
-
-        _setter("command", command)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "command", command)
+        pulumi.set(__self__, "role_arn", role_arn)
         if connections is not None:
-            _setter("connections", connections)
+            pulumi.set(__self__, "connections", connections)
         if default_arguments is not None:
-            _setter("default_arguments", default_arguments)
+            pulumi.set(__self__, "default_arguments", default_arguments)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if execution_class is not None:
-            _setter("execution_class", execution_class)
+            pulumi.set(__self__, "execution_class", execution_class)
         if execution_property is not None:
-            _setter("execution_property", execution_property)
+            pulumi.set(__self__, "execution_property", execution_property)
         if glue_version is not None:
-            _setter("glue_version", glue_version)
+            pulumi.set(__self__, "glue_version", glue_version)
         if max_capacity is not None:
-            _setter("max_capacity", max_capacity)
+            pulumi.set(__self__, "max_capacity", max_capacity)
         if max_retries is not None:
-            _setter("max_retries", max_retries)
+            pulumi.set(__self__, "max_retries", max_retries)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if non_overridable_arguments is not None:
-            _setter("non_overridable_arguments", non_overridable_arguments)
+            pulumi.set(__self__, "non_overridable_arguments", non_overridable_arguments)
         if notification_property is not None:
-            _setter("notification_property", notification_property)
+            pulumi.set(__self__, "notification_property", notification_property)
         if number_of_workers is not None:
-            _setter("number_of_workers", number_of_workers)
+            pulumi.set(__self__, "number_of_workers", number_of_workers)
         if security_configuration is not None:
-            _setter("security_configuration", security_configuration)
+            pulumi.set(__self__, "security_configuration", security_configuration)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
         if worker_type is not None:
-            _setter("worker_type", worker_type)
+            pulumi.set(__self__, "worker_type", worker_type)
 
     @property
     @pulumi.getter
@@ -441,124 +368,49 @@ class _JobState:
                * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
                * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
         """
-        _JobState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            command=command,
-            connections=connections,
-            default_arguments=default_arguments,
-            description=description,
-            execution_class=execution_class,
-            execution_property=execution_property,
-            glue_version=glue_version,
-            max_capacity=max_capacity,
-            max_retries=max_retries,
-            name=name,
-            non_overridable_arguments=non_overridable_arguments,
-            notification_property=notification_property,
-            number_of_workers=number_of_workers,
-            role_arn=role_arn,
-            security_configuration=security_configuration,
-            tags=tags,
-            tags_all=tags_all,
-            timeout=timeout,
-            worker_type=worker_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             command: Optional[pulumi.Input['JobCommandArgs']] = None,
-             connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             execution_class: Optional[pulumi.Input[str]] = None,
-             execution_property: Optional[pulumi.Input['JobExecutionPropertyArgs']] = None,
-             glue_version: Optional[pulumi.Input[str]] = None,
-             max_capacity: Optional[pulumi.Input[float]] = None,
-             max_retries: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             notification_property: Optional[pulumi.Input['JobNotificationPropertyArgs']] = None,
-             number_of_workers: Optional[pulumi.Input[int]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             security_configuration: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeout: Optional[pulumi.Input[int]] = None,
-             worker_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_arguments is None and 'defaultArguments' in kwargs:
-            default_arguments = kwargs['defaultArguments']
-        if execution_class is None and 'executionClass' in kwargs:
-            execution_class = kwargs['executionClass']
-        if execution_property is None and 'executionProperty' in kwargs:
-            execution_property = kwargs['executionProperty']
-        if glue_version is None and 'glueVersion' in kwargs:
-            glue_version = kwargs['glueVersion']
-        if max_capacity is None and 'maxCapacity' in kwargs:
-            max_capacity = kwargs['maxCapacity']
-        if max_retries is None and 'maxRetries' in kwargs:
-            max_retries = kwargs['maxRetries']
-        if non_overridable_arguments is None and 'nonOverridableArguments' in kwargs:
-            non_overridable_arguments = kwargs['nonOverridableArguments']
-        if notification_property is None and 'notificationProperty' in kwargs:
-            notification_property = kwargs['notificationProperty']
-        if number_of_workers is None and 'numberOfWorkers' in kwargs:
-            number_of_workers = kwargs['numberOfWorkers']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if security_configuration is None and 'securityConfiguration' in kwargs:
-            security_configuration = kwargs['securityConfiguration']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if worker_type is None and 'workerType' in kwargs:
-            worker_type = kwargs['workerType']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if command is not None:
-            _setter("command", command)
+            pulumi.set(__self__, "command", command)
         if connections is not None:
-            _setter("connections", connections)
+            pulumi.set(__self__, "connections", connections)
         if default_arguments is not None:
-            _setter("default_arguments", default_arguments)
+            pulumi.set(__self__, "default_arguments", default_arguments)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if execution_class is not None:
-            _setter("execution_class", execution_class)
+            pulumi.set(__self__, "execution_class", execution_class)
         if execution_property is not None:
-            _setter("execution_property", execution_property)
+            pulumi.set(__self__, "execution_property", execution_property)
         if glue_version is not None:
-            _setter("glue_version", glue_version)
+            pulumi.set(__self__, "glue_version", glue_version)
         if max_capacity is not None:
-            _setter("max_capacity", max_capacity)
+            pulumi.set(__self__, "max_capacity", max_capacity)
         if max_retries is not None:
-            _setter("max_retries", max_retries)
+            pulumi.set(__self__, "max_retries", max_retries)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if non_overridable_arguments is not None:
-            _setter("non_overridable_arguments", non_overridable_arguments)
+            pulumi.set(__self__, "non_overridable_arguments", non_overridable_arguments)
         if notification_property is not None:
-            _setter("notification_property", notification_property)
+            pulumi.set(__self__, "notification_property", notification_property)
         if number_of_workers is not None:
-            _setter("number_of_workers", number_of_workers)
+            pulumi.set(__self__, "number_of_workers", number_of_workers)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if security_configuration is not None:
-            _setter("security_configuration", security_configuration)
+            pulumi.set(__self__, "security_configuration", security_configuration)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
         if worker_type is not None:
-            _setter("worker_type", worker_type)
+            pulumi.set(__self__, "worker_type", worker_type)
 
     @property
     @pulumi.getter
@@ -1049,10 +901,6 @@ class Job(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            JobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1085,7 +933,6 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobArgs.__new__(JobArgs)
 
-            command = _utilities.configure(command, JobCommandArgs, True)
             if command is None and not opts.urn:
                 raise TypeError("Missing required property 'command'")
             __props__.__dict__["command"] = command
@@ -1093,14 +940,12 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["default_arguments"] = default_arguments
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_class"] = execution_class
-            execution_property = _utilities.configure(execution_property, JobExecutionPropertyArgs, True)
             __props__.__dict__["execution_property"] = execution_property
             __props__.__dict__["glue_version"] = glue_version
             __props__.__dict__["max_capacity"] = max_capacity
             __props__.__dict__["max_retries"] = max_retries
             __props__.__dict__["name"] = name
             __props__.__dict__["non_overridable_arguments"] = non_overridable_arguments
-            notification_property = _utilities.configure(notification_property, JobNotificationPropertyArgs, True)
             __props__.__dict__["notification_property"] = notification_property
             __props__.__dict__["number_of_workers"] = number_of_workers
             if role_arn is None and not opts.urn:

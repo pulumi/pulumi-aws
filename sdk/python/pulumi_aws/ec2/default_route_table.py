@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,36 +29,13 @@ class DefaultRouteTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]] routes: Set of objects. Detailed below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        DefaultRouteTableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_route_table_id=default_route_table_id,
-            propagating_vgws=propagating_vgws,
-            routes=routes,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_route_table_id: Optional[pulumi.Input[str]] = None,
-             propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             routes: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_route_table_id is None and 'defaultRouteTableId' in kwargs:
-            default_route_table_id = kwargs['defaultRouteTableId']
-        if default_route_table_id is None:
-            raise TypeError("Missing 'default_route_table_id' argument")
-        if propagating_vgws is None and 'propagatingVgws' in kwargs:
-            propagating_vgws = kwargs['propagatingVgws']
-
-        _setter("default_route_table_id", default_route_table_id)
+        pulumi.set(__self__, "default_route_table_id", default_route_table_id)
         if propagating_vgws is not None:
-            _setter("propagating_vgws", propagating_vgws)
+            pulumi.set(__self__, "propagating_vgws", propagating_vgws)
         if routes is not None:
-            _setter("routes", routes)
+            pulumi.set(__self__, "routes", routes)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="defaultRouteTableId")
@@ -135,60 +112,25 @@ class _DefaultRouteTableState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: ID of the VPC.
         """
-        _DefaultRouteTableState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            default_route_table_id=default_route_table_id,
-            owner_id=owner_id,
-            propagating_vgws=propagating_vgws,
-            routes=routes,
-            tags=tags,
-            tags_all=tags_all,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             default_route_table_id: Optional[pulumi.Input[str]] = None,
-             owner_id: Optional[pulumi.Input[str]] = None,
-             propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             routes: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultRouteTableRouteArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_route_table_id is None and 'defaultRouteTableId' in kwargs:
-            default_route_table_id = kwargs['defaultRouteTableId']
-        if owner_id is None and 'ownerId' in kwargs:
-            owner_id = kwargs['ownerId']
-        if propagating_vgws is None and 'propagatingVgws' in kwargs:
-            propagating_vgws = kwargs['propagatingVgws']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if default_route_table_id is not None:
-            _setter("default_route_table_id", default_route_table_id)
+            pulumi.set(__self__, "default_route_table_id", default_route_table_id)
         if owner_id is not None:
-            _setter("owner_id", owner_id)
+            pulumi.set(__self__, "owner_id", owner_id)
         if propagating_vgws is not None:
-            _setter("propagating_vgws", propagating_vgws)
+            pulumi.set(__self__, "propagating_vgws", propagating_vgws)
         if routes is not None:
-            _setter("routes", routes)
+            pulumi.set(__self__, "routes", routes)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -435,10 +377,6 @@ class DefaultRouteTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DefaultRouteTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

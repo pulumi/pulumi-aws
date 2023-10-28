@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,33 +26,10 @@ class ServiceNetworkServiceAssociationArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ServiceNetworkServiceAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            service_identifier=service_identifier,
-            service_network_identifier=service_network_identifier,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             service_identifier: Optional[pulumi.Input[str]] = None,
-             service_network_identifier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if service_identifier is None and 'serviceIdentifier' in kwargs:
-            service_identifier = kwargs['serviceIdentifier']
-        if service_identifier is None:
-            raise TypeError("Missing 'service_identifier' argument")
-        if service_network_identifier is None and 'serviceNetworkIdentifier' in kwargs:
-            service_network_identifier = kwargs['serviceNetworkIdentifier']
-        if service_network_identifier is None:
-            raise TypeError("Missing 'service_network_identifier' argument")
-
-        _setter("service_identifier", service_identifier)
-        _setter("service_network_identifier", service_network_identifier)
+        pulumi.set(__self__, "service_identifier", service_identifier)
+        pulumi.set(__self__, "service_network_identifier", service_network_identifier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="serviceIdentifier")
@@ -117,66 +94,27 @@ class _ServiceNetworkServiceAssociationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _ServiceNetworkServiceAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_by=created_by,
-            custom_domain_name=custom_domain_name,
-            dns_entries=dns_entries,
-            service_identifier=service_identifier,
-            service_network_identifier=service_network_identifier,
-            status=status,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             created_by: Optional[pulumi.Input[str]] = None,
-             custom_domain_name: Optional[pulumi.Input[str]] = None,
-             dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs']]]] = None,
-             service_identifier: Optional[pulumi.Input[str]] = None,
-             service_network_identifier: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_by is None and 'createdBy' in kwargs:
-            created_by = kwargs['createdBy']
-        if custom_domain_name is None and 'customDomainName' in kwargs:
-            custom_domain_name = kwargs['customDomainName']
-        if dns_entries is None and 'dnsEntries' in kwargs:
-            dns_entries = kwargs['dnsEntries']
-        if service_identifier is None and 'serviceIdentifier' in kwargs:
-            service_identifier = kwargs['serviceIdentifier']
-        if service_network_identifier is None and 'serviceNetworkIdentifier' in kwargs:
-            service_network_identifier = kwargs['serviceNetworkIdentifier']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_by is not None:
-            _setter("created_by", created_by)
+            pulumi.set(__self__, "created_by", created_by)
         if custom_domain_name is not None:
-            _setter("custom_domain_name", custom_domain_name)
+            pulumi.set(__self__, "custom_domain_name", custom_domain_name)
         if dns_entries is not None:
-            _setter("dns_entries", dns_entries)
+            pulumi.set(__self__, "dns_entries", dns_entries)
         if service_identifier is not None:
-            _setter("service_identifier", service_identifier)
+            pulumi.set(__self__, "service_identifier", service_identifier)
         if service_network_identifier is not None:
-            _setter("service_network_identifier", service_network_identifier)
+            pulumi.set(__self__, "service_network_identifier", service_network_identifier)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -369,10 +307,6 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceNetworkServiceAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

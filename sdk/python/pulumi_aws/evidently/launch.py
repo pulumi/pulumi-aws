@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,55 +35,20 @@ class LaunchArgs:
         :param pulumi.Input['LaunchScheduledSplitsConfigArgs'] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        LaunchArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            groups=groups,
-            project=project,
-            description=description,
-            metric_monitors=metric_monitors,
-            name=name,
-            randomization_salt=randomization_salt,
-            scheduled_splits_config=scheduled_splits_config,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchGroupArgs']]]] = None,
-             project: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             randomization_salt: Optional[pulumi.Input[str]] = None,
-             scheduled_splits_config: Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if groups is None:
-            raise TypeError("Missing 'groups' argument")
-        if project is None:
-            raise TypeError("Missing 'project' argument")
-        if metric_monitors is None and 'metricMonitors' in kwargs:
-            metric_monitors = kwargs['metricMonitors']
-        if randomization_salt is None and 'randomizationSalt' in kwargs:
-            randomization_salt = kwargs['randomizationSalt']
-        if scheduled_splits_config is None and 'scheduledSplitsConfig' in kwargs:
-            scheduled_splits_config = kwargs['scheduledSplitsConfig']
-
-        _setter("groups", groups)
-        _setter("project", project)
+        pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "project", project)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if metric_monitors is not None:
-            _setter("metric_monitors", metric_monitors)
+            pulumi.set(__self__, "metric_monitors", metric_monitors)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if randomization_salt is not None:
-            _setter("randomization_salt", randomization_salt)
+            pulumi.set(__self__, "randomization_salt", randomization_salt)
         if scheduled_splits_config is not None:
-            _setter("scheduled_splits_config", scheduled_splits_config)
+            pulumi.set(__self__, "scheduled_splits_config", scheduled_splits_config)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -220,96 +185,41 @@ class _LaunchState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of launch.
         """
-        _LaunchState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_time=created_time,
-            description=description,
-            executions=executions,
-            groups=groups,
-            last_updated_time=last_updated_time,
-            metric_monitors=metric_monitors,
-            name=name,
-            project=project,
-            randomization_salt=randomization_salt,
-            scheduled_splits_config=scheduled_splits_config,
-            status=status,
-            status_reason=status_reason,
-            tags=tags,
-            tags_all=tags_all,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             created_time: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             executions: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchExecutionArgs']]]] = None,
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchGroupArgs']]]] = None,
-             last_updated_time: Optional[pulumi.Input[str]] = None,
-             metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricMonitorArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             project: Optional[pulumi.Input[str]] = None,
-             randomization_salt: Optional[pulumi.Input[str]] = None,
-             scheduled_splits_config: Optional[pulumi.Input['LaunchScheduledSplitsConfigArgs']] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             status_reason: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_time is None and 'createdTime' in kwargs:
-            created_time = kwargs['createdTime']
-        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
-            last_updated_time = kwargs['lastUpdatedTime']
-        if metric_monitors is None and 'metricMonitors' in kwargs:
-            metric_monitors = kwargs['metricMonitors']
-        if randomization_salt is None and 'randomizationSalt' in kwargs:
-            randomization_salt = kwargs['randomizationSalt']
-        if scheduled_splits_config is None and 'scheduledSplitsConfig' in kwargs:
-            scheduled_splits_config = kwargs['scheduledSplitsConfig']
-        if status_reason is None and 'statusReason' in kwargs:
-            status_reason = kwargs['statusReason']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if executions is not None:
-            _setter("executions", executions)
+            pulumi.set(__self__, "executions", executions)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if metric_monitors is not None:
-            _setter("metric_monitors", metric_monitors)
+            pulumi.set(__self__, "metric_monitors", metric_monitors)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if project is not None:
-            _setter("project", project)
+            pulumi.set(__self__, "project", project)
         if randomization_salt is not None:
-            _setter("randomization_salt", randomization_salt)
+            pulumi.set(__self__, "randomization_salt", randomization_salt)
         if scheduled_splits_config is not None:
-            _setter("scheduled_splits_config", scheduled_splits_config)
+            pulumi.set(__self__, "scheduled_splits_config", scheduled_splits_config)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if status_reason is not None:
-            _setter("status_reason", status_reason)
+            pulumi.set(__self__, "status_reason", status_reason)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1048,10 +958,6 @@ class Launch(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LaunchArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1084,7 +990,6 @@ class Launch(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
             __props__.__dict__["randomization_salt"] = randomization_salt
-            scheduled_splits_config = _utilities.configure(scheduled_splits_config, LaunchScheduledSplitsConfigArgs, True)
             __props__.__dict__["scheduled_splits_config"] = scheduled_splits_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

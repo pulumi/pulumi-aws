@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,62 +35,19 @@ class LocationAzureBlobArgs:
         :param pulumi.Input[str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        LocationAzureBlobArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            agent_arns=agent_arns,
-            authentication_type=authentication_type,
-            container_url=container_url,
-            access_tier=access_tier,
-            blob_type=blob_type,
-            sas_configuration=sas_configuration,
-            subdirectory=subdirectory,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             authentication_type: Optional[pulumi.Input[str]] = None,
-             container_url: Optional[pulumi.Input[str]] = None,
-             access_tier: Optional[pulumi.Input[str]] = None,
-             blob_type: Optional[pulumi.Input[str]] = None,
-             sas_configuration: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']] = None,
-             subdirectory: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if agent_arns is None and 'agentArns' in kwargs:
-            agent_arns = kwargs['agentArns']
-        if agent_arns is None:
-            raise TypeError("Missing 'agent_arns' argument")
-        if authentication_type is None and 'authenticationType' in kwargs:
-            authentication_type = kwargs['authenticationType']
-        if authentication_type is None:
-            raise TypeError("Missing 'authentication_type' argument")
-        if container_url is None and 'containerUrl' in kwargs:
-            container_url = kwargs['containerUrl']
-        if container_url is None:
-            raise TypeError("Missing 'container_url' argument")
-        if access_tier is None and 'accessTier' in kwargs:
-            access_tier = kwargs['accessTier']
-        if blob_type is None and 'blobType' in kwargs:
-            blob_type = kwargs['blobType']
-        if sas_configuration is None and 'sasConfiguration' in kwargs:
-            sas_configuration = kwargs['sasConfiguration']
-
-        _setter("agent_arns", agent_arns)
-        _setter("authentication_type", authentication_type)
-        _setter("container_url", container_url)
+        pulumi.set(__self__, "agent_arns", agent_arns)
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        pulumi.set(__self__, "container_url", container_url)
         if access_tier is not None:
-            _setter("access_tier", access_tier)
+            pulumi.set(__self__, "access_tier", access_tier)
         if blob_type is not None:
-            _setter("blob_type", blob_type)
+            pulumi.set(__self__, "blob_type", blob_type)
         if sas_configuration is not None:
-            _setter("sas_configuration", sas_configuration)
+            pulumi.set(__self__, "sas_configuration", sas_configuration)
         if subdirectory is not None:
-            _setter("subdirectory", subdirectory)
+            pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -216,76 +173,31 @@ class _LocationAzureBlobState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _LocationAzureBlobState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_tier=access_tier,
-            agent_arns=agent_arns,
-            arn=arn,
-            authentication_type=authentication_type,
-            blob_type=blob_type,
-            container_url=container_url,
-            sas_configuration=sas_configuration,
-            subdirectory=subdirectory,
-            tags=tags,
-            tags_all=tags_all,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_tier: Optional[pulumi.Input[str]] = None,
-             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             authentication_type: Optional[pulumi.Input[str]] = None,
-             blob_type: Optional[pulumi.Input[str]] = None,
-             container_url: Optional[pulumi.Input[str]] = None,
-             sas_configuration: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']] = None,
-             subdirectory: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_tier is None and 'accessTier' in kwargs:
-            access_tier = kwargs['accessTier']
-        if agent_arns is None and 'agentArns' in kwargs:
-            agent_arns = kwargs['agentArns']
-        if authentication_type is None and 'authenticationType' in kwargs:
-            authentication_type = kwargs['authenticationType']
-        if blob_type is None and 'blobType' in kwargs:
-            blob_type = kwargs['blobType']
-        if container_url is None and 'containerUrl' in kwargs:
-            container_url = kwargs['containerUrl']
-        if sas_configuration is None and 'sasConfiguration' in kwargs:
-            sas_configuration = kwargs['sasConfiguration']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if access_tier is not None:
-            _setter("access_tier", access_tier)
+            pulumi.set(__self__, "access_tier", access_tier)
         if agent_arns is not None:
-            _setter("agent_arns", agent_arns)
+            pulumi.set(__self__, "agent_arns", agent_arns)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if authentication_type is not None:
-            _setter("authentication_type", authentication_type)
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if blob_type is not None:
-            _setter("blob_type", blob_type)
+            pulumi.set(__self__, "blob_type", blob_type)
         if container_url is not None:
-            _setter("container_url", container_url)
+            pulumi.set(__self__, "container_url", container_url)
         if sas_configuration is not None:
-            _setter("sas_configuration", sas_configuration)
+            pulumi.set(__self__, "sas_configuration", sas_configuration)
         if subdirectory is not None:
-            _setter("subdirectory", subdirectory)
+            pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter(name="accessTier")
@@ -517,10 +429,6 @@ class LocationAzureBlob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LocationAzureBlobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -554,7 +462,6 @@ class LocationAzureBlob(pulumi.CustomResource):
             if container_url is None and not opts.urn:
                 raise TypeError("Missing required property 'container_url'")
             __props__.__dict__["container_url"] = container_url
-            sas_configuration = _utilities.configure(sas_configuration, LocationAzureBlobSasConfigurationArgs, True)
             __props__.__dict__["sas_configuration"] = sas_configuration
             __props__.__dict__["subdirectory"] = subdirectory
             __props__.__dict__["tags"] = tags

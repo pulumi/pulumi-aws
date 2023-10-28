@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TypeArgs', 'Type']
@@ -23,32 +23,9 @@ class TypeArgs:
         :param pulumi.Input[str] definition: The type definition.
         :param pulumi.Input[str] format: The type format: `SDL` or `JSON`.
         """
-        TypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            definition=definition,
-            format=format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: Optional[pulumi.Input[str]] = None,
-             definition: Optional[pulumi.Input[str]] = None,
-             format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_id is None and 'apiId' in kwargs:
-            api_id = kwargs['apiId']
-        if api_id is None:
-            raise TypeError("Missing 'api_id' argument")
-        if definition is None:
-            raise TypeError("Missing 'definition' argument")
-        if format is None:
-            raise TypeError("Missing 'format' argument")
-
-        _setter("api_id", api_id)
-        _setter("definition", definition)
-        _setter("format", format)
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter(name="apiId")
@@ -105,41 +82,18 @@ class _TypeState:
         :param pulumi.Input[str] format: The type format: `SDL` or `JSON`.
         :param pulumi.Input[str] name: The type name.
         """
-        _TypeState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            arn=arn,
-            definition=definition,
-            description=description,
-            format=format,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             definition: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             format: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_id is None and 'apiId' in kwargs:
-            api_id = kwargs['apiId']
-
         if api_id is not None:
-            _setter("api_id", api_id)
+            pulumi.set(__self__, "api_id", api_id)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if definition is not None:
-            _setter("definition", definition)
+            pulumi.set(__self__, "definition", definition)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if format is not None:
-            _setter("format", format)
+            pulumi.set(__self__, "format", format)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="apiId")
@@ -305,10 +259,6 @@ class Type(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

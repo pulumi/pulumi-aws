@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,58 +37,21 @@ class ModelArgs:
                The `primary_container` and `container` block both support:
         :param pulumi.Input['ModelVpcConfigArgs'] vpc_config: Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
         """
-        ModelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            execution_role_arn=execution_role_arn,
-            containers=containers,
-            enable_network_isolation=enable_network_isolation,
-            inference_execution_config=inference_execution_config,
-            name=name,
-            primary_container=primary_container,
-            tags=tags,
-            vpc_config=vpc_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             execution_role_arn: Optional[pulumi.Input[str]] = None,
-             containers: Optional[pulumi.Input[Sequence[pulumi.Input['ModelContainerArgs']]]] = None,
-             enable_network_isolation: Optional[pulumi.Input[bool]] = None,
-             inference_execution_config: Optional[pulumi.Input['ModelInferenceExecutionConfigArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             primary_container: Optional[pulumi.Input['ModelPrimaryContainerArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vpc_config: Optional[pulumi.Input['ModelVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if execution_role_arn is None and 'executionRoleArn' in kwargs:
-            execution_role_arn = kwargs['executionRoleArn']
-        if execution_role_arn is None:
-            raise TypeError("Missing 'execution_role_arn' argument")
-        if enable_network_isolation is None and 'enableNetworkIsolation' in kwargs:
-            enable_network_isolation = kwargs['enableNetworkIsolation']
-        if inference_execution_config is None and 'inferenceExecutionConfig' in kwargs:
-            inference_execution_config = kwargs['inferenceExecutionConfig']
-        if primary_container is None and 'primaryContainer' in kwargs:
-            primary_container = kwargs['primaryContainer']
-        if vpc_config is None and 'vpcConfig' in kwargs:
-            vpc_config = kwargs['vpcConfig']
-
-        _setter("execution_role_arn", execution_role_arn)
+        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if containers is not None:
-            _setter("containers", containers)
+            pulumi.set(__self__, "containers", containers)
         if enable_network_isolation is not None:
-            _setter("enable_network_isolation", enable_network_isolation)
+            pulumi.set(__self__, "enable_network_isolation", enable_network_isolation)
         if inference_execution_config is not None:
-            _setter("inference_execution_config", inference_execution_config)
+            pulumi.set(__self__, "inference_execution_config", inference_execution_config)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if primary_container is not None:
-            _setter("primary_container", primary_container)
+            pulumi.set(__self__, "primary_container", primary_container)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vpc_config is not None:
-            _setter("vpc_config", vpc_config)
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="executionRoleArn")
@@ -217,70 +180,29 @@ class _ModelState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ModelVpcConfigArgs'] vpc_config: Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
         """
-        _ModelState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            containers=containers,
-            enable_network_isolation=enable_network_isolation,
-            execution_role_arn=execution_role_arn,
-            inference_execution_config=inference_execution_config,
-            name=name,
-            primary_container=primary_container,
-            tags=tags,
-            tags_all=tags_all,
-            vpc_config=vpc_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             containers: Optional[pulumi.Input[Sequence[pulumi.Input['ModelContainerArgs']]]] = None,
-             enable_network_isolation: Optional[pulumi.Input[bool]] = None,
-             execution_role_arn: Optional[pulumi.Input[str]] = None,
-             inference_execution_config: Optional[pulumi.Input['ModelInferenceExecutionConfigArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             primary_container: Optional[pulumi.Input['ModelPrimaryContainerArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vpc_config: Optional[pulumi.Input['ModelVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable_network_isolation is None and 'enableNetworkIsolation' in kwargs:
-            enable_network_isolation = kwargs['enableNetworkIsolation']
-        if execution_role_arn is None and 'executionRoleArn' in kwargs:
-            execution_role_arn = kwargs['executionRoleArn']
-        if inference_execution_config is None and 'inferenceExecutionConfig' in kwargs:
-            inference_execution_config = kwargs['inferenceExecutionConfig']
-        if primary_container is None and 'primaryContainer' in kwargs:
-            primary_container = kwargs['primaryContainer']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if vpc_config is None and 'vpcConfig' in kwargs:
-            vpc_config = kwargs['vpcConfig']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if containers is not None:
-            _setter("containers", containers)
+            pulumi.set(__self__, "containers", containers)
         if enable_network_isolation is not None:
-            _setter("enable_network_isolation", enable_network_isolation)
+            pulumi.set(__self__, "enable_network_isolation", enable_network_isolation)
         if execution_role_arn is not None:
-            _setter("execution_role_arn", execution_role_arn)
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if inference_execution_config is not None:
-            _setter("inference_execution_config", inference_execution_config)
+            pulumi.set(__self__, "inference_execution_config", inference_execution_config)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if primary_container is not None:
-            _setter("primary_container", primary_container)
+            pulumi.set(__self__, "primary_container", primary_container)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_config is not None:
-            _setter("vpc_config", vpc_config)
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter
@@ -527,10 +449,6 @@ class Model(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ModelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -558,13 +476,10 @@ class Model(pulumi.CustomResource):
             if execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_role_arn'")
             __props__.__dict__["execution_role_arn"] = execution_role_arn
-            inference_execution_config = _utilities.configure(inference_execution_config, ModelInferenceExecutionConfigArgs, True)
             __props__.__dict__["inference_execution_config"] = inference_execution_config
             __props__.__dict__["name"] = name
-            primary_container = _utilities.configure(primary_container, ModelPrimaryContainerArgs, True)
             __props__.__dict__["primary_container"] = primary_container
             __props__.__dict__["tags"] = tags
-            vpc_config = _utilities.configure(vpc_config, ModelVpcConfigArgs, True)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None

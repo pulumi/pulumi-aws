@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcDhcpOptionsArgs', 'VpcDhcpOptions']
@@ -29,49 +29,18 @@ class VpcDhcpOptionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: List of NTP servers to configure.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        VpcDhcpOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            domain_name_servers=domain_name_servers,
-            netbios_name_servers=netbios_name_servers,
-            netbios_node_type=netbios_node_type,
-            ntp_servers=ntp_servers,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[pulumi.Input[str]] = None,
-             domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             netbios_node_type: Optional[pulumi.Input[str]] = None,
-             ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if domain_name_servers is None and 'domainNameServers' in kwargs:
-            domain_name_servers = kwargs['domainNameServers']
-        if netbios_name_servers is None and 'netbiosNameServers' in kwargs:
-            netbios_name_servers = kwargs['netbiosNameServers']
-        if netbios_node_type is None and 'netbiosNodeType' in kwargs:
-            netbios_node_type = kwargs['netbiosNodeType']
-        if ntp_servers is None and 'ntpServers' in kwargs:
-            ntp_servers = kwargs['ntpServers']
-
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if domain_name_servers is not None:
-            _setter("domain_name_servers", domain_name_servers)
+            pulumi.set(__self__, "domain_name_servers", domain_name_servers)
         if netbios_name_servers is not None:
-            _setter("netbios_name_servers", netbios_name_servers)
+            pulumi.set(__self__, "netbios_name_servers", netbios_name_servers)
         if netbios_node_type is not None:
-            _setter("netbios_node_type", netbios_node_type)
+            pulumi.set(__self__, "netbios_node_type", netbios_node_type)
         if ntp_servers is not None:
-            _setter("ntp_servers", ntp_servers)
+            pulumi.set(__self__, "ntp_servers", ntp_servers)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="domainName")
@@ -170,68 +139,27 @@ class _VpcDhcpOptionsState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _VpcDhcpOptionsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            domain_name=domain_name,
-            domain_name_servers=domain_name_servers,
-            netbios_name_servers=netbios_name_servers,
-            netbios_node_type=netbios_node_type,
-            ntp_servers=ntp_servers,
-            owner_id=owner_id,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             netbios_node_type: Optional[pulumi.Input[str]] = None,
-             ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             owner_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if domain_name_servers is None and 'domainNameServers' in kwargs:
-            domain_name_servers = kwargs['domainNameServers']
-        if netbios_name_servers is None and 'netbiosNameServers' in kwargs:
-            netbios_name_servers = kwargs['netbiosNameServers']
-        if netbios_node_type is None and 'netbiosNodeType' in kwargs:
-            netbios_node_type = kwargs['netbiosNodeType']
-        if ntp_servers is None and 'ntpServers' in kwargs:
-            ntp_servers = kwargs['ntpServers']
-        if owner_id is None and 'ownerId' in kwargs:
-            owner_id = kwargs['ownerId']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if domain_name_servers is not None:
-            _setter("domain_name_servers", domain_name_servers)
+            pulumi.set(__self__, "domain_name_servers", domain_name_servers)
         if netbios_name_servers is not None:
-            _setter("netbios_name_servers", netbios_name_servers)
+            pulumi.set(__self__, "netbios_name_servers", netbios_name_servers)
         if netbios_node_type is not None:
-            _setter("netbios_node_type", netbios_node_type)
+            pulumi.set(__self__, "netbios_node_type", netbios_node_type)
         if ntp_servers is not None:
-            _setter("ntp_servers", ntp_servers)
+            pulumi.set(__self__, "ntp_servers", ntp_servers)
         if owner_id is not None:
-            _setter("owner_id", owner_id)
+            pulumi.set(__self__, "owner_id", owner_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -486,10 +414,6 @@ class VpcDhcpOptions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcDhcpOptionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

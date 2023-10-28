@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CostAllocationTagArgs', 'CostAllocationTag']
@@ -21,27 +21,8 @@ class CostAllocationTagArgs:
         :param pulumi.Input[str] status: The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         :param pulumi.Input[str] tag_key: The key for the cost allocation tag.
         """
-        CostAllocationTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            tag_key=tag_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[pulumi.Input[str]] = None,
-             tag_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if tag_key is None and 'tagKey' in kwargs:
-            tag_key = kwargs['tagKey']
-        if tag_key is None:
-            raise TypeError("Missing 'tag_key' argument")
-
-        _setter("status", status)
-        _setter("tag_key", tag_key)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "tag_key", tag_key)
 
     @property
     @pulumi.getter
@@ -80,29 +61,12 @@ class _CostAllocationTagState:
         :param pulumi.Input[str] tag_key: The key for the cost allocation tag.
         :param pulumi.Input[str] type: The type of cost allocation tag.
         """
-        _CostAllocationTagState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            tag_key=tag_key,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[pulumi.Input[str]] = None,
-             tag_key: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if tag_key is None and 'tagKey' in kwargs:
-            tag_key = kwargs['tagKey']
-
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tag_key is not None:
-            _setter("tag_key", tag_key)
+            pulumi.set(__self__, "tag_key", tag_key)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -214,10 +178,6 @@ class CostAllocationTag(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CostAllocationTagArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

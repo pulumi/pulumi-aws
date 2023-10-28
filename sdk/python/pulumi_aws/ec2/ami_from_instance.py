@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -40,58 +40,21 @@ class AmiFromInstanceArgs:
                guarantees that no filesystem writes will be underway at the time of snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        AmiFromInstanceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_instance_id=source_instance_id,
-            deprecation_time=deprecation_time,
-            description=description,
-            ebs_block_devices=ebs_block_devices,
-            ephemeral_block_devices=ephemeral_block_devices,
-            name=name,
-            snapshot_without_reboot=snapshot_without_reboot,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_instance_id: Optional[pulumi.Input[str]] = None,
-             deprecation_time: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]]] = None,
-             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             snapshot_without_reboot: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if source_instance_id is None and 'sourceInstanceId' in kwargs:
-            source_instance_id = kwargs['sourceInstanceId']
-        if source_instance_id is None:
-            raise TypeError("Missing 'source_instance_id' argument")
-        if deprecation_time is None and 'deprecationTime' in kwargs:
-            deprecation_time = kwargs['deprecationTime']
-        if ebs_block_devices is None and 'ebsBlockDevices' in kwargs:
-            ebs_block_devices = kwargs['ebsBlockDevices']
-        if ephemeral_block_devices is None and 'ephemeralBlockDevices' in kwargs:
-            ephemeral_block_devices = kwargs['ephemeralBlockDevices']
-        if snapshot_without_reboot is None and 'snapshotWithoutReboot' in kwargs:
-            snapshot_without_reboot = kwargs['snapshotWithoutReboot']
-
-        _setter("source_instance_id", source_instance_id)
+        pulumi.set(__self__, "source_instance_id", source_instance_id)
         if deprecation_time is not None:
-            _setter("deprecation_time", deprecation_time)
+            pulumi.set(__self__, "deprecation_time", deprecation_time)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if ebs_block_devices is not None:
-            _setter("ebs_block_devices", ebs_block_devices)
+            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
         if ephemeral_block_devices is not None:
-            _setter("ephemeral_block_devices", ephemeral_block_devices)
+            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if snapshot_without_reboot is not None:
-            _setter("snapshot_without_reboot", snapshot_without_reboot)
+            pulumi.set(__self__, "snapshot_without_reboot", snapshot_without_reboot)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="sourceInstanceId")
@@ -263,188 +226,71 @@ class _AmiFromInstanceState:
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
         """
-        _AmiFromInstanceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            architecture=architecture,
-            arn=arn,
-            boot_mode=boot_mode,
-            deprecation_time=deprecation_time,
-            description=description,
-            ebs_block_devices=ebs_block_devices,
-            ena_support=ena_support,
-            ephemeral_block_devices=ephemeral_block_devices,
-            hypervisor=hypervisor,
-            image_location=image_location,
-            image_owner_alias=image_owner_alias,
-            image_type=image_type,
-            imds_support=imds_support,
-            kernel_id=kernel_id,
-            manage_ebs_snapshots=manage_ebs_snapshots,
-            name=name,
-            owner_id=owner_id,
-            platform=platform,
-            platform_details=platform_details,
-            public=public,
-            ramdisk_id=ramdisk_id,
-            root_device_name=root_device_name,
-            root_snapshot_id=root_snapshot_id,
-            snapshot_without_reboot=snapshot_without_reboot,
-            source_instance_id=source_instance_id,
-            sriov_net_support=sriov_net_support,
-            tags=tags,
-            tags_all=tags_all,
-            tpm_support=tpm_support,
-            usage_operation=usage_operation,
-            virtualization_type=virtualization_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             architecture: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             boot_mode: Optional[pulumi.Input[str]] = None,
-             deprecation_time: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]]] = None,
-             ena_support: Optional[pulumi.Input[bool]] = None,
-             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]]] = None,
-             hypervisor: Optional[pulumi.Input[str]] = None,
-             image_location: Optional[pulumi.Input[str]] = None,
-             image_owner_alias: Optional[pulumi.Input[str]] = None,
-             image_type: Optional[pulumi.Input[str]] = None,
-             imds_support: Optional[pulumi.Input[str]] = None,
-             kernel_id: Optional[pulumi.Input[str]] = None,
-             manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_id: Optional[pulumi.Input[str]] = None,
-             platform: Optional[pulumi.Input[str]] = None,
-             platform_details: Optional[pulumi.Input[str]] = None,
-             public: Optional[pulumi.Input[bool]] = None,
-             ramdisk_id: Optional[pulumi.Input[str]] = None,
-             root_device_name: Optional[pulumi.Input[str]] = None,
-             root_snapshot_id: Optional[pulumi.Input[str]] = None,
-             snapshot_without_reboot: Optional[pulumi.Input[bool]] = None,
-             source_instance_id: Optional[pulumi.Input[str]] = None,
-             sriov_net_support: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tpm_support: Optional[pulumi.Input[str]] = None,
-             usage_operation: Optional[pulumi.Input[str]] = None,
-             virtualization_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if boot_mode is None and 'bootMode' in kwargs:
-            boot_mode = kwargs['bootMode']
-        if deprecation_time is None and 'deprecationTime' in kwargs:
-            deprecation_time = kwargs['deprecationTime']
-        if ebs_block_devices is None and 'ebsBlockDevices' in kwargs:
-            ebs_block_devices = kwargs['ebsBlockDevices']
-        if ena_support is None and 'enaSupport' in kwargs:
-            ena_support = kwargs['enaSupport']
-        if ephemeral_block_devices is None and 'ephemeralBlockDevices' in kwargs:
-            ephemeral_block_devices = kwargs['ephemeralBlockDevices']
-        if image_location is None and 'imageLocation' in kwargs:
-            image_location = kwargs['imageLocation']
-        if image_owner_alias is None and 'imageOwnerAlias' in kwargs:
-            image_owner_alias = kwargs['imageOwnerAlias']
-        if image_type is None and 'imageType' in kwargs:
-            image_type = kwargs['imageType']
-        if imds_support is None and 'imdsSupport' in kwargs:
-            imds_support = kwargs['imdsSupport']
-        if kernel_id is None and 'kernelId' in kwargs:
-            kernel_id = kwargs['kernelId']
-        if manage_ebs_snapshots is None and 'manageEbsSnapshots' in kwargs:
-            manage_ebs_snapshots = kwargs['manageEbsSnapshots']
-        if owner_id is None and 'ownerId' in kwargs:
-            owner_id = kwargs['ownerId']
-        if platform_details is None and 'platformDetails' in kwargs:
-            platform_details = kwargs['platformDetails']
-        if ramdisk_id is None and 'ramdiskId' in kwargs:
-            ramdisk_id = kwargs['ramdiskId']
-        if root_device_name is None and 'rootDeviceName' in kwargs:
-            root_device_name = kwargs['rootDeviceName']
-        if root_snapshot_id is None and 'rootSnapshotId' in kwargs:
-            root_snapshot_id = kwargs['rootSnapshotId']
-        if snapshot_without_reboot is None and 'snapshotWithoutReboot' in kwargs:
-            snapshot_without_reboot = kwargs['snapshotWithoutReboot']
-        if source_instance_id is None and 'sourceInstanceId' in kwargs:
-            source_instance_id = kwargs['sourceInstanceId']
-        if sriov_net_support is None and 'sriovNetSupport' in kwargs:
-            sriov_net_support = kwargs['sriovNetSupport']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if tpm_support is None and 'tpmSupport' in kwargs:
-            tpm_support = kwargs['tpmSupport']
-        if usage_operation is None and 'usageOperation' in kwargs:
-            usage_operation = kwargs['usageOperation']
-        if virtualization_type is None and 'virtualizationType' in kwargs:
-            virtualization_type = kwargs['virtualizationType']
-
         if architecture is not None:
-            _setter("architecture", architecture)
+            pulumi.set(__self__, "architecture", architecture)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if boot_mode is not None:
-            _setter("boot_mode", boot_mode)
+            pulumi.set(__self__, "boot_mode", boot_mode)
         if deprecation_time is not None:
-            _setter("deprecation_time", deprecation_time)
+            pulumi.set(__self__, "deprecation_time", deprecation_time)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if ebs_block_devices is not None:
-            _setter("ebs_block_devices", ebs_block_devices)
+            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
         if ena_support is not None:
-            _setter("ena_support", ena_support)
+            pulumi.set(__self__, "ena_support", ena_support)
         if ephemeral_block_devices is not None:
-            _setter("ephemeral_block_devices", ephemeral_block_devices)
+            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
         if hypervisor is not None:
-            _setter("hypervisor", hypervisor)
+            pulumi.set(__self__, "hypervisor", hypervisor)
         if image_location is not None:
-            _setter("image_location", image_location)
+            pulumi.set(__self__, "image_location", image_location)
         if image_owner_alias is not None:
-            _setter("image_owner_alias", image_owner_alias)
+            pulumi.set(__self__, "image_owner_alias", image_owner_alias)
         if image_type is not None:
-            _setter("image_type", image_type)
+            pulumi.set(__self__, "image_type", image_type)
         if imds_support is not None:
-            _setter("imds_support", imds_support)
+            pulumi.set(__self__, "imds_support", imds_support)
         if kernel_id is not None:
-            _setter("kernel_id", kernel_id)
+            pulumi.set(__self__, "kernel_id", kernel_id)
         if manage_ebs_snapshots is not None:
-            _setter("manage_ebs_snapshots", manage_ebs_snapshots)
+            pulumi.set(__self__, "manage_ebs_snapshots", manage_ebs_snapshots)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_id is not None:
-            _setter("owner_id", owner_id)
+            pulumi.set(__self__, "owner_id", owner_id)
         if platform is not None:
-            _setter("platform", platform)
+            pulumi.set(__self__, "platform", platform)
         if platform_details is not None:
-            _setter("platform_details", platform_details)
+            pulumi.set(__self__, "platform_details", platform_details)
         if public is not None:
-            _setter("public", public)
+            pulumi.set(__self__, "public", public)
         if ramdisk_id is not None:
-            _setter("ramdisk_id", ramdisk_id)
+            pulumi.set(__self__, "ramdisk_id", ramdisk_id)
         if root_device_name is not None:
-            _setter("root_device_name", root_device_name)
+            pulumi.set(__self__, "root_device_name", root_device_name)
         if root_snapshot_id is not None:
-            _setter("root_snapshot_id", root_snapshot_id)
+            pulumi.set(__self__, "root_snapshot_id", root_snapshot_id)
         if snapshot_without_reboot is not None:
-            _setter("snapshot_without_reboot", snapshot_without_reboot)
+            pulumi.set(__self__, "snapshot_without_reboot", snapshot_without_reboot)
         if source_instance_id is not None:
-            _setter("source_instance_id", source_instance_id)
+            pulumi.set(__self__, "source_instance_id", source_instance_id)
         if sriov_net_support is not None:
-            _setter("sriov_net_support", sriov_net_support)
+            pulumi.set(__self__, "sriov_net_support", sriov_net_support)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if tpm_support is not None:
-            _setter("tpm_support", tpm_support)
+            pulumi.set(__self__, "tpm_support", tpm_support)
         if usage_operation is not None:
-            _setter("usage_operation", usage_operation)
+            pulumi.set(__self__, "usage_operation", usage_operation)
         if virtualization_type is not None:
-            _setter("virtualization_type", virtualization_type)
+            pulumi.set(__self__, "virtualization_type", virtualization_type)
 
     @property
     @pulumi.getter
@@ -902,10 +748,6 @@ class AmiFromInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AmiFromInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

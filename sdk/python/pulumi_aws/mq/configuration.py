@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConfigurationArgs', 'Configuration']
@@ -33,52 +33,17 @@ class ConfigurationArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data=data,
-            engine_type=engine_type,
-            engine_version=engine_version,
-            authentication_strategy=authentication_strategy,
-            description=description,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data: Optional[pulumi.Input[str]] = None,
-             engine_type: Optional[pulumi.Input[str]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             authentication_strategy: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data is None:
-            raise TypeError("Missing 'data' argument")
-        if engine_type is None and 'engineType' in kwargs:
-            engine_type = kwargs['engineType']
-        if engine_type is None:
-            raise TypeError("Missing 'engine_type' argument")
-        if engine_version is None and 'engineVersion' in kwargs:
-            engine_version = kwargs['engineVersion']
-        if engine_version is None:
-            raise TypeError("Missing 'engine_version' argument")
-        if authentication_strategy is None and 'authenticationStrategy' in kwargs:
-            authentication_strategy = kwargs['authenticationStrategy']
-
-        _setter("data", data)
-        _setter("engine_type", engine_type)
-        _setter("engine_version", engine_version)
+        pulumi.set(__self__, "data", data)
+        pulumi.set(__self__, "engine_type", engine_type)
+        pulumi.set(__self__, "engine_version", engine_version)
         if authentication_strategy is not None:
-            _setter("authentication_strategy", authentication_strategy)
+            pulumi.set(__self__, "authentication_strategy", authentication_strategy)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -195,68 +160,29 @@ class _ConfigurationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _ConfigurationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            authentication_strategy=authentication_strategy,
-            data=data,
-            description=description,
-            engine_type=engine_type,
-            engine_version=engine_version,
-            latest_revision=latest_revision,
-            name=name,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             authentication_strategy: Optional[pulumi.Input[str]] = None,
-             data: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             engine_type: Optional[pulumi.Input[str]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             latest_revision: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authentication_strategy is None and 'authenticationStrategy' in kwargs:
-            authentication_strategy = kwargs['authenticationStrategy']
-        if engine_type is None and 'engineType' in kwargs:
-            engine_type = kwargs['engineType']
-        if engine_version is None and 'engineVersion' in kwargs:
-            engine_version = kwargs['engineVersion']
-        if latest_revision is None and 'latestRevision' in kwargs:
-            latest_revision = kwargs['latestRevision']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if authentication_strategy is not None:
-            _setter("authentication_strategy", authentication_strategy)
+            pulumi.set(__self__, "authentication_strategy", authentication_strategy)
         if data is not None:
-            _setter("data", data)
+            pulumi.set(__self__, "data", data)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if engine_type is not None:
-            _setter("engine_type", engine_type)
+            pulumi.set(__self__, "engine_type", engine_type)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if latest_revision is not None:
-            _setter("latest_revision", latest_revision)
+            pulumi.set(__self__, "latest_revision", latest_revision)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -527,10 +453,6 @@ class Configuration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

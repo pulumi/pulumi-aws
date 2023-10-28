@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConnectPeerArgs', 'ConnectPeer']
@@ -29,52 +29,15 @@ class ConnectPeerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] transit_gateway_address: The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
         """
-        ConnectPeerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            inside_cidr_blocks=inside_cidr_blocks,
-            peer_address=peer_address,
-            transit_gateway_attachment_id=transit_gateway_attachment_id,
-            bgp_asn=bgp_asn,
-            tags=tags,
-            transit_gateway_address=transit_gateway_address,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             peer_address: Optional[pulumi.Input[str]] = None,
-             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
-             bgp_asn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             transit_gateway_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if inside_cidr_blocks is None and 'insideCidrBlocks' in kwargs:
-            inside_cidr_blocks = kwargs['insideCidrBlocks']
-        if inside_cidr_blocks is None:
-            raise TypeError("Missing 'inside_cidr_blocks' argument")
-        if peer_address is None and 'peerAddress' in kwargs:
-            peer_address = kwargs['peerAddress']
-        if peer_address is None:
-            raise TypeError("Missing 'peer_address' argument")
-        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
-            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
-        if transit_gateway_attachment_id is None:
-            raise TypeError("Missing 'transit_gateway_attachment_id' argument")
-        if bgp_asn is None and 'bgpAsn' in kwargs:
-            bgp_asn = kwargs['bgpAsn']
-        if transit_gateway_address is None and 'transitGatewayAddress' in kwargs:
-            transit_gateway_address = kwargs['transitGatewayAddress']
-
-        _setter("inside_cidr_blocks", inside_cidr_blocks)
-        _setter("peer_address", peer_address)
-        _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
+        pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
+        pulumi.set(__self__, "peer_address", peer_address)
+        pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         if bgp_asn is not None:
-            _setter("bgp_asn", bgp_asn)
+            pulumi.set(__self__, "bgp_asn", bgp_asn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if transit_gateway_address is not None:
-            _setter("transit_gateway_address", transit_gateway_address)
+            pulumi.set(__self__, "transit_gateway_address", transit_gateway_address)
 
     @property
     @pulumi.getter(name="insideCidrBlocks")
@@ -175,74 +138,29 @@ class _ConnectPeerState:
         :param pulumi.Input[str] transit_gateway_address: The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
         :param pulumi.Input[str] transit_gateway_attachment_id: The Transit Gateway Connect
         """
-        _ConnectPeerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            bgp_asn=bgp_asn,
-            bgp_peer_address=bgp_peer_address,
-            bgp_transit_gateway_addresses=bgp_transit_gateway_addresses,
-            inside_cidr_blocks=inside_cidr_blocks,
-            peer_address=peer_address,
-            tags=tags,
-            tags_all=tags_all,
-            transit_gateway_address=transit_gateway_address,
-            transit_gateway_attachment_id=transit_gateway_attachment_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             bgp_asn: Optional[pulumi.Input[str]] = None,
-             bgp_peer_address: Optional[pulumi.Input[str]] = None,
-             bgp_transit_gateway_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             peer_address: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             transit_gateway_address: Optional[pulumi.Input[str]] = None,
-             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bgp_asn is None and 'bgpAsn' in kwargs:
-            bgp_asn = kwargs['bgpAsn']
-        if bgp_peer_address is None and 'bgpPeerAddress' in kwargs:
-            bgp_peer_address = kwargs['bgpPeerAddress']
-        if bgp_transit_gateway_addresses is None and 'bgpTransitGatewayAddresses' in kwargs:
-            bgp_transit_gateway_addresses = kwargs['bgpTransitGatewayAddresses']
-        if inside_cidr_blocks is None and 'insideCidrBlocks' in kwargs:
-            inside_cidr_blocks = kwargs['insideCidrBlocks']
-        if peer_address is None and 'peerAddress' in kwargs:
-            peer_address = kwargs['peerAddress']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if transit_gateway_address is None and 'transitGatewayAddress' in kwargs:
-            transit_gateway_address = kwargs['transitGatewayAddress']
-        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
-            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if bgp_asn is not None:
-            _setter("bgp_asn", bgp_asn)
+            pulumi.set(__self__, "bgp_asn", bgp_asn)
         if bgp_peer_address is not None:
-            _setter("bgp_peer_address", bgp_peer_address)
+            pulumi.set(__self__, "bgp_peer_address", bgp_peer_address)
         if bgp_transit_gateway_addresses is not None:
-            _setter("bgp_transit_gateway_addresses", bgp_transit_gateway_addresses)
+            pulumi.set(__self__, "bgp_transit_gateway_addresses", bgp_transit_gateway_addresses)
         if inside_cidr_blocks is not None:
-            _setter("inside_cidr_blocks", inside_cidr_blocks)
+            pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
         if peer_address is not None:
-            _setter("peer_address", peer_address)
+            pulumi.set(__self__, "peer_address", peer_address)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_address is not None:
-            _setter("transit_gateway_address", transit_gateway_address)
+            pulumi.set(__self__, "transit_gateway_address", transit_gateway_address)
         if transit_gateway_attachment_id is not None:
-            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
+            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
 
     @property
     @pulumi.getter
@@ -457,10 +375,6 @@ class ConnectPeer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConnectPeerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

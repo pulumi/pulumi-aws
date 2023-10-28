@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MainRouteTableAssociationArgs', 'MainRouteTableAssociation']
@@ -22,29 +22,8 @@ class MainRouteTableAssociationArgs:
                main route table for the target VPC
         :param pulumi.Input[str] vpc_id: The ID of the VPC whose main route table should be set
         """
-        MainRouteTableAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            route_table_id=route_table_id,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             route_table_id: Optional[pulumi.Input[str]] = None,
-             vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if route_table_id is None and 'routeTableId' in kwargs:
-            route_table_id = kwargs['routeTableId']
-        if route_table_id is None:
-            raise TypeError("Missing 'route_table_id' argument")
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-        if vpc_id is None:
-            raise TypeError("Missing 'vpc_id' argument")
-
-        _setter("route_table_id", route_table_id)
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "route_table_id", route_table_id)
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="routeTableId")
@@ -85,33 +64,12 @@ class _MainRouteTableAssociationState:
                main route table for the target VPC
         :param pulumi.Input[str] vpc_id: The ID of the VPC whose main route table should be set
         """
-        _MainRouteTableAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            original_route_table_id=original_route_table_id,
-            route_table_id=route_table_id,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             original_route_table_id: Optional[pulumi.Input[str]] = None,
-             route_table_id: Optional[pulumi.Input[str]] = None,
-             vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if original_route_table_id is None and 'originalRouteTableId' in kwargs:
-            original_route_table_id = kwargs['originalRouteTableId']
-        if route_table_id is None and 'routeTableId' in kwargs:
-            route_table_id = kwargs['routeTableId']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-
         if original_route_table_id is not None:
-            _setter("original_route_table_id", original_route_table_id)
+            pulumi.set(__self__, "original_route_table_id", original_route_table_id)
         if route_table_id is not None:
-            _setter("route_table_id", route_table_id)
+            pulumi.set(__self__, "route_table_id", route_table_id)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="originalRouteTableId")
@@ -231,10 +189,6 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MainRouteTableAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

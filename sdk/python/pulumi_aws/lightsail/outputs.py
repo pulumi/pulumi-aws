@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -65,39 +65,14 @@ class CertificateDomainValidationOption(dict):
         """
         :param str domain_name: A domain name for which the certificate should be issued.
         """
-        CertificateDomainValidationOption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            resource_record_name=resource_record_name,
-            resource_record_type=resource_record_type,
-            resource_record_value=resource_record_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[str] = None,
-             resource_record_name: Optional[str] = None,
-             resource_record_type: Optional[str] = None,
-             resource_record_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if resource_record_name is None and 'resourceRecordName' in kwargs:
-            resource_record_name = kwargs['resourceRecordName']
-        if resource_record_type is None and 'resourceRecordType' in kwargs:
-            resource_record_type = kwargs['resourceRecordType']
-        if resource_record_value is None and 'resourceRecordValue' in kwargs:
-            resource_record_value = kwargs['resourceRecordValue']
-
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if resource_record_name is not None:
-            _setter("resource_record_name", resource_record_name)
+            pulumi.set(__self__, "resource_record_name", resource_record_name)
         if resource_record_type is not None:
-            _setter("resource_record_type", resource_record_type)
+            pulumi.set(__self__, "resource_record_type", resource_record_type)
         if resource_record_value is not None:
-            _setter("resource_record_value", resource_record_value)
+            pulumi.set(__self__, "resource_record_value", resource_record_value)
 
     @property
     @pulumi.getter(name="domainName")
@@ -155,39 +130,14 @@ class ContainerServiceDeploymentVersionContainer(dict):
         :param Mapping[str, str] environment: A key-value map of the environment variables of the container.
         :param Mapping[str, str] ports: A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
         """
-        ContainerServiceDeploymentVersionContainer._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            image=image,
-            commands=commands,
-            environment=environment,
-            ports=ports,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[str] = None,
-             image: Optional[str] = None,
-             commands: Optional[Sequence[str]] = None,
-             environment: Optional[Mapping[str, str]] = None,
-             ports: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-        if container_name is None:
-            raise TypeError("Missing 'container_name' argument")
-        if image is None:
-            raise TypeError("Missing 'image' argument")
-
-        _setter("container_name", container_name)
-        _setter("image", image)
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "image", image)
         if commands is not None:
-            _setter("commands", commands)
+            pulumi.set(__self__, "commands", commands)
         if environment is not None:
-            _setter("environment", environment)
+            pulumi.set(__self__, "environment", environment)
         if ports is not None:
-            _setter("ports", ports)
+            pulumi.set(__self__, "ports", ports)
 
     @property
     @pulumi.getter(name="containerName")
@@ -262,36 +212,9 @@ class ContainerServiceDeploymentVersionPublicEndpoint(dict):
         :param int container_port: The port of the container to which traffic is forwarded to.
         :param 'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs' health_check: A configuration block that describes the health check configuration of the container. Detailed below.
         """
-        ContainerServiceDeploymentVersionPublicEndpoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            container_port=container_port,
-            health_check=health_check,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[str] = None,
-             container_port: Optional[int] = None,
-             health_check: Optional['outputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheck'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-        if container_name is None:
-            raise TypeError("Missing 'container_name' argument")
-        if container_port is None and 'containerPort' in kwargs:
-            container_port = kwargs['containerPort']
-        if container_port is None:
-            raise TypeError("Missing 'container_port' argument")
-        if health_check is None and 'healthCheck' in kwargs:
-            health_check = kwargs['healthCheck']
-        if health_check is None:
-            raise TypeError("Missing 'health_check' argument")
-
-        _setter("container_name", container_name)
-        _setter("container_port", container_port)
-        _setter("health_check", health_check)
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "container_port", container_port)
+        pulumi.set(__self__, "health_check", health_check)
 
     @property
     @pulumi.getter(name="containerName")
@@ -360,49 +283,18 @@ class ContainerServiceDeploymentVersionPublicEndpointHealthCheck(dict):
         :param int timeout_seconds: The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
         :param int unhealthy_threshold: The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
         """
-        ContainerServiceDeploymentVersionPublicEndpointHealthCheck._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            healthy_threshold=healthy_threshold,
-            interval_seconds=interval_seconds,
-            path=path,
-            success_codes=success_codes,
-            timeout_seconds=timeout_seconds,
-            unhealthy_threshold=unhealthy_threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             healthy_threshold: Optional[int] = None,
-             interval_seconds: Optional[int] = None,
-             path: Optional[str] = None,
-             success_codes: Optional[str] = None,
-             timeout_seconds: Optional[int] = None,
-             unhealthy_threshold: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if healthy_threshold is None and 'healthyThreshold' in kwargs:
-            healthy_threshold = kwargs['healthyThreshold']
-        if interval_seconds is None and 'intervalSeconds' in kwargs:
-            interval_seconds = kwargs['intervalSeconds']
-        if success_codes is None and 'successCodes' in kwargs:
-            success_codes = kwargs['successCodes']
-        if timeout_seconds is None and 'timeoutSeconds' in kwargs:
-            timeout_seconds = kwargs['timeoutSeconds']
-        if unhealthy_threshold is None and 'unhealthyThreshold' in kwargs:
-            unhealthy_threshold = kwargs['unhealthyThreshold']
-
         if healthy_threshold is not None:
-            _setter("healthy_threshold", healthy_threshold)
+            pulumi.set(__self__, "healthy_threshold", healthy_threshold)
         if interval_seconds is not None:
-            _setter("interval_seconds", interval_seconds)
+            pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if success_codes is not None:
-            _setter("success_codes", success_codes)
+            pulumi.set(__self__, "success_codes", success_codes)
         if timeout_seconds is not None:
-            _setter("timeout_seconds", timeout_seconds)
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
         if unhealthy_threshold is not None:
-            _setter("unhealthy_threshold", unhealthy_threshold)
+            pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -477,21 +369,8 @@ class ContainerServicePrivateRegistryAccess(dict):
         """
         :param 'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs' ecr_image_puller_role: Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
         """
-        ContainerServicePrivateRegistryAccess._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ecr_image_puller_role=ecr_image_puller_role,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ecr_image_puller_role: Optional['outputs.ContainerServicePrivateRegistryAccessEcrImagePullerRole'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ecr_image_puller_role is None and 'ecrImagePullerRole' in kwargs:
-            ecr_image_puller_role = kwargs['ecrImagePullerRole']
-
         if ecr_image_puller_role is not None:
-            _setter("ecr_image_puller_role", ecr_image_puller_role)
+            pulumi.set(__self__, "ecr_image_puller_role", ecr_image_puller_role)
 
     @property
     @pulumi.getter(name="ecrImagePullerRole")
@@ -532,27 +411,10 @@ class ContainerServicePrivateRegistryAccessEcrImagePullerRole(dict):
                relationship between your standard AWS account and your Lightsail container service. This allows you to give your
                service permission to access resources in your standard AWS account.
         """
-        ContainerServicePrivateRegistryAccessEcrImagePullerRole._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            is_active=is_active,
-            principal_arn=principal_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             is_active: Optional[bool] = None,
-             principal_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if is_active is None and 'isActive' in kwargs:
-            is_active = kwargs['isActive']
-        if principal_arn is None and 'principalArn' in kwargs:
-            principal_arn = kwargs['principalArn']
-
         if is_active is not None:
-            _setter("is_active", is_active)
+            pulumi.set(__self__, "is_active", is_active)
         if principal_arn is not None:
-            _setter("principal_arn", principal_arn)
+            pulumi.set(__self__, "principal_arn", principal_arn)
 
     @property
     @pulumi.getter(name="isActive")
@@ -577,20 +439,7 @@ class ContainerServicePrivateRegistryAccessEcrImagePullerRole(dict):
 class ContainerServicePublicDomainNames(dict):
     def __init__(__self__, *,
                  certificates: Sequence['outputs.ContainerServicePublicDomainNamesCertificate']):
-        ContainerServicePublicDomainNames._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificates=certificates,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificates: Optional[Sequence['outputs.ContainerServicePublicDomainNamesCertificate']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificates is None:
-            raise TypeError("Missing 'certificates' argument")
-
-        _setter("certificates", certificates)
+        pulumi.set(__self__, "certificates", certificates)
 
     @property
     @pulumi.getter
@@ -622,29 +471,8 @@ class ContainerServicePublicDomainNamesCertificate(dict):
     def __init__(__self__, *,
                  certificate_name: str,
                  domain_names: Sequence[str]):
-        ContainerServicePublicDomainNamesCertificate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_name=certificate_name,
-            domain_names=domain_names,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_name: Optional[str] = None,
-             domain_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_name is None and 'certificateName' in kwargs:
-            certificate_name = kwargs['certificateName']
-        if certificate_name is None:
-            raise TypeError("Missing 'certificate_name' argument")
-        if domain_names is None and 'domainNames' in kwargs:
-            domain_names = kwargs['domainNames']
-        if domain_names is None:
-            raise TypeError("Missing 'domain_names' argument")
-
-        _setter("certificate_name", certificate_name)
-        _setter("domain_names", domain_names)
+        pulumi.set(__self__, "certificate_name", certificate_name)
+        pulumi.set(__self__, "domain_names", domain_names)
 
     @property
     @pulumi.getter(name="certificateName")
@@ -666,25 +494,8 @@ class DistributionCacheBehavior(dict):
         :param str behavior: The cache behavior for the specified path.
         :param str path: The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\\*), and file types (\\*.html, \\*jpg, \\*js). Directories and file paths are case-sensitive.
         """
-        DistributionCacheBehavior._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            behavior=behavior,
-            path=path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             behavior: Optional[str] = None,
-             path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if behavior is None:
-            raise TypeError("Missing 'behavior' argument")
-        if path is None:
-            raise TypeError("Missing 'path' argument")
-
-        _setter("behavior", behavior)
-        _setter("path", path)
+        pulumi.set(__self__, "behavior", behavior)
+        pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -755,63 +566,22 @@ class DistributionCacheBehaviorSettings(dict):
         :param int maximum_ttl: The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         :param int minimum_ttl: The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         """
-        DistributionCacheBehaviorSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_http_methods=allowed_http_methods,
-            cached_http_methods=cached_http_methods,
-            default_ttl=default_ttl,
-            forwarded_cookies=forwarded_cookies,
-            forwarded_headers=forwarded_headers,
-            forwarded_query_strings=forwarded_query_strings,
-            maximum_ttl=maximum_ttl,
-            minimum_ttl=minimum_ttl,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_http_methods: Optional[str] = None,
-             cached_http_methods: Optional[str] = None,
-             default_ttl: Optional[int] = None,
-             forwarded_cookies: Optional['outputs.DistributionCacheBehaviorSettingsForwardedCookies'] = None,
-             forwarded_headers: Optional['outputs.DistributionCacheBehaviorSettingsForwardedHeaders'] = None,
-             forwarded_query_strings: Optional['outputs.DistributionCacheBehaviorSettingsForwardedQueryStrings'] = None,
-             maximum_ttl: Optional[int] = None,
-             minimum_ttl: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allowed_http_methods is None and 'allowedHttpMethods' in kwargs:
-            allowed_http_methods = kwargs['allowedHttpMethods']
-        if cached_http_methods is None and 'cachedHttpMethods' in kwargs:
-            cached_http_methods = kwargs['cachedHttpMethods']
-        if default_ttl is None and 'defaultTtl' in kwargs:
-            default_ttl = kwargs['defaultTtl']
-        if forwarded_cookies is None and 'forwardedCookies' in kwargs:
-            forwarded_cookies = kwargs['forwardedCookies']
-        if forwarded_headers is None and 'forwardedHeaders' in kwargs:
-            forwarded_headers = kwargs['forwardedHeaders']
-        if forwarded_query_strings is None and 'forwardedQueryStrings' in kwargs:
-            forwarded_query_strings = kwargs['forwardedQueryStrings']
-        if maximum_ttl is None and 'maximumTtl' in kwargs:
-            maximum_ttl = kwargs['maximumTtl']
-        if minimum_ttl is None and 'minimumTtl' in kwargs:
-            minimum_ttl = kwargs['minimumTtl']
-
         if allowed_http_methods is not None:
-            _setter("allowed_http_methods", allowed_http_methods)
+            pulumi.set(__self__, "allowed_http_methods", allowed_http_methods)
         if cached_http_methods is not None:
-            _setter("cached_http_methods", cached_http_methods)
+            pulumi.set(__self__, "cached_http_methods", cached_http_methods)
         if default_ttl is not None:
-            _setter("default_ttl", default_ttl)
+            pulumi.set(__self__, "default_ttl", default_ttl)
         if forwarded_cookies is not None:
-            _setter("forwarded_cookies", forwarded_cookies)
+            pulumi.set(__self__, "forwarded_cookies", forwarded_cookies)
         if forwarded_headers is not None:
-            _setter("forwarded_headers", forwarded_headers)
+            pulumi.set(__self__, "forwarded_headers", forwarded_headers)
         if forwarded_query_strings is not None:
-            _setter("forwarded_query_strings", forwarded_query_strings)
+            pulumi.set(__self__, "forwarded_query_strings", forwarded_query_strings)
         if maximum_ttl is not None:
-            _setter("maximum_ttl", maximum_ttl)
+            pulumi.set(__self__, "maximum_ttl", maximum_ttl)
         if minimum_ttl is not None:
-            _setter("minimum_ttl", minimum_ttl)
+            pulumi.set(__self__, "minimum_ttl", minimum_ttl)
 
     @property
     @pulumi.getter(name="allowedHttpMethods")
@@ -904,25 +674,10 @@ class DistributionCacheBehaviorSettingsForwardedCookies(dict):
         :param Sequence[str] cookies_allow_lists: The specific cookies to forward to your distribution's origin.
         :param str option: Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
         """
-        DistributionCacheBehaviorSettingsForwardedCookies._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cookies_allow_lists=cookies_allow_lists,
-            option=option,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cookies_allow_lists: Optional[Sequence[str]] = None,
-             option: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cookies_allow_lists is None and 'cookiesAllowLists' in kwargs:
-            cookies_allow_lists = kwargs['cookiesAllowLists']
-
         if cookies_allow_lists is not None:
-            _setter("cookies_allow_lists", cookies_allow_lists)
+            pulumi.set(__self__, "cookies_allow_lists", cookies_allow_lists)
         if option is not None:
-            _setter("option", option)
+            pulumi.set(__self__, "option", option)
 
     @property
     @pulumi.getter(name="cookiesAllowLists")
@@ -967,25 +722,10 @@ class DistributionCacheBehaviorSettingsForwardedHeaders(dict):
         :param Sequence[str] headers_allow_lists: The specific headers to forward to your distribution's origin.
         :param str option: The headers that you want your distribution to forward to your origin and base caching on.
         """
-        DistributionCacheBehaviorSettingsForwardedHeaders._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers_allow_lists=headers_allow_lists,
-            option=option,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers_allow_lists: Optional[Sequence[str]] = None,
-             option: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if headers_allow_lists is None and 'headersAllowLists' in kwargs:
-            headers_allow_lists = kwargs['headersAllowLists']
-
         if headers_allow_lists is not None:
-            _setter("headers_allow_lists", headers_allow_lists)
+            pulumi.set(__self__, "headers_allow_lists", headers_allow_lists)
         if option is not None:
-            _setter("option", option)
+            pulumi.set(__self__, "option", option)
 
     @property
     @pulumi.getter(name="headersAllowLists")
@@ -1030,25 +770,10 @@ class DistributionCacheBehaviorSettingsForwardedQueryStrings(dict):
         :param bool option: Indicates whether the distribution forwards and caches based on query strings.
         :param Sequence[str] query_strings_allowed_lists: The specific query strings that the distribution forwards to the origin.
         """
-        DistributionCacheBehaviorSettingsForwardedQueryStrings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            option=option,
-            query_strings_allowed_lists=query_strings_allowed_lists,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             option: Optional[bool] = None,
-             query_strings_allowed_lists: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_strings_allowed_lists is None and 'queryStringsAllowedLists' in kwargs:
-            query_strings_allowed_lists = kwargs['queryStringsAllowedLists']
-
         if option is not None:
-            _setter("option", option)
+            pulumi.set(__self__, "option", option)
         if query_strings_allowed_lists is not None:
-            _setter("query_strings_allowed_lists", query_strings_allowed_lists)
+            pulumi.set(__self__, "query_strings_allowed_lists", query_strings_allowed_lists)
 
     @property
     @pulumi.getter
@@ -1074,20 +799,7 @@ class DistributionDefaultCacheBehavior(dict):
         """
         :param str behavior: The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
         """
-        DistributionDefaultCacheBehavior._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            behavior=behavior,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             behavior: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if behavior is None:
-            raise TypeError("Missing 'behavior' argument")
-
-        _setter("behavior", behavior)
+        pulumi.set(__self__, "behavior", behavior)
 
     @property
     @pulumi.getter
@@ -1126,29 +838,8 @@ class DistributionLocation(dict):
         :param str availability_zone: The Availability Zone. Follows the format us-east-2a (case-sensitive).
         :param str region_name: The AWS Region name of the origin resource.
         """
-        DistributionLocation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone=availability_zone,
-            region_name=region_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone: Optional[str] = None,
-             region_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if availability_zone is None:
-            raise TypeError("Missing 'availability_zone' argument")
-        if region_name is None and 'regionName' in kwargs:
-            region_name = kwargs['regionName']
-        if region_name is None:
-            raise TypeError("Missing 'region_name' argument")
-
-        _setter("availability_zone", availability_zone)
-        _setter("region_name", region_name)
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        pulumi.set(__self__, "region_name", region_name)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -1201,39 +892,12 @@ class DistributionOrigin(dict):
         :param str protocol_policy: The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
         :param str resource_type: The resource type of the origin resource (e.g., Instance).
         """
-        DistributionOrigin._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            region_name=region_name,
-            protocol_policy=protocol_policy,
-            resource_type=resource_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             region_name: Optional[str] = None,
-             protocol_policy: Optional[str] = None,
-             resource_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if region_name is None and 'regionName' in kwargs:
-            region_name = kwargs['regionName']
-        if region_name is None:
-            raise TypeError("Missing 'region_name' argument")
-        if protocol_policy is None and 'protocolPolicy' in kwargs:
-            protocol_policy = kwargs['protocolPolicy']
-        if resource_type is None and 'resourceType' in kwargs:
-            resource_type = kwargs['resourceType']
-
-        _setter("name", name)
-        _setter("region_name", region_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region_name", region_name)
         if protocol_policy is not None:
-            _setter("protocol_policy", protocol_policy)
+            pulumi.set(__self__, "protocol_policy", protocol_policy)
         if resource_type is not None:
-            _setter("resource_type", resource_type)
+            pulumi.set(__self__, "resource_type", resource_type)
 
     @property
     @pulumi.getter
@@ -1296,32 +960,9 @@ class InstanceAddOn(dict):
         :param str status: The status of the add on. Valid Values: `Enabled`, `Disabled`.
         :param str type: The add-on type. There is currently only one valid type `AutoSnapshot`.
         """
-        InstanceAddOn._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            snapshot_time=snapshot_time,
-            status=status,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             snapshot_time: Optional[str] = None,
-             status: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if snapshot_time is None and 'snapshotTime' in kwargs:
-            snapshot_time = kwargs['snapshotTime']
-        if snapshot_time is None:
-            raise TypeError("Missing 'snapshot_time' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("snapshot_time", snapshot_time)
-        _setter("status", status)
-        _setter("type", type)
+        pulumi.set(__self__, "snapshot_time", snapshot_time)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="snapshotTime")
@@ -1389,50 +1030,15 @@ class InstancePublicPortsPortInfo(dict):
         :param Sequence[str] cidr_list_aliases: Set of CIDR aliases that define access for a preconfigured range of IP addresses.
         :param Sequence[str] cidrs: Set of CIDR blocks.
         """
-        InstancePublicPortsPortInfo._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            from_port=from_port,
-            protocol=protocol,
-            to_port=to_port,
-            cidr_list_aliases=cidr_list_aliases,
-            cidrs=cidrs,
-            ipv6_cidrs=ipv6_cidrs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             from_port: Optional[int] = None,
-             protocol: Optional[str] = None,
-             to_port: Optional[int] = None,
-             cidr_list_aliases: Optional[Sequence[str]] = None,
-             cidrs: Optional[Sequence[str]] = None,
-             ipv6_cidrs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if from_port is None and 'fromPort' in kwargs:
-            from_port = kwargs['fromPort']
-        if from_port is None:
-            raise TypeError("Missing 'from_port' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if to_port is None and 'toPort' in kwargs:
-            to_port = kwargs['toPort']
-        if to_port is None:
-            raise TypeError("Missing 'to_port' argument")
-        if cidr_list_aliases is None and 'cidrListAliases' in kwargs:
-            cidr_list_aliases = kwargs['cidrListAliases']
-        if ipv6_cidrs is None and 'ipv6Cidrs' in kwargs:
-            ipv6_cidrs = kwargs['ipv6Cidrs']
-
-        _setter("from_port", from_port)
-        _setter("protocol", protocol)
-        _setter("to_port", to_port)
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "to_port", to_port)
         if cidr_list_aliases is not None:
-            _setter("cidr_list_aliases", cidr_list_aliases)
+            pulumi.set(__self__, "cidr_list_aliases", cidr_list_aliases)
         if cidrs is not None:
-            _setter("cidrs", cidrs)
+            pulumi.set(__self__, "cidrs", cidrs)
         if ipv6_cidrs is not None:
-            _setter("ipv6_cidrs", ipv6_cidrs)
+            pulumi.set(__self__, "ipv6_cidrs", ipv6_cidrs)
 
     @property
     @pulumi.getter(name="fromPort")
@@ -1515,39 +1121,14 @@ class LbCertificateDomainValidationRecord(dict):
         """
         :param str domain_name: The domain name (e.g., example.com) for your SSL/TLS certificate.
         """
-        LbCertificateDomainValidationRecord._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            resource_record_name=resource_record_name,
-            resource_record_type=resource_record_type,
-            resource_record_value=resource_record_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[str] = None,
-             resource_record_name: Optional[str] = None,
-             resource_record_type: Optional[str] = None,
-             resource_record_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if resource_record_name is None and 'resourceRecordName' in kwargs:
-            resource_record_name = kwargs['resourceRecordName']
-        if resource_record_type is None and 'resourceRecordType' in kwargs:
-            resource_record_type = kwargs['resourceRecordType']
-        if resource_record_value is None and 'resourceRecordValue' in kwargs:
-            resource_record_value = kwargs['resourceRecordValue']
-
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if resource_record_name is not None:
-            _setter("resource_record_name", resource_record_name)
+            pulumi.set(__self__, "resource_record_name", resource_record_name)
         if resource_record_type is not None:
-            _setter("resource_record_type", resource_record_type)
+            pulumi.set(__self__, "resource_record_type", resource_record_type)
         if resource_record_value is not None:
-            _setter("resource_record_value", resource_record_value)
+            pulumi.set(__self__, "resource_record_value", resource_record_value)
 
     @property
     @pulumi.getter(name="domainName")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,33 +27,14 @@ class ThingGroupArgs:
         :param pulumi.Input['ThingGroupPropertiesArgs'] properties: The Thing Group properties. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         """
-        ThingGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            parent_group_name=parent_group_name,
-            properties=properties,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             parent_group_name: Optional[pulumi.Input[str]] = None,
-             properties: Optional[pulumi.Input['ThingGroupPropertiesArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if parent_group_name is None and 'parentGroupName' in kwargs:
-            parent_group_name = kwargs['parentGroupName']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parent_group_name is not None:
-            _setter("parent_group_name", parent_group_name)
+            pulumi.set(__self__, "parent_group_name", parent_group_name)
         if properties is not None:
-            _setter("properties", properties)
+            pulumi.set(__self__, "properties", properties)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -124,54 +105,25 @@ class _ThingGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[int] version: The current version of the Thing Group record in the registry.
         """
-        _ThingGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            metadatas=metadatas,
-            name=name,
-            parent_group_name=parent_group_name,
-            properties=properties,
-            tags=tags,
-            tags_all=tags_all,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['ThingGroupMetadataArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parent_group_name: Optional[pulumi.Input[str]] = None,
-             properties: Optional[pulumi.Input['ThingGroupPropertiesArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             version: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if parent_group_name is None and 'parentGroupName' in kwargs:
-            parent_group_name = kwargs['parentGroupName']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if metadatas is not None:
-            _setter("metadatas", metadatas)
+            pulumi.set(__self__, "metadatas", metadatas)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parent_group_name is not None:
-            _setter("parent_group_name", parent_group_name)
+            pulumi.set(__self__, "parent_group_name", parent_group_name)
         if properties is not None:
-            _setter("properties", properties)
+            pulumi.set(__self__, "properties", properties)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -368,10 +320,6 @@ class ThingGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ThingGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -392,7 +340,6 @@ class ThingGroup(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["parent_group_name"] = parent_group_name
-            properties = _utilities.configure(properties, ThingGroupPropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

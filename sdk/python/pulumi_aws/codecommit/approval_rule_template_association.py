@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApprovalRuleTemplateAssociationArgs', 'ApprovalRuleTemplateAssociation']
@@ -21,29 +21,8 @@ class ApprovalRuleTemplateAssociationArgs:
         :param pulumi.Input[str] approval_rule_template_name: The name for the approval rule template.
         :param pulumi.Input[str] repository_name: The name of the repository that you want to associate with the template.
         """
-        ApprovalRuleTemplateAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            approval_rule_template_name=approval_rule_template_name,
-            repository_name=repository_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             approval_rule_template_name: Optional[pulumi.Input[str]] = None,
-             repository_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if approval_rule_template_name is None and 'approvalRuleTemplateName' in kwargs:
-            approval_rule_template_name = kwargs['approvalRuleTemplateName']
-        if approval_rule_template_name is None:
-            raise TypeError("Missing 'approval_rule_template_name' argument")
-        if repository_name is None and 'repositoryName' in kwargs:
-            repository_name = kwargs['repositoryName']
-        if repository_name is None:
-            raise TypeError("Missing 'repository_name' argument")
-
-        _setter("approval_rule_template_name", approval_rule_template_name)
-        _setter("repository_name", repository_name)
+        pulumi.set(__self__, "approval_rule_template_name", approval_rule_template_name)
+        pulumi.set(__self__, "repository_name", repository_name)
 
     @property
     @pulumi.getter(name="approvalRuleTemplateName")
@@ -80,27 +59,10 @@ class _ApprovalRuleTemplateAssociationState:
         :param pulumi.Input[str] approval_rule_template_name: The name for the approval rule template.
         :param pulumi.Input[str] repository_name: The name of the repository that you want to associate with the template.
         """
-        _ApprovalRuleTemplateAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            approval_rule_template_name=approval_rule_template_name,
-            repository_name=repository_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             approval_rule_template_name: Optional[pulumi.Input[str]] = None,
-             repository_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if approval_rule_template_name is None and 'approvalRuleTemplateName' in kwargs:
-            approval_rule_template_name = kwargs['approvalRuleTemplateName']
-        if repository_name is None and 'repositoryName' in kwargs:
-            repository_name = kwargs['repositoryName']
-
         if approval_rule_template_name is not None:
-            _setter("approval_rule_template_name", approval_rule_template_name)
+            pulumi.set(__self__, "approval_rule_template_name", approval_rule_template_name)
         if repository_name is not None:
-            _setter("repository_name", repository_name)
+            pulumi.set(__self__, "repository_name", repository_name)
 
     @property
     @pulumi.getter(name="approvalRuleTemplateName")
@@ -200,10 +162,6 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApprovalRuleTemplateAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

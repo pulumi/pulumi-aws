@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -24,34 +24,9 @@ class QueueReservationPlanSettingsArgs:
         :param pulumi.Input[str] renewal_type: Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
         :param pulumi.Input[int] reserved_slots: Specifies the number of reserved transcode slots (RTS) for queue.
         """
-        QueueReservationPlanSettingsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            commitment=commitment,
-            renewal_type=renewal_type,
-            reserved_slots=reserved_slots,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             commitment: Optional[pulumi.Input[str]] = None,
-             renewal_type: Optional[pulumi.Input[str]] = None,
-             reserved_slots: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if commitment is None:
-            raise TypeError("Missing 'commitment' argument")
-        if renewal_type is None and 'renewalType' in kwargs:
-            renewal_type = kwargs['renewalType']
-        if renewal_type is None:
-            raise TypeError("Missing 'renewal_type' argument")
-        if reserved_slots is None and 'reservedSlots' in kwargs:
-            reserved_slots = kwargs['reservedSlots']
-        if reserved_slots is None:
-            raise TypeError("Missing 'reserved_slots' argument")
-
-        _setter("commitment", commitment)
-        _setter("renewal_type", renewal_type)
-        _setter("reserved_slots", reserved_slots)
+        pulumi.set(__self__, "commitment", commitment)
+        pulumi.set(__self__, "renewal_type", renewal_type)
+        pulumi.set(__self__, "reserved_slots", reserved_slots)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DeploymentArgs', 'Deployment']
@@ -23,30 +23,11 @@ class DeploymentArgs:
         :param pulumi.Input[str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
-        DeploymentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            description=description,
-            triggers=triggers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_id is None and 'apiId' in kwargs:
-            api_id = kwargs['apiId']
-        if api_id is None:
-            raise TypeError("Missing 'api_id' argument")
-
-        _setter("api_id", api_id)
+        pulumi.set(__self__, "api_id", api_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if triggers is not None:
-            _setter("triggers", triggers)
+            pulumi.set(__self__, "triggers", triggers)
 
     @property
     @pulumi.getter(name="apiId")
@@ -99,35 +80,14 @@ class _DeploymentState:
         :param pulumi.Input[str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
-        _DeploymentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            auto_deployed=auto_deployed,
-            description=description,
-            triggers=triggers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: Optional[pulumi.Input[str]] = None,
-             auto_deployed: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_id is None and 'apiId' in kwargs:
-            api_id = kwargs['apiId']
-        if auto_deployed is None and 'autoDeployed' in kwargs:
-            auto_deployed = kwargs['autoDeployed']
-
         if api_id is not None:
-            _setter("api_id", api_id)
+            pulumi.set(__self__, "api_id", api_id)
         if auto_deployed is not None:
-            _setter("auto_deployed", auto_deployed)
+            pulumi.set(__self__, "auto_deployed", auto_deployed)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if triggers is not None:
-            _setter("triggers", triggers)
+            pulumi.set(__self__, "triggers", triggers)
 
     @property
     @pulumi.getter(name="apiId")
@@ -263,10 +223,6 @@ class Deployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

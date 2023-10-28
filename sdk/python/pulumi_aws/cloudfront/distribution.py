@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -61,132 +61,43 @@ class DistributionArgs:
         :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         :param pulumi.Input[str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
-        DistributionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_cache_behavior=default_cache_behavior,
-            enabled=enabled,
-            origins=origins,
-            restrictions=restrictions,
-            viewer_certificate=viewer_certificate,
-            aliases=aliases,
-            comment=comment,
-            continuous_deployment_policy_id=continuous_deployment_policy_id,
-            custom_error_responses=custom_error_responses,
-            default_root_object=default_root_object,
-            http_version=http_version,
-            is_ipv6_enabled=is_ipv6_enabled,
-            logging_config=logging_config,
-            ordered_cache_behaviors=ordered_cache_behaviors,
-            origin_groups=origin_groups,
-            price_class=price_class,
-            retain_on_delete=retain_on_delete,
-            staging=staging,
-            tags=tags,
-            wait_for_deployment=wait_for_deployment,
-            web_acl_id=web_acl_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             origins: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]] = None,
-             restrictions: Optional[pulumi.Input['DistributionRestrictionsArgs']] = None,
-             viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
-             aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
-             custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
-             default_root_object: Optional[pulumi.Input[str]] = None,
-             http_version: Optional[pulumi.Input[str]] = None,
-             is_ipv6_enabled: Optional[pulumi.Input[bool]] = None,
-             logging_config: Optional[pulumi.Input['DistributionLoggingConfigArgs']] = None,
-             ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]] = None,
-             origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None,
-             price_class: Optional[pulumi.Input[str]] = None,
-             retain_on_delete: Optional[pulumi.Input[bool]] = None,
-             staging: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             wait_for_deployment: Optional[pulumi.Input[bool]] = None,
-             web_acl_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_cache_behavior is None and 'defaultCacheBehavior' in kwargs:
-            default_cache_behavior = kwargs['defaultCacheBehavior']
-        if default_cache_behavior is None:
-            raise TypeError("Missing 'default_cache_behavior' argument")
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if origins is None:
-            raise TypeError("Missing 'origins' argument")
-        if restrictions is None:
-            raise TypeError("Missing 'restrictions' argument")
-        if viewer_certificate is None and 'viewerCertificate' in kwargs:
-            viewer_certificate = kwargs['viewerCertificate']
-        if viewer_certificate is None:
-            raise TypeError("Missing 'viewer_certificate' argument")
-        if continuous_deployment_policy_id is None and 'continuousDeploymentPolicyId' in kwargs:
-            continuous_deployment_policy_id = kwargs['continuousDeploymentPolicyId']
-        if custom_error_responses is None and 'customErrorResponses' in kwargs:
-            custom_error_responses = kwargs['customErrorResponses']
-        if default_root_object is None and 'defaultRootObject' in kwargs:
-            default_root_object = kwargs['defaultRootObject']
-        if http_version is None and 'httpVersion' in kwargs:
-            http_version = kwargs['httpVersion']
-        if is_ipv6_enabled is None and 'isIpv6Enabled' in kwargs:
-            is_ipv6_enabled = kwargs['isIpv6Enabled']
-        if logging_config is None and 'loggingConfig' in kwargs:
-            logging_config = kwargs['loggingConfig']
-        if ordered_cache_behaviors is None and 'orderedCacheBehaviors' in kwargs:
-            ordered_cache_behaviors = kwargs['orderedCacheBehaviors']
-        if origin_groups is None and 'originGroups' in kwargs:
-            origin_groups = kwargs['originGroups']
-        if price_class is None and 'priceClass' in kwargs:
-            price_class = kwargs['priceClass']
-        if retain_on_delete is None and 'retainOnDelete' in kwargs:
-            retain_on_delete = kwargs['retainOnDelete']
-        if wait_for_deployment is None and 'waitForDeployment' in kwargs:
-            wait_for_deployment = kwargs['waitForDeployment']
-        if web_acl_id is None and 'webAclId' in kwargs:
-            web_acl_id = kwargs['webAclId']
-
-        _setter("default_cache_behavior", default_cache_behavior)
-        _setter("enabled", enabled)
-        _setter("origins", origins)
-        _setter("restrictions", restrictions)
-        _setter("viewer_certificate", viewer_certificate)
+        pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "origins", origins)
+        pulumi.set(__self__, "restrictions", restrictions)
+        pulumi.set(__self__, "viewer_certificate", viewer_certificate)
         if aliases is not None:
-            _setter("aliases", aliases)
+            pulumi.set(__self__, "aliases", aliases)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if continuous_deployment_policy_id is not None:
-            _setter("continuous_deployment_policy_id", continuous_deployment_policy_id)
+            pulumi.set(__self__, "continuous_deployment_policy_id", continuous_deployment_policy_id)
         if custom_error_responses is not None:
-            _setter("custom_error_responses", custom_error_responses)
+            pulumi.set(__self__, "custom_error_responses", custom_error_responses)
         if default_root_object is not None:
-            _setter("default_root_object", default_root_object)
+            pulumi.set(__self__, "default_root_object", default_root_object)
         if http_version is not None:
-            _setter("http_version", http_version)
+            pulumi.set(__self__, "http_version", http_version)
         if is_ipv6_enabled is not None:
-            _setter("is_ipv6_enabled", is_ipv6_enabled)
+            pulumi.set(__self__, "is_ipv6_enabled", is_ipv6_enabled)
         if logging_config is not None:
-            _setter("logging_config", logging_config)
+            pulumi.set(__self__, "logging_config", logging_config)
         if ordered_cache_behaviors is not None:
-            _setter("ordered_cache_behaviors", ordered_cache_behaviors)
+            pulumi.set(__self__, "ordered_cache_behaviors", ordered_cache_behaviors)
         if origin_groups is not None:
-            _setter("origin_groups", origin_groups)
+            pulumi.set(__self__, "origin_groups", origin_groups)
         if price_class is not None:
-            _setter("price_class", price_class)
+            pulumi.set(__self__, "price_class", price_class)
         if retain_on_delete is not None:
-            _setter("retain_on_delete", retain_on_delete)
+            pulumi.set(__self__, "retain_on_delete", retain_on_delete)
         if staging is not None:
-            _setter("staging", staging)
+            pulumi.set(__self__, "staging", staging)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if wait_for_deployment is not None:
-            _setter("wait_for_deployment", wait_for_deployment)
+            pulumi.set(__self__, "wait_for_deployment", wait_for_deployment)
         if web_acl_id is not None:
-            _setter("web_acl_id", web_acl_id)
+            pulumi.set(__self__, "web_acl_id", web_acl_id)
 
     @property
     @pulumi.getter(name="defaultCacheBehavior")
@@ -511,190 +422,73 @@ class _DistributionState:
         :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         :param pulumi.Input[str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
         """
-        _DistributionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aliases=aliases,
-            arn=arn,
-            caller_reference=caller_reference,
-            comment=comment,
-            continuous_deployment_policy_id=continuous_deployment_policy_id,
-            custom_error_responses=custom_error_responses,
-            default_cache_behavior=default_cache_behavior,
-            default_root_object=default_root_object,
-            domain_name=domain_name,
-            enabled=enabled,
-            etag=etag,
-            hosted_zone_id=hosted_zone_id,
-            http_version=http_version,
-            in_progress_validation_batches=in_progress_validation_batches,
-            is_ipv6_enabled=is_ipv6_enabled,
-            last_modified_time=last_modified_time,
-            logging_config=logging_config,
-            ordered_cache_behaviors=ordered_cache_behaviors,
-            origin_groups=origin_groups,
-            origins=origins,
-            price_class=price_class,
-            restrictions=restrictions,
-            retain_on_delete=retain_on_delete,
-            staging=staging,
-            status=status,
-            tags=tags,
-            tags_all=tags_all,
-            trusted_key_groups=trusted_key_groups,
-            trusted_signers=trusted_signers,
-            viewer_certificate=viewer_certificate,
-            wait_for_deployment=wait_for_deployment,
-            web_acl_id=web_acl_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             caller_reference: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
-             custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
-             default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
-             default_root_object: Optional[pulumi.Input[str]] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             hosted_zone_id: Optional[pulumi.Input[str]] = None,
-             http_version: Optional[pulumi.Input[str]] = None,
-             in_progress_validation_batches: Optional[pulumi.Input[int]] = None,
-             is_ipv6_enabled: Optional[pulumi.Input[bool]] = None,
-             last_modified_time: Optional[pulumi.Input[str]] = None,
-             logging_config: Optional[pulumi.Input['DistributionLoggingConfigArgs']] = None,
-             ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorArgs']]]] = None,
-             origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None,
-             origins: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]] = None,
-             price_class: Optional[pulumi.Input[str]] = None,
-             restrictions: Optional[pulumi.Input['DistributionRestrictionsArgs']] = None,
-             retain_on_delete: Optional[pulumi.Input[bool]] = None,
-             staging: Optional[pulumi.Input[bool]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupArgs']]]] = None,
-             trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerArgs']]]] = None,
-             viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
-             wait_for_deployment: Optional[pulumi.Input[bool]] = None,
-             web_acl_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if caller_reference is None and 'callerReference' in kwargs:
-            caller_reference = kwargs['callerReference']
-        if continuous_deployment_policy_id is None and 'continuousDeploymentPolicyId' in kwargs:
-            continuous_deployment_policy_id = kwargs['continuousDeploymentPolicyId']
-        if custom_error_responses is None and 'customErrorResponses' in kwargs:
-            custom_error_responses = kwargs['customErrorResponses']
-        if default_cache_behavior is None and 'defaultCacheBehavior' in kwargs:
-            default_cache_behavior = kwargs['defaultCacheBehavior']
-        if default_root_object is None and 'defaultRootObject' in kwargs:
-            default_root_object = kwargs['defaultRootObject']
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
-            hosted_zone_id = kwargs['hostedZoneId']
-        if http_version is None and 'httpVersion' in kwargs:
-            http_version = kwargs['httpVersion']
-        if in_progress_validation_batches is None and 'inProgressValidationBatches' in kwargs:
-            in_progress_validation_batches = kwargs['inProgressValidationBatches']
-        if is_ipv6_enabled is None and 'isIpv6Enabled' in kwargs:
-            is_ipv6_enabled = kwargs['isIpv6Enabled']
-        if last_modified_time is None and 'lastModifiedTime' in kwargs:
-            last_modified_time = kwargs['lastModifiedTime']
-        if logging_config is None and 'loggingConfig' in kwargs:
-            logging_config = kwargs['loggingConfig']
-        if ordered_cache_behaviors is None and 'orderedCacheBehaviors' in kwargs:
-            ordered_cache_behaviors = kwargs['orderedCacheBehaviors']
-        if origin_groups is None and 'originGroups' in kwargs:
-            origin_groups = kwargs['originGroups']
-        if price_class is None and 'priceClass' in kwargs:
-            price_class = kwargs['priceClass']
-        if retain_on_delete is None and 'retainOnDelete' in kwargs:
-            retain_on_delete = kwargs['retainOnDelete']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if trusted_key_groups is None and 'trustedKeyGroups' in kwargs:
-            trusted_key_groups = kwargs['trustedKeyGroups']
-        if trusted_signers is None and 'trustedSigners' in kwargs:
-            trusted_signers = kwargs['trustedSigners']
-        if viewer_certificate is None and 'viewerCertificate' in kwargs:
-            viewer_certificate = kwargs['viewerCertificate']
-        if wait_for_deployment is None and 'waitForDeployment' in kwargs:
-            wait_for_deployment = kwargs['waitForDeployment']
-        if web_acl_id is None and 'webAclId' in kwargs:
-            web_acl_id = kwargs['webAclId']
-
         if aliases is not None:
-            _setter("aliases", aliases)
+            pulumi.set(__self__, "aliases", aliases)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if caller_reference is not None:
-            _setter("caller_reference", caller_reference)
+            pulumi.set(__self__, "caller_reference", caller_reference)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if continuous_deployment_policy_id is not None:
-            _setter("continuous_deployment_policy_id", continuous_deployment_policy_id)
+            pulumi.set(__self__, "continuous_deployment_policy_id", continuous_deployment_policy_id)
         if custom_error_responses is not None:
-            _setter("custom_error_responses", custom_error_responses)
+            pulumi.set(__self__, "custom_error_responses", custom_error_responses)
         if default_cache_behavior is not None:
-            _setter("default_cache_behavior", default_cache_behavior)
+            pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
         if default_root_object is not None:
-            _setter("default_root_object", default_root_object)
+            pulumi.set(__self__, "default_root_object", default_root_object)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if hosted_zone_id is not None:
-            _setter("hosted_zone_id", hosted_zone_id)
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         if http_version is not None:
-            _setter("http_version", http_version)
+            pulumi.set(__self__, "http_version", http_version)
         if in_progress_validation_batches is not None:
-            _setter("in_progress_validation_batches", in_progress_validation_batches)
+            pulumi.set(__self__, "in_progress_validation_batches", in_progress_validation_batches)
         if is_ipv6_enabled is not None:
-            _setter("is_ipv6_enabled", is_ipv6_enabled)
+            pulumi.set(__self__, "is_ipv6_enabled", is_ipv6_enabled)
         if last_modified_time is not None:
-            _setter("last_modified_time", last_modified_time)
+            pulumi.set(__self__, "last_modified_time", last_modified_time)
         if logging_config is not None:
-            _setter("logging_config", logging_config)
+            pulumi.set(__self__, "logging_config", logging_config)
         if ordered_cache_behaviors is not None:
-            _setter("ordered_cache_behaviors", ordered_cache_behaviors)
+            pulumi.set(__self__, "ordered_cache_behaviors", ordered_cache_behaviors)
         if origin_groups is not None:
-            _setter("origin_groups", origin_groups)
+            pulumi.set(__self__, "origin_groups", origin_groups)
         if origins is not None:
-            _setter("origins", origins)
+            pulumi.set(__self__, "origins", origins)
         if price_class is not None:
-            _setter("price_class", price_class)
+            pulumi.set(__self__, "price_class", price_class)
         if restrictions is not None:
-            _setter("restrictions", restrictions)
+            pulumi.set(__self__, "restrictions", restrictions)
         if retain_on_delete is not None:
-            _setter("retain_on_delete", retain_on_delete)
+            pulumi.set(__self__, "retain_on_delete", retain_on_delete)
         if staging is not None:
-            _setter("staging", staging)
+            pulumi.set(__self__, "staging", staging)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if trusted_key_groups is not None:
-            _setter("trusted_key_groups", trusted_key_groups)
+            pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
         if trusted_signers is not None:
-            _setter("trusted_signers", trusted_signers)
+            pulumi.set(__self__, "trusted_signers", trusted_signers)
         if viewer_certificate is not None:
-            _setter("viewer_certificate", viewer_certificate)
+            pulumi.set(__self__, "viewer_certificate", viewer_certificate)
         if wait_for_deployment is not None:
-            _setter("wait_for_deployment", wait_for_deployment)
+            pulumi.set(__self__, "wait_for_deployment", wait_for_deployment)
         if web_acl_id is not None:
-            _setter("web_acl_id", web_acl_id)
+            pulumi.set(__self__, "web_acl_id", web_acl_id)
 
     @property
     @pulumi.getter
@@ -1637,10 +1431,6 @@ class Distribution(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DistributionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1680,7 +1470,6 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["comment"] = comment
             __props__.__dict__["continuous_deployment_policy_id"] = continuous_deployment_policy_id
             __props__.__dict__["custom_error_responses"] = custom_error_responses
-            default_cache_behavior = _utilities.configure(default_cache_behavior, DistributionDefaultCacheBehaviorArgs, True)
             if default_cache_behavior is None and not opts.urn:
                 raise TypeError("Missing required property 'default_cache_behavior'")
             __props__.__dict__["default_cache_behavior"] = default_cache_behavior
@@ -1690,7 +1479,6 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["http_version"] = http_version
             __props__.__dict__["is_ipv6_enabled"] = is_ipv6_enabled
-            logging_config = _utilities.configure(logging_config, DistributionLoggingConfigArgs, True)
             __props__.__dict__["logging_config"] = logging_config
             __props__.__dict__["ordered_cache_behaviors"] = ordered_cache_behaviors
             __props__.__dict__["origin_groups"] = origin_groups
@@ -1698,14 +1486,12 @@ class Distribution(pulumi.CustomResource):
                 raise TypeError("Missing required property 'origins'")
             __props__.__dict__["origins"] = origins
             __props__.__dict__["price_class"] = price_class
-            restrictions = _utilities.configure(restrictions, DistributionRestrictionsArgs, True)
             if restrictions is None and not opts.urn:
                 raise TypeError("Missing required property 'restrictions'")
             __props__.__dict__["restrictions"] = restrictions
             __props__.__dict__["retain_on_delete"] = retain_on_delete
             __props__.__dict__["staging"] = staging
             __props__.__dict__["tags"] = tags
-            viewer_certificate = _utilities.configure(viewer_certificate, DistributionViewerCertificateArgs, True)
             if viewer_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'viewer_certificate'")
             __props__.__dict__["viewer_certificate"] = viewer_certificate

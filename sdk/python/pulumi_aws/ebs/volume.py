@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VolumeArgs', 'Volume']
@@ -43,76 +43,29 @@ class VolumeArgs:
                > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
-        VolumeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone=availability_zone,
-            encrypted=encrypted,
-            final_snapshot=final_snapshot,
-            iops=iops,
-            kms_key_id=kms_key_id,
-            multi_attach_enabled=multi_attach_enabled,
-            outpost_arn=outpost_arn,
-            size=size,
-            snapshot_id=snapshot_id,
-            tags=tags,
-            throughput=throughput,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             encrypted: Optional[pulumi.Input[bool]] = None,
-             final_snapshot: Optional[pulumi.Input[bool]] = None,
-             iops: Optional[pulumi.Input[int]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             multi_attach_enabled: Optional[pulumi.Input[bool]] = None,
-             outpost_arn: Optional[pulumi.Input[str]] = None,
-             size: Optional[pulumi.Input[int]] = None,
-             snapshot_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             throughput: Optional[pulumi.Input[int]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if availability_zone is None:
-            raise TypeError("Missing 'availability_zone' argument")
-        if final_snapshot is None and 'finalSnapshot' in kwargs:
-            final_snapshot = kwargs['finalSnapshot']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if multi_attach_enabled is None and 'multiAttachEnabled' in kwargs:
-            multi_attach_enabled = kwargs['multiAttachEnabled']
-        if outpost_arn is None and 'outpostArn' in kwargs:
-            outpost_arn = kwargs['outpostArn']
-        if snapshot_id is None and 'snapshotId' in kwargs:
-            snapshot_id = kwargs['snapshotId']
-
-        _setter("availability_zone", availability_zone)
+        pulumi.set(__self__, "availability_zone", availability_zone)
         if encrypted is not None:
-            _setter("encrypted", encrypted)
+            pulumi.set(__self__, "encrypted", encrypted)
         if final_snapshot is not None:
-            _setter("final_snapshot", final_snapshot)
+            pulumi.set(__self__, "final_snapshot", final_snapshot)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if multi_attach_enabled is not None:
-            _setter("multi_attach_enabled", multi_attach_enabled)
+            pulumi.set(__self__, "multi_attach_enabled", multi_attach_enabled)
         if outpost_arn is not None:
-            _setter("outpost_arn", outpost_arn)
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if snapshot_id is not None:
-            _setter("snapshot_id", snapshot_id)
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if throughput is not None:
-            _setter("throughput", throughput)
+            pulumi.set(__self__, "throughput", throughput)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -297,88 +250,37 @@ class _VolumeState:
                > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
-        _VolumeState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            availability_zone=availability_zone,
-            encrypted=encrypted,
-            final_snapshot=final_snapshot,
-            iops=iops,
-            kms_key_id=kms_key_id,
-            multi_attach_enabled=multi_attach_enabled,
-            outpost_arn=outpost_arn,
-            size=size,
-            snapshot_id=snapshot_id,
-            tags=tags,
-            tags_all=tags_all,
-            throughput=throughput,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             encrypted: Optional[pulumi.Input[bool]] = None,
-             final_snapshot: Optional[pulumi.Input[bool]] = None,
-             iops: Optional[pulumi.Input[int]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             multi_attach_enabled: Optional[pulumi.Input[bool]] = None,
-             outpost_arn: Optional[pulumi.Input[str]] = None,
-             size: Optional[pulumi.Input[int]] = None,
-             snapshot_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             throughput: Optional[pulumi.Input[int]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if final_snapshot is None and 'finalSnapshot' in kwargs:
-            final_snapshot = kwargs['finalSnapshot']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if multi_attach_enabled is None and 'multiAttachEnabled' in kwargs:
-            multi_attach_enabled = kwargs['multiAttachEnabled']
-        if outpost_arn is None and 'outpostArn' in kwargs:
-            outpost_arn = kwargs['outpostArn']
-        if snapshot_id is None and 'snapshotId' in kwargs:
-            snapshot_id = kwargs['snapshotId']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if encrypted is not None:
-            _setter("encrypted", encrypted)
+            pulumi.set(__self__, "encrypted", encrypted)
         if final_snapshot is not None:
-            _setter("final_snapshot", final_snapshot)
+            pulumi.set(__self__, "final_snapshot", final_snapshot)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if multi_attach_enabled is not None:
-            _setter("multi_attach_enabled", multi_attach_enabled)
+            pulumi.set(__self__, "multi_attach_enabled", multi_attach_enabled)
         if outpost_arn is not None:
-            _setter("outpost_arn", outpost_arn)
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if snapshot_id is not None:
-            _setter("snapshot_id", snapshot_id)
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput is not None:
-            _setter("throughput", throughput)
+            pulumi.set(__self__, "throughput", throughput)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -659,10 +561,6 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

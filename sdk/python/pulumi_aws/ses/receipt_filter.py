@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ReceiptFilterArgs', 'ReceiptFilter']
@@ -23,29 +23,10 @@ class ReceiptFilterArgs:
         :param pulumi.Input[str] policy: Block or Allow
         :param pulumi.Input[str] name: The name of the filter
         """
-        ReceiptFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr=cidr,
-            policy=policy,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cidr is None:
-            raise TypeError("Missing 'cidr' argument")
-        if policy is None:
-            raise TypeError("Missing 'policy' argument")
-
-        _setter("cidr", cidr)
-        _setter("policy", policy)
+        pulumi.set(__self__, "cidr", cidr)
+        pulumi.set(__self__, "policy", policy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -98,31 +79,14 @@ class _ReceiptFilterState:
         :param pulumi.Input[str] name: The name of the filter
         :param pulumi.Input[str] policy: Block or Allow
         """
-        _ReceiptFilterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            cidr=cidr,
-            name=name,
-            policy=policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             cidr: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if cidr is not None:
-            _setter("cidr", cidr)
+            pulumi.set(__self__, "cidr", cidr)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter
@@ -248,10 +212,6 @@ class ReceiptFilter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReceiptFilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

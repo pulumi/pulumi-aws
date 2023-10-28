@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,33 +28,14 @@ class VaultArgs:
         :param pulumi.Input['VaultNotificationArgs'] notification: The notifications for the Vault. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        VaultArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_policy=access_policy,
-            name=name,
-            notification=notification,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_policy: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notification: Optional[pulumi.Input['VaultNotificationArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_policy is None and 'accessPolicy' in kwargs:
-            access_policy = kwargs['accessPolicy']
-
         if access_policy is not None:
-            _setter("access_policy", access_policy)
+            pulumi.set(__self__, "access_policy", access_policy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notification is not None:
-            _setter("notification", notification)
+            pulumi.set(__self__, "notification", notification)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accessPolicy")
@@ -127,50 +108,23 @@ class _VaultState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _VaultState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_policy=access_policy,
-            arn=arn,
-            location=location,
-            name=name,
-            notification=notification,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_policy: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notification: Optional[pulumi.Input['VaultNotificationArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_policy is None and 'accessPolicy' in kwargs:
-            access_policy = kwargs['accessPolicy']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if access_policy is not None:
-            _setter("access_policy", access_policy)
+            pulumi.set(__self__, "access_policy", access_policy)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notification is not None:
-            _setter("notification", notification)
+            pulumi.set(__self__, "notification", notification)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accessPolicy")
@@ -389,10 +343,6 @@ class Vault(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VaultArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -413,7 +363,6 @@ class Vault(pulumi.CustomResource):
 
             __props__.__dict__["access_policy"] = access_policy
             __props__.__dict__["name"] = name
-            notification = _utilities.configure(notification, VaultNotificationArgs, True)
             __props__.__dict__["notification"] = notification
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -74,58 +74,19 @@ class ApplicationApplicationConfigurationArgs:
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationArgs'] sql_application_configuration: The configuration of a SQL-based application.
         :param pulumi.Input['ApplicationApplicationConfigurationVpcConfigurationArgs'] vpc_configuration: The VPC configuration of a Flink-based application.
         """
-        ApplicationApplicationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_code_configuration=application_code_configuration,
-            application_snapshot_configuration=application_snapshot_configuration,
-            environment_properties=environment_properties,
-            flink_application_configuration=flink_application_configuration,
-            run_configuration=run_configuration,
-            sql_application_configuration=sql_application_configuration,
-            vpc_configuration=vpc_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_code_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationArgs']] = None,
-             application_snapshot_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs']] = None,
-             environment_properties: Optional[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesArgs']] = None,
-             flink_application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs']] = None,
-             run_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationArgs']] = None,
-             sql_application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationArgs']] = None,
-             vpc_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_code_configuration is None and 'applicationCodeConfiguration' in kwargs:
-            application_code_configuration = kwargs['applicationCodeConfiguration']
-        if application_code_configuration is None:
-            raise TypeError("Missing 'application_code_configuration' argument")
-        if application_snapshot_configuration is None and 'applicationSnapshotConfiguration' in kwargs:
-            application_snapshot_configuration = kwargs['applicationSnapshotConfiguration']
-        if environment_properties is None and 'environmentProperties' in kwargs:
-            environment_properties = kwargs['environmentProperties']
-        if flink_application_configuration is None and 'flinkApplicationConfiguration' in kwargs:
-            flink_application_configuration = kwargs['flinkApplicationConfiguration']
-        if run_configuration is None and 'runConfiguration' in kwargs:
-            run_configuration = kwargs['runConfiguration']
-        if sql_application_configuration is None and 'sqlApplicationConfiguration' in kwargs:
-            sql_application_configuration = kwargs['sqlApplicationConfiguration']
-        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
-            vpc_configuration = kwargs['vpcConfiguration']
-
-        _setter("application_code_configuration", application_code_configuration)
+        pulumi.set(__self__, "application_code_configuration", application_code_configuration)
         if application_snapshot_configuration is not None:
-            _setter("application_snapshot_configuration", application_snapshot_configuration)
+            pulumi.set(__self__, "application_snapshot_configuration", application_snapshot_configuration)
         if environment_properties is not None:
-            _setter("environment_properties", environment_properties)
+            pulumi.set(__self__, "environment_properties", environment_properties)
         if flink_application_configuration is not None:
-            _setter("flink_application_configuration", flink_application_configuration)
+            pulumi.set(__self__, "flink_application_configuration", flink_application_configuration)
         if run_configuration is not None:
-            _setter("run_configuration", run_configuration)
+            pulumi.set(__self__, "run_configuration", run_configuration)
         if sql_application_configuration is not None:
-            _setter("sql_application_configuration", sql_application_configuration)
+            pulumi.set(__self__, "sql_application_configuration", sql_application_configuration)
         if vpc_configuration is not None:
-            _setter("vpc_configuration", vpc_configuration)
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="applicationCodeConfiguration")
@@ -221,28 +182,9 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationArgs:
         :param pulumi.Input[str] code_content_type: Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
         :param pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs'] code_content: The location and type of the application code.
         """
-        ApplicationApplicationConfigurationApplicationCodeConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            code_content_type=code_content_type,
-            code_content=code_content,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             code_content_type: Optional[pulumi.Input[str]] = None,
-             code_content: Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if code_content_type is None and 'codeContentType' in kwargs:
-            code_content_type = kwargs['codeContentType']
-        if code_content_type is None:
-            raise TypeError("Missing 'code_content_type' argument")
-        if code_content is None and 'codeContent' in kwargs:
-            code_content = kwargs['codeContent']
-
-        _setter("code_content_type", code_content_type)
+        pulumi.set(__self__, "code_content_type", code_content_type)
         if code_content is not None:
-            _setter("code_content", code_content)
+            pulumi.set(__self__, "code_content", code_content)
 
     @property
     @pulumi.getter(name="codeContentType")
@@ -280,27 +222,10 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
                
                The `s3_content_location` object supports the following:
         """
-        ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_content_location=s3_content_location,
-            text_content=text_content,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_content_location: Optional[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs']] = None,
-             text_content: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if s3_content_location is None and 's3ContentLocation' in kwargs:
-            s3_content_location = kwargs['s3ContentLocation']
-        if text_content is None and 'textContent' in kwargs:
-            text_content = kwargs['textContent']
-
         if s3_content_location is not None:
-            _setter("s3_content_location", s3_content_location)
+            pulumi.set(__self__, "s3_content_location", s3_content_location)
         if text_content is not None:
-            _setter("text_content", text_content)
+            pulumi.set(__self__, "text_content", text_content)
 
     @property
     @pulumi.getter(name="s3ContentLocation")
@@ -340,35 +265,10 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
         :param pulumi.Input[str] file_key: The file key for the object containing the application code.
         :param pulumi.Input[str] object_version: The version of the object containing the application code.
         """
-        ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            file_key=file_key,
-            object_version=object_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: Optional[pulumi.Input[str]] = None,
-             file_key: Optional[pulumi.Input[str]] = None,
-             object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket_arn is None and 'bucketArn' in kwargs:
-            bucket_arn = kwargs['bucketArn']
-        if bucket_arn is None:
-            raise TypeError("Missing 'bucket_arn' argument")
-        if file_key is None and 'fileKey' in kwargs:
-            file_key = kwargs['fileKey']
-        if file_key is None:
-            raise TypeError("Missing 'file_key' argument")
-        if object_version is None and 'objectVersion' in kwargs:
-            object_version = kwargs['objectVersion']
-
-        _setter("bucket_arn", bucket_arn)
-        _setter("file_key", file_key)
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "file_key", file_key)
         if object_version is not None:
-            _setter("object_version", object_version)
+            pulumi.set(__self__, "object_version", object_version)
 
     @property
     @pulumi.getter(name="bucketArn")
@@ -414,22 +314,7 @@ class ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs:
         """
         :param pulumi.Input[bool] snapshots_enabled: Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
         """
-        ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            snapshots_enabled=snapshots_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             snapshots_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if snapshots_enabled is None and 'snapshotsEnabled' in kwargs:
-            snapshots_enabled = kwargs['snapshotsEnabled']
-        if snapshots_enabled is None:
-            raise TypeError("Missing 'snapshots_enabled' argument")
-
-        _setter("snapshots_enabled", snapshots_enabled)
+        pulumi.set(__self__, "snapshots_enabled", snapshots_enabled)
 
     @property
     @pulumi.getter(name="snapshotsEnabled")
@@ -451,22 +336,7 @@ class ApplicationApplicationConfigurationEnvironmentPropertiesArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs']]] property_groups: Describes the execution property groups.
         """
-        ApplicationApplicationConfigurationEnvironmentPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            property_groups=property_groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             property_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if property_groups is None and 'propertyGroups' in kwargs:
-            property_groups = kwargs['propertyGroups']
-        if property_groups is None:
-            raise TypeError("Missing 'property_groups' argument")
-
-        _setter("property_groups", property_groups)
+        pulumi.set(__self__, "property_groups", property_groups)
 
     @property
     @pulumi.getter(name="propertyGroups")
@@ -490,29 +360,8 @@ class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs:
         :param pulumi.Input[str] property_group_id: The key of the application execution property key-value map.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] property_map: Application execution property key-value map.
         """
-        ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            property_group_id=property_group_id,
-            property_map=property_map,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             property_group_id: Optional[pulumi.Input[str]] = None,
-             property_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if property_group_id is None and 'propertyGroupId' in kwargs:
-            property_group_id = kwargs['propertyGroupId']
-        if property_group_id is None:
-            raise TypeError("Missing 'property_group_id' argument")
-        if property_map is None and 'propertyMap' in kwargs:
-            property_map = kwargs['propertyMap']
-        if property_map is None:
-            raise TypeError("Missing 'property_map' argument")
-
-        _setter("property_group_id", property_group_id)
-        _setter("property_map", property_map)
+        pulumi.set(__self__, "property_group_id", property_group_id)
+        pulumi.set(__self__, "property_map", property_map)
 
     @property
     @pulumi.getter(name="propertyGroupId")
@@ -550,33 +399,12 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs:
         :param pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs'] monitoring_configuration: Describes configuration parameters for CloudWatch logging for an application.
         :param pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs'] parallelism_configuration: Describes parameters for how an application executes multiple tasks simultaneously.
         """
-        ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            checkpoint_configuration=checkpoint_configuration,
-            monitoring_configuration=monitoring_configuration,
-            parallelism_configuration=parallelism_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             checkpoint_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs']] = None,
-             monitoring_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs']] = None,
-             parallelism_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if checkpoint_configuration is None and 'checkpointConfiguration' in kwargs:
-            checkpoint_configuration = kwargs['checkpointConfiguration']
-        if monitoring_configuration is None and 'monitoringConfiguration' in kwargs:
-            monitoring_configuration = kwargs['monitoringConfiguration']
-        if parallelism_configuration is None and 'parallelismConfiguration' in kwargs:
-            parallelism_configuration = kwargs['parallelismConfiguration']
-
         if checkpoint_configuration is not None:
-            _setter("checkpoint_configuration", checkpoint_configuration)
+            pulumi.set(__self__, "checkpoint_configuration", checkpoint_configuration)
         if monitoring_configuration is not None:
-            _setter("monitoring_configuration", monitoring_configuration)
+            pulumi.set(__self__, "monitoring_configuration", monitoring_configuration)
         if parallelism_configuration is not None:
-            _setter("parallelism_configuration", parallelism_configuration)
+            pulumi.set(__self__, "parallelism_configuration", parallelism_configuration)
 
     @property
     @pulumi.getter(name="checkpointConfiguration")
@@ -631,40 +459,13 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoint
         :param pulumi.Input[bool] checkpointing_enabled: Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input[int] min_pause_between_checkpoints: Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
         """
-        ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration_type=configuration_type,
-            checkpoint_interval=checkpoint_interval,
-            checkpointing_enabled=checkpointing_enabled,
-            min_pause_between_checkpoints=min_pause_between_checkpoints,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration_type: Optional[pulumi.Input[str]] = None,
-             checkpoint_interval: Optional[pulumi.Input[int]] = None,
-             checkpointing_enabled: Optional[pulumi.Input[bool]] = None,
-             min_pause_between_checkpoints: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if configuration_type is None and 'configurationType' in kwargs:
-            configuration_type = kwargs['configurationType']
-        if configuration_type is None:
-            raise TypeError("Missing 'configuration_type' argument")
-        if checkpoint_interval is None and 'checkpointInterval' in kwargs:
-            checkpoint_interval = kwargs['checkpointInterval']
-        if checkpointing_enabled is None and 'checkpointingEnabled' in kwargs:
-            checkpointing_enabled = kwargs['checkpointingEnabled']
-        if min_pause_between_checkpoints is None and 'minPauseBetweenCheckpoints' in kwargs:
-            min_pause_between_checkpoints = kwargs['minPauseBetweenCheckpoints']
-
-        _setter("configuration_type", configuration_type)
+        pulumi.set(__self__, "configuration_type", configuration_type)
         if checkpoint_interval is not None:
-            _setter("checkpoint_interval", checkpoint_interval)
+            pulumi.set(__self__, "checkpoint_interval", checkpoint_interval)
         if checkpointing_enabled is not None:
-            _setter("checkpointing_enabled", checkpointing_enabled)
+            pulumi.set(__self__, "checkpointing_enabled", checkpointing_enabled)
         if min_pause_between_checkpoints is not None:
-            _setter("min_pause_between_checkpoints", min_pause_between_checkpoints)
+            pulumi.set(__self__, "min_pause_between_checkpoints", min_pause_between_checkpoints)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -729,34 +530,11 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoring
         :param pulumi.Input[str] log_level: Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
         :param pulumi.Input[str] metrics_level: Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
         """
-        ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration_type=configuration_type,
-            log_level=log_level,
-            metrics_level=metrics_level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration_type: Optional[pulumi.Input[str]] = None,
-             log_level: Optional[pulumi.Input[str]] = None,
-             metrics_level: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if configuration_type is None and 'configurationType' in kwargs:
-            configuration_type = kwargs['configurationType']
-        if configuration_type is None:
-            raise TypeError("Missing 'configuration_type' argument")
-        if log_level is None and 'logLevel' in kwargs:
-            log_level = kwargs['logLevel']
-        if metrics_level is None and 'metricsLevel' in kwargs:
-            metrics_level = kwargs['metricsLevel']
-
-        _setter("configuration_type", configuration_type)
+        pulumi.set(__self__, "configuration_type", configuration_type)
         if log_level is not None:
-            _setter("log_level", log_level)
+            pulumi.set(__self__, "log_level", log_level)
         if metrics_level is not None:
-            _setter("metrics_level", metrics_level)
+            pulumi.set(__self__, "metrics_level", metrics_level)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -808,38 +586,13 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelis
         :param pulumi.Input[int] parallelism: Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
         :param pulumi.Input[int] parallelism_per_kpu: Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
         """
-        ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration_type=configuration_type,
-            auto_scaling_enabled=auto_scaling_enabled,
-            parallelism=parallelism,
-            parallelism_per_kpu=parallelism_per_kpu,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration_type: Optional[pulumi.Input[str]] = None,
-             auto_scaling_enabled: Optional[pulumi.Input[bool]] = None,
-             parallelism: Optional[pulumi.Input[int]] = None,
-             parallelism_per_kpu: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if configuration_type is None and 'configurationType' in kwargs:
-            configuration_type = kwargs['configurationType']
-        if configuration_type is None:
-            raise TypeError("Missing 'configuration_type' argument")
-        if auto_scaling_enabled is None and 'autoScalingEnabled' in kwargs:
-            auto_scaling_enabled = kwargs['autoScalingEnabled']
-        if parallelism_per_kpu is None and 'parallelismPerKpu' in kwargs:
-            parallelism_per_kpu = kwargs['parallelismPerKpu']
-
-        _setter("configuration_type", configuration_type)
+        pulumi.set(__self__, "configuration_type", configuration_type)
         if auto_scaling_enabled is not None:
-            _setter("auto_scaling_enabled", auto_scaling_enabled)
+            pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
         if parallelism is not None:
-            _setter("parallelism", parallelism)
+            pulumi.set(__self__, "parallelism", parallelism)
         if parallelism_per_kpu is not None:
-            _setter("parallelism_per_kpu", parallelism_per_kpu)
+            pulumi.set(__self__, "parallelism_per_kpu", parallelism_per_kpu)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -899,27 +652,10 @@ class ApplicationApplicationConfigurationRunConfigurationArgs:
         :param pulumi.Input['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs'] application_restore_configuration: The restore behavior of a restarting application.
         :param pulumi.Input['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs'] flink_run_configuration: The starting parameters for a Flink-based Kinesis Data Analytics application.
         """
-        ApplicationApplicationConfigurationRunConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_restore_configuration=application_restore_configuration,
-            flink_run_configuration=flink_run_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_restore_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs']] = None,
-             flink_run_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_restore_configuration is None and 'applicationRestoreConfiguration' in kwargs:
-            application_restore_configuration = kwargs['applicationRestoreConfiguration']
-        if flink_run_configuration is None and 'flinkRunConfiguration' in kwargs:
-            flink_run_configuration = kwargs['flinkRunConfiguration']
-
         if application_restore_configuration is not None:
-            _setter("application_restore_configuration", application_restore_configuration)
+            pulumi.set(__self__, "application_restore_configuration", application_restore_configuration)
         if flink_run_configuration is not None:
-            _setter("flink_run_configuration", flink_run_configuration)
+            pulumi.set(__self__, "flink_run_configuration", flink_run_configuration)
 
     @property
     @pulumi.getter(name="applicationRestoreConfiguration")
@@ -955,27 +691,10 @@ class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfi
         :param pulumi.Input[str] application_restore_type: Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
         :param pulumi.Input[str] snapshot_name: The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
         """
-        ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_restore_type=application_restore_type,
-            snapshot_name=snapshot_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_restore_type: Optional[pulumi.Input[str]] = None,
-             snapshot_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application_restore_type is None and 'applicationRestoreType' in kwargs:
-            application_restore_type = kwargs['applicationRestoreType']
-        if snapshot_name is None and 'snapshotName' in kwargs:
-            snapshot_name = kwargs['snapshotName']
-
         if application_restore_type is not None:
-            _setter("application_restore_type", application_restore_type)
+            pulumi.set(__self__, "application_restore_type", application_restore_type)
         if snapshot_name is not None:
-            _setter("snapshot_name", snapshot_name)
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
 
     @property
     @pulumi.getter(name="applicationRestoreType")
@@ -1009,21 +728,8 @@ class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationAr
         """
         :param pulumi.Input[bool] allow_non_restored_state: When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
         """
-        ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_non_restored_state=allow_non_restored_state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_non_restored_state: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_non_restored_state is None and 'allowNonRestoredState' in kwargs:
-            allow_non_restored_state = kwargs['allowNonRestoredState']
-
         if allow_non_restored_state is not None:
-            _setter("allow_non_restored_state", allow_non_restored_state)
+            pulumi.set(__self__, "allow_non_restored_state", allow_non_restored_state)
 
     @property
     @pulumi.getter(name="allowNonRestoredState")
@@ -1049,29 +755,12 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs']]] outputs: The destination streams used by the application.
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs'] reference_data_source: The reference data source used by the application.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input=input,
-            outputs=outputs,
-            reference_data_source=reference_data_source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs']] = None,
-             outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs']]]] = None,
-             reference_data_source: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if reference_data_source is None and 'referenceDataSource' in kwargs:
-            reference_data_source = kwargs['referenceDataSource']
-
         if input is not None:
-            _setter("input", input)
+            pulumi.set(__self__, "input", input)
         if outputs is not None:
-            _setter("outputs", outputs)
+            pulumi.set(__self__, "outputs", outputs)
         if reference_data_source is not None:
-            _setter("reference_data_source", reference_data_source)
+            pulumi.set(__self__, "reference_data_source", reference_data_source)
 
     @property
     @pulumi.getter
@@ -1132,71 +821,22 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs'] kinesis_firehose_input: If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs'] kinesis_streams_input: If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_schema=input_schema,
-            name_prefix=name_prefix,
-            in_app_stream_names=in_app_stream_names,
-            input_id=input_id,
-            input_parallelism=input_parallelism,
-            input_processing_configuration=input_processing_configuration,
-            input_starting_position_configurations=input_starting_position_configurations,
-            kinesis_firehose_input=kinesis_firehose_input,
-            kinesis_streams_input=kinesis_streams_input,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_schema: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs']] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             in_app_stream_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             input_id: Optional[pulumi.Input[str]] = None,
-             input_parallelism: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs']] = None,
-             input_processing_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs']] = None,
-             input_starting_position_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs']]]] = None,
-             kinesis_firehose_input: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs']] = None,
-             kinesis_streams_input: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if input_schema is None and 'inputSchema' in kwargs:
-            input_schema = kwargs['inputSchema']
-        if input_schema is None:
-            raise TypeError("Missing 'input_schema' argument")
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if name_prefix is None:
-            raise TypeError("Missing 'name_prefix' argument")
-        if in_app_stream_names is None and 'inAppStreamNames' in kwargs:
-            in_app_stream_names = kwargs['inAppStreamNames']
-        if input_id is None and 'inputId' in kwargs:
-            input_id = kwargs['inputId']
-        if input_parallelism is None and 'inputParallelism' in kwargs:
-            input_parallelism = kwargs['inputParallelism']
-        if input_processing_configuration is None and 'inputProcessingConfiguration' in kwargs:
-            input_processing_configuration = kwargs['inputProcessingConfiguration']
-        if input_starting_position_configurations is None and 'inputStartingPositionConfigurations' in kwargs:
-            input_starting_position_configurations = kwargs['inputStartingPositionConfigurations']
-        if kinesis_firehose_input is None and 'kinesisFirehoseInput' in kwargs:
-            kinesis_firehose_input = kwargs['kinesisFirehoseInput']
-        if kinesis_streams_input is None and 'kinesisStreamsInput' in kwargs:
-            kinesis_streams_input = kwargs['kinesisStreamsInput']
-
-        _setter("input_schema", input_schema)
-        _setter("name_prefix", name_prefix)
+        pulumi.set(__self__, "input_schema", input_schema)
+        pulumi.set(__self__, "name_prefix", name_prefix)
         if in_app_stream_names is not None:
-            _setter("in_app_stream_names", in_app_stream_names)
+            pulumi.set(__self__, "in_app_stream_names", in_app_stream_names)
         if input_id is not None:
-            _setter("input_id", input_id)
+            pulumi.set(__self__, "input_id", input_id)
         if input_parallelism is not None:
-            _setter("input_parallelism", input_parallelism)
+            pulumi.set(__self__, "input_parallelism", input_parallelism)
         if input_processing_configuration is not None:
-            _setter("input_processing_configuration", input_processing_configuration)
+            pulumi.set(__self__, "input_processing_configuration", input_processing_configuration)
         if input_starting_position_configurations is not None:
-            _setter("input_starting_position_configurations", input_starting_position_configurations)
+            pulumi.set(__self__, "input_starting_position_configurations", input_starting_position_configurations)
         if kinesis_firehose_input is not None:
-            _setter("kinesis_firehose_input", kinesis_firehose_input)
+            pulumi.set(__self__, "kinesis_firehose_input", kinesis_firehose_input)
         if kinesis_streams_input is not None:
-            _setter("kinesis_streams_input", kinesis_streams_input)
+            pulumi.set(__self__, "kinesis_streams_input", kinesis_streams_input)
 
     @property
     @pulumi.getter(name="inputSchema")
@@ -1309,19 +949,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPa
         """
         :param pulumi.Input[int] count: The number of in-application streams to create.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if count is not None:
-            _setter("count", count)
+            pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
@@ -1343,22 +972,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
         """
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs'] input_lambda_processor: Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_lambda_processor=input_lambda_processor,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_lambda_processor: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if input_lambda_processor is None and 'inputLambdaProcessor' in kwargs:
-            input_lambda_processor = kwargs['inputLambdaProcessor']
-        if input_lambda_processor is None:
-            raise TypeError("Missing 'input_lambda_processor' argument")
-
-        _setter("input_lambda_processor", input_lambda_processor)
+        pulumi.set(__self__, "input_lambda_processor", input_lambda_processor)
 
     @property
     @pulumi.getter(name="inputLambdaProcessor")
@@ -1380,22 +994,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
         """
         :param pulumi.Input[str] resource_arn: The ARN of the Lambda function that operates on records in the stream.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_arn is None and 'resourceArn' in kwargs:
-            resource_arn = kwargs['resourceArn']
-        if resource_arn is None:
-            raise TypeError("Missing 'resource_arn' argument")
-
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -1421,35 +1020,10 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs'] record_format: Specifies the format of the records on the streaming source.
         :param pulumi.Input[str] record_encoding: Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_columns=record_columns,
-            record_format=record_format,
-            record_encoding=record_encoding,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_columns: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs']]]] = None,
-             record_format: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs']] = None,
-             record_encoding: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if record_columns is None and 'recordColumns' in kwargs:
-            record_columns = kwargs['recordColumns']
-        if record_columns is None:
-            raise TypeError("Missing 'record_columns' argument")
-        if record_format is None and 'recordFormat' in kwargs:
-            record_format = kwargs['recordFormat']
-        if record_format is None:
-            raise TypeError("Missing 'record_format' argument")
-        if record_encoding is None and 'recordEncoding' in kwargs:
-            record_encoding = kwargs['recordEncoding']
-
-        _setter("record_columns", record_columns)
-        _setter("record_format", record_format)
+        pulumi.set(__self__, "record_columns", record_columns)
+        pulumi.set(__self__, "record_format", record_format)
         if record_encoding is not None:
-            _setter("record_encoding", record_encoding)
+            pulumi.set(__self__, "record_encoding", record_encoding)
 
     @property
     @pulumi.getter(name="recordColumns")
@@ -1499,31 +1073,10 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         :param pulumi.Input[str] sql_type: The type of column created in the in-application input stream or reference table.
         :param pulumi.Input[str] mapping: A reference to the data element in the streaming input or the reference data source.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            sql_type=sql_type,
-            mapping=mapping,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             sql_type: Optional[pulumi.Input[str]] = None,
-             mapping: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if sql_type is None and 'sqlType' in kwargs:
-            sql_type = kwargs['sqlType']
-        if sql_type is None:
-            raise TypeError("Missing 'sql_type' argument")
-
-        _setter("name", name)
-        _setter("sql_type", sql_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sql_type", sql_type)
         if mapping is not None:
-            _setter("mapping", mapping)
+            pulumi.set(__self__, "mapping", mapping)
 
     @property
     @pulumi.getter
@@ -1571,29 +1124,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs'] mapping_parameters: Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
         :param pulumi.Input[str] record_format_type: The type of record format. Valid values: `CSV`, `JSON`.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mapping_parameters=mapping_parameters,
-            record_format_type=record_format_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mapping_parameters: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs']] = None,
-             record_format_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mapping_parameters is None and 'mappingParameters' in kwargs:
-            mapping_parameters = kwargs['mappingParameters']
-        if mapping_parameters is None:
-            raise TypeError("Missing 'mapping_parameters' argument")
-        if record_format_type is None and 'recordFormatType' in kwargs:
-            record_format_type = kwargs['recordFormatType']
-        if record_format_type is None:
-            raise TypeError("Missing 'record_format_type' argument")
-
-        _setter("mapping_parameters", mapping_parameters)
-        _setter("record_format_type", record_format_type)
+        pulumi.set(__self__, "mapping_parameters", mapping_parameters)
+        pulumi.set(__self__, "record_format_type", record_format_type)
 
     @property
     @pulumi.getter(name="mappingParameters")
@@ -1629,27 +1161,10 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs'] csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs'] json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            csv_mapping_parameters=csv_mapping_parameters,
-            json_mapping_parameters=json_mapping_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             csv_mapping_parameters: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs']] = None,
-             json_mapping_parameters: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if csv_mapping_parameters is None and 'csvMappingParameters' in kwargs:
-            csv_mapping_parameters = kwargs['csvMappingParameters']
-        if json_mapping_parameters is None and 'jsonMappingParameters' in kwargs:
-            json_mapping_parameters = kwargs['jsonMappingParameters']
-
         if csv_mapping_parameters is not None:
-            _setter("csv_mapping_parameters", csv_mapping_parameters)
+            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
-            _setter("json_mapping_parameters", json_mapping_parameters)
+            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
 
     @property
     @pulumi.getter(name="csvMappingParameters")
@@ -1685,29 +1200,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         :param pulumi.Input[str] record_column_delimiter: The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
         :param pulumi.Input[str] record_row_delimiter: The row delimiter. For example, in a CSV format, `\\n` is the typical row delimiter.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_column_delimiter=record_column_delimiter,
-            record_row_delimiter=record_row_delimiter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_column_delimiter: Optional[pulumi.Input[str]] = None,
-             record_row_delimiter: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if record_column_delimiter is None and 'recordColumnDelimiter' in kwargs:
-            record_column_delimiter = kwargs['recordColumnDelimiter']
-        if record_column_delimiter is None:
-            raise TypeError("Missing 'record_column_delimiter' argument")
-        if record_row_delimiter is None and 'recordRowDelimiter' in kwargs:
-            record_row_delimiter = kwargs['recordRowDelimiter']
-        if record_row_delimiter is None:
-            raise TypeError("Missing 'record_row_delimiter' argument")
-
-        _setter("record_column_delimiter", record_column_delimiter)
-        _setter("record_row_delimiter", record_row_delimiter)
+        pulumi.set(__self__, "record_column_delimiter", record_column_delimiter)
+        pulumi.set(__self__, "record_row_delimiter", record_row_delimiter)
 
     @property
     @pulumi.getter(name="recordColumnDelimiter")
@@ -1741,22 +1235,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         """
         :param pulumi.Input[str] record_row_path: The path to the top-level parent that contains the records.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_row_path=record_row_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_row_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if record_row_path is None and 'recordRowPath' in kwargs:
-            record_row_path = kwargs['recordRowPath']
-        if record_row_path is None:
-            raise TypeError("Missing 'record_row_path' argument")
-
-        _setter("record_row_path", record_row_path)
+        pulumi.set(__self__, "record_row_path", record_row_path)
 
     @property
     @pulumi.getter(name="recordRowPath")
@@ -1778,21 +1257,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSt
         """
         :param pulumi.Input[str] input_starting_position: The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_starting_position=input_starting_position,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_starting_position: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if input_starting_position is None and 'inputStartingPosition' in kwargs:
-            input_starting_position = kwargs['inputStartingPosition']
-
         if input_starting_position is not None:
-            _setter("input_starting_position", input_starting_position)
+            pulumi.set(__self__, "input_starting_position", input_starting_position)
 
     @property
     @pulumi.getter(name="inputStartingPosition")
@@ -1814,22 +1280,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesis
         """
         :param pulumi.Input[str] resource_arn: The ARN of the delivery stream.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_arn is None and 'resourceArn' in kwargs:
-            resource_arn = kwargs['resourceArn']
-        if resource_arn is None:
-            raise TypeError("Missing 'resource_arn' argument")
-
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -1851,22 +1302,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesis
         """
         :param pulumi.Input[str] resource_arn: The ARN of the input Kinesis data stream to read.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_arn is None and 'resourceArn' in kwargs:
-            resource_arn = kwargs['resourceArn']
-        if resource_arn is None:
-            raise TypeError("Missing 'resource_arn' argument")
-
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -1897,51 +1333,16 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs:
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs'] kinesis_streams_output: Identifies a Kinesis data stream as the destination.
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs'] lambda_output: Identifies a Lambda function as the destination.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_schema=destination_schema,
-            name=name,
-            kinesis_firehose_output=kinesis_firehose_output,
-            kinesis_streams_output=kinesis_streams_output,
-            lambda_output=lambda_output,
-            output_id=output_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_schema: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             kinesis_firehose_output: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs']] = None,
-             kinesis_streams_output: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs']] = None,
-             lambda_output: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs']] = None,
-             output_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination_schema is None and 'destinationSchema' in kwargs:
-            destination_schema = kwargs['destinationSchema']
-        if destination_schema is None:
-            raise TypeError("Missing 'destination_schema' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if kinesis_firehose_output is None and 'kinesisFirehoseOutput' in kwargs:
-            kinesis_firehose_output = kwargs['kinesisFirehoseOutput']
-        if kinesis_streams_output is None and 'kinesisStreamsOutput' in kwargs:
-            kinesis_streams_output = kwargs['kinesisStreamsOutput']
-        if lambda_output is None and 'lambdaOutput' in kwargs:
-            lambda_output = kwargs['lambdaOutput']
-        if output_id is None and 'outputId' in kwargs:
-            output_id = kwargs['outputId']
-
-        _setter("destination_schema", destination_schema)
-        _setter("name", name)
+        pulumi.set(__self__, "destination_schema", destination_schema)
+        pulumi.set(__self__, "name", name)
         if kinesis_firehose_output is not None:
-            _setter("kinesis_firehose_output", kinesis_firehose_output)
+            pulumi.set(__self__, "kinesis_firehose_output", kinesis_firehose_output)
         if kinesis_streams_output is not None:
-            _setter("kinesis_streams_output", kinesis_streams_output)
+            pulumi.set(__self__, "kinesis_streams_output", kinesis_streams_output)
         if lambda_output is not None:
-            _setter("lambda_output", lambda_output)
+            pulumi.set(__self__, "lambda_output", lambda_output)
         if output_id is not None:
-            _setter("output_id", output_id)
+            pulumi.set(__self__, "output_id", output_id)
 
     @property
     @pulumi.getter(name="destinationSchema")
@@ -2020,22 +1421,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestin
         """
         :param pulumi.Input[str] record_format_type: Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_format_type=record_format_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_format_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if record_format_type is None and 'recordFormatType' in kwargs:
-            record_format_type = kwargs['recordFormatType']
-        if record_format_type is None:
-            raise TypeError("Missing 'record_format_type' argument")
-
-        _setter("record_format_type", record_format_type)
+        pulumi.set(__self__, "record_format_type", record_format_type)
 
     @property
     @pulumi.getter(name="recordFormatType")
@@ -2057,22 +1443,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesi
         """
         :param pulumi.Input[str] resource_arn: The ARN of the destination delivery stream to write to.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_arn is None and 'resourceArn' in kwargs:
-            resource_arn = kwargs['resourceArn']
-        if resource_arn is None:
-            raise TypeError("Missing 'resource_arn' argument")
-
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -2094,22 +1465,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesi
         """
         :param pulumi.Input[str] resource_arn: The ARN of the destination Kinesis data stream to write to.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_arn is None and 'resourceArn' in kwargs:
-            resource_arn = kwargs['resourceArn']
-        if resource_arn is None:
-            raise TypeError("Missing 'resource_arn' argument")
-
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -2131,22 +1487,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambda
         """
         :param pulumi.Input[str] resource_arn: The ARN of the destination Lambda function to write to.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_arn is None and 'resourceArn' in kwargs:
-            resource_arn = kwargs['resourceArn']
-        if resource_arn is None:
-            raise TypeError("Missing 'resource_arn' argument")
-
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -2173,42 +1514,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs'] s3_reference_data_source: Identifies the S3 bucket and object that contains the reference data.
         :param pulumi.Input[str] table_name: The name of the in-application table to create.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            reference_schema=reference_schema,
-            s3_reference_data_source=s3_reference_data_source,
-            table_name=table_name,
-            reference_id=reference_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             reference_schema: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs']] = None,
-             s3_reference_data_source: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs']] = None,
-             table_name: Optional[pulumi.Input[str]] = None,
-             reference_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if reference_schema is None and 'referenceSchema' in kwargs:
-            reference_schema = kwargs['referenceSchema']
-        if reference_schema is None:
-            raise TypeError("Missing 'reference_schema' argument")
-        if s3_reference_data_source is None and 's3ReferenceDataSource' in kwargs:
-            s3_reference_data_source = kwargs['s3ReferenceDataSource']
-        if s3_reference_data_source is None:
-            raise TypeError("Missing 's3_reference_data_source' argument")
-        if table_name is None and 'tableName' in kwargs:
-            table_name = kwargs['tableName']
-        if table_name is None:
-            raise TypeError("Missing 'table_name' argument")
-        if reference_id is None and 'referenceId' in kwargs:
-            reference_id = kwargs['referenceId']
-
-        _setter("reference_schema", reference_schema)
-        _setter("s3_reference_data_source", s3_reference_data_source)
-        _setter("table_name", table_name)
+        pulumi.set(__self__, "reference_schema", reference_schema)
+        pulumi.set(__self__, "s3_reference_data_source", s3_reference_data_source)
+        pulumi.set(__self__, "table_name", table_name)
         if reference_id is not None:
-            _setter("reference_id", reference_id)
+            pulumi.set(__self__, "reference_id", reference_id)
 
     @property
     @pulumi.getter(name="referenceSchema")
@@ -2269,35 +1579,10 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
                
                The `s3_reference_data_source` object supports the following:
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_columns=record_columns,
-            record_format=record_format,
-            record_encoding=record_encoding,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_columns: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs']]]] = None,
-             record_format: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs']] = None,
-             record_encoding: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if record_columns is None and 'recordColumns' in kwargs:
-            record_columns = kwargs['recordColumns']
-        if record_columns is None:
-            raise TypeError("Missing 'record_columns' argument")
-        if record_format is None and 'recordFormat' in kwargs:
-            record_format = kwargs['recordFormat']
-        if record_format is None:
-            raise TypeError("Missing 'record_format' argument")
-        if record_encoding is None and 'recordEncoding' in kwargs:
-            record_encoding = kwargs['recordEncoding']
-
-        _setter("record_columns", record_columns)
-        _setter("record_format", record_format)
+        pulumi.set(__self__, "record_columns", record_columns)
+        pulumi.set(__self__, "record_format", record_format)
         if record_encoding is not None:
-            _setter("record_encoding", record_encoding)
+            pulumi.set(__self__, "record_encoding", record_encoding)
 
     @property
     @pulumi.getter(name="recordColumns")
@@ -2349,31 +1634,10 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         :param pulumi.Input[str] sql_type: The type of column created in the in-application input stream or reference table.
         :param pulumi.Input[str] mapping: A reference to the data element in the streaming input or the reference data source.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            sql_type=sql_type,
-            mapping=mapping,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             sql_type: Optional[pulumi.Input[str]] = None,
-             mapping: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if sql_type is None and 'sqlType' in kwargs:
-            sql_type = kwargs['sqlType']
-        if sql_type is None:
-            raise TypeError("Missing 'sql_type' argument")
-
-        _setter("name", name)
-        _setter("sql_type", sql_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sql_type", sql_type)
         if mapping is not None:
-            _setter("mapping", mapping)
+            pulumi.set(__self__, "mapping", mapping)
 
     @property
     @pulumi.getter
@@ -2421,29 +1685,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs'] mapping_parameters: Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
         :param pulumi.Input[str] record_format_type: The type of record format. Valid values: `CSV`, `JSON`.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mapping_parameters=mapping_parameters,
-            record_format_type=record_format_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mapping_parameters: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs']] = None,
-             record_format_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mapping_parameters is None and 'mappingParameters' in kwargs:
-            mapping_parameters = kwargs['mappingParameters']
-        if mapping_parameters is None:
-            raise TypeError("Missing 'mapping_parameters' argument")
-        if record_format_type is None and 'recordFormatType' in kwargs:
-            record_format_type = kwargs['recordFormatType']
-        if record_format_type is None:
-            raise TypeError("Missing 'record_format_type' argument")
-
-        _setter("mapping_parameters", mapping_parameters)
-        _setter("record_format_type", record_format_type)
+        pulumi.set(__self__, "mapping_parameters", mapping_parameters)
+        pulumi.set(__self__, "record_format_type", record_format_type)
 
     @property
     @pulumi.getter(name="mappingParameters")
@@ -2479,27 +1722,10 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs'] csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
         :param pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs'] json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            csv_mapping_parameters=csv_mapping_parameters,
-            json_mapping_parameters=json_mapping_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             csv_mapping_parameters: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs']] = None,
-             json_mapping_parameters: Optional[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if csv_mapping_parameters is None and 'csvMappingParameters' in kwargs:
-            csv_mapping_parameters = kwargs['csvMappingParameters']
-        if json_mapping_parameters is None and 'jsonMappingParameters' in kwargs:
-            json_mapping_parameters = kwargs['jsonMappingParameters']
-
         if csv_mapping_parameters is not None:
-            _setter("csv_mapping_parameters", csv_mapping_parameters)
+            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
-            _setter("json_mapping_parameters", json_mapping_parameters)
+            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
 
     @property
     @pulumi.getter(name="csvMappingParameters")
@@ -2535,29 +1761,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         :param pulumi.Input[str] record_column_delimiter: The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
         :param pulumi.Input[str] record_row_delimiter: The row delimiter. For example, in a CSV format, `\\n` is the typical row delimiter.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_column_delimiter=record_column_delimiter,
-            record_row_delimiter=record_row_delimiter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_column_delimiter: Optional[pulumi.Input[str]] = None,
-             record_row_delimiter: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if record_column_delimiter is None and 'recordColumnDelimiter' in kwargs:
-            record_column_delimiter = kwargs['recordColumnDelimiter']
-        if record_column_delimiter is None:
-            raise TypeError("Missing 'record_column_delimiter' argument")
-        if record_row_delimiter is None and 'recordRowDelimiter' in kwargs:
-            record_row_delimiter = kwargs['recordRowDelimiter']
-        if record_row_delimiter is None:
-            raise TypeError("Missing 'record_row_delimiter' argument")
-
-        _setter("record_column_delimiter", record_column_delimiter)
-        _setter("record_row_delimiter", record_row_delimiter)
+        pulumi.set(__self__, "record_column_delimiter", record_column_delimiter)
+        pulumi.set(__self__, "record_row_delimiter", record_row_delimiter)
 
     @property
     @pulumi.getter(name="recordColumnDelimiter")
@@ -2591,22 +1796,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         """
         :param pulumi.Input[str] record_row_path: The path to the top-level parent that contains the records.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_row_path=record_row_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_row_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if record_row_path is None and 'recordRowPath' in kwargs:
-            record_row_path = kwargs['recordRowPath']
-        if record_row_path is None:
-            raise TypeError("Missing 'record_row_path' argument")
-
-        _setter("record_row_path", record_row_path)
+        pulumi.set(__self__, "record_row_path", record_row_path)
 
     @property
     @pulumi.getter(name="recordRowPath")
@@ -2630,29 +1820,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         :param pulumi.Input[str] bucket_arn: The ARN for the S3 bucket containing the application code.
         :param pulumi.Input[str] file_key: The file key for the object containing the application code.
         """
-        ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            file_key=file_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: Optional[pulumi.Input[str]] = None,
-             file_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket_arn is None and 'bucketArn' in kwargs:
-            bucket_arn = kwargs['bucketArn']
-        if bucket_arn is None:
-            raise TypeError("Missing 'bucket_arn' argument")
-        if file_key is None and 'fileKey' in kwargs:
-            file_key = kwargs['fileKey']
-        if file_key is None:
-            raise TypeError("Missing 'file_key' argument")
-
-        _setter("bucket_arn", bucket_arn)
-        _setter("file_key", file_key)
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "file_key", file_key)
 
     @property
     @pulumi.getter(name="bucketArn")
@@ -2690,41 +1859,12 @@ class ApplicationApplicationConfigurationVpcConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The Security Group IDs used by the VPC configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The Subnet IDs used by the VPC configuration.
         """
-        ApplicationApplicationConfigurationVpcConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-            vpc_configuration_id=vpc_configuration_id,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             vpc_configuration_id: Optional[pulumi.Input[str]] = None,
-             vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if security_group_ids is None:
-            raise TypeError("Missing 'security_group_ids' argument")
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-        if subnet_ids is None:
-            raise TypeError("Missing 'subnet_ids' argument")
-        if vpc_configuration_id is None and 'vpcConfigurationId' in kwargs:
-            vpc_configuration_id = kwargs['vpcConfigurationId']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnet_ids", subnet_ids)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_configuration_id is not None:
-            _setter("vpc_configuration_id", vpc_configuration_id)
+            pulumi.set(__self__, "vpc_configuration_id", vpc_configuration_id)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -2777,28 +1917,9 @@ class ApplicationCloudwatchLoggingOptionsArgs:
         """
         :param pulumi.Input[str] log_stream_arn: The ARN of the CloudWatch log stream to receive application messages.
         """
-        ApplicationCloudwatchLoggingOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_stream_arn=log_stream_arn,
-            cloudwatch_logging_option_id=cloudwatch_logging_option_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_stream_arn: Optional[pulumi.Input[str]] = None,
-             cloudwatch_logging_option_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if log_stream_arn is None and 'logStreamArn' in kwargs:
-            log_stream_arn = kwargs['logStreamArn']
-        if log_stream_arn is None:
-            raise TypeError("Missing 'log_stream_arn' argument")
-        if cloudwatch_logging_option_id is None and 'cloudwatchLoggingOptionId' in kwargs:
-            cloudwatch_logging_option_id = kwargs['cloudwatchLoggingOptionId']
-
-        _setter("log_stream_arn", log_stream_arn)
+        pulumi.set(__self__, "log_stream_arn", log_stream_arn)
         if cloudwatch_logging_option_id is not None:
-            _setter("cloudwatch_logging_option_id", cloudwatch_logging_option_id)
+            pulumi.set(__self__, "cloudwatch_logging_option_id", cloudwatch_logging_option_id)
 
     @property
     @pulumi.getter(name="logStreamArn")

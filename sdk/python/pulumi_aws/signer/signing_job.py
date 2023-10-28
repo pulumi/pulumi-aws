@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,38 +27,11 @@ class SigningJobArgs:
         :param pulumi.Input['SigningJobSourceArgs'] source: The S3 bucket that contains the object to sign. See Source below for details.
         :param pulumi.Input[bool] ignore_signing_job_failure: Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
         """
-        SigningJobArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            profile_name=profile_name,
-            source=source,
-            ignore_signing_job_failure=ignore_signing_job_failure,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[pulumi.Input['SigningJobDestinationArgs']] = None,
-             profile_name: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input['SigningJobSourceArgs']] = None,
-             ignore_signing_job_failure: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if profile_name is None and 'profileName' in kwargs:
-            profile_name = kwargs['profileName']
-        if profile_name is None:
-            raise TypeError("Missing 'profile_name' argument")
-        if source is None:
-            raise TypeError("Missing 'source' argument")
-        if ignore_signing_job_failure is None and 'ignoreSigningJobFailure' in kwargs:
-            ignore_signing_job_failure = kwargs['ignoreSigningJobFailure']
-
-        _setter("destination", destination)
-        _setter("profile_name", profile_name)
-        _setter("source", source)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "source", source)
         if ignore_signing_job_failure is not None:
-            _setter("ignore_signing_job_failure", ignore_signing_job_failure)
+            pulumi.set(__self__, "ignore_signing_job_failure", ignore_signing_job_failure)
 
     @property
     @pulumi.getter
@@ -151,117 +124,42 @@ class _SigningJobState:
         :param pulumi.Input[str] status: Status of the signing job.
         :param pulumi.Input[str] status_reason: String value that contains the status reason.
         """
-        _SigningJobState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            completed_at=completed_at,
-            created_at=created_at,
-            destination=destination,
-            ignore_signing_job_failure=ignore_signing_job_failure,
-            job_id=job_id,
-            job_invoker=job_invoker,
-            job_owner=job_owner,
-            platform_display_name=platform_display_name,
-            platform_id=platform_id,
-            profile_name=profile_name,
-            profile_version=profile_version,
-            requested_by=requested_by,
-            revocation_records=revocation_records,
-            signature_expires_at=signature_expires_at,
-            signed_objects=signed_objects,
-            source=source,
-            status=status,
-            status_reason=status_reason,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             completed_at: Optional[pulumi.Input[str]] = None,
-             created_at: Optional[pulumi.Input[str]] = None,
-             destination: Optional[pulumi.Input['SigningJobDestinationArgs']] = None,
-             ignore_signing_job_failure: Optional[pulumi.Input[bool]] = None,
-             job_id: Optional[pulumi.Input[str]] = None,
-             job_invoker: Optional[pulumi.Input[str]] = None,
-             job_owner: Optional[pulumi.Input[str]] = None,
-             platform_display_name: Optional[pulumi.Input[str]] = None,
-             platform_id: Optional[pulumi.Input[str]] = None,
-             profile_name: Optional[pulumi.Input[str]] = None,
-             profile_version: Optional[pulumi.Input[str]] = None,
-             requested_by: Optional[pulumi.Input[str]] = None,
-             revocation_records: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobRevocationRecordArgs']]]] = None,
-             signature_expires_at: Optional[pulumi.Input[str]] = None,
-             signed_objects: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectArgs']]]] = None,
-             source: Optional[pulumi.Input['SigningJobSourceArgs']] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             status_reason: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if completed_at is None and 'completedAt' in kwargs:
-            completed_at = kwargs['completedAt']
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if ignore_signing_job_failure is None and 'ignoreSigningJobFailure' in kwargs:
-            ignore_signing_job_failure = kwargs['ignoreSigningJobFailure']
-        if job_id is None and 'jobId' in kwargs:
-            job_id = kwargs['jobId']
-        if job_invoker is None and 'jobInvoker' in kwargs:
-            job_invoker = kwargs['jobInvoker']
-        if job_owner is None and 'jobOwner' in kwargs:
-            job_owner = kwargs['jobOwner']
-        if platform_display_name is None and 'platformDisplayName' in kwargs:
-            platform_display_name = kwargs['platformDisplayName']
-        if platform_id is None and 'platformId' in kwargs:
-            platform_id = kwargs['platformId']
-        if profile_name is None and 'profileName' in kwargs:
-            profile_name = kwargs['profileName']
-        if profile_version is None and 'profileVersion' in kwargs:
-            profile_version = kwargs['profileVersion']
-        if requested_by is None and 'requestedBy' in kwargs:
-            requested_by = kwargs['requestedBy']
-        if revocation_records is None and 'revocationRecords' in kwargs:
-            revocation_records = kwargs['revocationRecords']
-        if signature_expires_at is None and 'signatureExpiresAt' in kwargs:
-            signature_expires_at = kwargs['signatureExpiresAt']
-        if signed_objects is None and 'signedObjects' in kwargs:
-            signed_objects = kwargs['signedObjects']
-        if status_reason is None and 'statusReason' in kwargs:
-            status_reason = kwargs['statusReason']
-
         if completed_at is not None:
-            _setter("completed_at", completed_at)
+            pulumi.set(__self__, "completed_at", completed_at)
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if destination is not None:
-            _setter("destination", destination)
+            pulumi.set(__self__, "destination", destination)
         if ignore_signing_job_failure is not None:
-            _setter("ignore_signing_job_failure", ignore_signing_job_failure)
+            pulumi.set(__self__, "ignore_signing_job_failure", ignore_signing_job_failure)
         if job_id is not None:
-            _setter("job_id", job_id)
+            pulumi.set(__self__, "job_id", job_id)
         if job_invoker is not None:
-            _setter("job_invoker", job_invoker)
+            pulumi.set(__self__, "job_invoker", job_invoker)
         if job_owner is not None:
-            _setter("job_owner", job_owner)
+            pulumi.set(__self__, "job_owner", job_owner)
         if platform_display_name is not None:
-            _setter("platform_display_name", platform_display_name)
+            pulumi.set(__self__, "platform_display_name", platform_display_name)
         if platform_id is not None:
-            _setter("platform_id", platform_id)
+            pulumi.set(__self__, "platform_id", platform_id)
         if profile_name is not None:
-            _setter("profile_name", profile_name)
+            pulumi.set(__self__, "profile_name", profile_name)
         if profile_version is not None:
-            _setter("profile_version", profile_version)
+            pulumi.set(__self__, "profile_version", profile_version)
         if requested_by is not None:
-            _setter("requested_by", requested_by)
+            pulumi.set(__self__, "requested_by", requested_by)
         if revocation_records is not None:
-            _setter("revocation_records", revocation_records)
+            pulumi.set(__self__, "revocation_records", revocation_records)
         if signature_expires_at is not None:
-            _setter("signature_expires_at", signature_expires_at)
+            pulumi.set(__self__, "signature_expires_at", signature_expires_at)
         if signed_objects is not None:
-            _setter("signed_objects", signed_objects)
+            pulumi.set(__self__, "signed_objects", signed_objects)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if status_reason is not None:
-            _setter("status_reason", status_reason)
+            pulumi.set(__self__, "status_reason", status_reason)
 
     @property
     @pulumi.getter(name="completedAt")
@@ -585,10 +483,6 @@ class SigningJob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SigningJobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -607,7 +501,6 @@ class SigningJob(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SigningJobArgs.__new__(SigningJobArgs)
 
-            destination = _utilities.configure(destination, SigningJobDestinationArgs, True)
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination
@@ -615,7 +508,6 @@ class SigningJob(pulumi.CustomResource):
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__.__dict__["profile_name"] = profile_name
-            source = _utilities.configure(source, SigningJobSourceArgs, True)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

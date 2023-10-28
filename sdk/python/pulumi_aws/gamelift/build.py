@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,41 +29,14 @@ class BuildArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version: Version that is associated with this build.
         """
-        BuildArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            operating_system=operating_system,
-            storage_location=storage_location,
-            name=name,
-            tags=tags,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             operating_system: Optional[pulumi.Input[str]] = None,
-             storage_location: Optional[pulumi.Input['BuildStorageLocationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if operating_system is None and 'operatingSystem' in kwargs:
-            operating_system = kwargs['operatingSystem']
-        if operating_system is None:
-            raise TypeError("Missing 'operating_system' argument")
-        if storage_location is None and 'storageLocation' in kwargs:
-            storage_location = kwargs['storageLocation']
-        if storage_location is None:
-            raise TypeError("Missing 'storage_location' argument")
-
-        _setter("operating_system", operating_system)
-        _setter("storage_location", storage_location)
+        pulumi.set(__self__, "operating_system", operating_system)
+        pulumi.set(__self__, "storage_location", storage_location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="operatingSystem")
@@ -146,52 +119,23 @@ class _BuildState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: Version that is associated with this build.
         """
-        _BuildState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            name=name,
-            operating_system=operating_system,
-            storage_location=storage_location,
-            tags=tags,
-            tags_all=tags_all,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             operating_system: Optional[pulumi.Input[str]] = None,
-             storage_location: Optional[pulumi.Input['BuildStorageLocationArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if operating_system is None and 'operatingSystem' in kwargs:
-            operating_system = kwargs['operatingSystem']
-        if storage_location is None and 'storageLocation' in kwargs:
-            storage_location = kwargs['storageLocation']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if operating_system is not None:
-            _setter("operating_system", operating_system)
+            pulumi.set(__self__, "operating_system", operating_system)
         if storage_location is not None:
-            _setter("storage_location", storage_location)
+            pulumi.set(__self__, "storage_location", storage_location)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -368,10 +312,6 @@ class Build(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BuildArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -395,7 +335,6 @@ class Build(pulumi.CustomResource):
             if operating_system is None and not opts.urn:
                 raise TypeError("Missing required property 'operating_system'")
             __props__.__dict__["operating_system"] = operating_system
-            storage_location = _utilities.configure(storage_location, BuildStorageLocationArgs, True)
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -34,45 +34,18 @@ class ProductProvisioningArtifactParametersArgs:
         :param pulumi.Input[str] template_url: Template source as URL of the CloudFormation template in Amazon S3.
         :param pulumi.Input[str] type: Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         """
-        ProductProvisioningArtifactParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            disable_template_validation=disable_template_validation,
-            name=name,
-            template_physical_id=template_physical_id,
-            template_url=template_url,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             disable_template_validation: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             template_physical_id: Optional[pulumi.Input[str]] = None,
-             template_url: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if disable_template_validation is None and 'disableTemplateValidation' in kwargs:
-            disable_template_validation = kwargs['disableTemplateValidation']
-        if template_physical_id is None and 'templatePhysicalId' in kwargs:
-            template_physical_id = kwargs['templatePhysicalId']
-        if template_url is None and 'templateUrl' in kwargs:
-            template_url = kwargs['templateUrl']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if disable_template_validation is not None:
-            _setter("disable_template_validation", disable_template_validation)
+            pulumi.set(__self__, "disable_template_validation", disable_template_validation)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if template_physical_id is not None:
-            _setter("template_physical_id", template_physical_id)
+            pulumi.set(__self__, "template_physical_id", template_physical_id)
         if template_url is not None:
-            _setter("template_url", template_url)
+            pulumi.set(__self__, "template_url", template_url)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -158,27 +131,12 @@ class ProvisionedProductOutputArgs:
         :param pulumi.Input[str] key: Parameter key.
         :param pulumi.Input[str] value: Parameter value.
         """
-        ProvisionedProductOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -228,30 +186,11 @@ class ProvisionedProductProvisioningParameterArgs:
         :param pulumi.Input[bool] use_previous_value: Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
         :param pulumi.Input[str] value: Parameter value.
         """
-        ProvisionedProductProvisioningParameterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            use_previous_value=use_previous_value,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             use_previous_value: Optional[pulumi.Input[bool]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if use_previous_value is None and 'usePreviousValue' in kwargs:
-            use_previous_value = kwargs['usePreviousValue']
-
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
         if use_previous_value is not None:
-            _setter("use_previous_value", use_previous_value)
+            pulumi.set(__self__, "use_previous_value", use_previous_value)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -307,47 +246,18 @@ class ProvisionedProductStackSetProvisioningPreferencesArgs:
         :param pulumi.Input[int] max_concurrency_percentage: Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
         """
-        ProvisionedProductStackSetProvisioningPreferencesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            accounts=accounts,
-            failure_tolerance_count=failure_tolerance_count,
-            failure_tolerance_percentage=failure_tolerance_percentage,
-            max_concurrency_count=max_concurrency_count,
-            max_concurrency_percentage=max_concurrency_percentage,
-            regions=regions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             failure_tolerance_count: Optional[pulumi.Input[int]] = None,
-             failure_tolerance_percentage: Optional[pulumi.Input[int]] = None,
-             max_concurrency_count: Optional[pulumi.Input[int]] = None,
-             max_concurrency_percentage: Optional[pulumi.Input[int]] = None,
-             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if failure_tolerance_count is None and 'failureToleranceCount' in kwargs:
-            failure_tolerance_count = kwargs['failureToleranceCount']
-        if failure_tolerance_percentage is None and 'failureTolerancePercentage' in kwargs:
-            failure_tolerance_percentage = kwargs['failureTolerancePercentage']
-        if max_concurrency_count is None and 'maxConcurrencyCount' in kwargs:
-            max_concurrency_count = kwargs['maxConcurrencyCount']
-        if max_concurrency_percentage is None and 'maxConcurrencyPercentage' in kwargs:
-            max_concurrency_percentage = kwargs['maxConcurrencyPercentage']
-
         if accounts is not None:
-            _setter("accounts", accounts)
+            pulumi.set(__self__, "accounts", accounts)
         if failure_tolerance_count is not None:
-            _setter("failure_tolerance_count", failure_tolerance_count)
+            pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
-            _setter("failure_tolerance_percentage", failure_tolerance_percentage)
+            pulumi.set(__self__, "failure_tolerance_percentage", failure_tolerance_percentage)
         if max_concurrency_count is not None:
-            _setter("max_concurrency_count", max_concurrency_count)
+            pulumi.set(__self__, "max_concurrency_count", max_concurrency_count)
         if max_concurrency_percentage is not None:
-            _setter("max_concurrency_percentage", max_concurrency_percentage)
+            pulumi.set(__self__, "max_concurrency_percentage", max_concurrency_percentage)
         if regions is not None:
-            _setter("regions", regions)
+            pulumi.set(__self__, "regions", regions)
 
     @property
     @pulumi.getter
@@ -437,39 +347,14 @@ class ServiceActionDefinitionArgs:
         :param pulumi.Input[str] parameters: List of parameters in JSON format. For example: `[{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TARGET\\"}]` or `[{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TEXT_VALUE\\"}]`.
         :param pulumi.Input[str] type: Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
         """
-        ServiceActionDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            version=version,
-            assume_role=assume_role,
-            parameters=parameters,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             assume_role: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-        if assume_role is None and 'assumeRole' in kwargs:
-            assume_role = kwargs['assumeRole']
-
-        _setter("name", name)
-        _setter("version", version)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
         if assume_role is not None:
-            _setter("assume_role", assume_role)
+            pulumi.set(__self__, "assume_role", assume_role)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -27,23 +27,10 @@ class DevEnvironmentIdes(dict):
         :param str name: The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
         :param str runtime: A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
         """
-        DevEnvironmentIdes._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            runtime=runtime,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             runtime: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if runtime is not None:
-            _setter("runtime", runtime)
+            pulumi.set(__self__, "runtime", runtime)
 
     @property
     @pulumi.getter
@@ -69,20 +56,7 @@ class DevEnvironmentPersistentStorage(dict):
         """
         :param int size: The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
         """
-        DevEnvironmentPersistentStorage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size=size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if size is None:
-            raise TypeError("Missing 'size' argument")
-
-        _setter("size", size)
+        pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter
@@ -123,28 +97,9 @@ class DevEnvironmentRepository(dict):
                
                persistent storage (` persistent_storage`) supports the following:
         """
-        DevEnvironmentRepository._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repository_name=repository_name,
-            branch_name=branch_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repository_name: Optional[str] = None,
-             branch_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if repository_name is None and 'repositoryName' in kwargs:
-            repository_name = kwargs['repositoryName']
-        if repository_name is None:
-            raise TypeError("Missing 'repository_name' argument")
-        if branch_name is None and 'branchName' in kwargs:
-            branch_name = kwargs['branchName']
-
-        _setter("repository_name", repository_name)
+        pulumi.set(__self__, "repository_name", repository_name)
         if branch_name is not None:
-            _setter("branch_name", branch_name)
+            pulumi.set(__self__, "branch_name", branch_name)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -170,25 +125,8 @@ class GetDevEnvironmentIdeResult(dict):
     def __init__(__self__, *,
                  name: str,
                  runtime: str):
-        GetDevEnvironmentIdeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            runtime=runtime,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             runtime: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if runtime is None:
-            raise TypeError("Missing 'runtime' argument")
-
-        _setter("name", name)
-        _setter("runtime", runtime)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "runtime", runtime)
 
     @property
     @pulumi.getter
@@ -205,20 +143,7 @@ class GetDevEnvironmentIdeResult(dict):
 class GetDevEnvironmentPersistentStorageResult(dict):
     def __init__(__self__, *,
                  size: int):
-        GetDevEnvironmentPersistentStorageResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size=size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if size is None:
-            raise TypeError("Missing 'size' argument")
-
-        _setter("size", size)
+        pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter
@@ -231,29 +156,8 @@ class GetDevEnvironmentRepositoryResult(dict):
     def __init__(__self__, *,
                  branch_name: str,
                  repository_name: str):
-        GetDevEnvironmentRepositoryResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            branch_name=branch_name,
-            repository_name=repository_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             branch_name: Optional[str] = None,
-             repository_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if branch_name is None and 'branchName' in kwargs:
-            branch_name = kwargs['branchName']
-        if branch_name is None:
-            raise TypeError("Missing 'branch_name' argument")
-        if repository_name is None and 'repositoryName' in kwargs:
-            repository_name = kwargs['repositoryName']
-        if repository_name is None:
-            raise TypeError("Missing 'repository_name' argument")
-
-        _setter("branch_name", branch_name)
-        _setter("repository_name", repository_name)
+        pulumi.set(__self__, "branch_name", branch_name)
+        pulumi.set(__self__, "repository_name", repository_name)
 
     @property
     @pulumi.getter(name="branchName")

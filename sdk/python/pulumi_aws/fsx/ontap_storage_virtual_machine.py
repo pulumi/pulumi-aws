@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,48 +30,17 @@ class OntapStorageVirtualMachineArgs:
         :param pulumi.Input[str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        OntapStorageVirtualMachineArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file_system_id=file_system_id,
-            active_directory_configuration=active_directory_configuration,
-            name=name,
-            root_volume_security_style=root_volume_security_style,
-            svm_admin_password=svm_admin_password,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file_system_id: Optional[pulumi.Input[str]] = None,
-             active_directory_configuration: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             root_volume_security_style: Optional[pulumi.Input[str]] = None,
-             svm_admin_password: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if file_system_id is None and 'fileSystemId' in kwargs:
-            file_system_id = kwargs['fileSystemId']
-        if file_system_id is None:
-            raise TypeError("Missing 'file_system_id' argument")
-        if active_directory_configuration is None and 'activeDirectoryConfiguration' in kwargs:
-            active_directory_configuration = kwargs['activeDirectoryConfiguration']
-        if root_volume_security_style is None and 'rootVolumeSecurityStyle' in kwargs:
-            root_volume_security_style = kwargs['rootVolumeSecurityStyle']
-        if svm_admin_password is None and 'svmAdminPassword' in kwargs:
-            svm_admin_password = kwargs['svmAdminPassword']
-
-        _setter("file_system_id", file_system_id)
+        pulumi.set(__self__, "file_system_id", file_system_id)
         if active_directory_configuration is not None:
-            _setter("active_directory_configuration", active_directory_configuration)
+            pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if root_volume_security_style is not None:
-            _setter("root_volume_security_style", root_volume_security_style)
+            pulumi.set(__self__, "root_volume_security_style", root_volume_security_style)
         if svm_admin_password is not None:
-            _setter("svm_admin_password", svm_admin_password)
+            pulumi.set(__self__, "svm_admin_password", svm_admin_password)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -170,72 +139,31 @@ class _OntapStorageVirtualMachineState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] uuid: The SVM's UUID (universally unique identifier).
         """
-        _OntapStorageVirtualMachineState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active_directory_configuration=active_directory_configuration,
-            arn=arn,
-            endpoints=endpoints,
-            file_system_id=file_system_id,
-            name=name,
-            root_volume_security_style=root_volume_security_style,
-            subtype=subtype,
-            svm_admin_password=svm_admin_password,
-            tags=tags,
-            tags_all=tags_all,
-            uuid=uuid,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active_directory_configuration: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointArgs']]]] = None,
-             file_system_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             root_volume_security_style: Optional[pulumi.Input[str]] = None,
-             subtype: Optional[pulumi.Input[str]] = None,
-             svm_admin_password: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             uuid: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if active_directory_configuration is None and 'activeDirectoryConfiguration' in kwargs:
-            active_directory_configuration = kwargs['activeDirectoryConfiguration']
-        if file_system_id is None and 'fileSystemId' in kwargs:
-            file_system_id = kwargs['fileSystemId']
-        if root_volume_security_style is None and 'rootVolumeSecurityStyle' in kwargs:
-            root_volume_security_style = kwargs['rootVolumeSecurityStyle']
-        if svm_admin_password is None and 'svmAdminPassword' in kwargs:
-            svm_admin_password = kwargs['svmAdminPassword']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if active_directory_configuration is not None:
-            _setter("active_directory_configuration", active_directory_configuration)
+            pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if endpoints is not None:
-            _setter("endpoints", endpoints)
+            pulumi.set(__self__, "endpoints", endpoints)
         if file_system_id is not None:
-            _setter("file_system_id", file_system_id)
+            pulumi.set(__self__, "file_system_id", file_system_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if root_volume_security_style is not None:
-            _setter("root_volume_security_style", root_volume_security_style)
+            pulumi.set(__self__, "root_volume_security_style", root_volume_security_style)
         if subtype is not None:
-            _setter("subtype", subtype)
+            pulumi.set(__self__, "subtype", subtype)
         if svm_admin_password is not None:
-            _setter("svm_admin_password", svm_admin_password)
+            pulumi.set(__self__, "svm_admin_password", svm_admin_password)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if uuid is not None:
-            _setter("uuid", uuid)
+            pulumi.set(__self__, "uuid", uuid)
 
     @property
     @pulumi.getter(name="activeDirectoryConfiguration")
@@ -498,10 +426,6 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OntapStorageVirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -522,7 +446,6 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OntapStorageVirtualMachineArgs.__new__(OntapStorageVirtualMachineArgs)
 
-            active_directory_configuration = _utilities.configure(active_directory_configuration, OntapStorageVirtualMachineActiveDirectoryConfigurationArgs, True)
             __props__.__dict__["active_directory_configuration"] = active_directory_configuration
             if file_system_id is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_id'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,62 +39,23 @@ class AnalysisArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
-        AnalysisArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            analysis_id=analysis_id,
-            aws_account_id=aws_account_id,
-            name=name,
-            parameters=parameters,
-            permissions=permissions,
-            recovery_window_in_days=recovery_window_in_days,
-            source_entity=source_entity,
-            tags=tags,
-            theme_arn=theme_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             analysis_id: Optional[pulumi.Input[str]] = None,
-             aws_account_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPermissionArgs']]]] = None,
-             recovery_window_in_days: Optional[pulumi.Input[int]] = None,
-             source_entity: Optional[pulumi.Input['AnalysisSourceEntityArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             theme_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if analysis_id is None and 'analysisId' in kwargs:
-            analysis_id = kwargs['analysisId']
-        if analysis_id is None:
-            raise TypeError("Missing 'analysis_id' argument")
-        if aws_account_id is None and 'awsAccountId' in kwargs:
-            aws_account_id = kwargs['awsAccountId']
-        if recovery_window_in_days is None and 'recoveryWindowInDays' in kwargs:
-            recovery_window_in_days = kwargs['recoveryWindowInDays']
-        if source_entity is None and 'sourceEntity' in kwargs:
-            source_entity = kwargs['sourceEntity']
-        if theme_arn is None and 'themeArn' in kwargs:
-            theme_arn = kwargs['themeArn']
-
-        _setter("analysis_id", analysis_id)
+        pulumi.set(__self__, "analysis_id", analysis_id)
         if aws_account_id is not None:
-            _setter("aws_account_id", aws_account_id)
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if recovery_window_in_days is not None:
-            _setter("recovery_window_in_days", recovery_window_in_days)
+            pulumi.set(__self__, "recovery_window_in_days", recovery_window_in_days)
         if source_entity is not None:
-            _setter("source_entity", source_entity)
+            pulumi.set(__self__, "source_entity", source_entity)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if theme_arn is not None:
-            _setter("theme_arn", theme_arn)
+            pulumi.set(__self__, "theme_arn", theme_arn)
 
     @property
     @pulumi.getter(name="analysisId")
@@ -244,96 +205,39 @@ class _AnalysisState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
-        _AnalysisState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            analysis_id=analysis_id,
-            arn=arn,
-            aws_account_id=aws_account_id,
-            created_time=created_time,
-            last_published_time=last_published_time,
-            last_updated_time=last_updated_time,
-            name=name,
-            parameters=parameters,
-            permissions=permissions,
-            recovery_window_in_days=recovery_window_in_days,
-            source_entity=source_entity,
-            status=status,
-            tags=tags,
-            tags_all=tags_all,
-            theme_arn=theme_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             analysis_id: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             aws_account_id: Optional[pulumi.Input[str]] = None,
-             created_time: Optional[pulumi.Input[str]] = None,
-             last_published_time: Optional[pulumi.Input[str]] = None,
-             last_updated_time: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPermissionArgs']]]] = None,
-             recovery_window_in_days: Optional[pulumi.Input[int]] = None,
-             source_entity: Optional[pulumi.Input['AnalysisSourceEntityArgs']] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             theme_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if analysis_id is None and 'analysisId' in kwargs:
-            analysis_id = kwargs['analysisId']
-        if aws_account_id is None and 'awsAccountId' in kwargs:
-            aws_account_id = kwargs['awsAccountId']
-        if created_time is None and 'createdTime' in kwargs:
-            created_time = kwargs['createdTime']
-        if last_published_time is None and 'lastPublishedTime' in kwargs:
-            last_published_time = kwargs['lastPublishedTime']
-        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
-            last_updated_time = kwargs['lastUpdatedTime']
-        if recovery_window_in_days is None and 'recoveryWindowInDays' in kwargs:
-            recovery_window_in_days = kwargs['recoveryWindowInDays']
-        if source_entity is None and 'sourceEntity' in kwargs:
-            source_entity = kwargs['sourceEntity']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if theme_arn is None and 'themeArn' in kwargs:
-            theme_arn = kwargs['themeArn']
-
         if analysis_id is not None:
-            _setter("analysis_id", analysis_id)
+            pulumi.set(__self__, "analysis_id", analysis_id)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if aws_account_id is not None:
-            _setter("aws_account_id", aws_account_id)
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if last_published_time is not None:
-            _setter("last_published_time", last_published_time)
+            pulumi.set(__self__, "last_published_time", last_published_time)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if recovery_window_in_days is not None:
-            _setter("recovery_window_in_days", recovery_window_in_days)
+            pulumi.set(__self__, "recovery_window_in_days", recovery_window_in_days)
         if source_entity is not None:
-            _setter("source_entity", source_entity)
+            pulumi.set(__self__, "source_entity", source_entity)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if theme_arn is not None:
-            _setter("theme_arn", theme_arn)
+            pulumi.set(__self__, "theme_arn", theme_arn)
 
     @property
     @pulumi.getter(name="analysisId")
@@ -625,10 +529,6 @@ class Analysis(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AnalysisArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -657,11 +557,9 @@ class Analysis(pulumi.CustomResource):
             __props__.__dict__["analysis_id"] = analysis_id
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["name"] = name
-            parameters = _utilities.configure(parameters, AnalysisParametersArgs, True)
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["recovery_window_in_days"] = recovery_window_in_days
-            source_entity = _utilities.configure(source_entity, AnalysisSourceEntityArgs, True)
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["theme_arn"] = theme_arn

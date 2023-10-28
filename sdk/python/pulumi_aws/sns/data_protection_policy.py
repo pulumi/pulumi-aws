@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DataProtectionPolicyArgs', 'DataProtectionPolicy']
@@ -21,25 +21,8 @@ class DataProtectionPolicyArgs:
         :param pulumi.Input[str] arn: The ARN of the SNS topic
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
         """
-        DataProtectionPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            policy=policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arn is None:
-            raise TypeError("Missing 'arn' argument")
-        if policy is None:
-            raise TypeError("Missing 'policy' argument")
-
-        _setter("arn", arn)
-        _setter("policy", policy)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter
@@ -76,23 +59,10 @@ class _DataProtectionPolicyState:
         :param pulumi.Input[str] arn: The ARN of the SNS topic
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
         """
-        _DataProtectionPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            policy=policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter
@@ -222,10 +192,6 @@ class DataProtectionPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DataProtectionPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

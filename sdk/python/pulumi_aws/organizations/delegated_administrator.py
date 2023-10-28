@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DelegatedAdministratorArgs', 'DelegatedAdministrator']
@@ -21,29 +21,8 @@ class DelegatedAdministratorArgs:
         :param pulumi.Input[str] account_id: The account ID number of the member account in the organization to register as a delegated administrator.
         :param pulumi.Input[str] service_principal: The service principal of the AWS service for which you want to make the member account a delegated administrator.
         """
-        DelegatedAdministratorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            service_principal=service_principal,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             service_principal: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if account_id is None:
-            raise TypeError("Missing 'account_id' argument")
-        if service_principal is None and 'servicePrincipal' in kwargs:
-            service_principal = kwargs['servicePrincipal']
-        if service_principal is None:
-            raise TypeError("Missing 'service_principal' argument")
-
-        _setter("account_id", account_id)
-        _setter("service_principal", service_principal)
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "service_principal", service_principal)
 
     @property
     @pulumi.getter(name="accountId")
@@ -94,61 +73,24 @@ class _DelegatedAdministratorState:
         :param pulumi.Input[str] service_principal: The service principal of the AWS service for which you want to make the member account a delegated administrator.
         :param pulumi.Input[str] status: The status of the delegated administrator's account in the organization.
         """
-        _DelegatedAdministratorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            arn=arn,
-            delegation_enabled_date=delegation_enabled_date,
-            email=email,
-            joined_method=joined_method,
-            joined_timestamp=joined_timestamp,
-            name=name,
-            service_principal=service_principal,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             delegation_enabled_date: Optional[pulumi.Input[str]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             joined_method: Optional[pulumi.Input[str]] = None,
-             joined_timestamp: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             service_principal: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if delegation_enabled_date is None and 'delegationEnabledDate' in kwargs:
-            delegation_enabled_date = kwargs['delegationEnabledDate']
-        if joined_method is None and 'joinedMethod' in kwargs:
-            joined_method = kwargs['joinedMethod']
-        if joined_timestamp is None and 'joinedTimestamp' in kwargs:
-            joined_timestamp = kwargs['joinedTimestamp']
-        if service_principal is None and 'servicePrincipal' in kwargs:
-            service_principal = kwargs['servicePrincipal']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if delegation_enabled_date is not None:
-            _setter("delegation_enabled_date", delegation_enabled_date)
+            pulumi.set(__self__, "delegation_enabled_date", delegation_enabled_date)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if joined_method is not None:
-            _setter("joined_method", joined_method)
+            pulumi.set(__self__, "joined_method", joined_method)
         if joined_timestamp is not None:
-            _setter("joined_timestamp", joined_timestamp)
+            pulumi.set(__self__, "joined_timestamp", joined_timestamp)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if service_principal is not None:
-            _setter("service_principal", service_principal)
+            pulumi.set(__self__, "service_principal", service_principal)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="accountId")
@@ -332,10 +274,6 @@ class DelegatedAdministrator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DelegatedAdministratorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

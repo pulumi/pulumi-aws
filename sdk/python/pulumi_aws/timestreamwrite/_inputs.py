@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -27,27 +27,10 @@ class TableMagneticStoreWritePropertiesArgs:
         :param pulumi.Input[bool] enable_magnetic_store_writes: A flag to enable magnetic store writes.
         :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs'] magnetic_store_rejected_data_location: The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
         """
-        TableMagneticStoreWritePropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable_magnetic_store_writes=enable_magnetic_store_writes,
-            magnetic_store_rejected_data_location=magnetic_store_rejected_data_location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable_magnetic_store_writes: Optional[pulumi.Input[bool]] = None,
-             magnetic_store_rejected_data_location: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable_magnetic_store_writes is None and 'enableMagneticStoreWrites' in kwargs:
-            enable_magnetic_store_writes = kwargs['enableMagneticStoreWrites']
-        if magnetic_store_rejected_data_location is None and 'magneticStoreRejectedDataLocation' in kwargs:
-            magnetic_store_rejected_data_location = kwargs['magneticStoreRejectedDataLocation']
-
         if enable_magnetic_store_writes is not None:
-            _setter("enable_magnetic_store_writes", enable_magnetic_store_writes)
+            pulumi.set(__self__, "enable_magnetic_store_writes", enable_magnetic_store_writes)
         if magnetic_store_rejected_data_location is not None:
-            _setter("magnetic_store_rejected_data_location", magnetic_store_rejected_data_location)
+            pulumi.set(__self__, "magnetic_store_rejected_data_location", magnetic_store_rejected_data_location)
 
     @property
     @pulumi.getter(name="enableMagneticStoreWrites")
@@ -81,21 +64,8 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs:
         """
         :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs'] s3_configuration: Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
         """
-        TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_configuration=s3_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_configuration: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if s3_configuration is None and 's3Configuration' in kwargs:
-            s3_configuration = kwargs['s3Configuration']
-
         if s3_configuration is not None:
-            _setter("s3_configuration", s3_configuration)
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
 
     @property
     @pulumi.getter(name="s3Configuration")
@@ -123,39 +93,14 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
         :param pulumi.Input[str] kms_key_id: KMS key arn for the customer s3 location when encrypting with a KMS managed key.
         :param pulumi.Input[str] object_key_prefix: Object key prefix for the customer S3 location.
         """
-        TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            encryption_option=encryption_option,
-            kms_key_id=kms_key_id,
-            object_key_prefix=object_key_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: Optional[pulumi.Input[str]] = None,
-             encryption_option: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             object_key_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket_name is None and 'bucketName' in kwargs:
-            bucket_name = kwargs['bucketName']
-        if encryption_option is None and 'encryptionOption' in kwargs:
-            encryption_option = kwargs['encryptionOption']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if object_key_prefix is None and 'objectKeyPrefix' in kwargs:
-            object_key_prefix = kwargs['objectKeyPrefix']
-
         if bucket_name is not None:
-            _setter("bucket_name", bucket_name)
+            pulumi.set(__self__, "bucket_name", bucket_name)
         if encryption_option is not None:
-            _setter("encryption_option", encryption_option)
+            pulumi.set(__self__, "encryption_option", encryption_option)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if object_key_prefix is not None:
-            _setter("object_key_prefix", object_key_prefix)
+            pulumi.set(__self__, "object_key_prefix", object_key_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -215,29 +160,8 @@ class TableRetentionPropertiesArgs:
         :param pulumi.Input[int] magnetic_store_retention_period_in_days: The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
         :param pulumi.Input[int] memory_store_retention_period_in_hours: The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
         """
-        TableRetentionPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            magnetic_store_retention_period_in_days=magnetic_store_retention_period_in_days,
-            memory_store_retention_period_in_hours=memory_store_retention_period_in_hours,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             magnetic_store_retention_period_in_days: Optional[pulumi.Input[int]] = None,
-             memory_store_retention_period_in_hours: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if magnetic_store_retention_period_in_days is None and 'magneticStoreRetentionPeriodInDays' in kwargs:
-            magnetic_store_retention_period_in_days = kwargs['magneticStoreRetentionPeriodInDays']
-        if magnetic_store_retention_period_in_days is None:
-            raise TypeError("Missing 'magnetic_store_retention_period_in_days' argument")
-        if memory_store_retention_period_in_hours is None and 'memoryStoreRetentionPeriodInHours' in kwargs:
-            memory_store_retention_period_in_hours = kwargs['memoryStoreRetentionPeriodInHours']
-        if memory_store_retention_period_in_hours is None:
-            raise TypeError("Missing 'memory_store_retention_period_in_hours' argument")
-
-        _setter("magnetic_store_retention_period_in_days", magnetic_store_retention_period_in_days)
-        _setter("memory_store_retention_period_in_hours", memory_store_retention_period_in_hours)
+        pulumi.set(__self__, "magnetic_store_retention_period_in_days", magnetic_store_retention_period_in_days)
+        pulumi.set(__self__, "memory_store_retention_period_in_hours", memory_store_retention_period_in_hours)
 
     @property
     @pulumi.getter(name="magneticStoreRetentionPeriodInDays")
@@ -271,21 +195,8 @@ class TableSchemaArgs:
         """
         :param pulumi.Input['TableSchemaCompositePartitionKeyArgs'] composite_partition_key: A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
         """
-        TableSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            composite_partition_key=composite_partition_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             composite_partition_key: Optional[pulumi.Input['TableSchemaCompositePartitionKeyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if composite_partition_key is None and 'compositePartitionKey' in kwargs:
-            composite_partition_key = kwargs['compositePartitionKey']
-
         if composite_partition_key is not None:
-            _setter("composite_partition_key", composite_partition_key)
+            pulumi.set(__self__, "composite_partition_key", composite_partition_key)
 
     @property
     @pulumi.getter(name="compositePartitionKey")
@@ -311,30 +222,11 @@ class TableSchemaCompositePartitionKeyArgs:
         :param pulumi.Input[str] enforcement_in_record: The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
         :param pulumi.Input[str] name: The name of the attribute used for a dimension key.
         """
-        TableSchemaCompositePartitionKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            enforcement_in_record=enforcement_in_record,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[pulumi.Input[str]] = None,
-             enforcement_in_record: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if enforcement_in_record is None and 'enforcementInRecord' in kwargs:
-            enforcement_in_record = kwargs['enforcementInRecord']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if enforcement_in_record is not None:
-            _setter("enforcement_in_record", enforcement_in_record)
+            pulumi.set(__self__, "enforcement_in_record", enforcement_in_record)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter

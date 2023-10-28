@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ComponentArgs', 'Component']
@@ -43,69 +43,26 @@ class ComponentArgs:
                
                > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         """
-        ComponentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            platform=platform,
-            version=version,
-            change_description=change_description,
-            data=data,
-            description=description,
-            kms_key_id=kms_key_id,
-            name=name,
-            skip_destroy=skip_destroy,
-            supported_os_versions=supported_os_versions,
-            tags=tags,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             platform: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             change_description: Optional[pulumi.Input[str]] = None,
-             data: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             skip_destroy: Optional[pulumi.Input[bool]] = None,
-             supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if platform is None:
-            raise TypeError("Missing 'platform' argument")
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-        if change_description is None and 'changeDescription' in kwargs:
-            change_description = kwargs['changeDescription']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if skip_destroy is None and 'skipDestroy' in kwargs:
-            skip_destroy = kwargs['skipDestroy']
-        if supported_os_versions is None and 'supportedOsVersions' in kwargs:
-            supported_os_versions = kwargs['supportedOsVersions']
-
-        _setter("platform", platform)
-        _setter("version", version)
+        pulumi.set(__self__, "platform", platform)
+        pulumi.set(__self__, "version", version)
         if change_description is not None:
-            _setter("change_description", change_description)
+            pulumi.set(__self__, "change_description", change_description)
         if data is not None:
-            _setter("data", data)
+            pulumi.set(__self__, "data", data)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if skip_destroy is not None:
-            _setter("skip_destroy", skip_destroy)
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if supported_os_versions is not None:
-            _setter("supported_os_versions", supported_os_versions)
+            pulumi.set(__self__, "supported_os_versions", supported_os_versions)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
@@ -288,98 +245,43 @@ class _ComponentState:
                
                The following attributes are optional:
         """
-        _ComponentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            change_description=change_description,
-            data=data,
-            date_created=date_created,
-            description=description,
-            encrypted=encrypted,
-            kms_key_id=kms_key_id,
-            name=name,
-            owner=owner,
-            platform=platform,
-            skip_destroy=skip_destroy,
-            supported_os_versions=supported_os_versions,
-            tags=tags,
-            tags_all=tags_all,
-            type=type,
-            uri=uri,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             change_description: Optional[pulumi.Input[str]] = None,
-             data: Optional[pulumi.Input[str]] = None,
-             date_created: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             encrypted: Optional[pulumi.Input[bool]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner: Optional[pulumi.Input[str]] = None,
-             platform: Optional[pulumi.Input[str]] = None,
-             skip_destroy: Optional[pulumi.Input[bool]] = None,
-             supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             uri: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if change_description is None and 'changeDescription' in kwargs:
-            change_description = kwargs['changeDescription']
-        if date_created is None and 'dateCreated' in kwargs:
-            date_created = kwargs['dateCreated']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if skip_destroy is None and 'skipDestroy' in kwargs:
-            skip_destroy = kwargs['skipDestroy']
-        if supported_os_versions is None and 'supportedOsVersions' in kwargs:
-            supported_os_versions = kwargs['supportedOsVersions']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if change_description is not None:
-            _setter("change_description", change_description)
+            pulumi.set(__self__, "change_description", change_description)
         if data is not None:
-            _setter("data", data)
+            pulumi.set(__self__, "data", data)
         if date_created is not None:
-            _setter("date_created", date_created)
+            pulumi.set(__self__, "date_created", date_created)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if encrypted is not None:
-            _setter("encrypted", encrypted)
+            pulumi.set(__self__, "encrypted", encrypted)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner is not None:
-            _setter("owner", owner)
+            pulumi.set(__self__, "owner", owner)
         if platform is not None:
-            _setter("platform", platform)
+            pulumi.set(__self__, "platform", platform)
         if skip_destroy is not None:
-            _setter("skip_destroy", skip_destroy)
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if supported_os_versions is not None:
-            _setter("supported_os_versions", supported_os_versions)
+            pulumi.set(__self__, "supported_os_versions", supported_os_versions)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -694,10 +596,6 @@ class Component(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ComponentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

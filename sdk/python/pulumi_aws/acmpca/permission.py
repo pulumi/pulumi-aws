@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PermissionArgs', 'Permission']
@@ -25,38 +25,11 @@ class PermissionArgs:
         :param pulumi.Input[str] principal: AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
         :param pulumi.Input[str] source_account: ID of the calling account
         """
-        PermissionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            certificate_authority_arn=certificate_authority_arn,
-            principal=principal,
-            source_account=source_account,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
-             principal: Optional[pulumi.Input[str]] = None,
-             source_account: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if certificate_authority_arn is None and 'certificateAuthorityArn' in kwargs:
-            certificate_authority_arn = kwargs['certificateAuthorityArn']
-        if certificate_authority_arn is None:
-            raise TypeError("Missing 'certificate_authority_arn' argument")
-        if principal is None:
-            raise TypeError("Missing 'principal' argument")
-        if source_account is None and 'sourceAccount' in kwargs:
-            source_account = kwargs['sourceAccount']
-
-        _setter("actions", actions)
-        _setter("certificate_authority_arn", certificate_authority_arn)
-        _setter("principal", principal)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        pulumi.set(__self__, "principal", principal)
         if source_account is not None:
-            _setter("source_account", source_account)
+            pulumi.set(__self__, "source_account", source_account)
 
     @property
     @pulumi.getter
@@ -123,39 +96,16 @@ class _PermissionState:
         :param pulumi.Input[str] principal: AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
         :param pulumi.Input[str] source_account: ID of the calling account
         """
-        _PermissionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            certificate_authority_arn=certificate_authority_arn,
-            policy=policy,
-            principal=principal,
-            source_account=source_account,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             principal: Optional[pulumi.Input[str]] = None,
-             source_account: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_authority_arn is None and 'certificateAuthorityArn' in kwargs:
-            certificate_authority_arn = kwargs['certificateAuthorityArn']
-        if source_account is None and 'sourceAccount' in kwargs:
-            source_account = kwargs['sourceAccount']
-
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if certificate_authority_arn is not None:
-            _setter("certificate_authority_arn", certificate_authority_arn)
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if principal is not None:
-            _setter("principal", principal)
+            pulumi.set(__self__, "principal", principal)
         if source_account is not None:
-            _setter("source_account", source_account)
+            pulumi.set(__self__, "source_account", source_account)
 
     @property
     @pulumi.getter
@@ -305,10 +255,6 @@ class Permission(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PermissionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

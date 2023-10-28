@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TableItemArgs', 'TableItem']
@@ -25,40 +25,11 @@ class TableItemArgs:
         :param pulumi.Input[str] table_name: Name of the table to contain the item.
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         """
-        TableItemArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hash_key=hash_key,
-            item=item,
-            table_name=table_name,
-            range_key=range_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hash_key: Optional[pulumi.Input[str]] = None,
-             item: Optional[pulumi.Input[str]] = None,
-             table_name: Optional[pulumi.Input[str]] = None,
-             range_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hash_key is None and 'hashKey' in kwargs:
-            hash_key = kwargs['hashKey']
-        if hash_key is None:
-            raise TypeError("Missing 'hash_key' argument")
-        if item is None:
-            raise TypeError("Missing 'item' argument")
-        if table_name is None and 'tableName' in kwargs:
-            table_name = kwargs['tableName']
-        if table_name is None:
-            raise TypeError("Missing 'table_name' argument")
-        if range_key is None and 'rangeKey' in kwargs:
-            range_key = kwargs['rangeKey']
-
-        _setter("hash_key", hash_key)
-        _setter("item", item)
-        _setter("table_name", table_name)
+        pulumi.set(__self__, "hash_key", hash_key)
+        pulumi.set(__self__, "item", item)
+        pulumi.set(__self__, "table_name", table_name)
         if range_key is not None:
-            _setter("range_key", range_key)
+            pulumi.set(__self__, "range_key", range_key)
 
     @property
     @pulumi.getter(name="hashKey")
@@ -123,37 +94,14 @@ class _TableItemState:
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         :param pulumi.Input[str] table_name: Name of the table to contain the item.
         """
-        _TableItemState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hash_key=hash_key,
-            item=item,
-            range_key=range_key,
-            table_name=table_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hash_key: Optional[pulumi.Input[str]] = None,
-             item: Optional[pulumi.Input[str]] = None,
-             range_key: Optional[pulumi.Input[str]] = None,
-             table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hash_key is None and 'hashKey' in kwargs:
-            hash_key = kwargs['hashKey']
-        if range_key is None and 'rangeKey' in kwargs:
-            range_key = kwargs['rangeKey']
-        if table_name is None and 'tableName' in kwargs:
-            table_name = kwargs['tableName']
-
         if hash_key is not None:
-            _setter("hash_key", hash_key)
+            pulumi.set(__self__, "hash_key", hash_key)
         if item is not None:
-            _setter("item", item)
+            pulumi.set(__self__, "item", item)
         if range_key is not None:
-            _setter("range_key", range_key)
+            pulumi.set(__self__, "range_key", range_key)
         if table_name is not None:
-            _setter("table_name", table_name)
+            pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="hashKey")
@@ -311,10 +259,6 @@ class TableItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TableItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

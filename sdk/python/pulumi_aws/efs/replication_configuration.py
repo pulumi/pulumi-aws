@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,27 +23,8 @@ class ReplicationConfigurationArgs:
         :param pulumi.Input['ReplicationConfigurationDestinationArgs'] destination: A destination configuration block (documented below).
         :param pulumi.Input[str] source_file_system_id: The ID of the file system that is to be replicated.
         """
-        ReplicationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            source_file_system_id=source_file_system_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[pulumi.Input['ReplicationConfigurationDestinationArgs']] = None,
-             source_file_system_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if source_file_system_id is None and 'sourceFileSystemId' in kwargs:
-            source_file_system_id = kwargs['sourceFileSystemId']
-        if source_file_system_id is None:
-            raise TypeError("Missing 'source_file_system_id' argument")
-
-        _setter("destination", destination)
-        _setter("source_file_system_id", source_file_system_id)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "source_file_system_id", source_file_system_id)
 
     @property
     @pulumi.getter
@@ -90,49 +71,18 @@ class _ReplicationConfigurationState:
                * `destination[0].file_system_id` - The fs ID of the replica.
                * `destination[0].status` - The status of the replication.
         """
-        _ReplicationConfigurationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            creation_time=creation_time,
-            destination=destination,
-            original_source_file_system_arn=original_source_file_system_arn,
-            source_file_system_arn=source_file_system_arn,
-            source_file_system_id=source_file_system_id,
-            source_file_system_region=source_file_system_region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             creation_time: Optional[pulumi.Input[str]] = None,
-             destination: Optional[pulumi.Input['ReplicationConfigurationDestinationArgs']] = None,
-             original_source_file_system_arn: Optional[pulumi.Input[str]] = None,
-             source_file_system_arn: Optional[pulumi.Input[str]] = None,
-             source_file_system_id: Optional[pulumi.Input[str]] = None,
-             source_file_system_region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if creation_time is None and 'creationTime' in kwargs:
-            creation_time = kwargs['creationTime']
-        if original_source_file_system_arn is None and 'originalSourceFileSystemArn' in kwargs:
-            original_source_file_system_arn = kwargs['originalSourceFileSystemArn']
-        if source_file_system_arn is None and 'sourceFileSystemArn' in kwargs:
-            source_file_system_arn = kwargs['sourceFileSystemArn']
-        if source_file_system_id is None and 'sourceFileSystemId' in kwargs:
-            source_file_system_id = kwargs['sourceFileSystemId']
-        if source_file_system_region is None and 'sourceFileSystemRegion' in kwargs:
-            source_file_system_region = kwargs['sourceFileSystemRegion']
-
         if creation_time is not None:
-            _setter("creation_time", creation_time)
+            pulumi.set(__self__, "creation_time", creation_time)
         if destination is not None:
-            _setter("destination", destination)
+            pulumi.set(__self__, "destination", destination)
         if original_source_file_system_arn is not None:
-            _setter("original_source_file_system_arn", original_source_file_system_arn)
+            pulumi.set(__self__, "original_source_file_system_arn", original_source_file_system_arn)
         if source_file_system_arn is not None:
-            _setter("source_file_system_arn", source_file_system_arn)
+            pulumi.set(__self__, "source_file_system_arn", source_file_system_arn)
         if source_file_system_id is not None:
-            _setter("source_file_system_id", source_file_system_id)
+            pulumi.set(__self__, "source_file_system_id", source_file_system_id)
         if source_file_system_region is not None:
-            _setter("source_file_system_region", source_file_system_region)
+            pulumi.set(__self__, "source_file_system_region", source_file_system_region)
 
     @property
     @pulumi.getter(name="creationTime")
@@ -326,10 +276,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReplicationConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -346,7 +292,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationConfigurationArgs.__new__(ReplicationConfigurationArgs)
 
-            destination = _utilities.configure(destination, ReplicationConfigurationDestinationArgs, True)
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination

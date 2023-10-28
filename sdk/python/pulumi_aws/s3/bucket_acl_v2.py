@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,36 +27,13 @@ class BucketAclV2Args:
         :param pulumi.Input[str] acl: Canned ACL to apply to the bucket.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
-        BucketAclV2Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            access_control_policy=access_control_policy,
-            acl=acl,
-            expected_bucket_owner=expected_bucket_owner,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[pulumi.Input[str]] = None,
-             access_control_policy: Optional[pulumi.Input['BucketAclV2AccessControlPolicyArgs']] = None,
-             acl: Optional[pulumi.Input[str]] = None,
-             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket is None:
-            raise TypeError("Missing 'bucket' argument")
-        if access_control_policy is None and 'accessControlPolicy' in kwargs:
-            access_control_policy = kwargs['accessControlPolicy']
-        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
-            expected_bucket_owner = kwargs['expectedBucketOwner']
-
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if access_control_policy is not None:
-            _setter("access_control_policy", access_control_policy)
+            pulumi.set(__self__, "access_control_policy", access_control_policy)
         if acl is not None:
-            _setter("acl", acl)
+            pulumi.set(__self__, "acl", acl)
         if expected_bucket_owner is not None:
-            _setter("expected_bucket_owner", expected_bucket_owner)
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
 
     @property
     @pulumi.getter
@@ -121,35 +98,14 @@ class _BucketAclV2State:
         :param pulumi.Input[str] bucket: Name of the bucket.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
-        _BucketAclV2State._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_control_policy=access_control_policy,
-            acl=acl,
-            bucket=bucket,
-            expected_bucket_owner=expected_bucket_owner,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_control_policy: Optional[pulumi.Input['BucketAclV2AccessControlPolicyArgs']] = None,
-             acl: Optional[pulumi.Input[str]] = None,
-             bucket: Optional[pulumi.Input[str]] = None,
-             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_control_policy is None and 'accessControlPolicy' in kwargs:
-            access_control_policy = kwargs['accessControlPolicy']
-        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
-            expected_bucket_owner = kwargs['expectedBucketOwner']
-
         if access_control_policy is not None:
-            _setter("access_control_policy", access_control_policy)
+            pulumi.set(__self__, "access_control_policy", access_control_policy)
         if acl is not None:
-            _setter("acl", acl)
+            pulumi.set(__self__, "acl", acl)
         if bucket is not None:
-            _setter("bucket", bucket)
+            pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
-            _setter("expected_bucket_owner", expected_bucket_owner)
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
 
     @property
     @pulumi.getter(name="accessControlPolicy")
@@ -477,10 +433,6 @@ class BucketAclV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BucketAclV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -499,7 +451,6 @@ class BucketAclV2(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BucketAclV2Args.__new__(BucketAclV2Args)
 
-            access_control_policy = _utilities.configure(access_control_policy, BucketAclV2AccessControlPolicyArgs, True)
             __props__.__dict__["access_control_policy"] = access_control_policy
             __props__.__dict__["acl"] = acl
             if bucket is None and not opts.urn:

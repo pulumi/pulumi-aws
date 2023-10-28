@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,123 +59,46 @@ class ServerArgs:
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
-        ServerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate=certificate,
-            directory_id=directory_id,
-            domain=domain,
-            endpoint_details=endpoint_details,
-            endpoint_type=endpoint_type,
-            force_destroy=force_destroy,
-            function=function,
-            host_key=host_key,
-            identity_provider_type=identity_provider_type,
-            invocation_role=invocation_role,
-            logging_role=logging_role,
-            post_authentication_login_banner=post_authentication_login_banner,
-            pre_authentication_login_banner=pre_authentication_login_banner,
-            protocol_details=protocol_details,
-            protocols=protocols,
-            security_policy_name=security_policy_name,
-            structured_log_destinations=structured_log_destinations,
-            tags=tags,
-            url=url,
-            workflow_details=workflow_details,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate: Optional[pulumi.Input[str]] = None,
-             directory_id: Optional[pulumi.Input[str]] = None,
-             domain: Optional[pulumi.Input[str]] = None,
-             endpoint_details: Optional[pulumi.Input['ServerEndpointDetailsArgs']] = None,
-             endpoint_type: Optional[pulumi.Input[str]] = None,
-             force_destroy: Optional[pulumi.Input[bool]] = None,
-             function: Optional[pulumi.Input[str]] = None,
-             host_key: Optional[pulumi.Input[str]] = None,
-             identity_provider_type: Optional[pulumi.Input[str]] = None,
-             invocation_role: Optional[pulumi.Input[str]] = None,
-             logging_role: Optional[pulumi.Input[str]] = None,
-             post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
-             pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
-             protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
-             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_policy_name: Optional[pulumi.Input[str]] = None,
-             structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if directory_id is None and 'directoryId' in kwargs:
-            directory_id = kwargs['directoryId']
-        if endpoint_details is None and 'endpointDetails' in kwargs:
-            endpoint_details = kwargs['endpointDetails']
-        if endpoint_type is None and 'endpointType' in kwargs:
-            endpoint_type = kwargs['endpointType']
-        if force_destroy is None and 'forceDestroy' in kwargs:
-            force_destroy = kwargs['forceDestroy']
-        if host_key is None and 'hostKey' in kwargs:
-            host_key = kwargs['hostKey']
-        if identity_provider_type is None and 'identityProviderType' in kwargs:
-            identity_provider_type = kwargs['identityProviderType']
-        if invocation_role is None and 'invocationRole' in kwargs:
-            invocation_role = kwargs['invocationRole']
-        if logging_role is None and 'loggingRole' in kwargs:
-            logging_role = kwargs['loggingRole']
-        if post_authentication_login_banner is None and 'postAuthenticationLoginBanner' in kwargs:
-            post_authentication_login_banner = kwargs['postAuthenticationLoginBanner']
-        if pre_authentication_login_banner is None and 'preAuthenticationLoginBanner' in kwargs:
-            pre_authentication_login_banner = kwargs['preAuthenticationLoginBanner']
-        if protocol_details is None and 'protocolDetails' in kwargs:
-            protocol_details = kwargs['protocolDetails']
-        if security_policy_name is None and 'securityPolicyName' in kwargs:
-            security_policy_name = kwargs['securityPolicyName']
-        if structured_log_destinations is None and 'structuredLogDestinations' in kwargs:
-            structured_log_destinations = kwargs['structuredLogDestinations']
-        if workflow_details is None and 'workflowDetails' in kwargs:
-            workflow_details = kwargs['workflowDetails']
-
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if directory_id is not None:
-            _setter("directory_id", directory_id)
+            pulumi.set(__self__, "directory_id", directory_id)
         if domain is not None:
-            _setter("domain", domain)
+            pulumi.set(__self__, "domain", domain)
         if endpoint_details is not None:
-            _setter("endpoint_details", endpoint_details)
+            pulumi.set(__self__, "endpoint_details", endpoint_details)
         if endpoint_type is not None:
-            _setter("endpoint_type", endpoint_type)
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
         if force_destroy is not None:
-            _setter("force_destroy", force_destroy)
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if function is not None:
-            _setter("function", function)
+            pulumi.set(__self__, "function", function)
         if host_key is not None:
-            _setter("host_key", host_key)
+            pulumi.set(__self__, "host_key", host_key)
         if identity_provider_type is not None:
-            _setter("identity_provider_type", identity_provider_type)
+            pulumi.set(__self__, "identity_provider_type", identity_provider_type)
         if invocation_role is not None:
-            _setter("invocation_role", invocation_role)
+            pulumi.set(__self__, "invocation_role", invocation_role)
         if logging_role is not None:
-            _setter("logging_role", logging_role)
+            pulumi.set(__self__, "logging_role", logging_role)
         if post_authentication_login_banner is not None:
-            _setter("post_authentication_login_banner", post_authentication_login_banner)
+            pulumi.set(__self__, "post_authentication_login_banner", post_authentication_login_banner)
         if pre_authentication_login_banner is not None:
-            _setter("pre_authentication_login_banner", pre_authentication_login_banner)
+            pulumi.set(__self__, "pre_authentication_login_banner", pre_authentication_login_banner)
         if protocol_details is not None:
-            _setter("protocol_details", protocol_details)
+            pulumi.set(__self__, "protocol_details", protocol_details)
         if protocols is not None:
-            _setter("protocols", protocols)
+            pulumi.set(__self__, "protocols", protocols)
         if security_policy_name is not None:
-            _setter("security_policy_name", security_policy_name)
+            pulumi.set(__self__, "security_policy_name", security_policy_name)
         if structured_log_destinations is not None:
-            _setter("structured_log_destinations", structured_log_destinations)
+            pulumi.set(__self__, "structured_log_destinations", structured_log_destinations)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
         if workflow_details is not None:
-            _setter("workflow_details", workflow_details)
+            pulumi.set(__self__, "workflow_details", workflow_details)
 
     @property
     @pulumi.getter
@@ -472,146 +395,57 @@ class _ServerState:
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
-        _ServerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            certificate=certificate,
-            directory_id=directory_id,
-            domain=domain,
-            endpoint=endpoint,
-            endpoint_details=endpoint_details,
-            endpoint_type=endpoint_type,
-            force_destroy=force_destroy,
-            function=function,
-            host_key=host_key,
-            host_key_fingerprint=host_key_fingerprint,
-            identity_provider_type=identity_provider_type,
-            invocation_role=invocation_role,
-            logging_role=logging_role,
-            post_authentication_login_banner=post_authentication_login_banner,
-            pre_authentication_login_banner=pre_authentication_login_banner,
-            protocol_details=protocol_details,
-            protocols=protocols,
-            security_policy_name=security_policy_name,
-            structured_log_destinations=structured_log_destinations,
-            tags=tags,
-            tags_all=tags_all,
-            url=url,
-            workflow_details=workflow_details,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             certificate: Optional[pulumi.Input[str]] = None,
-             directory_id: Optional[pulumi.Input[str]] = None,
-             domain: Optional[pulumi.Input[str]] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             endpoint_details: Optional[pulumi.Input['ServerEndpointDetailsArgs']] = None,
-             endpoint_type: Optional[pulumi.Input[str]] = None,
-             force_destroy: Optional[pulumi.Input[bool]] = None,
-             function: Optional[pulumi.Input[str]] = None,
-             host_key: Optional[pulumi.Input[str]] = None,
-             host_key_fingerprint: Optional[pulumi.Input[str]] = None,
-             identity_provider_type: Optional[pulumi.Input[str]] = None,
-             invocation_role: Optional[pulumi.Input[str]] = None,
-             logging_role: Optional[pulumi.Input[str]] = None,
-             post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
-             pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
-             protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
-             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_policy_name: Optional[pulumi.Input[str]] = None,
-             structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if directory_id is None and 'directoryId' in kwargs:
-            directory_id = kwargs['directoryId']
-        if endpoint_details is None and 'endpointDetails' in kwargs:
-            endpoint_details = kwargs['endpointDetails']
-        if endpoint_type is None and 'endpointType' in kwargs:
-            endpoint_type = kwargs['endpointType']
-        if force_destroy is None and 'forceDestroy' in kwargs:
-            force_destroy = kwargs['forceDestroy']
-        if host_key is None and 'hostKey' in kwargs:
-            host_key = kwargs['hostKey']
-        if host_key_fingerprint is None and 'hostKeyFingerprint' in kwargs:
-            host_key_fingerprint = kwargs['hostKeyFingerprint']
-        if identity_provider_type is None and 'identityProviderType' in kwargs:
-            identity_provider_type = kwargs['identityProviderType']
-        if invocation_role is None and 'invocationRole' in kwargs:
-            invocation_role = kwargs['invocationRole']
-        if logging_role is None and 'loggingRole' in kwargs:
-            logging_role = kwargs['loggingRole']
-        if post_authentication_login_banner is None and 'postAuthenticationLoginBanner' in kwargs:
-            post_authentication_login_banner = kwargs['postAuthenticationLoginBanner']
-        if pre_authentication_login_banner is None and 'preAuthenticationLoginBanner' in kwargs:
-            pre_authentication_login_banner = kwargs['preAuthenticationLoginBanner']
-        if protocol_details is None and 'protocolDetails' in kwargs:
-            protocol_details = kwargs['protocolDetails']
-        if security_policy_name is None and 'securityPolicyName' in kwargs:
-            security_policy_name = kwargs['securityPolicyName']
-        if structured_log_destinations is None and 'structuredLogDestinations' in kwargs:
-            structured_log_destinations = kwargs['structuredLogDestinations']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if workflow_details is None and 'workflowDetails' in kwargs:
-            workflow_details = kwargs['workflowDetails']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if directory_id is not None:
-            _setter("directory_id", directory_id)
+            pulumi.set(__self__, "directory_id", directory_id)
         if domain is not None:
-            _setter("domain", domain)
+            pulumi.set(__self__, "domain", domain)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if endpoint_details is not None:
-            _setter("endpoint_details", endpoint_details)
+            pulumi.set(__self__, "endpoint_details", endpoint_details)
         if endpoint_type is not None:
-            _setter("endpoint_type", endpoint_type)
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
         if force_destroy is not None:
-            _setter("force_destroy", force_destroy)
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if function is not None:
-            _setter("function", function)
+            pulumi.set(__self__, "function", function)
         if host_key is not None:
-            _setter("host_key", host_key)
+            pulumi.set(__self__, "host_key", host_key)
         if host_key_fingerprint is not None:
-            _setter("host_key_fingerprint", host_key_fingerprint)
+            pulumi.set(__self__, "host_key_fingerprint", host_key_fingerprint)
         if identity_provider_type is not None:
-            _setter("identity_provider_type", identity_provider_type)
+            pulumi.set(__self__, "identity_provider_type", identity_provider_type)
         if invocation_role is not None:
-            _setter("invocation_role", invocation_role)
+            pulumi.set(__self__, "invocation_role", invocation_role)
         if logging_role is not None:
-            _setter("logging_role", logging_role)
+            pulumi.set(__self__, "logging_role", logging_role)
         if post_authentication_login_banner is not None:
-            _setter("post_authentication_login_banner", post_authentication_login_banner)
+            pulumi.set(__self__, "post_authentication_login_banner", post_authentication_login_banner)
         if pre_authentication_login_banner is not None:
-            _setter("pre_authentication_login_banner", pre_authentication_login_banner)
+            pulumi.set(__self__, "pre_authentication_login_banner", pre_authentication_login_banner)
         if protocol_details is not None:
-            _setter("protocol_details", protocol_details)
+            pulumi.set(__self__, "protocol_details", protocol_details)
         if protocols is not None:
-            _setter("protocols", protocols)
+            pulumi.set(__self__, "protocols", protocols)
         if security_policy_name is not None:
-            _setter("security_policy_name", security_policy_name)
+            pulumi.set(__self__, "security_policy_name", security_policy_name)
         if structured_log_destinations is not None:
-            _setter("structured_log_destinations", structured_log_destinations)
+            pulumi.set(__self__, "structured_log_destinations", structured_log_destinations)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
         if workflow_details is not None:
-            _setter("workflow_details", workflow_details)
+            pulumi.set(__self__, "workflow_details", workflow_details)
 
     @property
     @pulumi.getter
@@ -1200,10 +1034,6 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1241,7 +1071,6 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["certificate"] = certificate
             __props__.__dict__["directory_id"] = directory_id
             __props__.__dict__["domain"] = domain
-            endpoint_details = _utilities.configure(endpoint_details, ServerEndpointDetailsArgs, True)
             __props__.__dict__["endpoint_details"] = endpoint_details
             __props__.__dict__["endpoint_type"] = endpoint_type
             __props__.__dict__["force_destroy"] = force_destroy
@@ -1252,14 +1081,12 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["logging_role"] = logging_role
             __props__.__dict__["post_authentication_login_banner"] = None if post_authentication_login_banner is None else pulumi.Output.secret(post_authentication_login_banner)
             __props__.__dict__["pre_authentication_login_banner"] = None if pre_authentication_login_banner is None else pulumi.Output.secret(pre_authentication_login_banner)
-            protocol_details = _utilities.configure(protocol_details, ServerProtocolDetailsArgs, True)
             __props__.__dict__["protocol_details"] = protocol_details
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["structured_log_destinations"] = structured_log_destinations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["url"] = url
-            workflow_details = _utilities.configure(workflow_details, ServerWorkflowDetailsArgs, True)
             __props__.__dict__["workflow_details"] = workflow_details
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None

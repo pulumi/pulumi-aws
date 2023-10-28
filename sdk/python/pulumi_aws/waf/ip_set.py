@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,25 +23,10 @@ class IpSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         :param pulumi.Input[str] name: The name or description of the IPSet.
         """
-        IpSetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_set_descriptors=ip_set_descriptors,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_set_descriptors is None and 'ipSetDescriptors' in kwargs:
-            ip_set_descriptors = kwargs['ipSetDescriptors']
-
         if ip_set_descriptors is not None:
-            _setter("ip_set_descriptors", ip_set_descriptors)
+            pulumi.set(__self__, "ip_set_descriptors", ip_set_descriptors)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="ipSetDescriptors")
@@ -80,29 +65,12 @@ class _IpSetState:
         :param pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         :param pulumi.Input[str] name: The name or description of the IPSet.
         """
-        _IpSetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            ip_set_descriptors=ip_set_descriptors,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetIpSetDescriptorArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_set_descriptors is None and 'ipSetDescriptors' in kwargs:
-            ip_set_descriptors = kwargs['ipSetDescriptors']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if ip_set_descriptors is not None:
-            _setter("ip_set_descriptors", ip_set_descriptors)
+            pulumi.set(__self__, "ip_set_descriptors", ip_set_descriptors)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -228,10 +196,6 @@ class IpSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IpSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -40,32 +40,11 @@ class ConfigurationAggregatorAccountAggregationSourceArgs:
                
                Either `regions` or `all_regions` (as true) must be specified.
         """
-        ConfigurationAggregatorAccountAggregationSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_ids=account_ids,
-            all_regions=all_regions,
-            regions=regions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             all_regions: Optional[pulumi.Input[bool]] = None,
-             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_ids is None and 'accountIds' in kwargs:
-            account_ids = kwargs['accountIds']
-        if account_ids is None:
-            raise TypeError("Missing 'account_ids' argument")
-        if all_regions is None and 'allRegions' in kwargs:
-            all_regions = kwargs['allRegions']
-
-        _setter("account_ids", account_ids)
+        pulumi.set(__self__, "account_ids", account_ids)
         if all_regions is not None:
-            _setter("all_regions", all_regions)
+            pulumi.set(__self__, "all_regions", all_regions)
         if regions is not None:
-            _setter("regions", regions)
+            pulumi.set(__self__, "regions", regions)
 
     @property
     @pulumi.getter(name="accountIds")
@@ -119,32 +98,11 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
         :param pulumi.Input[bool] all_regions: If true, aggregate existing AWS Config regions and future regions.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: List of source regions being aggregated.
         """
-        ConfigurationAggregatorOrganizationAggregationSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            all_regions=all_regions,
-            regions=regions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: Optional[pulumi.Input[str]] = None,
-             all_regions: Optional[pulumi.Input[bool]] = None,
-             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if all_regions is None and 'allRegions' in kwargs:
-            all_regions = kwargs['allRegions']
-
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
         if all_regions is not None:
-            _setter("all_regions", all_regions)
+            pulumi.set(__self__, "all_regions", all_regions)
         if regions is not None:
-            _setter("regions", regions)
+            pulumi.set(__self__, "regions", regions)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -194,29 +152,8 @@ class ConformancePackInputParameterArgs:
         :param pulumi.Input[str] parameter_name: The input key.
         :param pulumi.Input[str] parameter_value: The input value.
         """
-        ConformancePackInputParameterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            parameter_name=parameter_name,
-            parameter_value=parameter_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             parameter_name: Optional[pulumi.Input[str]] = None,
-             parameter_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if parameter_name is None and 'parameterName' in kwargs:
-            parameter_name = kwargs['parameterName']
-        if parameter_name is None:
-            raise TypeError("Missing 'parameter_name' argument")
-        if parameter_value is None and 'parameterValue' in kwargs:
-            parameter_value = kwargs['parameterValue']
-        if parameter_value is None:
-            raise TypeError("Missing 'parameter_value' argument")
-
-        _setter("parameter_name", parameter_name)
-        _setter("parameter_value", parameter_value)
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -250,21 +187,8 @@ class DeliveryChannelSnapshotDeliveryPropertiesArgs:
         """
         :param pulumi.Input[str] delivery_frequency: The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
         """
-        DeliveryChannelSnapshotDeliveryPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delivery_frequency=delivery_frequency,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delivery_frequency: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if delivery_frequency is None and 'deliveryFrequency' in kwargs:
-            delivery_frequency = kwargs['deliveryFrequency']
-
         if delivery_frequency is not None:
-            _setter("delivery_frequency", delivery_frequency)
+            pulumi.set(__self__, "delivery_frequency", delivery_frequency)
 
     @property
     @pulumi.getter(name="deliveryFrequency")
@@ -288,29 +212,8 @@ class OrganizationConformancePackInputParameterArgs:
         :param pulumi.Input[str] parameter_name: The input key.
         :param pulumi.Input[str] parameter_value: The input value.
         """
-        OrganizationConformancePackInputParameterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            parameter_name=parameter_name,
-            parameter_value=parameter_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             parameter_name: Optional[pulumi.Input[str]] = None,
-             parameter_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if parameter_name is None and 'parameterName' in kwargs:
-            parameter_name = kwargs['parameterName']
-        if parameter_name is None:
-            raise TypeError("Missing 'parameter_name' argument")
-        if parameter_value is None and 'parameterValue' in kwargs:
-            parameter_value = kwargs['parameterValue']
-        if parameter_value is None:
-            raise TypeError("Missing 'parameter_value' argument")
-
-        _setter("parameter_name", parameter_name)
-        _setter("parameter_value", parameter_value)
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -352,45 +255,16 @@ class RecorderRecordingGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArgs']]] recording_strategies: Recording Strategy - see below..
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
         """
-        RecorderRecordingGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            all_supported=all_supported,
-            exclusion_by_resource_types=exclusion_by_resource_types,
-            include_global_resource_types=include_global_resource_types,
-            recording_strategies=recording_strategies,
-            resource_types=resource_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             all_supported: Optional[pulumi.Input[bool]] = None,
-             exclusion_by_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArgs']]]] = None,
-             include_global_resource_types: Optional[pulumi.Input[bool]] = None,
-             recording_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArgs']]]] = None,
-             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if all_supported is None and 'allSupported' in kwargs:
-            all_supported = kwargs['allSupported']
-        if exclusion_by_resource_types is None and 'exclusionByResourceTypes' in kwargs:
-            exclusion_by_resource_types = kwargs['exclusionByResourceTypes']
-        if include_global_resource_types is None and 'includeGlobalResourceTypes' in kwargs:
-            include_global_resource_types = kwargs['includeGlobalResourceTypes']
-        if recording_strategies is None and 'recordingStrategies' in kwargs:
-            recording_strategies = kwargs['recordingStrategies']
-        if resource_types is None and 'resourceTypes' in kwargs:
-            resource_types = kwargs['resourceTypes']
-
         if all_supported is not None:
-            _setter("all_supported", all_supported)
+            pulumi.set(__self__, "all_supported", all_supported)
         if exclusion_by_resource_types is not None:
-            _setter("exclusion_by_resource_types", exclusion_by_resource_types)
+            pulumi.set(__self__, "exclusion_by_resource_types", exclusion_by_resource_types)
         if include_global_resource_types is not None:
-            _setter("include_global_resource_types", include_global_resource_types)
+            pulumi.set(__self__, "include_global_resource_types", include_global_resource_types)
         if recording_strategies is not None:
-            _setter("recording_strategies", recording_strategies)
+            pulumi.set(__self__, "recording_strategies", recording_strategies)
         if resource_types is not None:
-            _setter("resource_types", resource_types)
+            pulumi.set(__self__, "resource_types", resource_types)
 
     @property
     @pulumi.getter(name="allSupported")
@@ -460,21 +334,8 @@ class RecorderRecordingGroupExclusionByResourceTypeArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
         """
-        RecorderRecordingGroupExclusionByResourceTypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_types=resource_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_types is None and 'resourceTypes' in kwargs:
-            resource_types = kwargs['resourceTypes']
-
         if resource_types is not None:
-            _setter("resource_types", resource_types)
+            pulumi.set(__self__, "resource_types", resource_types)
 
     @property
     @pulumi.getter(name="resourceTypes")
@@ -493,21 +354,8 @@ class RecorderRecordingGroupExclusionByResourceTypeArgs:
 class RecorderRecordingGroupRecordingStrategyArgs:
     def __init__(__self__, *,
                  use_only: Optional[pulumi.Input[str]] = None):
-        RecorderRecordingGroupRecordingStrategyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            use_only=use_only,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             use_only: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if use_only is None and 'useOnly' in kwargs:
-            use_only = kwargs['useOnly']
-
         if use_only is not None:
-            _setter("use_only", use_only)
+            pulumi.set(__self__, "use_only", use_only)
 
     @property
     @pulumi.getter(name="useOnly")
@@ -526,21 +374,8 @@ class RemediationConfigurationExecutionControlsArgs:
         """
         :param pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArgs'] ssm_controls: Configuration block for SSM controls. See below.
         """
-        RemediationConfigurationExecutionControlsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ssm_controls=ssm_controls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ssm_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ssm_controls is None and 'ssmControls' in kwargs:
-            ssm_controls = kwargs['ssmControls']
-
         if ssm_controls is not None:
-            _setter("ssm_controls", ssm_controls)
+            pulumi.set(__self__, "ssm_controls", ssm_controls)
 
     @property
     @pulumi.getter(name="ssmControls")
@@ -564,27 +399,10 @@ class RemediationConfigurationExecutionControlsSsmControlsArgs:
         :param pulumi.Input[int] concurrent_execution_rate_percentage: Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
         :param pulumi.Input[int] error_percentage: Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
         """
-        RemediationConfigurationExecutionControlsSsmControlsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            concurrent_execution_rate_percentage=concurrent_execution_rate_percentage,
-            error_percentage=error_percentage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             concurrent_execution_rate_percentage: Optional[pulumi.Input[int]] = None,
-             error_percentage: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if concurrent_execution_rate_percentage is None and 'concurrentExecutionRatePercentage' in kwargs:
-            concurrent_execution_rate_percentage = kwargs['concurrentExecutionRatePercentage']
-        if error_percentage is None and 'errorPercentage' in kwargs:
-            error_percentage = kwargs['errorPercentage']
-
         if concurrent_execution_rate_percentage is not None:
-            _setter("concurrent_execution_rate_percentage", concurrent_execution_rate_percentage)
+            pulumi.set(__self__, "concurrent_execution_rate_percentage", concurrent_execution_rate_percentage)
         if error_percentage is not None:
-            _setter("error_percentage", error_percentage)
+            pulumi.set(__self__, "error_percentage", error_percentage)
 
     @property
     @pulumi.getter(name="concurrentExecutionRatePercentage")
@@ -624,38 +442,13 @@ class RemediationConfigurationParameterArgs:
         :param pulumi.Input[str] static_value: Value is static and does not change at run-time.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] static_values: List of static values.
         """
-        RemediationConfigurationParameterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            resource_value=resource_value,
-            static_value=static_value,
-            static_values=static_values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             resource_value: Optional[pulumi.Input[str]] = None,
-             static_value: Optional[pulumi.Input[str]] = None,
-             static_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if resource_value is None and 'resourceValue' in kwargs:
-            resource_value = kwargs['resourceValue']
-        if static_value is None and 'staticValue' in kwargs:
-            static_value = kwargs['staticValue']
-        if static_values is None and 'staticValues' in kwargs:
-            static_values = kwargs['staticValues']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if resource_value is not None:
-            _setter("resource_value", resource_value)
+            pulumi.set(__self__, "resource_value", resource_value)
         if static_value is not None:
-            _setter("static_value", static_value)
+            pulumi.set(__self__, "static_value", static_value)
         if static_values is not None:
-            _setter("static_values", static_values)
+            pulumi.set(__self__, "static_values", static_values)
 
     @property
     @pulumi.getter
@@ -719,39 +512,14 @@ class RuleScopeArgs:
         :param pulumi.Input[str] tag_key: The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
         :param pulumi.Input[str] tag_value: The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
         """
-        RuleScopeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compliance_resource_id=compliance_resource_id,
-            compliance_resource_types=compliance_resource_types,
-            tag_key=tag_key,
-            tag_value=tag_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compliance_resource_id: Optional[pulumi.Input[str]] = None,
-             compliance_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tag_key: Optional[pulumi.Input[str]] = None,
-             tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if compliance_resource_id is None and 'complianceResourceId' in kwargs:
-            compliance_resource_id = kwargs['complianceResourceId']
-        if compliance_resource_types is None and 'complianceResourceTypes' in kwargs:
-            compliance_resource_types = kwargs['complianceResourceTypes']
-        if tag_key is None and 'tagKey' in kwargs:
-            tag_key = kwargs['tagKey']
-        if tag_value is None and 'tagValue' in kwargs:
-            tag_value = kwargs['tagValue']
-
         if compliance_resource_id is not None:
-            _setter("compliance_resource_id", compliance_resource_id)
+            pulumi.set(__self__, "compliance_resource_id", compliance_resource_id)
         if compliance_resource_types is not None:
-            _setter("compliance_resource_types", compliance_resource_types)
+            pulumi.set(__self__, "compliance_resource_types", compliance_resource_types)
         if tag_key is not None:
-            _setter("tag_key", tag_key)
+            pulumi.set(__self__, "tag_key", tag_key)
         if tag_value is not None:
-            _setter("tag_value", tag_value)
+            pulumi.set(__self__, "tag_value", tag_value)
 
     @property
     @pulumi.getter(name="complianceResourceId")
@@ -815,38 +583,13 @@ class RuleSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleSourceSourceDetailArgs']]] source_details: Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
         :param pulumi.Input[str] source_identifier: For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
         """
-        RuleSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            owner=owner,
-            custom_policy_details=custom_policy_details,
-            source_details=source_details,
-            source_identifier=source_identifier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             owner: Optional[pulumi.Input[str]] = None,
-             custom_policy_details: Optional[pulumi.Input['RuleSourceCustomPolicyDetailsArgs']] = None,
-             source_details: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSourceSourceDetailArgs']]]] = None,
-             source_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if owner is None:
-            raise TypeError("Missing 'owner' argument")
-        if custom_policy_details is None and 'customPolicyDetails' in kwargs:
-            custom_policy_details = kwargs['customPolicyDetails']
-        if source_details is None and 'sourceDetails' in kwargs:
-            source_details = kwargs['sourceDetails']
-        if source_identifier is None and 'sourceIdentifier' in kwargs:
-            source_identifier = kwargs['sourceIdentifier']
-
-        _setter("owner", owner)
+        pulumi.set(__self__, "owner", owner)
         if custom_policy_details is not None:
-            _setter("custom_policy_details", custom_policy_details)
+            pulumi.set(__self__, "custom_policy_details", custom_policy_details)
         if source_details is not None:
-            _setter("source_details", source_details)
+            pulumi.set(__self__, "source_details", source_details)
         if source_identifier is not None:
-            _setter("source_identifier", source_identifier)
+            pulumi.set(__self__, "source_identifier", source_identifier)
 
     @property
     @pulumi.getter
@@ -908,35 +651,10 @@ class RuleSourceCustomPolicyDetailsArgs:
         :param pulumi.Input[str] policy_text: The policy definition containing the logic for your Config Custom Policy rule.
         :param pulumi.Input[bool] enable_debug_log_delivery: The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
         """
-        RuleSourceCustomPolicyDetailsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_runtime=policy_runtime,
-            policy_text=policy_text,
-            enable_debug_log_delivery=enable_debug_log_delivery,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_runtime: Optional[pulumi.Input[str]] = None,
-             policy_text: Optional[pulumi.Input[str]] = None,
-             enable_debug_log_delivery: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy_runtime is None and 'policyRuntime' in kwargs:
-            policy_runtime = kwargs['policyRuntime']
-        if policy_runtime is None:
-            raise TypeError("Missing 'policy_runtime' argument")
-        if policy_text is None and 'policyText' in kwargs:
-            policy_text = kwargs['policyText']
-        if policy_text is None:
-            raise TypeError("Missing 'policy_text' argument")
-        if enable_debug_log_delivery is None and 'enableDebugLogDelivery' in kwargs:
-            enable_debug_log_delivery = kwargs['enableDebugLogDelivery']
-
-        _setter("policy_runtime", policy_runtime)
-        _setter("policy_text", policy_text)
+        pulumi.set(__self__, "policy_runtime", policy_runtime)
+        pulumi.set(__self__, "policy_text", policy_text)
         if enable_debug_log_delivery is not None:
-            _setter("enable_debug_log_delivery", enable_debug_log_delivery)
+            pulumi.set(__self__, "enable_debug_log_delivery", enable_debug_log_delivery)
 
     @property
     @pulumi.getter(name="policyRuntime")
@@ -986,33 +704,12 @@ class RuleSourceSourceDetailArgs:
         :param pulumi.Input[str] maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         :param pulumi.Input[str] message_type: The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
         """
-        RuleSourceSourceDetailArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event_source=event_source,
-            maximum_execution_frequency=maximum_execution_frequency,
-            message_type=message_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event_source: Optional[pulumi.Input[str]] = None,
-             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
-             message_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if event_source is None and 'eventSource' in kwargs:
-            event_source = kwargs['eventSource']
-        if maximum_execution_frequency is None and 'maximumExecutionFrequency' in kwargs:
-            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
-        if message_type is None and 'messageType' in kwargs:
-            message_type = kwargs['messageType']
-
         if event_source is not None:
-            _setter("event_source", event_source)
+            pulumi.set(__self__, "event_source", event_source)
         if maximum_execution_frequency is not None:
-            _setter("maximum_execution_frequency", maximum_execution_frequency)
+            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
         if message_type is not None:
-            _setter("message_type", message_type)
+            pulumi.set(__self__, "message_type", message_type)
 
     @property
     @pulumi.getter(name="eventSource")

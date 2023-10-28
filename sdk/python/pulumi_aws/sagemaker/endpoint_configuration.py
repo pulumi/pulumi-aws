@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,60 +35,21 @@ class EndpointConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        EndpointConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            production_variants=production_variants,
-            async_inference_config=async_inference_config,
-            data_capture_config=data_capture_config,
-            kms_key_arn=kms_key_arn,
-            name=name,
-            name_prefix=name_prefix,
-            shadow_production_variants=shadow_production_variants,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             production_variants: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]]] = None,
-             async_inference_config: Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs']] = None,
-             data_capture_config: Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigArgs']] = None,
-             kms_key_arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if production_variants is None and 'productionVariants' in kwargs:
-            production_variants = kwargs['productionVariants']
-        if production_variants is None:
-            raise TypeError("Missing 'production_variants' argument")
-        if async_inference_config is None and 'asyncInferenceConfig' in kwargs:
-            async_inference_config = kwargs['asyncInferenceConfig']
-        if data_capture_config is None and 'dataCaptureConfig' in kwargs:
-            data_capture_config = kwargs['dataCaptureConfig']
-        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
-            kms_key_arn = kwargs['kmsKeyArn']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if shadow_production_variants is None and 'shadowProductionVariants' in kwargs:
-            shadow_production_variants = kwargs['shadowProductionVariants']
-
-        _setter("production_variants", production_variants)
+        pulumi.set(__self__, "production_variants", production_variants)
         if async_inference_config is not None:
-            _setter("async_inference_config", async_inference_config)
+            pulumi.set(__self__, "async_inference_config", async_inference_config)
         if data_capture_config is not None:
-            _setter("data_capture_config", data_capture_config)
+            pulumi.set(__self__, "data_capture_config", data_capture_config)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if shadow_production_variants is not None:
-            _setter("shadow_production_variants", shadow_production_variants)
+            pulumi.set(__self__, "shadow_production_variants", shadow_production_variants)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="productionVariants")
@@ -213,72 +174,29 @@ class _EndpointConfigurationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _EndpointConfigurationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            async_inference_config=async_inference_config,
-            data_capture_config=data_capture_config,
-            kms_key_arn=kms_key_arn,
-            name=name,
-            name_prefix=name_prefix,
-            production_variants=production_variants,
-            shadow_production_variants=shadow_production_variants,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             async_inference_config: Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs']] = None,
-             data_capture_config: Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigArgs']] = None,
-             kms_key_arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             production_variants: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]]] = None,
-             shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if async_inference_config is None and 'asyncInferenceConfig' in kwargs:
-            async_inference_config = kwargs['asyncInferenceConfig']
-        if data_capture_config is None and 'dataCaptureConfig' in kwargs:
-            data_capture_config = kwargs['dataCaptureConfig']
-        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
-            kms_key_arn = kwargs['kmsKeyArn']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if production_variants is None and 'productionVariants' in kwargs:
-            production_variants = kwargs['productionVariants']
-        if shadow_production_variants is None and 'shadowProductionVariants' in kwargs:
-            shadow_production_variants = kwargs['shadowProductionVariants']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if async_inference_config is not None:
-            _setter("async_inference_config", async_inference_config)
+            pulumi.set(__self__, "async_inference_config", async_inference_config)
         if data_capture_config is not None:
-            _setter("data_capture_config", data_capture_config)
+            pulumi.set(__self__, "data_capture_config", data_capture_config)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if production_variants is not None:
-            _setter("production_variants", production_variants)
+            pulumi.set(__self__, "production_variants", production_variants)
         if shadow_production_variants is not None:
-            _setter("shadow_production_variants", shadow_production_variants)
+            pulumi.set(__self__, "shadow_production_variants", shadow_production_variants)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -507,10 +425,6 @@ class EndpointConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EndpointConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -533,9 +447,7 @@ class EndpointConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointConfigurationArgs.__new__(EndpointConfigurationArgs)
 
-            async_inference_config = _utilities.configure(async_inference_config, EndpointConfigurationAsyncInferenceConfigArgs, True)
             __props__.__dict__["async_inference_config"] = async_inference_config
-            data_capture_config = _utilities.configure(data_capture_config, EndpointConfigurationDataCaptureConfigArgs, True)
             __props__.__dict__["data_capture_config"] = data_capture_config
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name

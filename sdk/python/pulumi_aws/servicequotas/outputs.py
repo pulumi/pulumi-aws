@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -54,39 +54,14 @@ class ServiceQuotaUsageMetric(dict):
         :param str metric_namespace: The namespace of the metric.
         :param str metric_statistic_recommendation: The metric statistic that AWS recommend you use when determining quota usage.
         """
-        ServiceQuotaUsageMetric._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metric_dimensions=metric_dimensions,
-            metric_name=metric_name,
-            metric_namespace=metric_namespace,
-            metric_statistic_recommendation=metric_statistic_recommendation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metric_dimensions: Optional[Sequence['outputs.ServiceQuotaUsageMetricMetricDimension']] = None,
-             metric_name: Optional[str] = None,
-             metric_namespace: Optional[str] = None,
-             metric_statistic_recommendation: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if metric_dimensions is None and 'metricDimensions' in kwargs:
-            metric_dimensions = kwargs['metricDimensions']
-        if metric_name is None and 'metricName' in kwargs:
-            metric_name = kwargs['metricName']
-        if metric_namespace is None and 'metricNamespace' in kwargs:
-            metric_namespace = kwargs['metricNamespace']
-        if metric_statistic_recommendation is None and 'metricStatisticRecommendation' in kwargs:
-            metric_statistic_recommendation = kwargs['metricStatisticRecommendation']
-
         if metric_dimensions is not None:
-            _setter("metric_dimensions", metric_dimensions)
+            pulumi.set(__self__, "metric_dimensions", metric_dimensions)
         if metric_name is not None:
-            _setter("metric_name", metric_name)
+            pulumi.set(__self__, "metric_name", metric_name)
         if metric_namespace is not None:
-            _setter("metric_namespace", metric_namespace)
+            pulumi.set(__self__, "metric_namespace", metric_namespace)
         if metric_statistic_recommendation is not None:
-            _setter("metric_statistic_recommendation", metric_statistic_recommendation)
+            pulumi.set(__self__, "metric_statistic_recommendation", metric_statistic_recommendation)
 
     @property
     @pulumi.getter(name="metricDimensions")
@@ -145,33 +120,14 @@ class ServiceQuotaUsageMetricMetricDimension(dict):
                  resource: Optional[str] = None,
                  service: Optional[str] = None,
                  type: Optional[str] = None):
-        ServiceQuotaUsageMetricMetricDimension._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            class_=class_,
-            resource=resource,
-            service=service,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             class_: Optional[str] = None,
-             resource: Optional[str] = None,
-             service: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if class_ is None and 'class' in kwargs:
-            class_ = kwargs['class']
-
         if class_ is not None:
-            _setter("class_", class_)
+            pulumi.set(__self__, "class_", class_)
         if resource is not None:
-            _setter("resource", resource)
+            pulumi.set(__self__, "resource", resource)
         if service is not None:
-            _setter("service", service)
+            pulumi.set(__self__, "service", service)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="class")
@@ -207,43 +163,10 @@ class GetServiceQuotaUsageMetricResult(dict):
         :param str metric_namespace: The namespace of the metric.
         :param str metric_statistic_recommendation: The metric statistic that AWS recommend you use when determining quota usage.
         """
-        GetServiceQuotaUsageMetricResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metric_dimensions=metric_dimensions,
-            metric_name=metric_name,
-            metric_namespace=metric_namespace,
-            metric_statistic_recommendation=metric_statistic_recommendation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metric_dimensions: Optional[Sequence['outputs.GetServiceQuotaUsageMetricMetricDimensionResult']] = None,
-             metric_name: Optional[str] = None,
-             metric_namespace: Optional[str] = None,
-             metric_statistic_recommendation: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if metric_dimensions is None and 'metricDimensions' in kwargs:
-            metric_dimensions = kwargs['metricDimensions']
-        if metric_dimensions is None:
-            raise TypeError("Missing 'metric_dimensions' argument")
-        if metric_name is None and 'metricName' in kwargs:
-            metric_name = kwargs['metricName']
-        if metric_name is None:
-            raise TypeError("Missing 'metric_name' argument")
-        if metric_namespace is None and 'metricNamespace' in kwargs:
-            metric_namespace = kwargs['metricNamespace']
-        if metric_namespace is None:
-            raise TypeError("Missing 'metric_namespace' argument")
-        if metric_statistic_recommendation is None and 'metricStatisticRecommendation' in kwargs:
-            metric_statistic_recommendation = kwargs['metricStatisticRecommendation']
-        if metric_statistic_recommendation is None:
-            raise TypeError("Missing 'metric_statistic_recommendation' argument")
-
-        _setter("metric_dimensions", metric_dimensions)
-        _setter("metric_name", metric_name)
-        _setter("metric_namespace", metric_namespace)
-        _setter("metric_statistic_recommendation", metric_statistic_recommendation)
+        pulumi.set(__self__, "metric_dimensions", metric_dimensions)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "metric_namespace", metric_namespace)
+        pulumi.set(__self__, "metric_statistic_recommendation", metric_statistic_recommendation)
 
     @property
     @pulumi.getter(name="metricDimensions")
@@ -285,37 +208,10 @@ class GetServiceQuotaUsageMetricMetricDimensionResult(dict):
                  resource: str,
                  service: str,
                  type: str):
-        GetServiceQuotaUsageMetricMetricDimensionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            class_=class_,
-            resource=resource,
-            service=service,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             class_: Optional[str] = None,
-             resource: Optional[str] = None,
-             service: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if class_ is None and 'class' in kwargs:
-            class_ = kwargs['class']
-        if class_ is None:
-            raise TypeError("Missing 'class_' argument")
-        if resource is None:
-            raise TypeError("Missing 'resource' argument")
-        if service is None:
-            raise TypeError("Missing 'service' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("class_", class_)
-        _setter("resource", resource)
-        _setter("service", service)
-        _setter("type", type)
+        pulumi.set(__self__, "class_", class_)
+        pulumi.set(__self__, "resource", resource)
+        pulumi.set(__self__, "service", service)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="class")
@@ -359,65 +255,14 @@ class GetTemplatesTemplateResult(dict):
         :param str unit: Unit of measurement.
         :param float value: (Required) The new, increased value for the quota.
         """
-        GetTemplatesTemplateResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            global_quota=global_quota,
-            quota_code=quota_code,
-            quota_name=quota_name,
-            region=region,
-            service_code=service_code,
-            service_name=service_name,
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             global_quota: Optional[bool] = None,
-             quota_code: Optional[str] = None,
-             quota_name: Optional[str] = None,
-             region: Optional[str] = None,
-             service_code: Optional[str] = None,
-             service_name: Optional[str] = None,
-             unit: Optional[str] = None,
-             value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if global_quota is None and 'globalQuota' in kwargs:
-            global_quota = kwargs['globalQuota']
-        if global_quota is None:
-            raise TypeError("Missing 'global_quota' argument")
-        if quota_code is None and 'quotaCode' in kwargs:
-            quota_code = kwargs['quotaCode']
-        if quota_code is None:
-            raise TypeError("Missing 'quota_code' argument")
-        if quota_name is None and 'quotaName' in kwargs:
-            quota_name = kwargs['quotaName']
-        if quota_name is None:
-            raise TypeError("Missing 'quota_name' argument")
-        if region is None:
-            raise TypeError("Missing 'region' argument")
-        if service_code is None and 'serviceCode' in kwargs:
-            service_code = kwargs['serviceCode']
-        if service_code is None:
-            raise TypeError("Missing 'service_code' argument")
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-        if service_name is None:
-            raise TypeError("Missing 'service_name' argument")
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("global_quota", global_quota)
-        _setter("quota_code", quota_code)
-        _setter("quota_name", quota_name)
-        _setter("region", region)
-        _setter("service_code", service_code)
-        _setter("service_name", service_name)
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "global_quota", global_quota)
+        pulumi.set(__self__, "quota_code", quota_code)
+        pulumi.set(__self__, "quota_name", quota_name)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "service_code", service_code)
+        pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="globalQuota")

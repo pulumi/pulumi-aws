@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,30 +25,11 @@ class AliasArgs:
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name for the alias you are creating.
         """
-        AliasArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            routing_configurations=routing_configurations,
-            description=description,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if routing_configurations is None and 'routingConfigurations' in kwargs:
-            routing_configurations = kwargs['routingConfigurations']
-        if routing_configurations is None:
-            raise TypeError("Missing 'routing_configurations' argument")
-
-        _setter("routing_configurations", routing_configurations)
+        pulumi.set(__self__, "routing_configurations", routing_configurations)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="routingConfigurations")
@@ -103,39 +84,16 @@ class _AliasState:
         :param pulumi.Input[str] name: Name for the alias you are creating.
         :param pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
         """
-        _AliasState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            creation_date=creation_date,
-            description=description,
-            name=name,
-            routing_configurations=routing_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             creation_date: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if creation_date is None and 'creationDate' in kwargs:
-            creation_date = kwargs['creationDate']
-        if routing_configurations is None and 'routingConfigurations' in kwargs:
-            routing_configurations = kwargs['routingConfigurations']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if creation_date is not None:
-            _setter("creation_date", creation_date)
+            pulumi.set(__self__, "creation_date", creation_date)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if routing_configurations is not None:
-            _setter("routing_configurations", routing_configurations)
+            pulumi.set(__self__, "routing_configurations", routing_configurations)
 
     @property
     @pulumi.getter
@@ -297,10 +255,6 @@ class Alias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

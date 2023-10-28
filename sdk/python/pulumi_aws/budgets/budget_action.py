@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,73 +37,16 @@ class BudgetActionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]] subscribers: A list of subscribers. See Subscriber.
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         """
-        BudgetActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_threshold=action_threshold,
-            action_type=action_type,
-            approval_model=approval_model,
-            budget_name=budget_name,
-            definition=definition,
-            execution_role_arn=execution_role_arn,
-            notification_type=notification_type,
-            subscribers=subscribers,
-            account_id=account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_threshold: Optional[pulumi.Input['BudgetActionActionThresholdArgs']] = None,
-             action_type: Optional[pulumi.Input[str]] = None,
-             approval_model: Optional[pulumi.Input[str]] = None,
-             budget_name: Optional[pulumi.Input[str]] = None,
-             definition: Optional[pulumi.Input['BudgetActionDefinitionArgs']] = None,
-             execution_role_arn: Optional[pulumi.Input[str]] = None,
-             notification_type: Optional[pulumi.Input[str]] = None,
-             subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]]] = None,
-             account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action_threshold is None and 'actionThreshold' in kwargs:
-            action_threshold = kwargs['actionThreshold']
-        if action_threshold is None:
-            raise TypeError("Missing 'action_threshold' argument")
-        if action_type is None and 'actionType' in kwargs:
-            action_type = kwargs['actionType']
-        if action_type is None:
-            raise TypeError("Missing 'action_type' argument")
-        if approval_model is None and 'approvalModel' in kwargs:
-            approval_model = kwargs['approvalModel']
-        if approval_model is None:
-            raise TypeError("Missing 'approval_model' argument")
-        if budget_name is None and 'budgetName' in kwargs:
-            budget_name = kwargs['budgetName']
-        if budget_name is None:
-            raise TypeError("Missing 'budget_name' argument")
-        if definition is None:
-            raise TypeError("Missing 'definition' argument")
-        if execution_role_arn is None and 'executionRoleArn' in kwargs:
-            execution_role_arn = kwargs['executionRoleArn']
-        if execution_role_arn is None:
-            raise TypeError("Missing 'execution_role_arn' argument")
-        if notification_type is None and 'notificationType' in kwargs:
-            notification_type = kwargs['notificationType']
-        if notification_type is None:
-            raise TypeError("Missing 'notification_type' argument")
-        if subscribers is None:
-            raise TypeError("Missing 'subscribers' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-
-        _setter("action_threshold", action_threshold)
-        _setter("action_type", action_type)
-        _setter("approval_model", approval_model)
-        _setter("budget_name", budget_name)
-        _setter("definition", definition)
-        _setter("execution_role_arn", execution_role_arn)
-        _setter("notification_type", notification_type)
-        _setter("subscribers", subscribers)
+        pulumi.set(__self__, "action_threshold", action_threshold)
+        pulumi.set(__self__, "action_type", action_type)
+        pulumi.set(__self__, "approval_model", approval_model)
+        pulumi.set(__self__, "budget_name", budget_name)
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        pulumi.set(__self__, "notification_type", notification_type)
+        pulumi.set(__self__, "subscribers", subscribers)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
 
     @property
     @pulumi.getter(name="actionThreshold")
@@ -244,79 +187,30 @@ class _BudgetActionState:
         :param pulumi.Input[str] status: The status of the budget action.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]] subscribers: A list of subscribers. See Subscriber.
         """
-        _BudgetActionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            action_id=action_id,
-            action_threshold=action_threshold,
-            action_type=action_type,
-            approval_model=approval_model,
-            arn=arn,
-            budget_name=budget_name,
-            definition=definition,
-            execution_role_arn=execution_role_arn,
-            notification_type=notification_type,
-            status=status,
-            subscribers=subscribers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             action_id: Optional[pulumi.Input[str]] = None,
-             action_threshold: Optional[pulumi.Input['BudgetActionActionThresholdArgs']] = None,
-             action_type: Optional[pulumi.Input[str]] = None,
-             approval_model: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             budget_name: Optional[pulumi.Input[str]] = None,
-             definition: Optional[pulumi.Input['BudgetActionDefinitionArgs']] = None,
-             execution_role_arn: Optional[pulumi.Input[str]] = None,
-             notification_type: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetActionSubscriberArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if action_id is None and 'actionId' in kwargs:
-            action_id = kwargs['actionId']
-        if action_threshold is None and 'actionThreshold' in kwargs:
-            action_threshold = kwargs['actionThreshold']
-        if action_type is None and 'actionType' in kwargs:
-            action_type = kwargs['actionType']
-        if approval_model is None and 'approvalModel' in kwargs:
-            approval_model = kwargs['approvalModel']
-        if budget_name is None and 'budgetName' in kwargs:
-            budget_name = kwargs['budgetName']
-        if execution_role_arn is None and 'executionRoleArn' in kwargs:
-            execution_role_arn = kwargs['executionRoleArn']
-        if notification_type is None and 'notificationType' in kwargs:
-            notification_type = kwargs['notificationType']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if action_id is not None:
-            _setter("action_id", action_id)
+            pulumi.set(__self__, "action_id", action_id)
         if action_threshold is not None:
-            _setter("action_threshold", action_threshold)
+            pulumi.set(__self__, "action_threshold", action_threshold)
         if action_type is not None:
-            _setter("action_type", action_type)
+            pulumi.set(__self__, "action_type", action_type)
         if approval_model is not None:
-            _setter("approval_model", approval_model)
+            pulumi.set(__self__, "approval_model", approval_model)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if budget_name is not None:
-            _setter("budget_name", budget_name)
+            pulumi.set(__self__, "budget_name", budget_name)
         if definition is not None:
-            _setter("definition", definition)
+            pulumi.set(__self__, "definition", definition)
         if execution_role_arn is not None:
-            _setter("execution_role_arn", execution_role_arn)
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if notification_type is not None:
-            _setter("notification_type", notification_type)
+            pulumi.set(__self__, "notification_type", notification_type)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if subscribers is not None:
-            _setter("subscribers", subscribers)
+            pulumi.set(__self__, "subscribers", subscribers)
 
     @property
     @pulumi.getter(name="accountId")
@@ -632,10 +526,6 @@ class BudgetAction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BudgetActionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -660,7 +550,6 @@ class BudgetAction(pulumi.CustomResource):
             __props__ = BudgetActionArgs.__new__(BudgetActionArgs)
 
             __props__.__dict__["account_id"] = account_id
-            action_threshold = _utilities.configure(action_threshold, BudgetActionActionThresholdArgs, True)
             if action_threshold is None and not opts.urn:
                 raise TypeError("Missing required property 'action_threshold'")
             __props__.__dict__["action_threshold"] = action_threshold
@@ -673,7 +562,6 @@ class BudgetAction(pulumi.CustomResource):
             if budget_name is None and not opts.urn:
                 raise TypeError("Missing required property 'budget_name'")
             __props__.__dict__["budget_name"] = budget_name
-            definition = _utilities.configure(definition, BudgetActionDefinitionArgs, True)
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RepositoryPolicyArgs', 'RepositoryPolicy']
@@ -21,27 +21,8 @@ class RepositoryPolicyArgs:
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] repository_name: Name of the repository to apply the policy.
         """
-        RepositoryPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy=policy,
-            repository_name=repository_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy: Optional[pulumi.Input[str]] = None,
-             repository_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if policy is None:
-            raise TypeError("Missing 'policy' argument")
-        if repository_name is None and 'repositoryName' in kwargs:
-            repository_name = kwargs['repositoryName']
-        if repository_name is None:
-            raise TypeError("Missing 'repository_name' argument")
-
-        _setter("policy", policy)
-        _setter("repository_name", repository_name)
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "repository_name", repository_name)
 
     @property
     @pulumi.getter
@@ -80,31 +61,12 @@ class _RepositoryPolicyState:
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository_name: Name of the repository to apply the policy.
         """
-        _RepositoryPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy=policy,
-            registry_id=registry_id,
-            repository_name=repository_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy: Optional[pulumi.Input[str]] = None,
-             registry_id: Optional[pulumi.Input[str]] = None,
-             repository_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if registry_id is None and 'registryId' in kwargs:
-            registry_id = kwargs['registryId']
-        if repository_name is None and 'repositoryName' in kwargs:
-            repository_name = kwargs['repositoryName']
-
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if registry_id is not None:
-            _setter("registry_id", registry_id)
+            pulumi.set(__self__, "registry_id", registry_id)
         if repository_name is not None:
-            _setter("repository_name", repository_name)
+            pulumi.set(__self__, "repository_name", repository_name)
 
     @property
     @pulumi.getter
@@ -274,10 +236,6 @@ class RepositoryPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RepositoryPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

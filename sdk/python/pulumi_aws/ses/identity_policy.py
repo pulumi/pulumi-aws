@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IdentityPolicyArgs', 'IdentityPolicy']
@@ -23,29 +23,10 @@ class IdentityPolicyArgs:
         :param pulumi.Input[str] policy: JSON string of the policy.
         :param pulumi.Input[str] name: Name of the policy.
         """
-        IdentityPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity=identity,
-            policy=policy,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity is None:
-            raise TypeError("Missing 'identity' argument")
-        if policy is None:
-            raise TypeError("Missing 'policy' argument")
-
-        _setter("identity", identity)
-        _setter("policy", policy)
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "policy", policy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -96,27 +77,12 @@ class _IdentityPolicyState:
         :param pulumi.Input[str] name: Name of the policy.
         :param pulumi.Input[str] policy: JSON string of the policy.
         """
-        _IdentityPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity=identity,
-            name=name,
-            policy=policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter
@@ -254,10 +220,6 @@ class IdentityPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IdentityPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

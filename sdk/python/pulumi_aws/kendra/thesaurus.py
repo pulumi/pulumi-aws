@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,48 +33,15 @@ class ThesaurusArgs:
         :param pulumi.Input[str] name: The name for the thesaurus.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ThesaurusArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            index_id=index_id,
-            role_arn=role_arn,
-            source_s3_path=source_s3_path,
-            description=description,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             index_id: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             source_s3_path: Optional[pulumi.Input['ThesaurusSourceS3PathArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if index_id is None and 'indexId' in kwargs:
-            index_id = kwargs['indexId']
-        if index_id is None:
-            raise TypeError("Missing 'index_id' argument")
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if source_s3_path is None and 'sourceS3Path' in kwargs:
-            source_s3_path = kwargs['sourceS3Path']
-        if source_s3_path is None:
-            raise TypeError("Missing 'source_s3_path' argument")
-
-        _setter("index_id", index_id)
-        _setter("role_arn", role_arn)
-        _setter("source_s3_path", source_s3_path)
+        pulumi.set(__self__, "index_id", index_id)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "source_s3_path", source_s3_path)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="indexId")
@@ -178,68 +145,29 @@ class _ThesaurusState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _ThesaurusState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            description=description,
-            index_id=index_id,
-            name=name,
-            role_arn=role_arn,
-            source_s3_path=source_s3_path,
-            status=status,
-            tags=tags,
-            tags_all=tags_all,
-            thesaurus_id=thesaurus_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             index_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             source_s3_path: Optional[pulumi.Input['ThesaurusSourceS3PathArgs']] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             thesaurus_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if index_id is None and 'indexId' in kwargs:
-            index_id = kwargs['indexId']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if source_s3_path is None and 'sourceS3Path' in kwargs:
-            source_s3_path = kwargs['sourceS3Path']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if thesaurus_id is None and 'thesaurusId' in kwargs:
-            thesaurus_id = kwargs['thesaurusId']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if index_id is not None:
-            _setter("index_id", index_id)
+            pulumi.set(__self__, "index_id", index_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if source_s3_path is not None:
-            _setter("source_s3_path", source_s3_path)
+            pulumi.set(__self__, "source_s3_path", source_s3_path)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if thesaurus_id is not None:
-            _setter("thesaurus_id", thesaurus_id)
+            pulumi.set(__self__, "thesaurus_id", thesaurus_id)
 
     @property
     @pulumi.getter
@@ -461,10 +389,6 @@ class Thesaurus(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ThesaurusArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -493,7 +417,6 @@ class Thesaurus(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            source_s3_path = _utilities.configure(source_s3_path, ThesaurusSourceS3PathArgs, True)
             if source_s3_path is None and not opts.urn:
                 raise TypeError("Missing required property 'source_s3_path'")
             __props__.__dict__["source_s3_path"] = source_s3_path

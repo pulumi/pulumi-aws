@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConnectionAssociationArgs', 'ConnectionAssociation']
@@ -21,29 +21,8 @@ class ConnectionAssociationArgs:
         :param pulumi.Input[str] connection_id: The ID of the connection.
         :param pulumi.Input[str] lag_id: The ID of the LAG with which to associate the connection.
         """
-        ConnectionAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connection_id=connection_id,
-            lag_id=lag_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connection_id: Optional[pulumi.Input[str]] = None,
-             lag_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_id is None and 'connectionId' in kwargs:
-            connection_id = kwargs['connectionId']
-        if connection_id is None:
-            raise TypeError("Missing 'connection_id' argument")
-        if lag_id is None and 'lagId' in kwargs:
-            lag_id = kwargs['lagId']
-        if lag_id is None:
-            raise TypeError("Missing 'lag_id' argument")
-
-        _setter("connection_id", connection_id)
-        _setter("lag_id", lag_id)
+        pulumi.set(__self__, "connection_id", connection_id)
+        pulumi.set(__self__, "lag_id", lag_id)
 
     @property
     @pulumi.getter(name="connectionId")
@@ -80,27 +59,10 @@ class _ConnectionAssociationState:
         :param pulumi.Input[str] connection_id: The ID of the connection.
         :param pulumi.Input[str] lag_id: The ID of the LAG with which to associate the connection.
         """
-        _ConnectionAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connection_id=connection_id,
-            lag_id=lag_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connection_id: Optional[pulumi.Input[str]] = None,
-             lag_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_id is None and 'connectionId' in kwargs:
-            connection_id = kwargs['connectionId']
-        if lag_id is None and 'lagId' in kwargs:
-            lag_id = kwargs['lagId']
-
         if connection_id is not None:
-            _setter("connection_id", connection_id)
+            pulumi.set(__self__, "connection_id", connection_id)
         if lag_id is not None:
-            _setter("lag_id", lag_id)
+            pulumi.set(__self__, "lag_id", lag_id)
 
     @property
     @pulumi.getter(name="connectionId")
@@ -196,10 +158,6 @@ class ConnectionAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConnectionAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
