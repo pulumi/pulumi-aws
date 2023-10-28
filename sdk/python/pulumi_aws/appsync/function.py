@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,75 +41,26 @@ class FunctionArgs:
         :param pulumi.Input['FunctionRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
         :param pulumi.Input['FunctionSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
-        FunctionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            data_source=data_source,
-            code=code,
-            description=description,
-            function_version=function_version,
-            max_batch_size=max_batch_size,
-            name=name,
-            request_mapping_template=request_mapping_template,
-            response_mapping_template=response_mapping_template,
-            runtime=runtime,
-            sync_config=sync_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: Optional[pulumi.Input[str]] = None,
-             data_source: Optional[pulumi.Input[str]] = None,
-             code: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             function_version: Optional[pulumi.Input[str]] = None,
-             max_batch_size: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             request_mapping_template: Optional[pulumi.Input[str]] = None,
-             response_mapping_template: Optional[pulumi.Input[str]] = None,
-             runtime: Optional[pulumi.Input['FunctionRuntimeArgs']] = None,
-             sync_config: Optional[pulumi.Input['FunctionSyncConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_id is None and 'apiId' in kwargs:
-            api_id = kwargs['apiId']
-        if api_id is None:
-            raise TypeError("Missing 'api_id' argument")
-        if data_source is None and 'dataSource' in kwargs:
-            data_source = kwargs['dataSource']
-        if data_source is None:
-            raise TypeError("Missing 'data_source' argument")
-        if function_version is None and 'functionVersion' in kwargs:
-            function_version = kwargs['functionVersion']
-        if max_batch_size is None and 'maxBatchSize' in kwargs:
-            max_batch_size = kwargs['maxBatchSize']
-        if request_mapping_template is None and 'requestMappingTemplate' in kwargs:
-            request_mapping_template = kwargs['requestMappingTemplate']
-        if response_mapping_template is None and 'responseMappingTemplate' in kwargs:
-            response_mapping_template = kwargs['responseMappingTemplate']
-        if sync_config is None and 'syncConfig' in kwargs:
-            sync_config = kwargs['syncConfig']
-
-        _setter("api_id", api_id)
-        _setter("data_source", data_source)
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "data_source", data_source)
         if code is not None:
-            _setter("code", code)
+            pulumi.set(__self__, "code", code)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if function_version is not None:
-            _setter("function_version", function_version)
+            pulumi.set(__self__, "function_version", function_version)
         if max_batch_size is not None:
-            _setter("max_batch_size", max_batch_size)
+            pulumi.set(__self__, "max_batch_size", max_batch_size)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if request_mapping_template is not None:
-            _setter("request_mapping_template", request_mapping_template)
+            pulumi.set(__self__, "request_mapping_template", request_mapping_template)
         if response_mapping_template is not None:
-            _setter("response_mapping_template", response_mapping_template)
+            pulumi.set(__self__, "response_mapping_template", response_mapping_template)
         if runtime is not None:
-            _setter("runtime", runtime)
+            pulumi.set(__self__, "runtime", runtime)
         if sync_config is not None:
-            _setter("sync_config", sync_config)
+            pulumi.set(__self__, "sync_config", sync_config)
 
     @property
     @pulumi.getter(name="apiId")
@@ -276,83 +227,32 @@ class _FunctionState:
         :param pulumi.Input['FunctionRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
         :param pulumi.Input['FunctionSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
         """
-        _FunctionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            arn=arn,
-            code=code,
-            data_source=data_source,
-            description=description,
-            function_id=function_id,
-            function_version=function_version,
-            max_batch_size=max_batch_size,
-            name=name,
-            request_mapping_template=request_mapping_template,
-            response_mapping_template=response_mapping_template,
-            runtime=runtime,
-            sync_config=sync_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             code: Optional[pulumi.Input[str]] = None,
-             data_source: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             function_id: Optional[pulumi.Input[str]] = None,
-             function_version: Optional[pulumi.Input[str]] = None,
-             max_batch_size: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             request_mapping_template: Optional[pulumi.Input[str]] = None,
-             response_mapping_template: Optional[pulumi.Input[str]] = None,
-             runtime: Optional[pulumi.Input['FunctionRuntimeArgs']] = None,
-             sync_config: Optional[pulumi.Input['FunctionSyncConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_id is None and 'apiId' in kwargs:
-            api_id = kwargs['apiId']
-        if data_source is None and 'dataSource' in kwargs:
-            data_source = kwargs['dataSource']
-        if function_id is None and 'functionId' in kwargs:
-            function_id = kwargs['functionId']
-        if function_version is None and 'functionVersion' in kwargs:
-            function_version = kwargs['functionVersion']
-        if max_batch_size is None and 'maxBatchSize' in kwargs:
-            max_batch_size = kwargs['maxBatchSize']
-        if request_mapping_template is None and 'requestMappingTemplate' in kwargs:
-            request_mapping_template = kwargs['requestMappingTemplate']
-        if response_mapping_template is None and 'responseMappingTemplate' in kwargs:
-            response_mapping_template = kwargs['responseMappingTemplate']
-        if sync_config is None and 'syncConfig' in kwargs:
-            sync_config = kwargs['syncConfig']
-
         if api_id is not None:
-            _setter("api_id", api_id)
+            pulumi.set(__self__, "api_id", api_id)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if code is not None:
-            _setter("code", code)
+            pulumi.set(__self__, "code", code)
         if data_source is not None:
-            _setter("data_source", data_source)
+            pulumi.set(__self__, "data_source", data_source)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if function_id is not None:
-            _setter("function_id", function_id)
+            pulumi.set(__self__, "function_id", function_id)
         if function_version is not None:
-            _setter("function_version", function_version)
+            pulumi.set(__self__, "function_version", function_version)
         if max_batch_size is not None:
-            _setter("max_batch_size", max_batch_size)
+            pulumi.set(__self__, "max_batch_size", max_batch_size)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if request_mapping_template is not None:
-            _setter("request_mapping_template", request_mapping_template)
+            pulumi.set(__self__, "request_mapping_template", request_mapping_template)
         if response_mapping_template is not None:
-            _setter("response_mapping_template", response_mapping_template)
+            pulumi.set(__self__, "response_mapping_template", response_mapping_template)
         if runtime is not None:
-            _setter("runtime", runtime)
+            pulumi.set(__self__, "runtime", runtime)
         if sync_config is not None:
-            _setter("sync_config", sync_config)
+            pulumi.set(__self__, "sync_config", sync_config)
 
     @property
     @pulumi.getter(name="apiId")
@@ -720,10 +620,6 @@ class Function(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -762,9 +658,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["request_mapping_template"] = request_mapping_template
             __props__.__dict__["response_mapping_template"] = response_mapping_template
-            runtime = _utilities.configure(runtime, FunctionRuntimeArgs, True)
             __props__.__dict__["runtime"] = runtime
-            sync_config = _utilities.configure(sync_config, FunctionSyncConfigArgs, True)
             __props__.__dict__["sync_config"] = sync_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["function_id"] = None

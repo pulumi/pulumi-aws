@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IdentityNotificationTopicArgs', 'IdentityNotificationTopic']
@@ -25,39 +25,12 @@ class IdentityNotificationTopicArgs:
         :param pulumi.Input[bool] include_original_headers: Whether SES should include original email headers in SNS notifications of this type. `false` by default.
         :param pulumi.Input[str] topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
         """
-        IdentityNotificationTopicArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity=identity,
-            notification_type=notification_type,
-            include_original_headers=include_original_headers,
-            topic_arn=topic_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity: Optional[pulumi.Input[str]] = None,
-             notification_type: Optional[pulumi.Input[str]] = None,
-             include_original_headers: Optional[pulumi.Input[bool]] = None,
-             topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity is None:
-            raise TypeError("Missing 'identity' argument")
-        if notification_type is None and 'notificationType' in kwargs:
-            notification_type = kwargs['notificationType']
-        if notification_type is None:
-            raise TypeError("Missing 'notification_type' argument")
-        if include_original_headers is None and 'includeOriginalHeaders' in kwargs:
-            include_original_headers = kwargs['includeOriginalHeaders']
-        if topic_arn is None and 'topicArn' in kwargs:
-            topic_arn = kwargs['topicArn']
-
-        _setter("identity", identity)
-        _setter("notification_type", notification_type)
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "notification_type", notification_type)
         if include_original_headers is not None:
-            _setter("include_original_headers", include_original_headers)
+            pulumi.set(__self__, "include_original_headers", include_original_headers)
         if topic_arn is not None:
-            _setter("topic_arn", topic_arn)
+            pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter
@@ -122,37 +95,14 @@ class _IdentityNotificationTopicState:
         :param pulumi.Input[str] notification_type: The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
         :param pulumi.Input[str] topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
         """
-        _IdentityNotificationTopicState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity=identity,
-            include_original_headers=include_original_headers,
-            notification_type=notification_type,
-            topic_arn=topic_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity: Optional[pulumi.Input[str]] = None,
-             include_original_headers: Optional[pulumi.Input[bool]] = None,
-             notification_type: Optional[pulumi.Input[str]] = None,
-             topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if include_original_headers is None and 'includeOriginalHeaders' in kwargs:
-            include_original_headers = kwargs['includeOriginalHeaders']
-        if notification_type is None and 'notificationType' in kwargs:
-            notification_type = kwargs['notificationType']
-        if topic_arn is None and 'topicArn' in kwargs:
-            topic_arn = kwargs['topicArn']
-
         if identity is not None:
-            _setter("identity", identity)
+            pulumi.set(__self__, "identity", identity)
         if include_original_headers is not None:
-            _setter("include_original_headers", include_original_headers)
+            pulumi.set(__self__, "include_original_headers", include_original_headers)
         if notification_type is not None:
-            _setter("notification_type", notification_type)
+            pulumi.set(__self__, "notification_type", notification_type)
         if topic_arn is not None:
-            _setter("topic_arn", topic_arn)
+            pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter
@@ -284,10 +234,6 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IdentityNotificationTopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

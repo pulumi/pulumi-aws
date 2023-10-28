@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupMembershipArgs', 'GroupMembership']
@@ -25,39 +25,12 @@ class GroupMembershipArgs:
         :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         :param pulumi.Input[str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
         """
-        GroupMembershipArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_name=group_name,
-            member_name=member_name,
-            aws_account_id=aws_account_id,
-            namespace=namespace,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_name: Optional[pulumi.Input[str]] = None,
-             member_name: Optional[pulumi.Input[str]] = None,
-             aws_account_id: Optional[pulumi.Input[str]] = None,
-             namespace: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if group_name is None and 'groupName' in kwargs:
-            group_name = kwargs['groupName']
-        if group_name is None:
-            raise TypeError("Missing 'group_name' argument")
-        if member_name is None and 'memberName' in kwargs:
-            member_name = kwargs['memberName']
-        if member_name is None:
-            raise TypeError("Missing 'member_name' argument")
-        if aws_account_id is None and 'awsAccountId' in kwargs:
-            aws_account_id = kwargs['awsAccountId']
-
-        _setter("group_name", group_name)
-        _setter("member_name", member_name)
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "member_name", member_name)
         if aws_account_id is not None:
-            _setter("aws_account_id", aws_account_id)
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
         if namespace is not None:
-            _setter("namespace", namespace)
+            pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter(name="groupName")
@@ -123,41 +96,16 @@ class _GroupMembershipState:
         :param pulumi.Input[str] member_name: The name of the member to add to the group.
         :param pulumi.Input[str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
         """
-        _GroupMembershipState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            aws_account_id=aws_account_id,
-            group_name=group_name,
-            member_name=member_name,
-            namespace=namespace,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             aws_account_id: Optional[pulumi.Input[str]] = None,
-             group_name: Optional[pulumi.Input[str]] = None,
-             member_name: Optional[pulumi.Input[str]] = None,
-             namespace: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if aws_account_id is None and 'awsAccountId' in kwargs:
-            aws_account_id = kwargs['awsAccountId']
-        if group_name is None and 'groupName' in kwargs:
-            group_name = kwargs['groupName']
-        if member_name is None and 'memberName' in kwargs:
-            member_name = kwargs['memberName']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if aws_account_id is not None:
-            _setter("aws_account_id", aws_account_id)
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
         if group_name is not None:
-            _setter("group_name", group_name)
+            pulumi.set(__self__, "group_name", group_name)
         if member_name is not None:
-            _setter("member_name", member_name)
+            pulumi.set(__self__, "member_name", member_name)
         if namespace is not None:
-            _setter("namespace", namespace)
+            pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
@@ -294,10 +242,6 @@ class GroupMembership(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GroupMembershipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

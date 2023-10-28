@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -52,138 +52,55 @@ class TopicRuleArgs:
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        TopicRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            sql=sql,
-            sql_version=sql_version,
-            cloudwatch_alarms=cloudwatch_alarms,
-            cloudwatch_logs=cloudwatch_logs,
-            cloudwatch_metrics=cloudwatch_metrics,
-            description=description,
-            dynamodbs=dynamodbs,
-            dynamodbv2s=dynamodbv2s,
-            elasticsearch=elasticsearch,
-            error_action=error_action,
-            firehoses=firehoses,
-            https=https,
-            iot_analytics=iot_analytics,
-            iot_events=iot_events,
-            kafkas=kafkas,
-            kineses=kineses,
-            lambdas=lambdas,
-            name=name,
-            republishes=republishes,
-            s3=s3,
-            sns=sns,
-            sqs=sqs,
-            step_functions=step_functions,
-            tags=tags,
-            timestreams=timestreams,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             sql: Optional[pulumi.Input[str]] = None,
-             sql_version: Optional[pulumi.Input[str]] = None,
-             cloudwatch_alarms: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]] = None,
-             cloudwatch_logs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]] = None,
-             cloudwatch_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             dynamodbs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]] = None,
-             dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]] = None,
-             elasticsearch: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]] = None,
-             error_action: Optional[pulumi.Input['TopicRuleErrorActionArgs']] = None,
-             firehoses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]] = None,
-             https: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpArgs']]]] = None,
-             iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]] = None,
-             iot_events: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]] = None,
-             kafkas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]] = None,
-             kineses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]] = None,
-             lambdas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             republishes: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]] = None,
-             s3: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
-             sns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]] = None,
-             sqs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]] = None,
-             step_functions: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timestreams: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if sql is None:
-            raise TypeError("Missing 'sql' argument")
-        if sql_version is None and 'sqlVersion' in kwargs:
-            sql_version = kwargs['sqlVersion']
-        if sql_version is None:
-            raise TypeError("Missing 'sql_version' argument")
-        if cloudwatch_alarms is None and 'cloudwatchAlarms' in kwargs:
-            cloudwatch_alarms = kwargs['cloudwatchAlarms']
-        if cloudwatch_logs is None and 'cloudwatchLogs' in kwargs:
-            cloudwatch_logs = kwargs['cloudwatchLogs']
-        if cloudwatch_metrics is None and 'cloudwatchMetrics' in kwargs:
-            cloudwatch_metrics = kwargs['cloudwatchMetrics']
-        if error_action is None and 'errorAction' in kwargs:
-            error_action = kwargs['errorAction']
-        if iot_analytics is None and 'iotAnalytics' in kwargs:
-            iot_analytics = kwargs['iotAnalytics']
-        if iot_events is None and 'iotEvents' in kwargs:
-            iot_events = kwargs['iotEvents']
-        if step_functions is None and 'stepFunctions' in kwargs:
-            step_functions = kwargs['stepFunctions']
-
-        _setter("enabled", enabled)
-        _setter("sql", sql)
-        _setter("sql_version", sql_version)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "sql", sql)
+        pulumi.set(__self__, "sql_version", sql_version)
         if cloudwatch_alarms is not None:
-            _setter("cloudwatch_alarms", cloudwatch_alarms)
+            pulumi.set(__self__, "cloudwatch_alarms", cloudwatch_alarms)
         if cloudwatch_logs is not None:
-            _setter("cloudwatch_logs", cloudwatch_logs)
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if cloudwatch_metrics is not None:
-            _setter("cloudwatch_metrics", cloudwatch_metrics)
+            pulumi.set(__self__, "cloudwatch_metrics", cloudwatch_metrics)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if dynamodbs is not None:
-            _setter("dynamodbs", dynamodbs)
+            pulumi.set(__self__, "dynamodbs", dynamodbs)
         if dynamodbv2s is not None:
-            _setter("dynamodbv2s", dynamodbv2s)
+            pulumi.set(__self__, "dynamodbv2s", dynamodbv2s)
         if elasticsearch is not None:
-            _setter("elasticsearch", elasticsearch)
+            pulumi.set(__self__, "elasticsearch", elasticsearch)
         if error_action is not None:
-            _setter("error_action", error_action)
+            pulumi.set(__self__, "error_action", error_action)
         if firehoses is not None:
-            _setter("firehoses", firehoses)
+            pulumi.set(__self__, "firehoses", firehoses)
         if https is not None:
-            _setter("https", https)
+            pulumi.set(__self__, "https", https)
         if iot_analytics is not None:
-            _setter("iot_analytics", iot_analytics)
+            pulumi.set(__self__, "iot_analytics", iot_analytics)
         if iot_events is not None:
-            _setter("iot_events", iot_events)
+            pulumi.set(__self__, "iot_events", iot_events)
         if kafkas is not None:
-            _setter("kafkas", kafkas)
+            pulumi.set(__self__, "kafkas", kafkas)
         if kineses is not None:
-            _setter("kineses", kineses)
+            pulumi.set(__self__, "kineses", kineses)
         if lambdas is not None:
-            _setter("lambdas", lambdas)
+            pulumi.set(__self__, "lambdas", lambdas)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if republishes is not None:
-            _setter("republishes", republishes)
+            pulumi.set(__self__, "republishes", republishes)
         if s3 is not None:
-            _setter("s3", s3)
+            pulumi.set(__self__, "s3", s3)
         if sns is not None:
-            _setter("sns", sns)
+            pulumi.set(__self__, "sns", sns)
         if sqs is not None:
-            _setter("sqs", sqs)
+            pulumi.set(__self__, "sqs", sqs)
         if step_functions is not None:
-            _setter("step_functions", step_functions)
+            pulumi.set(__self__, "step_functions", step_functions)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timestreams is not None:
-            _setter("timestreams", timestreams)
+            pulumi.set(__self__, "timestreams", timestreams)
 
     @property
     @pulumi.getter
@@ -484,148 +401,65 @@ class _TopicRuleState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _TopicRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            cloudwatch_alarms=cloudwatch_alarms,
-            cloudwatch_logs=cloudwatch_logs,
-            cloudwatch_metrics=cloudwatch_metrics,
-            description=description,
-            dynamodbs=dynamodbs,
-            dynamodbv2s=dynamodbv2s,
-            elasticsearch=elasticsearch,
-            enabled=enabled,
-            error_action=error_action,
-            firehoses=firehoses,
-            https=https,
-            iot_analytics=iot_analytics,
-            iot_events=iot_events,
-            kafkas=kafkas,
-            kineses=kineses,
-            lambdas=lambdas,
-            name=name,
-            republishes=republishes,
-            s3=s3,
-            sns=sns,
-            sql=sql,
-            sql_version=sql_version,
-            sqs=sqs,
-            step_functions=step_functions,
-            tags=tags,
-            tags_all=tags_all,
-            timestreams=timestreams,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             cloudwatch_alarms: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchAlarmArgs']]]] = None,
-             cloudwatch_logs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchLogArgs']]]] = None,
-             cloudwatch_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleCloudwatchMetricArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             dynamodbs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]] = None,
-             dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]] = None,
-             elasticsearch: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             error_action: Optional[pulumi.Input['TopicRuleErrorActionArgs']] = None,
-             firehoses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]] = None,
-             https: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpArgs']]]] = None,
-             iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]] = None,
-             iot_events: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]] = None,
-             kafkas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]] = None,
-             kineses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]] = None,
-             lambdas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             republishes: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]] = None,
-             s3: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
-             sns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]] = None,
-             sql: Optional[pulumi.Input[str]] = None,
-             sql_version: Optional[pulumi.Input[str]] = None,
-             sqs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]] = None,
-             step_functions: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timestreams: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cloudwatch_alarms is None and 'cloudwatchAlarms' in kwargs:
-            cloudwatch_alarms = kwargs['cloudwatchAlarms']
-        if cloudwatch_logs is None and 'cloudwatchLogs' in kwargs:
-            cloudwatch_logs = kwargs['cloudwatchLogs']
-        if cloudwatch_metrics is None and 'cloudwatchMetrics' in kwargs:
-            cloudwatch_metrics = kwargs['cloudwatchMetrics']
-        if error_action is None and 'errorAction' in kwargs:
-            error_action = kwargs['errorAction']
-        if iot_analytics is None and 'iotAnalytics' in kwargs:
-            iot_analytics = kwargs['iotAnalytics']
-        if iot_events is None and 'iotEvents' in kwargs:
-            iot_events = kwargs['iotEvents']
-        if sql_version is None and 'sqlVersion' in kwargs:
-            sql_version = kwargs['sqlVersion']
-        if step_functions is None and 'stepFunctions' in kwargs:
-            step_functions = kwargs['stepFunctions']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if cloudwatch_alarms is not None:
-            _setter("cloudwatch_alarms", cloudwatch_alarms)
+            pulumi.set(__self__, "cloudwatch_alarms", cloudwatch_alarms)
         if cloudwatch_logs is not None:
-            _setter("cloudwatch_logs", cloudwatch_logs)
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if cloudwatch_metrics is not None:
-            _setter("cloudwatch_metrics", cloudwatch_metrics)
+            pulumi.set(__self__, "cloudwatch_metrics", cloudwatch_metrics)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if dynamodbs is not None:
-            _setter("dynamodbs", dynamodbs)
+            pulumi.set(__self__, "dynamodbs", dynamodbs)
         if dynamodbv2s is not None:
-            _setter("dynamodbv2s", dynamodbv2s)
+            pulumi.set(__self__, "dynamodbv2s", dynamodbv2s)
         if elasticsearch is not None:
-            _setter("elasticsearch", elasticsearch)
+            pulumi.set(__self__, "elasticsearch", elasticsearch)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if error_action is not None:
-            _setter("error_action", error_action)
+            pulumi.set(__self__, "error_action", error_action)
         if firehoses is not None:
-            _setter("firehoses", firehoses)
+            pulumi.set(__self__, "firehoses", firehoses)
         if https is not None:
-            _setter("https", https)
+            pulumi.set(__self__, "https", https)
         if iot_analytics is not None:
-            _setter("iot_analytics", iot_analytics)
+            pulumi.set(__self__, "iot_analytics", iot_analytics)
         if iot_events is not None:
-            _setter("iot_events", iot_events)
+            pulumi.set(__self__, "iot_events", iot_events)
         if kafkas is not None:
-            _setter("kafkas", kafkas)
+            pulumi.set(__self__, "kafkas", kafkas)
         if kineses is not None:
-            _setter("kineses", kineses)
+            pulumi.set(__self__, "kineses", kineses)
         if lambdas is not None:
-            _setter("lambdas", lambdas)
+            pulumi.set(__self__, "lambdas", lambdas)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if republishes is not None:
-            _setter("republishes", republishes)
+            pulumi.set(__self__, "republishes", republishes)
         if s3 is not None:
-            _setter("s3", s3)
+            pulumi.set(__self__, "s3", s3)
         if sns is not None:
-            _setter("sns", sns)
+            pulumi.set(__self__, "sns", sns)
         if sql is not None:
-            _setter("sql", sql)
+            pulumi.set(__self__, "sql", sql)
         if sql_version is not None:
-            _setter("sql_version", sql_version)
+            pulumi.set(__self__, "sql_version", sql_version)
         if sqs is not None:
-            _setter("sqs", sqs)
+            pulumi.set(__self__, "sqs", sqs)
         if step_functions is not None:
-            _setter("step_functions", step_functions)
+            pulumi.set(__self__, "step_functions", step_functions)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if timestreams is not None:
-            _setter("timestreams", timestreams)
+            pulumi.set(__self__, "timestreams", timestreams)
 
     @property
     @pulumi.getter
@@ -1074,10 +908,6 @@ class TopicRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TopicRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1128,7 +958,6 @@ class TopicRule(pulumi.CustomResource):
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
-            error_action = _utilities.configure(error_action, TopicRuleErrorActionArgs, True)
             __props__.__dict__["error_action"] = error_action
             __props__.__dict__["firehoses"] = firehoses
             __props__.__dict__["https"] = https

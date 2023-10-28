@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MetricsDestinationArgs', 'MetricsDestination']
@@ -25,39 +25,12 @@ class MetricsDestinationArgs:
         :param pulumi.Input[str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
         :param pulumi.Input[str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
         """
-        MetricsDestinationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_monitor_name=app_monitor_name,
-            destination=destination,
-            destination_arn=destination_arn,
-            iam_role_arn=iam_role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_monitor_name: Optional[pulumi.Input[str]] = None,
-             destination: Optional[pulumi.Input[str]] = None,
-             destination_arn: Optional[pulumi.Input[str]] = None,
-             iam_role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_monitor_name is None and 'appMonitorName' in kwargs:
-            app_monitor_name = kwargs['appMonitorName']
-        if app_monitor_name is None:
-            raise TypeError("Missing 'app_monitor_name' argument")
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if destination_arn is None and 'destinationArn' in kwargs:
-            destination_arn = kwargs['destinationArn']
-        if iam_role_arn is None and 'iamRoleArn' in kwargs:
-            iam_role_arn = kwargs['iamRoleArn']
-
-        _setter("app_monitor_name", app_monitor_name)
-        _setter("destination", destination)
+        pulumi.set(__self__, "app_monitor_name", app_monitor_name)
+        pulumi.set(__self__, "destination", destination)
         if destination_arn is not None:
-            _setter("destination_arn", destination_arn)
+            pulumi.set(__self__, "destination_arn", destination_arn)
         if iam_role_arn is not None:
-            _setter("iam_role_arn", iam_role_arn)
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
 
     @property
     @pulumi.getter(name="appMonitorName")
@@ -122,37 +95,14 @@ class _MetricsDestinationState:
         :param pulumi.Input[str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
         :param pulumi.Input[str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
         """
-        _MetricsDestinationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_monitor_name=app_monitor_name,
-            destination=destination,
-            destination_arn=destination_arn,
-            iam_role_arn=iam_role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_monitor_name: Optional[pulumi.Input[str]] = None,
-             destination: Optional[pulumi.Input[str]] = None,
-             destination_arn: Optional[pulumi.Input[str]] = None,
-             iam_role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_monitor_name is None and 'appMonitorName' in kwargs:
-            app_monitor_name = kwargs['appMonitorName']
-        if destination_arn is None and 'destinationArn' in kwargs:
-            destination_arn = kwargs['destinationArn']
-        if iam_role_arn is None and 'iamRoleArn' in kwargs:
-            iam_role_arn = kwargs['iamRoleArn']
-
         if app_monitor_name is not None:
-            _setter("app_monitor_name", app_monitor_name)
+            pulumi.set(__self__, "app_monitor_name", app_monitor_name)
         if destination is not None:
-            _setter("destination", destination)
+            pulumi.set(__self__, "destination", destination)
         if destination_arn is not None:
-            _setter("destination_arn", destination_arn)
+            pulumi.set(__self__, "destination_arn", destination_arn)
         if iam_role_arn is not None:
-            _setter("iam_role_arn", iam_role_arn)
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
 
     @property
     @pulumi.getter(name="appMonitorName")
@@ -280,10 +230,6 @@ class MetricsDestination(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MetricsDestinationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

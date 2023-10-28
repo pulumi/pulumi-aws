@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DatabaseArgs', 'Database']
@@ -23,32 +23,11 @@ class DatabaseArgs:
         :param pulumi.Input[str] kms_key_id: The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        DatabaseArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database_name=database_name,
-            kms_key_id=kms_key_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database_name: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if database_name is None:
-            raise TypeError("Missing 'database_name' argument")
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-
-        _setter("database_name", database_name)
+        pulumi.set(__self__, "database_name", database_name)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -105,50 +84,21 @@ class _DatabaseState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _DatabaseState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            database_name=database_name,
-            kms_key_id=kms_key_id,
-            table_count=table_count,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             table_count: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if table_count is None and 'tableCount' in kwargs:
-            table_count = kwargs['tableCount']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if table_count is not None:
-            _setter("table_count", table_count)
+            pulumi.set(__self__, "table_count", table_count)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -325,10 +275,6 @@ class Database(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

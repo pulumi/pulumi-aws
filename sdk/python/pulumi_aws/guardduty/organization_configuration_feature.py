@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,39 +27,12 @@ class OrganizationConfigurationFeatureArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]] additional_configurations: The additional information that will be configured for the organization See below.
         :param pulumi.Input[str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         """
-        OrganizationConfigurationFeatureArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_enable=auto_enable,
-            detector_id=detector_id,
-            additional_configurations=additional_configurations,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_enable: Optional[pulumi.Input[str]] = None,
-             detector_id: Optional[pulumi.Input[str]] = None,
-             additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_enable is None and 'autoEnable' in kwargs:
-            auto_enable = kwargs['autoEnable']
-        if auto_enable is None:
-            raise TypeError("Missing 'auto_enable' argument")
-        if detector_id is None and 'detectorId' in kwargs:
-            detector_id = kwargs['detectorId']
-        if detector_id is None:
-            raise TypeError("Missing 'detector_id' argument")
-        if additional_configurations is None and 'additionalConfigurations' in kwargs:
-            additional_configurations = kwargs['additionalConfigurations']
-
-        _setter("auto_enable", auto_enable)
-        _setter("detector_id", detector_id)
+        pulumi.set(__self__, "auto_enable", auto_enable)
+        pulumi.set(__self__, "detector_id", detector_id)
         if additional_configurations is not None:
-            _setter("additional_configurations", additional_configurations)
+            pulumi.set(__self__, "additional_configurations", additional_configurations)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -124,37 +97,14 @@ class _OrganizationConfigurationFeatureState:
         :param pulumi.Input[str] detector_id: The ID of the detector that configures the delegated administrator.
         :param pulumi.Input[str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         """
-        _OrganizationConfigurationFeatureState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_configurations=additional_configurations,
-            auto_enable=auto_enable,
-            detector_id=detector_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] = None,
-             auto_enable: Optional[pulumi.Input[str]] = None,
-             detector_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_configurations is None and 'additionalConfigurations' in kwargs:
-            additional_configurations = kwargs['additionalConfigurations']
-        if auto_enable is None and 'autoEnable' in kwargs:
-            auto_enable = kwargs['autoEnable']
-        if detector_id is None and 'detectorId' in kwargs:
-            detector_id = kwargs['detectorId']
-
         if additional_configurations is not None:
-            _setter("additional_configurations", additional_configurations)
+            pulumi.set(__self__, "additional_configurations", additional_configurations)
         if auto_enable is not None:
-            _setter("auto_enable", auto_enable)
+            pulumi.set(__self__, "auto_enable", auto_enable)
         if detector_id is not None:
-            _setter("detector_id", detector_id)
+            pulumi.set(__self__, "detector_id", detector_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="additionalConfigurations")
@@ -280,10 +230,6 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OrganizationConfigurationFeatureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

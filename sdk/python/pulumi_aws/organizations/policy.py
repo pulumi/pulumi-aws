@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PolicyArgs', 'Policy']
@@ -29,42 +29,17 @@ class PolicyArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of policy to create. Valid values are `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY` (SCP), and `TAG_POLICY`. Defaults to `SERVICE_CONTROL_POLICY`.
         """
-        PolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            description=description,
-            name=name,
-            skip_destroy=skip_destroy,
-            tags=tags,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             skip_destroy: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if skip_destroy is None and 'skipDestroy' in kwargs:
-            skip_destroy = kwargs['skipDestroy']
-
-        _setter("content", content)
+        pulumi.set(__self__, "content", content)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if skip_destroy is not None:
-            _setter("skip_destroy", skip_destroy)
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -161,54 +136,25 @@ class _PolicyState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of policy to create. Valid values are `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY` (SCP), and `TAG_POLICY`. Defaults to `SERVICE_CONTROL_POLICY`.
         """
-        _PolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            content=content,
-            description=description,
-            name=name,
-            skip_destroy=skip_destroy,
-            tags=tags,
-            tags_all=tags_all,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             skip_destroy: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if skip_destroy is None and 'skipDestroy' in kwargs:
-            skip_destroy = kwargs['skipDestroy']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if skip_destroy is not None:
-            _setter("skip_destroy", skip_destroy)
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -397,10 +343,6 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

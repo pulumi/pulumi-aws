@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,28 +24,11 @@ class IndexArgs:
         :param pulumi.Input[str] type: The type of the index. Valid values: `AGGREGATOR`, `LOCAL`. To understand the difference between `LOCAL` and `AGGREGATOR`, see the [_AWS Resource Explorer User Guide_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        IndexArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            tags=tags,
-            timeouts=timeouts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeouts: Optional[pulumi.Input['IndexTimeoutsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
-            _setter("timeouts", timeouts)
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -96,40 +79,19 @@ class _IndexState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the index. Valid values: `AGGREGATOR`, `LOCAL`. To understand the difference between `LOCAL` and `AGGREGATOR`, see the [_AWS Resource Explorer User Guide_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html).
         """
-        _IndexState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            tags=tags,
-            tags_all=tags_all,
-            timeouts=timeouts,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeouts: Optional[pulumi.Input['IndexTimeoutsArgs']] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
-            _setter("timeouts", timeouts)
+            pulumi.set(__self__, "timeouts", timeouts)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -262,10 +224,6 @@ class Index(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IndexArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -284,7 +242,6 @@ class Index(pulumi.CustomResource):
             __props__ = IndexArgs.__new__(IndexArgs)
 
             __props__.__dict__["tags"] = tags
-            timeouts = _utilities.configure(timeouts, IndexTimeoutsArgs, True)
             __props__.__dict__["timeouts"] = timeouts
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

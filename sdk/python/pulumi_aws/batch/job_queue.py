@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,50 +34,17 @@ class JobQueueArgs:
         :param pulumi.Input[str] scheduling_policy_arn: The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        JobQueueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compute_environments=compute_environments,
-            priority=priority,
-            state=state,
-            name=name,
-            scheduling_policy_arn=scheduling_policy_arn,
-            tags=tags,
-            timeouts=timeouts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeouts: Optional[pulumi.Input['JobQueueTimeoutsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if compute_environments is None and 'computeEnvironments' in kwargs:
-            compute_environments = kwargs['computeEnvironments']
-        if compute_environments is None:
-            raise TypeError("Missing 'compute_environments' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-        if state is None:
-            raise TypeError("Missing 'state' argument")
-        if scheduling_policy_arn is None and 'schedulingPolicyArn' in kwargs:
-            scheduling_policy_arn = kwargs['schedulingPolicyArn']
-
-        _setter("compute_environments", compute_environments)
-        _setter("priority", priority)
-        _setter("state", state)
+        pulumi.set(__self__, "compute_environments", compute_environments)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "state", state)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if scheduling_policy_arn is not None:
-            _setter("scheduling_policy_arn", scheduling_policy_arn)
+            pulumi.set(__self__, "scheduling_policy_arn", scheduling_policy_arn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
-            _setter("timeouts", timeouts)
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter(name="computeEnvironments")
@@ -188,60 +155,27 @@ class _JobQueueState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _JobQueueState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            compute_environments=compute_environments,
-            name=name,
-            priority=priority,
-            scheduling_policy_arn=scheduling_policy_arn,
-            state=state,
-            tags=tags,
-            tags_all=tags_all,
-            timeouts=timeouts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeouts: Optional[pulumi.Input['JobQueueTimeoutsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if compute_environments is None and 'computeEnvironments' in kwargs:
-            compute_environments = kwargs['computeEnvironments']
-        if scheduling_policy_arn is None and 'schedulingPolicyArn' in kwargs:
-            scheduling_policy_arn = kwargs['schedulingPolicyArn']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if compute_environments is not None:
-            _setter("compute_environments", compute_environments)
+            pulumi.set(__self__, "compute_environments", compute_environments)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if scheduling_policy_arn is not None:
-            _setter("scheduling_policy_arn", scheduling_policy_arn)
+            pulumi.set(__self__, "scheduling_policy_arn", scheduling_policy_arn)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
-            _setter("timeouts", timeouts)
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -494,10 +428,6 @@ class JobQueue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            JobQueueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -531,7 +461,6 @@ class JobQueue(pulumi.CustomResource):
                 raise TypeError("Missing required property 'state'")
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
-            timeouts = _utilities.configure(timeouts, JobQueueTimeoutsArgs, True)
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None

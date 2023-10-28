@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,38 +31,15 @@ class BucketNotificationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: Notification configuration to SQS Queue. See below.
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: Notification configuration to SNS Topic. See below.
         """
-        BucketNotificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            eventbridge=eventbridge,
-            lambda_functions=lambda_functions,
-            queues=queues,
-            topics=topics,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[pulumi.Input[str]] = None,
-             eventbridge: Optional[pulumi.Input[bool]] = None,
-             lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]] = None,
-             queues: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]] = None,
-             topics: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket is None:
-            raise TypeError("Missing 'bucket' argument")
-        if lambda_functions is None and 'lambdaFunctions' in kwargs:
-            lambda_functions = kwargs['lambdaFunctions']
-
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if eventbridge is not None:
-            _setter("eventbridge", eventbridge)
+            pulumi.set(__self__, "eventbridge", eventbridge)
         if lambda_functions is not None:
-            _setter("lambda_functions", lambda_functions)
+            pulumi.set(__self__, "lambda_functions", lambda_functions)
         if queues is not None:
-            _setter("queues", queues)
+            pulumi.set(__self__, "queues", queues)
         if topics is not None:
-            _setter("topics", topics)
+            pulumi.set(__self__, "topics", topics)
 
     @property
     @pulumi.getter
@@ -145,37 +122,16 @@ class _BucketNotificationState:
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: Notification configuration to SQS Queue. See below.
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: Notification configuration to SNS Topic. See below.
         """
-        _BucketNotificationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            eventbridge=eventbridge,
-            lambda_functions=lambda_functions,
-            queues=queues,
-            topics=topics,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[pulumi.Input[str]] = None,
-             eventbridge: Optional[pulumi.Input[bool]] = None,
-             lambda_functions: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]]] = None,
-             queues: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]]] = None,
-             topics: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if lambda_functions is None and 'lambdaFunctions' in kwargs:
-            lambda_functions = kwargs['lambdaFunctions']
-
         if bucket is not None:
-            _setter("bucket", bucket)
+            pulumi.set(__self__, "bucket", bucket)
         if eventbridge is not None:
-            _setter("eventbridge", eventbridge)
+            pulumi.set(__self__, "eventbridge", eventbridge)
         if lambda_functions is not None:
-            _setter("lambda_functions", lambda_functions)
+            pulumi.set(__self__, "lambda_functions", lambda_functions)
         if queues is not None:
-            _setter("queues", queues)
+            pulumi.set(__self__, "queues", queues)
         if topics is not None:
-            _setter("topics", topics)
+            pulumi.set(__self__, "topics", topics)
 
     @property
     @pulumi.getter
@@ -611,10 +567,6 @@ class BucketNotification(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BucketNotificationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

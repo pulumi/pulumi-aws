@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -67,125 +67,46 @@ class TargetGroupArgs:
                Application Load Balancers do not support the `alb` target type.
         :param pulumi.Input[str] vpc_id: Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         """
-        TargetGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connection_termination=connection_termination,
-            deregistration_delay=deregistration_delay,
-            health_check=health_check,
-            ip_address_type=ip_address_type,
-            lambda_multi_value_headers_enabled=lambda_multi_value_headers_enabled,
-            load_balancing_algorithm_type=load_balancing_algorithm_type,
-            load_balancing_cross_zone_enabled=load_balancing_cross_zone_enabled,
-            name=name,
-            name_prefix=name_prefix,
-            port=port,
-            preserve_client_ip=preserve_client_ip,
-            protocol=protocol,
-            protocol_version=protocol_version,
-            proxy_protocol_v2=proxy_protocol_v2,
-            slow_start=slow_start,
-            stickiness=stickiness,
-            tags=tags,
-            target_failovers=target_failovers,
-            target_type=target_type,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connection_termination: Optional[pulumi.Input[bool]] = None,
-             deregistration_delay: Optional[pulumi.Input[int]] = None,
-             health_check: Optional[pulumi.Input['TargetGroupHealthCheckArgs']] = None,
-             ip_address_type: Optional[pulumi.Input[str]] = None,
-             lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
-             load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
-             load_balancing_cross_zone_enabled: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preserve_client_ip: Optional[pulumi.Input[str]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             protocol_version: Optional[pulumi.Input[str]] = None,
-             proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
-             slow_start: Optional[pulumi.Input[int]] = None,
-             stickiness: Optional[pulumi.Input['TargetGroupStickinessArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]] = None,
-             target_type: Optional[pulumi.Input[str]] = None,
-             vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_termination is None and 'connectionTermination' in kwargs:
-            connection_termination = kwargs['connectionTermination']
-        if deregistration_delay is None and 'deregistrationDelay' in kwargs:
-            deregistration_delay = kwargs['deregistrationDelay']
-        if health_check is None and 'healthCheck' in kwargs:
-            health_check = kwargs['healthCheck']
-        if ip_address_type is None and 'ipAddressType' in kwargs:
-            ip_address_type = kwargs['ipAddressType']
-        if lambda_multi_value_headers_enabled is None and 'lambdaMultiValueHeadersEnabled' in kwargs:
-            lambda_multi_value_headers_enabled = kwargs['lambdaMultiValueHeadersEnabled']
-        if load_balancing_algorithm_type is None and 'loadBalancingAlgorithmType' in kwargs:
-            load_balancing_algorithm_type = kwargs['loadBalancingAlgorithmType']
-        if load_balancing_cross_zone_enabled is None and 'loadBalancingCrossZoneEnabled' in kwargs:
-            load_balancing_cross_zone_enabled = kwargs['loadBalancingCrossZoneEnabled']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if preserve_client_ip is None and 'preserveClientIp' in kwargs:
-            preserve_client_ip = kwargs['preserveClientIp']
-        if protocol_version is None and 'protocolVersion' in kwargs:
-            protocol_version = kwargs['protocolVersion']
-        if proxy_protocol_v2 is None and 'proxyProtocolV2' in kwargs:
-            proxy_protocol_v2 = kwargs['proxyProtocolV2']
-        if slow_start is None and 'slowStart' in kwargs:
-            slow_start = kwargs['slowStart']
-        if target_failovers is None and 'targetFailovers' in kwargs:
-            target_failovers = kwargs['targetFailovers']
-        if target_type is None and 'targetType' in kwargs:
-            target_type = kwargs['targetType']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-
         if connection_termination is not None:
-            _setter("connection_termination", connection_termination)
+            pulumi.set(__self__, "connection_termination", connection_termination)
         if deregistration_delay is not None:
-            _setter("deregistration_delay", deregistration_delay)
+            pulumi.set(__self__, "deregistration_delay", deregistration_delay)
         if health_check is not None:
-            _setter("health_check", health_check)
+            pulumi.set(__self__, "health_check", health_check)
         if ip_address_type is not None:
-            _setter("ip_address_type", ip_address_type)
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if lambda_multi_value_headers_enabled is not None:
-            _setter("lambda_multi_value_headers_enabled", lambda_multi_value_headers_enabled)
+            pulumi.set(__self__, "lambda_multi_value_headers_enabled", lambda_multi_value_headers_enabled)
         if load_balancing_algorithm_type is not None:
-            _setter("load_balancing_algorithm_type", load_balancing_algorithm_type)
+            pulumi.set(__self__, "load_balancing_algorithm_type", load_balancing_algorithm_type)
         if load_balancing_cross_zone_enabled is not None:
-            _setter("load_balancing_cross_zone_enabled", load_balancing_cross_zone_enabled)
+            pulumi.set(__self__, "load_balancing_cross_zone_enabled", load_balancing_cross_zone_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preserve_client_ip is not None:
-            _setter("preserve_client_ip", preserve_client_ip)
+            pulumi.set(__self__, "preserve_client_ip", preserve_client_ip)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if protocol_version is not None:
-            _setter("protocol_version", protocol_version)
+            pulumi.set(__self__, "protocol_version", protocol_version)
         if proxy_protocol_v2 is not None:
-            _setter("proxy_protocol_v2", proxy_protocol_v2)
+            pulumi.set(__self__, "proxy_protocol_v2", proxy_protocol_v2)
         if slow_start is not None:
-            _setter("slow_start", slow_start)
+            pulumi.set(__self__, "slow_start", slow_start)
         if stickiness is not None:
-            _setter("stickiness", stickiness)
+            pulumi.set(__self__, "stickiness", stickiness)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if target_failovers is not None:
-            _setter("target_failovers", target_failovers)
+            pulumi.set(__self__, "target_failovers", target_failovers)
         if target_type is not None:
-            _setter("target_type", target_type)
+            pulumi.set(__self__, "target_type", target_type)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="connectionTermination")
@@ -496,144 +417,55 @@ class _TargetGroupState:
                Application Load Balancers do not support the `alb` target type.
         :param pulumi.Input[str] vpc_id: Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         """
-        _TargetGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            arn_suffix=arn_suffix,
-            connection_termination=connection_termination,
-            deregistration_delay=deregistration_delay,
-            health_check=health_check,
-            ip_address_type=ip_address_type,
-            lambda_multi_value_headers_enabled=lambda_multi_value_headers_enabled,
-            load_balancing_algorithm_type=load_balancing_algorithm_type,
-            load_balancing_cross_zone_enabled=load_balancing_cross_zone_enabled,
-            name=name,
-            name_prefix=name_prefix,
-            port=port,
-            preserve_client_ip=preserve_client_ip,
-            protocol=protocol,
-            protocol_version=protocol_version,
-            proxy_protocol_v2=proxy_protocol_v2,
-            slow_start=slow_start,
-            stickiness=stickiness,
-            tags=tags,
-            tags_all=tags_all,
-            target_failovers=target_failovers,
-            target_type=target_type,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             arn_suffix: Optional[pulumi.Input[str]] = None,
-             connection_termination: Optional[pulumi.Input[bool]] = None,
-             deregistration_delay: Optional[pulumi.Input[int]] = None,
-             health_check: Optional[pulumi.Input['TargetGroupHealthCheckArgs']] = None,
-             ip_address_type: Optional[pulumi.Input[str]] = None,
-             lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
-             load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
-             load_balancing_cross_zone_enabled: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preserve_client_ip: Optional[pulumi.Input[str]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             protocol_version: Optional[pulumi.Input[str]] = None,
-             proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
-             slow_start: Optional[pulumi.Input[int]] = None,
-             stickiness: Optional[pulumi.Input['TargetGroupStickinessArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]] = None,
-             target_type: Optional[pulumi.Input[str]] = None,
-             vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arn_suffix is None and 'arnSuffix' in kwargs:
-            arn_suffix = kwargs['arnSuffix']
-        if connection_termination is None and 'connectionTermination' in kwargs:
-            connection_termination = kwargs['connectionTermination']
-        if deregistration_delay is None and 'deregistrationDelay' in kwargs:
-            deregistration_delay = kwargs['deregistrationDelay']
-        if health_check is None and 'healthCheck' in kwargs:
-            health_check = kwargs['healthCheck']
-        if ip_address_type is None and 'ipAddressType' in kwargs:
-            ip_address_type = kwargs['ipAddressType']
-        if lambda_multi_value_headers_enabled is None and 'lambdaMultiValueHeadersEnabled' in kwargs:
-            lambda_multi_value_headers_enabled = kwargs['lambdaMultiValueHeadersEnabled']
-        if load_balancing_algorithm_type is None and 'loadBalancingAlgorithmType' in kwargs:
-            load_balancing_algorithm_type = kwargs['loadBalancingAlgorithmType']
-        if load_balancing_cross_zone_enabled is None and 'loadBalancingCrossZoneEnabled' in kwargs:
-            load_balancing_cross_zone_enabled = kwargs['loadBalancingCrossZoneEnabled']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if preserve_client_ip is None and 'preserveClientIp' in kwargs:
-            preserve_client_ip = kwargs['preserveClientIp']
-        if protocol_version is None and 'protocolVersion' in kwargs:
-            protocol_version = kwargs['protocolVersion']
-        if proxy_protocol_v2 is None and 'proxyProtocolV2' in kwargs:
-            proxy_protocol_v2 = kwargs['proxyProtocolV2']
-        if slow_start is None and 'slowStart' in kwargs:
-            slow_start = kwargs['slowStart']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if target_failovers is None and 'targetFailovers' in kwargs:
-            target_failovers = kwargs['targetFailovers']
-        if target_type is None and 'targetType' in kwargs:
-            target_type = kwargs['targetType']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if arn_suffix is not None:
-            _setter("arn_suffix", arn_suffix)
+            pulumi.set(__self__, "arn_suffix", arn_suffix)
         if connection_termination is not None:
-            _setter("connection_termination", connection_termination)
+            pulumi.set(__self__, "connection_termination", connection_termination)
         if deregistration_delay is not None:
-            _setter("deregistration_delay", deregistration_delay)
+            pulumi.set(__self__, "deregistration_delay", deregistration_delay)
         if health_check is not None:
-            _setter("health_check", health_check)
+            pulumi.set(__self__, "health_check", health_check)
         if ip_address_type is not None:
-            _setter("ip_address_type", ip_address_type)
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if lambda_multi_value_headers_enabled is not None:
-            _setter("lambda_multi_value_headers_enabled", lambda_multi_value_headers_enabled)
+            pulumi.set(__self__, "lambda_multi_value_headers_enabled", lambda_multi_value_headers_enabled)
         if load_balancing_algorithm_type is not None:
-            _setter("load_balancing_algorithm_type", load_balancing_algorithm_type)
+            pulumi.set(__self__, "load_balancing_algorithm_type", load_balancing_algorithm_type)
         if load_balancing_cross_zone_enabled is not None:
-            _setter("load_balancing_cross_zone_enabled", load_balancing_cross_zone_enabled)
+            pulumi.set(__self__, "load_balancing_cross_zone_enabled", load_balancing_cross_zone_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preserve_client_ip is not None:
-            _setter("preserve_client_ip", preserve_client_ip)
+            pulumi.set(__self__, "preserve_client_ip", preserve_client_ip)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if protocol_version is not None:
-            _setter("protocol_version", protocol_version)
+            pulumi.set(__self__, "protocol_version", protocol_version)
         if proxy_protocol_v2 is not None:
-            _setter("proxy_protocol_v2", proxy_protocol_v2)
+            pulumi.set(__self__, "proxy_protocol_v2", proxy_protocol_v2)
         if slow_start is not None:
-            _setter("slow_start", slow_start)
+            pulumi.set(__self__, "slow_start", slow_start)
         if stickiness is not None:
-            _setter("stickiness", stickiness)
+            pulumi.set(__self__, "stickiness", stickiness)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if target_failovers is not None:
-            _setter("target_failovers", target_failovers)
+            pulumi.set(__self__, "target_failovers", target_failovers)
         if target_type is not None:
-            _setter("target_type", target_type)
+            pulumi.set(__self__, "target_type", target_type)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -1116,10 +948,6 @@ class TargetGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TargetGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1156,7 +984,6 @@ class TargetGroup(pulumi.CustomResource):
 
             __props__.__dict__["connection_termination"] = connection_termination
             __props__.__dict__["deregistration_delay"] = deregistration_delay
-            health_check = _utilities.configure(health_check, TargetGroupHealthCheckArgs, True)
             __props__.__dict__["health_check"] = health_check
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["lambda_multi_value_headers_enabled"] = lambda_multi_value_headers_enabled
@@ -1170,7 +997,6 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["protocol_version"] = protocol_version
             __props__.__dict__["proxy_protocol_v2"] = proxy_protocol_v2
             __props__.__dict__["slow_start"] = slow_start
-            stickiness = _utilities.configure(stickiness, TargetGroupStickinessArgs, True)
             __props__.__dict__["stickiness"] = stickiness
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_failovers"] = target_failovers

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EnablerArgs', 'Enabler']
@@ -24,29 +24,8 @@ class EnablerArgs:
                Valid values are `EC2`, `ECR`, and `LAMBDA`.
                At least one item is required.
         """
-        EnablerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_ids=account_ids,
-            resource_types=resource_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_ids is None and 'accountIds' in kwargs:
-            account_ids = kwargs['accountIds']
-        if account_ids is None:
-            raise TypeError("Missing 'account_ids' argument")
-        if resource_types is None and 'resourceTypes' in kwargs:
-            resource_types = kwargs['resourceTypes']
-        if resource_types is None:
-            raise TypeError("Missing 'resource_types' argument")
-
-        _setter("account_ids", account_ids)
-        _setter("resource_types", resource_types)
+        pulumi.set(__self__, "account_ids", account_ids)
+        pulumi.set(__self__, "resource_types", resource_types)
 
     @property
     @pulumi.getter(name="accountIds")
@@ -89,27 +68,10 @@ class _EnablerState:
                Valid values are `EC2`, `ECR`, and `LAMBDA`.
                At least one item is required.
         """
-        _EnablerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_ids=account_ids,
-            resource_types=resource_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_ids is None and 'accountIds' in kwargs:
-            account_ids = kwargs['accountIds']
-        if resource_types is None and 'resourceTypes' in kwargs:
-            resource_types = kwargs['resourceTypes']
-
         if account_ids is not None:
-            _setter("account_ids", account_ids)
+            pulumi.set(__self__, "account_ids", account_ids)
         if resource_types is not None:
-            _setter("resource_types", resource_types)
+            pulumi.set(__self__, "resource_types", resource_types)
 
     @property
     @pulumi.getter(name="accountIds")
@@ -233,10 +195,6 @@ class Enabler(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EnablerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

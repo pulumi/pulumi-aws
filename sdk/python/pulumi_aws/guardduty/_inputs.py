@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -46,31 +46,12 @@ class DetectorDatasourcesArgs:
         :param pulumi.Input['DetectorDatasourcesS3LogsArgs'] s3_logs: Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
                See S3 Logs below for more details.
         """
-        DetectorDatasourcesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kubernetes=kubernetes,
-            malware_protection=malware_protection,
-            s3_logs=s3_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kubernetes: Optional[pulumi.Input['DetectorDatasourcesKubernetesArgs']] = None,
-             malware_protection: Optional[pulumi.Input['DetectorDatasourcesMalwareProtectionArgs']] = None,
-             s3_logs: Optional[pulumi.Input['DetectorDatasourcesS3LogsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if malware_protection is None and 'malwareProtection' in kwargs:
-            malware_protection = kwargs['malwareProtection']
-        if s3_logs is None and 's3Logs' in kwargs:
-            s3_logs = kwargs['s3Logs']
-
         if kubernetes is not None:
-            _setter("kubernetes", kubernetes)
+            pulumi.set(__self__, "kubernetes", kubernetes)
         if malware_protection is not None:
-            _setter("malware_protection", malware_protection)
+            pulumi.set(__self__, "malware_protection", malware_protection)
         if s3_logs is not None:
-            _setter("s3_logs", s3_logs)
+            pulumi.set(__self__, "s3_logs", s3_logs)
 
     @property
     @pulumi.getter
@@ -122,22 +103,7 @@ class DetectorDatasourcesKubernetesArgs:
         :param pulumi.Input['DetectorDatasourcesKubernetesAuditLogsArgs'] audit_logs: Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
                See Kubernetes Audit Logs below for more details.
         """
-        DetectorDatasourcesKubernetesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audit_logs=audit_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audit_logs: Optional[pulumi.Input['DetectorDatasourcesKubernetesAuditLogsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if audit_logs is None and 'auditLogs' in kwargs:
-            audit_logs = kwargs['auditLogs']
-        if audit_logs is None:
-            raise TypeError("Missing 'audit_logs' argument")
-
-        _setter("audit_logs", audit_logs)
+        pulumi.set(__self__, "audit_logs", audit_logs)
 
     @property
     @pulumi.getter(name="auditLogs")
@@ -161,20 +127,7 @@ class DetectorDatasourcesKubernetesAuditLogsArgs:
         :param pulumi.Input[bool] enable: If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
                Defaults to `true`.
         """
-        DetectorDatasourcesKubernetesAuditLogsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable=enable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable is None:
-            raise TypeError("Missing 'enable' argument")
-
-        _setter("enable", enable)
+        pulumi.set(__self__, "enable", enable)
 
     @property
     @pulumi.getter
@@ -198,22 +151,7 @@ class DetectorDatasourcesMalwareProtectionArgs:
         :param pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs'] scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
                See Scan EC2 instance with findings below for more details.
         """
-        DetectorDatasourcesMalwareProtectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            scan_ec2_instance_with_findings=scan_ec2_instance_with_findings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             scan_ec2_instance_with_findings: Optional[pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if scan_ec2_instance_with_findings is None and 'scanEc2InstanceWithFindings' in kwargs:
-            scan_ec2_instance_with_findings = kwargs['scanEc2InstanceWithFindings']
-        if scan_ec2_instance_with_findings is None:
-            raise TypeError("Missing 'scan_ec2_instance_with_findings' argument")
-
-        _setter("scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
+        pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
 
     @property
     @pulumi.getter(name="scanEc2InstanceWithFindings")
@@ -237,22 +175,7 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs:
         :param pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs'] ebs_volumes: Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
                See EBS volumes below for more details.
         """
-        DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ebs_volumes=ebs_volumes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ebs_volumes: Optional[pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ebs_volumes is None and 'ebsVolumes' in kwargs:
-            ebs_volumes = kwargs['ebsVolumes']
-        if ebs_volumes is None:
-            raise TypeError("Missing 'ebs_volumes' argument")
-
-        _setter("ebs_volumes", ebs_volumes)
+        pulumi.set(__self__, "ebs_volumes", ebs_volumes)
 
     @property
     @pulumi.getter(name="ebsVolumes")
@@ -276,20 +199,7 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesA
         :param pulumi.Input[bool] enable: If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
                Defaults to `true`.
         """
-        DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable=enable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable is None:
-            raise TypeError("Missing 'enable' argument")
-
-        _setter("enable", enable)
+        pulumi.set(__self__, "enable", enable)
 
     @property
     @pulumi.getter
@@ -312,20 +222,7 @@ class DetectorDatasourcesS3LogsArgs:
         """
         :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         """
-        DetectorDatasourcesS3LogsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable=enable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable is None:
-            raise TypeError("Missing 'enable' argument")
-
-        _setter("enable", enable)
+        pulumi.set(__self__, "enable", enable)
 
     @property
     @pulumi.getter
@@ -349,25 +246,8 @@ class DetectorFeatureAdditionalConfigurationArgs:
         :param pulumi.Input[str] name: The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
         :param pulumi.Input[str] status: The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
         """
-        DetectorFeatureAdditionalConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-
-        _setter("name", name)
-        _setter("status", status)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -398,20 +278,7 @@ class DetectorFeatureAdditionalConfigurationArgs:
 class FilterFindingCriteriaArgs:
     def __init__(__self__, *,
                  criterions: pulumi.Input[Sequence[pulumi.Input['FilterFindingCriteriaCriterionArgs']]]):
-        FilterFindingCriteriaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            criterions=criterions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             criterions: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFindingCriteriaCriterionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if criterions is None:
-            raise TypeError("Missing 'criterions' argument")
-
-        _setter("criterions", criterions)
+        pulumi.set(__self__, "criterions", criterions)
 
     @property
     @pulumi.getter
@@ -442,54 +309,19 @@ class FilterFindingCriteriaCriterionArgs:
         :param pulumi.Input[str] less_than_or_equal: A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_equals: List of string values to be evaluated.
         """
-        FilterFindingCriteriaCriterionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            equals=equals,
-            greater_than=greater_than,
-            greater_than_or_equal=greater_than_or_equal,
-            less_than=less_than,
-            less_than_or_equal=less_than_or_equal,
-            not_equals=not_equals,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[pulumi.Input[str]] = None,
-             equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             greater_than: Optional[pulumi.Input[str]] = None,
-             greater_than_or_equal: Optional[pulumi.Input[str]] = None,
-             less_than: Optional[pulumi.Input[str]] = None,
-             less_than_or_equal: Optional[pulumi.Input[str]] = None,
-             not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if field is None:
-            raise TypeError("Missing 'field' argument")
-        if greater_than is None and 'greaterThan' in kwargs:
-            greater_than = kwargs['greaterThan']
-        if greater_than_or_equal is None and 'greaterThanOrEqual' in kwargs:
-            greater_than_or_equal = kwargs['greaterThanOrEqual']
-        if less_than is None and 'lessThan' in kwargs:
-            less_than = kwargs['lessThan']
-        if less_than_or_equal is None and 'lessThanOrEqual' in kwargs:
-            less_than_or_equal = kwargs['lessThanOrEqual']
-        if not_equals is None and 'notEquals' in kwargs:
-            not_equals = kwargs['notEquals']
-
-        _setter("field", field)
+        pulumi.set(__self__, "field", field)
         if equals is not None:
-            _setter("equals", equals)
+            pulumi.set(__self__, "equals", equals)
         if greater_than is not None:
-            _setter("greater_than", greater_than)
+            pulumi.set(__self__, "greater_than", greater_than)
         if greater_than_or_equal is not None:
-            _setter("greater_than_or_equal", greater_than_or_equal)
+            pulumi.set(__self__, "greater_than_or_equal", greater_than_or_equal)
         if less_than is not None:
-            _setter("less_than", less_than)
+            pulumi.set(__self__, "less_than", less_than)
         if less_than_or_equal is not None:
-            _setter("less_than_or_equal", less_than_or_equal)
+            pulumi.set(__self__, "less_than_or_equal", less_than_or_equal)
         if not_equals is not None:
-            _setter("not_equals", not_equals)
+            pulumi.set(__self__, "not_equals", not_equals)
 
     @property
     @pulumi.getter
@@ -587,31 +419,12 @@ class OrganizationConfigurationDatasourcesArgs:
         :param pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgs'] malware_protection: Enable Malware Protection automatically for new member accounts.
         :param pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs'] s3_logs: Enable S3 Protection automatically for new member accounts.
         """
-        OrganizationConfigurationDatasourcesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kubernetes=kubernetes,
-            malware_protection=malware_protection,
-            s3_logs=s3_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kubernetes: Optional[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArgs']] = None,
-             malware_protection: Optional[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgs']] = None,
-             s3_logs: Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if malware_protection is None and 'malwareProtection' in kwargs:
-            malware_protection = kwargs['malwareProtection']
-        if s3_logs is None and 's3Logs' in kwargs:
-            s3_logs = kwargs['s3Logs']
-
         if kubernetes is not None:
-            _setter("kubernetes", kubernetes)
+            pulumi.set(__self__, "kubernetes", kubernetes)
         if malware_protection is not None:
-            _setter("malware_protection", malware_protection)
+            pulumi.set(__self__, "malware_protection", malware_protection)
         if s3_logs is not None:
-            _setter("s3_logs", s3_logs)
+            pulumi.set(__self__, "s3_logs", s3_logs)
 
     @property
     @pulumi.getter
@@ -658,22 +471,7 @@ class OrganizationConfigurationDatasourcesKubernetesArgs:
         :param pulumi.Input['OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs'] audit_logs: Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
                See Kubernetes Audit Logs below for more details.
         """
-        OrganizationConfigurationDatasourcesKubernetesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audit_logs=audit_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audit_logs: Optional[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if audit_logs is None and 'auditLogs' in kwargs:
-            audit_logs = kwargs['auditLogs']
-        if audit_logs is None:
-            raise TypeError("Missing 'audit_logs' argument")
-
-        _setter("audit_logs", audit_logs)
+        pulumi.set(__self__, "audit_logs", audit_logs)
 
     @property
     @pulumi.getter(name="auditLogs")
@@ -697,20 +495,7 @@ class OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs:
         :param pulumi.Input[bool] enable: If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
                Defaults to `true`.
         """
-        OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable=enable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable is None:
-            raise TypeError("Missing 'enable' argument")
-
-        _setter("enable", enable)
+        pulumi.set(__self__, "enable", enable)
 
     @property
     @pulumi.getter
@@ -734,22 +519,7 @@ class OrganizationConfigurationDatasourcesMalwareProtectionArgs:
         :param pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs'] scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
                See Scan EC2 instance with findings below for more details.
         """
-        OrganizationConfigurationDatasourcesMalwareProtectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            scan_ec2_instance_with_findings=scan_ec2_instance_with_findings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             scan_ec2_instance_with_findings: Optional[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if scan_ec2_instance_with_findings is None and 'scanEc2InstanceWithFindings' in kwargs:
-            scan_ec2_instance_with_findings = kwargs['scanEc2InstanceWithFindings']
-        if scan_ec2_instance_with_findings is None:
-            raise TypeError("Missing 'scan_ec2_instance_with_findings' argument")
-
-        _setter("scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
+        pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
 
     @property
     @pulumi.getter(name="scanEc2InstanceWithFindings")
@@ -773,22 +543,7 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
         :param pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs'] ebs_volumes: Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
                See EBS volumes below for more details.
         """
-        OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ebs_volumes=ebs_volumes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ebs_volumes: Optional[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ebs_volumes is None and 'ebsVolumes' in kwargs:
-            ebs_volumes = kwargs['ebsVolumes']
-        if ebs_volumes is None:
-            raise TypeError("Missing 'ebs_volumes' argument")
-
-        _setter("ebs_volumes", ebs_volumes)
+        pulumi.set(__self__, "ebs_volumes", ebs_volumes)
 
     @property
     @pulumi.getter(name="ebsVolumes")
@@ -812,22 +567,7 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
         :param pulumi.Input[bool] auto_enable: If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
                Defaults to `true`.
         """
-        OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_enable=auto_enable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_enable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_enable is None and 'autoEnable' in kwargs:
-            auto_enable = kwargs['autoEnable']
-        if auto_enable is None:
-            raise TypeError("Missing 'auto_enable' argument")
-
-        _setter("auto_enable", auto_enable)
+        pulumi.set(__self__, "auto_enable", auto_enable)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -850,22 +590,7 @@ class OrganizationConfigurationDatasourcesS3LogsArgs:
         """
         :param pulumi.Input[bool] auto_enable: *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
-        OrganizationConfigurationDatasourcesS3LogsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_enable=auto_enable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_enable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_enable is None and 'autoEnable' in kwargs:
-            auto_enable = kwargs['autoEnable']
-        if auto_enable is None:
-            raise TypeError("Missing 'auto_enable' argument")
-
-        _setter("auto_enable", auto_enable)
+        pulumi.set(__self__, "auto_enable", auto_enable)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -889,27 +614,8 @@ class OrganizationConfigurationFeatureAdditionalConfigurationArgs:
         :param pulumi.Input[str] auto_enable: The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[str] name: The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
         """
-        OrganizationConfigurationFeatureAdditionalConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_enable=auto_enable,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_enable: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_enable is None and 'autoEnable' in kwargs:
-            auto_enable = kwargs['autoEnable']
-        if auto_enable is None:
-            raise TypeError("Missing 'auto_enable' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("auto_enable", auto_enable)
-        _setter("name", name)
+        pulumi.set(__self__, "auto_enable", auto_enable)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="autoEnable")

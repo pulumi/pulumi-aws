@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,56 +34,19 @@ class BucketWebsiteConfigurationV2Args:
                describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
         :param pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]] routing_rules: List of rules that define when a redirect is applied and the redirect behavior. See below.
         """
-        BucketWebsiteConfigurationV2Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            error_document=error_document,
-            expected_bucket_owner=expected_bucket_owner,
-            index_document=index_document,
-            redirect_all_requests_to=redirect_all_requests_to,
-            routing_rule_details=routing_rule_details,
-            routing_rules=routing_rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[pulumi.Input[str]] = None,
-             error_document: Optional[pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs']] = None,
-             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-             index_document: Optional[pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs']] = None,
-             redirect_all_requests_to: Optional[pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']] = None,
-             routing_rule_details: Optional[pulumi.Input[str]] = None,
-             routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket is None:
-            raise TypeError("Missing 'bucket' argument")
-        if error_document is None and 'errorDocument' in kwargs:
-            error_document = kwargs['errorDocument']
-        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
-            expected_bucket_owner = kwargs['expectedBucketOwner']
-        if index_document is None and 'indexDocument' in kwargs:
-            index_document = kwargs['indexDocument']
-        if redirect_all_requests_to is None and 'redirectAllRequestsTo' in kwargs:
-            redirect_all_requests_to = kwargs['redirectAllRequestsTo']
-        if routing_rule_details is None and 'routingRuleDetails' in kwargs:
-            routing_rule_details = kwargs['routingRuleDetails']
-        if routing_rules is None and 'routingRules' in kwargs:
-            routing_rules = kwargs['routingRules']
-
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if error_document is not None:
-            _setter("error_document", error_document)
+            pulumi.set(__self__, "error_document", error_document)
         if expected_bucket_owner is not None:
-            _setter("expected_bucket_owner", expected_bucket_owner)
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if index_document is not None:
-            _setter("index_document", index_document)
+            pulumi.set(__self__, "index_document", index_document)
         if redirect_all_requests_to is not None:
-            _setter("redirect_all_requests_to", redirect_all_requests_to)
+            pulumi.set(__self__, "redirect_all_requests_to", redirect_all_requests_to)
         if routing_rule_details is not None:
-            _setter("routing_rule_details", routing_rule_details)
+            pulumi.set(__self__, "routing_rule_details", routing_rule_details)
         if routing_rules is not None:
-            _setter("routing_rules", routing_rules)
+            pulumi.set(__self__, "routing_rules", routing_rules)
 
     @property
     @pulumi.getter
@@ -196,67 +159,24 @@ class _BucketWebsiteConfigurationV2State:
         :param pulumi.Input[str] website_domain: Domain of the website endpoint. This is used to create Route 53 alias records.
         :param pulumi.Input[str] website_endpoint: Website endpoint.
         """
-        _BucketWebsiteConfigurationV2State._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            error_document=error_document,
-            expected_bucket_owner=expected_bucket_owner,
-            index_document=index_document,
-            redirect_all_requests_to=redirect_all_requests_to,
-            routing_rule_details=routing_rule_details,
-            routing_rules=routing_rules,
-            website_domain=website_domain,
-            website_endpoint=website_endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[pulumi.Input[str]] = None,
-             error_document: Optional[pulumi.Input['BucketWebsiteConfigurationV2ErrorDocumentArgs']] = None,
-             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-             index_document: Optional[pulumi.Input['BucketWebsiteConfigurationV2IndexDocumentArgs']] = None,
-             redirect_all_requests_to: Optional[pulumi.Input['BucketWebsiteConfigurationV2RedirectAllRequestsToArgs']] = None,
-             routing_rule_details: Optional[pulumi.Input[str]] = None,
-             routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketWebsiteConfigurationV2RoutingRuleArgs']]]] = None,
-             website_domain: Optional[pulumi.Input[str]] = None,
-             website_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if error_document is None and 'errorDocument' in kwargs:
-            error_document = kwargs['errorDocument']
-        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
-            expected_bucket_owner = kwargs['expectedBucketOwner']
-        if index_document is None and 'indexDocument' in kwargs:
-            index_document = kwargs['indexDocument']
-        if redirect_all_requests_to is None and 'redirectAllRequestsTo' in kwargs:
-            redirect_all_requests_to = kwargs['redirectAllRequestsTo']
-        if routing_rule_details is None and 'routingRuleDetails' in kwargs:
-            routing_rule_details = kwargs['routingRuleDetails']
-        if routing_rules is None and 'routingRules' in kwargs:
-            routing_rules = kwargs['routingRules']
-        if website_domain is None and 'websiteDomain' in kwargs:
-            website_domain = kwargs['websiteDomain']
-        if website_endpoint is None and 'websiteEndpoint' in kwargs:
-            website_endpoint = kwargs['websiteEndpoint']
-
         if bucket is not None:
-            _setter("bucket", bucket)
+            pulumi.set(__self__, "bucket", bucket)
         if error_document is not None:
-            _setter("error_document", error_document)
+            pulumi.set(__self__, "error_document", error_document)
         if expected_bucket_owner is not None:
-            _setter("expected_bucket_owner", expected_bucket_owner)
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if index_document is not None:
-            _setter("index_document", index_document)
+            pulumi.set(__self__, "index_document", index_document)
         if redirect_all_requests_to is not None:
-            _setter("redirect_all_requests_to", redirect_all_requests_to)
+            pulumi.set(__self__, "redirect_all_requests_to", redirect_all_requests_to)
         if routing_rule_details is not None:
-            _setter("routing_rule_details", routing_rule_details)
+            pulumi.set(__self__, "routing_rule_details", routing_rule_details)
         if routing_rules is not None:
-            _setter("routing_rules", routing_rules)
+            pulumi.set(__self__, "routing_rules", routing_rules)
         if website_domain is not None:
-            _setter("website_domain", website_domain)
+            pulumi.set(__self__, "website_domain", website_domain)
         if website_endpoint is not None:
-            _setter("website_endpoint", website_endpoint)
+            pulumi.set(__self__, "website_endpoint", website_endpoint)
 
     @property
     @pulumi.getter
@@ -546,10 +466,6 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BucketWebsiteConfigurationV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -574,12 +490,9 @@ class BucketWebsiteConfigurationV2(pulumi.CustomResource):
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
-            error_document = _utilities.configure(error_document, BucketWebsiteConfigurationV2ErrorDocumentArgs, True)
             __props__.__dict__["error_document"] = error_document
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
-            index_document = _utilities.configure(index_document, BucketWebsiteConfigurationV2IndexDocumentArgs, True)
             __props__.__dict__["index_document"] = index_document
-            redirect_all_requests_to = _utilities.configure(redirect_all_requests_to, BucketWebsiteConfigurationV2RedirectAllRequestsToArgs, True)
             __props__.__dict__["redirect_all_requests_to"] = redirect_all_requests_to
             __props__.__dict__["routing_rule_details"] = routing_rule_details
             __props__.__dict__["routing_rules"] = routing_rules

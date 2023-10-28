@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -30,42 +30,15 @@ class SecretReplicaArgs:
         :param pulumi.Input[str] status: Status can be `InProgress`, `Failed`, or `InSync`.
         :param pulumi.Input[str] status_message: Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
         """
-        SecretReplicaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            region=region,
-            kms_key_id=kms_key_id,
-            last_accessed_date=last_accessed_date,
-            status=status,
-            status_message=status_message,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             region: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             last_accessed_date: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             status_message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if region is None:
-            raise TypeError("Missing 'region' argument")
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if last_accessed_date is None and 'lastAccessedDate' in kwargs:
-            last_accessed_date = kwargs['lastAccessedDate']
-        if status_message is None and 'statusMessage' in kwargs:
-            status_message = kwargs['statusMessage']
-
-        _setter("region", region)
+        pulumi.set(__self__, "region", region)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if last_accessed_date is not None:
-            _setter("last_accessed_date", last_accessed_date)
+            pulumi.set(__self__, "last_accessed_date", last_accessed_date)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if status_message is not None:
-            _setter("status_message", status_message)
+            pulumi.set(__self__, "status_message", status_message)
 
     @property
     @pulumi.getter
@@ -139,31 +112,12 @@ class SecretRotationRotationRulesArgs:
         :param pulumi.Input[str] duration: The length of the rotation window in hours. For example, `3h` for a three hour window.
         :param pulumi.Input[str] schedule_expression: A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
         """
-        SecretRotationRotationRulesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automatically_after_days=automatically_after_days,
-            duration=duration,
-            schedule_expression=schedule_expression,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automatically_after_days: Optional[pulumi.Input[int]] = None,
-             duration: Optional[pulumi.Input[str]] = None,
-             schedule_expression: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automatically_after_days is None and 'automaticallyAfterDays' in kwargs:
-            automatically_after_days = kwargs['automaticallyAfterDays']
-        if schedule_expression is None and 'scheduleExpression' in kwargs:
-            schedule_expression = kwargs['scheduleExpression']
-
         if automatically_after_days is not None:
-            _setter("automatically_after_days", automatically_after_days)
+            pulumi.set(__self__, "automatically_after_days", automatically_after_days)
         if duration is not None:
-            _setter("duration", duration)
+            pulumi.set(__self__, "duration", duration)
         if schedule_expression is not None:
-            _setter("schedule_expression", schedule_expression)
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
@@ -211,25 +165,8 @@ class GetSecretsFilterArgs:
         :param str name: Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        GetSecretsFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter

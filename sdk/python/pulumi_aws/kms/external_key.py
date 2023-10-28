@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ExternalKeyArgs', 'ExternalKey']
@@ -35,61 +35,24 @@ class ExternalKeyArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] valid_to: Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
-        ExternalKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bypass_policy_lockout_safety_check=bypass_policy_lockout_safety_check,
-            deletion_window_in_days=deletion_window_in_days,
-            description=description,
-            enabled=enabled,
-            key_material_base64=key_material_base64,
-            multi_region=multi_region,
-            policy=policy,
-            tags=tags,
-            valid_to=valid_to,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
-             deletion_window_in_days: Optional[pulumi.Input[int]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             key_material_base64: Optional[pulumi.Input[str]] = None,
-             multi_region: Optional[pulumi.Input[bool]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             valid_to: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bypass_policy_lockout_safety_check is None and 'bypassPolicyLockoutSafetyCheck' in kwargs:
-            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
-        if deletion_window_in_days is None and 'deletionWindowInDays' in kwargs:
-            deletion_window_in_days = kwargs['deletionWindowInDays']
-        if key_material_base64 is None and 'keyMaterialBase64' in kwargs:
-            key_material_base64 = kwargs['keyMaterialBase64']
-        if multi_region is None and 'multiRegion' in kwargs:
-            multi_region = kwargs['multiRegion']
-        if valid_to is None and 'validTo' in kwargs:
-            valid_to = kwargs['validTo']
-
         if bypass_policy_lockout_safety_check is not None:
-            _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if deletion_window_in_days is not None:
-            _setter("deletion_window_in_days", deletion_window_in_days)
+            pulumi.set(__self__, "deletion_window_in_days", deletion_window_in_days)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if key_material_base64 is not None:
-            _setter("key_material_base64", key_material_base64)
+            pulumi.set(__self__, "key_material_base64", key_material_base64)
         if multi_region is not None:
-            _setter("multi_region", multi_region)
+            pulumi.set(__self__, "multi_region", multi_region)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if valid_to is not None:
-            _setter("valid_to", valid_to)
+            pulumi.set(__self__, "valid_to", valid_to)
 
     @property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
@@ -234,92 +197,37 @@ class _ExternalKeyState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] valid_to: Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         """
-        _ExternalKeyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            bypass_policy_lockout_safety_check=bypass_policy_lockout_safety_check,
-            deletion_window_in_days=deletion_window_in_days,
-            description=description,
-            enabled=enabled,
-            expiration_model=expiration_model,
-            key_material_base64=key_material_base64,
-            key_state=key_state,
-            key_usage=key_usage,
-            multi_region=multi_region,
-            policy=policy,
-            tags=tags,
-            tags_all=tags_all,
-            valid_to=valid_to,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
-             deletion_window_in_days: Optional[pulumi.Input[int]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             expiration_model: Optional[pulumi.Input[str]] = None,
-             key_material_base64: Optional[pulumi.Input[str]] = None,
-             key_state: Optional[pulumi.Input[str]] = None,
-             key_usage: Optional[pulumi.Input[str]] = None,
-             multi_region: Optional[pulumi.Input[bool]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             valid_to: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bypass_policy_lockout_safety_check is None and 'bypassPolicyLockoutSafetyCheck' in kwargs:
-            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
-        if deletion_window_in_days is None and 'deletionWindowInDays' in kwargs:
-            deletion_window_in_days = kwargs['deletionWindowInDays']
-        if expiration_model is None and 'expirationModel' in kwargs:
-            expiration_model = kwargs['expirationModel']
-        if key_material_base64 is None and 'keyMaterialBase64' in kwargs:
-            key_material_base64 = kwargs['keyMaterialBase64']
-        if key_state is None and 'keyState' in kwargs:
-            key_state = kwargs['keyState']
-        if key_usage is None and 'keyUsage' in kwargs:
-            key_usage = kwargs['keyUsage']
-        if multi_region is None and 'multiRegion' in kwargs:
-            multi_region = kwargs['multiRegion']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if valid_to is None and 'validTo' in kwargs:
-            valid_to = kwargs['validTo']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if bypass_policy_lockout_safety_check is not None:
-            _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if deletion_window_in_days is not None:
-            _setter("deletion_window_in_days", deletion_window_in_days)
+            pulumi.set(__self__, "deletion_window_in_days", deletion_window_in_days)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if expiration_model is not None:
-            _setter("expiration_model", expiration_model)
+            pulumi.set(__self__, "expiration_model", expiration_model)
         if key_material_base64 is not None:
-            _setter("key_material_base64", key_material_base64)
+            pulumi.set(__self__, "key_material_base64", key_material_base64)
         if key_state is not None:
-            _setter("key_state", key_state)
+            pulumi.set(__self__, "key_state", key_state)
         if key_usage is not None:
-            _setter("key_usage", key_usage)
+            pulumi.set(__self__, "key_usage", key_usage)
         if multi_region is not None:
-            _setter("multi_region", multi_region)
+            pulumi.set(__self__, "multi_region", multi_region)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if valid_to is not None:
-            _setter("valid_to", valid_to)
+            pulumi.set(__self__, "valid_to", valid_to)
 
     @property
     @pulumi.getter
@@ -578,10 +486,6 @@ class ExternalKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ExternalKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

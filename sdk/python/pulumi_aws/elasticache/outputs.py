@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -53,39 +53,16 @@ class ClusterCacheNode(dict):
         :param str availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param int port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         """
-        ClusterCacheNode._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            availability_zone=availability_zone,
-            id=id,
-            outpost_arn=outpost_arn,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[str] = None,
-             availability_zone: Optional[str] = None,
-             id: Optional[str] = None,
-             outpost_arn: Optional[str] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if outpost_arn is None and 'outpostArn' in kwargs:
-            outpost_arn = kwargs['outpostArn']
-
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if outpost_arn is not None:
-            _setter("outpost_arn", outpost_arn)
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -153,41 +130,10 @@ class ClusterLogDeliveryConfiguration(dict):
         :param str log_format: Valid values are `json` or `text`
         :param str log_type: Valid values are  `slow-log` or `engine-log`. Max 1 of each.
         """
-        ClusterLogDeliveryConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            destination_type=destination_type,
-            log_format=log_format,
-            log_type=log_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[str] = None,
-             destination_type: Optional[str] = None,
-             log_format: Optional[str] = None,
-             log_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if destination_type is None and 'destinationType' in kwargs:
-            destination_type = kwargs['destinationType']
-        if destination_type is None:
-            raise TypeError("Missing 'destination_type' argument")
-        if log_format is None and 'logFormat' in kwargs:
-            log_format = kwargs['logFormat']
-        if log_format is None:
-            raise TypeError("Missing 'log_format' argument")
-        if log_type is None and 'logType' in kwargs:
-            log_type = kwargs['logType']
-        if log_type is None:
-            raise TypeError("Missing 'log_type' argument")
-
-        _setter("destination", destination)
-        _setter("destination_type", destination_type)
-        _setter("log_format", log_format)
-        _setter("log_type", log_type)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
 
     @property
     @pulumi.getter
@@ -248,25 +194,10 @@ class GlobalReplicationGroupGlobalNodeGroup(dict):
         :param str global_node_group_id: The ID of the global node group.
         :param str slots: The keyspace for this node group.
         """
-        GlobalReplicationGroupGlobalNodeGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            global_node_group_id=global_node_group_id,
-            slots=slots,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             global_node_group_id: Optional[str] = None,
-             slots: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if global_node_group_id is None and 'globalNodeGroupId' in kwargs:
-            global_node_group_id = kwargs['globalNodeGroupId']
-
         if global_node_group_id is not None:
-            _setter("global_node_group_id", global_node_group_id)
+            pulumi.set(__self__, "global_node_group_id", global_node_group_id)
         if slots is not None:
-            _setter("slots", slots)
+            pulumi.set(__self__, "slots", slots)
 
     @property
     @pulumi.getter(name="globalNodeGroupId")
@@ -294,25 +225,8 @@ class ParameterGroupParameter(dict):
         :param str name: The name of the ElastiCache parameter.
         :param str value: The value of the ElastiCache parameter.
         """
-        ParameterGroupParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -365,41 +279,10 @@ class ReplicationGroupLogDeliveryConfiguration(dict):
         :param str log_format: Valid values are `json` or `text`
         :param str log_type: Valid values are  `slow-log` or `engine-log`. Max 1 of each.
         """
-        ReplicationGroupLogDeliveryConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            destination_type=destination_type,
-            log_format=log_format,
-            log_type=log_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[str] = None,
-             destination_type: Optional[str] = None,
-             log_format: Optional[str] = None,
-             log_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if destination_type is None and 'destinationType' in kwargs:
-            destination_type = kwargs['destinationType']
-        if destination_type is None:
-            raise TypeError("Missing 'destination_type' argument")
-        if log_format is None and 'logFormat' in kwargs:
-            log_format = kwargs['logFormat']
-        if log_format is None:
-            raise TypeError("Missing 'log_format' argument")
-        if log_type is None and 'logType' in kwargs:
-            log_type = kwargs['logType']
-        if log_type is None:
-            raise TypeError("Missing 'log_type' argument")
-
-        _setter("destination", destination)
-        _setter("destination_type", destination_type)
-        _setter("log_format", log_format)
-        _setter("log_type", log_type)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
 
     @property
     @pulumi.getter
@@ -461,30 +344,11 @@ class UserAuthenticationMode(dict):
         :param str type: Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
         :param Sequence[str] passwords: Specifies the passwords to use for authentication if `type` is set to `password`.
         """
-        UserAuthenticationMode._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            password_count=password_count,
-            passwords=passwords,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             password_count: Optional[int] = None,
-             passwords: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if password_count is None and 'passwordCount' in kwargs:
-            password_count = kwargs['passwordCount']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if password_count is not None:
-            _setter("password_count", password_count)
+            pulumi.set(__self__, "password_count", password_count)
         if passwords is not None:
-            _setter("passwords", passwords)
+            pulumi.set(__self__, "passwords", passwords)
 
     @property
     @pulumi.getter
@@ -521,44 +385,11 @@ class GetClusterCacheNodeResult(dict):
         :param int port: The port number on which each of the cache nodes will
                accept connections.
         """
-        GetClusterCacheNodeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            availability_zone=availability_zone,
-            id=id,
-            outpost_arn=outpost_arn,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[str] = None,
-             availability_zone: Optional[str] = None,
-             id: Optional[str] = None,
-             outpost_arn: Optional[str] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if address is None:
-            raise TypeError("Missing 'address' argument")
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if availability_zone is None:
-            raise TypeError("Missing 'availability_zone' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if outpost_arn is None and 'outpostArn' in kwargs:
-            outpost_arn = kwargs['outpostArn']
-        if outpost_arn is None:
-            raise TypeError("Missing 'outpost_arn' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-
-        _setter("address", address)
-        _setter("availability_zone", availability_zone)
-        _setter("id", id)
-        _setter("outpost_arn", outpost_arn)
-        _setter("port", port)
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "outpost_arn", outpost_arn)
+        pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -600,41 +431,10 @@ class GetClusterLogDeliveryConfigurationResult(dict):
                  destination_type: str,
                  log_format: str,
                  log_type: str):
-        GetClusterLogDeliveryConfigurationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            destination_type=destination_type,
-            log_format=log_format,
-            log_type=log_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[str] = None,
-             destination_type: Optional[str] = None,
-             log_format: Optional[str] = None,
-             log_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if destination_type is None and 'destinationType' in kwargs:
-            destination_type = kwargs['destinationType']
-        if destination_type is None:
-            raise TypeError("Missing 'destination_type' argument")
-        if log_format is None and 'logFormat' in kwargs:
-            log_format = kwargs['logFormat']
-        if log_format is None:
-            raise TypeError("Missing 'log_format' argument")
-        if log_type is None and 'logType' in kwargs:
-            log_type = kwargs['logType']
-        if log_type is None:
-            raise TypeError("Missing 'log_type' argument")
-
-        _setter("destination", destination)
-        _setter("destination_type", destination_type)
-        _setter("log_format", log_format)
-        _setter("log_type", log_type)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
 
     @property
     @pulumi.getter
@@ -664,41 +464,10 @@ class GetReplicationGroupLogDeliveryConfigurationResult(dict):
                  destination_type: str,
                  log_format: str,
                  log_type: str):
-        GetReplicationGroupLogDeliveryConfigurationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            destination_type=destination_type,
-            log_format=log_format,
-            log_type=log_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[str] = None,
-             destination_type: Optional[str] = None,
-             log_format: Optional[str] = None,
-             log_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if destination_type is None and 'destinationType' in kwargs:
-            destination_type = kwargs['destinationType']
-        if destination_type is None:
-            raise TypeError("Missing 'destination_type' argument")
-        if log_format is None and 'logFormat' in kwargs:
-            log_format = kwargs['logFormat']
-        if log_format is None:
-            raise TypeError("Missing 'log_format' argument")
-        if log_type is None and 'logType' in kwargs:
-            log_type = kwargs['logType']
-        if log_type is None:
-            raise TypeError("Missing 'log_type' argument")
-
-        _setter("destination", destination)
-        _setter("destination_type", destination_type)
-        _setter("log_format", log_format)
-        _setter("log_type", log_type)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
 
     @property
     @pulumi.getter
@@ -726,25 +495,10 @@ class GetUserAuthenticationModeResult(dict):
     def __init__(__self__, *,
                  password_count: Optional[int] = None,
                  type: Optional[str] = None):
-        GetUserAuthenticationModeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            password_count=password_count,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             password_count: Optional[int] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if password_count is None and 'passwordCount' in kwargs:
-            password_count = kwargs['passwordCount']
-
         if password_count is not None:
-            _setter("password_count", password_count)
+            pulumi.set(__self__, "password_count", password_count)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="passwordCount")

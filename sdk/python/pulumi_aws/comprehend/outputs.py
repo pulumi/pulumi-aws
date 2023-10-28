@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -69,45 +69,16 @@ class DocumentClassifierInputDataConfig(dict):
         :param str s3_uri: Location of training documents.
                Used if `data_format` is `COMPREHEND_CSV`.
         """
-        DocumentClassifierInputDataConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            augmented_manifests=augmented_manifests,
-            data_format=data_format,
-            label_delimiter=label_delimiter,
-            s3_uri=s3_uri,
-            test_s3_uri=test_s3_uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             augmented_manifests: Optional[Sequence['outputs.DocumentClassifierInputDataConfigAugmentedManifest']] = None,
-             data_format: Optional[str] = None,
-             label_delimiter: Optional[str] = None,
-             s3_uri: Optional[str] = None,
-             test_s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if augmented_manifests is None and 'augmentedManifests' in kwargs:
-            augmented_manifests = kwargs['augmentedManifests']
-        if data_format is None and 'dataFormat' in kwargs:
-            data_format = kwargs['dataFormat']
-        if label_delimiter is None and 'labelDelimiter' in kwargs:
-            label_delimiter = kwargs['labelDelimiter']
-        if s3_uri is None and 's3Uri' in kwargs:
-            s3_uri = kwargs['s3Uri']
-        if test_s3_uri is None and 'testS3Uri' in kwargs:
-            test_s3_uri = kwargs['testS3Uri']
-
         if augmented_manifests is not None:
-            _setter("augmented_manifests", augmented_manifests)
+            pulumi.set(__self__, "augmented_manifests", augmented_manifests)
         if data_format is not None:
-            _setter("data_format", data_format)
+            pulumi.set(__self__, "data_format", data_format)
         if label_delimiter is not None:
-            _setter("label_delimiter", label_delimiter)
+            pulumi.set(__self__, "label_delimiter", label_delimiter)
         if s3_uri is not None:
-            _setter("s3_uri", s3_uri)
+            pulumi.set(__self__, "s3_uri", s3_uri)
         if test_s3_uri is not None:
-            _setter("test_s3_uri", test_s3_uri)
+            pulumi.set(__self__, "test_s3_uri", test_s3_uri)
 
     @property
     @pulumi.getter(name="augmentedManifests")
@@ -197,51 +168,16 @@ class DocumentClassifierInputDataConfigAugmentedManifest(dict):
         :param str split: Purpose of data in augmented manifest.
                One of `TRAIN` or `TEST`.
         """
-        DocumentClassifierInputDataConfigAugmentedManifest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute_names=attribute_names,
-            s3_uri=s3_uri,
-            annotation_data_s3_uri=annotation_data_s3_uri,
-            document_type=document_type,
-            source_documents_s3_uri=source_documents_s3_uri,
-            split=split,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute_names: Optional[Sequence[str]] = None,
-             s3_uri: Optional[str] = None,
-             annotation_data_s3_uri: Optional[str] = None,
-             document_type: Optional[str] = None,
-             source_documents_s3_uri: Optional[str] = None,
-             split: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attribute_names is None and 'attributeNames' in kwargs:
-            attribute_names = kwargs['attributeNames']
-        if attribute_names is None:
-            raise TypeError("Missing 'attribute_names' argument")
-        if s3_uri is None and 's3Uri' in kwargs:
-            s3_uri = kwargs['s3Uri']
-        if s3_uri is None:
-            raise TypeError("Missing 's3_uri' argument")
-        if annotation_data_s3_uri is None and 'annotationDataS3Uri' in kwargs:
-            annotation_data_s3_uri = kwargs['annotationDataS3Uri']
-        if document_type is None and 'documentType' in kwargs:
-            document_type = kwargs['documentType']
-        if source_documents_s3_uri is None and 'sourceDocumentsS3Uri' in kwargs:
-            source_documents_s3_uri = kwargs['sourceDocumentsS3Uri']
-
-        _setter("attribute_names", attribute_names)
-        _setter("s3_uri", s3_uri)
+        pulumi.set(__self__, "attribute_names", attribute_names)
+        pulumi.set(__self__, "s3_uri", s3_uri)
         if annotation_data_s3_uri is not None:
-            _setter("annotation_data_s3_uri", annotation_data_s3_uri)
+            pulumi.set(__self__, "annotation_data_s3_uri", annotation_data_s3_uri)
         if document_type is not None:
-            _setter("document_type", document_type)
+            pulumi.set(__self__, "document_type", document_type)
         if source_documents_s3_uri is not None:
-            _setter("source_documents_s3_uri", source_documents_s3_uri)
+            pulumi.set(__self__, "source_documents_s3_uri", source_documents_s3_uri)
         if split is not None:
-            _setter("split", split)
+            pulumi.set(__self__, "split", split)
 
     @property
     @pulumi.getter(name="attributeNames")
@@ -328,34 +264,11 @@ class DocumentClassifierOutputDataConfig(dict):
                Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
         :param str output_s3_uri: Full path for the output documents.
         """
-        DocumentClassifierOutputDataConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_uri=s3_uri,
-            kms_key_id=kms_key_id,
-            output_s3_uri=output_s3_uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_uri: Optional[str] = None,
-             kms_key_id: Optional[str] = None,
-             output_s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if s3_uri is None and 's3Uri' in kwargs:
-            s3_uri = kwargs['s3Uri']
-        if s3_uri is None:
-            raise TypeError("Missing 's3_uri' argument")
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if output_s3_uri is None and 'outputS3Uri' in kwargs:
-            output_s3_uri = kwargs['outputS3Uri']
-
-        _setter("s3_uri", s3_uri)
+        pulumi.set(__self__, "s3_uri", s3_uri)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if output_s3_uri is not None:
-            _setter("output_s3_uri", output_s3_uri)
+            pulumi.set(__self__, "output_s3_uri", output_s3_uri)
 
     @property
     @pulumi.getter(name="s3Uri")
@@ -410,27 +323,8 @@ class DocumentClassifierVpcConfig(dict):
         :param Sequence[str] security_group_ids: List of security group IDs.
         :param Sequence[str] subnets: List of VPC subnets.
         """
-        DocumentClassifierVpcConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnets=subnets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Optional[Sequence[str]] = None,
-             subnets: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if security_group_ids is None:
-            raise TypeError("Missing 'security_group_ids' argument")
-        if subnets is None:
-            raise TypeError("Missing 'subnets' argument")
-
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnets", subnets)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -500,48 +394,17 @@ class EntityRecognizerInputDataConfig(dict):
                See the `entity_list` Configuration Block section below.
                One of `entity_list` or `annotations` is required.
         """
-        EntityRecognizerInputDataConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            entity_types=entity_types,
-            annotations=annotations,
-            augmented_manifests=augmented_manifests,
-            data_format=data_format,
-            documents=documents,
-            entity_list=entity_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             entity_types: Optional[Sequence['outputs.EntityRecognizerInputDataConfigEntityType']] = None,
-             annotations: Optional['outputs.EntityRecognizerInputDataConfigAnnotations'] = None,
-             augmented_manifests: Optional[Sequence['outputs.EntityRecognizerInputDataConfigAugmentedManifest']] = None,
-             data_format: Optional[str] = None,
-             documents: Optional['outputs.EntityRecognizerInputDataConfigDocuments'] = None,
-             entity_list: Optional['outputs.EntityRecognizerInputDataConfigEntityList'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if entity_types is None and 'entityTypes' in kwargs:
-            entity_types = kwargs['entityTypes']
-        if entity_types is None:
-            raise TypeError("Missing 'entity_types' argument")
-        if augmented_manifests is None and 'augmentedManifests' in kwargs:
-            augmented_manifests = kwargs['augmentedManifests']
-        if data_format is None and 'dataFormat' in kwargs:
-            data_format = kwargs['dataFormat']
-        if entity_list is None and 'entityList' in kwargs:
-            entity_list = kwargs['entityList']
-
-        _setter("entity_types", entity_types)
+        pulumi.set(__self__, "entity_types", entity_types)
         if annotations is not None:
-            _setter("annotations", annotations)
+            pulumi.set(__self__, "annotations", annotations)
         if augmented_manifests is not None:
-            _setter("augmented_manifests", augmented_manifests)
+            pulumi.set(__self__, "augmented_manifests", augmented_manifests)
         if data_format is not None:
-            _setter("data_format", data_format)
+            pulumi.set(__self__, "data_format", data_format)
         if documents is not None:
-            _setter("documents", documents)
+            pulumi.set(__self__, "documents", documents)
         if entity_list is not None:
-            _setter("entity_list", entity_list)
+            pulumi.set(__self__, "entity_list", entity_list)
 
     @property
     @pulumi.getter(name="entityTypes")
@@ -630,28 +493,9 @@ class EntityRecognizerInputDataConfigAnnotations(dict):
         """
         :param str s3_uri: Location of training annotations.
         """
-        EntityRecognizerInputDataConfigAnnotations._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_uri=s3_uri,
-            test_s3_uri=test_s3_uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_uri: Optional[str] = None,
-             test_s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if s3_uri is None and 's3Uri' in kwargs:
-            s3_uri = kwargs['s3Uri']
-        if s3_uri is None:
-            raise TypeError("Missing 's3_uri' argument")
-        if test_s3_uri is None and 'testS3Uri' in kwargs:
-            test_s3_uri = kwargs['testS3Uri']
-
-        _setter("s3_uri", s3_uri)
+        pulumi.set(__self__, "s3_uri", s3_uri)
         if test_s3_uri is not None:
-            _setter("test_s3_uri", test_s3_uri)
+            pulumi.set(__self__, "test_s3_uri", test_s3_uri)
 
     @property
     @pulumi.getter(name="s3Uri")
@@ -711,51 +555,16 @@ class EntityRecognizerInputDataConfigAugmentedManifest(dict):
         :param str split: Purpose of data in augmented manifest.
                One of `TRAIN` or `TEST`.
         """
-        EntityRecognizerInputDataConfigAugmentedManifest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute_names=attribute_names,
-            s3_uri=s3_uri,
-            annotation_data_s3_uri=annotation_data_s3_uri,
-            document_type=document_type,
-            source_documents_s3_uri=source_documents_s3_uri,
-            split=split,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute_names: Optional[Sequence[str]] = None,
-             s3_uri: Optional[str] = None,
-             annotation_data_s3_uri: Optional[str] = None,
-             document_type: Optional[str] = None,
-             source_documents_s3_uri: Optional[str] = None,
-             split: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attribute_names is None and 'attributeNames' in kwargs:
-            attribute_names = kwargs['attributeNames']
-        if attribute_names is None:
-            raise TypeError("Missing 'attribute_names' argument")
-        if s3_uri is None and 's3Uri' in kwargs:
-            s3_uri = kwargs['s3Uri']
-        if s3_uri is None:
-            raise TypeError("Missing 's3_uri' argument")
-        if annotation_data_s3_uri is None and 'annotationDataS3Uri' in kwargs:
-            annotation_data_s3_uri = kwargs['annotationDataS3Uri']
-        if document_type is None and 'documentType' in kwargs:
-            document_type = kwargs['documentType']
-        if source_documents_s3_uri is None and 'sourceDocumentsS3Uri' in kwargs:
-            source_documents_s3_uri = kwargs['sourceDocumentsS3Uri']
-
-        _setter("attribute_names", attribute_names)
-        _setter("s3_uri", s3_uri)
+        pulumi.set(__self__, "attribute_names", attribute_names)
+        pulumi.set(__self__, "s3_uri", s3_uri)
         if annotation_data_s3_uri is not None:
-            _setter("annotation_data_s3_uri", annotation_data_s3_uri)
+            pulumi.set(__self__, "annotation_data_s3_uri", annotation_data_s3_uri)
         if document_type is not None:
-            _setter("document_type", document_type)
+            pulumi.set(__self__, "document_type", document_type)
         if source_documents_s3_uri is not None:
-            _setter("source_documents_s3_uri", source_documents_s3_uri)
+            pulumi.set(__self__, "source_documents_s3_uri", source_documents_s3_uri)
         if split is not None:
-            _setter("split", split)
+            pulumi.set(__self__, "split", split)
 
     @property
     @pulumi.getter(name="attributeNames")
@@ -840,34 +649,11 @@ class EntityRecognizerInputDataConfigDocuments(dict):
         :param str input_format: Specifies how the input files should be processed.
                One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
         """
-        EntityRecognizerInputDataConfigDocuments._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_uri=s3_uri,
-            input_format=input_format,
-            test_s3_uri=test_s3_uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_uri: Optional[str] = None,
-             input_format: Optional[str] = None,
-             test_s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if s3_uri is None and 's3Uri' in kwargs:
-            s3_uri = kwargs['s3Uri']
-        if s3_uri is None:
-            raise TypeError("Missing 's3_uri' argument")
-        if input_format is None and 'inputFormat' in kwargs:
-            input_format = kwargs['inputFormat']
-        if test_s3_uri is None and 'testS3Uri' in kwargs:
-            test_s3_uri = kwargs['testS3Uri']
-
-        _setter("s3_uri", s3_uri)
+        pulumi.set(__self__, "s3_uri", s3_uri)
         if input_format is not None:
-            _setter("input_format", input_format)
+            pulumi.set(__self__, "input_format", input_format)
         if test_s3_uri is not None:
-            _setter("test_s3_uri", test_s3_uri)
+            pulumi.set(__self__, "test_s3_uri", test_s3_uri)
 
     @property
     @pulumi.getter(name="s3Uri")
@@ -916,22 +702,7 @@ class EntityRecognizerInputDataConfigEntityList(dict):
         """
         :param str s3_uri: Location of entity list.
         """
-        EntityRecognizerInputDataConfigEntityList._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_uri=s3_uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if s3_uri is None and 's3Uri' in kwargs:
-            s3_uri = kwargs['s3Uri']
-        if s3_uri is None:
-            raise TypeError("Missing 's3_uri' argument")
-
-        _setter("s3_uri", s3_uri)
+        pulumi.set(__self__, "s3_uri", s3_uri)
 
     @property
     @pulumi.getter(name="s3Uri")
@@ -950,20 +721,7 @@ class EntityRecognizerInputDataConfigEntityType(dict):
         :param str type: An entity type to be matched by the Entity Recognizer.
                Cannot contain a newline (`\\n`), carriage return (`\\r`), or tab (`\\t`).
         """
-        EntityRecognizerInputDataConfigEntityType._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1001,27 +759,8 @@ class EntityRecognizerVpcConfig(dict):
         :param Sequence[str] security_group_ids: List of security group IDs.
         :param Sequence[str] subnets: List of VPC subnets.
         """
-        EntityRecognizerVpcConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnets=subnets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Optional[Sequence[str]] = None,
-             subnets: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if security_group_ids is None:
-            raise TypeError("Missing 'security_group_ids' argument")
-        if subnets is None:
-            raise TypeError("Missing 'subnets' argument")
-
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnets", subnets)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
 
     @property
     @pulumi.getter(name="securityGroupIds")

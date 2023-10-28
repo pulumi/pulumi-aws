@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ReplicationTaskArgs', 'ReplicationTask']
@@ -44,85 +44,22 @@ class ReplicationTaskArgs:
         :param pulumi.Input[bool] start_replication_task: Whether to run or stop the replication task.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ReplicationTaskArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            migration_type=migration_type,
-            replication_instance_arn=replication_instance_arn,
-            replication_task_id=replication_task_id,
-            source_endpoint_arn=source_endpoint_arn,
-            table_mappings=table_mappings,
-            target_endpoint_arn=target_endpoint_arn,
-            cdc_start_position=cdc_start_position,
-            cdc_start_time=cdc_start_time,
-            replication_task_settings=replication_task_settings,
-            start_replication_task=start_replication_task,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             migration_type: Optional[pulumi.Input[str]] = None,
-             replication_instance_arn: Optional[pulumi.Input[str]] = None,
-             replication_task_id: Optional[pulumi.Input[str]] = None,
-             source_endpoint_arn: Optional[pulumi.Input[str]] = None,
-             table_mappings: Optional[pulumi.Input[str]] = None,
-             target_endpoint_arn: Optional[pulumi.Input[str]] = None,
-             cdc_start_position: Optional[pulumi.Input[str]] = None,
-             cdc_start_time: Optional[pulumi.Input[str]] = None,
-             replication_task_settings: Optional[pulumi.Input[str]] = None,
-             start_replication_task: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if migration_type is None and 'migrationType' in kwargs:
-            migration_type = kwargs['migrationType']
-        if migration_type is None:
-            raise TypeError("Missing 'migration_type' argument")
-        if replication_instance_arn is None and 'replicationInstanceArn' in kwargs:
-            replication_instance_arn = kwargs['replicationInstanceArn']
-        if replication_instance_arn is None:
-            raise TypeError("Missing 'replication_instance_arn' argument")
-        if replication_task_id is None and 'replicationTaskId' in kwargs:
-            replication_task_id = kwargs['replicationTaskId']
-        if replication_task_id is None:
-            raise TypeError("Missing 'replication_task_id' argument")
-        if source_endpoint_arn is None and 'sourceEndpointArn' in kwargs:
-            source_endpoint_arn = kwargs['sourceEndpointArn']
-        if source_endpoint_arn is None:
-            raise TypeError("Missing 'source_endpoint_arn' argument")
-        if table_mappings is None and 'tableMappings' in kwargs:
-            table_mappings = kwargs['tableMappings']
-        if table_mappings is None:
-            raise TypeError("Missing 'table_mappings' argument")
-        if target_endpoint_arn is None and 'targetEndpointArn' in kwargs:
-            target_endpoint_arn = kwargs['targetEndpointArn']
-        if target_endpoint_arn is None:
-            raise TypeError("Missing 'target_endpoint_arn' argument")
-        if cdc_start_position is None and 'cdcStartPosition' in kwargs:
-            cdc_start_position = kwargs['cdcStartPosition']
-        if cdc_start_time is None and 'cdcStartTime' in kwargs:
-            cdc_start_time = kwargs['cdcStartTime']
-        if replication_task_settings is None and 'replicationTaskSettings' in kwargs:
-            replication_task_settings = kwargs['replicationTaskSettings']
-        if start_replication_task is None and 'startReplicationTask' in kwargs:
-            start_replication_task = kwargs['startReplicationTask']
-
-        _setter("migration_type", migration_type)
-        _setter("replication_instance_arn", replication_instance_arn)
-        _setter("replication_task_id", replication_task_id)
-        _setter("source_endpoint_arn", source_endpoint_arn)
-        _setter("table_mappings", table_mappings)
-        _setter("target_endpoint_arn", target_endpoint_arn)
+        pulumi.set(__self__, "migration_type", migration_type)
+        pulumi.set(__self__, "replication_instance_arn", replication_instance_arn)
+        pulumi.set(__self__, "replication_task_id", replication_task_id)
+        pulumi.set(__self__, "source_endpoint_arn", source_endpoint_arn)
+        pulumi.set(__self__, "table_mappings", table_mappings)
+        pulumi.set(__self__, "target_endpoint_arn", target_endpoint_arn)
         if cdc_start_position is not None:
-            _setter("cdc_start_position", cdc_start_position)
+            pulumi.set(__self__, "cdc_start_position", cdc_start_position)
         if cdc_start_time is not None:
-            _setter("cdc_start_time", cdc_start_time)
+            pulumi.set(__self__, "cdc_start_time", cdc_start_time)
         if replication_task_settings is not None:
-            _setter("replication_task_settings", replication_task_settings)
+            pulumi.set(__self__, "replication_task_settings", replication_task_settings)
         if start_replication_task is not None:
-            _setter("start_replication_task", start_replication_task)
+            pulumi.set(__self__, "start_replication_task", start_replication_task)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="migrationType")
@@ -301,98 +238,37 @@ class _ReplicationTaskState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
         """
-        _ReplicationTaskState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdc_start_position=cdc_start_position,
-            cdc_start_time=cdc_start_time,
-            migration_type=migration_type,
-            replication_instance_arn=replication_instance_arn,
-            replication_task_arn=replication_task_arn,
-            replication_task_id=replication_task_id,
-            replication_task_settings=replication_task_settings,
-            source_endpoint_arn=source_endpoint_arn,
-            start_replication_task=start_replication_task,
-            status=status,
-            table_mappings=table_mappings,
-            tags=tags,
-            tags_all=tags_all,
-            target_endpoint_arn=target_endpoint_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdc_start_position: Optional[pulumi.Input[str]] = None,
-             cdc_start_time: Optional[pulumi.Input[str]] = None,
-             migration_type: Optional[pulumi.Input[str]] = None,
-             replication_instance_arn: Optional[pulumi.Input[str]] = None,
-             replication_task_arn: Optional[pulumi.Input[str]] = None,
-             replication_task_id: Optional[pulumi.Input[str]] = None,
-             replication_task_settings: Optional[pulumi.Input[str]] = None,
-             source_endpoint_arn: Optional[pulumi.Input[str]] = None,
-             start_replication_task: Optional[pulumi.Input[bool]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             table_mappings: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             target_endpoint_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cdc_start_position is None and 'cdcStartPosition' in kwargs:
-            cdc_start_position = kwargs['cdcStartPosition']
-        if cdc_start_time is None and 'cdcStartTime' in kwargs:
-            cdc_start_time = kwargs['cdcStartTime']
-        if migration_type is None and 'migrationType' in kwargs:
-            migration_type = kwargs['migrationType']
-        if replication_instance_arn is None and 'replicationInstanceArn' in kwargs:
-            replication_instance_arn = kwargs['replicationInstanceArn']
-        if replication_task_arn is None and 'replicationTaskArn' in kwargs:
-            replication_task_arn = kwargs['replicationTaskArn']
-        if replication_task_id is None and 'replicationTaskId' in kwargs:
-            replication_task_id = kwargs['replicationTaskId']
-        if replication_task_settings is None and 'replicationTaskSettings' in kwargs:
-            replication_task_settings = kwargs['replicationTaskSettings']
-        if source_endpoint_arn is None and 'sourceEndpointArn' in kwargs:
-            source_endpoint_arn = kwargs['sourceEndpointArn']
-        if start_replication_task is None and 'startReplicationTask' in kwargs:
-            start_replication_task = kwargs['startReplicationTask']
-        if table_mappings is None and 'tableMappings' in kwargs:
-            table_mappings = kwargs['tableMappings']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if target_endpoint_arn is None and 'targetEndpointArn' in kwargs:
-            target_endpoint_arn = kwargs['targetEndpointArn']
-
         if cdc_start_position is not None:
-            _setter("cdc_start_position", cdc_start_position)
+            pulumi.set(__self__, "cdc_start_position", cdc_start_position)
         if cdc_start_time is not None:
-            _setter("cdc_start_time", cdc_start_time)
+            pulumi.set(__self__, "cdc_start_time", cdc_start_time)
         if migration_type is not None:
-            _setter("migration_type", migration_type)
+            pulumi.set(__self__, "migration_type", migration_type)
         if replication_instance_arn is not None:
-            _setter("replication_instance_arn", replication_instance_arn)
+            pulumi.set(__self__, "replication_instance_arn", replication_instance_arn)
         if replication_task_arn is not None:
-            _setter("replication_task_arn", replication_task_arn)
+            pulumi.set(__self__, "replication_task_arn", replication_task_arn)
         if replication_task_id is not None:
-            _setter("replication_task_id", replication_task_id)
+            pulumi.set(__self__, "replication_task_id", replication_task_id)
         if replication_task_settings is not None:
-            _setter("replication_task_settings", replication_task_settings)
+            pulumi.set(__self__, "replication_task_settings", replication_task_settings)
         if source_endpoint_arn is not None:
-            _setter("source_endpoint_arn", source_endpoint_arn)
+            pulumi.set(__self__, "source_endpoint_arn", source_endpoint_arn)
         if start_replication_task is not None:
-            _setter("start_replication_task", start_replication_task)
+            pulumi.set(__self__, "start_replication_task", start_replication_task)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if table_mappings is not None:
-            _setter("table_mappings", table_mappings)
+            pulumi.set(__self__, "table_mappings", table_mappings)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if target_endpoint_arn is not None:
-            _setter("target_endpoint_arn", target_endpoint_arn)
+            pulumi.set(__self__, "target_endpoint_arn", target_endpoint_arn)
 
     @property
     @pulumi.getter(name="cdcStartPosition")
@@ -691,10 +567,6 @@ class ReplicationTask(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReplicationTaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

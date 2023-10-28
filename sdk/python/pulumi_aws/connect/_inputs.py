@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -55,26 +55,9 @@ class BotAssociationLexBotArgs:
         :param pulumi.Input[str] name: The name of the Amazon Lex (V1) bot.
         :param pulumi.Input[str] lex_region: The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
         """
-        BotAssociationLexBotArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            lex_region=lex_region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             lex_region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if lex_region is None and 'lexRegion' in kwargs:
-            lex_region = kwargs['lexRegion']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if lex_region is not None:
-            _setter("lex_region", lex_region)
+            pulumi.set(__self__, "lex_region", lex_region)
 
     @property
     @pulumi.getter
@@ -112,34 +95,9 @@ class HoursOfOperationConfigArgs:
         :param pulumi.Input['HoursOfOperationConfigEndTimeArgs'] end_time: A end time block specifies the time that your contact center closes. The `end_time` is documented below.
         :param pulumi.Input['HoursOfOperationConfigStartTimeArgs'] start_time: A start time block specifies the time that your contact center opens. The `start_time` is documented below.
         """
-        HoursOfOperationConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            day=day,
-            end_time=end_time,
-            start_time=start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             day: Optional[pulumi.Input[str]] = None,
-             end_time: Optional[pulumi.Input['HoursOfOperationConfigEndTimeArgs']] = None,
-             start_time: Optional[pulumi.Input['HoursOfOperationConfigStartTimeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if day is None:
-            raise TypeError("Missing 'day' argument")
-        if end_time is None and 'endTime' in kwargs:
-            end_time = kwargs['endTime']
-        if end_time is None:
-            raise TypeError("Missing 'end_time' argument")
-        if start_time is None and 'startTime' in kwargs:
-            start_time = kwargs['startTime']
-        if start_time is None:
-            raise TypeError("Missing 'start_time' argument")
-
-        _setter("day", day)
-        _setter("end_time", end_time)
-        _setter("start_time", start_time)
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
 
     @property
     @pulumi.getter
@@ -187,25 +145,8 @@ class HoursOfOperationConfigEndTimeArgs:
         :param pulumi.Input[int] hours: Specifies the hour of closing.
         :param pulumi.Input[int] minutes: Specifies the minute of closing.
         """
-        HoursOfOperationConfigEndTimeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hours=hours,
-            minutes=minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hours: Optional[pulumi.Input[int]] = None,
-             minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hours is None:
-            raise TypeError("Missing 'hours' argument")
-        if minutes is None:
-            raise TypeError("Missing 'minutes' argument")
-
-        _setter("hours", hours)
-        _setter("minutes", minutes)
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
 
     @property
     @pulumi.getter
@@ -241,25 +182,8 @@ class HoursOfOperationConfigStartTimeArgs:
         :param pulumi.Input[int] hours: Specifies the hour of opening.
         :param pulumi.Input[int] minutes: Specifies the minute of opening.
         """
-        HoursOfOperationConfigStartTimeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hours=hours,
-            minutes=minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hours: Optional[pulumi.Input[int]] = None,
-             minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hours is None:
-            raise TypeError("Missing 'hours' argument")
-        if minutes is None:
-            raise TypeError("Missing 'minutes' argument")
-
-        _setter("hours", hours)
-        _setter("minutes", minutes)
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
 
     @property
     @pulumi.getter
@@ -301,46 +225,15 @@ class InstanceStorageConfigStorageConfigArgs:
         :param pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs'] kinesis_video_stream_config: A block that specifies the configuration of the Kinesis video stream. Documented below.
         :param pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgs'] s3_config: A block that specifies the configuration of S3 Bucket. Documented below.
         """
-        InstanceStorageConfigStorageConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_type=storage_type,
-            kinesis_firehose_config=kinesis_firehose_config,
-            kinesis_stream_config=kinesis_stream_config,
-            kinesis_video_stream_config=kinesis_video_stream_config,
-            s3_config=s3_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_type: Optional[pulumi.Input[str]] = None,
-             kinesis_firehose_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs']] = None,
-             kinesis_stream_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs']] = None,
-             kinesis_video_stream_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs']] = None,
-             s3_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if storage_type is None and 'storageType' in kwargs:
-            storage_type = kwargs['storageType']
-        if storage_type is None:
-            raise TypeError("Missing 'storage_type' argument")
-        if kinesis_firehose_config is None and 'kinesisFirehoseConfig' in kwargs:
-            kinesis_firehose_config = kwargs['kinesisFirehoseConfig']
-        if kinesis_stream_config is None and 'kinesisStreamConfig' in kwargs:
-            kinesis_stream_config = kwargs['kinesisStreamConfig']
-        if kinesis_video_stream_config is None and 'kinesisVideoStreamConfig' in kwargs:
-            kinesis_video_stream_config = kwargs['kinesisVideoStreamConfig']
-        if s3_config is None and 's3Config' in kwargs:
-            s3_config = kwargs['s3Config']
-
-        _setter("storage_type", storage_type)
+        pulumi.set(__self__, "storage_type", storage_type)
         if kinesis_firehose_config is not None:
-            _setter("kinesis_firehose_config", kinesis_firehose_config)
+            pulumi.set(__self__, "kinesis_firehose_config", kinesis_firehose_config)
         if kinesis_stream_config is not None:
-            _setter("kinesis_stream_config", kinesis_stream_config)
+            pulumi.set(__self__, "kinesis_stream_config", kinesis_stream_config)
         if kinesis_video_stream_config is not None:
-            _setter("kinesis_video_stream_config", kinesis_video_stream_config)
+            pulumi.set(__self__, "kinesis_video_stream_config", kinesis_video_stream_config)
         if s3_config is not None:
-            _setter("s3_config", s3_config)
+            pulumi.set(__self__, "s3_config", s3_config)
 
     @property
     @pulumi.getter(name="storageType")
@@ -410,22 +303,7 @@ class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs:
         """
         :param pulumi.Input[str] firehose_arn: The Amazon Resource Name (ARN) of the delivery stream.
         """
-        InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            firehose_arn=firehose_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             firehose_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if firehose_arn is None and 'firehoseArn' in kwargs:
-            firehose_arn = kwargs['firehoseArn']
-        if firehose_arn is None:
-            raise TypeError("Missing 'firehose_arn' argument")
-
-        _setter("firehose_arn", firehose_arn)
+        pulumi.set(__self__, "firehose_arn", firehose_arn)
 
     @property
     @pulumi.getter(name="firehoseArn")
@@ -447,22 +325,7 @@ class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs:
         """
         :param pulumi.Input[str] stream_arn: The Amazon Resource Name (ARN) of the data stream.
         """
-        InstanceStorageConfigStorageConfigKinesisStreamConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            stream_arn=stream_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             stream_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if stream_arn is None and 'streamArn' in kwargs:
-            stream_arn = kwargs['streamArn']
-        if stream_arn is None:
-            raise TypeError("Missing 'stream_arn' argument")
-
-        _setter("stream_arn", stream_arn)
+        pulumi.set(__self__, "stream_arn", stream_arn)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -488,34 +351,9 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs:
         :param pulumi.Input[str] prefix: The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
         :param pulumi.Input[int] retention_period_hours: The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
         """
-        InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption_config=encryption_config,
-            prefix=prefix,
-            retention_period_hours=retention_period_hours,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs']] = None,
-             prefix: Optional[pulumi.Input[str]] = None,
-             retention_period_hours: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if encryption_config is None and 'encryptionConfig' in kwargs:
-            encryption_config = kwargs['encryptionConfig']
-        if encryption_config is None:
-            raise TypeError("Missing 'encryption_config' argument")
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-        if retention_period_hours is None and 'retentionPeriodHours' in kwargs:
-            retention_period_hours = kwargs['retentionPeriodHours']
-        if retention_period_hours is None:
-            raise TypeError("Missing 'retention_period_hours' argument")
-
-        _setter("encryption_config", encryption_config)
-        _setter("prefix", prefix)
-        _setter("retention_period_hours", retention_period_hours)
+        pulumi.set(__self__, "encryption_config", encryption_config)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "retention_period_hours", retention_period_hours)
 
     @property
     @pulumi.getter(name="encryptionConfig")
@@ -563,29 +401,8 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig
         :param pulumi.Input[str] encryption_type: The type of encryption. Valid Values: `KMS`.
         :param pulumi.Input[str] key_id: The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
         """
-        InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption_type=encryption_type,
-            key_id=key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption_type: Optional[pulumi.Input[str]] = None,
-             key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if encryption_type is None and 'encryptionType' in kwargs:
-            encryption_type = kwargs['encryptionType']
-        if encryption_type is None:
-            raise TypeError("Missing 'encryption_type' argument")
-        if key_id is None and 'keyId' in kwargs:
-            key_id = kwargs['keyId']
-        if key_id is None:
-            raise TypeError("Missing 'key_id' argument")
-
-        _setter("encryption_type", encryption_type)
-        _setter("key_id", key_id)
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "key_id", key_id)
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -623,35 +440,10 @@ class InstanceStorageConfigStorageConfigS3ConfigArgs:
         :param pulumi.Input[str] bucket_prefix: The S3 bucket prefix.
         :param pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs'] encryption_config: The encryption configuration. Documented below.
         """
-        InstanceStorageConfigStorageConfigS3ConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            bucket_prefix=bucket_prefix,
-            encryption_config=encryption_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: Optional[pulumi.Input[str]] = None,
-             bucket_prefix: Optional[pulumi.Input[str]] = None,
-             encryption_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket_name is None and 'bucketName' in kwargs:
-            bucket_name = kwargs['bucketName']
-        if bucket_name is None:
-            raise TypeError("Missing 'bucket_name' argument")
-        if bucket_prefix is None and 'bucketPrefix' in kwargs:
-            bucket_prefix = kwargs['bucketPrefix']
-        if bucket_prefix is None:
-            raise TypeError("Missing 'bucket_prefix' argument")
-        if encryption_config is None and 'encryptionConfig' in kwargs:
-            encryption_config = kwargs['encryptionConfig']
-
-        _setter("bucket_name", bucket_name)
-        _setter("bucket_prefix", bucket_prefix)
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         if encryption_config is not None:
-            _setter("encryption_config", encryption_config)
+            pulumi.set(__self__, "encryption_config", encryption_config)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -699,29 +491,8 @@ class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs:
         :param pulumi.Input[str] encryption_type: The type of encryption. Valid Values: `KMS`.
         :param pulumi.Input[str] key_id: The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
         """
-        InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption_type=encryption_type,
-            key_id=key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption_type: Optional[pulumi.Input[str]] = None,
-             key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if encryption_type is None and 'encryptionType' in kwargs:
-            encryption_type = kwargs['encryptionType']
-        if encryption_type is None:
-            raise TypeError("Missing 'encryption_type' argument")
-        if key_id is None and 'keyId' in kwargs:
-            key_id = kwargs['keyId']
-        if key_id is None:
-            raise TypeError("Missing 'key_id' argument")
-
-        _setter("encryption_type", encryption_type)
-        _setter("key_id", key_id)
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "key_id", key_id)
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -757,23 +528,10 @@ class PhoneNumberStatusArgs:
         :param pulumi.Input[str] message: The status message.
         :param pulumi.Input[str] status: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
         """
-        PhoneNumberStatusArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            message=message,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             message: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -811,33 +569,12 @@ class QueueOutboundCallerConfigArgs:
         :param pulumi.Input[str] outbound_caller_id_number_id: Specifies the caller ID number.
         :param pulumi.Input[str] outbound_flow_id: Specifies outbound whisper flow to be used during an outbound call.
         """
-        QueueOutboundCallerConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            outbound_caller_id_name=outbound_caller_id_name,
-            outbound_caller_id_number_id=outbound_caller_id_number_id,
-            outbound_flow_id=outbound_flow_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             outbound_caller_id_name: Optional[pulumi.Input[str]] = None,
-             outbound_caller_id_number_id: Optional[pulumi.Input[str]] = None,
-             outbound_flow_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if outbound_caller_id_name is None and 'outboundCallerIdName' in kwargs:
-            outbound_caller_id_name = kwargs['outboundCallerIdName']
-        if outbound_caller_id_number_id is None and 'outboundCallerIdNumberId' in kwargs:
-            outbound_caller_id_number_id = kwargs['outboundCallerIdNumberId']
-        if outbound_flow_id is None and 'outboundFlowId' in kwargs:
-            outbound_flow_id = kwargs['outboundFlowId']
-
         if outbound_caller_id_name is not None:
-            _setter("outbound_caller_id_name", outbound_caller_id_name)
+            pulumi.set(__self__, "outbound_caller_id_name", outbound_caller_id_name)
         if outbound_caller_id_number_id is not None:
-            _setter("outbound_caller_id_number_id", outbound_caller_id_number_id)
+            pulumi.set(__self__, "outbound_caller_id_number_id", outbound_caller_id_number_id)
         if outbound_flow_id is not None:
-            _setter("outbound_flow_id", outbound_flow_id)
+            pulumi.set(__self__, "outbound_flow_id", outbound_flow_id)
 
     @property
     @pulumi.getter(name="outboundCallerIdName")
@@ -889,40 +626,13 @@ class QuickConnectQuickConnectConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]] queue_configs: Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]] user_configs: Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
         """
-        QuickConnectQuickConnectConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            quick_connect_type=quick_connect_type,
-            phone_configs=phone_configs,
-            queue_configs=queue_configs,
-            user_configs=user_configs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             quick_connect_type: Optional[pulumi.Input[str]] = None,
-             phone_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]] = None,
-             queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]] = None,
-             user_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if quick_connect_type is None and 'quickConnectType' in kwargs:
-            quick_connect_type = kwargs['quickConnectType']
-        if quick_connect_type is None:
-            raise TypeError("Missing 'quick_connect_type' argument")
-        if phone_configs is None and 'phoneConfigs' in kwargs:
-            phone_configs = kwargs['phoneConfigs']
-        if queue_configs is None and 'queueConfigs' in kwargs:
-            queue_configs = kwargs['queueConfigs']
-        if user_configs is None and 'userConfigs' in kwargs:
-            user_configs = kwargs['userConfigs']
-
-        _setter("quick_connect_type", quick_connect_type)
+        pulumi.set(__self__, "quick_connect_type", quick_connect_type)
         if phone_configs is not None:
-            _setter("phone_configs", phone_configs)
+            pulumi.set(__self__, "phone_configs", phone_configs)
         if queue_configs is not None:
-            _setter("queue_configs", queue_configs)
+            pulumi.set(__self__, "queue_configs", queue_configs)
         if user_configs is not None:
-            _setter("user_configs", user_configs)
+            pulumi.set(__self__, "user_configs", user_configs)
 
     @property
     @pulumi.getter(name="quickConnectType")
@@ -980,22 +690,7 @@ class QuickConnectQuickConnectConfigPhoneConfigArgs:
         """
         :param pulumi.Input[str] phone_number: Specifies the phone number in in E.164 format.
         """
-        QuickConnectQuickConnectConfigPhoneConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            phone_number=phone_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             phone_number: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if phone_number is None and 'phoneNumber' in kwargs:
-            phone_number = kwargs['phoneNumber']
-        if phone_number is None:
-            raise TypeError("Missing 'phone_number' argument")
-
-        _setter("phone_number", phone_number)
+        pulumi.set(__self__, "phone_number", phone_number)
 
     @property
     @pulumi.getter(name="phoneNumber")
@@ -1019,29 +714,8 @@ class QuickConnectQuickConnectConfigQueueConfigArgs:
         :param pulumi.Input[str] contact_flow_id: Specifies the identifier of the contact flow.
         :param pulumi.Input[str] queue_id: Specifies the identifier for the queue.
         """
-        QuickConnectQuickConnectConfigQueueConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact_flow_id=contact_flow_id,
-            queue_id=queue_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact_flow_id: Optional[pulumi.Input[str]] = None,
-             queue_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if contact_flow_id is None and 'contactFlowId' in kwargs:
-            contact_flow_id = kwargs['contactFlowId']
-        if contact_flow_id is None:
-            raise TypeError("Missing 'contact_flow_id' argument")
-        if queue_id is None and 'queueId' in kwargs:
-            queue_id = kwargs['queueId']
-        if queue_id is None:
-            raise TypeError("Missing 'queue_id' argument")
-
-        _setter("contact_flow_id", contact_flow_id)
-        _setter("queue_id", queue_id)
+        pulumi.set(__self__, "contact_flow_id", contact_flow_id)
+        pulumi.set(__self__, "queue_id", queue_id)
 
     @property
     @pulumi.getter(name="contactFlowId")
@@ -1077,29 +751,8 @@ class QuickConnectQuickConnectConfigUserConfigArgs:
         :param pulumi.Input[str] contact_flow_id: Specifies the identifier of the contact flow.
         :param pulumi.Input[str] user_id: Specifies the identifier for the user.
         """
-        QuickConnectQuickConnectConfigUserConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact_flow_id=contact_flow_id,
-            user_id=user_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact_flow_id: Optional[pulumi.Input[str]] = None,
-             user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if contact_flow_id is None and 'contactFlowId' in kwargs:
-            contact_flow_id = kwargs['contactFlowId']
-        if contact_flow_id is None:
-            raise TypeError("Missing 'contact_flow_id' argument")
-        if user_id is None and 'userId' in kwargs:
-            user_id = kwargs['userId']
-        if user_id is None:
-            raise TypeError("Missing 'user_id' argument")
-
-        _setter("contact_flow_id", contact_flow_id)
-        _setter("user_id", user_id)
+        pulumi.set(__self__, "contact_flow_id", contact_flow_id)
+        pulumi.set(__self__, "user_id", user_id)
 
     @property
     @pulumi.getter(name="contactFlowId")
@@ -1135,25 +788,8 @@ class RoutingProfileMediaConcurrencyArgs:
         :param pulumi.Input[str] channel: Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
         :param pulumi.Input[int] concurrency: Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
         """
-        RoutingProfileMediaConcurrencyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel=channel,
-            concurrency=concurrency,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel: Optional[pulumi.Input[str]] = None,
-             concurrency: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if channel is None:
-            raise TypeError("Missing 'channel' argument")
-        if concurrency is None:
-            raise TypeError("Missing 'concurrency' argument")
-
-        _setter("channel", channel)
-        _setter("concurrency", concurrency)
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "concurrency", concurrency)
 
     @property
     @pulumi.getter
@@ -1197,49 +833,14 @@ class RoutingProfileQueueConfigArgs:
         :param pulumi.Input[str] queue_arn: ARN for the queue.
         :param pulumi.Input[str] queue_name: Name for the queue.
         """
-        RoutingProfileQueueConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel=channel,
-            delay=delay,
-            priority=priority,
-            queue_id=queue_id,
-            queue_arn=queue_arn,
-            queue_name=queue_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel: Optional[pulumi.Input[str]] = None,
-             delay: Optional[pulumi.Input[int]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             queue_id: Optional[pulumi.Input[str]] = None,
-             queue_arn: Optional[pulumi.Input[str]] = None,
-             queue_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if channel is None:
-            raise TypeError("Missing 'channel' argument")
-        if delay is None:
-            raise TypeError("Missing 'delay' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-        if queue_id is None and 'queueId' in kwargs:
-            queue_id = kwargs['queueId']
-        if queue_id is None:
-            raise TypeError("Missing 'queue_id' argument")
-        if queue_arn is None and 'queueArn' in kwargs:
-            queue_arn = kwargs['queueArn']
-        if queue_name is None and 'queueName' in kwargs:
-            queue_name = kwargs['queueName']
-
-        _setter("channel", channel)
-        _setter("delay", delay)
-        _setter("priority", priority)
-        _setter("queue_id", queue_id)
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "delay", delay)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "queue_id", queue_id)
         if queue_arn is not None:
-            _setter("queue_arn", queue_arn)
+            pulumi.set(__self__, "queue_arn", queue_arn)
         if queue_name is not None:
-            _setter("queue_name", queue_name)
+            pulumi.set(__self__, "queue_name", queue_name)
 
     @property
     @pulumi.getter
@@ -1329,45 +930,16 @@ class UserHierarchyGroupHierarchyPathArgs:
         :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]] level_threes: A block that defines the details of level three. The level block is documented below.
         :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]] level_twos: A block that defines the details of level two. The level block is documented below.
         """
-        UserHierarchyGroupHierarchyPathArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            level_fives=level_fives,
-            level_fours=level_fours,
-            level_ones=level_ones,
-            level_threes=level_threes,
-            level_twos=level_twos,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             level_fives: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]] = None,
-             level_fours: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]]] = None,
-             level_ones: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]]] = None,
-             level_threes: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]]] = None,
-             level_twos: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if level_fives is None and 'levelFives' in kwargs:
-            level_fives = kwargs['levelFives']
-        if level_fours is None and 'levelFours' in kwargs:
-            level_fours = kwargs['levelFours']
-        if level_ones is None and 'levelOnes' in kwargs:
-            level_ones = kwargs['levelOnes']
-        if level_threes is None and 'levelThrees' in kwargs:
-            level_threes = kwargs['levelThrees']
-        if level_twos is None and 'levelTwos' in kwargs:
-            level_twos = kwargs['levelTwos']
-
         if level_fives is not None:
-            _setter("level_fives", level_fives)
+            pulumi.set(__self__, "level_fives", level_fives)
         if level_fours is not None:
-            _setter("level_fours", level_fours)
+            pulumi.set(__self__, "level_fours", level_fours)
         if level_ones is not None:
-            _setter("level_ones", level_ones)
+            pulumi.set(__self__, "level_ones", level_ones)
         if level_threes is not None:
-            _setter("level_threes", level_threes)
+            pulumi.set(__self__, "level_threes", level_threes)
         if level_twos is not None:
-            _setter("level_twos", level_twos)
+            pulumi.set(__self__, "level_twos", level_twos)
 
     @property
     @pulumi.getter(name="levelFives")
@@ -1441,27 +1013,12 @@ class UserHierarchyGroupHierarchyPathLevelFifeArgs:
         :param pulumi.Input[str] id: The identifier of the hierarchy group.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         """
-        UserHierarchyGroupHierarchyPathLevelFifeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1511,27 +1068,12 @@ class UserHierarchyGroupHierarchyPathLevelFourArgs:
         :param pulumi.Input[str] id: The identifier of the hierarchy group.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         """
-        UserHierarchyGroupHierarchyPathLevelFourArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1581,27 +1123,12 @@ class UserHierarchyGroupHierarchyPathLevelOneArgs:
         :param pulumi.Input[str] id: The identifier of the hierarchy group.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         """
-        UserHierarchyGroupHierarchyPathLevelOneArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1651,27 +1178,12 @@ class UserHierarchyGroupHierarchyPathLevelThreeArgs:
         :param pulumi.Input[str] id: The identifier of the hierarchy group.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         """
-        UserHierarchyGroupHierarchyPathLevelThreeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1721,27 +1233,12 @@ class UserHierarchyGroupHierarchyPathLevelTwoArgs:
         :param pulumi.Input[str] id: The identifier of the hierarchy group.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
         """
-        UserHierarchyGroupHierarchyPathLevelTwoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1797,45 +1294,16 @@ class UserHierarchyStructureHierarchyStructureArgs:
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs'] level_three: A block that defines the details of level three. The level block is documented below.
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs'] level_two: A block that defines the details of level two. The level block is documented below.
         """
-        UserHierarchyStructureHierarchyStructureArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            level_five=level_five,
-            level_four=level_four,
-            level_one=level_one,
-            level_three=level_three,
-            level_two=level_two,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             level_five: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs']] = None,
-             level_four: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs']] = None,
-             level_one: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs']] = None,
-             level_three: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs']] = None,
-             level_two: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if level_five is None and 'levelFive' in kwargs:
-            level_five = kwargs['levelFive']
-        if level_four is None and 'levelFour' in kwargs:
-            level_four = kwargs['levelFour']
-        if level_one is None and 'levelOne' in kwargs:
-            level_one = kwargs['levelOne']
-        if level_three is None and 'levelThree' in kwargs:
-            level_three = kwargs['levelThree']
-        if level_two is None and 'levelTwo' in kwargs:
-            level_two = kwargs['levelTwo']
-
         if level_five is not None:
-            _setter("level_five", level_five)
+            pulumi.set(__self__, "level_five", level_five)
         if level_four is not None:
-            _setter("level_four", level_four)
+            pulumi.set(__self__, "level_four", level_four)
         if level_one is not None:
-            _setter("level_one", level_one)
+            pulumi.set(__self__, "level_one", level_one)
         if level_three is not None:
-            _setter("level_three", level_three)
+            pulumi.set(__self__, "level_three", level_three)
         if level_two is not None:
-            _setter("level_two", level_two)
+            pulumi.set(__self__, "level_two", level_two)
 
     @property
     @pulumi.getter(name="levelFive")
@@ -1911,28 +1379,11 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[str] id: The identifier of the hierarchy level.
         """
-        UserHierarchyStructureHierarchyStructureLevelFiveArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            arn=arn,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -1982,28 +1433,11 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgs:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[str] id: The identifier of the hierarchy level.
         """
-        UserHierarchyStructureHierarchyStructureLevelFourArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            arn=arn,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -2053,28 +1487,11 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgs:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[str] id: The identifier of the hierarchy level.
         """
-        UserHierarchyStructureHierarchyStructureLevelOneArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            arn=arn,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -2124,28 +1541,11 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[str] id: The identifier of the hierarchy level.
         """
-        UserHierarchyStructureHierarchyStructureLevelThreeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            arn=arn,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -2195,28 +1595,11 @@ class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[str] id: The identifier of the hierarchy level.
         """
-        UserHierarchyStructureHierarchyStructureLevelTwoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            arn=arn,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -2266,31 +1649,12 @@ class UserIdentityInfoArgs:
         :param pulumi.Input[str] first_name: The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
         :param pulumi.Input[str] last_name: The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
         """
-        UserIdentityInfoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            email=email,
-            first_name=first_name,
-            last_name=last_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             email: Optional[pulumi.Input[str]] = None,
-             first_name: Optional[pulumi.Input[str]] = None,
-             last_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if first_name is None and 'firstName' in kwargs:
-            first_name = kwargs['firstName']
-        if last_name is None and 'lastName' in kwargs:
-            last_name = kwargs['lastName']
-
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if first_name is not None:
-            _setter("first_name", first_name)
+            pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
-            _setter("last_name", last_name)
+            pulumi.set(__self__, "last_name", last_name)
 
     @property
     @pulumi.getter
@@ -2342,40 +1706,13 @@ class UserPhoneConfigArgs:
         :param pulumi.Input[bool] auto_accept: When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
         :param pulumi.Input[str] desk_phone_number: The phone number for the user's desk phone. Required if `phone_type` is set as `DESK_PHONE`.
         """
-        UserPhoneConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            phone_type=phone_type,
-            after_contact_work_time_limit=after_contact_work_time_limit,
-            auto_accept=auto_accept,
-            desk_phone_number=desk_phone_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             phone_type: Optional[pulumi.Input[str]] = None,
-             after_contact_work_time_limit: Optional[pulumi.Input[int]] = None,
-             auto_accept: Optional[pulumi.Input[bool]] = None,
-             desk_phone_number: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if phone_type is None and 'phoneType' in kwargs:
-            phone_type = kwargs['phoneType']
-        if phone_type is None:
-            raise TypeError("Missing 'phone_type' argument")
-        if after_contact_work_time_limit is None and 'afterContactWorkTimeLimit' in kwargs:
-            after_contact_work_time_limit = kwargs['afterContactWorkTimeLimit']
-        if auto_accept is None and 'autoAccept' in kwargs:
-            auto_accept = kwargs['autoAccept']
-        if desk_phone_number is None and 'deskPhoneNumber' in kwargs:
-            desk_phone_number = kwargs['deskPhoneNumber']
-
-        _setter("phone_type", phone_type)
+        pulumi.set(__self__, "phone_type", phone_type)
         if after_contact_work_time_limit is not None:
-            _setter("after_contact_work_time_limit", after_contact_work_time_limit)
+            pulumi.set(__self__, "after_contact_work_time_limit", after_contact_work_time_limit)
         if auto_accept is not None:
-            _setter("auto_accept", auto_accept)
+            pulumi.set(__self__, "auto_accept", auto_accept)
         if desk_phone_number is not None:
-            _setter("desk_phone_number", desk_phone_number)
+            pulumi.set(__self__, "desk_phone_number", desk_phone_number)
 
     @property
     @pulumi.getter(name="phoneType")
@@ -2435,27 +1772,8 @@ class GetBotAssociationLexBotArgs:
         :param str lex_region: Region that the Amazon Lex (V1) bot was created in.
         :param str name: Name of the Amazon Lex (V1) bot.
         """
-        GetBotAssociationLexBotArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            lex_region=lex_region,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             lex_region: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if lex_region is None and 'lexRegion' in kwargs:
-            lex_region = kwargs['lexRegion']
-        if lex_region is None:
-            raise TypeError("Missing 'lex_region' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("lex_region", lex_region)
-        _setter("name", name)
+        pulumi.set(__self__, "lex_region", lex_region)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="lexRegion")

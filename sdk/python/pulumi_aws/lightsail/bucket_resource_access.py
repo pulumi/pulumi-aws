@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BucketResourceAccessArgs', 'BucketResourceAccess']
@@ -21,29 +21,8 @@ class BucketResourceAccessArgs:
         :param pulumi.Input[str] bucket_name: The name of the bucket to grant access to.
         :param pulumi.Input[str] resource_name: The name of the resource to be granted bucket access.
         """
-        BucketResourceAccessArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            resource_name=resource_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: Optional[pulumi.Input[str]] = None,
-             resource_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket_name is None and 'bucketName' in kwargs:
-            bucket_name = kwargs['bucketName']
-        if bucket_name is None:
-            raise TypeError("Missing 'bucket_name' argument")
-        if resource_name is None and 'resourceName' in kwargs:
-            resource_name = kwargs['resourceName']
-        if resource_name is None:
-            raise TypeError("Missing 'resource_name' argument")
-
-        _setter("bucket_name", bucket_name)
-        _setter("resource_name", resource_name)
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "resource_name", resource_name)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -80,27 +59,10 @@ class _BucketResourceAccessState:
         :param pulumi.Input[str] bucket_name: The name of the bucket to grant access to.
         :param pulumi.Input[str] resource_name: The name of the resource to be granted bucket access.
         """
-        _BucketResourceAccessState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            resource_name=resource_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: Optional[pulumi.Input[str]] = None,
-             resource_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket_name is None and 'bucketName' in kwargs:
-            bucket_name = kwargs['bucketName']
-        if resource_name is None and 'resourceName' in kwargs:
-            resource_name = kwargs['resourceName']
-
         if bucket_name is not None:
-            _setter("bucket_name", bucket_name)
+            pulumi.set(__self__, "bucket_name", bucket_name)
         if resource_name is not None:
-            _setter("resource_name", resource_name)
+            pulumi.set(__self__, "resource_name", resource_name)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -178,10 +140,6 @@ class BucketResourceAccess(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BucketResourceAccessArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

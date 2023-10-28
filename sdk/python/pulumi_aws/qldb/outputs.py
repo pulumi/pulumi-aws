@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -41,28 +41,9 @@ class StreamKinesisConfiguration(dict):
         :param str stream_arn: The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
         :param bool aggregation_enabled: Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
         """
-        StreamKinesisConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            stream_arn=stream_arn,
-            aggregation_enabled=aggregation_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             stream_arn: Optional[str] = None,
-             aggregation_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if stream_arn is None and 'streamArn' in kwargs:
-            stream_arn = kwargs['streamArn']
-        if stream_arn is None:
-            raise TypeError("Missing 'stream_arn' argument")
-        if aggregation_enabled is None and 'aggregationEnabled' in kwargs:
-            aggregation_enabled = kwargs['aggregationEnabled']
-
-        _setter("stream_arn", stream_arn)
+        pulumi.set(__self__, "stream_arn", stream_arn)
         if aggregation_enabled is not None:
-            _setter("aggregation_enabled", aggregation_enabled)
+            pulumi.set(__self__, "aggregation_enabled", aggregation_enabled)
 
     @property
     @pulumi.getter(name="streamArn")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,41 +29,12 @@ class PipelineDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
         """
-        PipelineDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pipeline_id=pipeline_id,
-            pipeline_objects=pipeline_objects,
-            parameter_objects=parameter_objects,
-            parameter_values=parameter_values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pipeline_id: Optional[pulumi.Input[str]] = None,
-             pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]]] = None,
-             parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]]] = None,
-             parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if pipeline_id is None and 'pipelineId' in kwargs:
-            pipeline_id = kwargs['pipelineId']
-        if pipeline_id is None:
-            raise TypeError("Missing 'pipeline_id' argument")
-        if pipeline_objects is None and 'pipelineObjects' in kwargs:
-            pipeline_objects = kwargs['pipelineObjects']
-        if pipeline_objects is None:
-            raise TypeError("Missing 'pipeline_objects' argument")
-        if parameter_objects is None and 'parameterObjects' in kwargs:
-            parameter_objects = kwargs['parameterObjects']
-        if parameter_values is None and 'parameterValues' in kwargs:
-            parameter_values = kwargs['parameterValues']
-
-        _setter("pipeline_id", pipeline_id)
-        _setter("pipeline_objects", pipeline_objects)
+        pulumi.set(__self__, "pipeline_id", pipeline_id)
+        pulumi.set(__self__, "pipeline_objects", pipeline_objects)
         if parameter_objects is not None:
-            _setter("parameter_objects", parameter_objects)
+            pulumi.set(__self__, "parameter_objects", parameter_objects)
         if parameter_values is not None:
-            _setter("parameter_values", parameter_values)
+            pulumi.set(__self__, "parameter_values", parameter_values)
 
     @property
     @pulumi.getter(name="pipelineId")
@@ -132,39 +103,14 @@ class _PipelineDefinitionState:
                
                The following arguments are optional:
         """
-        _PipelineDefinitionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            parameter_objects=parameter_objects,
-            parameter_values=parameter_values,
-            pipeline_id=pipeline_id,
-            pipeline_objects=pipeline_objects,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]]] = None,
-             parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]]] = None,
-             pipeline_id: Optional[pulumi.Input[str]] = None,
-             pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if parameter_objects is None and 'parameterObjects' in kwargs:
-            parameter_objects = kwargs['parameterObjects']
-        if parameter_values is None and 'parameterValues' in kwargs:
-            parameter_values = kwargs['parameterValues']
-        if pipeline_id is None and 'pipelineId' in kwargs:
-            pipeline_id = kwargs['pipelineId']
-        if pipeline_objects is None and 'pipelineObjects' in kwargs:
-            pipeline_objects = kwargs['pipelineObjects']
-
         if parameter_objects is not None:
-            _setter("parameter_objects", parameter_objects)
+            pulumi.set(__self__, "parameter_objects", parameter_objects)
         if parameter_values is not None:
-            _setter("parameter_values", parameter_values)
+            pulumi.set(__self__, "parameter_values", parameter_values)
         if pipeline_id is not None:
-            _setter("pipeline_id", pipeline_id)
+            pulumi.set(__self__, "pipeline_id", pipeline_id)
         if pipeline_objects is not None:
-            _setter("pipeline_objects", pipeline_objects)
+            pulumi.set(__self__, "pipeline_objects", pipeline_objects)
 
     @property
     @pulumi.getter(name="parameterObjects")
@@ -404,10 +350,6 @@ class PipelineDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PipelineDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

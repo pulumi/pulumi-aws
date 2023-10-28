@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CoreNetworkPolicyAttachmentArgs', 'CoreNetworkPolicyAttachment']
@@ -21,29 +21,8 @@ class CoreNetworkPolicyAttachmentArgs:
         :param pulumi.Input[str] core_network_id: The ID of the core network that a policy will be attached to and made `LIVE`.
         :param pulumi.Input[str] policy_document: Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         """
-        CoreNetworkPolicyAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            core_network_id=core_network_id,
-            policy_document=policy_document,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             core_network_id: Optional[pulumi.Input[str]] = None,
-             policy_document: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if core_network_id is None and 'coreNetworkId' in kwargs:
-            core_network_id = kwargs['coreNetworkId']
-        if core_network_id is None:
-            raise TypeError("Missing 'core_network_id' argument")
-        if policy_document is None and 'policyDocument' in kwargs:
-            policy_document = kwargs['policyDocument']
-        if policy_document is None:
-            raise TypeError("Missing 'policy_document' argument")
-
-        _setter("core_network_id", core_network_id)
-        _setter("policy_document", policy_document)
+        pulumi.set(__self__, "core_network_id", core_network_id)
+        pulumi.set(__self__, "policy_document", policy_document)
 
     @property
     @pulumi.getter(name="coreNetworkId")
@@ -82,31 +61,12 @@ class _CoreNetworkPolicyAttachmentState:
         :param pulumi.Input[str] policy_document: Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         :param pulumi.Input[str] state: Current state of a core network.
         """
-        _CoreNetworkPolicyAttachmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            core_network_id=core_network_id,
-            policy_document=policy_document,
-            state=state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             core_network_id: Optional[pulumi.Input[str]] = None,
-             policy_document: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if core_network_id is None and 'coreNetworkId' in kwargs:
-            core_network_id = kwargs['coreNetworkId']
-        if policy_document is None and 'policyDocument' in kwargs:
-            policy_document = kwargs['policyDocument']
-
         if core_network_id is not None:
-            _setter("core_network_id", core_network_id)
+            pulumi.set(__self__, "core_network_id", core_network_id)
         if policy_document is not None:
-            _setter("policy_document", policy_document)
+            pulumi.set(__self__, "policy_document", policy_document)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter(name="coreNetworkId")
@@ -676,10 +636,6 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CoreNetworkPolicyAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

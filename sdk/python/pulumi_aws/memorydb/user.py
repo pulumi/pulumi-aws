@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,40 +29,11 @@ class UserArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        UserArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_string=access_string,
-            authentication_mode=authentication_mode,
-            user_name=user_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_string: Optional[pulumi.Input[str]] = None,
-             authentication_mode: Optional[pulumi.Input['UserAuthenticationModeArgs']] = None,
-             user_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_string is None and 'accessString' in kwargs:
-            access_string = kwargs['accessString']
-        if access_string is None:
-            raise TypeError("Missing 'access_string' argument")
-        if authentication_mode is None and 'authenticationMode' in kwargs:
-            authentication_mode = kwargs['authenticationMode']
-        if authentication_mode is None:
-            raise TypeError("Missing 'authentication_mode' argument")
-        if user_name is None and 'userName' in kwargs:
-            user_name = kwargs['userName']
-        if user_name is None:
-            raise TypeError("Missing 'user_name' argument")
-
-        _setter("access_string", access_string)
-        _setter("authentication_mode", authentication_mode)
-        _setter("user_name", user_name)
+        pulumi.set(__self__, "access_string", access_string)
+        pulumi.set(__self__, "authentication_mode", authentication_mode)
+        pulumi.set(__self__, "user_name", user_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accessString")
@@ -137,56 +108,23 @@ class _UserState:
                
                The following arguments are optional:
         """
-        _UserState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_string=access_string,
-            arn=arn,
-            authentication_mode=authentication_mode,
-            minimum_engine_version=minimum_engine_version,
-            tags=tags,
-            tags_all=tags_all,
-            user_name=user_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_string: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             authentication_mode: Optional[pulumi.Input['UserAuthenticationModeArgs']] = None,
-             minimum_engine_version: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_string is None and 'accessString' in kwargs:
-            access_string = kwargs['accessString']
-        if authentication_mode is None and 'authenticationMode' in kwargs:
-            authentication_mode = kwargs['authenticationMode']
-        if minimum_engine_version is None and 'minimumEngineVersion' in kwargs:
-            minimum_engine_version = kwargs['minimumEngineVersion']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if user_name is None and 'userName' in kwargs:
-            user_name = kwargs['userName']
-
         if access_string is not None:
-            _setter("access_string", access_string)
+            pulumi.set(__self__, "access_string", access_string)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if authentication_mode is not None:
-            _setter("authentication_mode", authentication_mode)
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if minimum_engine_version is not None:
-            _setter("minimum_engine_version", minimum_engine_version)
+            pulumi.set(__self__, "minimum_engine_version", minimum_engine_version)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if user_name is not None:
-            _setter("user_name", user_name)
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="accessString")
@@ -377,10 +315,6 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -402,7 +336,6 @@ class User(pulumi.CustomResource):
             if access_string is None and not opts.urn:
                 raise TypeError("Missing required property 'access_string'")
             __props__.__dict__["access_string"] = access_string
-            authentication_mode = _utilities.configure(authentication_mode, UserAuthenticationModeArgs, True)
             if authentication_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_mode'")
             __props__.__dict__["authentication_mode"] = authentication_mode

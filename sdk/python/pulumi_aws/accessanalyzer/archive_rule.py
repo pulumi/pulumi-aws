@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,34 +25,9 @@ class ArchiveRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[str] rule_name: Rule name.
         """
-        ArchiveRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            analyzer_name=analyzer_name,
-            filters=filters,
-            rule_name=rule_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             analyzer_name: Optional[pulumi.Input[str]] = None,
-             filters: Optional[pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]]] = None,
-             rule_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if analyzer_name is None and 'analyzerName' in kwargs:
-            analyzer_name = kwargs['analyzerName']
-        if analyzer_name is None:
-            raise TypeError("Missing 'analyzer_name' argument")
-        if filters is None:
-            raise TypeError("Missing 'filters' argument")
-        if rule_name is None and 'ruleName' in kwargs:
-            rule_name = kwargs['ruleName']
-        if rule_name is None:
-            raise TypeError("Missing 'rule_name' argument")
-
-        _setter("analyzer_name", analyzer_name)
-        _setter("filters", filters)
-        _setter("rule_name", rule_name)
+        pulumi.set(__self__, "analyzer_name", analyzer_name)
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "rule_name", rule_name)
 
     @property
     @pulumi.getter(name="analyzerName")
@@ -103,31 +78,12 @@ class _ArchiveRuleState:
         :param pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[str] rule_name: Rule name.
         """
-        _ArchiveRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            analyzer_name=analyzer_name,
-            filters=filters,
-            rule_name=rule_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             analyzer_name: Optional[pulumi.Input[str]] = None,
-             filters: Optional[pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]]] = None,
-             rule_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if analyzer_name is None and 'analyzerName' in kwargs:
-            analyzer_name = kwargs['analyzerName']
-        if rule_name is None and 'ruleName' in kwargs:
-            rule_name = kwargs['ruleName']
-
         if analyzer_name is not None:
-            _setter("analyzer_name", analyzer_name)
+            pulumi.set(__self__, "analyzer_name", analyzer_name)
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
         if rule_name is not None:
-            _setter("rule_name", rule_name)
+            pulumi.set(__self__, "rule_name", rule_name)
 
     @property
     @pulumi.getter(name="analyzerName")
@@ -271,10 +227,6 @@ class ArchiveRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ArchiveRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

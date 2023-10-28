@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -40,69 +40,26 @@ class StreamArgs:
         :param pulumi.Input['StreamStreamModeDetailsArgs'] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        StreamArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            encryption_type=encryption_type,
-            enforce_consumer_deletion=enforce_consumer_deletion,
-            kms_key_id=kms_key_id,
-            name=name,
-            retention_period=retention_period,
-            shard_count=shard_count,
-            shard_level_metrics=shard_level_metrics,
-            stream_mode_details=stream_mode_details,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             encryption_type: Optional[pulumi.Input[str]] = None,
-             enforce_consumer_deletion: Optional[pulumi.Input[bool]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             retention_period: Optional[pulumi.Input[int]] = None,
-             shard_count: Optional[pulumi.Input[int]] = None,
-             shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             stream_mode_details: Optional[pulumi.Input['StreamStreamModeDetailsArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if encryption_type is None and 'encryptionType' in kwargs:
-            encryption_type = kwargs['encryptionType']
-        if enforce_consumer_deletion is None and 'enforceConsumerDeletion' in kwargs:
-            enforce_consumer_deletion = kwargs['enforceConsumerDeletion']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if retention_period is None and 'retentionPeriod' in kwargs:
-            retention_period = kwargs['retentionPeriod']
-        if shard_count is None and 'shardCount' in kwargs:
-            shard_count = kwargs['shardCount']
-        if shard_level_metrics is None and 'shardLevelMetrics' in kwargs:
-            shard_level_metrics = kwargs['shardLevelMetrics']
-        if stream_mode_details is None and 'streamModeDetails' in kwargs:
-            stream_mode_details = kwargs['streamModeDetails']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if encryption_type is not None:
-            _setter("encryption_type", encryption_type)
+            pulumi.set(__self__, "encryption_type", encryption_type)
         if enforce_consumer_deletion is not None:
-            _setter("enforce_consumer_deletion", enforce_consumer_deletion)
+            pulumi.set(__self__, "enforce_consumer_deletion", enforce_consumer_deletion)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if retention_period is not None:
-            _setter("retention_period", retention_period)
+            pulumi.set(__self__, "retention_period", retention_period)
         if shard_count is not None:
-            _setter("shard_count", shard_count)
+            pulumi.set(__self__, "shard_count", shard_count)
         if shard_level_metrics is not None:
-            _setter("shard_level_metrics", shard_level_metrics)
+            pulumi.set(__self__, "shard_level_metrics", shard_level_metrics)
         if stream_mode_details is not None:
-            _setter("stream_mode_details", stream_mode_details)
+            pulumi.set(__self__, "stream_mode_details", stream_mode_details)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -255,78 +212,31 @@ class _StreamState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _StreamState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            encryption_type=encryption_type,
-            enforce_consumer_deletion=enforce_consumer_deletion,
-            kms_key_id=kms_key_id,
-            name=name,
-            retention_period=retention_period,
-            shard_count=shard_count,
-            shard_level_metrics=shard_level_metrics,
-            stream_mode_details=stream_mode_details,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             encryption_type: Optional[pulumi.Input[str]] = None,
-             enforce_consumer_deletion: Optional[pulumi.Input[bool]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             retention_period: Optional[pulumi.Input[int]] = None,
-             shard_count: Optional[pulumi.Input[int]] = None,
-             shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             stream_mode_details: Optional[pulumi.Input['StreamStreamModeDetailsArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if encryption_type is None and 'encryptionType' in kwargs:
-            encryption_type = kwargs['encryptionType']
-        if enforce_consumer_deletion is None and 'enforceConsumerDeletion' in kwargs:
-            enforce_consumer_deletion = kwargs['enforceConsumerDeletion']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if retention_period is None and 'retentionPeriod' in kwargs:
-            retention_period = kwargs['retentionPeriod']
-        if shard_count is None and 'shardCount' in kwargs:
-            shard_count = kwargs['shardCount']
-        if shard_level_metrics is None and 'shardLevelMetrics' in kwargs:
-            shard_level_metrics = kwargs['shardLevelMetrics']
-        if stream_mode_details is None and 'streamModeDetails' in kwargs:
-            stream_mode_details = kwargs['streamModeDetails']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if encryption_type is not None:
-            _setter("encryption_type", encryption_type)
+            pulumi.set(__self__, "encryption_type", encryption_type)
         if enforce_consumer_deletion is not None:
-            _setter("enforce_consumer_deletion", enforce_consumer_deletion)
+            pulumi.set(__self__, "enforce_consumer_deletion", enforce_consumer_deletion)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if retention_period is not None:
-            _setter("retention_period", retention_period)
+            pulumi.set(__self__, "retention_period", retention_period)
         if shard_count is not None:
-            _setter("shard_count", shard_count)
+            pulumi.set(__self__, "shard_count", shard_count)
         if shard_level_metrics is not None:
-            _setter("shard_level_metrics", shard_level_metrics)
+            pulumi.set(__self__, "shard_level_metrics", shard_level_metrics)
         if stream_mode_details is not None:
-            _setter("stream_mode_details", stream_mode_details)
+            pulumi.set(__self__, "stream_mode_details", stream_mode_details)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -581,10 +491,6 @@ class Stream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            StreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -617,7 +523,6 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["shard_count"] = shard_count
             __props__.__dict__["shard_level_metrics"] = shard_level_metrics
-            stream_mode_details = _utilities.configure(stream_mode_details, StreamStreamModeDetailsArgs, True)
             __props__.__dict__["stream_mode_details"] = stream_mode_details
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RecorderStatusArgs', 'RecorderStatus']
@@ -21,26 +21,9 @@ class RecorderStatusArgs:
         :param pulumi.Input[bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
         :param pulumi.Input[str] name: The name of the recorder
         """
-        RecorderStatusArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            is_enabled=is_enabled,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if is_enabled is None and 'isEnabled' in kwargs:
-            is_enabled = kwargs['isEnabled']
-        if is_enabled is None:
-            raise TypeError("Missing 'is_enabled' argument")
-
-        _setter("is_enabled", is_enabled)
+        pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -77,25 +60,10 @@ class _RecorderStatusState:
         :param pulumi.Input[bool] is_enabled: Whether the configuration recorder should be enabled or disabled.
         :param pulumi.Input[str] name: The name of the recorder
         """
-        _RecorderStatusState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            is_enabled=is_enabled,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if is_enabled is None and 'isEnabled' in kwargs:
-            is_enabled = kwargs['isEnabled']
-
         if is_enabled is not None:
-            _setter("is_enabled", is_enabled)
+            pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -249,10 +217,6 @@ class RecorderStatus(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RecorderStatusArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

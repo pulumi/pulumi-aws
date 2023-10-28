@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,41 +29,14 @@ class VirtualServiceArgs:
         :param pulumi.Input[str] name: Name to use for the virtual service. Must be between 1 and 255 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        VirtualServiceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mesh_name=mesh_name,
-            spec=spec,
-            mesh_owner=mesh_owner,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mesh_name: Optional[pulumi.Input[str]] = None,
-             spec: Optional[pulumi.Input['VirtualServiceSpecArgs']] = None,
-             mesh_owner: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mesh_name is None and 'meshName' in kwargs:
-            mesh_name = kwargs['meshName']
-        if mesh_name is None:
-            raise TypeError("Missing 'mesh_name' argument")
-        if spec is None:
-            raise TypeError("Missing 'spec' argument")
-        if mesh_owner is None and 'meshOwner' in kwargs:
-            mesh_owner = kwargs['meshOwner']
-
-        _setter("mesh_name", mesh_name)
-        _setter("spec", spec)
+        pulumi.set(__self__, "mesh_name", mesh_name)
+        pulumi.set(__self__, "spec", spec)
         if mesh_owner is not None:
-            _setter("mesh_owner", mesh_owner)
+            pulumi.set(__self__, "mesh_owner", mesh_owner)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="meshName")
@@ -152,70 +125,29 @@ class _VirtualServiceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _VirtualServiceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_date=created_date,
-            last_updated_date=last_updated_date,
-            mesh_name=mesh_name,
-            mesh_owner=mesh_owner,
-            name=name,
-            resource_owner=resource_owner,
-            spec=spec,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             created_date: Optional[pulumi.Input[str]] = None,
-             last_updated_date: Optional[pulumi.Input[str]] = None,
-             mesh_name: Optional[pulumi.Input[str]] = None,
-             mesh_owner: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_owner: Optional[pulumi.Input[str]] = None,
-             spec: Optional[pulumi.Input['VirtualServiceSpecArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_date is None and 'createdDate' in kwargs:
-            created_date = kwargs['createdDate']
-        if last_updated_date is None and 'lastUpdatedDate' in kwargs:
-            last_updated_date = kwargs['lastUpdatedDate']
-        if mesh_name is None and 'meshName' in kwargs:
-            mesh_name = kwargs['meshName']
-        if mesh_owner is None and 'meshOwner' in kwargs:
-            mesh_owner = kwargs['meshOwner']
-        if resource_owner is None and 'resourceOwner' in kwargs:
-            resource_owner = kwargs['resourceOwner']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_date is not None:
-            _setter("created_date", created_date)
+            pulumi.set(__self__, "created_date", created_date)
         if last_updated_date is not None:
-            _setter("last_updated_date", last_updated_date)
+            pulumi.set(__self__, "last_updated_date", last_updated_date)
         if mesh_name is not None:
-            _setter("mesh_name", mesh_name)
+            pulumi.set(__self__, "mesh_name", mesh_name)
         if mesh_owner is not None:
-            _setter("mesh_owner", mesh_owner)
+            pulumi.set(__self__, "mesh_owner", mesh_owner)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_owner is not None:
-            _setter("resource_owner", resource_owner)
+            pulumi.set(__self__, "resource_owner", resource_owner)
         if spec is not None:
-            _setter("spec", spec)
+            pulumi.set(__self__, "spec", spec)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -466,10 +398,6 @@ class VirtualService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VirtualServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -494,7 +422,6 @@ class VirtualService(pulumi.CustomResource):
             __props__.__dict__["mesh_name"] = mesh_name
             __props__.__dict__["mesh_owner"] = mesh_owner
             __props__.__dict__["name"] = name
-            spec = _utilities.configure(spec, VirtualServiceSpecArgs, True)
             if spec is None and not opts.urn:
                 raise TypeError("Missing required property 'spec'")
             __props__.__dict__["spec"] = spec

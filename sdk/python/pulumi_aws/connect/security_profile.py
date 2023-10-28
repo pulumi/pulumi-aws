@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SecurityProfileArgs', 'SecurityProfile']
@@ -28,38 +28,15 @@ class SecurityProfileArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Security Profile. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        SecurityProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_id=instance_id,
-            description=description,
-            name=name,
-            permissions=permissions,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if instance_id is None and 'instanceId' in kwargs:
-            instance_id = kwargs['instanceId']
-        if instance_id is None:
-            raise TypeError("Missing 'instance_id' argument")
-
-        _setter("instance_id", instance_id)
+        pulumi.set(__self__, "instance_id", instance_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -148,62 +125,27 @@ class _SecurityProfileState:
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _SecurityProfileState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            description=description,
-            instance_id=instance_id,
-            name=name,
-            organization_resource_id=organization_resource_id,
-            permissions=permissions,
-            security_profile_id=security_profile_id,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             instance_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             organization_resource_id: Optional[pulumi.Input[str]] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_profile_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if instance_id is None and 'instanceId' in kwargs:
-            instance_id = kwargs['instanceId']
-        if organization_resource_id is None and 'organizationResourceId' in kwargs:
-            organization_resource_id = kwargs['organizationResourceId']
-        if security_profile_id is None and 'securityProfileId' in kwargs:
-            security_profile_id = kwargs['securityProfileId']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if instance_id is not None:
-            _setter("instance_id", instance_id)
+            pulumi.set(__self__, "instance_id", instance_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if organization_resource_id is not None:
-            _setter("organization_resource_id", organization_resource_id)
+            pulumi.set(__self__, "organization_resource_id", organization_resource_id)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if security_profile_id is not None:
-            _setter("security_profile_id", security_profile_id)
+            pulumi.set(__self__, "security_profile_id", security_profile_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -414,10 +356,6 @@ class SecurityProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SecurityProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

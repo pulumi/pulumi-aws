@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HsmArgs', 'Hsm']
@@ -25,40 +25,13 @@ class HsmArgs:
         :param pulumi.Input[str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
         :param pulumi.Input[str] subnet_id: The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         """
-        HsmArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_id=cluster_id,
-            availability_zone=availability_zone,
-            ip_address=ip_address,
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_id: Optional[pulumi.Input[str]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             ip_address: Optional[pulumi.Input[str]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_id is None and 'clusterId' in kwargs:
-            cluster_id = kwargs['clusterId']
-        if cluster_id is None:
-            raise TypeError("Missing 'cluster_id' argument")
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-
-        _setter("cluster_id", cluster_id)
+        pulumi.set(__self__, "cluster_id", cluster_id)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if ip_address is not None:
-            _setter("ip_address", ip_address)
+            pulumi.set(__self__, "ip_address", ip_address)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -129,57 +102,20 @@ class _HsmState:
         :param pulumi.Input[str] ip_address: The IP address of HSM module. Must be within the CIDR of selected subnet.
         :param pulumi.Input[str] subnet_id: The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         """
-        _HsmState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone=availability_zone,
-            cluster_id=cluster_id,
-            hsm_eni_id=hsm_eni_id,
-            hsm_id=hsm_id,
-            hsm_state=hsm_state,
-            ip_address=ip_address,
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             cluster_id: Optional[pulumi.Input[str]] = None,
-             hsm_eni_id: Optional[pulumi.Input[str]] = None,
-             hsm_id: Optional[pulumi.Input[str]] = None,
-             hsm_state: Optional[pulumi.Input[str]] = None,
-             ip_address: Optional[pulumi.Input[str]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if cluster_id is None and 'clusterId' in kwargs:
-            cluster_id = kwargs['clusterId']
-        if hsm_eni_id is None and 'hsmEniId' in kwargs:
-            hsm_eni_id = kwargs['hsmEniId']
-        if hsm_id is None and 'hsmId' in kwargs:
-            hsm_id = kwargs['hsmId']
-        if hsm_state is None and 'hsmState' in kwargs:
-            hsm_state = kwargs['hsmState']
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if cluster_id is not None:
-            _setter("cluster_id", cluster_id)
+            pulumi.set(__self__, "cluster_id", cluster_id)
         if hsm_eni_id is not None:
-            _setter("hsm_eni_id", hsm_eni_id)
+            pulumi.set(__self__, "hsm_eni_id", hsm_eni_id)
         if hsm_id is not None:
-            _setter("hsm_id", hsm_id)
+            pulumi.set(__self__, "hsm_id", hsm_id)
         if hsm_state is not None:
-            _setter("hsm_state", hsm_state)
+            pulumi.set(__self__, "hsm_state", hsm_state)
         if ip_address is not None:
-            _setter("ip_address", ip_address)
+            pulumi.set(__self__, "ip_address", ip_address)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -349,10 +285,6 @@ class Hsm(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            HsmArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

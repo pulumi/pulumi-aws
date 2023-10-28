@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,38 +27,11 @@ class ContactChannelArgs:
         :param pulumi.Input[str] type: Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
         :param pulumi.Input[str] name: Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         """
-        ContactChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact_id=contact_id,
-            delivery_address=delivery_address,
-            type=type,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact_id: Optional[pulumi.Input[str]] = None,
-             delivery_address: Optional[pulumi.Input['ContactChannelDeliveryAddressArgs']] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if contact_id is None and 'contactId' in kwargs:
-            contact_id = kwargs['contactId']
-        if contact_id is None:
-            raise TypeError("Missing 'contact_id' argument")
-        if delivery_address is None and 'deliveryAddress' in kwargs:
-            delivery_address = kwargs['deliveryAddress']
-        if delivery_address is None:
-            raise TypeError("Missing 'delivery_address' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("contact_id", contact_id)
-        _setter("delivery_address", delivery_address)
-        _setter("type", type)
+        pulumi.set(__self__, "contact_id", contact_id)
+        pulumi.set(__self__, "delivery_address", delivery_address)
+        pulumi.set(__self__, "type", type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="contactId")
@@ -127,45 +100,18 @@ class _ContactChannelState:
         :param pulumi.Input[str] name: Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         :param pulumi.Input[str] type: Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
         """
-        _ContactChannelState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            activation_status=activation_status,
-            arn=arn,
-            contact_id=contact_id,
-            delivery_address=delivery_address,
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             activation_status: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             contact_id: Optional[pulumi.Input[str]] = None,
-             delivery_address: Optional[pulumi.Input['ContactChannelDeliveryAddressArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if activation_status is None and 'activationStatus' in kwargs:
-            activation_status = kwargs['activationStatus']
-        if contact_id is None and 'contactId' in kwargs:
-            contact_id = kwargs['contactId']
-        if delivery_address is None and 'deliveryAddress' in kwargs:
-            delivery_address = kwargs['deliveryAddress']
-
         if activation_status is not None:
-            _setter("activation_status", activation_status)
+            pulumi.set(__self__, "activation_status", activation_status)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if contact_id is not None:
-            _setter("contact_id", contact_id)
+            pulumi.set(__self__, "contact_id", contact_id)
         if delivery_address is not None:
-            _setter("delivery_address", delivery_address)
+            pulumi.set(__self__, "delivery_address", delivery_address)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="activationStatus")
@@ -357,10 +303,6 @@ class ContactChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ContactChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -382,7 +324,6 @@ class ContactChannel(pulumi.CustomResource):
             if contact_id is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_id'")
             __props__.__dict__["contact_id"] = contact_id
-            delivery_address = _utilities.configure(delivery_address, ContactChannelDeliveryAddressArgs, True)
             if delivery_address is None and not opts.urn:
                 raise TypeError("Missing required property 'delivery_address'")
             __props__.__dict__["delivery_address"] = delivery_address

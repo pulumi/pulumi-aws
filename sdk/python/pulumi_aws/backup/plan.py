@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,34 +27,13 @@ class PlanArgs:
         :param pulumi.Input[str] name: The display name of a backup plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        PlanArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rules=rules,
-            advanced_backup_settings=advanced_backup_settings,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]]] = None,
-             advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rules is None:
-            raise TypeError("Missing 'rules' argument")
-        if advanced_backup_settings is None and 'advancedBackupSettings' in kwargs:
-            advanced_backup_settings = kwargs['advancedBackupSettings']
-
-        _setter("rules", rules)
+        pulumi.set(__self__, "rules", rules)
         if advanced_backup_settings is not None:
-            _setter("advanced_backup_settings", advanced_backup_settings)
+            pulumi.set(__self__, "advanced_backup_settings", advanced_backup_settings)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -125,50 +104,23 @@ class _PlanState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
         """
-        _PlanState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            advanced_backup_settings=advanced_backup_settings,
-            arn=arn,
-            name=name,
-            rules=rules,
-            tags=tags,
-            tags_all=tags_all,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             advanced_backup_settings: Optional[pulumi.Input[Sequence[pulumi.Input['PlanAdvancedBackupSettingArgs']]]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if advanced_backup_settings is None and 'advancedBackupSettings' in kwargs:
-            advanced_backup_settings = kwargs['advancedBackupSettings']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if advanced_backup_settings is not None:
-            _setter("advanced_backup_settings", advanced_backup_settings)
+            pulumi.set(__self__, "advanced_backup_settings", advanced_backup_settings)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="advancedBackupSettings")
@@ -359,10 +311,6 @@ class Plan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

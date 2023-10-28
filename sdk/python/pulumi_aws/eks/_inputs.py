@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -37,19 +37,8 @@ class ClusterCertificateAuthorityArgs:
         """
         :param pulumi.Input[str] data: Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
         """
-        ClusterCertificateAuthorityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data=data,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if data is not None:
-            _setter("data", data)
+            pulumi.set(__self__, "data", data)
 
     @property
     @pulumi.getter
@@ -73,25 +62,8 @@ class ClusterEncryptionConfigArgs:
         :param pulumi.Input['ClusterEncryptionConfigProviderArgs'] provider: Configuration block with provider for encryption. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: List of strings with resources to be encrypted. Valid values: `secrets`.
         """
-        ClusterEncryptionConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            provider=provider,
-            resources=resources,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             provider: Optional[pulumi.Input['ClusterEncryptionConfigProviderArgs']] = None,
-             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if provider is None:
-            raise TypeError("Missing 'provider' argument")
-        if resources is None:
-            raise TypeError("Missing 'resources' argument")
-
-        _setter("provider", provider)
-        _setter("resources", resources)
+        pulumi.set(__self__, "provider", provider)
+        pulumi.set(__self__, "resources", resources)
 
     @property
     @pulumi.getter
@@ -125,22 +97,7 @@ class ClusterEncryptionConfigProviderArgs:
         """
         :param pulumi.Input[str] key_arn: ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
         """
-        ClusterEncryptionConfigProviderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_arn=key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key_arn is None and 'keyArn' in kwargs:
-            key_arn = kwargs['keyArn']
-        if key_arn is None:
-            raise TypeError("Missing 'key_arn' argument")
-
-        _setter("key_arn", key_arn)
+        pulumi.set(__self__, "key_arn", key_arn)
 
     @property
     @pulumi.getter(name="keyArn")
@@ -162,19 +119,8 @@ class ClusterIdentityArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArgs']]] oidcs: Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         """
-        ClusterIdentityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            oidcs=oidcs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             oidcs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if oidcs is not None:
-            _setter("oidcs", oidcs)
+            pulumi.set(__self__, "oidcs", oidcs)
 
     @property
     @pulumi.getter
@@ -196,19 +142,8 @@ class ClusterIdentityOidcArgs:
         """
         :param pulumi.Input[str] issuer: Issuer URL for the OpenID Connect identity provider.
         """
-        ClusterIdentityOidcArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            issuer=issuer,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             issuer: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if issuer is not None:
-            _setter("issuer", issuer)
+            pulumi.set(__self__, "issuer", issuer)
 
     @property
     @pulumi.getter
@@ -239,33 +174,12 @@ class ClusterKubernetesNetworkConfigArgs:
                
                * Between /24 and /12.
         """
-        ClusterKubernetesNetworkConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_family=ip_family,
-            service_ipv4_cidr=service_ipv4_cidr,
-            service_ipv6_cidr=service_ipv6_cidr,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_family: Optional[pulumi.Input[str]] = None,
-             service_ipv4_cidr: Optional[pulumi.Input[str]] = None,
-             service_ipv6_cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_family is None and 'ipFamily' in kwargs:
-            ip_family = kwargs['ipFamily']
-        if service_ipv4_cidr is None and 'serviceIpv4Cidr' in kwargs:
-            service_ipv4_cidr = kwargs['serviceIpv4Cidr']
-        if service_ipv6_cidr is None and 'serviceIpv6Cidr' in kwargs:
-            service_ipv6_cidr = kwargs['serviceIpv6Cidr']
-
         if ip_family is not None:
-            _setter("ip_family", ip_family)
+            pulumi.set(__self__, "ip_family", ip_family)
         if service_ipv4_cidr is not None:
-            _setter("service_ipv4_cidr", service_ipv4_cidr)
+            pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
         if service_ipv6_cidr is not None:
-            _setter("service_ipv6_cidr", service_ipv6_cidr)
+            pulumi.set(__self__, "service_ipv6_cidr", service_ipv6_cidr)
 
     @property
     @pulumi.getter(name="ipFamily")
@@ -327,35 +241,10 @@ class ClusterOutpostConfigArgs:
         :param pulumi.Input['ClusterOutpostConfigControlPlanePlacementArgs'] control_plane_placement: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
                The `control_plane_placement` configuration block supports the following arguments:
         """
-        ClusterOutpostConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            control_plane_instance_type=control_plane_instance_type,
-            outpost_arns=outpost_arns,
-            control_plane_placement=control_plane_placement,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             control_plane_instance_type: Optional[pulumi.Input[str]] = None,
-             outpost_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             control_plane_placement: Optional[pulumi.Input['ClusterOutpostConfigControlPlanePlacementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if control_plane_instance_type is None and 'controlPlaneInstanceType' in kwargs:
-            control_plane_instance_type = kwargs['controlPlaneInstanceType']
-        if control_plane_instance_type is None:
-            raise TypeError("Missing 'control_plane_instance_type' argument")
-        if outpost_arns is None and 'outpostArns' in kwargs:
-            outpost_arns = kwargs['outpostArns']
-        if outpost_arns is None:
-            raise TypeError("Missing 'outpost_arns' argument")
-        if control_plane_placement is None and 'controlPlanePlacement' in kwargs:
-            control_plane_placement = kwargs['controlPlanePlacement']
-
-        _setter("control_plane_instance_type", control_plane_instance_type)
-        _setter("outpost_arns", outpost_arns)
+        pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
+        pulumi.set(__self__, "outpost_arns", outpost_arns)
         if control_plane_placement is not None:
-            _setter("control_plane_placement", control_plane_placement)
+            pulumi.set(__self__, "control_plane_placement", control_plane_placement)
 
     @property
     @pulumi.getter(name="controlPlaneInstanceType")
@@ -410,22 +299,7 @@ class ClusterOutpostConfigControlPlanePlacementArgs:
         """
         :param pulumi.Input[str] group_name: The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
         """
-        ClusterOutpostConfigControlPlanePlacementArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_name=group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if group_name is None and 'groupName' in kwargs:
-            group_name = kwargs['groupName']
-        if group_name is None:
-            raise TypeError("Missing 'group_name' argument")
-
-        _setter("group_name", group_name)
+        pulumi.set(__self__, "group_name", group_name)
 
     @property
     @pulumi.getter(name="groupName")
@@ -459,58 +333,19 @@ class ClusterVpcConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
         :param pulumi.Input[str] vpc_id: ID of the VPC associated with your cluster.
         """
-        ClusterVpcConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_ids=subnet_ids,
-            cluster_security_group_id=cluster_security_group_id,
-            endpoint_private_access=endpoint_private_access,
-            endpoint_public_access=endpoint_public_access,
-            public_access_cidrs=public_access_cidrs,
-            security_group_ids=security_group_ids,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             cluster_security_group_id: Optional[pulumi.Input[str]] = None,
-             endpoint_private_access: Optional[pulumi.Input[bool]] = None,
-             endpoint_public_access: Optional[pulumi.Input[bool]] = None,
-             public_access_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-        if subnet_ids is None:
-            raise TypeError("Missing 'subnet_ids' argument")
-        if cluster_security_group_id is None and 'clusterSecurityGroupId' in kwargs:
-            cluster_security_group_id = kwargs['clusterSecurityGroupId']
-        if endpoint_private_access is None and 'endpointPrivateAccess' in kwargs:
-            endpoint_private_access = kwargs['endpointPrivateAccess']
-        if endpoint_public_access is None and 'endpointPublicAccess' in kwargs:
-            endpoint_public_access = kwargs['endpointPublicAccess']
-        if public_access_cidrs is None and 'publicAccessCidrs' in kwargs:
-            public_access_cidrs = kwargs['publicAccessCidrs']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-
-        _setter("subnet_ids", subnet_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
         if cluster_security_group_id is not None:
-            _setter("cluster_security_group_id", cluster_security_group_id)
+            pulumi.set(__self__, "cluster_security_group_id", cluster_security_group_id)
         if endpoint_private_access is not None:
-            _setter("endpoint_private_access", endpoint_private_access)
+            pulumi.set(__self__, "endpoint_private_access", endpoint_private_access)
         if endpoint_public_access is not None:
-            _setter("endpoint_public_access", endpoint_public_access)
+            pulumi.set(__self__, "endpoint_public_access", endpoint_public_access)
         if public_access_cidrs is not None:
-            _setter("public_access_cidrs", public_access_cidrs)
+            pulumi.set(__self__, "public_access_cidrs", public_access_cidrs)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -608,24 +443,9 @@ class FargateProfileSelectorArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Key-value map of Kubernetes labels for selection.
         """
-        FargateProfileSelectorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            namespace=namespace,
-            labels=labels,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             namespace: Optional[pulumi.Input[str]] = None,
-             labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if namespace is None:
-            raise TypeError("Missing 'namespace' argument")
-
-        _setter("namespace", namespace)
+        pulumi.set(__self__, "namespace", namespace)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
 
     @property
     @pulumi.getter
@@ -675,66 +495,19 @@ class IdentityProviderConfigOidcArgs:
         :param pulumi.Input[str] username_claim: The JWT claim that the provider will use as the username.
         :param pulumi.Input[str] username_prefix: A prefix that is prepended to username claims.
         """
-        IdentityProviderConfigOidcArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_id=client_id,
-            identity_provider_config_name=identity_provider_config_name,
-            issuer_url=issuer_url,
-            groups_claim=groups_claim,
-            groups_prefix=groups_prefix,
-            required_claims=required_claims,
-            username_claim=username_claim,
-            username_prefix=username_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_id: Optional[pulumi.Input[str]] = None,
-             identity_provider_config_name: Optional[pulumi.Input[str]] = None,
-             issuer_url: Optional[pulumi.Input[str]] = None,
-             groups_claim: Optional[pulumi.Input[str]] = None,
-             groups_prefix: Optional[pulumi.Input[str]] = None,
-             required_claims: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             username_claim: Optional[pulumi.Input[str]] = None,
-             username_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_id is None and 'clientId' in kwargs:
-            client_id = kwargs['clientId']
-        if client_id is None:
-            raise TypeError("Missing 'client_id' argument")
-        if identity_provider_config_name is None and 'identityProviderConfigName' in kwargs:
-            identity_provider_config_name = kwargs['identityProviderConfigName']
-        if identity_provider_config_name is None:
-            raise TypeError("Missing 'identity_provider_config_name' argument")
-        if issuer_url is None and 'issuerUrl' in kwargs:
-            issuer_url = kwargs['issuerUrl']
-        if issuer_url is None:
-            raise TypeError("Missing 'issuer_url' argument")
-        if groups_claim is None and 'groupsClaim' in kwargs:
-            groups_claim = kwargs['groupsClaim']
-        if groups_prefix is None and 'groupsPrefix' in kwargs:
-            groups_prefix = kwargs['groupsPrefix']
-        if required_claims is None and 'requiredClaims' in kwargs:
-            required_claims = kwargs['requiredClaims']
-        if username_claim is None and 'usernameClaim' in kwargs:
-            username_claim = kwargs['usernameClaim']
-        if username_prefix is None and 'usernamePrefix' in kwargs:
-            username_prefix = kwargs['usernamePrefix']
-
-        _setter("client_id", client_id)
-        _setter("identity_provider_config_name", identity_provider_config_name)
-        _setter("issuer_url", issuer_url)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "identity_provider_config_name", identity_provider_config_name)
+        pulumi.set(__self__, "issuer_url", issuer_url)
         if groups_claim is not None:
-            _setter("groups_claim", groups_claim)
+            pulumi.set(__self__, "groups_claim", groups_claim)
         if groups_prefix is not None:
-            _setter("groups_prefix", groups_prefix)
+            pulumi.set(__self__, "groups_prefix", groups_prefix)
         if required_claims is not None:
-            _setter("required_claims", required_claims)
+            pulumi.set(__self__, "required_claims", required_claims)
         if username_claim is not None:
-            _setter("username_claim", username_claim)
+            pulumi.set(__self__, "username_claim", username_claim)
         if username_prefix is not None:
-            _setter("username_prefix", username_prefix)
+            pulumi.set(__self__, "username_prefix", username_prefix)
 
     @property
     @pulumi.getter(name="clientId")
@@ -844,28 +617,11 @@ class NodeGroupLaunchTemplateArgs:
         :param pulumi.Input[str] id: Identifier of the EC2 Launch Template. Conflicts with `name`.
         :param pulumi.Input[str] name: Name of the EC2 Launch Template. Conflicts with `id`.
         """
-        NodeGroupLaunchTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            version=version,
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             version: Optional[pulumi.Input[str]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-
-        _setter("version", version)
+        pulumi.set(__self__, "version", version)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -913,27 +669,10 @@ class NodeGroupRemoteAccessArgs:
         :param pulumi.Input[str] ec2_ssh_key: EC2 Key Pair name that provides access for remote communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, either port 3389 for Windows, or port 22 for all other operating systems is opened on the worker nodes to the Internet (0.0.0.0/0). For Windows nodes, this will allow you to use RDP, for all others this allows you to SSH into the worker nodes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_security_group_ids: Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2_ssh_key`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
         """
-        NodeGroupRemoteAccessArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ec2_ssh_key=ec2_ssh_key,
-            source_security_group_ids=source_security_group_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ec2_ssh_key: Optional[pulumi.Input[str]] = None,
-             source_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ec2_ssh_key is None and 'ec2SshKey' in kwargs:
-            ec2_ssh_key = kwargs['ec2SshKey']
-        if source_security_group_ids is None and 'sourceSecurityGroupIds' in kwargs:
-            source_security_group_ids = kwargs['sourceSecurityGroupIds']
-
         if ec2_ssh_key is not None:
-            _setter("ec2_ssh_key", ec2_ssh_key)
+            pulumi.set(__self__, "ec2_ssh_key", ec2_ssh_key)
         if source_security_group_ids is not None:
-            _setter("source_security_group_ids", source_security_group_ids)
+            pulumi.set(__self__, "source_security_group_ids", source_security_group_ids)
 
     @property
     @pulumi.getter(name="ec2SshKey")
@@ -969,27 +708,10 @@ class NodeGroupResourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgs']]] autoscaling_groups: List of objects containing information about AutoScaling Groups.
         :param pulumi.Input[str] remote_access_security_group_id: Identifier of the remote access EC2 Security Group.
         """
-        NodeGroupResourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            autoscaling_groups=autoscaling_groups,
-            remote_access_security_group_id=remote_access_security_group_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             autoscaling_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgs']]]] = None,
-             remote_access_security_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if autoscaling_groups is None and 'autoscalingGroups' in kwargs:
-            autoscaling_groups = kwargs['autoscalingGroups']
-        if remote_access_security_group_id is None and 'remoteAccessSecurityGroupId' in kwargs:
-            remote_access_security_group_id = kwargs['remoteAccessSecurityGroupId']
-
         if autoscaling_groups is not None:
-            _setter("autoscaling_groups", autoscaling_groups)
+            pulumi.set(__self__, "autoscaling_groups", autoscaling_groups)
         if remote_access_security_group_id is not None:
-            _setter("remote_access_security_group_id", remote_access_security_group_id)
+            pulumi.set(__self__, "remote_access_security_group_id", remote_access_security_group_id)
 
     @property
     @pulumi.getter(name="autoscalingGroups")
@@ -1023,19 +745,8 @@ class NodeGroupResourceAutoscalingGroupArgs:
         """
         :param pulumi.Input[str] name: Name of the EC2 Launch Template. Conflicts with `id`.
         """
-        NodeGroupResourceAutoscalingGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1061,36 +772,9 @@ class NodeGroupScalingConfigArgs:
         :param pulumi.Input[int] max_size: Maximum number of worker nodes.
         :param pulumi.Input[int] min_size: Minimum number of worker nodes.
         """
-        NodeGroupScalingConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            desired_size=desired_size,
-            max_size=max_size,
-            min_size=min_size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             desired_size: Optional[pulumi.Input[int]] = None,
-             max_size: Optional[pulumi.Input[int]] = None,
-             min_size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if desired_size is None and 'desiredSize' in kwargs:
-            desired_size = kwargs['desiredSize']
-        if desired_size is None:
-            raise TypeError("Missing 'desired_size' argument")
-        if max_size is None and 'maxSize' in kwargs:
-            max_size = kwargs['maxSize']
-        if max_size is None:
-            raise TypeError("Missing 'max_size' argument")
-        if min_size is None and 'minSize' in kwargs:
-            min_size = kwargs['minSize']
-        if min_size is None:
-            raise TypeError("Missing 'min_size' argument")
-
-        _setter("desired_size", desired_size)
-        _setter("max_size", max_size)
-        _setter("min_size", min_size)
+        pulumi.set(__self__, "desired_size", desired_size)
+        pulumi.set(__self__, "max_size", max_size)
+        pulumi.set(__self__, "min_size", min_size)
 
     @property
     @pulumi.getter(name="desiredSize")
@@ -1140,29 +824,10 @@ class NodeGroupTaintArgs:
         :param pulumi.Input[str] key: The key of the taint. Maximum length of 63.
         :param pulumi.Input[str] value: The value of the taint. Maximum length of 63.
         """
-        NodeGroupTaintArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            effect=effect,
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             effect: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if effect is None:
-            raise TypeError("Missing 'effect' argument")
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-
-        _setter("effect", effect)
-        _setter("key", key)
+        pulumi.set(__self__, "effect", effect)
+        pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1210,27 +875,10 @@ class NodeGroupUpdateConfigArgs:
         :param pulumi.Input[int] max_unavailable: Desired max number of unavailable worker nodes during node group update.
         :param pulumi.Input[int] max_unavailable_percentage: Desired max percentage of unavailable worker nodes during node group update.
         """
-        NodeGroupUpdateConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_unavailable=max_unavailable,
-            max_unavailable_percentage=max_unavailable_percentage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_unavailable: Optional[pulumi.Input[int]] = None,
-             max_unavailable_percentage: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_unavailable is None and 'maxUnavailable' in kwargs:
-            max_unavailable = kwargs['maxUnavailable']
-        if max_unavailable_percentage is None and 'maxUnavailablePercentage' in kwargs:
-            max_unavailable_percentage = kwargs['maxUnavailablePercentage']
-
         if max_unavailable is not None:
-            _setter("max_unavailable", max_unavailable)
+            pulumi.set(__self__, "max_unavailable", max_unavailable)
         if max_unavailable_percentage is not None:
-            _setter("max_unavailable_percentage", max_unavailable_percentage)
+            pulumi.set(__self__, "max_unavailable_percentage", max_unavailable_percentage)
 
     @property
     @pulumi.getter(name="maxUnavailable")

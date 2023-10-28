@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,27 +23,8 @@ class PlanArgs:
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
         :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
         """
-        PlanArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact_id=contact_id,
-            stages=stages,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact_id: Optional[pulumi.Input[str]] = None,
-             stages: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if contact_id is None and 'contactId' in kwargs:
-            contact_id = kwargs['contactId']
-        if contact_id is None:
-            raise TypeError("Missing 'contact_id' argument")
-        if stages is None:
-            raise TypeError("Missing 'stages' argument")
-
-        _setter("contact_id", contact_id)
-        _setter("stages", stages)
+        pulumi.set(__self__, "contact_id", contact_id)
+        pulumi.set(__self__, "stages", stages)
 
     @property
     @pulumi.getter(name="contactId")
@@ -80,25 +61,10 @@ class _PlanState:
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
         :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
         """
-        _PlanState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact_id=contact_id,
-            stages=stages,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact_id: Optional[pulumi.Input[str]] = None,
-             stages: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if contact_id is None and 'contactId' in kwargs:
-            contact_id = kwargs['contactId']
-
         if contact_id is not None:
-            _setter("contact_id", contact_id)
+            pulumi.set(__self__, "contact_id", contact_id)
         if stages is not None:
-            _setter("stages", stages)
+            pulumi.set(__self__, "stages", stages)
 
     @property
     @pulumi.getter(name="contactId")
@@ -304,10 +270,6 @@ class Plan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

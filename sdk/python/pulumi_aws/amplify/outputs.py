@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -72,71 +72,26 @@ class AppAutoBranchCreationConfig(dict):
         :param str pull_request_environment_name: Amplify environment name for the pull request.
         :param str stage: Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         """
-        AppAutoBranchCreationConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            basic_auth_credentials=basic_auth_credentials,
-            build_spec=build_spec,
-            enable_auto_build=enable_auto_build,
-            enable_basic_auth=enable_basic_auth,
-            enable_performance_mode=enable_performance_mode,
-            enable_pull_request_preview=enable_pull_request_preview,
-            environment_variables=environment_variables,
-            framework=framework,
-            pull_request_environment_name=pull_request_environment_name,
-            stage=stage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             basic_auth_credentials: Optional[str] = None,
-             build_spec: Optional[str] = None,
-             enable_auto_build: Optional[bool] = None,
-             enable_basic_auth: Optional[bool] = None,
-             enable_performance_mode: Optional[bool] = None,
-             enable_pull_request_preview: Optional[bool] = None,
-             environment_variables: Optional[Mapping[str, str]] = None,
-             framework: Optional[str] = None,
-             pull_request_environment_name: Optional[str] = None,
-             stage: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if basic_auth_credentials is None and 'basicAuthCredentials' in kwargs:
-            basic_auth_credentials = kwargs['basicAuthCredentials']
-        if build_spec is None and 'buildSpec' in kwargs:
-            build_spec = kwargs['buildSpec']
-        if enable_auto_build is None and 'enableAutoBuild' in kwargs:
-            enable_auto_build = kwargs['enableAutoBuild']
-        if enable_basic_auth is None and 'enableBasicAuth' in kwargs:
-            enable_basic_auth = kwargs['enableBasicAuth']
-        if enable_performance_mode is None and 'enablePerformanceMode' in kwargs:
-            enable_performance_mode = kwargs['enablePerformanceMode']
-        if enable_pull_request_preview is None and 'enablePullRequestPreview' in kwargs:
-            enable_pull_request_preview = kwargs['enablePullRequestPreview']
-        if environment_variables is None and 'environmentVariables' in kwargs:
-            environment_variables = kwargs['environmentVariables']
-        if pull_request_environment_name is None and 'pullRequestEnvironmentName' in kwargs:
-            pull_request_environment_name = kwargs['pullRequestEnvironmentName']
-
         if basic_auth_credentials is not None:
-            _setter("basic_auth_credentials", basic_auth_credentials)
+            pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
         if build_spec is not None:
-            _setter("build_spec", build_spec)
+            pulumi.set(__self__, "build_spec", build_spec)
         if enable_auto_build is not None:
-            _setter("enable_auto_build", enable_auto_build)
+            pulumi.set(__self__, "enable_auto_build", enable_auto_build)
         if enable_basic_auth is not None:
-            _setter("enable_basic_auth", enable_basic_auth)
+            pulumi.set(__self__, "enable_basic_auth", enable_basic_auth)
         if enable_performance_mode is not None:
-            _setter("enable_performance_mode", enable_performance_mode)
+            pulumi.set(__self__, "enable_performance_mode", enable_performance_mode)
         if enable_pull_request_preview is not None:
-            _setter("enable_pull_request_preview", enable_pull_request_preview)
+            pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
         if environment_variables is not None:
-            _setter("environment_variables", environment_variables)
+            pulumi.set(__self__, "environment_variables", environment_variables)
         if framework is not None:
-            _setter("framework", framework)
+            pulumi.set(__self__, "framework", framework)
         if pull_request_environment_name is not None:
-            _setter("pull_request_environment_name", pull_request_environment_name)
+            pulumi.set(__self__, "pull_request_environment_name", pull_request_environment_name)
         if stage is not None:
-            _setter("stage", stage)
+            pulumi.set(__self__, "stage", stage)
 
     @property
     @pulumi.getter(name="basicAuthCredentials")
@@ -232,33 +187,12 @@ class AppCustomRule(dict):
         :param str condition: Condition for a URL rewrite or redirect rule, such as a country code.
         :param str status: Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
         """
-        AppCustomRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source=source,
-            target=target,
-            condition=condition,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source: Optional[str] = None,
-             target: Optional[str] = None,
-             condition: Optional[str] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if source is None:
-            raise TypeError("Missing 'source' argument")
-        if target is None:
-            raise TypeError("Missing 'target' argument")
-
-        _setter("source", source)
-        _setter("target", target)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -327,37 +261,14 @@ class AppProductionBranch(dict):
         :param str status: Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
         :param str thumbnail_url: Thumbnail URL for the production branch.
         """
-        AppProductionBranch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            branch_name=branch_name,
-            last_deploy_time=last_deploy_time,
-            status=status,
-            thumbnail_url=thumbnail_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             branch_name: Optional[str] = None,
-             last_deploy_time: Optional[str] = None,
-             status: Optional[str] = None,
-             thumbnail_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if branch_name is None and 'branchName' in kwargs:
-            branch_name = kwargs['branchName']
-        if last_deploy_time is None and 'lastDeployTime' in kwargs:
-            last_deploy_time = kwargs['lastDeployTime']
-        if thumbnail_url is None and 'thumbnailUrl' in kwargs:
-            thumbnail_url = kwargs['thumbnailUrl']
-
         if branch_name is not None:
-            _setter("branch_name", branch_name)
+            pulumi.set(__self__, "branch_name", branch_name)
         if last_deploy_time is not None:
-            _setter("last_deploy_time", last_deploy_time)
+            pulumi.set(__self__, "last_deploy_time", last_deploy_time)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if thumbnail_url is not None:
-            _setter("thumbnail_url", thumbnail_url)
+            pulumi.set(__self__, "thumbnail_url", thumbnail_url)
 
     @property
     @pulumi.getter(name="branchName")
@@ -424,37 +335,12 @@ class DomainAssociationSubDomain(dict):
         :param str dns_record: DNS record for the subdomain.
         :param bool verified: Verified status of the subdomain.
         """
-        DomainAssociationSubDomain._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            branch_name=branch_name,
-            prefix=prefix,
-            dns_record=dns_record,
-            verified=verified,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             branch_name: Optional[str] = None,
-             prefix: Optional[str] = None,
-             dns_record: Optional[str] = None,
-             verified: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if branch_name is None and 'branchName' in kwargs:
-            branch_name = kwargs['branchName']
-        if branch_name is None:
-            raise TypeError("Missing 'branch_name' argument")
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-        if dns_record is None and 'dnsRecord' in kwargs:
-            dns_record = kwargs['dnsRecord']
-
-        _setter("branch_name", branch_name)
-        _setter("prefix", prefix)
+        pulumi.set(__self__, "branch_name", branch_name)
+        pulumi.set(__self__, "prefix", prefix)
         if dns_record is not None:
-            _setter("dns_record", dns_record)
+            pulumi.set(__self__, "dns_record", dns_record)
         if verified is not None:
-            _setter("verified", verified)
+            pulumi.set(__self__, "verified", verified)
 
     @property
     @pulumi.getter(name="branchName")

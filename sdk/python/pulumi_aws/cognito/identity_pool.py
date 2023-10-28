@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -38,68 +38,23 @@ class IdentityPoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] supported_login_providers: Key-Value pairs mapping provider names to provider app IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        IdentityPoolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_pool_name=identity_pool_name,
-            allow_classic_flow=allow_classic_flow,
-            allow_unauthenticated_identities=allow_unauthenticated_identities,
-            cognito_identity_providers=cognito_identity_providers,
-            developer_provider_name=developer_provider_name,
-            openid_connect_provider_arns=openid_connect_provider_arns,
-            saml_provider_arns=saml_provider_arns,
-            supported_login_providers=supported_login_providers,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_pool_name: Optional[pulumi.Input[str]] = None,
-             allow_classic_flow: Optional[pulumi.Input[bool]] = None,
-             allow_unauthenticated_identities: Optional[pulumi.Input[bool]] = None,
-             cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]] = None,
-             developer_provider_name: Optional[pulumi.Input[str]] = None,
-             openid_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             supported_login_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity_pool_name is None and 'identityPoolName' in kwargs:
-            identity_pool_name = kwargs['identityPoolName']
-        if identity_pool_name is None:
-            raise TypeError("Missing 'identity_pool_name' argument")
-        if allow_classic_flow is None and 'allowClassicFlow' in kwargs:
-            allow_classic_flow = kwargs['allowClassicFlow']
-        if allow_unauthenticated_identities is None and 'allowUnauthenticatedIdentities' in kwargs:
-            allow_unauthenticated_identities = kwargs['allowUnauthenticatedIdentities']
-        if cognito_identity_providers is None and 'cognitoIdentityProviders' in kwargs:
-            cognito_identity_providers = kwargs['cognitoIdentityProviders']
-        if developer_provider_name is None and 'developerProviderName' in kwargs:
-            developer_provider_name = kwargs['developerProviderName']
-        if openid_connect_provider_arns is None and 'openidConnectProviderArns' in kwargs:
-            openid_connect_provider_arns = kwargs['openidConnectProviderArns']
-        if saml_provider_arns is None and 'samlProviderArns' in kwargs:
-            saml_provider_arns = kwargs['samlProviderArns']
-        if supported_login_providers is None and 'supportedLoginProviders' in kwargs:
-            supported_login_providers = kwargs['supportedLoginProviders']
-
-        _setter("identity_pool_name", identity_pool_name)
+        pulumi.set(__self__, "identity_pool_name", identity_pool_name)
         if allow_classic_flow is not None:
-            _setter("allow_classic_flow", allow_classic_flow)
+            pulumi.set(__self__, "allow_classic_flow", allow_classic_flow)
         if allow_unauthenticated_identities is not None:
-            _setter("allow_unauthenticated_identities", allow_unauthenticated_identities)
+            pulumi.set(__self__, "allow_unauthenticated_identities", allow_unauthenticated_identities)
         if cognito_identity_providers is not None:
-            _setter("cognito_identity_providers", cognito_identity_providers)
+            pulumi.set(__self__, "cognito_identity_providers", cognito_identity_providers)
         if developer_provider_name is not None:
-            _setter("developer_provider_name", developer_provider_name)
+            pulumi.set(__self__, "developer_provider_name", developer_provider_name)
         if openid_connect_provider_arns is not None:
-            _setter("openid_connect_provider_arns", openid_connect_provider_arns)
+            pulumi.set(__self__, "openid_connect_provider_arns", openid_connect_provider_arns)
         if saml_provider_arns is not None:
-            _setter("saml_provider_arns", saml_provider_arns)
+            pulumi.set(__self__, "saml_provider_arns", saml_provider_arns)
         if supported_login_providers is not None:
-            _setter("supported_login_providers", supported_login_providers)
+            pulumi.set(__self__, "supported_login_providers", supported_login_providers)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="identityPoolName")
@@ -240,80 +195,31 @@ class _IdentityPoolState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _IdentityPoolState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_classic_flow=allow_classic_flow,
-            allow_unauthenticated_identities=allow_unauthenticated_identities,
-            arn=arn,
-            cognito_identity_providers=cognito_identity_providers,
-            developer_provider_name=developer_provider_name,
-            identity_pool_name=identity_pool_name,
-            openid_connect_provider_arns=openid_connect_provider_arns,
-            saml_provider_arns=saml_provider_arns,
-            supported_login_providers=supported_login_providers,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_classic_flow: Optional[pulumi.Input[bool]] = None,
-             allow_unauthenticated_identities: Optional[pulumi.Input[bool]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]] = None,
-             developer_provider_name: Optional[pulumi.Input[str]] = None,
-             identity_pool_name: Optional[pulumi.Input[str]] = None,
-             openid_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             supported_login_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_classic_flow is None and 'allowClassicFlow' in kwargs:
-            allow_classic_flow = kwargs['allowClassicFlow']
-        if allow_unauthenticated_identities is None and 'allowUnauthenticatedIdentities' in kwargs:
-            allow_unauthenticated_identities = kwargs['allowUnauthenticatedIdentities']
-        if cognito_identity_providers is None and 'cognitoIdentityProviders' in kwargs:
-            cognito_identity_providers = kwargs['cognitoIdentityProviders']
-        if developer_provider_name is None and 'developerProviderName' in kwargs:
-            developer_provider_name = kwargs['developerProviderName']
-        if identity_pool_name is None and 'identityPoolName' in kwargs:
-            identity_pool_name = kwargs['identityPoolName']
-        if openid_connect_provider_arns is None and 'openidConnectProviderArns' in kwargs:
-            openid_connect_provider_arns = kwargs['openidConnectProviderArns']
-        if saml_provider_arns is None and 'samlProviderArns' in kwargs:
-            saml_provider_arns = kwargs['samlProviderArns']
-        if supported_login_providers is None and 'supportedLoginProviders' in kwargs:
-            supported_login_providers = kwargs['supportedLoginProviders']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if allow_classic_flow is not None:
-            _setter("allow_classic_flow", allow_classic_flow)
+            pulumi.set(__self__, "allow_classic_flow", allow_classic_flow)
         if allow_unauthenticated_identities is not None:
-            _setter("allow_unauthenticated_identities", allow_unauthenticated_identities)
+            pulumi.set(__self__, "allow_unauthenticated_identities", allow_unauthenticated_identities)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if cognito_identity_providers is not None:
-            _setter("cognito_identity_providers", cognito_identity_providers)
+            pulumi.set(__self__, "cognito_identity_providers", cognito_identity_providers)
         if developer_provider_name is not None:
-            _setter("developer_provider_name", developer_provider_name)
+            pulumi.set(__self__, "developer_provider_name", developer_provider_name)
         if identity_pool_name is not None:
-            _setter("identity_pool_name", identity_pool_name)
+            pulumi.set(__self__, "identity_pool_name", identity_pool_name)
         if openid_connect_provider_arns is not None:
-            _setter("openid_connect_provider_arns", openid_connect_provider_arns)
+            pulumi.set(__self__, "openid_connect_provider_arns", openid_connect_provider_arns)
         if saml_provider_arns is not None:
-            _setter("saml_provider_arns", saml_provider_arns)
+            pulumi.set(__self__, "saml_provider_arns", saml_provider_arns)
         if supported_login_providers is not None:
-            _setter("supported_login_providers", supported_login_providers)
+            pulumi.set(__self__, "supported_login_providers", supported_login_providers)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="allowClassicFlow")
@@ -580,10 +486,6 @@ class IdentityPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IdentityPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

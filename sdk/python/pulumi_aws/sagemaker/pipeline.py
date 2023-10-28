@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,63 +35,20 @@ class PipelineArgs:
         :param pulumi.Input[str] role_arn: The name of the Pipeline (must be unique).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        PipelineArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pipeline_display_name=pipeline_display_name,
-            pipeline_name=pipeline_name,
-            parallelism_configuration=parallelism_configuration,
-            pipeline_definition=pipeline_definition,
-            pipeline_definition_s3_location=pipeline_definition_s3_location,
-            pipeline_description=pipeline_description,
-            role_arn=role_arn,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pipeline_display_name: Optional[pulumi.Input[str]] = None,
-             pipeline_name: Optional[pulumi.Input[str]] = None,
-             parallelism_configuration: Optional[pulumi.Input['PipelineParallelismConfigurationArgs']] = None,
-             pipeline_definition: Optional[pulumi.Input[str]] = None,
-             pipeline_definition_s3_location: Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']] = None,
-             pipeline_description: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if pipeline_display_name is None and 'pipelineDisplayName' in kwargs:
-            pipeline_display_name = kwargs['pipelineDisplayName']
-        if pipeline_display_name is None:
-            raise TypeError("Missing 'pipeline_display_name' argument")
-        if pipeline_name is None and 'pipelineName' in kwargs:
-            pipeline_name = kwargs['pipelineName']
-        if pipeline_name is None:
-            raise TypeError("Missing 'pipeline_name' argument")
-        if parallelism_configuration is None and 'parallelismConfiguration' in kwargs:
-            parallelism_configuration = kwargs['parallelismConfiguration']
-        if pipeline_definition is None and 'pipelineDefinition' in kwargs:
-            pipeline_definition = kwargs['pipelineDefinition']
-        if pipeline_definition_s3_location is None and 'pipelineDefinitionS3Location' in kwargs:
-            pipeline_definition_s3_location = kwargs['pipelineDefinitionS3Location']
-        if pipeline_description is None and 'pipelineDescription' in kwargs:
-            pipeline_description = kwargs['pipelineDescription']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-
-        _setter("pipeline_display_name", pipeline_display_name)
-        _setter("pipeline_name", pipeline_name)
+        pulumi.set(__self__, "pipeline_display_name", pipeline_display_name)
+        pulumi.set(__self__, "pipeline_name", pipeline_name)
         if parallelism_configuration is not None:
-            _setter("parallelism_configuration", parallelism_configuration)
+            pulumi.set(__self__, "parallelism_configuration", parallelism_configuration)
         if pipeline_definition is not None:
-            _setter("pipeline_definition", pipeline_definition)
+            pulumi.set(__self__, "pipeline_definition", pipeline_definition)
         if pipeline_definition_s3_location is not None:
-            _setter("pipeline_definition_s3_location", pipeline_definition_s3_location)
+            pulumi.set(__self__, "pipeline_definition_s3_location", pipeline_definition_s3_location)
         if pipeline_description is not None:
-            _setter("pipeline_description", pipeline_description)
+            pulumi.set(__self__, "pipeline_description", pipeline_description)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="pipelineDisplayName")
@@ -216,74 +173,29 @@ class _PipelineState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _PipelineState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            parallelism_configuration=parallelism_configuration,
-            pipeline_definition=pipeline_definition,
-            pipeline_definition_s3_location=pipeline_definition_s3_location,
-            pipeline_description=pipeline_description,
-            pipeline_display_name=pipeline_display_name,
-            pipeline_name=pipeline_name,
-            role_arn=role_arn,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             parallelism_configuration: Optional[pulumi.Input['PipelineParallelismConfigurationArgs']] = None,
-             pipeline_definition: Optional[pulumi.Input[str]] = None,
-             pipeline_definition_s3_location: Optional[pulumi.Input['PipelinePipelineDefinitionS3LocationArgs']] = None,
-             pipeline_description: Optional[pulumi.Input[str]] = None,
-             pipeline_display_name: Optional[pulumi.Input[str]] = None,
-             pipeline_name: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if parallelism_configuration is None and 'parallelismConfiguration' in kwargs:
-            parallelism_configuration = kwargs['parallelismConfiguration']
-        if pipeline_definition is None and 'pipelineDefinition' in kwargs:
-            pipeline_definition = kwargs['pipelineDefinition']
-        if pipeline_definition_s3_location is None and 'pipelineDefinitionS3Location' in kwargs:
-            pipeline_definition_s3_location = kwargs['pipelineDefinitionS3Location']
-        if pipeline_description is None and 'pipelineDescription' in kwargs:
-            pipeline_description = kwargs['pipelineDescription']
-        if pipeline_display_name is None and 'pipelineDisplayName' in kwargs:
-            pipeline_display_name = kwargs['pipelineDisplayName']
-        if pipeline_name is None and 'pipelineName' in kwargs:
-            pipeline_name = kwargs['pipelineName']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if parallelism_configuration is not None:
-            _setter("parallelism_configuration", parallelism_configuration)
+            pulumi.set(__self__, "parallelism_configuration", parallelism_configuration)
         if pipeline_definition is not None:
-            _setter("pipeline_definition", pipeline_definition)
+            pulumi.set(__self__, "pipeline_definition", pipeline_definition)
         if pipeline_definition_s3_location is not None:
-            _setter("pipeline_definition_s3_location", pipeline_definition_s3_location)
+            pulumi.set(__self__, "pipeline_definition_s3_location", pipeline_definition_s3_location)
         if pipeline_description is not None:
-            _setter("pipeline_description", pipeline_description)
+            pulumi.set(__self__, "pipeline_description", pipeline_description)
         if pipeline_display_name is not None:
-            _setter("pipeline_display_name", pipeline_display_name)
+            pulumi.set(__self__, "pipeline_display_name", pipeline_display_name)
         if pipeline_name is not None:
-            _setter("pipeline_name", pipeline_name)
+            pulumi.set(__self__, "pipeline_name", pipeline_name)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -520,10 +432,6 @@ class Pipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -546,10 +454,8 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PipelineArgs.__new__(PipelineArgs)
 
-            parallelism_configuration = _utilities.configure(parallelism_configuration, PipelineParallelismConfigurationArgs, True)
             __props__.__dict__["parallelism_configuration"] = parallelism_configuration
             __props__.__dict__["pipeline_definition"] = pipeline_definition
-            pipeline_definition_s3_location = _utilities.configure(pipeline_definition_s3_location, PipelinePipelineDefinitionS3LocationArgs, True)
             __props__.__dict__["pipeline_definition_s3_location"] = pipeline_definition_s3_location
             __props__.__dict__["pipeline_description"] = pipeline_description
             if pipeline_display_name is None and not opts.urn:

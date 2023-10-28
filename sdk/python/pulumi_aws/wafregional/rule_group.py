@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,36 +27,13 @@ class RuleGroupArgs:
         :param pulumi.Input[str] name: A friendly name of the rule group
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        RuleGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metric_name=metric_name,
-            activated_rules=activated_rules,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metric_name: Optional[pulumi.Input[str]] = None,
-             activated_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupActivatedRuleArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if metric_name is None and 'metricName' in kwargs:
-            metric_name = kwargs['metricName']
-        if metric_name is None:
-            raise TypeError("Missing 'metric_name' argument")
-        if activated_rules is None and 'activatedRules' in kwargs:
-            activated_rules = kwargs['activatedRules']
-
-        _setter("metric_name", metric_name)
+        pulumi.set(__self__, "metric_name", metric_name)
         if activated_rules is not None:
-            _setter("activated_rules", activated_rules)
+            pulumi.set(__self__, "activated_rules", activated_rules)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="metricName")
@@ -125,48 +102,21 @@ class _RuleGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _RuleGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            activated_rules=activated_rules,
-            arn=arn,
-            metric_name=metric_name,
-            name=name,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             activated_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupActivatedRuleArgs']]]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             metric_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if activated_rules is None and 'activatedRules' in kwargs:
-            activated_rules = kwargs['activatedRules']
-        if metric_name is None and 'metricName' in kwargs:
-            metric_name = kwargs['metricName']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if activated_rules is not None:
-            _setter("activated_rules", activated_rules)
+            pulumi.set(__self__, "activated_rules", activated_rules)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if metric_name is not None:
-            _setter("metric_name", metric_name)
+            pulumi.set(__self__, "metric_name", metric_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="activatedRules")
@@ -335,10 +285,6 @@ class RuleGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RuleGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

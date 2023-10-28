@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,88 +47,27 @@ class ChannelArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ChannelVpcArgs'] vpc: Settings for the VPC outputs. See VPC for more details.
         """
-        ChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel_class=channel_class,
-            destinations=destinations,
-            encoder_settings=encoder_settings,
-            input_attachments=input_attachments,
-            input_specification=input_specification,
-            cdi_input_specification=cdi_input_specification,
-            log_level=log_level,
-            maintenance=maintenance,
-            name=name,
-            role_arn=role_arn,
-            start_channel=start_channel,
-            tags=tags,
-            vpc=vpc,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel_class: Optional[pulumi.Input[str]] = None,
-             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationArgs']]]] = None,
-             encoder_settings: Optional[pulumi.Input['ChannelEncoderSettingsArgs']] = None,
-             input_attachments: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentArgs']]]] = None,
-             input_specification: Optional[pulumi.Input['ChannelInputSpecificationArgs']] = None,
-             cdi_input_specification: Optional[pulumi.Input['ChannelCdiInputSpecificationArgs']] = None,
-             log_level: Optional[pulumi.Input[str]] = None,
-             maintenance: Optional[pulumi.Input['ChannelMaintenanceArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             start_channel: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vpc: Optional[pulumi.Input['ChannelVpcArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if channel_class is None and 'channelClass' in kwargs:
-            channel_class = kwargs['channelClass']
-        if channel_class is None:
-            raise TypeError("Missing 'channel_class' argument")
-        if destinations is None:
-            raise TypeError("Missing 'destinations' argument")
-        if encoder_settings is None and 'encoderSettings' in kwargs:
-            encoder_settings = kwargs['encoderSettings']
-        if encoder_settings is None:
-            raise TypeError("Missing 'encoder_settings' argument")
-        if input_attachments is None and 'inputAttachments' in kwargs:
-            input_attachments = kwargs['inputAttachments']
-        if input_attachments is None:
-            raise TypeError("Missing 'input_attachments' argument")
-        if input_specification is None and 'inputSpecification' in kwargs:
-            input_specification = kwargs['inputSpecification']
-        if input_specification is None:
-            raise TypeError("Missing 'input_specification' argument")
-        if cdi_input_specification is None and 'cdiInputSpecification' in kwargs:
-            cdi_input_specification = kwargs['cdiInputSpecification']
-        if log_level is None and 'logLevel' in kwargs:
-            log_level = kwargs['logLevel']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if start_channel is None and 'startChannel' in kwargs:
-            start_channel = kwargs['startChannel']
-
-        _setter("channel_class", channel_class)
-        _setter("destinations", destinations)
-        _setter("encoder_settings", encoder_settings)
-        _setter("input_attachments", input_attachments)
-        _setter("input_specification", input_specification)
+        pulumi.set(__self__, "channel_class", channel_class)
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "encoder_settings", encoder_settings)
+        pulumi.set(__self__, "input_attachments", input_attachments)
+        pulumi.set(__self__, "input_specification", input_specification)
         if cdi_input_specification is not None:
-            _setter("cdi_input_specification", cdi_input_specification)
+            pulumi.set(__self__, "cdi_input_specification", cdi_input_specification)
         if log_level is not None:
-            _setter("log_level", log_level)
+            pulumi.set(__self__, "log_level", log_level)
         if maintenance is not None:
-            _setter("maintenance", maintenance)
+            pulumi.set(__self__, "maintenance", maintenance)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if start_channel is not None:
-            _setter("start_channel", start_channel)
+            pulumi.set(__self__, "start_channel", start_channel)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vpc is not None:
-            _setter("vpc", vpc)
+            pulumi.set(__self__, "vpc", vpc)
 
     @property
     @pulumi.getter(name="channelClass")
@@ -328,102 +267,41 @@ class _ChannelState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ChannelVpcArgs'] vpc: Settings for the VPC outputs. See VPC for more details.
         """
-        _ChannelState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            cdi_input_specification=cdi_input_specification,
-            channel_class=channel_class,
-            channel_id=channel_id,
-            destinations=destinations,
-            encoder_settings=encoder_settings,
-            input_attachments=input_attachments,
-            input_specification=input_specification,
-            log_level=log_level,
-            maintenance=maintenance,
-            name=name,
-            role_arn=role_arn,
-            start_channel=start_channel,
-            tags=tags,
-            tags_all=tags_all,
-            vpc=vpc,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             cdi_input_specification: Optional[pulumi.Input['ChannelCdiInputSpecificationArgs']] = None,
-             channel_class: Optional[pulumi.Input[str]] = None,
-             channel_id: Optional[pulumi.Input[str]] = None,
-             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationArgs']]]] = None,
-             encoder_settings: Optional[pulumi.Input['ChannelEncoderSettingsArgs']] = None,
-             input_attachments: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentArgs']]]] = None,
-             input_specification: Optional[pulumi.Input['ChannelInputSpecificationArgs']] = None,
-             log_level: Optional[pulumi.Input[str]] = None,
-             maintenance: Optional[pulumi.Input['ChannelMaintenanceArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             start_channel: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vpc: Optional[pulumi.Input['ChannelVpcArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cdi_input_specification is None and 'cdiInputSpecification' in kwargs:
-            cdi_input_specification = kwargs['cdiInputSpecification']
-        if channel_class is None and 'channelClass' in kwargs:
-            channel_class = kwargs['channelClass']
-        if channel_id is None and 'channelId' in kwargs:
-            channel_id = kwargs['channelId']
-        if encoder_settings is None and 'encoderSettings' in kwargs:
-            encoder_settings = kwargs['encoderSettings']
-        if input_attachments is None and 'inputAttachments' in kwargs:
-            input_attachments = kwargs['inputAttachments']
-        if input_specification is None and 'inputSpecification' in kwargs:
-            input_specification = kwargs['inputSpecification']
-        if log_level is None and 'logLevel' in kwargs:
-            log_level = kwargs['logLevel']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if start_channel is None and 'startChannel' in kwargs:
-            start_channel = kwargs['startChannel']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if cdi_input_specification is not None:
-            _setter("cdi_input_specification", cdi_input_specification)
+            pulumi.set(__self__, "cdi_input_specification", cdi_input_specification)
         if channel_class is not None:
-            _setter("channel_class", channel_class)
+            pulumi.set(__self__, "channel_class", channel_class)
         if channel_id is not None:
-            _setter("channel_id", channel_id)
+            pulumi.set(__self__, "channel_id", channel_id)
         if destinations is not None:
-            _setter("destinations", destinations)
+            pulumi.set(__self__, "destinations", destinations)
         if encoder_settings is not None:
-            _setter("encoder_settings", encoder_settings)
+            pulumi.set(__self__, "encoder_settings", encoder_settings)
         if input_attachments is not None:
-            _setter("input_attachments", input_attachments)
+            pulumi.set(__self__, "input_attachments", input_attachments)
         if input_specification is not None:
-            _setter("input_specification", input_specification)
+            pulumi.set(__self__, "input_specification", input_specification)
         if log_level is not None:
-            _setter("log_level", log_level)
+            pulumi.set(__self__, "log_level", log_level)
         if maintenance is not None:
-            _setter("maintenance", maintenance)
+            pulumi.set(__self__, "maintenance", maintenance)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if start_channel is not None:
-            _setter("start_channel", start_channel)
+            pulumi.set(__self__, "start_channel", start_channel)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc is not None:
-            _setter("vpc", vpc)
+            pulumi.set(__self__, "vpc", vpc)
 
     @property
     @pulumi.getter
@@ -837,10 +715,6 @@ class Channel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -868,7 +742,6 @@ class Channel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
-            cdi_input_specification = _utilities.configure(cdi_input_specification, ChannelCdiInputSpecificationArgs, True)
             __props__.__dict__["cdi_input_specification"] = cdi_input_specification
             if channel_class is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_class'")
@@ -876,25 +749,21 @@ class Channel(pulumi.CustomResource):
             if destinations is None and not opts.urn:
                 raise TypeError("Missing required property 'destinations'")
             __props__.__dict__["destinations"] = destinations
-            encoder_settings = _utilities.configure(encoder_settings, ChannelEncoderSettingsArgs, True)
             if encoder_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'encoder_settings'")
             __props__.__dict__["encoder_settings"] = encoder_settings
             if input_attachments is None and not opts.urn:
                 raise TypeError("Missing required property 'input_attachments'")
             __props__.__dict__["input_attachments"] = input_attachments
-            input_specification = _utilities.configure(input_specification, ChannelInputSpecificationArgs, True)
             if input_specification is None and not opts.urn:
                 raise TypeError("Missing required property 'input_specification'")
             __props__.__dict__["input_specification"] = input_specification
             __props__.__dict__["log_level"] = log_level
-            maintenance = _utilities.configure(maintenance, ChannelMaintenanceArgs, True)
             __props__.__dict__["maintenance"] = maintenance
             __props__.__dict__["name"] = name
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["start_channel"] = start_channel
             __props__.__dict__["tags"] = tags
-            vpc = _utilities.configure(vpc, ChannelVpcArgs, True)
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
             __props__.__dict__["channel_id"] = None

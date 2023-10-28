@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -72,26 +72,9 @@ class BotAbortStatement(dict):
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
         """
-        BotAbortStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            messages=messages,
-            response_card=response_card,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             messages: Optional[Sequence['outputs.BotAbortStatementMessage']] = None,
-             response_card: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if messages is None:
-            raise TypeError("Missing 'messages' argument")
-        if response_card is None and 'responseCard' in kwargs:
-            response_card = kwargs['responseCard']
-
-        _setter("messages", messages)
+        pulumi.set(__self__, "messages", messages)
         if response_card is not None:
-            _setter("response_card", response_card)
+            pulumi.set(__self__, "response_card", response_card)
 
     @property
     @pulumi.getter
@@ -145,33 +128,10 @@ class BotAbortStatementMessage(dict):
         :param int group_number: Identifies the message group that the message belongs to. When a group
                is assigned to a message, Amazon Lex returns one message from each group in the response.
         """
-        BotAbortStatementMessage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            content_type=content_type,
-            group_number=group_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[str] = None,
-             content_type: Optional[str] = None,
-             group_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if content_type is None:
-            raise TypeError("Missing 'content_type' argument")
-        if group_number is None and 'groupNumber' in kwargs:
-            group_number = kwargs['groupNumber']
-
-        _setter("content", content)
-        _setter("content_type", content_type)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
         if group_number is not None:
-            _setter("group_number", group_number)
+            pulumi.set(__self__, "group_number", group_number)
 
     @property
     @pulumi.getter
@@ -227,28 +187,9 @@ class BotAliasConversationLogs(dict):
         :param str iam_role_arn: The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
         :param Sequence['BotAliasConversationLogsLogSettingArgs'] log_settings: The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
         """
-        BotAliasConversationLogs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            iam_role_arn=iam_role_arn,
-            log_settings=log_settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             iam_role_arn: Optional[str] = None,
-             log_settings: Optional[Sequence['outputs.BotAliasConversationLogsLogSetting']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if iam_role_arn is None and 'iamRoleArn' in kwargs:
-            iam_role_arn = kwargs['iamRoleArn']
-        if iam_role_arn is None:
-            raise TypeError("Missing 'iam_role_arn' argument")
-        if log_settings is None and 'logSettings' in kwargs:
-            log_settings = kwargs['logSettings']
-
-        _setter("iam_role_arn", iam_role_arn)
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         if log_settings is not None:
-            _setter("log_settings", log_settings)
+            pulumi.set(__self__, "log_settings", log_settings)
 
     @property
     @pulumi.getter(name="iamRoleArn")
@@ -305,46 +246,13 @@ class BotAliasConversationLogsLogSetting(dict):
         :param str kms_key_arn: The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
         :param str resource_prefix: The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
         """
-        BotAliasConversationLogsLogSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            log_type=log_type,
-            resource_arn=resource_arn,
-            kms_key_arn=kms_key_arn,
-            resource_prefix=resource_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[str] = None,
-             log_type: Optional[str] = None,
-             resource_arn: Optional[str] = None,
-             kms_key_arn: Optional[str] = None,
-             resource_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-        if log_type is None and 'logType' in kwargs:
-            log_type = kwargs['logType']
-        if log_type is None:
-            raise TypeError("Missing 'log_type' argument")
-        if resource_arn is None and 'resourceArn' in kwargs:
-            resource_arn = kwargs['resourceArn']
-        if resource_arn is None:
-            raise TypeError("Missing 'resource_arn' argument")
-        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
-            kms_key_arn = kwargs['kmsKeyArn']
-        if resource_prefix is None and 'resourcePrefix' in kwargs:
-            resource_prefix = kwargs['resourcePrefix']
-
-        _setter("destination", destination)
-        _setter("log_type", log_type)
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "log_type", log_type)
+        pulumi.set(__self__, "resource_arn", resource_arn)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if resource_prefix is not None:
-            _setter("resource_prefix", resource_prefix)
+            pulumi.set(__self__, "resource_prefix", resource_prefix)
 
     @property
     @pulumi.getter
@@ -421,33 +329,10 @@ class BotClarificationPrompt(dict):
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
         """
-        BotClarificationPrompt._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_attempts=max_attempts,
-            messages=messages,
-            response_card=response_card,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_attempts: Optional[int] = None,
-             messages: Optional[Sequence['outputs.BotClarificationPromptMessage']] = None,
-             response_card: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_attempts is None and 'maxAttempts' in kwargs:
-            max_attempts = kwargs['maxAttempts']
-        if max_attempts is None:
-            raise TypeError("Missing 'max_attempts' argument")
-        if messages is None:
-            raise TypeError("Missing 'messages' argument")
-        if response_card is None and 'responseCard' in kwargs:
-            response_card = kwargs['responseCard']
-
-        _setter("max_attempts", max_attempts)
-        _setter("messages", messages)
+        pulumi.set(__self__, "max_attempts", max_attempts)
+        pulumi.set(__self__, "messages", messages)
         if response_card is not None:
-            _setter("response_card", response_card)
+            pulumi.set(__self__, "response_card", response_card)
 
     @property
     @pulumi.getter(name="maxAttempts")
@@ -509,33 +394,10 @@ class BotClarificationPromptMessage(dict):
         :param int group_number: Identifies the message group that the message belongs to. When a group
                is assigned to a message, Amazon Lex returns one message from each group in the response.
         """
-        BotClarificationPromptMessage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            content_type=content_type,
-            group_number=group_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[str] = None,
-             content_type: Optional[str] = None,
-             group_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if content_type is None:
-            raise TypeError("Missing 'content_type' argument")
-        if group_number is None and 'groupNumber' in kwargs:
-            group_number = kwargs['groupNumber']
-
-        _setter("content", content)
-        _setter("content_type", content_type)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
         if group_number is not None:
-            _setter("group_number", group_number)
+            pulumi.set(__self__, "group_number", group_number)
 
     @property
     @pulumi.getter
@@ -591,29 +453,8 @@ class BotIntent(dict):
         :param str intent_name: The name of the intent. Must be less than or equal to 100 characters in length.
         :param str intent_version: The version of the intent. Must be less than or equal to 64 characters in length.
         """
-        BotIntent._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            intent_name=intent_name,
-            intent_version=intent_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             intent_name: Optional[str] = None,
-             intent_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if intent_name is None and 'intentName' in kwargs:
-            intent_name = kwargs['intentName']
-        if intent_name is None:
-            raise TypeError("Missing 'intent_name' argument")
-        if intent_version is None and 'intentVersion' in kwargs:
-            intent_version = kwargs['intentVersion']
-        if intent_version is None:
-            raise TypeError("Missing 'intent_version' argument")
-
-        _setter("intent_name", intent_name)
-        _setter("intent_version", intent_version)
+        pulumi.set(__self__, "intent_name", intent_name)
+        pulumi.set(__self__, "intent_version", intent_version)
 
     @property
     @pulumi.getter(name="intentName")
@@ -662,26 +503,9 @@ class IntentConclusionStatement(dict):
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
-        IntentConclusionStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            messages=messages,
-            response_card=response_card,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             messages: Optional[Sequence['outputs.IntentConclusionStatementMessage']] = None,
-             response_card: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if messages is None:
-            raise TypeError("Missing 'messages' argument")
-        if response_card is None and 'responseCard' in kwargs:
-            response_card = kwargs['responseCard']
-
-        _setter("messages", messages)
+        pulumi.set(__self__, "messages", messages)
         if response_card is not None:
-            _setter("response_card", response_card)
+            pulumi.set(__self__, "response_card", response_card)
 
     @property
     @pulumi.getter
@@ -735,33 +559,10 @@ class IntentConclusionStatementMessage(dict):
         :param int group_number: Identifies the message group that the message belongs to. When a group
                is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
-        IntentConclusionStatementMessage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            content_type=content_type,
-            group_number=group_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[str] = None,
-             content_type: Optional[str] = None,
-             group_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if content_type is None:
-            raise TypeError("Missing 'content_type' argument")
-        if group_number is None and 'groupNumber' in kwargs:
-            group_number = kwargs['groupNumber']
-
-        _setter("content", content)
-        _setter("content_type", content_type)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
         if group_number is not None:
-            _setter("group_number", group_number)
+            pulumi.set(__self__, "group_number", group_number)
 
     @property
     @pulumi.getter
@@ -823,33 +624,10 @@ class IntentConfirmationPrompt(dict):
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
-        IntentConfirmationPrompt._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_attempts=max_attempts,
-            messages=messages,
-            response_card=response_card,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_attempts: Optional[int] = None,
-             messages: Optional[Sequence['outputs.IntentConfirmationPromptMessage']] = None,
-             response_card: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_attempts is None and 'maxAttempts' in kwargs:
-            max_attempts = kwargs['maxAttempts']
-        if max_attempts is None:
-            raise TypeError("Missing 'max_attempts' argument")
-        if messages is None:
-            raise TypeError("Missing 'messages' argument")
-        if response_card is None and 'responseCard' in kwargs:
-            response_card = kwargs['responseCard']
-
-        _setter("max_attempts", max_attempts)
-        _setter("messages", messages)
+        pulumi.set(__self__, "max_attempts", max_attempts)
+        pulumi.set(__self__, "messages", messages)
         if response_card is not None:
-            _setter("response_card", response_card)
+            pulumi.set(__self__, "response_card", response_card)
 
     @property
     @pulumi.getter(name="maxAttempts")
@@ -911,33 +689,10 @@ class IntentConfirmationPromptMessage(dict):
         :param int group_number: Identifies the message group that the message belongs to. When a group
                is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
-        IntentConfirmationPromptMessage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            content_type=content_type,
-            group_number=group_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[str] = None,
-             content_type: Optional[str] = None,
-             group_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if content_type is None:
-            raise TypeError("Missing 'content_type' argument")
-        if group_number is None and 'groupNumber' in kwargs:
-            group_number = kwargs['groupNumber']
-
-        _setter("content", content)
-        _setter("content_type", content_type)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
         if group_number is not None:
-            _setter("group_number", group_number)
+            pulumi.set(__self__, "group_number", group_number)
 
     @property
     @pulumi.getter
@@ -993,27 +748,8 @@ class IntentDialogCodeHook(dict):
                [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
         :param str uri: The Amazon Resource Name (ARN) of the Lambda function.
         """
-        IntentDialogCodeHook._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            message_version=message_version,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             message_version: Optional[str] = None,
-             uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if message_version is None and 'messageVersion' in kwargs:
-            message_version = kwargs['messageVersion']
-        if message_version is None:
-            raise TypeError("Missing 'message_version' argument")
-        if uri is None:
-            raise TypeError("Missing 'uri' argument")
-
-        _setter("message_version", message_version)
-        _setter("uri", uri)
+        pulumi.set(__self__, "message_version", message_version)
+        pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter(name="messageVersion")
@@ -1062,27 +798,8 @@ class IntentFollowUpPrompt(dict):
                Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
                documented below under statement.
         """
-        IntentFollowUpPrompt._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prompt=prompt,
-            rejection_statement=rejection_statement,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prompt: Optional['outputs.IntentFollowUpPromptPrompt'] = None,
-             rejection_statement: Optional['outputs.IntentFollowUpPromptRejectionStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if prompt is None:
-            raise TypeError("Missing 'prompt' argument")
-        if rejection_statement is None and 'rejectionStatement' in kwargs:
-            rejection_statement = kwargs['rejectionStatement']
-        if rejection_statement is None:
-            raise TypeError("Missing 'rejection_statement' argument")
-
-        _setter("prompt", prompt)
-        _setter("rejection_statement", rejection_statement)
+        pulumi.set(__self__, "prompt", prompt)
+        pulumi.set(__self__, "rejection_statement", rejection_statement)
 
     @property
     @pulumi.getter
@@ -1137,33 +854,10 @@ class IntentFollowUpPromptPrompt(dict):
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
-        IntentFollowUpPromptPrompt._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_attempts=max_attempts,
-            messages=messages,
-            response_card=response_card,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_attempts: Optional[int] = None,
-             messages: Optional[Sequence['outputs.IntentFollowUpPromptPromptMessage']] = None,
-             response_card: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_attempts is None and 'maxAttempts' in kwargs:
-            max_attempts = kwargs['maxAttempts']
-        if max_attempts is None:
-            raise TypeError("Missing 'max_attempts' argument")
-        if messages is None:
-            raise TypeError("Missing 'messages' argument")
-        if response_card is None and 'responseCard' in kwargs:
-            response_card = kwargs['responseCard']
-
-        _setter("max_attempts", max_attempts)
-        _setter("messages", messages)
+        pulumi.set(__self__, "max_attempts", max_attempts)
+        pulumi.set(__self__, "messages", messages)
         if response_card is not None:
-            _setter("response_card", response_card)
+            pulumi.set(__self__, "response_card", response_card)
 
     @property
     @pulumi.getter(name="maxAttempts")
@@ -1225,33 +919,10 @@ class IntentFollowUpPromptPromptMessage(dict):
         :param int group_number: Identifies the message group that the message belongs to. When a group
                is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
-        IntentFollowUpPromptPromptMessage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            content_type=content_type,
-            group_number=group_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[str] = None,
-             content_type: Optional[str] = None,
-             group_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if content_type is None:
-            raise TypeError("Missing 'content_type' argument")
-        if group_number is None and 'groupNumber' in kwargs:
-            group_number = kwargs['groupNumber']
-
-        _setter("content", content)
-        _setter("content_type", content_type)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
         if group_number is not None:
-            _setter("group_number", group_number)
+            pulumi.set(__self__, "group_number", group_number)
 
     @property
     @pulumi.getter
@@ -1309,26 +980,9 @@ class IntentFollowUpPromptRejectionStatement(dict):
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
-        IntentFollowUpPromptRejectionStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            messages=messages,
-            response_card=response_card,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             messages: Optional[Sequence['outputs.IntentFollowUpPromptRejectionStatementMessage']] = None,
-             response_card: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if messages is None:
-            raise TypeError("Missing 'messages' argument")
-        if response_card is None and 'responseCard' in kwargs:
-            response_card = kwargs['responseCard']
-
-        _setter("messages", messages)
+        pulumi.set(__self__, "messages", messages)
         if response_card is not None:
-            _setter("response_card", response_card)
+            pulumi.set(__self__, "response_card", response_card)
 
     @property
     @pulumi.getter
@@ -1382,33 +1036,10 @@ class IntentFollowUpPromptRejectionStatementMessage(dict):
         :param int group_number: Identifies the message group that the message belongs to. When a group
                is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
-        IntentFollowUpPromptRejectionStatementMessage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            content_type=content_type,
-            group_number=group_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[str] = None,
-             content_type: Optional[str] = None,
-             group_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if content_type is None:
-            raise TypeError("Missing 'content_type' argument")
-        if group_number is None and 'groupNumber' in kwargs:
-            group_number = kwargs['groupNumber']
-
-        _setter("content", content)
-        _setter("content_type", content_type)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
         if group_number is not None:
-            _setter("group_number", group_number)
+            pulumi.set(__self__, "group_number", group_number)
 
     @property
     @pulumi.getter
@@ -1464,26 +1095,9 @@ class IntentFulfillmentActivity(dict):
         :param 'IntentFulfillmentActivityCodeHookArgs' code_hook: A description of the Lambda function that is run to fulfill the intent.
                Required if type is CodeHook. Attributes are documented under code_hook.
         """
-        IntentFulfillmentActivity._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            code_hook=code_hook,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             code_hook: Optional['outputs.IntentFulfillmentActivityCodeHook'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if code_hook is None and 'codeHook' in kwargs:
-            code_hook = kwargs['codeHook']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if code_hook is not None:
-            _setter("code_hook", code_hook)
+            pulumi.set(__self__, "code_hook", code_hook)
 
     @property
     @pulumi.getter
@@ -1532,27 +1146,8 @@ class IntentFulfillmentActivityCodeHook(dict):
                [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
         :param str uri: The Amazon Resource Name (ARN) of the Lambda function.
         """
-        IntentFulfillmentActivityCodeHook._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            message_version=message_version,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             message_version: Optional[str] = None,
-             uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if message_version is None and 'messageVersion' in kwargs:
-            message_version = kwargs['messageVersion']
-        if message_version is None:
-            raise TypeError("Missing 'message_version' argument")
-        if uri is None:
-            raise TypeError("Missing 'uri' argument")
-
-        _setter("message_version", message_version)
-        _setter("uri", uri)
+        pulumi.set(__self__, "message_version", message_version)
+        pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter(name="messageVersion")
@@ -1603,26 +1198,9 @@ class IntentRejectionStatement(dict):
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
-        IntentRejectionStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            messages=messages,
-            response_card=response_card,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             messages: Optional[Sequence['outputs.IntentRejectionStatementMessage']] = None,
-             response_card: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if messages is None:
-            raise TypeError("Missing 'messages' argument")
-        if response_card is None and 'responseCard' in kwargs:
-            response_card = kwargs['responseCard']
-
-        _setter("messages", messages)
+        pulumi.set(__self__, "messages", messages)
         if response_card is not None:
-            _setter("response_card", response_card)
+            pulumi.set(__self__, "response_card", response_card)
 
     @property
     @pulumi.getter
@@ -1676,33 +1254,10 @@ class IntentRejectionStatementMessage(dict):
         :param int group_number: Identifies the message group that the message belongs to. When a group
                is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
-        IntentRejectionStatementMessage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            content_type=content_type,
-            group_number=group_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[str] = None,
-             content_type: Optional[str] = None,
-             group_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if content_type is None:
-            raise TypeError("Missing 'content_type' argument")
-        if group_number is None and 'groupNumber' in kwargs:
-            group_number = kwargs['groupNumber']
-
-        _setter("content", content)
-        _setter("content_type", content_type)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
         if group_number is not None:
-            _setter("group_number", group_number)
+            pulumi.set(__self__, "group_number", group_number)
 
     @property
     @pulumi.getter
@@ -1789,66 +1344,21 @@ class IntentSlot(dict):
         :param 'IntentSlotValueElicitationPromptArgs' value_elicitation_prompt: The prompt that Amazon Lex uses to elicit the slot value
                from the user. Attributes are documented under prompt.
         """
-        IntentSlot._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            slot_constraint=slot_constraint,
-            slot_type=slot_type,
-            description=description,
-            priority=priority,
-            response_card=response_card,
-            sample_utterances=sample_utterances,
-            slot_type_version=slot_type_version,
-            value_elicitation_prompt=value_elicitation_prompt,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             slot_constraint: Optional[str] = None,
-             slot_type: Optional[str] = None,
-             description: Optional[str] = None,
-             priority: Optional[int] = None,
-             response_card: Optional[str] = None,
-             sample_utterances: Optional[Sequence[str]] = None,
-             slot_type_version: Optional[str] = None,
-             value_elicitation_prompt: Optional['outputs.IntentSlotValueElicitationPrompt'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if slot_constraint is None and 'slotConstraint' in kwargs:
-            slot_constraint = kwargs['slotConstraint']
-        if slot_constraint is None:
-            raise TypeError("Missing 'slot_constraint' argument")
-        if slot_type is None and 'slotType' in kwargs:
-            slot_type = kwargs['slotType']
-        if slot_type is None:
-            raise TypeError("Missing 'slot_type' argument")
-        if response_card is None and 'responseCard' in kwargs:
-            response_card = kwargs['responseCard']
-        if sample_utterances is None and 'sampleUtterances' in kwargs:
-            sample_utterances = kwargs['sampleUtterances']
-        if slot_type_version is None and 'slotTypeVersion' in kwargs:
-            slot_type_version = kwargs['slotTypeVersion']
-        if value_elicitation_prompt is None and 'valueElicitationPrompt' in kwargs:
-            value_elicitation_prompt = kwargs['valueElicitationPrompt']
-
-        _setter("name", name)
-        _setter("slot_constraint", slot_constraint)
-        _setter("slot_type", slot_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "slot_constraint", slot_constraint)
+        pulumi.set(__self__, "slot_type", slot_type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if response_card is not None:
-            _setter("response_card", response_card)
+            pulumi.set(__self__, "response_card", response_card)
         if sample_utterances is not None:
-            _setter("sample_utterances", sample_utterances)
+            pulumi.set(__self__, "sample_utterances", sample_utterances)
         if slot_type_version is not None:
-            _setter("slot_type_version", slot_type_version)
+            pulumi.set(__self__, "slot_type_version", slot_type_version)
         if value_elicitation_prompt is not None:
-            _setter("value_elicitation_prompt", value_elicitation_prompt)
+            pulumi.set(__self__, "value_elicitation_prompt", value_elicitation_prompt)
 
     @property
     @pulumi.getter
@@ -1966,33 +1476,10 @@ class IntentSlotValueElicitationPrompt(dict):
                slot values into the response card. For more information, see
                [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         """
-        IntentSlotValueElicitationPrompt._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_attempts=max_attempts,
-            messages=messages,
-            response_card=response_card,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_attempts: Optional[int] = None,
-             messages: Optional[Sequence['outputs.IntentSlotValueElicitationPromptMessage']] = None,
-             response_card: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_attempts is None and 'maxAttempts' in kwargs:
-            max_attempts = kwargs['maxAttempts']
-        if max_attempts is None:
-            raise TypeError("Missing 'max_attempts' argument")
-        if messages is None:
-            raise TypeError("Missing 'messages' argument")
-        if response_card is None and 'responseCard' in kwargs:
-            response_card = kwargs['responseCard']
-
-        _setter("max_attempts", max_attempts)
-        _setter("messages", messages)
+        pulumi.set(__self__, "max_attempts", max_attempts)
+        pulumi.set(__self__, "messages", messages)
         if response_card is not None:
-            _setter("response_card", response_card)
+            pulumi.set(__self__, "response_card", response_card)
 
     @property
     @pulumi.getter(name="maxAttempts")
@@ -2054,33 +1541,10 @@ class IntentSlotValueElicitationPromptMessage(dict):
         :param int group_number: Identifies the message group that the message belongs to. When a group
                is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
         """
-        IntentSlotValueElicitationPromptMessage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            content_type=content_type,
-            group_number=group_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[str] = None,
-             content_type: Optional[str] = None,
-             group_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if content_type is None:
-            raise TypeError("Missing 'content_type' argument")
-        if group_number is None and 'groupNumber' in kwargs:
-            group_number = kwargs['groupNumber']
-
-        _setter("content", content)
-        _setter("content_type", content_type)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
         if group_number is not None:
-            _setter("group_number", group_number)
+            pulumi.set(__self__, "group_number", group_number)
 
     @property
     @pulumi.getter
@@ -2117,24 +1581,9 @@ class SlotTypeEnumerationValue(dict):
         :param str value: The value of the slot type. Must be less than or equal to 140 characters in length.
         :param Sequence[str] synonyms: Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
         """
-        SlotTypeEnumerationValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-            synonyms=synonyms,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: Optional[str] = None,
-             synonyms: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
         if synonyms is not None:
-            _setter("synonyms", synonyms)
+            pulumi.set(__self__, "synonyms", synonyms)
 
     @property
     @pulumi.getter
@@ -2177,22 +1626,7 @@ class V2modelsBotDataPrivacy(dict):
         """
         :param bool child_directed: (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
         """
-        V2modelsBotDataPrivacy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            child_directed=child_directed,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             child_directed: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if child_directed is None and 'childDirected' in kwargs:
-            child_directed = kwargs['childDirected']
-        if child_directed is None:
-            raise TypeError("Missing 'child_directed' argument")
-
-        _setter("child_directed", child_directed)
+        pulumi.set(__self__, "child_directed", child_directed)
 
     @property
     @pulumi.getter(name="childDirected")
@@ -2237,44 +1671,11 @@ class V2modelsBotMember(dict):
         :param str name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
         :param str version: (Required) - Version of a bot that is a member of this network of bots.
         """
-        V2modelsBotMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alias_id=alias_id,
-            alias_name=alias_name,
-            id=id,
-            name=name,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alias_id: Optional[str] = None,
-             alias_name: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if alias_id is None and 'aliasId' in kwargs:
-            alias_id = kwargs['aliasId']
-        if alias_id is None:
-            raise TypeError("Missing 'alias_id' argument")
-        if alias_name is None and 'aliasName' in kwargs:
-            alias_name = kwargs['aliasName']
-        if alias_name is None:
-            raise TypeError("Missing 'alias_name' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-
-        _setter("alias_id", alias_id)
-        _setter("alias_name", alias_name)
-        _setter("id", id)
-        _setter("name", name)
-        _setter("version", version)
+        pulumi.set(__self__, "alias_id", alias_id)
+        pulumi.set(__self__, "alias_name", alias_name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="aliasId")
@@ -2323,27 +1724,12 @@ class V2modelsBotTimeouts(dict):
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
                  update: Optional[str] = None):
-        V2modelsBotTimeouts._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            create=create,
-            delete=delete,
-            update=update,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             create: Optional[str] = None,
-             delete: Optional[str] = None,
-             update: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if create is not None:
-            _setter("create", create)
+            pulumi.set(__self__, "create", create)
         if delete is not None:
-            _setter("delete", delete)
+            pulumi.set(__self__, "delete", delete)
         if update is not None:
-            _setter("update", update)
+            pulumi.set(__self__, "update", update)
 
     @property
     @pulumi.getter
@@ -2366,25 +1752,8 @@ class GetSlotTypeEnumerationValueResult(dict):
     def __init__(__self__, *,
                  synonyms: Sequence[str],
                  value: str):
-        GetSlotTypeEnumerationValueResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            synonyms=synonyms,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             synonyms: Optional[Sequence[str]] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if synonyms is None:
-            raise TypeError("Missing 'synonyms' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("synonyms", synonyms)
-        _setter("value", value)
+        pulumi.set(__self__, "synonyms", synonyms)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

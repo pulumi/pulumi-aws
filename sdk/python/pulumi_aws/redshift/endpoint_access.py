@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,48 +29,13 @@ class EndpointAccessArgs:
         :param pulumi.Input[str] resource_owner: The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """
-        EndpointAccessArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_identifier=cluster_identifier,
-            endpoint_name=endpoint_name,
-            subnet_group_name=subnet_group_name,
-            resource_owner=resource_owner,
-            vpc_security_group_ids=vpc_security_group_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_identifier: Optional[pulumi.Input[str]] = None,
-             endpoint_name: Optional[pulumi.Input[str]] = None,
-             subnet_group_name: Optional[pulumi.Input[str]] = None,
-             resource_owner: Optional[pulumi.Input[str]] = None,
-             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
-            cluster_identifier = kwargs['clusterIdentifier']
-        if cluster_identifier is None:
-            raise TypeError("Missing 'cluster_identifier' argument")
-        if endpoint_name is None and 'endpointName' in kwargs:
-            endpoint_name = kwargs['endpointName']
-        if endpoint_name is None:
-            raise TypeError("Missing 'endpoint_name' argument")
-        if subnet_group_name is None and 'subnetGroupName' in kwargs:
-            subnet_group_name = kwargs['subnetGroupName']
-        if subnet_group_name is None:
-            raise TypeError("Missing 'subnet_group_name' argument")
-        if resource_owner is None and 'resourceOwner' in kwargs:
-            resource_owner = kwargs['resourceOwner']
-        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
-            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
-
-        _setter("cluster_identifier", cluster_identifier)
-        _setter("endpoint_name", endpoint_name)
-        _setter("subnet_group_name", subnet_group_name)
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
+        pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if resource_owner is not None:
-            _setter("resource_owner", resource_owner)
+            pulumi.set(__self__, "resource_owner", resource_owner)
         if vpc_security_group_ids is not None:
-            _setter("vpc_security_group_ids", vpc_security_group_ids)
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -155,59 +120,22 @@ class _EndpointAccessState:
         :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]] vpc_endpoints: The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """
-        _EndpointAccessState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            cluster_identifier=cluster_identifier,
-            endpoint_name=endpoint_name,
-            port=port,
-            resource_owner=resource_owner,
-            subnet_group_name=subnet_group_name,
-            vpc_endpoints=vpc_endpoints,
-            vpc_security_group_ids=vpc_security_group_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input[str]] = None,
-             cluster_identifier: Optional[pulumi.Input[str]] = None,
-             endpoint_name: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             resource_owner: Optional[pulumi.Input[str]] = None,
-             subnet_group_name: Optional[pulumi.Input[str]] = None,
-             vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]] = None,
-             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
-            cluster_identifier = kwargs['clusterIdentifier']
-        if endpoint_name is None and 'endpointName' in kwargs:
-            endpoint_name = kwargs['endpointName']
-        if resource_owner is None and 'resourceOwner' in kwargs:
-            resource_owner = kwargs['resourceOwner']
-        if subnet_group_name is None and 'subnetGroupName' in kwargs:
-            subnet_group_name = kwargs['subnetGroupName']
-        if vpc_endpoints is None and 'vpcEndpoints' in kwargs:
-            vpc_endpoints = kwargs['vpcEndpoints']
-        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
-            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
-
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if cluster_identifier is not None:
-            _setter("cluster_identifier", cluster_identifier)
+            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if endpoint_name is not None:
-            _setter("endpoint_name", endpoint_name)
+            pulumi.set(__self__, "endpoint_name", endpoint_name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if resource_owner is not None:
-            _setter("resource_owner", resource_owner)
+            pulumi.set(__self__, "resource_owner", resource_owner)
         if subnet_group_name is not None:
-            _setter("subnet_group_name", subnet_group_name)
+            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if vpc_endpoints is not None:
-            _setter("vpc_endpoints", vpc_endpoints)
+            pulumi.set(__self__, "vpc_endpoints", vpc_endpoints)
         if vpc_security_group_ids is not None:
-            _setter("vpc_security_group_ids", vpc_security_group_ids)
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter
@@ -387,10 +315,6 @@ class EndpointAccess(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EndpointAccessArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

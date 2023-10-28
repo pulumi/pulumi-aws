@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -61,114 +61,37 @@ class ComputeEnvironmentComputeResourcesArgs:
         :param pulumi.Input[str] spot_iam_fleet_role: The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
-        ComputeEnvironmentComputeResourcesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_vcpus=max_vcpus,
-            subnets=subnets,
-            type=type,
-            allocation_strategy=allocation_strategy,
-            bid_percentage=bid_percentage,
-            desired_vcpus=desired_vcpus,
-            ec2_configurations=ec2_configurations,
-            ec2_key_pair=ec2_key_pair,
-            image_id=image_id,
-            instance_role=instance_role,
-            instance_types=instance_types,
-            launch_template=launch_template,
-            min_vcpus=min_vcpus,
-            placement_group=placement_group,
-            security_group_ids=security_group_ids,
-            spot_iam_fleet_role=spot_iam_fleet_role,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_vcpus: Optional[pulumi.Input[int]] = None,
-             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             allocation_strategy: Optional[pulumi.Input[str]] = None,
-             bid_percentage: Optional[pulumi.Input[int]] = None,
-             desired_vcpus: Optional[pulumi.Input[int]] = None,
-             ec2_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeEnvironmentComputeResourcesEc2ConfigurationArgs']]]] = None,
-             ec2_key_pair: Optional[pulumi.Input[str]] = None,
-             image_id: Optional[pulumi.Input[str]] = None,
-             instance_role: Optional[pulumi.Input[str]] = None,
-             instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             launch_template: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesLaunchTemplateArgs']] = None,
-             min_vcpus: Optional[pulumi.Input[int]] = None,
-             placement_group: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             spot_iam_fleet_role: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_vcpus is None and 'maxVcpus' in kwargs:
-            max_vcpus = kwargs['maxVcpus']
-        if max_vcpus is None:
-            raise TypeError("Missing 'max_vcpus' argument")
-        if subnets is None:
-            raise TypeError("Missing 'subnets' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if allocation_strategy is None and 'allocationStrategy' in kwargs:
-            allocation_strategy = kwargs['allocationStrategy']
-        if bid_percentage is None and 'bidPercentage' in kwargs:
-            bid_percentage = kwargs['bidPercentage']
-        if desired_vcpus is None and 'desiredVcpus' in kwargs:
-            desired_vcpus = kwargs['desiredVcpus']
-        if ec2_configurations is None and 'ec2Configurations' in kwargs:
-            ec2_configurations = kwargs['ec2Configurations']
-        if ec2_key_pair is None and 'ec2KeyPair' in kwargs:
-            ec2_key_pair = kwargs['ec2KeyPair']
-        if image_id is None and 'imageId' in kwargs:
-            image_id = kwargs['imageId']
-        if instance_role is None and 'instanceRole' in kwargs:
-            instance_role = kwargs['instanceRole']
-        if instance_types is None and 'instanceTypes' in kwargs:
-            instance_types = kwargs['instanceTypes']
-        if launch_template is None and 'launchTemplate' in kwargs:
-            launch_template = kwargs['launchTemplate']
-        if min_vcpus is None and 'minVcpus' in kwargs:
-            min_vcpus = kwargs['minVcpus']
-        if placement_group is None and 'placementGroup' in kwargs:
-            placement_group = kwargs['placementGroup']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if spot_iam_fleet_role is None and 'spotIamFleetRole' in kwargs:
-            spot_iam_fleet_role = kwargs['spotIamFleetRole']
-
-        _setter("max_vcpus", max_vcpus)
-        _setter("subnets", subnets)
-        _setter("type", type)
+        pulumi.set(__self__, "max_vcpus", max_vcpus)
+        pulumi.set(__self__, "subnets", subnets)
+        pulumi.set(__self__, "type", type)
         if allocation_strategy is not None:
-            _setter("allocation_strategy", allocation_strategy)
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
         if bid_percentage is not None:
-            _setter("bid_percentage", bid_percentage)
+            pulumi.set(__self__, "bid_percentage", bid_percentage)
         if desired_vcpus is not None:
-            _setter("desired_vcpus", desired_vcpus)
+            pulumi.set(__self__, "desired_vcpus", desired_vcpus)
         if ec2_configurations is not None:
-            _setter("ec2_configurations", ec2_configurations)
+            pulumi.set(__self__, "ec2_configurations", ec2_configurations)
         if ec2_key_pair is not None:
-            _setter("ec2_key_pair", ec2_key_pair)
+            pulumi.set(__self__, "ec2_key_pair", ec2_key_pair)
         if image_id is not None:
-            _setter("image_id", image_id)
+            pulumi.set(__self__, "image_id", image_id)
         if instance_role is not None:
-            _setter("instance_role", instance_role)
+            pulumi.set(__self__, "instance_role", instance_role)
         if instance_types is not None:
-            _setter("instance_types", instance_types)
+            pulumi.set(__self__, "instance_types", instance_types)
         if launch_template is not None:
-            _setter("launch_template", launch_template)
+            pulumi.set(__self__, "launch_template", launch_template)
         if min_vcpus is not None:
-            _setter("min_vcpus", min_vcpus)
+            pulumi.set(__self__, "min_vcpus", min_vcpus)
         if placement_group is not None:
-            _setter("placement_group", placement_group)
+            pulumi.set(__self__, "placement_group", placement_group)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if spot_iam_fleet_role is not None:
-            _setter("spot_iam_fleet_role", spot_iam_fleet_role)
+            pulumi.set(__self__, "spot_iam_fleet_role", spot_iam_fleet_role)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="maxVcpus")
@@ -384,27 +307,10 @@ class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs:
         :param pulumi.Input[str] image_id_override: The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
         :param pulumi.Input[str] image_type: The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
         """
-        ComputeEnvironmentComputeResourcesEc2ConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            image_id_override=image_id_override,
-            image_type=image_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             image_id_override: Optional[pulumi.Input[str]] = None,
-             image_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if image_id_override is None and 'imageIdOverride' in kwargs:
-            image_id_override = kwargs['imageIdOverride']
-        if image_type is None and 'imageType' in kwargs:
-            image_type = kwargs['imageType']
-
         if image_id_override is not None:
-            _setter("image_id_override", image_id_override)
+            pulumi.set(__self__, "image_id_override", image_id_override)
         if image_type is not None:
-            _setter("image_type", image_type)
+            pulumi.set(__self__, "image_type", image_type)
 
     @property
     @pulumi.getter(name="imageIdOverride")
@@ -442,31 +348,12 @@ class ComputeEnvironmentComputeResourcesLaunchTemplateArgs:
         :param pulumi.Input[str] launch_template_name: Name of the launch template.
         :param pulumi.Input[str] version: The version number of the launch template. Default: The default version of the launch template.
         """
-        ComputeEnvironmentComputeResourcesLaunchTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            launch_template_id=launch_template_id,
-            launch_template_name=launch_template_name,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             launch_template_id: Optional[pulumi.Input[str]] = None,
-             launch_template_name: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if launch_template_id is None and 'launchTemplateId' in kwargs:
-            launch_template_id = kwargs['launchTemplateId']
-        if launch_template_name is None and 'launchTemplateName' in kwargs:
-            launch_template_name = kwargs['launchTemplateName']
-
         if launch_template_id is not None:
-            _setter("launch_template_id", launch_template_id)
+            pulumi.set(__self__, "launch_template_id", launch_template_id)
         if launch_template_name is not None:
-            _setter("launch_template_name", launch_template_name)
+            pulumi.set(__self__, "launch_template_name", launch_template_name)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="launchTemplateId")
@@ -514,29 +401,8 @@ class ComputeEnvironmentEksConfigurationArgs:
         :param pulumi.Input[str] eks_cluster_arn: The Amazon Resource Name (ARN) of the Amazon EKS cluster.
         :param pulumi.Input[str] kubernetes_namespace: The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
         """
-        ComputeEnvironmentEksConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eks_cluster_arn=eks_cluster_arn,
-            kubernetes_namespace=kubernetes_namespace,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eks_cluster_arn: Optional[pulumi.Input[str]] = None,
-             kubernetes_namespace: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if eks_cluster_arn is None and 'eksClusterArn' in kwargs:
-            eks_cluster_arn = kwargs['eksClusterArn']
-        if eks_cluster_arn is None:
-            raise TypeError("Missing 'eks_cluster_arn' argument")
-        if kubernetes_namespace is None and 'kubernetesNamespace' in kwargs:
-            kubernetes_namespace = kwargs['kubernetesNamespace']
-        if kubernetes_namespace is None:
-            raise TypeError("Missing 'kubernetes_namespace' argument")
-
-        _setter("eks_cluster_arn", eks_cluster_arn)
-        _setter("kubernetes_namespace", kubernetes_namespace)
+        pulumi.set(__self__, "eks_cluster_arn", eks_cluster_arn)
+        pulumi.set(__self__, "kubernetes_namespace", kubernetes_namespace)
 
     @property
     @pulumi.getter(name="eksClusterArn")
@@ -572,25 +438,10 @@ class JobDefinitionRetryStrategyArgs:
         :param pulumi.Input[int] attempts: The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
         :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionRetryStrategyEvaluateOnExitArgs']]] evaluate_on_exits: The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
         """
-        JobDefinitionRetryStrategyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attempts=attempts,
-            evaluate_on_exits=evaluate_on_exits,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attempts: Optional[pulumi.Input[int]] = None,
-             evaluate_on_exits: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionRetryStrategyEvaluateOnExitArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if evaluate_on_exits is None and 'evaluateOnExits' in kwargs:
-            evaluate_on_exits = kwargs['evaluateOnExits']
-
         if attempts is not None:
-            _setter("attempts", attempts)
+            pulumi.set(__self__, "attempts", attempts)
         if evaluate_on_exits is not None:
-            _setter("evaluate_on_exits", evaluate_on_exits)
+            pulumi.set(__self__, "evaluate_on_exits", evaluate_on_exits)
 
     @property
     @pulumi.getter
@@ -630,38 +481,13 @@ class JobDefinitionRetryStrategyEvaluateOnExitArgs:
         :param pulumi.Input[str] on_reason: A glob pattern to match against the reason returned for a job.
         :param pulumi.Input[str] on_status_reason: A glob pattern to match against the status reason returned for a job.
         """
-        JobDefinitionRetryStrategyEvaluateOnExitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            on_exit_code=on_exit_code,
-            on_reason=on_reason,
-            on_status_reason=on_status_reason,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input[str]] = None,
-             on_exit_code: Optional[pulumi.Input[str]] = None,
-             on_reason: Optional[pulumi.Input[str]] = None,
-             on_status_reason: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if on_exit_code is None and 'onExitCode' in kwargs:
-            on_exit_code = kwargs['onExitCode']
-        if on_reason is None and 'onReason' in kwargs:
-            on_reason = kwargs['onReason']
-        if on_status_reason is None and 'onStatusReason' in kwargs:
-            on_status_reason = kwargs['onStatusReason']
-
-        _setter("action", action)
+        pulumi.set(__self__, "action", action)
         if on_exit_code is not None:
-            _setter("on_exit_code", on_exit_code)
+            pulumi.set(__self__, "on_exit_code", on_exit_code)
         if on_reason is not None:
-            _setter("on_reason", on_reason)
+            pulumi.set(__self__, "on_reason", on_reason)
         if on_status_reason is not None:
-            _setter("on_status_reason", on_status_reason)
+            pulumi.set(__self__, "on_status_reason", on_status_reason)
 
     @property
     @pulumi.getter
@@ -719,21 +545,8 @@ class JobDefinitionTimeoutArgs:
         """
         :param pulumi.Input[int] attempt_duration_seconds: The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         """
-        JobDefinitionTimeoutArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attempt_duration_seconds=attempt_duration_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attempt_duration_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attempt_duration_seconds is None and 'attemptDurationSeconds' in kwargs:
-            attempt_duration_seconds = kwargs['attemptDurationSeconds']
-
         if attempt_duration_seconds is not None:
-            _setter("attempt_duration_seconds", attempt_duration_seconds)
+            pulumi.set(__self__, "attempt_duration_seconds", attempt_duration_seconds)
 
     @property
     @pulumi.getter(name="attemptDurationSeconds")
@@ -754,27 +567,12 @@ class JobQueueTimeoutsArgs:
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None,
                  update: Optional[pulumi.Input[str]] = None):
-        JobQueueTimeoutsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            create=create,
-            delete=delete,
-            update=update,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             create: Optional[pulumi.Input[str]] = None,
-             delete: Optional[pulumi.Input[str]] = None,
-             update: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if create is not None:
-            _setter("create", create)
+            pulumi.set(__self__, "create", create)
         if delete is not None:
-            _setter("delete", delete)
+            pulumi.set(__self__, "delete", delete)
         if update is not None:
-            _setter("update", update)
+            pulumi.set(__self__, "update", update)
 
     @property
     @pulumi.getter
@@ -814,33 +612,12 @@ class SchedulingPolicyFairSharePolicyArgs:
         :param pulumi.Input[int] compute_reservation: A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
         :param pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgs']]] share_distributions: One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
         """
-        SchedulingPolicyFairSharePolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compute_reservation=compute_reservation,
-            share_decay_seconds=share_decay_seconds,
-            share_distributions=share_distributions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compute_reservation: Optional[pulumi.Input[int]] = None,
-             share_decay_seconds: Optional[pulumi.Input[int]] = None,
-             share_distributions: Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if compute_reservation is None and 'computeReservation' in kwargs:
-            compute_reservation = kwargs['computeReservation']
-        if share_decay_seconds is None and 'shareDecaySeconds' in kwargs:
-            share_decay_seconds = kwargs['shareDecaySeconds']
-        if share_distributions is None and 'shareDistributions' in kwargs:
-            share_distributions = kwargs['shareDistributions']
-
         if compute_reservation is not None:
-            _setter("compute_reservation", compute_reservation)
+            pulumi.set(__self__, "compute_reservation", compute_reservation)
         if share_decay_seconds is not None:
-            _setter("share_decay_seconds", share_decay_seconds)
+            pulumi.set(__self__, "share_decay_seconds", share_decay_seconds)
         if share_distributions is not None:
-            _setter("share_distributions", share_distributions)
+            pulumi.set(__self__, "share_distributions", share_distributions)
 
     @property
     @pulumi.getter(name="computeReservation")
@@ -885,28 +662,9 @@ class SchedulingPolicyFairSharePolicyShareDistributionArgs:
         :param pulumi.Input[str] share_identifier: A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
         :param pulumi.Input[float] weight_factor: The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
         """
-        SchedulingPolicyFairSharePolicyShareDistributionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            share_identifier=share_identifier,
-            weight_factor=weight_factor,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             share_identifier: Optional[pulumi.Input[str]] = None,
-             weight_factor: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if share_identifier is None and 'shareIdentifier' in kwargs:
-            share_identifier = kwargs['shareIdentifier']
-        if share_identifier is None:
-            raise TypeError("Missing 'share_identifier' argument")
-        if weight_factor is None and 'weightFactor' in kwargs:
-            weight_factor = kwargs['weightFactor']
-
-        _setter("share_identifier", share_identifier)
+        pulumi.set(__self__, "share_identifier", share_identifier)
         if weight_factor is not None:
-            _setter("weight_factor", weight_factor)
+            pulumi.set(__self__, "weight_factor", weight_factor)
 
     @property
     @pulumi.getter(name="shareIdentifier")

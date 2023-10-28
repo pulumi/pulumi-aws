@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,46 +31,17 @@ class AppMonitorArgs:
         :param pulumi.Input[str] name: The name of the log stream.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        AppMonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain=domain,
-            app_monitor_configuration=app_monitor_configuration,
-            custom_events=custom_events,
-            cw_log_enabled=cw_log_enabled,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain: Optional[pulumi.Input[str]] = None,
-             app_monitor_configuration: Optional[pulumi.Input['AppMonitorAppMonitorConfigurationArgs']] = None,
-             custom_events: Optional[pulumi.Input['AppMonitorCustomEventsArgs']] = None,
-             cw_log_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain is None:
-            raise TypeError("Missing 'domain' argument")
-        if app_monitor_configuration is None and 'appMonitorConfiguration' in kwargs:
-            app_monitor_configuration = kwargs['appMonitorConfiguration']
-        if custom_events is None and 'customEvents' in kwargs:
-            custom_events = kwargs['customEvents']
-        if cw_log_enabled is None and 'cwLogEnabled' in kwargs:
-            cw_log_enabled = kwargs['cwLogEnabled']
-
-        _setter("domain", domain)
+        pulumi.set(__self__, "domain", domain)
         if app_monitor_configuration is not None:
-            _setter("app_monitor_configuration", app_monitor_configuration)
+            pulumi.set(__self__, "app_monitor_configuration", app_monitor_configuration)
         if custom_events is not None:
-            _setter("custom_events", custom_events)
+            pulumi.set(__self__, "custom_events", custom_events)
         if cw_log_enabled is not None:
-            _setter("cw_log_enabled", cw_log_enabled)
+            pulumi.set(__self__, "cw_log_enabled", cw_log_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -171,70 +142,29 @@ class _AppMonitorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _AppMonitorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_monitor_configuration=app_monitor_configuration,
-            app_monitor_id=app_monitor_id,
-            arn=arn,
-            custom_events=custom_events,
-            cw_log_enabled=cw_log_enabled,
-            cw_log_group=cw_log_group,
-            domain=domain,
-            name=name,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_monitor_configuration: Optional[pulumi.Input['AppMonitorAppMonitorConfigurationArgs']] = None,
-             app_monitor_id: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             custom_events: Optional[pulumi.Input['AppMonitorCustomEventsArgs']] = None,
-             cw_log_enabled: Optional[pulumi.Input[bool]] = None,
-             cw_log_group: Optional[pulumi.Input[str]] = None,
-             domain: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_monitor_configuration is None and 'appMonitorConfiguration' in kwargs:
-            app_monitor_configuration = kwargs['appMonitorConfiguration']
-        if app_monitor_id is None and 'appMonitorId' in kwargs:
-            app_monitor_id = kwargs['appMonitorId']
-        if custom_events is None and 'customEvents' in kwargs:
-            custom_events = kwargs['customEvents']
-        if cw_log_enabled is None and 'cwLogEnabled' in kwargs:
-            cw_log_enabled = kwargs['cwLogEnabled']
-        if cw_log_group is None and 'cwLogGroup' in kwargs:
-            cw_log_group = kwargs['cwLogGroup']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if app_monitor_configuration is not None:
-            _setter("app_monitor_configuration", app_monitor_configuration)
+            pulumi.set(__self__, "app_monitor_configuration", app_monitor_configuration)
         if app_monitor_id is not None:
-            _setter("app_monitor_id", app_monitor_id)
+            pulumi.set(__self__, "app_monitor_id", app_monitor_id)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if custom_events is not None:
-            _setter("custom_events", custom_events)
+            pulumi.set(__self__, "custom_events", custom_events)
         if cw_log_enabled is not None:
-            _setter("cw_log_enabled", cw_log_enabled)
+            pulumi.set(__self__, "cw_log_enabled", cw_log_enabled)
         if cw_log_group is not None:
-            _setter("cw_log_group", cw_log_group)
+            pulumi.set(__self__, "cw_log_group", cw_log_group)
         if domain is not None:
-            _setter("domain", domain)
+            pulumi.set(__self__, "domain", domain)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="appMonitorConfiguration")
@@ -437,10 +367,6 @@ class AppMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AppMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -461,9 +387,7 @@ class AppMonitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppMonitorArgs.__new__(AppMonitorArgs)
 
-            app_monitor_configuration = _utilities.configure(app_monitor_configuration, AppMonitorAppMonitorConfigurationArgs, True)
             __props__.__dict__["app_monitor_configuration"] = app_monitor_configuration
-            custom_events = _utilities.configure(custom_events, AppMonitorCustomEventsArgs, True)
             __props__.__dict__["custom_events"] = custom_events
             __props__.__dict__["cw_log_enabled"] = cw_log_enabled
             if domain is None and not opts.urn:

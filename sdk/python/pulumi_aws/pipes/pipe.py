@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,78 +45,27 @@ class PipeArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['PipeTargetParametersArgs'] target_parameters: Parameters to configure a target for your pipe. Detailed below.
         """
-        PipeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            source=source,
-            target=target,
-            description=description,
-            desired_state=desired_state,
-            enrichment=enrichment,
-            enrichment_parameters=enrichment_parameters,
-            name=name,
-            name_prefix=name_prefix,
-            source_parameters=source_parameters,
-            tags=tags,
-            target_parameters=target_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             target: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             desired_state: Optional[pulumi.Input[str]] = None,
-             enrichment: Optional[pulumi.Input[str]] = None,
-             enrichment_parameters: Optional[pulumi.Input['PipeEnrichmentParametersArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             source_parameters: Optional[pulumi.Input['PipeSourceParametersArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if source is None:
-            raise TypeError("Missing 'source' argument")
-        if target is None:
-            raise TypeError("Missing 'target' argument")
-        if desired_state is None and 'desiredState' in kwargs:
-            desired_state = kwargs['desiredState']
-        if enrichment_parameters is None and 'enrichmentParameters' in kwargs:
-            enrichment_parameters = kwargs['enrichmentParameters']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if source_parameters is None and 'sourceParameters' in kwargs:
-            source_parameters = kwargs['sourceParameters']
-        if target_parameters is None and 'targetParameters' in kwargs:
-            target_parameters = kwargs['targetParameters']
-
-        _setter("role_arn", role_arn)
-        _setter("source", source)
-        _setter("target", target)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "target", target)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if desired_state is not None:
-            _setter("desired_state", desired_state)
+            pulumi.set(__self__, "desired_state", desired_state)
         if enrichment is not None:
-            _setter("enrichment", enrichment)
+            pulumi.set(__self__, "enrichment", enrichment)
         if enrichment_parameters is not None:
-            _setter("enrichment_parameters", enrichment_parameters)
+            pulumi.set(__self__, "enrichment_parameters", enrichment_parameters)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if source_parameters is not None:
-            _setter("source_parameters", source_parameters)
+            pulumi.set(__self__, "source_parameters", source_parameters)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if target_parameters is not None:
-            _setter("target_parameters", target_parameters)
+            pulumi.set(__self__, "target_parameters", target_parameters)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -301,88 +250,37 @@ class _PipeState:
                The following arguments are optional:
         :param pulumi.Input['PipeTargetParametersArgs'] target_parameters: Parameters to configure a target for your pipe. Detailed below.
         """
-        _PipeState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            description=description,
-            desired_state=desired_state,
-            enrichment=enrichment,
-            enrichment_parameters=enrichment_parameters,
-            name=name,
-            name_prefix=name_prefix,
-            role_arn=role_arn,
-            source=source,
-            source_parameters=source_parameters,
-            tags=tags,
-            tags_all=tags_all,
-            target=target,
-            target_parameters=target_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             desired_state: Optional[pulumi.Input[str]] = None,
-             enrichment: Optional[pulumi.Input[str]] = None,
-             enrichment_parameters: Optional[pulumi.Input['PipeEnrichmentParametersArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             source_parameters: Optional[pulumi.Input['PipeSourceParametersArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             target: Optional[pulumi.Input[str]] = None,
-             target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if desired_state is None and 'desiredState' in kwargs:
-            desired_state = kwargs['desiredState']
-        if enrichment_parameters is None and 'enrichmentParameters' in kwargs:
-            enrichment_parameters = kwargs['enrichmentParameters']
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if source_parameters is None and 'sourceParameters' in kwargs:
-            source_parameters = kwargs['sourceParameters']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if target_parameters is None and 'targetParameters' in kwargs:
-            target_parameters = kwargs['targetParameters']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if desired_state is not None:
-            _setter("desired_state", desired_state)
+            pulumi.set(__self__, "desired_state", desired_state)
         if enrichment is not None:
-            _setter("enrichment", enrichment)
+            pulumi.set(__self__, "enrichment", enrichment)
         if enrichment_parameters is not None:
-            _setter("enrichment_parameters", enrichment_parameters)
+            pulumi.set(__self__, "enrichment_parameters", enrichment_parameters)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if source_parameters is not None:
-            _setter("source_parameters", source_parameters)
+            pulumi.set(__self__, "source_parameters", source_parameters)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if target is not None:
-            _setter("target", target)
+            pulumi.set(__self__, "target", target)
         if target_parameters is not None:
-            _setter("target_parameters", target_parameters)
+            pulumi.set(__self__, "target_parameters", target_parameters)
 
     @property
     @pulumi.getter
@@ -805,10 +703,6 @@ class Pipe(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PipeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -838,7 +732,6 @@ class Pipe(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["desired_state"] = desired_state
             __props__.__dict__["enrichment"] = enrichment
-            enrichment_parameters = _utilities.configure(enrichment_parameters, PipeEnrichmentParametersArgs, True)
             __props__.__dict__["enrichment_parameters"] = enrichment_parameters
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
@@ -848,13 +741,11 @@ class Pipe(pulumi.CustomResource):
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
-            source_parameters = _utilities.configure(source_parameters, PipeSourceParametersArgs, True)
             __props__.__dict__["source_parameters"] = source_parameters
             __props__.__dict__["tags"] = tags
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
-            target_parameters = _utilities.configure(target_parameters, PipeTargetParametersArgs, True)
             __props__.__dict__["target_parameters"] = target_parameters
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ThingPrincipalAttachmentArgs', 'ThingPrincipalAttachment']
@@ -21,25 +21,8 @@ class ThingPrincipalAttachmentArgs:
         :param pulumi.Input[str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         :param pulumi.Input[str] thing: The name of the thing.
         """
-        ThingPrincipalAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            principal=principal,
-            thing=thing,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             principal: Optional[pulumi.Input[str]] = None,
-             thing: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if principal is None:
-            raise TypeError("Missing 'principal' argument")
-        if thing is None:
-            raise TypeError("Missing 'thing' argument")
-
-        _setter("principal", principal)
-        _setter("thing", thing)
+        pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "thing", thing)
 
     @property
     @pulumi.getter
@@ -76,23 +59,10 @@ class _ThingPrincipalAttachmentState:
         :param pulumi.Input[str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         :param pulumi.Input[str] thing: The name of the thing.
         """
-        _ThingPrincipalAttachmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            principal=principal,
-            thing=thing,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             principal: Optional[pulumi.Input[str]] = None,
-             thing: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if principal is not None:
-            _setter("principal", principal)
+            pulumi.set(__self__, "principal", principal)
         if thing is not None:
-            _setter("thing", thing)
+            pulumi.set(__self__, "thing", thing)
 
     @property
     @pulumi.getter
@@ -184,10 +154,6 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ThingPrincipalAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

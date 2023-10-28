@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,29 +23,8 @@ class UserHierarchyStructureArgs:
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureArgs'] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         """
-        UserHierarchyStructureArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hierarchy_structure=hierarchy_structure,
-            instance_id=instance_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hierarchy_structure: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureArgs']] = None,
-             instance_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hierarchy_structure is None and 'hierarchyStructure' in kwargs:
-            hierarchy_structure = kwargs['hierarchyStructure']
-        if hierarchy_structure is None:
-            raise TypeError("Missing 'hierarchy_structure' argument")
-        if instance_id is None and 'instanceId' in kwargs:
-            instance_id = kwargs['instanceId']
-        if instance_id is None:
-            raise TypeError("Missing 'instance_id' argument")
-
-        _setter("hierarchy_structure", hierarchy_structure)
-        _setter("instance_id", instance_id)
+        pulumi.set(__self__, "hierarchy_structure", hierarchy_structure)
+        pulumi.set(__self__, "instance_id", instance_id)
 
     @property
     @pulumi.getter(name="hierarchyStructure")
@@ -82,27 +61,10 @@ class _UserHierarchyStructureState:
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureArgs'] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         """
-        _UserHierarchyStructureState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hierarchy_structure=hierarchy_structure,
-            instance_id=instance_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hierarchy_structure: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureArgs']] = None,
-             instance_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hierarchy_structure is None and 'hierarchyStructure' in kwargs:
-            hierarchy_structure = kwargs['hierarchyStructure']
-        if instance_id is None and 'instanceId' in kwargs:
-            instance_id = kwargs['instanceId']
-
         if hierarchy_structure is not None:
-            _setter("hierarchy_structure", hierarchy_structure)
+            pulumi.set(__self__, "hierarchy_structure", hierarchy_structure)
         if instance_id is not None:
-            _setter("instance_id", instance_id)
+            pulumi.set(__self__, "instance_id", instance_id)
 
     @property
     @pulumi.getter(name="hierarchyStructure")
@@ -266,10 +228,6 @@ class UserHierarchyStructure(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserHierarchyStructureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -286,7 +244,6 @@ class UserHierarchyStructure(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserHierarchyStructureArgs.__new__(UserHierarchyStructureArgs)
 
-            hierarchy_structure = _utilities.configure(hierarchy_structure, UserHierarchyStructureHierarchyStructureArgs, True)
             if hierarchy_structure is None and not opts.urn:
                 raise TypeError("Missing required property 'hierarchy_structure'")
             __props__.__dict__["hierarchy_structure"] = hierarchy_structure

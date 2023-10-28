@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,49 +33,16 @@ class IamPolicyAssignmentArgs:
         :param pulumi.Input[str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         """
-        IamPolicyAssignmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assignment_name=assignment_name,
-            assignment_status=assignment_status,
-            aws_account_id=aws_account_id,
-            identities=identities,
-            namespace=namespace,
-            policy_arn=policy_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assignment_name: Optional[pulumi.Input[str]] = None,
-             assignment_status: Optional[pulumi.Input[str]] = None,
-             aws_account_id: Optional[pulumi.Input[str]] = None,
-             identities: Optional[pulumi.Input['IamPolicyAssignmentIdentitiesArgs']] = None,
-             namespace: Optional[pulumi.Input[str]] = None,
-             policy_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assignment_name is None and 'assignmentName' in kwargs:
-            assignment_name = kwargs['assignmentName']
-        if assignment_name is None:
-            raise TypeError("Missing 'assignment_name' argument")
-        if assignment_status is None and 'assignmentStatus' in kwargs:
-            assignment_status = kwargs['assignmentStatus']
-        if assignment_status is None:
-            raise TypeError("Missing 'assignment_status' argument")
-        if aws_account_id is None and 'awsAccountId' in kwargs:
-            aws_account_id = kwargs['awsAccountId']
-        if policy_arn is None and 'policyArn' in kwargs:
-            policy_arn = kwargs['policyArn']
-
-        _setter("assignment_name", assignment_name)
-        _setter("assignment_status", assignment_status)
+        pulumi.set(__self__, "assignment_name", assignment_name)
+        pulumi.set(__self__, "assignment_status", assignment_status)
         if aws_account_id is not None:
-            _setter("aws_account_id", aws_account_id)
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
         if identities is not None:
-            _setter("identities", identities)
+            pulumi.set(__self__, "identities", identities)
         if namespace is not None:
-            _setter("namespace", namespace)
+            pulumi.set(__self__, "namespace", namespace)
         if policy_arn is not None:
-            _setter("policy_arn", policy_arn)
+            pulumi.set(__self__, "policy_arn", policy_arn)
 
     @property
     @pulumi.getter(name="assignmentName")
@@ -174,53 +141,20 @@ class _IamPolicyAssignmentState:
         :param pulumi.Input[str] namespace: Namespace that contains the assignment. Defaults to `default`.
         :param pulumi.Input[str] policy_arn: ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         """
-        _IamPolicyAssignmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assignment_id=assignment_id,
-            assignment_name=assignment_name,
-            assignment_status=assignment_status,
-            aws_account_id=aws_account_id,
-            identities=identities,
-            namespace=namespace,
-            policy_arn=policy_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assignment_id: Optional[pulumi.Input[str]] = None,
-             assignment_name: Optional[pulumi.Input[str]] = None,
-             assignment_status: Optional[pulumi.Input[str]] = None,
-             aws_account_id: Optional[pulumi.Input[str]] = None,
-             identities: Optional[pulumi.Input['IamPolicyAssignmentIdentitiesArgs']] = None,
-             namespace: Optional[pulumi.Input[str]] = None,
-             policy_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if assignment_id is None and 'assignmentId' in kwargs:
-            assignment_id = kwargs['assignmentId']
-        if assignment_name is None and 'assignmentName' in kwargs:
-            assignment_name = kwargs['assignmentName']
-        if assignment_status is None and 'assignmentStatus' in kwargs:
-            assignment_status = kwargs['assignmentStatus']
-        if aws_account_id is None and 'awsAccountId' in kwargs:
-            aws_account_id = kwargs['awsAccountId']
-        if policy_arn is None and 'policyArn' in kwargs:
-            policy_arn = kwargs['policyArn']
-
         if assignment_id is not None:
-            _setter("assignment_id", assignment_id)
+            pulumi.set(__self__, "assignment_id", assignment_id)
         if assignment_name is not None:
-            _setter("assignment_name", assignment_name)
+            pulumi.set(__self__, "assignment_name", assignment_name)
         if assignment_status is not None:
-            _setter("assignment_status", assignment_status)
+            pulumi.set(__self__, "assignment_status", assignment_status)
         if aws_account_id is not None:
-            _setter("aws_account_id", aws_account_id)
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
         if identities is not None:
-            _setter("identities", identities)
+            pulumi.set(__self__, "identities", identities)
         if namespace is not None:
-            _setter("namespace", namespace)
+            pulumi.set(__self__, "namespace", namespace)
         if policy_arn is not None:
-            _setter("policy_arn", policy_arn)
+            pulumi.set(__self__, "policy_arn", policy_arn)
 
     @property
     @pulumi.getter(name="assignmentId")
@@ -402,10 +336,6 @@ class IamPolicyAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IamPolicyAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -433,7 +363,6 @@ class IamPolicyAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'assignment_status'")
             __props__.__dict__["assignment_status"] = assignment_status
             __props__.__dict__["aws_account_id"] = aws_account_id
-            identities = _utilities.configure(identities, IamPolicyAssignmentIdentitiesArgs, True)
             __props__.__dict__["identities"] = identities
             __props__.__dict__["namespace"] = namespace
             __props__.__dict__["policy_arn"] = policy_arn

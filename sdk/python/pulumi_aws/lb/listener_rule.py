@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,40 +29,13 @@ class ListenerRuleArgs:
         :param pulumi.Input[int] priority: The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ListenerRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            conditions=conditions,
-            listener_arn=listener_arn,
-            priority=priority,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]]] = None,
-             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionArgs']]]] = None,
-             listener_arn: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if conditions is None:
-            raise TypeError("Missing 'conditions' argument")
-        if listener_arn is None and 'listenerArn' in kwargs:
-            listener_arn = kwargs['listenerArn']
-        if listener_arn is None:
-            raise TypeError("Missing 'listener_arn' argument")
-
-        _setter("actions", actions)
-        _setter("conditions", conditions)
-        _setter("listener_arn", listener_arn)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "listener_arn", listener_arn)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -145,50 +118,23 @@ class _ListenerRuleState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _ListenerRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            arn=arn,
-            conditions=conditions,
-            listener_arn=listener_arn,
-            priority=priority,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionArgs']]]] = None,
-             listener_arn: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if listener_arn is None and 'listenerArn' in kwargs:
-            listener_arn = kwargs['listenerArn']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
         if listener_arn is not None:
-            _setter("listener_arn", listener_arn)
+            pulumi.set(__self__, "listener_arn", listener_arn)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -647,10 +593,6 @@ class ListenerRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ListenerRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

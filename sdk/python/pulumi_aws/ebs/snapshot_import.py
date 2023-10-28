@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,70 +39,25 @@ class SnapshotImportArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot.
         :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         """
-        SnapshotImportArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            disk_container=disk_container,
-            client_data=client_data,
-            description=description,
-            encrypted=encrypted,
-            kms_key_id=kms_key_id,
-            permanent_restore=permanent_restore,
-            role_name=role_name,
-            storage_tier=storage_tier,
-            tags=tags,
-            temporary_restore_days=temporary_restore_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             disk_container: Optional[pulumi.Input['SnapshotImportDiskContainerArgs']] = None,
-             client_data: Optional[pulumi.Input['SnapshotImportClientDataArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             encrypted: Optional[pulumi.Input[bool]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             permanent_restore: Optional[pulumi.Input[bool]] = None,
-             role_name: Optional[pulumi.Input[str]] = None,
-             storage_tier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             temporary_restore_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if disk_container is None and 'diskContainer' in kwargs:
-            disk_container = kwargs['diskContainer']
-        if disk_container is None:
-            raise TypeError("Missing 'disk_container' argument")
-        if client_data is None and 'clientData' in kwargs:
-            client_data = kwargs['clientData']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if permanent_restore is None and 'permanentRestore' in kwargs:
-            permanent_restore = kwargs['permanentRestore']
-        if role_name is None and 'roleName' in kwargs:
-            role_name = kwargs['roleName']
-        if storage_tier is None and 'storageTier' in kwargs:
-            storage_tier = kwargs['storageTier']
-        if temporary_restore_days is None and 'temporaryRestoreDays' in kwargs:
-            temporary_restore_days = kwargs['temporaryRestoreDays']
-
-        _setter("disk_container", disk_container)
+        pulumi.set(__self__, "disk_container", disk_container)
         if client_data is not None:
-            _setter("client_data", client_data)
+            pulumi.set(__self__, "client_data", client_data)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if encrypted is not None:
-            _setter("encrypted", encrypted)
+            pulumi.set(__self__, "encrypted", encrypted)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if permanent_restore is not None:
-            _setter("permanent_restore", permanent_restore)
+            pulumi.set(__self__, "permanent_restore", permanent_restore)
         if role_name is not None:
-            _setter("role_name", role_name)
+            pulumi.set(__self__, "role_name", role_name)
         if storage_tier is not None:
-            _setter("storage_tier", storage_tier)
+            pulumi.set(__self__, "storage_tier", storage_tier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if temporary_restore_days is not None:
-            _setter("temporary_restore_days", temporary_restore_days)
+            pulumi.set(__self__, "temporary_restore_days", temporary_restore_days)
 
     @property
     @pulumi.getter(name="diskContainer")
@@ -265,118 +220,45 @@ class _SnapshotImportState:
         :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
-        _SnapshotImportState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            client_data=client_data,
-            data_encryption_key_id=data_encryption_key_id,
-            description=description,
-            disk_container=disk_container,
-            encrypted=encrypted,
-            kms_key_id=kms_key_id,
-            outpost_arn=outpost_arn,
-            owner_alias=owner_alias,
-            owner_id=owner_id,
-            permanent_restore=permanent_restore,
-            role_name=role_name,
-            storage_tier=storage_tier,
-            tags=tags,
-            tags_all=tags_all,
-            temporary_restore_days=temporary_restore_days,
-            volume_id=volume_id,
-            volume_size=volume_size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             client_data: Optional[pulumi.Input['SnapshotImportClientDataArgs']] = None,
-             data_encryption_key_id: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             disk_container: Optional[pulumi.Input['SnapshotImportDiskContainerArgs']] = None,
-             encrypted: Optional[pulumi.Input[bool]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             outpost_arn: Optional[pulumi.Input[str]] = None,
-             owner_alias: Optional[pulumi.Input[str]] = None,
-             owner_id: Optional[pulumi.Input[str]] = None,
-             permanent_restore: Optional[pulumi.Input[bool]] = None,
-             role_name: Optional[pulumi.Input[str]] = None,
-             storage_tier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             temporary_restore_days: Optional[pulumi.Input[int]] = None,
-             volume_id: Optional[pulumi.Input[str]] = None,
-             volume_size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_data is None and 'clientData' in kwargs:
-            client_data = kwargs['clientData']
-        if data_encryption_key_id is None and 'dataEncryptionKeyId' in kwargs:
-            data_encryption_key_id = kwargs['dataEncryptionKeyId']
-        if disk_container is None and 'diskContainer' in kwargs:
-            disk_container = kwargs['diskContainer']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if outpost_arn is None and 'outpostArn' in kwargs:
-            outpost_arn = kwargs['outpostArn']
-        if owner_alias is None and 'ownerAlias' in kwargs:
-            owner_alias = kwargs['ownerAlias']
-        if owner_id is None and 'ownerId' in kwargs:
-            owner_id = kwargs['ownerId']
-        if permanent_restore is None and 'permanentRestore' in kwargs:
-            permanent_restore = kwargs['permanentRestore']
-        if role_name is None and 'roleName' in kwargs:
-            role_name = kwargs['roleName']
-        if storage_tier is None and 'storageTier' in kwargs:
-            storage_tier = kwargs['storageTier']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if temporary_restore_days is None and 'temporaryRestoreDays' in kwargs:
-            temporary_restore_days = kwargs['temporaryRestoreDays']
-        if volume_id is None and 'volumeId' in kwargs:
-            volume_id = kwargs['volumeId']
-        if volume_size is None and 'volumeSize' in kwargs:
-            volume_size = kwargs['volumeSize']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if client_data is not None:
-            _setter("client_data", client_data)
+            pulumi.set(__self__, "client_data", client_data)
         if data_encryption_key_id is not None:
-            _setter("data_encryption_key_id", data_encryption_key_id)
+            pulumi.set(__self__, "data_encryption_key_id", data_encryption_key_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if disk_container is not None:
-            _setter("disk_container", disk_container)
+            pulumi.set(__self__, "disk_container", disk_container)
         if encrypted is not None:
-            _setter("encrypted", encrypted)
+            pulumi.set(__self__, "encrypted", encrypted)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if outpost_arn is not None:
-            _setter("outpost_arn", outpost_arn)
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if owner_alias is not None:
-            _setter("owner_alias", owner_alias)
+            pulumi.set(__self__, "owner_alias", owner_alias)
         if owner_id is not None:
-            _setter("owner_id", owner_id)
+            pulumi.set(__self__, "owner_id", owner_id)
         if permanent_restore is not None:
-            _setter("permanent_restore", permanent_restore)
+            pulumi.set(__self__, "permanent_restore", permanent_restore)
         if role_name is not None:
-            _setter("role_name", role_name)
+            pulumi.set(__self__, "role_name", role_name)
         if storage_tier is not None:
-            _setter("storage_tier", storage_tier)
+            pulumi.set(__self__, "storage_tier", storage_tier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if temporary_restore_days is not None:
-            _setter("temporary_restore_days", temporary_restore_days)
+            pulumi.set(__self__, "temporary_restore_days", temporary_restore_days)
         if volume_id is not None:
-            _setter("volume_id", volume_id)
+            pulumi.set(__self__, "volume_id", volume_id)
         if volume_size is not None:
-            _setter("volume_size", volume_size)
+            pulumi.set(__self__, "volume_size", volume_size)
 
     @property
     @pulumi.getter
@@ -683,10 +565,6 @@ class SnapshotImport(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SnapshotImportArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -711,10 +589,8 @@ class SnapshotImport(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SnapshotImportArgs.__new__(SnapshotImportArgs)
 
-            client_data = _utilities.configure(client_data, SnapshotImportClientDataArgs, True)
             __props__.__dict__["client_data"] = client_data
             __props__.__dict__["description"] = description
-            disk_container = _utilities.configure(disk_container, SnapshotImportDiskContainerArgs, True)
             if disk_container is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_container'")
             __props__.__dict__["disk_container"] = disk_container

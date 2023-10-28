@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -105,187 +105,64 @@ class ClusterArgs:
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
         """
-        ClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            release_label=release_label,
-            service_role=service_role,
-            additional_info=additional_info,
-            applications=applications,
-            auto_termination_policy=auto_termination_policy,
-            autoscaling_role=autoscaling_role,
-            bootstrap_actions=bootstrap_actions,
-            configurations=configurations,
-            configurations_json=configurations_json,
-            core_instance_fleet=core_instance_fleet,
-            core_instance_group=core_instance_group,
-            custom_ami_id=custom_ami_id,
-            ebs_root_volume_size=ebs_root_volume_size,
-            ec2_attributes=ec2_attributes,
-            keep_job_flow_alive_when_no_steps=keep_job_flow_alive_when_no_steps,
-            kerberos_attributes=kerberos_attributes,
-            list_steps_states=list_steps_states,
-            log_encryption_kms_key_id=log_encryption_kms_key_id,
-            log_uri=log_uri,
-            master_instance_fleet=master_instance_fleet,
-            master_instance_group=master_instance_group,
-            name=name,
-            placement_group_configs=placement_group_configs,
-            scale_down_behavior=scale_down_behavior,
-            security_configuration=security_configuration,
-            step_concurrency_level=step_concurrency_level,
-            steps=steps,
-            tags=tags,
-            termination_protection=termination_protection,
-            visible_to_all_users=visible_to_all_users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             release_label: Optional[pulumi.Input[str]] = None,
-             service_role: Optional[pulumi.Input[str]] = None,
-             additional_info: Optional[pulumi.Input[str]] = None,
-             applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             auto_termination_policy: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']] = None,
-             autoscaling_role: Optional[pulumi.Input[str]] = None,
-             bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]] = None,
-             configurations: Optional[pulumi.Input[str]] = None,
-             configurations_json: Optional[pulumi.Input[str]] = None,
-             core_instance_fleet: Optional[pulumi.Input['ClusterCoreInstanceFleetArgs']] = None,
-             core_instance_group: Optional[pulumi.Input['ClusterCoreInstanceGroupArgs']] = None,
-             custom_ami_id: Optional[pulumi.Input[str]] = None,
-             ebs_root_volume_size: Optional[pulumi.Input[int]] = None,
-             ec2_attributes: Optional[pulumi.Input['ClusterEc2AttributesArgs']] = None,
-             keep_job_flow_alive_when_no_steps: Optional[pulumi.Input[bool]] = None,
-             kerberos_attributes: Optional[pulumi.Input['ClusterKerberosAttributesArgs']] = None,
-             list_steps_states: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             log_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
-             log_uri: Optional[pulumi.Input[str]] = None,
-             master_instance_fleet: Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']] = None,
-             master_instance_group: Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]] = None,
-             scale_down_behavior: Optional[pulumi.Input[str]] = None,
-             security_configuration: Optional[pulumi.Input[str]] = None,
-             step_concurrency_level: Optional[pulumi.Input[int]] = None,
-             steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             termination_protection: Optional[pulumi.Input[bool]] = None,
-             visible_to_all_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if release_label is None and 'releaseLabel' in kwargs:
-            release_label = kwargs['releaseLabel']
-        if release_label is None:
-            raise TypeError("Missing 'release_label' argument")
-        if service_role is None and 'serviceRole' in kwargs:
-            service_role = kwargs['serviceRole']
-        if service_role is None:
-            raise TypeError("Missing 'service_role' argument")
-        if additional_info is None and 'additionalInfo' in kwargs:
-            additional_info = kwargs['additionalInfo']
-        if auto_termination_policy is None and 'autoTerminationPolicy' in kwargs:
-            auto_termination_policy = kwargs['autoTerminationPolicy']
-        if autoscaling_role is None and 'autoscalingRole' in kwargs:
-            autoscaling_role = kwargs['autoscalingRole']
-        if bootstrap_actions is None and 'bootstrapActions' in kwargs:
-            bootstrap_actions = kwargs['bootstrapActions']
-        if configurations_json is None and 'configurationsJson' in kwargs:
-            configurations_json = kwargs['configurationsJson']
-        if core_instance_fleet is None and 'coreInstanceFleet' in kwargs:
-            core_instance_fleet = kwargs['coreInstanceFleet']
-        if core_instance_group is None and 'coreInstanceGroup' in kwargs:
-            core_instance_group = kwargs['coreInstanceGroup']
-        if custom_ami_id is None and 'customAmiId' in kwargs:
-            custom_ami_id = kwargs['customAmiId']
-        if ebs_root_volume_size is None and 'ebsRootVolumeSize' in kwargs:
-            ebs_root_volume_size = kwargs['ebsRootVolumeSize']
-        if ec2_attributes is None and 'ec2Attributes' in kwargs:
-            ec2_attributes = kwargs['ec2Attributes']
-        if keep_job_flow_alive_when_no_steps is None and 'keepJobFlowAliveWhenNoSteps' in kwargs:
-            keep_job_flow_alive_when_no_steps = kwargs['keepJobFlowAliveWhenNoSteps']
-        if kerberos_attributes is None and 'kerberosAttributes' in kwargs:
-            kerberos_attributes = kwargs['kerberosAttributes']
-        if list_steps_states is None and 'listStepsStates' in kwargs:
-            list_steps_states = kwargs['listStepsStates']
-        if log_encryption_kms_key_id is None and 'logEncryptionKmsKeyId' in kwargs:
-            log_encryption_kms_key_id = kwargs['logEncryptionKmsKeyId']
-        if log_uri is None and 'logUri' in kwargs:
-            log_uri = kwargs['logUri']
-        if master_instance_fleet is None and 'masterInstanceFleet' in kwargs:
-            master_instance_fleet = kwargs['masterInstanceFleet']
-        if master_instance_group is None and 'masterInstanceGroup' in kwargs:
-            master_instance_group = kwargs['masterInstanceGroup']
-        if placement_group_configs is None and 'placementGroupConfigs' in kwargs:
-            placement_group_configs = kwargs['placementGroupConfigs']
-        if scale_down_behavior is None and 'scaleDownBehavior' in kwargs:
-            scale_down_behavior = kwargs['scaleDownBehavior']
-        if security_configuration is None and 'securityConfiguration' in kwargs:
-            security_configuration = kwargs['securityConfiguration']
-        if step_concurrency_level is None and 'stepConcurrencyLevel' in kwargs:
-            step_concurrency_level = kwargs['stepConcurrencyLevel']
-        if termination_protection is None and 'terminationProtection' in kwargs:
-            termination_protection = kwargs['terminationProtection']
-        if visible_to_all_users is None and 'visibleToAllUsers' in kwargs:
-            visible_to_all_users = kwargs['visibleToAllUsers']
-
-        _setter("release_label", release_label)
-        _setter("service_role", service_role)
+        pulumi.set(__self__, "release_label", release_label)
+        pulumi.set(__self__, "service_role", service_role)
         if additional_info is not None:
-            _setter("additional_info", additional_info)
+            pulumi.set(__self__, "additional_info", additional_info)
         if applications is not None:
-            _setter("applications", applications)
+            pulumi.set(__self__, "applications", applications)
         if auto_termination_policy is not None:
-            _setter("auto_termination_policy", auto_termination_policy)
+            pulumi.set(__self__, "auto_termination_policy", auto_termination_policy)
         if autoscaling_role is not None:
-            _setter("autoscaling_role", autoscaling_role)
+            pulumi.set(__self__, "autoscaling_role", autoscaling_role)
         if bootstrap_actions is not None:
-            _setter("bootstrap_actions", bootstrap_actions)
+            pulumi.set(__self__, "bootstrap_actions", bootstrap_actions)
         if configurations is not None:
-            _setter("configurations", configurations)
+            pulumi.set(__self__, "configurations", configurations)
         if configurations_json is not None:
-            _setter("configurations_json", configurations_json)
+            pulumi.set(__self__, "configurations_json", configurations_json)
         if core_instance_fleet is not None:
-            _setter("core_instance_fleet", core_instance_fleet)
+            pulumi.set(__self__, "core_instance_fleet", core_instance_fleet)
         if core_instance_group is not None:
-            _setter("core_instance_group", core_instance_group)
+            pulumi.set(__self__, "core_instance_group", core_instance_group)
         if custom_ami_id is not None:
-            _setter("custom_ami_id", custom_ami_id)
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
         if ebs_root_volume_size is not None:
-            _setter("ebs_root_volume_size", ebs_root_volume_size)
+            pulumi.set(__self__, "ebs_root_volume_size", ebs_root_volume_size)
         if ec2_attributes is not None:
-            _setter("ec2_attributes", ec2_attributes)
+            pulumi.set(__self__, "ec2_attributes", ec2_attributes)
         if keep_job_flow_alive_when_no_steps is not None:
-            _setter("keep_job_flow_alive_when_no_steps", keep_job_flow_alive_when_no_steps)
+            pulumi.set(__self__, "keep_job_flow_alive_when_no_steps", keep_job_flow_alive_when_no_steps)
         if kerberos_attributes is not None:
-            _setter("kerberos_attributes", kerberos_attributes)
+            pulumi.set(__self__, "kerberos_attributes", kerberos_attributes)
         if list_steps_states is not None:
-            _setter("list_steps_states", list_steps_states)
+            pulumi.set(__self__, "list_steps_states", list_steps_states)
         if log_encryption_kms_key_id is not None:
-            _setter("log_encryption_kms_key_id", log_encryption_kms_key_id)
+            pulumi.set(__self__, "log_encryption_kms_key_id", log_encryption_kms_key_id)
         if log_uri is not None:
-            _setter("log_uri", log_uri)
+            pulumi.set(__self__, "log_uri", log_uri)
         if master_instance_fleet is not None:
-            _setter("master_instance_fleet", master_instance_fleet)
+            pulumi.set(__self__, "master_instance_fleet", master_instance_fleet)
         if master_instance_group is not None:
-            _setter("master_instance_group", master_instance_group)
+            pulumi.set(__self__, "master_instance_group", master_instance_group)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if placement_group_configs is not None:
-            _setter("placement_group_configs", placement_group_configs)
+            pulumi.set(__self__, "placement_group_configs", placement_group_configs)
         if scale_down_behavior is not None:
-            _setter("scale_down_behavior", scale_down_behavior)
+            pulumi.set(__self__, "scale_down_behavior", scale_down_behavior)
         if security_configuration is not None:
-            _setter("security_configuration", security_configuration)
+            pulumi.set(__self__, "security_configuration", security_configuration)
         if step_concurrency_level is not None:
-            _setter("step_concurrency_level", step_concurrency_level)
+            pulumi.set(__self__, "step_concurrency_level", step_concurrency_level)
         if steps is not None:
-            _setter("steps", steps)
+            pulumi.set(__self__, "steps", steps)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if termination_protection is not None:
-            _setter("termination_protection", termination_protection)
+            pulumi.set(__self__, "termination_protection", termination_protection)
         if visible_to_all_users is not None:
-            _setter("visible_to_all_users", visible_to_all_users)
+            pulumi.set(__self__, "visible_to_all_users", visible_to_all_users)
 
     @property
     @pulumi.getter(name="releaseLabel")
@@ -773,210 +650,77 @@ class _ClusterState:
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         :param pulumi.Input[bool] visible_to_all_users: Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
         """
-        _ClusterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_info=additional_info,
-            applications=applications,
-            arn=arn,
-            auto_termination_policy=auto_termination_policy,
-            autoscaling_role=autoscaling_role,
-            bootstrap_actions=bootstrap_actions,
-            cluster_state=cluster_state,
-            configurations=configurations,
-            configurations_json=configurations_json,
-            core_instance_fleet=core_instance_fleet,
-            core_instance_group=core_instance_group,
-            custom_ami_id=custom_ami_id,
-            ebs_root_volume_size=ebs_root_volume_size,
-            ec2_attributes=ec2_attributes,
-            keep_job_flow_alive_when_no_steps=keep_job_flow_alive_when_no_steps,
-            kerberos_attributes=kerberos_attributes,
-            list_steps_states=list_steps_states,
-            log_encryption_kms_key_id=log_encryption_kms_key_id,
-            log_uri=log_uri,
-            master_instance_fleet=master_instance_fleet,
-            master_instance_group=master_instance_group,
-            master_public_dns=master_public_dns,
-            name=name,
-            placement_group_configs=placement_group_configs,
-            release_label=release_label,
-            scale_down_behavior=scale_down_behavior,
-            security_configuration=security_configuration,
-            service_role=service_role,
-            step_concurrency_level=step_concurrency_level,
-            steps=steps,
-            tags=tags,
-            tags_all=tags_all,
-            termination_protection=termination_protection,
-            visible_to_all_users=visible_to_all_users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_info: Optional[pulumi.Input[str]] = None,
-             applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             auto_termination_policy: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']] = None,
-             autoscaling_role: Optional[pulumi.Input[str]] = None,
-             bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]] = None,
-             cluster_state: Optional[pulumi.Input[str]] = None,
-             configurations: Optional[pulumi.Input[str]] = None,
-             configurations_json: Optional[pulumi.Input[str]] = None,
-             core_instance_fleet: Optional[pulumi.Input['ClusterCoreInstanceFleetArgs']] = None,
-             core_instance_group: Optional[pulumi.Input['ClusterCoreInstanceGroupArgs']] = None,
-             custom_ami_id: Optional[pulumi.Input[str]] = None,
-             ebs_root_volume_size: Optional[pulumi.Input[int]] = None,
-             ec2_attributes: Optional[pulumi.Input['ClusterEc2AttributesArgs']] = None,
-             keep_job_flow_alive_when_no_steps: Optional[pulumi.Input[bool]] = None,
-             kerberos_attributes: Optional[pulumi.Input['ClusterKerberosAttributesArgs']] = None,
-             list_steps_states: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             log_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
-             log_uri: Optional[pulumi.Input[str]] = None,
-             master_instance_fleet: Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']] = None,
-             master_instance_group: Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']] = None,
-             master_public_dns: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]] = None,
-             release_label: Optional[pulumi.Input[str]] = None,
-             scale_down_behavior: Optional[pulumi.Input[str]] = None,
-             security_configuration: Optional[pulumi.Input[str]] = None,
-             service_role: Optional[pulumi.Input[str]] = None,
-             step_concurrency_level: Optional[pulumi.Input[int]] = None,
-             steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             termination_protection: Optional[pulumi.Input[bool]] = None,
-             visible_to_all_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_info is None and 'additionalInfo' in kwargs:
-            additional_info = kwargs['additionalInfo']
-        if auto_termination_policy is None and 'autoTerminationPolicy' in kwargs:
-            auto_termination_policy = kwargs['autoTerminationPolicy']
-        if autoscaling_role is None and 'autoscalingRole' in kwargs:
-            autoscaling_role = kwargs['autoscalingRole']
-        if bootstrap_actions is None and 'bootstrapActions' in kwargs:
-            bootstrap_actions = kwargs['bootstrapActions']
-        if cluster_state is None and 'clusterState' in kwargs:
-            cluster_state = kwargs['clusterState']
-        if configurations_json is None and 'configurationsJson' in kwargs:
-            configurations_json = kwargs['configurationsJson']
-        if core_instance_fleet is None and 'coreInstanceFleet' in kwargs:
-            core_instance_fleet = kwargs['coreInstanceFleet']
-        if core_instance_group is None and 'coreInstanceGroup' in kwargs:
-            core_instance_group = kwargs['coreInstanceGroup']
-        if custom_ami_id is None and 'customAmiId' in kwargs:
-            custom_ami_id = kwargs['customAmiId']
-        if ebs_root_volume_size is None and 'ebsRootVolumeSize' in kwargs:
-            ebs_root_volume_size = kwargs['ebsRootVolumeSize']
-        if ec2_attributes is None and 'ec2Attributes' in kwargs:
-            ec2_attributes = kwargs['ec2Attributes']
-        if keep_job_flow_alive_when_no_steps is None and 'keepJobFlowAliveWhenNoSteps' in kwargs:
-            keep_job_flow_alive_when_no_steps = kwargs['keepJobFlowAliveWhenNoSteps']
-        if kerberos_attributes is None and 'kerberosAttributes' in kwargs:
-            kerberos_attributes = kwargs['kerberosAttributes']
-        if list_steps_states is None and 'listStepsStates' in kwargs:
-            list_steps_states = kwargs['listStepsStates']
-        if log_encryption_kms_key_id is None and 'logEncryptionKmsKeyId' in kwargs:
-            log_encryption_kms_key_id = kwargs['logEncryptionKmsKeyId']
-        if log_uri is None and 'logUri' in kwargs:
-            log_uri = kwargs['logUri']
-        if master_instance_fleet is None and 'masterInstanceFleet' in kwargs:
-            master_instance_fleet = kwargs['masterInstanceFleet']
-        if master_instance_group is None and 'masterInstanceGroup' in kwargs:
-            master_instance_group = kwargs['masterInstanceGroup']
-        if master_public_dns is None and 'masterPublicDns' in kwargs:
-            master_public_dns = kwargs['masterPublicDns']
-        if placement_group_configs is None and 'placementGroupConfigs' in kwargs:
-            placement_group_configs = kwargs['placementGroupConfigs']
-        if release_label is None and 'releaseLabel' in kwargs:
-            release_label = kwargs['releaseLabel']
-        if scale_down_behavior is None and 'scaleDownBehavior' in kwargs:
-            scale_down_behavior = kwargs['scaleDownBehavior']
-        if security_configuration is None and 'securityConfiguration' in kwargs:
-            security_configuration = kwargs['securityConfiguration']
-        if service_role is None and 'serviceRole' in kwargs:
-            service_role = kwargs['serviceRole']
-        if step_concurrency_level is None and 'stepConcurrencyLevel' in kwargs:
-            step_concurrency_level = kwargs['stepConcurrencyLevel']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if termination_protection is None and 'terminationProtection' in kwargs:
-            termination_protection = kwargs['terminationProtection']
-        if visible_to_all_users is None and 'visibleToAllUsers' in kwargs:
-            visible_to_all_users = kwargs['visibleToAllUsers']
-
         if additional_info is not None:
-            _setter("additional_info", additional_info)
+            pulumi.set(__self__, "additional_info", additional_info)
         if applications is not None:
-            _setter("applications", applications)
+            pulumi.set(__self__, "applications", applications)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if auto_termination_policy is not None:
-            _setter("auto_termination_policy", auto_termination_policy)
+            pulumi.set(__self__, "auto_termination_policy", auto_termination_policy)
         if autoscaling_role is not None:
-            _setter("autoscaling_role", autoscaling_role)
+            pulumi.set(__self__, "autoscaling_role", autoscaling_role)
         if bootstrap_actions is not None:
-            _setter("bootstrap_actions", bootstrap_actions)
+            pulumi.set(__self__, "bootstrap_actions", bootstrap_actions)
         if cluster_state is not None:
-            _setter("cluster_state", cluster_state)
+            pulumi.set(__self__, "cluster_state", cluster_state)
         if configurations is not None:
-            _setter("configurations", configurations)
+            pulumi.set(__self__, "configurations", configurations)
         if configurations_json is not None:
-            _setter("configurations_json", configurations_json)
+            pulumi.set(__self__, "configurations_json", configurations_json)
         if core_instance_fleet is not None:
-            _setter("core_instance_fleet", core_instance_fleet)
+            pulumi.set(__self__, "core_instance_fleet", core_instance_fleet)
         if core_instance_group is not None:
-            _setter("core_instance_group", core_instance_group)
+            pulumi.set(__self__, "core_instance_group", core_instance_group)
         if custom_ami_id is not None:
-            _setter("custom_ami_id", custom_ami_id)
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
         if ebs_root_volume_size is not None:
-            _setter("ebs_root_volume_size", ebs_root_volume_size)
+            pulumi.set(__self__, "ebs_root_volume_size", ebs_root_volume_size)
         if ec2_attributes is not None:
-            _setter("ec2_attributes", ec2_attributes)
+            pulumi.set(__self__, "ec2_attributes", ec2_attributes)
         if keep_job_flow_alive_when_no_steps is not None:
-            _setter("keep_job_flow_alive_when_no_steps", keep_job_flow_alive_when_no_steps)
+            pulumi.set(__self__, "keep_job_flow_alive_when_no_steps", keep_job_flow_alive_when_no_steps)
         if kerberos_attributes is not None:
-            _setter("kerberos_attributes", kerberos_attributes)
+            pulumi.set(__self__, "kerberos_attributes", kerberos_attributes)
         if list_steps_states is not None:
-            _setter("list_steps_states", list_steps_states)
+            pulumi.set(__self__, "list_steps_states", list_steps_states)
         if log_encryption_kms_key_id is not None:
-            _setter("log_encryption_kms_key_id", log_encryption_kms_key_id)
+            pulumi.set(__self__, "log_encryption_kms_key_id", log_encryption_kms_key_id)
         if log_uri is not None:
-            _setter("log_uri", log_uri)
+            pulumi.set(__self__, "log_uri", log_uri)
         if master_instance_fleet is not None:
-            _setter("master_instance_fleet", master_instance_fleet)
+            pulumi.set(__self__, "master_instance_fleet", master_instance_fleet)
         if master_instance_group is not None:
-            _setter("master_instance_group", master_instance_group)
+            pulumi.set(__self__, "master_instance_group", master_instance_group)
         if master_public_dns is not None:
-            _setter("master_public_dns", master_public_dns)
+            pulumi.set(__self__, "master_public_dns", master_public_dns)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if placement_group_configs is not None:
-            _setter("placement_group_configs", placement_group_configs)
+            pulumi.set(__self__, "placement_group_configs", placement_group_configs)
         if release_label is not None:
-            _setter("release_label", release_label)
+            pulumi.set(__self__, "release_label", release_label)
         if scale_down_behavior is not None:
-            _setter("scale_down_behavior", scale_down_behavior)
+            pulumi.set(__self__, "scale_down_behavior", scale_down_behavior)
         if security_configuration is not None:
-            _setter("security_configuration", security_configuration)
+            pulumi.set(__self__, "security_configuration", security_configuration)
         if service_role is not None:
-            _setter("service_role", service_role)
+            pulumi.set(__self__, "service_role", service_role)
         if step_concurrency_level is not None:
-            _setter("step_concurrency_level", step_concurrency_level)
+            pulumi.set(__self__, "step_concurrency_level", step_concurrency_level)
         if steps is not None:
-            _setter("steps", steps)
+            pulumi.set(__self__, "steps", steps)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if termination_protection is not None:
-            _setter("termination_protection", termination_protection)
+            pulumi.set(__self__, "termination_protection", termination_protection)
         if visible_to_all_users is not None:
-            _setter("visible_to_all_users", visible_to_all_users)
+            pulumi.set(__self__, "visible_to_all_users", visible_to_all_users)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -2056,10 +1800,6 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2106,29 +1846,22 @@ class Cluster(pulumi.CustomResource):
 
             __props__.__dict__["additional_info"] = additional_info
             __props__.__dict__["applications"] = applications
-            auto_termination_policy = _utilities.configure(auto_termination_policy, ClusterAutoTerminationPolicyArgs, True)
             __props__.__dict__["auto_termination_policy"] = auto_termination_policy
             __props__.__dict__["autoscaling_role"] = autoscaling_role
             __props__.__dict__["bootstrap_actions"] = bootstrap_actions
             __props__.__dict__["configurations"] = configurations
             __props__.__dict__["configurations_json"] = configurations_json
-            core_instance_fleet = _utilities.configure(core_instance_fleet, ClusterCoreInstanceFleetArgs, True)
             __props__.__dict__["core_instance_fleet"] = core_instance_fleet
-            core_instance_group = _utilities.configure(core_instance_group, ClusterCoreInstanceGroupArgs, True)
             __props__.__dict__["core_instance_group"] = core_instance_group
             __props__.__dict__["custom_ami_id"] = custom_ami_id
             __props__.__dict__["ebs_root_volume_size"] = ebs_root_volume_size
-            ec2_attributes = _utilities.configure(ec2_attributes, ClusterEc2AttributesArgs, True)
             __props__.__dict__["ec2_attributes"] = ec2_attributes
             __props__.__dict__["keep_job_flow_alive_when_no_steps"] = keep_job_flow_alive_when_no_steps
-            kerberos_attributes = _utilities.configure(kerberos_attributes, ClusterKerberosAttributesArgs, True)
             __props__.__dict__["kerberos_attributes"] = kerberos_attributes
             __props__.__dict__["list_steps_states"] = list_steps_states
             __props__.__dict__["log_encryption_kms_key_id"] = log_encryption_kms_key_id
             __props__.__dict__["log_uri"] = log_uri
-            master_instance_fleet = _utilities.configure(master_instance_fleet, ClusterMasterInstanceFleetArgs, True)
             __props__.__dict__["master_instance_fleet"] = master_instance_fleet
-            master_instance_group = _utilities.configure(master_instance_group, ClusterMasterInstanceGroupArgs, True)
             __props__.__dict__["master_instance_group"] = master_instance_group
             __props__.__dict__["name"] = name
             __props__.__dict__["placement_group_configs"] = placement_group_configs

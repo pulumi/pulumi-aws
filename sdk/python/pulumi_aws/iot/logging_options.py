@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LoggingOptionsArgs', 'LoggingOptions']
@@ -23,35 +23,10 @@ class LoggingOptionsArgs:
         :param pulumi.Input[str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         :param pulumi.Input[bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
         """
-        LoggingOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_log_level=default_log_level,
-            role_arn=role_arn,
-            disable_all_logs=disable_all_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_log_level: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             disable_all_logs: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_log_level is None and 'defaultLogLevel' in kwargs:
-            default_log_level = kwargs['defaultLogLevel']
-        if default_log_level is None:
-            raise TypeError("Missing 'default_log_level' argument")
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if disable_all_logs is None and 'disableAllLogs' in kwargs:
-            disable_all_logs = kwargs['disableAllLogs']
-
-        _setter("default_log_level", default_log_level)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "default_log_level", default_log_level)
+        pulumi.set(__self__, "role_arn", role_arn)
         if disable_all_logs is not None:
-            _setter("disable_all_logs", disable_all_logs)
+            pulumi.set(__self__, "disable_all_logs", disable_all_logs)
 
     @property
     @pulumi.getter(name="defaultLogLevel")
@@ -102,33 +77,12 @@ class _LoggingOptionsState:
         :param pulumi.Input[bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
         :param pulumi.Input[str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         """
-        _LoggingOptionsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_log_level=default_log_level,
-            disable_all_logs=disable_all_logs,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_log_level: Optional[pulumi.Input[str]] = None,
-             disable_all_logs: Optional[pulumi.Input[bool]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_log_level is None and 'defaultLogLevel' in kwargs:
-            default_log_level = kwargs['defaultLogLevel']
-        if disable_all_logs is None and 'disableAllLogs' in kwargs:
-            disable_all_logs = kwargs['disableAllLogs']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-
         if default_log_level is not None:
-            _setter("default_log_level", default_log_level)
+            pulumi.set(__self__, "default_log_level", default_log_level)
         if disable_all_logs is not None:
-            _setter("disable_all_logs", disable_all_logs)
+            pulumi.set(__self__, "disable_all_logs", disable_all_logs)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="defaultLogLevel")
@@ -226,10 +180,6 @@ class LoggingOptions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LoggingOptionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,29 +25,12 @@ class InstanceArgs:
         :param pulumi.Input[bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        InstanceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            fips_enabled=fips_enabled,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             fips_enabled: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if fips_enabled is None and 'fipsEnabled' in kwargs:
-            fips_enabled = kwargs['fipsEnabled']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if fips_enabled is not None:
-            _setter("fips_enabled", fips_enabled)
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -105,56 +88,23 @@ class _InstanceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
         """
-        _InstanceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            creation_time=creation_time,
-            description=description,
-            fips_enabled=fips_enabled,
-            last_updated_time=last_updated_time,
-            tags=tags,
-            tags_all=tags_all,
-            verified_access_trust_providers=verified_access_trust_providers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             creation_time: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             fips_enabled: Optional[pulumi.Input[bool]] = None,
-             last_updated_time: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if creation_time is None and 'creationTime' in kwargs:
-            creation_time = kwargs['creationTime']
-        if fips_enabled is None and 'fipsEnabled' in kwargs:
-            fips_enabled = kwargs['fipsEnabled']
-        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
-            last_updated_time = kwargs['lastUpdatedTime']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if verified_access_trust_providers is None and 'verifiedAccessTrustProviders' in kwargs:
-            verified_access_trust_providers = kwargs['verifiedAccessTrustProviders']
-
         if creation_time is not None:
-            _setter("creation_time", creation_time)
+            pulumi.set(__self__, "creation_time", creation_time)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if fips_enabled is not None:
-            _setter("fips_enabled", fips_enabled)
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if verified_access_trust_providers is not None:
-            _setter("verified_access_trust_providers", verified_access_trust_providers)
+            pulumi.set(__self__, "verified_access_trust_providers", verified_access_trust_providers)
 
     @property
     @pulumi.getter(name="creationTime")
@@ -342,10 +292,6 @@ class Instance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

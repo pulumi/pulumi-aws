@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,40 +27,13 @@ class WebhookArgs:
         :param pulumi.Input[str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
         """
-        WebhookArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            project_name=project_name,
-            branch_filter=branch_filter,
-            build_type=build_type,
-            filter_groups=filter_groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             project_name: Optional[pulumi.Input[str]] = None,
-             branch_filter: Optional[pulumi.Input[str]] = None,
-             build_type: Optional[pulumi.Input[str]] = None,
-             filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if project_name is None and 'projectName' in kwargs:
-            project_name = kwargs['projectName']
-        if project_name is None:
-            raise TypeError("Missing 'project_name' argument")
-        if branch_filter is None and 'branchFilter' in kwargs:
-            branch_filter = kwargs['branchFilter']
-        if build_type is None and 'buildType' in kwargs:
-            build_type = kwargs['buildType']
-        if filter_groups is None and 'filterGroups' in kwargs:
-            filter_groups = kwargs['filterGroups']
-
-        _setter("project_name", project_name)
+        pulumi.set(__self__, "project_name", project_name)
         if branch_filter is not None:
-            _setter("branch_filter", branch_filter)
+            pulumi.set(__self__, "branch_filter", branch_filter)
         if build_type is not None:
-            _setter("build_type", build_type)
+            pulumi.set(__self__, "build_type", build_type)
         if filter_groups is not None:
-            _setter("filter_groups", filter_groups)
+            pulumi.set(__self__, "filter_groups", filter_groups)
 
     @property
     @pulumi.getter(name="projectName")
@@ -131,53 +104,20 @@ class _WebhookState:
         :param pulumi.Input[str] secret: The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
         :param pulumi.Input[str] url: The URL to the webhook.
         """
-        _WebhookState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            branch_filter=branch_filter,
-            build_type=build_type,
-            filter_groups=filter_groups,
-            payload_url=payload_url,
-            project_name=project_name,
-            secret=secret,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             branch_filter: Optional[pulumi.Input[str]] = None,
-             build_type: Optional[pulumi.Input[str]] = None,
-             filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
-             payload_url: Optional[pulumi.Input[str]] = None,
-             project_name: Optional[pulumi.Input[str]] = None,
-             secret: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if branch_filter is None and 'branchFilter' in kwargs:
-            branch_filter = kwargs['branchFilter']
-        if build_type is None and 'buildType' in kwargs:
-            build_type = kwargs['buildType']
-        if filter_groups is None and 'filterGroups' in kwargs:
-            filter_groups = kwargs['filterGroups']
-        if payload_url is None and 'payloadUrl' in kwargs:
-            payload_url = kwargs['payloadUrl']
-        if project_name is None and 'projectName' in kwargs:
-            project_name = kwargs['projectName']
-
         if branch_filter is not None:
-            _setter("branch_filter", branch_filter)
+            pulumi.set(__self__, "branch_filter", branch_filter)
         if build_type is not None:
-            _setter("build_type", build_type)
+            pulumi.set(__self__, "build_type", build_type)
         if filter_groups is not None:
-            _setter("filter_groups", filter_groups)
+            pulumi.set(__self__, "filter_groups", filter_groups)
         if payload_url is not None:
-            _setter("payload_url", payload_url)
+            pulumi.set(__self__, "payload_url", payload_url)
         if project_name is not None:
-            _setter("project_name", project_name)
+            pulumi.set(__self__, "project_name", project_name)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="branchFilter")
@@ -425,10 +365,6 @@ class Webhook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WebhookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

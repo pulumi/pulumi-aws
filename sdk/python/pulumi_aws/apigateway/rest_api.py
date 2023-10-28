@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,81 +45,32 @@ class RestApiArgs:
         :param pulumi.Input[str] put_rest_api_mode: Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        RestApiArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key_source=api_key_source,
-            binary_media_types=binary_media_types,
-            body=body,
-            description=description,
-            disable_execute_api_endpoint=disable_execute_api_endpoint,
-            endpoint_configuration=endpoint_configuration,
-            fail_on_warnings=fail_on_warnings,
-            minimum_compression_size=minimum_compression_size,
-            name=name,
-            parameters=parameters,
-            policy=policy,
-            put_rest_api_mode=put_rest_api_mode,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key_source: Optional[pulumi.Input[str]] = None,
-             binary_media_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             body: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
-             endpoint_configuration: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']] = None,
-             fail_on_warnings: Optional[pulumi.Input[bool]] = None,
-             minimum_compression_size: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             put_rest_api_mode: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_key_source is None and 'apiKeySource' in kwargs:
-            api_key_source = kwargs['apiKeySource']
-        if binary_media_types is None and 'binaryMediaTypes' in kwargs:
-            binary_media_types = kwargs['binaryMediaTypes']
-        if disable_execute_api_endpoint is None and 'disableExecuteApiEndpoint' in kwargs:
-            disable_execute_api_endpoint = kwargs['disableExecuteApiEndpoint']
-        if endpoint_configuration is None and 'endpointConfiguration' in kwargs:
-            endpoint_configuration = kwargs['endpointConfiguration']
-        if fail_on_warnings is None and 'failOnWarnings' in kwargs:
-            fail_on_warnings = kwargs['failOnWarnings']
-        if minimum_compression_size is None and 'minimumCompressionSize' in kwargs:
-            minimum_compression_size = kwargs['minimumCompressionSize']
-        if put_rest_api_mode is None and 'putRestApiMode' in kwargs:
-            put_rest_api_mode = kwargs['putRestApiMode']
-
         if api_key_source is not None:
-            _setter("api_key_source", api_key_source)
+            pulumi.set(__self__, "api_key_source", api_key_source)
         if binary_media_types is not None:
-            _setter("binary_media_types", binary_media_types)
+            pulumi.set(__self__, "binary_media_types", binary_media_types)
         if body is not None:
-            _setter("body", body)
+            pulumi.set(__self__, "body", body)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if disable_execute_api_endpoint is not None:
-            _setter("disable_execute_api_endpoint", disable_execute_api_endpoint)
+            pulumi.set(__self__, "disable_execute_api_endpoint", disable_execute_api_endpoint)
         if endpoint_configuration is not None:
-            _setter("endpoint_configuration", endpoint_configuration)
+            pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if fail_on_warnings is not None:
-            _setter("fail_on_warnings", fail_on_warnings)
+            pulumi.set(__self__, "fail_on_warnings", fail_on_warnings)
         if minimum_compression_size is not None:
-            _setter("minimum_compression_size", minimum_compression_size)
+            pulumi.set(__self__, "minimum_compression_size", minimum_compression_size)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if put_rest_api_mode is not None:
-            _setter("put_rest_api_mode", put_rest_api_mode)
+            pulumi.set(__self__, "put_rest_api_mode", put_rest_api_mode)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="apiKeySource")
@@ -322,112 +273,45 @@ class _RestApiState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _RestApiState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key_source=api_key_source,
-            arn=arn,
-            binary_media_types=binary_media_types,
-            body=body,
-            created_date=created_date,
-            description=description,
-            disable_execute_api_endpoint=disable_execute_api_endpoint,
-            endpoint_configuration=endpoint_configuration,
-            execution_arn=execution_arn,
-            fail_on_warnings=fail_on_warnings,
-            minimum_compression_size=minimum_compression_size,
-            name=name,
-            parameters=parameters,
-            policy=policy,
-            put_rest_api_mode=put_rest_api_mode,
-            root_resource_id=root_resource_id,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key_source: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             binary_media_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             body: Optional[pulumi.Input[str]] = None,
-             created_date: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
-             endpoint_configuration: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']] = None,
-             execution_arn: Optional[pulumi.Input[str]] = None,
-             fail_on_warnings: Optional[pulumi.Input[bool]] = None,
-             minimum_compression_size: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             put_rest_api_mode: Optional[pulumi.Input[str]] = None,
-             root_resource_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_key_source is None and 'apiKeySource' in kwargs:
-            api_key_source = kwargs['apiKeySource']
-        if binary_media_types is None and 'binaryMediaTypes' in kwargs:
-            binary_media_types = kwargs['binaryMediaTypes']
-        if created_date is None and 'createdDate' in kwargs:
-            created_date = kwargs['createdDate']
-        if disable_execute_api_endpoint is None and 'disableExecuteApiEndpoint' in kwargs:
-            disable_execute_api_endpoint = kwargs['disableExecuteApiEndpoint']
-        if endpoint_configuration is None and 'endpointConfiguration' in kwargs:
-            endpoint_configuration = kwargs['endpointConfiguration']
-        if execution_arn is None and 'executionArn' in kwargs:
-            execution_arn = kwargs['executionArn']
-        if fail_on_warnings is None and 'failOnWarnings' in kwargs:
-            fail_on_warnings = kwargs['failOnWarnings']
-        if minimum_compression_size is None and 'minimumCompressionSize' in kwargs:
-            minimum_compression_size = kwargs['minimumCompressionSize']
-        if put_rest_api_mode is None and 'putRestApiMode' in kwargs:
-            put_rest_api_mode = kwargs['putRestApiMode']
-        if root_resource_id is None and 'rootResourceId' in kwargs:
-            root_resource_id = kwargs['rootResourceId']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if api_key_source is not None:
-            _setter("api_key_source", api_key_source)
+            pulumi.set(__self__, "api_key_source", api_key_source)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if binary_media_types is not None:
-            _setter("binary_media_types", binary_media_types)
+            pulumi.set(__self__, "binary_media_types", binary_media_types)
         if body is not None:
-            _setter("body", body)
+            pulumi.set(__self__, "body", body)
         if created_date is not None:
-            _setter("created_date", created_date)
+            pulumi.set(__self__, "created_date", created_date)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if disable_execute_api_endpoint is not None:
-            _setter("disable_execute_api_endpoint", disable_execute_api_endpoint)
+            pulumi.set(__self__, "disable_execute_api_endpoint", disable_execute_api_endpoint)
         if endpoint_configuration is not None:
-            _setter("endpoint_configuration", endpoint_configuration)
+            pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if execution_arn is not None:
-            _setter("execution_arn", execution_arn)
+            pulumi.set(__self__, "execution_arn", execution_arn)
         if fail_on_warnings is not None:
-            _setter("fail_on_warnings", fail_on_warnings)
+            pulumi.set(__self__, "fail_on_warnings", fail_on_warnings)
         if minimum_compression_size is not None:
-            _setter("minimum_compression_size", minimum_compression_size)
+            pulumi.set(__self__, "minimum_compression_size", minimum_compression_size)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if put_rest_api_mode is not None:
-            _setter("put_rest_api_mode", put_rest_api_mode)
+            pulumi.set(__self__, "put_rest_api_mode", put_rest_api_mode)
         if root_resource_id is not None:
-            _setter("root_resource_id", root_resource_id)
+            pulumi.set(__self__, "root_resource_id", root_resource_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="apiKeySource")
@@ -812,10 +696,6 @@ class RestApi(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RestApiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -848,7 +728,6 @@ class RestApi(pulumi.CustomResource):
             __props__.__dict__["body"] = body
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_execute_api_endpoint"] = disable_execute_api_endpoint
-            endpoint_configuration = _utilities.configure(endpoint_configuration, RestApiEndpointConfigurationArgs, True)
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
             __props__.__dict__["fail_on_warnings"] = fail_on_warnings
             __props__.__dict__["minimum_compression_size"] = minimum_compression_size

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,48 +30,17 @@ class SigningProfileArgs:
         :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: The validity period for a signing job.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        SigningProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            platform_id=platform_id,
-            name=name,
-            name_prefix=name_prefix,
-            signature_validity_period=signature_validity_period,
-            signing_material=signing_material,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             platform_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
-             signing_material: Optional[pulumi.Input['SigningProfileSigningMaterialArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if platform_id is None and 'platformId' in kwargs:
-            platform_id = kwargs['platformId']
-        if platform_id is None:
-            raise TypeError("Missing 'platform_id' argument")
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if signature_validity_period is None and 'signatureValidityPeriod' in kwargs:
-            signature_validity_period = kwargs['signatureValidityPeriod']
-        if signing_material is None and 'signingMaterial' in kwargs:
-            signing_material = kwargs['signingMaterial']
-
-        _setter("platform_id", platform_id)
+        pulumi.set(__self__, "platform_id", platform_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if signature_validity_period is not None:
-            _setter("signature_validity_period", signature_validity_period)
+            pulumi.set(__self__, "signature_validity_period", signature_validity_period)
         if signing_material is not None:
-            _setter("signing_material", signing_material)
+            pulumi.set(__self__, "signing_material", signing_material)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="platformId")
@@ -174,86 +143,35 @@ class _SigningProfileState:
         :param pulumi.Input[str] version: The current version of the signing profile.
         :param pulumi.Input[str] version_arn: The signing profile ARN, including the profile version.
         """
-        _SigningProfileState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            name=name,
-            name_prefix=name_prefix,
-            platform_display_name=platform_display_name,
-            platform_id=platform_id,
-            revocation_records=revocation_records,
-            signature_validity_period=signature_validity_period,
-            signing_material=signing_material,
-            status=status,
-            tags=tags,
-            tags_all=tags_all,
-            version=version,
-            version_arn=version_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             name_prefix: Optional[pulumi.Input[str]] = None,
-             platform_display_name: Optional[pulumi.Input[str]] = None,
-             platform_id: Optional[pulumi.Input[str]] = None,
-             revocation_records: Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileRevocationRecordArgs']]]] = None,
-             signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
-             signing_material: Optional[pulumi.Input['SigningProfileSigningMaterialArgs']] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             version_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name_prefix is None and 'namePrefix' in kwargs:
-            name_prefix = kwargs['namePrefix']
-        if platform_display_name is None and 'platformDisplayName' in kwargs:
-            platform_display_name = kwargs['platformDisplayName']
-        if platform_id is None and 'platformId' in kwargs:
-            platform_id = kwargs['platformId']
-        if revocation_records is None and 'revocationRecords' in kwargs:
-            revocation_records = kwargs['revocationRecords']
-        if signature_validity_period is None and 'signatureValidityPeriod' in kwargs:
-            signature_validity_period = kwargs['signatureValidityPeriod']
-        if signing_material is None and 'signingMaterial' in kwargs:
-            signing_material = kwargs['signingMaterial']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if version_arn is None and 'versionArn' in kwargs:
-            version_arn = kwargs['versionArn']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if name_prefix is not None:
-            _setter("name_prefix", name_prefix)
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if platform_display_name is not None:
-            _setter("platform_display_name", platform_display_name)
+            pulumi.set(__self__, "platform_display_name", platform_display_name)
         if platform_id is not None:
-            _setter("platform_id", platform_id)
+            pulumi.set(__self__, "platform_id", platform_id)
         if revocation_records is not None:
-            _setter("revocation_records", revocation_records)
+            pulumi.set(__self__, "revocation_records", revocation_records)
         if signature_validity_period is not None:
-            _setter("signature_validity_period", signature_validity_period)
+            pulumi.set(__self__, "signature_validity_period", signature_validity_period)
         if signing_material is not None:
-            _setter("signing_material", signing_material)
+            pulumi.set(__self__, "signing_material", signing_material)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
         if version_arn is not None:
-            _setter("version_arn", version_arn)
+            pulumi.set(__self__, "version_arn", version_arn)
 
     @property
     @pulumi.getter
@@ -510,10 +428,6 @@ class SigningProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SigningProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -539,9 +453,7 @@ class SigningProfile(pulumi.CustomResource):
             if platform_id is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_id'")
             __props__.__dict__["platform_id"] = platform_id
-            signature_validity_period = _utilities.configure(signature_validity_period, SigningProfileSignatureValidityPeriodArgs, True)
             __props__.__dict__["signature_validity_period"] = signature_validity_period
-            signing_material = _utilities.configure(signing_material, SigningProfileSigningMaterialArgs, True)
             __props__.__dict__["signing_material"] = signing_material
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

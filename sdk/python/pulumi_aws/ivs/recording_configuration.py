@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,42 +29,15 @@ class RecordingConfigurationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs'] thumbnail_configuration: Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         """
-        RecordingConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_configuration=destination_configuration,
-            name=name,
-            recording_reconnect_window_seconds=recording_reconnect_window_seconds,
-            tags=tags,
-            thumbnail_configuration=thumbnail_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_configuration: Optional[pulumi.Input['RecordingConfigurationDestinationConfigurationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recording_reconnect_window_seconds: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination_configuration is None and 'destinationConfiguration' in kwargs:
-            destination_configuration = kwargs['destinationConfiguration']
-        if destination_configuration is None:
-            raise TypeError("Missing 'destination_configuration' argument")
-        if recording_reconnect_window_seconds is None and 'recordingReconnectWindowSeconds' in kwargs:
-            recording_reconnect_window_seconds = kwargs['recordingReconnectWindowSeconds']
-        if thumbnail_configuration is None and 'thumbnailConfiguration' in kwargs:
-            thumbnail_configuration = kwargs['thumbnailConfiguration']
-
-        _setter("destination_configuration", destination_configuration)
+        pulumi.set(__self__, "destination_configuration", destination_configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recording_reconnect_window_seconds is not None:
-            _setter("recording_reconnect_window_seconds", recording_reconnect_window_seconds)
+            pulumi.set(__self__, "recording_reconnect_window_seconds", recording_reconnect_window_seconds)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if thumbnail_configuration is not None:
-            _setter("thumbnail_configuration", thumbnail_configuration)
+            pulumi.set(__self__, "thumbnail_configuration", thumbnail_configuration)
 
     @property
     @pulumi.getter(name="destinationConfiguration")
@@ -149,58 +122,25 @@ class _RecordingConfigurationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs'] thumbnail_configuration: Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         """
-        _RecordingConfigurationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            destination_configuration=destination_configuration,
-            name=name,
-            recording_reconnect_window_seconds=recording_reconnect_window_seconds,
-            state=state,
-            tags=tags,
-            tags_all=tags_all,
-            thumbnail_configuration=thumbnail_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             destination_configuration: Optional[pulumi.Input['RecordingConfigurationDestinationConfigurationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recording_reconnect_window_seconds: Optional[pulumi.Input[int]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination_configuration is None and 'destinationConfiguration' in kwargs:
-            destination_configuration = kwargs['destinationConfiguration']
-        if recording_reconnect_window_seconds is None and 'recordingReconnectWindowSeconds' in kwargs:
-            recording_reconnect_window_seconds = kwargs['recordingReconnectWindowSeconds']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if thumbnail_configuration is None and 'thumbnailConfiguration' in kwargs:
-            thumbnail_configuration = kwargs['thumbnailConfiguration']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if destination_configuration is not None:
-            _setter("destination_configuration", destination_configuration)
+            pulumi.set(__self__, "destination_configuration", destination_configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recording_reconnect_window_seconds is not None:
-            _setter("recording_reconnect_window_seconds", recording_reconnect_window_seconds)
+            pulumi.set(__self__, "recording_reconnect_window_seconds", recording_reconnect_window_seconds)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if thumbnail_configuration is not None:
-            _setter("thumbnail_configuration", thumbnail_configuration)
+            pulumi.set(__self__, "thumbnail_configuration", thumbnail_configuration)
 
     @property
     @pulumi.getter
@@ -387,10 +327,6 @@ class RecordingConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RecordingConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -410,14 +346,12 @@ class RecordingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RecordingConfigurationArgs.__new__(RecordingConfigurationArgs)
 
-            destination_configuration = _utilities.configure(destination_configuration, RecordingConfigurationDestinationConfigurationArgs, True)
             if destination_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_configuration'")
             __props__.__dict__["destination_configuration"] = destination_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["recording_reconnect_window_seconds"] = recording_reconnect_window_seconds
             __props__.__dict__["tags"] = tags
-            thumbnail_configuration = _utilities.configure(thumbnail_configuration, RecordingConfigurationThumbnailConfigurationArgs, True)
             __props__.__dict__["thumbnail_configuration"] = thumbnail_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["state"] = None

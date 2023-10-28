@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,64 +41,25 @@ class InputArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['InputVpcArgs'] vpc: Settings for a private VPC Input. See VPC for more details.
         """
-        InputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            destinations=destinations,
-            input_devices=input_devices,
-            input_security_groups=input_security_groups,
-            media_connect_flows=media_connect_flows,
-            name=name,
-            role_arn=role_arn,
-            sources=sources,
-            tags=tags,
-            vpc=vpc,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[pulumi.Input[str]] = None,
-             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]]] = None,
-             input_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]]] = None,
-             input_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             media_connect_flows: Optional[pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             sources: Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vpc: Optional[pulumi.Input['InputVpcArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if input_devices is None and 'inputDevices' in kwargs:
-            input_devices = kwargs['inputDevices']
-        if input_security_groups is None and 'inputSecurityGroups' in kwargs:
-            input_security_groups = kwargs['inputSecurityGroups']
-        if media_connect_flows is None and 'mediaConnectFlows' in kwargs:
-            media_connect_flows = kwargs['mediaConnectFlows']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if destinations is not None:
-            _setter("destinations", destinations)
+            pulumi.set(__self__, "destinations", destinations)
         if input_devices is not None:
-            _setter("input_devices", input_devices)
+            pulumi.set(__self__, "input_devices", input_devices)
         if input_security_groups is not None:
-            _setter("input_security_groups", input_security_groups)
+            pulumi.set(__self__, "input_security_groups", input_security_groups)
         if media_connect_flows is not None:
-            _setter("media_connect_flows", media_connect_flows)
+            pulumi.set(__self__, "media_connect_flows", media_connect_flows)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if sources is not None:
-            _setter("sources", sources)
+            pulumi.set(__self__, "sources", sources)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vpc is not None:
-            _setter("vpc", vpc)
+            pulumi.set(__self__, "vpc", vpc)
 
     @property
     @pulumi.getter
@@ -262,100 +223,41 @@ class _InputState:
                The following arguments are optional:
         :param pulumi.Input['InputVpcArgs'] vpc: Settings for a private VPC Input. See VPC for more details.
         """
-        _InputState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            attached_channels=attached_channels,
-            destinations=destinations,
-            input_class=input_class,
-            input_devices=input_devices,
-            input_partner_ids=input_partner_ids,
-            input_security_groups=input_security_groups,
-            input_source_type=input_source_type,
-            media_connect_flows=media_connect_flows,
-            name=name,
-            role_arn=role_arn,
-            sources=sources,
-            tags=tags,
-            tags_all=tags_all,
-            type=type,
-            vpc=vpc,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             attached_channels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]]] = None,
-             input_class: Optional[pulumi.Input[str]] = None,
-             input_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]]] = None,
-             input_partner_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             input_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             input_source_type: Optional[pulumi.Input[str]] = None,
-             media_connect_flows: Optional[pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             sources: Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             vpc: Optional[pulumi.Input['InputVpcArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attached_channels is None and 'attachedChannels' in kwargs:
-            attached_channels = kwargs['attachedChannels']
-        if input_class is None and 'inputClass' in kwargs:
-            input_class = kwargs['inputClass']
-        if input_devices is None and 'inputDevices' in kwargs:
-            input_devices = kwargs['inputDevices']
-        if input_partner_ids is None and 'inputPartnerIds' in kwargs:
-            input_partner_ids = kwargs['inputPartnerIds']
-        if input_security_groups is None and 'inputSecurityGroups' in kwargs:
-            input_security_groups = kwargs['inputSecurityGroups']
-        if input_source_type is None and 'inputSourceType' in kwargs:
-            input_source_type = kwargs['inputSourceType']
-        if media_connect_flows is None and 'mediaConnectFlows' in kwargs:
-            media_connect_flows = kwargs['mediaConnectFlows']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if attached_channels is not None:
-            _setter("attached_channels", attached_channels)
+            pulumi.set(__self__, "attached_channels", attached_channels)
         if destinations is not None:
-            _setter("destinations", destinations)
+            pulumi.set(__self__, "destinations", destinations)
         if input_class is not None:
-            _setter("input_class", input_class)
+            pulumi.set(__self__, "input_class", input_class)
         if input_devices is not None:
-            _setter("input_devices", input_devices)
+            pulumi.set(__self__, "input_devices", input_devices)
         if input_partner_ids is not None:
-            _setter("input_partner_ids", input_partner_ids)
+            pulumi.set(__self__, "input_partner_ids", input_partner_ids)
         if input_security_groups is not None:
-            _setter("input_security_groups", input_security_groups)
+            pulumi.set(__self__, "input_security_groups", input_security_groups)
         if input_source_type is not None:
-            _setter("input_source_type", input_source_type)
+            pulumi.set(__self__, "input_source_type", input_source_type)
         if media_connect_flows is not None:
-            _setter("media_connect_flows", media_connect_flows)
+            pulumi.set(__self__, "media_connect_flows", media_connect_flows)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if sources is not None:
-            _setter("sources", sources)
+            pulumi.set(__self__, "sources", sources)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if vpc is not None:
-            _setter("vpc", vpc)
+            pulumi.set(__self__, "vpc", vpc)
 
     @property
     @pulumi.getter
@@ -665,10 +567,6 @@ class Input(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InputArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -704,7 +602,6 @@ class Input(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
-            vpc = _utilities.configure(vpc, InputVpcArgs, True)
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
             __props__.__dict__["attached_channels"] = None

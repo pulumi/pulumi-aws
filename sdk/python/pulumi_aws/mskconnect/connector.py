@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,87 +43,22 @@ class ConnectorArgs:
         :param pulumi.Input[str] name: The name of the connector.
         :param pulumi.Input['ConnectorWorkerConfigurationArgs'] worker_configuration: Specifies which worker configuration to use with the connector. See below.
         """
-        ConnectorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capacity=capacity,
-            connector_configuration=connector_configuration,
-            kafka_cluster=kafka_cluster,
-            kafka_cluster_client_authentication=kafka_cluster_client_authentication,
-            kafka_cluster_encryption_in_transit=kafka_cluster_encryption_in_transit,
-            kafkaconnect_version=kafkaconnect_version,
-            plugins=plugins,
-            service_execution_role_arn=service_execution_role_arn,
-            description=description,
-            log_delivery=log_delivery,
-            name=name,
-            worker_configuration=worker_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capacity: Optional[pulumi.Input['ConnectorCapacityArgs']] = None,
-             connector_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             kafka_cluster: Optional[pulumi.Input['ConnectorKafkaClusterArgs']] = None,
-             kafka_cluster_client_authentication: Optional[pulumi.Input['ConnectorKafkaClusterClientAuthenticationArgs']] = None,
-             kafka_cluster_encryption_in_transit: Optional[pulumi.Input['ConnectorKafkaClusterEncryptionInTransitArgs']] = None,
-             kafkaconnect_version: Optional[pulumi.Input[str]] = None,
-             plugins: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]]] = None,
-             service_execution_role_arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             log_delivery: Optional[pulumi.Input['ConnectorLogDeliveryArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             worker_configuration: Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if capacity is None:
-            raise TypeError("Missing 'capacity' argument")
-        if connector_configuration is None and 'connectorConfiguration' in kwargs:
-            connector_configuration = kwargs['connectorConfiguration']
-        if connector_configuration is None:
-            raise TypeError("Missing 'connector_configuration' argument")
-        if kafka_cluster is None and 'kafkaCluster' in kwargs:
-            kafka_cluster = kwargs['kafkaCluster']
-        if kafka_cluster is None:
-            raise TypeError("Missing 'kafka_cluster' argument")
-        if kafka_cluster_client_authentication is None and 'kafkaClusterClientAuthentication' in kwargs:
-            kafka_cluster_client_authentication = kwargs['kafkaClusterClientAuthentication']
-        if kafka_cluster_client_authentication is None:
-            raise TypeError("Missing 'kafka_cluster_client_authentication' argument")
-        if kafka_cluster_encryption_in_transit is None and 'kafkaClusterEncryptionInTransit' in kwargs:
-            kafka_cluster_encryption_in_transit = kwargs['kafkaClusterEncryptionInTransit']
-        if kafka_cluster_encryption_in_transit is None:
-            raise TypeError("Missing 'kafka_cluster_encryption_in_transit' argument")
-        if kafkaconnect_version is None and 'kafkaconnectVersion' in kwargs:
-            kafkaconnect_version = kwargs['kafkaconnectVersion']
-        if kafkaconnect_version is None:
-            raise TypeError("Missing 'kafkaconnect_version' argument")
-        if plugins is None:
-            raise TypeError("Missing 'plugins' argument")
-        if service_execution_role_arn is None and 'serviceExecutionRoleArn' in kwargs:
-            service_execution_role_arn = kwargs['serviceExecutionRoleArn']
-        if service_execution_role_arn is None:
-            raise TypeError("Missing 'service_execution_role_arn' argument")
-        if log_delivery is None and 'logDelivery' in kwargs:
-            log_delivery = kwargs['logDelivery']
-        if worker_configuration is None and 'workerConfiguration' in kwargs:
-            worker_configuration = kwargs['workerConfiguration']
-
-        _setter("capacity", capacity)
-        _setter("connector_configuration", connector_configuration)
-        _setter("kafka_cluster", kafka_cluster)
-        _setter("kafka_cluster_client_authentication", kafka_cluster_client_authentication)
-        _setter("kafka_cluster_encryption_in_transit", kafka_cluster_encryption_in_transit)
-        _setter("kafkaconnect_version", kafkaconnect_version)
-        _setter("plugins", plugins)
-        _setter("service_execution_role_arn", service_execution_role_arn)
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "connector_configuration", connector_configuration)
+        pulumi.set(__self__, "kafka_cluster", kafka_cluster)
+        pulumi.set(__self__, "kafka_cluster_client_authentication", kafka_cluster_client_authentication)
+        pulumi.set(__self__, "kafka_cluster_encryption_in_transit", kafka_cluster_encryption_in_transit)
+        pulumi.set(__self__, "kafkaconnect_version", kafkaconnect_version)
+        pulumi.set(__self__, "plugins", plugins)
+        pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if log_delivery is not None:
-            _setter("log_delivery", log_delivery)
+            pulumi.set(__self__, "log_delivery", log_delivery)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if worker_configuration is not None:
-            _setter("worker_configuration", worker_configuration)
+            pulumi.set(__self__, "worker_configuration", worker_configuration)
 
     @property
     @pulumi.getter
@@ -304,87 +239,34 @@ class _ConnectorState:
         :param pulumi.Input[str] version: The current version of the connector.
         :param pulumi.Input['ConnectorWorkerConfigurationArgs'] worker_configuration: Specifies which worker configuration to use with the connector. See below.
         """
-        _ConnectorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            capacity=capacity,
-            connector_configuration=connector_configuration,
-            description=description,
-            kafka_cluster=kafka_cluster,
-            kafka_cluster_client_authentication=kafka_cluster_client_authentication,
-            kafka_cluster_encryption_in_transit=kafka_cluster_encryption_in_transit,
-            kafkaconnect_version=kafkaconnect_version,
-            log_delivery=log_delivery,
-            name=name,
-            plugins=plugins,
-            service_execution_role_arn=service_execution_role_arn,
-            version=version,
-            worker_configuration=worker_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             capacity: Optional[pulumi.Input['ConnectorCapacityArgs']] = None,
-             connector_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             kafka_cluster: Optional[pulumi.Input['ConnectorKafkaClusterArgs']] = None,
-             kafka_cluster_client_authentication: Optional[pulumi.Input['ConnectorKafkaClusterClientAuthenticationArgs']] = None,
-             kafka_cluster_encryption_in_transit: Optional[pulumi.Input['ConnectorKafkaClusterEncryptionInTransitArgs']] = None,
-             kafkaconnect_version: Optional[pulumi.Input[str]] = None,
-             log_delivery: Optional[pulumi.Input['ConnectorLogDeliveryArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             plugins: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]]] = None,
-             service_execution_role_arn: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             worker_configuration: Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connector_configuration is None and 'connectorConfiguration' in kwargs:
-            connector_configuration = kwargs['connectorConfiguration']
-        if kafka_cluster is None and 'kafkaCluster' in kwargs:
-            kafka_cluster = kwargs['kafkaCluster']
-        if kafka_cluster_client_authentication is None and 'kafkaClusterClientAuthentication' in kwargs:
-            kafka_cluster_client_authentication = kwargs['kafkaClusterClientAuthentication']
-        if kafka_cluster_encryption_in_transit is None and 'kafkaClusterEncryptionInTransit' in kwargs:
-            kafka_cluster_encryption_in_transit = kwargs['kafkaClusterEncryptionInTransit']
-        if kafkaconnect_version is None and 'kafkaconnectVersion' in kwargs:
-            kafkaconnect_version = kwargs['kafkaconnectVersion']
-        if log_delivery is None and 'logDelivery' in kwargs:
-            log_delivery = kwargs['logDelivery']
-        if service_execution_role_arn is None and 'serviceExecutionRoleArn' in kwargs:
-            service_execution_role_arn = kwargs['serviceExecutionRoleArn']
-        if worker_configuration is None and 'workerConfiguration' in kwargs:
-            worker_configuration = kwargs['workerConfiguration']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if capacity is not None:
-            _setter("capacity", capacity)
+            pulumi.set(__self__, "capacity", capacity)
         if connector_configuration is not None:
-            _setter("connector_configuration", connector_configuration)
+            pulumi.set(__self__, "connector_configuration", connector_configuration)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if kafka_cluster is not None:
-            _setter("kafka_cluster", kafka_cluster)
+            pulumi.set(__self__, "kafka_cluster", kafka_cluster)
         if kafka_cluster_client_authentication is not None:
-            _setter("kafka_cluster_client_authentication", kafka_cluster_client_authentication)
+            pulumi.set(__self__, "kafka_cluster_client_authentication", kafka_cluster_client_authentication)
         if kafka_cluster_encryption_in_transit is not None:
-            _setter("kafka_cluster_encryption_in_transit", kafka_cluster_encryption_in_transit)
+            pulumi.set(__self__, "kafka_cluster_encryption_in_transit", kafka_cluster_encryption_in_transit)
         if kafkaconnect_version is not None:
-            _setter("kafkaconnect_version", kafkaconnect_version)
+            pulumi.set(__self__, "kafkaconnect_version", kafkaconnect_version)
         if log_delivery is not None:
-            _setter("log_delivery", log_delivery)
+            pulumi.set(__self__, "log_delivery", log_delivery)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if plugins is not None:
-            _setter("plugins", plugins)
+            pulumi.set(__self__, "plugins", plugins)
         if service_execution_role_arn is not None:
-            _setter("service_execution_role_arn", service_execution_role_arn)
+            pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
         if worker_configuration is not None:
-            _setter("worker_configuration", worker_configuration)
+            pulumi.set(__self__, "worker_configuration", worker_configuration)
 
     @property
     @pulumi.getter
@@ -736,10 +618,6 @@ class Connector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -766,7 +644,6 @@ class Connector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectorArgs.__new__(ConnectorArgs)
 
-            capacity = _utilities.configure(capacity, ConnectorCapacityArgs, True)
             if capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity'")
             __props__.__dict__["capacity"] = capacity
@@ -774,22 +651,18 @@ class Connector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connector_configuration'")
             __props__.__dict__["connector_configuration"] = connector_configuration
             __props__.__dict__["description"] = description
-            kafka_cluster = _utilities.configure(kafka_cluster, ConnectorKafkaClusterArgs, True)
             if kafka_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_cluster'")
             __props__.__dict__["kafka_cluster"] = kafka_cluster
-            kafka_cluster_client_authentication = _utilities.configure(kafka_cluster_client_authentication, ConnectorKafkaClusterClientAuthenticationArgs, True)
             if kafka_cluster_client_authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_cluster_client_authentication'")
             __props__.__dict__["kafka_cluster_client_authentication"] = kafka_cluster_client_authentication
-            kafka_cluster_encryption_in_transit = _utilities.configure(kafka_cluster_encryption_in_transit, ConnectorKafkaClusterEncryptionInTransitArgs, True)
             if kafka_cluster_encryption_in_transit is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_cluster_encryption_in_transit'")
             __props__.__dict__["kafka_cluster_encryption_in_transit"] = kafka_cluster_encryption_in_transit
             if kafkaconnect_version is None and not opts.urn:
                 raise TypeError("Missing required property 'kafkaconnect_version'")
             __props__.__dict__["kafkaconnect_version"] = kafkaconnect_version
-            log_delivery = _utilities.configure(log_delivery, ConnectorLogDeliveryArgs, True)
             __props__.__dict__["log_delivery"] = log_delivery
             __props__.__dict__["name"] = name
             if plugins is None and not opts.urn:
@@ -798,7 +671,6 @@ class Connector(pulumi.CustomResource):
             if service_execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'service_execution_role_arn'")
             __props__.__dict__["service_execution_role_arn"] = service_execution_role_arn
-            worker_configuration = _utilities.configure(worker_configuration, ConnectorWorkerConfigurationArgs, True)
             __props__.__dict__["worker_configuration"] = worker_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["version"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApplicationArgs', 'Application']
@@ -35,62 +35,21 @@ class ApplicationArgs:
         :param pulumi.Input[str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ApplicationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            auto_config_enabled=auto_config_enabled,
-            auto_create=auto_create,
-            cwe_monitor_enabled=cwe_monitor_enabled,
-            grouping_type=grouping_type,
-            ops_center_enabled=ops_center_enabled,
-            ops_item_sns_topic_arn=ops_item_sns_topic_arn,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             auto_config_enabled: Optional[pulumi.Input[bool]] = None,
-             auto_create: Optional[pulumi.Input[bool]] = None,
-             cwe_monitor_enabled: Optional[pulumi.Input[bool]] = None,
-             grouping_type: Optional[pulumi.Input[str]] = None,
-             ops_center_enabled: Optional[pulumi.Input[bool]] = None,
-             ops_item_sns_topic_arn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if resource_group_name is None:
-            raise TypeError("Missing 'resource_group_name' argument")
-        if auto_config_enabled is None and 'autoConfigEnabled' in kwargs:
-            auto_config_enabled = kwargs['autoConfigEnabled']
-        if auto_create is None and 'autoCreate' in kwargs:
-            auto_create = kwargs['autoCreate']
-        if cwe_monitor_enabled is None and 'cweMonitorEnabled' in kwargs:
-            cwe_monitor_enabled = kwargs['cweMonitorEnabled']
-        if grouping_type is None and 'groupingType' in kwargs:
-            grouping_type = kwargs['groupingType']
-        if ops_center_enabled is None and 'opsCenterEnabled' in kwargs:
-            ops_center_enabled = kwargs['opsCenterEnabled']
-        if ops_item_sns_topic_arn is None and 'opsItemSnsTopicArn' in kwargs:
-            ops_item_sns_topic_arn = kwargs['opsItemSnsTopicArn']
-
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_config_enabled is not None:
-            _setter("auto_config_enabled", auto_config_enabled)
+            pulumi.set(__self__, "auto_config_enabled", auto_config_enabled)
         if auto_create is not None:
-            _setter("auto_create", auto_create)
+            pulumi.set(__self__, "auto_create", auto_create)
         if cwe_monitor_enabled is not None:
-            _setter("cwe_monitor_enabled", cwe_monitor_enabled)
+            pulumi.set(__self__, "cwe_monitor_enabled", cwe_monitor_enabled)
         if grouping_type is not None:
-            _setter("grouping_type", grouping_type)
+            pulumi.set(__self__, "grouping_type", grouping_type)
         if ops_center_enabled is not None:
-            _setter("ops_center_enabled", ops_center_enabled)
+            pulumi.set(__self__, "ops_center_enabled", ops_center_enabled)
         if ops_item_sns_topic_arn is not None:
-            _setter("ops_item_sns_topic_arn", ops_item_sns_topic_arn)
+            pulumi.set(__self__, "ops_item_sns_topic_arn", ops_item_sns_topic_arn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -219,74 +178,29 @@ class _ApplicationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _ApplicationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            auto_config_enabled=auto_config_enabled,
-            auto_create=auto_create,
-            cwe_monitor_enabled=cwe_monitor_enabled,
-            grouping_type=grouping_type,
-            ops_center_enabled=ops_center_enabled,
-            ops_item_sns_topic_arn=ops_item_sns_topic_arn,
-            resource_group_name=resource_group_name,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             auto_config_enabled: Optional[pulumi.Input[bool]] = None,
-             auto_create: Optional[pulumi.Input[bool]] = None,
-             cwe_monitor_enabled: Optional[pulumi.Input[bool]] = None,
-             grouping_type: Optional[pulumi.Input[str]] = None,
-             ops_center_enabled: Optional[pulumi.Input[bool]] = None,
-             ops_item_sns_topic_arn: Optional[pulumi.Input[str]] = None,
-             resource_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_config_enabled is None and 'autoConfigEnabled' in kwargs:
-            auto_config_enabled = kwargs['autoConfigEnabled']
-        if auto_create is None and 'autoCreate' in kwargs:
-            auto_create = kwargs['autoCreate']
-        if cwe_monitor_enabled is None and 'cweMonitorEnabled' in kwargs:
-            cwe_monitor_enabled = kwargs['cweMonitorEnabled']
-        if grouping_type is None and 'groupingType' in kwargs:
-            grouping_type = kwargs['groupingType']
-        if ops_center_enabled is None and 'opsCenterEnabled' in kwargs:
-            ops_center_enabled = kwargs['opsCenterEnabled']
-        if ops_item_sns_topic_arn is None and 'opsItemSnsTopicArn' in kwargs:
-            ops_item_sns_topic_arn = kwargs['opsItemSnsTopicArn']
-        if resource_group_name is None and 'resourceGroupName' in kwargs:
-            resource_group_name = kwargs['resourceGroupName']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if auto_config_enabled is not None:
-            _setter("auto_config_enabled", auto_config_enabled)
+            pulumi.set(__self__, "auto_config_enabled", auto_config_enabled)
         if auto_create is not None:
-            _setter("auto_create", auto_create)
+            pulumi.set(__self__, "auto_create", auto_create)
         if cwe_monitor_enabled is not None:
-            _setter("cwe_monitor_enabled", cwe_monitor_enabled)
+            pulumi.set(__self__, "cwe_monitor_enabled", cwe_monitor_enabled)
         if grouping_type is not None:
-            _setter("grouping_type", grouping_type)
+            pulumi.set(__self__, "grouping_type", grouping_type)
         if ops_center_enabled is not None:
-            _setter("ops_center_enabled", ops_center_enabled)
+            pulumi.set(__self__, "ops_center_enabled", ops_center_enabled)
         if ops_item_sns_topic_arn is not None:
-            _setter("ops_item_sns_topic_arn", ops_item_sns_topic_arn)
+            pulumi.set(__self__, "ops_item_sns_topic_arn", ops_item_sns_topic_arn)
         if resource_group_name is not None:
-            _setter("resource_group_name", resource_group_name)
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -517,10 +431,6 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

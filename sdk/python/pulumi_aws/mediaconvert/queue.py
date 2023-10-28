@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,43 +31,18 @@ class QueueArgs:
         :param pulumi.Input[str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        QueueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            name=name,
-            pricing_plan=pricing_plan,
-            reservation_plan_settings=reservation_plan_settings,
-            status=status,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             pricing_plan: Optional[pulumi.Input[str]] = None,
-             reservation_plan_settings: Optional[pulumi.Input['QueueReservationPlanSettingsArgs']] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if pricing_plan is None and 'pricingPlan' in kwargs:
-            pricing_plan = kwargs['pricingPlan']
-        if reservation_plan_settings is None and 'reservationPlanSettings' in kwargs:
-            reservation_plan_settings = kwargs['reservationPlanSettings']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if pricing_plan is not None:
-            _setter("pricing_plan", pricing_plan)
+            pulumi.set(__self__, "pricing_plan", pricing_plan)
         if reservation_plan_settings is not None:
-            _setter("reservation_plan_settings", reservation_plan_settings)
+            pulumi.set(__self__, "reservation_plan_settings", reservation_plan_settings)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -164,56 +139,25 @@ class _QueueState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _QueueState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            description=description,
-            name=name,
-            pricing_plan=pricing_plan,
-            reservation_plan_settings=reservation_plan_settings,
-            status=status,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             pricing_plan: Optional[pulumi.Input[str]] = None,
-             reservation_plan_settings: Optional[pulumi.Input['QueueReservationPlanSettingsArgs']] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if pricing_plan is None and 'pricingPlan' in kwargs:
-            pricing_plan = kwargs['pricingPlan']
-        if reservation_plan_settings is None and 'reservationPlanSettings' in kwargs:
-            reservation_plan_settings = kwargs['reservationPlanSettings']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if pricing_plan is not None:
-            _setter("pricing_plan", pricing_plan)
+            pulumi.set(__self__, "pricing_plan", pricing_plan)
         if reservation_plan_settings is not None:
-            _setter("reservation_plan_settings", reservation_plan_settings)
+            pulumi.set(__self__, "reservation_plan_settings", reservation_plan_settings)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -392,10 +336,6 @@ class Queue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            QueueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -419,7 +359,6 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["pricing_plan"] = pricing_plan
-            reservation_plan_settings = _utilities.configure(reservation_plan_settings, QueueReservationPlanSettingsArgs, True)
             __props__.__dict__["reservation_plan_settings"] = reservation_plan_settings
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MailFromArgs', 'MailFrom']
@@ -25,33 +25,10 @@ class MailFromArgs:
                The following arguments are optional:
         :param pulumi.Input[str] behavior_on_mx_failure: The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
         """
-        MailFromArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain=domain,
-            mail_from_domain=mail_from_domain,
-            behavior_on_mx_failure=behavior_on_mx_failure,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain: Optional[pulumi.Input[str]] = None,
-             mail_from_domain: Optional[pulumi.Input[str]] = None,
-             behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain is None:
-            raise TypeError("Missing 'domain' argument")
-        if mail_from_domain is None and 'mailFromDomain' in kwargs:
-            mail_from_domain = kwargs['mailFromDomain']
-        if mail_from_domain is None:
-            raise TypeError("Missing 'mail_from_domain' argument")
-        if behavior_on_mx_failure is None and 'behaviorOnMxFailure' in kwargs:
-            behavior_on_mx_failure = kwargs['behaviorOnMxFailure']
-
-        _setter("domain", domain)
-        _setter("mail_from_domain", mail_from_domain)
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "mail_from_domain", mail_from_domain)
         if behavior_on_mx_failure is not None:
-            _setter("behavior_on_mx_failure", behavior_on_mx_failure)
+            pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
 
     @property
     @pulumi.getter
@@ -106,31 +83,12 @@ class _MailFromState:
                
                The following arguments are optional:
         """
-        _MailFromState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            behavior_on_mx_failure=behavior_on_mx_failure,
-            domain=domain,
-            mail_from_domain=mail_from_domain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
-             domain: Optional[pulumi.Input[str]] = None,
-             mail_from_domain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if behavior_on_mx_failure is None and 'behaviorOnMxFailure' in kwargs:
-            behavior_on_mx_failure = kwargs['behaviorOnMxFailure']
-        if mail_from_domain is None and 'mailFromDomain' in kwargs:
-            mail_from_domain = kwargs['mailFromDomain']
-
         if behavior_on_mx_failure is not None:
-            _setter("behavior_on_mx_failure", behavior_on_mx_failure)
+            pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
         if domain is not None:
-            _setter("domain", domain)
+            pulumi.set(__self__, "domain", domain)
         if mail_from_domain is not None:
-            _setter("mail_from_domain", mail_from_domain)
+            pulumi.set(__self__, "mail_from_domain", mail_from_domain)
 
     @property
     @pulumi.getter(name="behaviorOnMxFailure")
@@ -312,10 +270,6 @@ class MailFrom(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MailFromArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

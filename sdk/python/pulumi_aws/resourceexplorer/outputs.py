@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,27 +21,12 @@ class IndexTimeouts(dict):
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
                  update: Optional[str] = None):
-        IndexTimeouts._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            create=create,
-            delete=delete,
-            update=update,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             create: Optional[str] = None,
-             delete: Optional[str] = None,
-             update: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if create is not None:
-            _setter("create", create)
+            pulumi.set(__self__, "create", create)
         if delete is not None:
-            _setter("delete", delete)
+            pulumi.set(__self__, "delete", delete)
         if update is not None:
-            _setter("update", update)
+            pulumi.set(__self__, "update", update)
 
     @property
     @pulumi.getter
@@ -83,22 +68,7 @@ class ViewFilters(dict):
         """
         :param str filter_string: The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
         """
-        ViewFilters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filter_string=filter_string,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filter_string: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if filter_string is None and 'filterString' in kwargs:
-            filter_string = kwargs['filterString']
-        if filter_string is None:
-            raise TypeError("Missing 'filter_string' argument")
-
-        _setter("filter_string", filter_string)
+        pulumi.set(__self__, "filter_string", filter_string)
 
     @property
     @pulumi.getter(name="filterString")
@@ -116,20 +86,7 @@ class ViewIncludedProperty(dict):
         """
         :param str name: The name of the property that is included in this view. Valid values: `tags`.
         """
-        ViewIncludedProperty._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter

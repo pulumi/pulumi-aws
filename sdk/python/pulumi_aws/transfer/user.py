@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,66 +37,21 @@ class UserArgs:
         :param pulumi.Input['UserPosixProfileArgs'] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         """
-        UserArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role=role,
-            server_id=server_id,
-            user_name=user_name,
-            home_directory=home_directory,
-            home_directory_mappings=home_directory_mappings,
-            home_directory_type=home_directory_type,
-            policy=policy,
-            posix_profile=posix_profile,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role: Optional[pulumi.Input[str]] = None,
-             server_id: Optional[pulumi.Input[str]] = None,
-             user_name: Optional[pulumi.Input[str]] = None,
-             home_directory: Optional[pulumi.Input[str]] = None,
-             home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['UserHomeDirectoryMappingArgs']]]] = None,
-             home_directory_type: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             posix_profile: Optional[pulumi.Input['UserPosixProfileArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if role is None:
-            raise TypeError("Missing 'role' argument")
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if server_id is None:
-            raise TypeError("Missing 'server_id' argument")
-        if user_name is None and 'userName' in kwargs:
-            user_name = kwargs['userName']
-        if user_name is None:
-            raise TypeError("Missing 'user_name' argument")
-        if home_directory is None and 'homeDirectory' in kwargs:
-            home_directory = kwargs['homeDirectory']
-        if home_directory_mappings is None and 'homeDirectoryMappings' in kwargs:
-            home_directory_mappings = kwargs['homeDirectoryMappings']
-        if home_directory_type is None and 'homeDirectoryType' in kwargs:
-            home_directory_type = kwargs['homeDirectoryType']
-        if posix_profile is None and 'posixProfile' in kwargs:
-            posix_profile = kwargs['posixProfile']
-
-        _setter("role", role)
-        _setter("server_id", server_id)
-        _setter("user_name", user_name)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "server_id", server_id)
+        pulumi.set(__self__, "user_name", user_name)
         if home_directory is not None:
-            _setter("home_directory", home_directory)
+            pulumi.set(__self__, "home_directory", home_directory)
         if home_directory_mappings is not None:
-            _setter("home_directory_mappings", home_directory_mappings)
+            pulumi.set(__self__, "home_directory_mappings", home_directory_mappings)
         if home_directory_type is not None:
-            _setter("home_directory_type", home_directory_type)
+            pulumi.set(__self__, "home_directory_type", home_directory_type)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if posix_profile is not None:
-            _setter("posix_profile", posix_profile)
+            pulumi.set(__self__, "posix_profile", posix_profile)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -235,76 +190,31 @@ class _UserState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_name: The name used for log in to your SFTP server.
         """
-        _UserState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            home_directory=home_directory,
-            home_directory_mappings=home_directory_mappings,
-            home_directory_type=home_directory_type,
-            policy=policy,
-            posix_profile=posix_profile,
-            role=role,
-            server_id=server_id,
-            tags=tags,
-            tags_all=tags_all,
-            user_name=user_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             home_directory: Optional[pulumi.Input[str]] = None,
-             home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['UserHomeDirectoryMappingArgs']]]] = None,
-             home_directory_type: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             posix_profile: Optional[pulumi.Input['UserPosixProfileArgs']] = None,
-             role: Optional[pulumi.Input[str]] = None,
-             server_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if home_directory is None and 'homeDirectory' in kwargs:
-            home_directory = kwargs['homeDirectory']
-        if home_directory_mappings is None and 'homeDirectoryMappings' in kwargs:
-            home_directory_mappings = kwargs['homeDirectoryMappings']
-        if home_directory_type is None and 'homeDirectoryType' in kwargs:
-            home_directory_type = kwargs['homeDirectoryType']
-        if posix_profile is None and 'posixProfile' in kwargs:
-            posix_profile = kwargs['posixProfile']
-        if server_id is None and 'serverId' in kwargs:
-            server_id = kwargs['serverId']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if user_name is None and 'userName' in kwargs:
-            user_name = kwargs['userName']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if home_directory is not None:
-            _setter("home_directory", home_directory)
+            pulumi.set(__self__, "home_directory", home_directory)
         if home_directory_mappings is not None:
-            _setter("home_directory_mappings", home_directory_mappings)
+            pulumi.set(__self__, "home_directory_mappings", home_directory_mappings)
         if home_directory_type is not None:
-            _setter("home_directory_type", home_directory_type)
+            pulumi.set(__self__, "home_directory_type", home_directory_type)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if posix_profile is not None:
-            _setter("posix_profile", posix_profile)
+            pulumi.set(__self__, "posix_profile", posix_profile)
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if user_name is not None:
-            _setter("user_name", user_name)
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter
@@ -587,10 +497,6 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -618,7 +524,6 @@ class User(pulumi.CustomResource):
             __props__.__dict__["home_directory_mappings"] = home_directory_mappings
             __props__.__dict__["home_directory_type"] = home_directory_type
             __props__.__dict__["policy"] = policy
-            posix_profile = _utilities.configure(posix_profile, UserPosixProfileArgs, True)
             __props__.__dict__["posix_profile"] = posix_profile
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")

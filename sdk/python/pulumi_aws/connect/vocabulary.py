@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VocabularyArgs', 'Vocabulary']
@@ -28,42 +28,13 @@ class VocabularyArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the vocabulary. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        VocabularyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            instance_id=instance_id,
-            language_code=language_code,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[pulumi.Input[str]] = None,
-             instance_id: Optional[pulumi.Input[str]] = None,
-             language_code: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if instance_id is None and 'instanceId' in kwargs:
-            instance_id = kwargs['instanceId']
-        if instance_id is None:
-            raise TypeError("Missing 'instance_id' argument")
-        if language_code is None and 'languageCode' in kwargs:
-            language_code = kwargs['languageCode']
-        if language_code is None:
-            raise TypeError("Missing 'language_code' argument")
-
-        _setter("content", content)
-        _setter("instance_id", instance_id)
-        _setter("language_code", language_code)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "instance_id", instance_id)
+        pulumi.set(__self__, "language_code", language_code)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -156,74 +127,31 @@ class _VocabularyState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vocabulary_id: The identifier of the custom vocabulary.
         """
-        _VocabularyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            content=content,
-            failure_reason=failure_reason,
-            instance_id=instance_id,
-            language_code=language_code,
-            last_modified_time=last_modified_time,
-            name=name,
-            state=state,
-            tags=tags,
-            tags_all=tags_all,
-            vocabulary_id=vocabulary_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             failure_reason: Optional[pulumi.Input[str]] = None,
-             instance_id: Optional[pulumi.Input[str]] = None,
-             language_code: Optional[pulumi.Input[str]] = None,
-             last_modified_time: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vocabulary_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if failure_reason is None and 'failureReason' in kwargs:
-            failure_reason = kwargs['failureReason']
-        if instance_id is None and 'instanceId' in kwargs:
-            instance_id = kwargs['instanceId']
-        if language_code is None and 'languageCode' in kwargs:
-            language_code = kwargs['languageCode']
-        if last_modified_time is None and 'lastModifiedTime' in kwargs:
-            last_modified_time = kwargs['lastModifiedTime']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if vocabulary_id is None and 'vocabularyId' in kwargs:
-            vocabulary_id = kwargs['vocabularyId']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if failure_reason is not None:
-            _setter("failure_reason", failure_reason)
+            pulumi.set(__self__, "failure_reason", failure_reason)
         if instance_id is not None:
-            _setter("instance_id", instance_id)
+            pulumi.set(__self__, "instance_id", instance_id)
         if language_code is not None:
-            _setter("language_code", language_code)
+            pulumi.set(__self__, "language_code", language_code)
         if last_modified_time is not None:
-            _setter("last_modified_time", last_modified_time)
+            pulumi.set(__self__, "last_modified_time", last_modified_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if vocabulary_id is not None:
-            _setter("vocabulary_id", vocabulary_id)
+            pulumi.set(__self__, "vocabulary_id", vocabulary_id)
 
     @property
     @pulumi.getter
@@ -460,10 +388,6 @@ class Vocabulary(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VocabularyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LogDataProtectionPolicyArgs', 'LogDataProtectionPolicy']
@@ -21,29 +21,8 @@ class LogDataProtectionPolicyArgs:
         :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         """
-        LogDataProtectionPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_group_name=log_group_name,
-            policy_document=policy_document,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_group_name: Optional[pulumi.Input[str]] = None,
-             policy_document: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if log_group_name is None and 'logGroupName' in kwargs:
-            log_group_name = kwargs['logGroupName']
-        if log_group_name is None:
-            raise TypeError("Missing 'log_group_name' argument")
-        if policy_document is None and 'policyDocument' in kwargs:
-            policy_document = kwargs['policyDocument']
-        if policy_document is None:
-            raise TypeError("Missing 'policy_document' argument")
-
-        _setter("log_group_name", log_group_name)
-        _setter("policy_document", policy_document)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        pulumi.set(__self__, "policy_document", policy_document)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -80,27 +59,10 @@ class _LogDataProtectionPolicyState:
         :param pulumi.Input[str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[str] policy_document: Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         """
-        _LogDataProtectionPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_group_name=log_group_name,
-            policy_document=policy_document,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_group_name: Optional[pulumi.Input[str]] = None,
-             policy_document: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if log_group_name is None and 'logGroupName' in kwargs:
-            log_group_name = kwargs['logGroupName']
-        if policy_document is None and 'policyDocument' in kwargs:
-            policy_document = kwargs['policyDocument']
-
         if log_group_name is not None:
-            _setter("log_group_name", log_group_name)
+            pulumi.set(__self__, "log_group_name", log_group_name)
         if policy_document is not None:
-            _setter("policy_document", policy_document)
+            pulumi.set(__self__, "policy_document", policy_document)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -264,10 +226,6 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LogDataProtectionPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PortfolioShareArgs', 'PortfolioShare']
@@ -33,58 +33,17 @@ class PortfolioShareArgs:
         :param pulumi.Input[bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         :param pulumi.Input[bool] wait_for_acceptance: Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
         """
-        PortfolioShareArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            portfolio_id=portfolio_id,
-            principal_id=principal_id,
-            type=type,
-            accept_language=accept_language,
-            share_principals=share_principals,
-            share_tag_options=share_tag_options,
-            wait_for_acceptance=wait_for_acceptance,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             portfolio_id: Optional[pulumi.Input[str]] = None,
-             principal_id: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             accept_language: Optional[pulumi.Input[str]] = None,
-             share_principals: Optional[pulumi.Input[bool]] = None,
-             share_tag_options: Optional[pulumi.Input[bool]] = None,
-             wait_for_acceptance: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if portfolio_id is None and 'portfolioId' in kwargs:
-            portfolio_id = kwargs['portfolioId']
-        if portfolio_id is None:
-            raise TypeError("Missing 'portfolio_id' argument")
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if principal_id is None:
-            raise TypeError("Missing 'principal_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if accept_language is None and 'acceptLanguage' in kwargs:
-            accept_language = kwargs['acceptLanguage']
-        if share_principals is None and 'sharePrincipals' in kwargs:
-            share_principals = kwargs['sharePrincipals']
-        if share_tag_options is None and 'shareTagOptions' in kwargs:
-            share_tag_options = kwargs['shareTagOptions']
-        if wait_for_acceptance is None and 'waitForAcceptance' in kwargs:
-            wait_for_acceptance = kwargs['waitForAcceptance']
-
-        _setter("portfolio_id", portfolio_id)
-        _setter("principal_id", principal_id)
-        _setter("type", type)
+        pulumi.set(__self__, "portfolio_id", portfolio_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "type", type)
         if accept_language is not None:
-            _setter("accept_language", accept_language)
+            pulumi.set(__self__, "accept_language", accept_language)
         if share_principals is not None:
-            _setter("share_principals", share_principals)
+            pulumi.set(__self__, "share_principals", share_principals)
         if share_tag_options is not None:
-            _setter("share_tag_options", share_tag_options)
+            pulumi.set(__self__, "share_tag_options", share_tag_options)
         if wait_for_acceptance is not None:
-            _setter("wait_for_acceptance", wait_for_acceptance)
+            pulumi.set(__self__, "wait_for_acceptance", wait_for_acceptance)
 
     @property
     @pulumi.getter(name="portfolioId")
@@ -197,59 +156,22 @@ class _PortfolioShareState:
                The following arguments are optional:
         :param pulumi.Input[bool] wait_for_acceptance: Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
         """
-        _PortfolioShareState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            accept_language=accept_language,
-            accepted=accepted,
-            portfolio_id=portfolio_id,
-            principal_id=principal_id,
-            share_principals=share_principals,
-            share_tag_options=share_tag_options,
-            type=type,
-            wait_for_acceptance=wait_for_acceptance,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             accept_language: Optional[pulumi.Input[str]] = None,
-             accepted: Optional[pulumi.Input[bool]] = None,
-             portfolio_id: Optional[pulumi.Input[str]] = None,
-             principal_id: Optional[pulumi.Input[str]] = None,
-             share_principals: Optional[pulumi.Input[bool]] = None,
-             share_tag_options: Optional[pulumi.Input[bool]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             wait_for_acceptance: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if accept_language is None and 'acceptLanguage' in kwargs:
-            accept_language = kwargs['acceptLanguage']
-        if portfolio_id is None and 'portfolioId' in kwargs:
-            portfolio_id = kwargs['portfolioId']
-        if principal_id is None and 'principalId' in kwargs:
-            principal_id = kwargs['principalId']
-        if share_principals is None and 'sharePrincipals' in kwargs:
-            share_principals = kwargs['sharePrincipals']
-        if share_tag_options is None and 'shareTagOptions' in kwargs:
-            share_tag_options = kwargs['shareTagOptions']
-        if wait_for_acceptance is None and 'waitForAcceptance' in kwargs:
-            wait_for_acceptance = kwargs['waitForAcceptance']
-
         if accept_language is not None:
-            _setter("accept_language", accept_language)
+            pulumi.set(__self__, "accept_language", accept_language)
         if accepted is not None:
-            _setter("accepted", accepted)
+            pulumi.set(__self__, "accepted", accepted)
         if portfolio_id is not None:
-            _setter("portfolio_id", portfolio_id)
+            pulumi.set(__self__, "portfolio_id", portfolio_id)
         if principal_id is not None:
-            _setter("principal_id", principal_id)
+            pulumi.set(__self__, "principal_id", principal_id)
         if share_principals is not None:
-            _setter("share_principals", share_principals)
+            pulumi.set(__self__, "share_principals", share_principals)
         if share_tag_options is not None:
-            _setter("share_tag_options", share_tag_options)
+            pulumi.set(__self__, "share_tag_options", share_tag_options)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if wait_for_acceptance is not None:
-            _setter("wait_for_acceptance", wait_for_acceptance)
+            pulumi.set(__self__, "wait_for_acceptance", wait_for_acceptance)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -455,10 +377,6 @@ class PortfolioShare(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PortfolioShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

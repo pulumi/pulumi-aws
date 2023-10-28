@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -23,23 +23,10 @@ class ClusterClusterEndpoint(dict):
         :param str endpoint: Cluster endpoint.
         :param str region: Region of the endpoint.
         """
-        ClusterClusterEndpoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            endpoint=endpoint,
-            region=region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             endpoint: Optional[str] = None,
-             region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
-            _setter("region", region)
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -69,30 +56,9 @@ class SafetyRuleRuleConfig(dict):
         :param int threshold: Number of controls that must be set when you specify an `ATLEAST` type rule.
         :param str type: Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
         """
-        SafetyRuleRuleConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            inverted=inverted,
-            threshold=threshold,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             inverted: Optional[bool] = None,
-             threshold: Optional[int] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if inverted is None:
-            raise TypeError("Missing 'inverted' argument")
-        if threshold is None:
-            raise TypeError("Missing 'threshold' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("inverted", inverted)
-        _setter("threshold", threshold)
-        _setter("type", type)
+        pulumi.set(__self__, "inverted", inverted)
+        pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter

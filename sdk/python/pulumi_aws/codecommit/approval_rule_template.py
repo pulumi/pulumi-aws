@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApprovalRuleTemplateArgs', 'ApprovalRuleTemplate']
@@ -23,28 +23,11 @@ class ApprovalRuleTemplateArgs:
         :param pulumi.Input[str] description: The description of the approval rule template. Maximum of 1000 characters.
         :param pulumi.Input[str] name: The name for the approval rule template. Maximum of 100 characters.
         """
-        ApprovalRuleTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            description=description,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-
-        _setter("content", content)
+        pulumi.set(__self__, "content", content)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -105,57 +88,22 @@ class _ApprovalRuleTemplateState:
         :param pulumi.Input[str] name: The name for the approval rule template. Maximum of 100 characters.
         :param pulumi.Input[str] rule_content_sha256: The SHA-256 hash signature for the content of the approval rule template.
         """
-        _ApprovalRuleTemplateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            approval_rule_template_id=approval_rule_template_id,
-            content=content,
-            creation_date=creation_date,
-            description=description,
-            last_modified_date=last_modified_date,
-            last_modified_user=last_modified_user,
-            name=name,
-            rule_content_sha256=rule_content_sha256,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             approval_rule_template_id: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             creation_date: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             last_modified_date: Optional[pulumi.Input[str]] = None,
-             last_modified_user: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rule_content_sha256: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if approval_rule_template_id is None and 'approvalRuleTemplateId' in kwargs:
-            approval_rule_template_id = kwargs['approvalRuleTemplateId']
-        if creation_date is None and 'creationDate' in kwargs:
-            creation_date = kwargs['creationDate']
-        if last_modified_date is None and 'lastModifiedDate' in kwargs:
-            last_modified_date = kwargs['lastModifiedDate']
-        if last_modified_user is None and 'lastModifiedUser' in kwargs:
-            last_modified_user = kwargs['lastModifiedUser']
-        if rule_content_sha256 is None and 'ruleContentSha256' in kwargs:
-            rule_content_sha256 = kwargs['ruleContentSha256']
-
         if approval_rule_template_id is not None:
-            _setter("approval_rule_template_id", approval_rule_template_id)
+            pulumi.set(__self__, "approval_rule_template_id", approval_rule_template_id)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if creation_date is not None:
-            _setter("creation_date", creation_date)
+            pulumi.set(__self__, "creation_date", creation_date)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if last_modified_date is not None:
-            _setter("last_modified_date", last_modified_date)
+            pulumi.set(__self__, "last_modified_date", last_modified_date)
         if last_modified_user is not None:
-            _setter("last_modified_user", last_modified_user)
+            pulumi.set(__self__, "last_modified_user", last_modified_user)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rule_content_sha256 is not None:
-            _setter("rule_content_sha256", rule_content_sha256)
+            pulumi.set(__self__, "rule_content_sha256", rule_content_sha256)
 
     @property
     @pulumi.getter(name="approvalRuleTemplateId")
@@ -347,10 +295,6 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApprovalRuleTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

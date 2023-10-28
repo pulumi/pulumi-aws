@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,38 +27,13 @@ class AccessPointArgs:
         :param pulumi.Input['AccessPointRootDirectoryArgs'] root_directory: Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
-        AccessPointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file_system_id=file_system_id,
-            posix_user=posix_user,
-            root_directory=root_directory,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file_system_id: Optional[pulumi.Input[str]] = None,
-             posix_user: Optional[pulumi.Input['AccessPointPosixUserArgs']] = None,
-             root_directory: Optional[pulumi.Input['AccessPointRootDirectoryArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if file_system_id is None and 'fileSystemId' in kwargs:
-            file_system_id = kwargs['fileSystemId']
-        if file_system_id is None:
-            raise TypeError("Missing 'file_system_id' argument")
-        if posix_user is None and 'posixUser' in kwargs:
-            posix_user = kwargs['posixUser']
-        if root_directory is None and 'rootDirectory' in kwargs:
-            root_directory = kwargs['rootDirectory']
-
-        _setter("file_system_id", file_system_id)
+        pulumi.set(__self__, "file_system_id", file_system_id)
         if posix_user is not None:
-            _setter("posix_user", posix_user)
+            pulumi.set(__self__, "posix_user", posix_user)
         if root_directory is not None:
-            _setter("root_directory", root_directory)
+            pulumi.set(__self__, "root_directory", root_directory)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -130,62 +105,25 @@ class _AccessPointState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _AccessPointState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            file_system_arn=file_system_arn,
-            file_system_id=file_system_id,
-            owner_id=owner_id,
-            posix_user=posix_user,
-            root_directory=root_directory,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             file_system_arn: Optional[pulumi.Input[str]] = None,
-             file_system_id: Optional[pulumi.Input[str]] = None,
-             owner_id: Optional[pulumi.Input[str]] = None,
-             posix_user: Optional[pulumi.Input['AccessPointPosixUserArgs']] = None,
-             root_directory: Optional[pulumi.Input['AccessPointRootDirectoryArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if file_system_arn is None and 'fileSystemArn' in kwargs:
-            file_system_arn = kwargs['fileSystemArn']
-        if file_system_id is None and 'fileSystemId' in kwargs:
-            file_system_id = kwargs['fileSystemId']
-        if owner_id is None and 'ownerId' in kwargs:
-            owner_id = kwargs['ownerId']
-        if posix_user is None and 'posixUser' in kwargs:
-            posix_user = kwargs['posixUser']
-        if root_directory is None and 'rootDirectory' in kwargs:
-            root_directory = kwargs['rootDirectory']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if file_system_arn is not None:
-            _setter("file_system_arn", file_system_arn)
+            pulumi.set(__self__, "file_system_arn", file_system_arn)
         if file_system_id is not None:
-            _setter("file_system_id", file_system_id)
+            pulumi.set(__self__, "file_system_id", file_system_id)
         if owner_id is not None:
-            _setter("owner_id", owner_id)
+            pulumi.set(__self__, "owner_id", owner_id)
         if posix_user is not None:
-            _setter("posix_user", posix_user)
+            pulumi.set(__self__, "posix_user", posix_user)
         if root_directory is not None:
-            _setter("root_directory", root_directory)
+            pulumi.set(__self__, "root_directory", root_directory)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -357,10 +295,6 @@ class AccessPoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccessPointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -382,9 +316,7 @@ class AccessPoint(pulumi.CustomResource):
             if file_system_id is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_id'")
             __props__.__dict__["file_system_id"] = file_system_id
-            posix_user = _utilities.configure(posix_user, AccessPointPosixUserArgs, True)
             __props__.__dict__["posix_user"] = posix_user
-            root_directory = _utilities.configure(root_directory, AccessPointRootDirectoryArgs, True)
             __props__.__dict__["root_directory"] = root_directory
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,66 +36,17 @@ class ExportTaskArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] export_onlies: Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
         :param pulumi.Input[str] s3_prefix: Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         """
-        ExportTaskArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            export_task_identifier=export_task_identifier,
-            iam_role_arn=iam_role_arn,
-            kms_key_id=kms_key_id,
-            s3_bucket_name=s3_bucket_name,
-            source_arn=source_arn,
-            export_onlies=export_onlies,
-            s3_prefix=s3_prefix,
-            timeouts=timeouts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             export_task_identifier: Optional[pulumi.Input[str]] = None,
-             iam_role_arn: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             s3_bucket_name: Optional[pulumi.Input[str]] = None,
-             source_arn: Optional[pulumi.Input[str]] = None,
-             export_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             s3_prefix: Optional[pulumi.Input[str]] = None,
-             timeouts: Optional[pulumi.Input['ExportTaskTimeoutsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if export_task_identifier is None and 'exportTaskIdentifier' in kwargs:
-            export_task_identifier = kwargs['exportTaskIdentifier']
-        if export_task_identifier is None:
-            raise TypeError("Missing 'export_task_identifier' argument")
-        if iam_role_arn is None and 'iamRoleArn' in kwargs:
-            iam_role_arn = kwargs['iamRoleArn']
-        if iam_role_arn is None:
-            raise TypeError("Missing 'iam_role_arn' argument")
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if kms_key_id is None:
-            raise TypeError("Missing 'kms_key_id' argument")
-        if s3_bucket_name is None and 's3BucketName' in kwargs:
-            s3_bucket_name = kwargs['s3BucketName']
-        if s3_bucket_name is None:
-            raise TypeError("Missing 's3_bucket_name' argument")
-        if source_arn is None and 'sourceArn' in kwargs:
-            source_arn = kwargs['sourceArn']
-        if source_arn is None:
-            raise TypeError("Missing 'source_arn' argument")
-        if export_onlies is None and 'exportOnlies' in kwargs:
-            export_onlies = kwargs['exportOnlies']
-        if s3_prefix is None and 's3Prefix' in kwargs:
-            s3_prefix = kwargs['s3Prefix']
-
-        _setter("export_task_identifier", export_task_identifier)
-        _setter("iam_role_arn", iam_role_arn)
-        _setter("kms_key_id", kms_key_id)
-        _setter("s3_bucket_name", s3_bucket_name)
-        _setter("source_arn", source_arn)
+        pulumi.set(__self__, "export_task_identifier", export_task_identifier)
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "source_arn", source_arn)
         if export_onlies is not None:
-            _setter("export_onlies", export_onlies)
+            pulumi.set(__self__, "export_onlies", export_onlies)
         if s3_prefix is not None:
-            _setter("s3_prefix", s3_prefix)
+            pulumi.set(__self__, "s3_prefix", s3_prefix)
         if timeouts is not None:
-            _setter("timeouts", timeouts)
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter(name="exportTaskIdentifier")
@@ -232,107 +183,38 @@ class _ExportTaskState:
         :param pulumi.Input[str] task_start_time: Time that the snapshot export task started.
         :param pulumi.Input[str] warning_message: Warning about the snapshot export task, if any.
         """
-        _ExportTaskState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            export_onlies=export_onlies,
-            export_task_identifier=export_task_identifier,
-            failure_cause=failure_cause,
-            iam_role_arn=iam_role_arn,
-            kms_key_id=kms_key_id,
-            percent_progress=percent_progress,
-            s3_bucket_name=s3_bucket_name,
-            s3_prefix=s3_prefix,
-            snapshot_time=snapshot_time,
-            source_arn=source_arn,
-            source_type=source_type,
-            status=status,
-            task_end_time=task_end_time,
-            task_start_time=task_start_time,
-            timeouts=timeouts,
-            warning_message=warning_message,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             export_onlies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             export_task_identifier: Optional[pulumi.Input[str]] = None,
-             failure_cause: Optional[pulumi.Input[str]] = None,
-             iam_role_arn: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             percent_progress: Optional[pulumi.Input[int]] = None,
-             s3_bucket_name: Optional[pulumi.Input[str]] = None,
-             s3_prefix: Optional[pulumi.Input[str]] = None,
-             snapshot_time: Optional[pulumi.Input[str]] = None,
-             source_arn: Optional[pulumi.Input[str]] = None,
-             source_type: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             task_end_time: Optional[pulumi.Input[str]] = None,
-             task_start_time: Optional[pulumi.Input[str]] = None,
-             timeouts: Optional[pulumi.Input['ExportTaskTimeoutsArgs']] = None,
-             warning_message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if export_onlies is None and 'exportOnlies' in kwargs:
-            export_onlies = kwargs['exportOnlies']
-        if export_task_identifier is None and 'exportTaskIdentifier' in kwargs:
-            export_task_identifier = kwargs['exportTaskIdentifier']
-        if failure_cause is None and 'failureCause' in kwargs:
-            failure_cause = kwargs['failureCause']
-        if iam_role_arn is None and 'iamRoleArn' in kwargs:
-            iam_role_arn = kwargs['iamRoleArn']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if percent_progress is None and 'percentProgress' in kwargs:
-            percent_progress = kwargs['percentProgress']
-        if s3_bucket_name is None and 's3BucketName' in kwargs:
-            s3_bucket_name = kwargs['s3BucketName']
-        if s3_prefix is None and 's3Prefix' in kwargs:
-            s3_prefix = kwargs['s3Prefix']
-        if snapshot_time is None and 'snapshotTime' in kwargs:
-            snapshot_time = kwargs['snapshotTime']
-        if source_arn is None and 'sourceArn' in kwargs:
-            source_arn = kwargs['sourceArn']
-        if source_type is None and 'sourceType' in kwargs:
-            source_type = kwargs['sourceType']
-        if task_end_time is None and 'taskEndTime' in kwargs:
-            task_end_time = kwargs['taskEndTime']
-        if task_start_time is None and 'taskStartTime' in kwargs:
-            task_start_time = kwargs['taskStartTime']
-        if warning_message is None and 'warningMessage' in kwargs:
-            warning_message = kwargs['warningMessage']
-
         if export_onlies is not None:
-            _setter("export_onlies", export_onlies)
+            pulumi.set(__self__, "export_onlies", export_onlies)
         if export_task_identifier is not None:
-            _setter("export_task_identifier", export_task_identifier)
+            pulumi.set(__self__, "export_task_identifier", export_task_identifier)
         if failure_cause is not None:
-            _setter("failure_cause", failure_cause)
+            pulumi.set(__self__, "failure_cause", failure_cause)
         if iam_role_arn is not None:
-            _setter("iam_role_arn", iam_role_arn)
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if percent_progress is not None:
-            _setter("percent_progress", percent_progress)
+            pulumi.set(__self__, "percent_progress", percent_progress)
         if s3_bucket_name is not None:
-            _setter("s3_bucket_name", s3_bucket_name)
+            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_prefix is not None:
-            _setter("s3_prefix", s3_prefix)
+            pulumi.set(__self__, "s3_prefix", s3_prefix)
         if snapshot_time is not None:
-            _setter("snapshot_time", snapshot_time)
+            pulumi.set(__self__, "snapshot_time", snapshot_time)
         if source_arn is not None:
-            _setter("source_arn", source_arn)
+            pulumi.set(__self__, "source_arn", source_arn)
         if source_type is not None:
-            _setter("source_type", source_type)
+            pulumi.set(__self__, "source_type", source_type)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if task_end_time is not None:
-            _setter("task_end_time", task_end_time)
+            pulumi.set(__self__, "task_end_time", task_end_time)
         if task_start_time is not None:
-            _setter("task_start_time", task_start_time)
+            pulumi.set(__self__, "task_start_time", task_start_time)
         if timeouts is not None:
-            _setter("timeouts", timeouts)
+            pulumi.set(__self__, "timeouts", timeouts)
         if warning_message is not None:
-            _setter("warning_message", warning_message)
+            pulumi.set(__self__, "warning_message", warning_message)
 
     @property
     @pulumi.getter(name="exportOnlies")
@@ -762,10 +644,6 @@ class ExportTask(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ExportTaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -805,7 +683,6 @@ class ExportTask(pulumi.CustomResource):
             if source_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'source_arn'")
             __props__.__dict__["source_arn"] = source_arn
-            timeouts = _utilities.configure(timeouts, ExportTaskTimeoutsArgs, True)
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["failure_cause"] = None
             __props__.__dict__["percent_progress"] = None

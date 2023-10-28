@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -70,57 +70,12 @@ class KxClusterAutoScalingConfiguration(dict):
         :param float scale_in_cooldown_seconds: Duration in seconds that FinSpace will wait after a scale in event before initiating another scaling event.
         :param float scale_out_cooldown_seconds: Duration in seconds that FinSpace will wait after a scale out event before initiating another scaling event.
         """
-        KxClusterAutoScalingConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_scaling_metric=auto_scaling_metric,
-            max_node_count=max_node_count,
-            metric_target=metric_target,
-            min_node_count=min_node_count,
-            scale_in_cooldown_seconds=scale_in_cooldown_seconds,
-            scale_out_cooldown_seconds=scale_out_cooldown_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_scaling_metric: Optional[str] = None,
-             max_node_count: Optional[int] = None,
-             metric_target: Optional[float] = None,
-             min_node_count: Optional[int] = None,
-             scale_in_cooldown_seconds: Optional[float] = None,
-             scale_out_cooldown_seconds: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_scaling_metric is None and 'autoScalingMetric' in kwargs:
-            auto_scaling_metric = kwargs['autoScalingMetric']
-        if auto_scaling_metric is None:
-            raise TypeError("Missing 'auto_scaling_metric' argument")
-        if max_node_count is None and 'maxNodeCount' in kwargs:
-            max_node_count = kwargs['maxNodeCount']
-        if max_node_count is None:
-            raise TypeError("Missing 'max_node_count' argument")
-        if metric_target is None and 'metricTarget' in kwargs:
-            metric_target = kwargs['metricTarget']
-        if metric_target is None:
-            raise TypeError("Missing 'metric_target' argument")
-        if min_node_count is None and 'minNodeCount' in kwargs:
-            min_node_count = kwargs['minNodeCount']
-        if min_node_count is None:
-            raise TypeError("Missing 'min_node_count' argument")
-        if scale_in_cooldown_seconds is None and 'scaleInCooldownSeconds' in kwargs:
-            scale_in_cooldown_seconds = kwargs['scaleInCooldownSeconds']
-        if scale_in_cooldown_seconds is None:
-            raise TypeError("Missing 'scale_in_cooldown_seconds' argument")
-        if scale_out_cooldown_seconds is None and 'scaleOutCooldownSeconds' in kwargs:
-            scale_out_cooldown_seconds = kwargs['scaleOutCooldownSeconds']
-        if scale_out_cooldown_seconds is None:
-            raise TypeError("Missing 'scale_out_cooldown_seconds' argument")
-
-        _setter("auto_scaling_metric", auto_scaling_metric)
-        _setter("max_node_count", max_node_count)
-        _setter("metric_target", metric_target)
-        _setter("min_node_count", min_node_count)
-        _setter("scale_in_cooldown_seconds", scale_in_cooldown_seconds)
-        _setter("scale_out_cooldown_seconds", scale_out_cooldown_seconds)
+        pulumi.set(__self__, "auto_scaling_metric", auto_scaling_metric)
+        pulumi.set(__self__, "max_node_count", max_node_count)
+        pulumi.set(__self__, "metric_target", metric_target)
+        pulumi.set(__self__, "min_node_count", min_node_count)
+        pulumi.set(__self__, "scale_in_cooldown_seconds", scale_in_cooldown_seconds)
+        pulumi.set(__self__, "scale_out_cooldown_seconds", scale_out_cooldown_seconds)
 
     @property
     @pulumi.getter(name="autoScalingMetric")
@@ -183,25 +138,8 @@ class KxClusterCacheStorageConfiguration(dict):
                * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
                * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
         """
-        KxClusterCacheStorageConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size=size,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size: Optional[int] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if size is None:
-            raise TypeError("Missing 'size' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("size", size)
-        _setter("type", type)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -260,29 +198,8 @@ class KxClusterCapacityConfiguration(dict):
                * kx.s.16xlarge – The node type with a configuration of 432 GiB memory and 64 vCPUs.
                * kx.s.32xlarge – The node type with a configuration of 864 GiB memory and 128 vCPUs.
         """
-        KxClusterCapacityConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            node_count=node_count,
-            node_type=node_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             node_count: Optional[int] = None,
-             node_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if node_count is None and 'nodeCount' in kwargs:
-            node_count = kwargs['nodeCount']
-        if node_count is None:
-            raise TypeError("Missing 'node_count' argument")
-        if node_type is None and 'nodeType' in kwargs:
-            node_type = kwargs['nodeType']
-        if node_type is None:
-            raise TypeError("Missing 'node_type' argument")
-
-        _setter("node_count", node_count)
-        _setter("node_type", node_type)
+        pulumi.set(__self__, "node_count", node_count)
+        pulumi.set(__self__, "node_type", node_type)
 
     @property
     @pulumi.getter(name="nodeCount")
@@ -342,35 +259,10 @@ class KxClusterCode(dict):
         :param str s3_key: Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
         :param str s3_object_version: Version of an S3 Object.
         """
-        KxClusterCode._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_bucket=s3_bucket,
-            s3_key=s3_key,
-            s3_object_version=s3_object_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_bucket: Optional[str] = None,
-             s3_key: Optional[str] = None,
-             s3_object_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if s3_bucket is None and 's3Bucket' in kwargs:
-            s3_bucket = kwargs['s3Bucket']
-        if s3_bucket is None:
-            raise TypeError("Missing 's3_bucket' argument")
-        if s3_key is None and 's3Key' in kwargs:
-            s3_key = kwargs['s3Key']
-        if s3_key is None:
-            raise TypeError("Missing 's3_key' argument")
-        if s3_object_version is None and 's3ObjectVersion' in kwargs:
-            s3_object_version = kwargs['s3ObjectVersion']
-
-        _setter("s3_bucket", s3_bucket)
-        _setter("s3_key", s3_key)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
         if s3_object_version is not None:
-            _setter("s3_object_version", s3_object_version)
+            pulumi.set(__self__, "s3_object_version", s3_object_version)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -429,34 +321,11 @@ class KxClusterDatabase(dict):
         :param Sequence['KxClusterDatabaseCacheConfigurationArgs'] cache_configurations: Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
         :param str changeset_id: A unique identifier of the changeset that is associated with the cluster.
         """
-        KxClusterDatabase._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database_name=database_name,
-            cache_configurations=cache_configurations,
-            changeset_id=changeset_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database_name: Optional[str] = None,
-             cache_configurations: Optional[Sequence['outputs.KxClusterDatabaseCacheConfiguration']] = None,
-             changeset_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if database_name is None:
-            raise TypeError("Missing 'database_name' argument")
-        if cache_configurations is None and 'cacheConfigurations' in kwargs:
-            cache_configurations = kwargs['cacheConfigurations']
-        if changeset_id is None and 'changesetId' in kwargs:
-            changeset_id = kwargs['changesetId']
-
-        _setter("database_name", database_name)
+        pulumi.set(__self__, "database_name", database_name)
         if cache_configurations is not None:
-            _setter("cache_configurations", cache_configurations)
+            pulumi.set(__self__, "cache_configurations", cache_configurations)
         if changeset_id is not None:
-            _setter("changeset_id", changeset_id)
+            pulumi.set(__self__, "changeset_id", changeset_id)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -511,28 +380,9 @@ class KxClusterDatabaseCacheConfiguration(dict):
         :param str cache_type: Type of disk cache.
         :param Sequence[str] db_paths: Paths within the database to cache.
         """
-        KxClusterDatabaseCacheConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cache_type=cache_type,
-            db_paths=db_paths,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cache_type: Optional[str] = None,
-             db_paths: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cache_type is None and 'cacheType' in kwargs:
-            cache_type = kwargs['cacheType']
-        if cache_type is None:
-            raise TypeError("Missing 'cache_type' argument")
-        if db_paths is None and 'dbPaths' in kwargs:
-            db_paths = kwargs['dbPaths']
-
-        _setter("cache_type", cache_type)
+        pulumi.set(__self__, "cache_type", cache_type)
         if db_paths is not None:
-            _setter("db_paths", db_paths)
+            pulumi.set(__self__, "db_paths", db_paths)
 
     @property
     @pulumi.getter(name="cacheType")
@@ -561,25 +411,8 @@ class KxClusterSavedownStorageConfiguration(dict):
         :param str type: Type of writeable storage space for temporarily storing your savedown data. The valid values are:
                * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
         """
-        KxClusterSavedownStorageConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size=size,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size: Optional[int] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if size is None:
-            raise TypeError("Missing 'size' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("size", size)
-        _setter("type", type)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -635,43 +468,10 @@ class KxClusterVpcConfiguration(dict):
                * `subnet_ids `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
         :param str vpc_id: Identifier of the VPC endpoint
         """
-        KxClusterVpcConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_address_type=ip_address_type,
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_address_type: Optional[str] = None,
-             security_group_ids: Optional[Sequence[str]] = None,
-             subnet_ids: Optional[Sequence[str]] = None,
-             vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_address_type is None and 'ipAddressType' in kwargs:
-            ip_address_type = kwargs['ipAddressType']
-        if ip_address_type is None:
-            raise TypeError("Missing 'ip_address_type' argument")
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if security_group_ids is None:
-            raise TypeError("Missing 'security_group_ids' argument")
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-        if subnet_ids is None:
-            raise TypeError("Missing 'subnet_ids' argument")
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-        if vpc_id is None:
-            raise TypeError("Missing 'vpc_id' argument")
-
-        _setter("ip_address_type", ip_address_type)
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnet_ids", subnet_ids)
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="ipAddressType")
@@ -732,29 +532,8 @@ class KxEnvironmentCustomDnsConfiguration(dict):
         :param str custom_dns_server_ip: IP address of the DNS server.
         :param str custom_dns_server_name: Name of the DNS server.
         """
-        KxEnvironmentCustomDnsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_dns_server_ip=custom_dns_server_ip,
-            custom_dns_server_name=custom_dns_server_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_dns_server_ip: Optional[str] = None,
-             custom_dns_server_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if custom_dns_server_ip is None and 'customDnsServerIp' in kwargs:
-            custom_dns_server_ip = kwargs['customDnsServerIp']
-        if custom_dns_server_ip is None:
-            raise TypeError("Missing 'custom_dns_server_ip' argument")
-        if custom_dns_server_name is None and 'customDnsServerName' in kwargs:
-            custom_dns_server_name = kwargs['customDnsServerName']
-        if custom_dns_server_name is None:
-            raise TypeError("Missing 'custom_dns_server_name' argument")
-
-        _setter("custom_dns_server_ip", custom_dns_server_ip)
-        _setter("custom_dns_server_name", custom_dns_server_name)
+        pulumi.set(__self__, "custom_dns_server_ip", custom_dns_server_ip)
+        pulumi.set(__self__, "custom_dns_server_name", custom_dns_server_name)
 
     @property
     @pulumi.getter(name="customDnsServerIp")
@@ -805,35 +584,10 @@ class KxEnvironmentTransitGatewayConfiguration(dict):
         :param str transit_gateway_id: Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
         :param Sequence['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs'] attachment_network_acl_configurations: Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
         """
-        KxEnvironmentTransitGatewayConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            routable_cidr_space=routable_cidr_space,
-            transit_gateway_id=transit_gateway_id,
-            attachment_network_acl_configurations=attachment_network_acl_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             routable_cidr_space: Optional[str] = None,
-             transit_gateway_id: Optional[str] = None,
-             attachment_network_acl_configurations: Optional[Sequence['outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if routable_cidr_space is None and 'routableCidrSpace' in kwargs:
-            routable_cidr_space = kwargs['routableCidrSpace']
-        if routable_cidr_space is None:
-            raise TypeError("Missing 'routable_cidr_space' argument")
-        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
-            transit_gateway_id = kwargs['transitGatewayId']
-        if transit_gateway_id is None:
-            raise TypeError("Missing 'transit_gateway_id' argument")
-        if attachment_network_acl_configurations is None and 'attachmentNetworkAclConfigurations' in kwargs:
-            attachment_network_acl_configurations = kwargs['attachmentNetworkAclConfigurations']
-
-        _setter("routable_cidr_space", routable_cidr_space)
-        _setter("transit_gateway_id", transit_gateway_id)
+        pulumi.set(__self__, "routable_cidr_space", routable_cidr_space)
+        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if attachment_network_acl_configurations is not None:
-            _setter("attachment_network_acl_configurations", attachment_network_acl_configurations)
+            pulumi.set(__self__, "attachment_network_acl_configurations", attachment_network_acl_configurations)
 
     @property
     @pulumi.getter(name="routableCidrSpace")
@@ -902,53 +656,14 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration(
         :param 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs' icmp_type_code: Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
         :param 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs' port_range: Range of ports the rule applies to. Defined below.
         """
-        KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr_block=cidr_block,
-            protocol=protocol,
-            rule_action=rule_action,
-            rule_number=rule_number,
-            icmp_type_code=icmp_type_code,
-            port_range=port_range,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr_block: Optional[str] = None,
-             protocol: Optional[str] = None,
-             rule_action: Optional[str] = None,
-             rule_number: Optional[int] = None,
-             icmp_type_code: Optional['outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode'] = None,
-             port_range: Optional['outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cidr_block is None and 'cidrBlock' in kwargs:
-            cidr_block = kwargs['cidrBlock']
-        if cidr_block is None:
-            raise TypeError("Missing 'cidr_block' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if rule_action is None and 'ruleAction' in kwargs:
-            rule_action = kwargs['ruleAction']
-        if rule_action is None:
-            raise TypeError("Missing 'rule_action' argument")
-        if rule_number is None and 'ruleNumber' in kwargs:
-            rule_number = kwargs['ruleNumber']
-        if rule_number is None:
-            raise TypeError("Missing 'rule_number' argument")
-        if icmp_type_code is None and 'icmpTypeCode' in kwargs:
-            icmp_type_code = kwargs['icmpTypeCode']
-        if port_range is None and 'portRange' in kwargs:
-            port_range = kwargs['portRange']
-
-        _setter("cidr_block", cidr_block)
-        _setter("protocol", protocol)
-        _setter("rule_action", rule_action)
-        _setter("rule_number", rule_number)
+        pulumi.set(__self__, "cidr_block", cidr_block)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "rule_action", rule_action)
+        pulumi.set(__self__, "rule_number", rule_number)
         if icmp_type_code is not None:
-            _setter("icmp_type_code", icmp_type_code)
+            pulumi.set(__self__, "icmp_type_code", icmp_type_code)
         if port_range is not None:
-            _setter("port_range", port_range)
+            pulumi.set(__self__, "port_range", port_range)
 
     @property
     @pulumi.getter(name="cidrBlock")
@@ -1008,25 +723,8 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationI
         :param int code: ICMP code. A value of `-1` means all codes for the specified ICMP type.
         :param int type: ICMP type. A value of `-1` means all types.
         """
-        KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            code=code,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             code: Optional[int] = None,
-             type: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if code is None:
-            raise TypeError("Missing 'code' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("code", code)
-        _setter("type", type)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1071,27 +769,8 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationP
         :param int from_: First port in the range.
         :param int to: Last port in the range.
         """
-        KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            from_=from_,
-            to=to,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             from_: Optional[int] = None,
-             to: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if from_ is None and 'from' in kwargs:
-            from_ = kwargs['from']
-        if from_ is None:
-            raise TypeError("Missing 'from_' argument")
-        if to is None:
-            raise TypeError("Missing 'to' argument")
-
-        _setter("from_", from_)
-        _setter("to", to)
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
 
     @property
     @pulumi.getter(name="from")

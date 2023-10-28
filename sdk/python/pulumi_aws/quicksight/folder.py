@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,52 +35,19 @@ class FolderArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        FolderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            folder_id=folder_id,
-            aws_account_id=aws_account_id,
-            folder_type=folder_type,
-            name=name,
-            parent_folder_arn=parent_folder_arn,
-            permissions=permissions,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             folder_id: Optional[pulumi.Input[str]] = None,
-             aws_account_id: Optional[pulumi.Input[str]] = None,
-             folder_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parent_folder_arn: Optional[pulumi.Input[str]] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if folder_id is None and 'folderId' in kwargs:
-            folder_id = kwargs['folderId']
-        if folder_id is None:
-            raise TypeError("Missing 'folder_id' argument")
-        if aws_account_id is None and 'awsAccountId' in kwargs:
-            aws_account_id = kwargs['awsAccountId']
-        if folder_type is None and 'folderType' in kwargs:
-            folder_type = kwargs['folderType']
-        if parent_folder_arn is None and 'parentFolderArn' in kwargs:
-            parent_folder_arn = kwargs['parentFolderArn']
-
-        _setter("folder_id", folder_id)
+        pulumi.set(__self__, "folder_id", folder_id)
         if aws_account_id is not None:
-            _setter("aws_account_id", aws_account_id)
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
         if folder_type is not None:
-            _setter("folder_type", folder_type)
+            pulumi.set(__self__, "folder_type", folder_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parent_folder_arn is not None:
-            _setter("parent_folder_arn", parent_folder_arn)
+            pulumi.set(__self__, "parent_folder_arn", parent_folder_arn)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="folderId")
@@ -201,82 +168,33 @@ class _FolderState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _FolderState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            aws_account_id=aws_account_id,
-            created_time=created_time,
-            folder_id=folder_id,
-            folder_paths=folder_paths,
-            folder_type=folder_type,
-            last_updated_time=last_updated_time,
-            name=name,
-            parent_folder_arn=parent_folder_arn,
-            permissions=permissions,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             aws_account_id: Optional[pulumi.Input[str]] = None,
-             created_time: Optional[pulumi.Input[str]] = None,
-             folder_id: Optional[pulumi.Input[str]] = None,
-             folder_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             folder_type: Optional[pulumi.Input[str]] = None,
-             last_updated_time: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parent_folder_arn: Optional[pulumi.Input[str]] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if aws_account_id is None and 'awsAccountId' in kwargs:
-            aws_account_id = kwargs['awsAccountId']
-        if created_time is None and 'createdTime' in kwargs:
-            created_time = kwargs['createdTime']
-        if folder_id is None and 'folderId' in kwargs:
-            folder_id = kwargs['folderId']
-        if folder_paths is None and 'folderPaths' in kwargs:
-            folder_paths = kwargs['folderPaths']
-        if folder_type is None and 'folderType' in kwargs:
-            folder_type = kwargs['folderType']
-        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
-            last_updated_time = kwargs['lastUpdatedTime']
-        if parent_folder_arn is None and 'parentFolderArn' in kwargs:
-            parent_folder_arn = kwargs['parentFolderArn']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if aws_account_id is not None:
-            _setter("aws_account_id", aws_account_id)
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if folder_id is not None:
-            _setter("folder_id", folder_id)
+            pulumi.set(__self__, "folder_id", folder_id)
         if folder_paths is not None:
-            _setter("folder_paths", folder_paths)
+            pulumi.set(__self__, "folder_paths", folder_paths)
         if folder_type is not None:
-            _setter("folder_type", folder_type)
+            pulumi.set(__self__, "folder_type", folder_type)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parent_folder_arn is not None:
-            _setter("parent_folder_arn", parent_folder_arn)
+            pulumi.set(__self__, "parent_folder_arn", parent_folder_arn)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -577,10 +495,6 @@ class Folder(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FolderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

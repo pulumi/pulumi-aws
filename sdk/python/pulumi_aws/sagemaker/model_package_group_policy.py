@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ModelPackageGroupPolicyArgs', 'ModelPackageGroupPolicy']
@@ -20,29 +20,8 @@ class ModelPackageGroupPolicyArgs:
         The set of arguments for constructing a ModelPackageGroupPolicy resource.
         :param pulumi.Input[str] model_package_group_name: The name of the model package group.
         """
-        ModelPackageGroupPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            model_package_group_name=model_package_group_name,
-            resource_policy=resource_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             model_package_group_name: Optional[pulumi.Input[str]] = None,
-             resource_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if model_package_group_name is None and 'modelPackageGroupName' in kwargs:
-            model_package_group_name = kwargs['modelPackageGroupName']
-        if model_package_group_name is None:
-            raise TypeError("Missing 'model_package_group_name' argument")
-        if resource_policy is None and 'resourcePolicy' in kwargs:
-            resource_policy = kwargs['resourcePolicy']
-        if resource_policy is None:
-            raise TypeError("Missing 'resource_policy' argument")
-
-        _setter("model_package_group_name", model_package_group_name)
-        _setter("resource_policy", resource_policy)
+        pulumi.set(__self__, "model_package_group_name", model_package_group_name)
+        pulumi.set(__self__, "resource_policy", resource_policy)
 
     @property
     @pulumi.getter(name="modelPackageGroupName")
@@ -75,27 +54,10 @@ class _ModelPackageGroupPolicyState:
         Input properties used for looking up and filtering ModelPackageGroupPolicy resources.
         :param pulumi.Input[str] model_package_group_name: The name of the model package group.
         """
-        _ModelPackageGroupPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            model_package_group_name=model_package_group_name,
-            resource_policy=resource_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             model_package_group_name: Optional[pulumi.Input[str]] = None,
-             resource_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if model_package_group_name is None and 'modelPackageGroupName' in kwargs:
-            model_package_group_name = kwargs['modelPackageGroupName']
-        if resource_policy is None and 'resourcePolicy' in kwargs:
-            resource_policy = kwargs['resourcePolicy']
-
         if model_package_group_name is not None:
-            _setter("model_package_group_name", model_package_group_name)
+            pulumi.set(__self__, "model_package_group_name", model_package_group_name)
         if resource_policy is not None:
-            _setter("resource_policy", resource_policy)
+            pulumi.set(__self__, "resource_policy", resource_policy)
 
     @property
     @pulumi.getter(name="modelPackageGroupName")
@@ -173,10 +135,6 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ModelPackageGroupPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

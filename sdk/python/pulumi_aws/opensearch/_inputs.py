@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -60,38 +60,13 @@ class DomainAdvancedSecurityOptionsArgs:
         :param pulumi.Input[bool] internal_user_database_enabled: Whether the internal user database is enabled. Default is `false`.
         :param pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs'] master_user_options: Configuration block for the main user. Detailed below.
         """
-        DomainAdvancedSecurityOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            anonymous_auth_enabled=anonymous_auth_enabled,
-            internal_user_database_enabled=internal_user_database_enabled,
-            master_user_options=master_user_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             anonymous_auth_enabled: Optional[pulumi.Input[bool]] = None,
-             internal_user_database_enabled: Optional[pulumi.Input[bool]] = None,
-             master_user_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if anonymous_auth_enabled is None and 'anonymousAuthEnabled' in kwargs:
-            anonymous_auth_enabled = kwargs['anonymousAuthEnabled']
-        if internal_user_database_enabled is None and 'internalUserDatabaseEnabled' in kwargs:
-            internal_user_database_enabled = kwargs['internalUserDatabaseEnabled']
-        if master_user_options is None and 'masterUserOptions' in kwargs:
-            master_user_options = kwargs['masterUserOptions']
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if anonymous_auth_enabled is not None:
-            _setter("anonymous_auth_enabled", anonymous_auth_enabled)
+            pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
         if internal_user_database_enabled is not None:
-            _setter("internal_user_database_enabled", internal_user_database_enabled)
+            pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
         if master_user_options is not None:
-            _setter("master_user_options", master_user_options)
+            pulumi.set(__self__, "master_user_options", master_user_options)
 
     @property
     @pulumi.getter
@@ -153,33 +128,12 @@ class DomainAdvancedSecurityOptionsMasterUserOptionsArgs:
         :param pulumi.Input[str] master_user_name: Main user's username, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
         :param pulumi.Input[str] master_user_password: Main user's password, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
         """
-        DomainAdvancedSecurityOptionsMasterUserOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            master_user_arn=master_user_arn,
-            master_user_name=master_user_name,
-            master_user_password=master_user_password,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             master_user_arn: Optional[pulumi.Input[str]] = None,
-             master_user_name: Optional[pulumi.Input[str]] = None,
-             master_user_password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if master_user_arn is None and 'masterUserArn' in kwargs:
-            master_user_arn = kwargs['masterUserArn']
-        if master_user_name is None and 'masterUserName' in kwargs:
-            master_user_name = kwargs['masterUserName']
-        if master_user_password is None and 'masterUserPassword' in kwargs:
-            master_user_password = kwargs['masterUserPassword']
-
         if master_user_arn is not None:
-            _setter("master_user_arn", master_user_arn)
+            pulumi.set(__self__, "master_user_arn", master_user_arn)
         if master_user_name is not None:
-            _setter("master_user_name", master_user_name)
+            pulumi.set(__self__, "master_user_name", master_user_name)
         if master_user_password is not None:
-            _setter("master_user_password", master_user_password)
+            pulumi.set(__self__, "master_user_password", master_user_password)
 
     @property
     @pulumi.getter(name="masterUserArn")
@@ -229,34 +183,11 @@ class DomainAutoTuneOptionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgs']]] maintenance_schedules: Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
         :param pulumi.Input[str] rollback_on_disable: Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
         """
-        DomainAutoTuneOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            desired_state=desired_state,
-            maintenance_schedules=maintenance_schedules,
-            rollback_on_disable=rollback_on_disable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             desired_state: Optional[pulumi.Input[str]] = None,
-             maintenance_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgs']]]] = None,
-             rollback_on_disable: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if desired_state is None and 'desiredState' in kwargs:
-            desired_state = kwargs['desiredState']
-        if desired_state is None:
-            raise TypeError("Missing 'desired_state' argument")
-        if maintenance_schedules is None and 'maintenanceSchedules' in kwargs:
-            maintenance_schedules = kwargs['maintenanceSchedules']
-        if rollback_on_disable is None and 'rollbackOnDisable' in kwargs:
-            rollback_on_disable = kwargs['rollbackOnDisable']
-
-        _setter("desired_state", desired_state)
+        pulumi.set(__self__, "desired_state", desired_state)
         if maintenance_schedules is not None:
-            _setter("maintenance_schedules", maintenance_schedules)
+            pulumi.set(__self__, "maintenance_schedules", maintenance_schedules)
         if rollback_on_disable is not None:
-            _setter("rollback_on_disable", rollback_on_disable)
+            pulumi.set(__self__, "rollback_on_disable", rollback_on_disable)
 
     @property
     @pulumi.getter(name="desiredState")
@@ -306,34 +237,9 @@ class DomainAutoTuneOptionsMaintenanceScheduleArgs:
         :param pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleDurationArgs'] duration: Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
         :param pulumi.Input[str] start_at: Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
-        DomainAutoTuneOptionsMaintenanceScheduleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cron_expression_for_recurrence=cron_expression_for_recurrence,
-            duration=duration,
-            start_at=start_at,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cron_expression_for_recurrence: Optional[pulumi.Input[str]] = None,
-             duration: Optional[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleDurationArgs']] = None,
-             start_at: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cron_expression_for_recurrence is None and 'cronExpressionForRecurrence' in kwargs:
-            cron_expression_for_recurrence = kwargs['cronExpressionForRecurrence']
-        if cron_expression_for_recurrence is None:
-            raise TypeError("Missing 'cron_expression_for_recurrence' argument")
-        if duration is None:
-            raise TypeError("Missing 'duration' argument")
-        if start_at is None and 'startAt' in kwargs:
-            start_at = kwargs['startAt']
-        if start_at is None:
-            raise TypeError("Missing 'start_at' argument")
-
-        _setter("cron_expression_for_recurrence", cron_expression_for_recurrence)
-        _setter("duration", duration)
-        _setter("start_at", start_at)
+        pulumi.set(__self__, "cron_expression_for_recurrence", cron_expression_for_recurrence)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "start_at", start_at)
 
     @property
     @pulumi.getter(name="cronExpressionForRecurrence")
@@ -381,25 +287,8 @@ class DomainAutoTuneOptionsMaintenanceScheduleDurationArgs:
         :param pulumi.Input[str] unit: Unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
         :param pulumi.Input[int] value: An integer specifying the value of the duration of an Auto-Tune maintenance window.
         """
-        DomainAutoTuneOptionsMaintenanceScheduleDurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -454,87 +343,30 @@ class DomainClusterConfigArgs:
         :param pulumi.Input['DomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_config: Configuration block containing zone awareness settings. Detailed below.
         :param pulumi.Input[bool] zone_awareness_enabled: Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         """
-        DomainClusterConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cold_storage_options=cold_storage_options,
-            dedicated_master_count=dedicated_master_count,
-            dedicated_master_enabled=dedicated_master_enabled,
-            dedicated_master_type=dedicated_master_type,
-            instance_count=instance_count,
-            instance_type=instance_type,
-            multi_az_with_standby_enabled=multi_az_with_standby_enabled,
-            warm_count=warm_count,
-            warm_enabled=warm_enabled,
-            warm_type=warm_type,
-            zone_awareness_config=zone_awareness_config,
-            zone_awareness_enabled=zone_awareness_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cold_storage_options: Optional[pulumi.Input['DomainClusterConfigColdStorageOptionsArgs']] = None,
-             dedicated_master_count: Optional[pulumi.Input[int]] = None,
-             dedicated_master_enabled: Optional[pulumi.Input[bool]] = None,
-             dedicated_master_type: Optional[pulumi.Input[str]] = None,
-             instance_count: Optional[pulumi.Input[int]] = None,
-             instance_type: Optional[pulumi.Input[str]] = None,
-             multi_az_with_standby_enabled: Optional[pulumi.Input[bool]] = None,
-             warm_count: Optional[pulumi.Input[int]] = None,
-             warm_enabled: Optional[pulumi.Input[bool]] = None,
-             warm_type: Optional[pulumi.Input[str]] = None,
-             zone_awareness_config: Optional[pulumi.Input['DomainClusterConfigZoneAwarenessConfigArgs']] = None,
-             zone_awareness_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cold_storage_options is None and 'coldStorageOptions' in kwargs:
-            cold_storage_options = kwargs['coldStorageOptions']
-        if dedicated_master_count is None and 'dedicatedMasterCount' in kwargs:
-            dedicated_master_count = kwargs['dedicatedMasterCount']
-        if dedicated_master_enabled is None and 'dedicatedMasterEnabled' in kwargs:
-            dedicated_master_enabled = kwargs['dedicatedMasterEnabled']
-        if dedicated_master_type is None and 'dedicatedMasterType' in kwargs:
-            dedicated_master_type = kwargs['dedicatedMasterType']
-        if instance_count is None and 'instanceCount' in kwargs:
-            instance_count = kwargs['instanceCount']
-        if instance_type is None and 'instanceType' in kwargs:
-            instance_type = kwargs['instanceType']
-        if multi_az_with_standby_enabled is None and 'multiAzWithStandbyEnabled' in kwargs:
-            multi_az_with_standby_enabled = kwargs['multiAzWithStandbyEnabled']
-        if warm_count is None and 'warmCount' in kwargs:
-            warm_count = kwargs['warmCount']
-        if warm_enabled is None and 'warmEnabled' in kwargs:
-            warm_enabled = kwargs['warmEnabled']
-        if warm_type is None and 'warmType' in kwargs:
-            warm_type = kwargs['warmType']
-        if zone_awareness_config is None and 'zoneAwarenessConfig' in kwargs:
-            zone_awareness_config = kwargs['zoneAwarenessConfig']
-        if zone_awareness_enabled is None and 'zoneAwarenessEnabled' in kwargs:
-            zone_awareness_enabled = kwargs['zoneAwarenessEnabled']
-
         if cold_storage_options is not None:
-            _setter("cold_storage_options", cold_storage_options)
+            pulumi.set(__self__, "cold_storage_options", cold_storage_options)
         if dedicated_master_count is not None:
-            _setter("dedicated_master_count", dedicated_master_count)
+            pulumi.set(__self__, "dedicated_master_count", dedicated_master_count)
         if dedicated_master_enabled is not None:
-            _setter("dedicated_master_enabled", dedicated_master_enabled)
+            pulumi.set(__self__, "dedicated_master_enabled", dedicated_master_enabled)
         if dedicated_master_type is not None:
-            _setter("dedicated_master_type", dedicated_master_type)
+            pulumi.set(__self__, "dedicated_master_type", dedicated_master_type)
         if instance_count is not None:
-            _setter("instance_count", instance_count)
+            pulumi.set(__self__, "instance_count", instance_count)
         if instance_type is not None:
-            _setter("instance_type", instance_type)
+            pulumi.set(__self__, "instance_type", instance_type)
         if multi_az_with_standby_enabled is not None:
-            _setter("multi_az_with_standby_enabled", multi_az_with_standby_enabled)
+            pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
         if warm_count is not None:
-            _setter("warm_count", warm_count)
+            pulumi.set(__self__, "warm_count", warm_count)
         if warm_enabled is not None:
-            _setter("warm_enabled", warm_enabled)
+            pulumi.set(__self__, "warm_enabled", warm_enabled)
         if warm_type is not None:
-            _setter("warm_type", warm_type)
+            pulumi.set(__self__, "warm_type", warm_type)
         if zone_awareness_config is not None:
-            _setter("zone_awareness_config", zone_awareness_config)
+            pulumi.set(__self__, "zone_awareness_config", zone_awareness_config)
         if zone_awareness_enabled is not None:
-            _setter("zone_awareness_enabled", zone_awareness_enabled)
+            pulumi.set(__self__, "zone_awareness_enabled", zone_awareness_enabled)
 
     @property
     @pulumi.getter(name="coldStorageOptions")
@@ -685,19 +517,8 @@ class DomainClusterConfigColdStorageOptionsArgs:
         """
         :param pulumi.Input[bool] enabled: Boolean to enable cold storage for an OpenSearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
         """
-        DomainClusterConfigColdStorageOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -719,21 +540,8 @@ class DomainClusterConfigZoneAwarenessConfigArgs:
         """
         :param pulumi.Input[int] availability_zone_count: Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
         """
-        DomainClusterConfigZoneAwarenessConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone_count=availability_zone_count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zone_count is None and 'availabilityZoneCount' in kwargs:
-            availability_zone_count = kwargs['availabilityZoneCount']
-
         if availability_zone_count is not None:
-            _setter("availability_zone_count", availability_zone_count)
+            pulumi.set(__self__, "availability_zone_count", availability_zone_count)
 
     @property
     @pulumi.getter(name="availabilityZoneCount")
@@ -761,40 +569,11 @@ class DomainCognitoOptionsArgs:
         :param pulumi.Input[str] user_pool_id: ID of the Cognito User Pool to use.
         :param pulumi.Input[bool] enabled: Whether Amazon Cognito authentication with Dashboard is enabled or not. Default is `false`.
         """
-        DomainCognitoOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_pool_id=identity_pool_id,
-            role_arn=role_arn,
-            user_pool_id=user_pool_id,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_pool_id: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             user_pool_id: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity_pool_id is None and 'identityPoolId' in kwargs:
-            identity_pool_id = kwargs['identityPoolId']
-        if identity_pool_id is None:
-            raise TypeError("Missing 'identity_pool_id' argument")
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if user_pool_id is None and 'userPoolId' in kwargs:
-            user_pool_id = kwargs['userPoolId']
-        if user_pool_id is None:
-            raise TypeError("Missing 'user_pool_id' argument")
-
-        _setter("identity_pool_id", identity_pool_id)
-        _setter("role_arn", role_arn)
-        _setter("user_pool_id", user_pool_id)
+        pulumi.set(__self__, "identity_pool_id", identity_pool_id)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="identityPoolId")
@@ -860,45 +639,16 @@ class DomainDomainEndpointOptionsArgs:
         :param pulumi.Input[bool] enforce_https: Whether or not to require HTTPS. Defaults to `true`.
         :param pulumi.Input[str] tls_security_policy: Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
         """
-        DomainDomainEndpointOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_endpoint=custom_endpoint,
-            custom_endpoint_certificate_arn=custom_endpoint_certificate_arn,
-            custom_endpoint_enabled=custom_endpoint_enabled,
-            enforce_https=enforce_https,
-            tls_security_policy=tls_security_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_endpoint: Optional[pulumi.Input[str]] = None,
-             custom_endpoint_certificate_arn: Optional[pulumi.Input[str]] = None,
-             custom_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
-             enforce_https: Optional[pulumi.Input[bool]] = None,
-             tls_security_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if custom_endpoint is None and 'customEndpoint' in kwargs:
-            custom_endpoint = kwargs['customEndpoint']
-        if custom_endpoint_certificate_arn is None and 'customEndpointCertificateArn' in kwargs:
-            custom_endpoint_certificate_arn = kwargs['customEndpointCertificateArn']
-        if custom_endpoint_enabled is None and 'customEndpointEnabled' in kwargs:
-            custom_endpoint_enabled = kwargs['customEndpointEnabled']
-        if enforce_https is None and 'enforceHttps' in kwargs:
-            enforce_https = kwargs['enforceHttps']
-        if tls_security_policy is None and 'tlsSecurityPolicy' in kwargs:
-            tls_security_policy = kwargs['tlsSecurityPolicy']
-
         if custom_endpoint is not None:
-            _setter("custom_endpoint", custom_endpoint)
+            pulumi.set(__self__, "custom_endpoint", custom_endpoint)
         if custom_endpoint_certificate_arn is not None:
-            _setter("custom_endpoint_certificate_arn", custom_endpoint_certificate_arn)
+            pulumi.set(__self__, "custom_endpoint_certificate_arn", custom_endpoint_certificate_arn)
         if custom_endpoint_enabled is not None:
-            _setter("custom_endpoint_enabled", custom_endpoint_enabled)
+            pulumi.set(__self__, "custom_endpoint_enabled", custom_endpoint_enabled)
         if enforce_https is not None:
-            _setter("enforce_https", enforce_https)
+            pulumi.set(__self__, "enforce_https", enforce_https)
         if tls_security_policy is not None:
-            _setter("tls_security_policy", tls_security_policy)
+            pulumi.set(__self__, "tls_security_policy", tls_security_policy)
 
     @property
     @pulumi.getter(name="customEndpoint")
@@ -976,42 +726,15 @@ class DomainEbsOptionsArgs:
         :param pulumi.Input[int] volume_size: Size of EBS volumes attached to data nodes (in GiB).
         :param pulumi.Input[str] volume_type: Type of EBS volumes attached to data nodes.
         """
-        DomainEbsOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ebs_enabled=ebs_enabled,
-            iops=iops,
-            throughput=throughput,
-            volume_size=volume_size,
-            volume_type=volume_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ebs_enabled: Optional[pulumi.Input[bool]] = None,
-             iops: Optional[pulumi.Input[int]] = None,
-             throughput: Optional[pulumi.Input[int]] = None,
-             volume_size: Optional[pulumi.Input[int]] = None,
-             volume_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ebs_enabled is None and 'ebsEnabled' in kwargs:
-            ebs_enabled = kwargs['ebsEnabled']
-        if ebs_enabled is None:
-            raise TypeError("Missing 'ebs_enabled' argument")
-        if volume_size is None and 'volumeSize' in kwargs:
-            volume_size = kwargs['volumeSize']
-        if volume_type is None and 'volumeType' in kwargs:
-            volume_type = kwargs['volumeType']
-
-        _setter("ebs_enabled", ebs_enabled)
+        pulumi.set(__self__, "ebs_enabled", ebs_enabled)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if throughput is not None:
-            _setter("throughput", throughput)
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
-            _setter("volume_size", volume_size)
+            pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter(name="ebsEnabled")
@@ -1083,26 +806,9 @@ class DomainEncryptAtRestArgs:
         :param pulumi.Input[bool] enabled: Whether to enable encryption at rest. If the `encrypt_at_rest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_5.1` or greater.
         :param pulumi.Input[str] kms_key_id: KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
         """
-        DomainEncryptAtRestArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            kms_key_id=kms_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter
@@ -1140,33 +846,10 @@ class DomainLogPublishingOptionArgs:
         :param pulumi.Input[str] log_type: Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
         :param pulumi.Input[bool] enabled: Whether given log publishing option is enabled or not.
         """
-        DomainLogPublishingOptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloudwatch_log_group_arn=cloudwatch_log_group_arn,
-            log_type=log_type,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
-             log_type: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cloudwatch_log_group_arn is None and 'cloudwatchLogGroupArn' in kwargs:
-            cloudwatch_log_group_arn = kwargs['cloudwatchLogGroupArn']
-        if cloudwatch_log_group_arn is None:
-            raise TypeError("Missing 'cloudwatch_log_group_arn' argument")
-        if log_type is None and 'logType' in kwargs:
-            log_type = kwargs['logType']
-        if log_type is None:
-            raise TypeError("Missing 'log_type' argument")
-
-        _setter("cloudwatch_log_group_arn", cloudwatch_log_group_arn)
-        _setter("log_type", log_type)
+        pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+        pulumi.set(__self__, "log_type", log_type)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
@@ -1212,20 +895,7 @@ class DomainNodeToNodeEncryptionArgs:
         """
         :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
         """
-        DomainNodeToNodeEncryptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -1248,25 +918,10 @@ class DomainOffPeakWindowOptionsArgs:
         """
         :param pulumi.Input[bool] enabled: Enabled disabled toggle for off-peak update window.
         """
-        DomainOffPeakWindowOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            off_peak_window=off_peak_window,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             off_peak_window: Optional[pulumi.Input['DomainOffPeakWindowOptionsOffPeakWindowArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if off_peak_window is None and 'offPeakWindow' in kwargs:
-            off_peak_window = kwargs['offPeakWindow']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if off_peak_window is not None:
-            _setter("off_peak_window", off_peak_window)
+            pulumi.set(__self__, "off_peak_window", off_peak_window)
 
     @property
     @pulumi.getter
@@ -1297,21 +952,8 @@ class DomainOffPeakWindowOptionsOffPeakWindowArgs:
         """
         :param pulumi.Input['DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs'] window_start_time: 10h window for updates
         """
-        DomainOffPeakWindowOptionsOffPeakWindowArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            window_start_time=window_start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             window_start_time: Optional[pulumi.Input['DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if window_start_time is None and 'windowStartTime' in kwargs:
-            window_start_time = kwargs['windowStartTime']
-
         if window_start_time is not None:
-            _setter("window_start_time", window_start_time)
+            pulumi.set(__self__, "window_start_time", window_start_time)
 
     @property
     @pulumi.getter(name="windowStartTime")
@@ -1335,23 +977,10 @@ class DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs:
         :param pulumi.Input[int] hours: Starting hour of the 10-hour window for updates
         :param pulumi.Input[int] minutes: Starting minute of the 10-hour window for updates
         """
-        DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hours=hours,
-            minutes=minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hours: Optional[pulumi.Input[int]] = None,
-             minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if hours is not None:
-            _setter("hours", hours)
+            pulumi.set(__self__, "hours", hours)
         if minutes is not None:
-            _setter("minutes", minutes)
+            pulumi.set(__self__, "minutes", minutes)
 
     @property
     @pulumi.getter
@@ -1397,53 +1026,20 @@ class DomainSamlOptionsSamlOptionsArgs:
         :param pulumi.Input[int] session_timeout_minutes: Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
         :param pulumi.Input[str] subject_key: Element of the SAML assertion to use for username. Default is NameID.
         """
-        DomainSamlOptionsSamlOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            idp=idp,
-            master_backend_role=master_backend_role,
-            master_user_name=master_user_name,
-            roles_key=roles_key,
-            session_timeout_minutes=session_timeout_minutes,
-            subject_key=subject_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             idp: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsIdpArgs']] = None,
-             master_backend_role: Optional[pulumi.Input[str]] = None,
-             master_user_name: Optional[pulumi.Input[str]] = None,
-             roles_key: Optional[pulumi.Input[str]] = None,
-             session_timeout_minutes: Optional[pulumi.Input[int]] = None,
-             subject_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if master_backend_role is None and 'masterBackendRole' in kwargs:
-            master_backend_role = kwargs['masterBackendRole']
-        if master_user_name is None and 'masterUserName' in kwargs:
-            master_user_name = kwargs['masterUserName']
-        if roles_key is None and 'rolesKey' in kwargs:
-            roles_key = kwargs['rolesKey']
-        if session_timeout_minutes is None and 'sessionTimeoutMinutes' in kwargs:
-            session_timeout_minutes = kwargs['sessionTimeoutMinutes']
-        if subject_key is None and 'subjectKey' in kwargs:
-            subject_key = kwargs['subjectKey']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if idp is not None:
-            _setter("idp", idp)
+            pulumi.set(__self__, "idp", idp)
         if master_backend_role is not None:
-            _setter("master_backend_role", master_backend_role)
+            pulumi.set(__self__, "master_backend_role", master_backend_role)
         if master_user_name is not None:
-            _setter("master_user_name", master_user_name)
+            pulumi.set(__self__, "master_user_name", master_user_name)
         if roles_key is not None:
-            _setter("roles_key", roles_key)
+            pulumi.set(__self__, "roles_key", roles_key)
         if session_timeout_minutes is not None:
-            _setter("session_timeout_minutes", session_timeout_minutes)
+            pulumi.set(__self__, "session_timeout_minutes", session_timeout_minutes)
         if subject_key is not None:
-            _setter("subject_key", subject_key)
+            pulumi.set(__self__, "subject_key", subject_key)
 
     @property
     @pulumi.getter
@@ -1539,29 +1135,8 @@ class DomainSamlOptionsSamlOptionsIdpArgs:
         :param pulumi.Input[str] entity_id: Unique Entity ID of the application in SAML Identity Provider.
         :param pulumi.Input[str] metadata_content: Metadata of the SAML application in xml format.
         """
-        DomainSamlOptionsSamlOptionsIdpArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            entity_id=entity_id,
-            metadata_content=metadata_content,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             entity_id: Optional[pulumi.Input[str]] = None,
-             metadata_content: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if entity_id is None and 'entityId' in kwargs:
-            entity_id = kwargs['entityId']
-        if entity_id is None:
-            raise TypeError("Missing 'entity_id' argument")
-        if metadata_content is None and 'metadataContent' in kwargs:
-            metadata_content = kwargs['metadataContent']
-        if metadata_content is None:
-            raise TypeError("Missing 'metadata_content' argument")
-
-        _setter("entity_id", entity_id)
-        _setter("metadata_content", metadata_content)
+        pulumi.set(__self__, "entity_id", entity_id)
+        pulumi.set(__self__, "metadata_content", metadata_content)
 
     @property
     @pulumi.getter(name="entityId")
@@ -1595,22 +1170,7 @@ class DomainSnapshotOptionsArgs:
         """
         :param pulumi.Input[int] automated_snapshot_start_hour: Hour during which the service takes an automated daily snapshot of the indices in the domain.
         """
-        DomainSnapshotOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automated_snapshot_start_hour=automated_snapshot_start_hour,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automated_snapshot_start_hour: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automated_snapshot_start_hour is None and 'automatedSnapshotStartHour' in kwargs:
-            automated_snapshot_start_hour = kwargs['automatedSnapshotStartHour']
-        if automated_snapshot_start_hour is None:
-            raise TypeError("Missing 'automated_snapshot_start_hour' argument")
-
-        _setter("automated_snapshot_start_hour", automated_snapshot_start_hour)
+        pulumi.set(__self__, "automated_snapshot_start_hour", automated_snapshot_start_hour)
 
     @property
     @pulumi.getter(name="automatedSnapshotStartHour")
@@ -1632,21 +1192,8 @@ class DomainSoftwareUpdateOptionsArgs:
         """
         :param pulumi.Input[bool] auto_software_update_enabled: Whether automatic service software updates are enabled for the domain. Defaults to `false`.
         """
-        DomainSoftwareUpdateOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_software_update_enabled=auto_software_update_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_software_update_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_software_update_enabled is None and 'autoSoftwareUpdateEnabled' in kwargs:
-            auto_software_update_enabled = kwargs['autoSoftwareUpdateEnabled']
-
         if auto_software_update_enabled is not None:
-            _setter("auto_software_update_enabled", auto_software_update_enabled)
+            pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
 
     @property
     @pulumi.getter(name="autoSoftwareUpdateEnabled")
@@ -1672,39 +1219,14 @@ class DomainVpcOptionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of VPC Security Group IDs to be applied to the OpenSearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of VPC Subnet IDs for the OpenSearch domain endpoints to be created in.
         """
-        DomainVpcOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zones=availability_zones,
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zones is None and 'availabilityZones' in kwargs:
-            availability_zones = kwargs['availabilityZones']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-
         if availability_zones is not None:
-            _setter("availability_zones", availability_zones)
+            pulumi.set(__self__, "availability_zones", availability_zones)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            _setter("subnet_ids", subnet_ids)
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -1758,25 +1280,10 @@ class OutboundConnectionConnectionPropertiesArgs:
         :param pulumi.Input['OutboundConnectionConnectionPropertiesCrossClusterSearchArgs'] cross_cluster_search: Configuration block for cross cluster search.
         :param pulumi.Input[str] endpoint: The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
         """
-        OutboundConnectionConnectionPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cross_cluster_search=cross_cluster_search,
-            endpoint=endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cross_cluster_search: Optional[pulumi.Input['OutboundConnectionConnectionPropertiesCrossClusterSearchArgs']] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cross_cluster_search is None and 'crossClusterSearch' in kwargs:
-            cross_cluster_search = kwargs['crossClusterSearch']
-
         if cross_cluster_search is not None:
-            _setter("cross_cluster_search", cross_cluster_search)
+            pulumi.set(__self__, "cross_cluster_search", cross_cluster_search)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
 
     @property
     @pulumi.getter(name="crossClusterSearch")
@@ -1810,21 +1317,8 @@ class OutboundConnectionConnectionPropertiesCrossClusterSearchArgs:
         """
         :param pulumi.Input[str] skip_unavailable: Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
         """
-        OutboundConnectionConnectionPropertiesCrossClusterSearchArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            skip_unavailable=skip_unavailable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             skip_unavailable: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if skip_unavailable is None and 'skipUnavailable' in kwargs:
-            skip_unavailable = kwargs['skipUnavailable']
-
         if skip_unavailable is not None:
-            _setter("skip_unavailable", skip_unavailable)
+            pulumi.set(__self__, "skip_unavailable", skip_unavailable)
 
     @property
     @pulumi.getter(name="skipUnavailable")
@@ -1850,34 +1344,9 @@ class OutboundConnectionLocalDomainInfoArgs:
         :param pulumi.Input[str] owner_id: The Account ID of the owner of the local domain.
         :param pulumi.Input[str] region: The region of the local domain.
         """
-        OutboundConnectionLocalDomainInfoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            owner_id=owner_id,
-            region=region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[pulumi.Input[str]] = None,
-             owner_id: Optional[pulumi.Input[str]] = None,
-             region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if domain_name is None:
-            raise TypeError("Missing 'domain_name' argument")
-        if owner_id is None and 'ownerId' in kwargs:
-            owner_id = kwargs['ownerId']
-        if owner_id is None:
-            raise TypeError("Missing 'owner_id' argument")
-        if region is None:
-            raise TypeError("Missing 'region' argument")
-
-        _setter("domain_name", domain_name)
-        _setter("owner_id", owner_id)
-        _setter("region", region)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "owner_id", owner_id)
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="domainName")
@@ -1927,34 +1396,9 @@ class OutboundConnectionRemoteDomainInfoArgs:
         :param pulumi.Input[str] owner_id: The Account ID of the owner of the remote domain.
         :param pulumi.Input[str] region: The region of the remote domain.
         """
-        OutboundConnectionRemoteDomainInfoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            owner_id=owner_id,
-            region=region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[pulumi.Input[str]] = None,
-             owner_id: Optional[pulumi.Input[str]] = None,
-             region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if domain_name is None:
-            raise TypeError("Missing 'domain_name' argument")
-        if owner_id is None and 'ownerId' in kwargs:
-            owner_id = kwargs['ownerId']
-        if owner_id is None:
-            raise TypeError("Missing 'owner_id' argument")
-        if region is None:
-            raise TypeError("Missing 'region' argument")
-
-        _setter("domain_name", domain_name)
-        _setter("owner_id", owner_id)
-        _setter("region", region)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "owner_id", owner_id)
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="domainName")
@@ -2002,29 +1446,8 @@ class PackagePackageSourceArgs:
         :param pulumi.Input[str] s3_bucket_name: The name of the Amazon S3 bucket containing the package.
         :param pulumi.Input[str] s3_key: Key (file name) of the package.
         """
-        PackagePackageSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_bucket_name=s3_bucket_name,
-            s3_key=s3_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_bucket_name: Optional[pulumi.Input[str]] = None,
-             s3_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if s3_bucket_name is None and 's3BucketName' in kwargs:
-            s3_bucket_name = kwargs['s3BucketName']
-        if s3_bucket_name is None:
-            raise TypeError("Missing 's3_bucket_name' argument")
-        if s3_key is None and 's3Key' in kwargs:
-            s3_key = kwargs['s3Key']
-        if s3_key is None:
-            raise TypeError("Missing 's3_key' argument")
-
-        _setter("s3_bucket_name", s3_bucket_name)
-        _setter("s3_key", s3_key)
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -2056,23 +1479,10 @@ class ServerlessCollectionTimeoutsArgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None):
-        ServerlessCollectionTimeoutsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            create=create,
-            delete=delete,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             create: Optional[pulumi.Input[str]] = None,
-             delete: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if create is not None:
-            _setter("create", create)
+            pulumi.set(__self__, "create", create)
         if delete is not None:
-            _setter("delete", delete)
+            pulumi.set(__self__, "delete", delete)
 
     @property
     @pulumi.getter
@@ -2106,38 +1516,13 @@ class ServerlessSecurityConfigSamlOptionsArgs:
         :param pulumi.Input[int] session_timeout: Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
         :param pulumi.Input[str] user_attribute: User attribute for this SAML integration.
         """
-        ServerlessSecurityConfigSamlOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metadata=metadata,
-            group_attribute=group_attribute,
-            session_timeout=session_timeout,
-            user_attribute=user_attribute,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metadata: Optional[pulumi.Input[str]] = None,
-             group_attribute: Optional[pulumi.Input[str]] = None,
-             session_timeout: Optional[pulumi.Input[int]] = None,
-             user_attribute: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if metadata is None:
-            raise TypeError("Missing 'metadata' argument")
-        if group_attribute is None and 'groupAttribute' in kwargs:
-            group_attribute = kwargs['groupAttribute']
-        if session_timeout is None and 'sessionTimeout' in kwargs:
-            session_timeout = kwargs['sessionTimeout']
-        if user_attribute is None and 'userAttribute' in kwargs:
-            user_attribute = kwargs['userAttribute']
-
-        _setter("metadata", metadata)
+        pulumi.set(__self__, "metadata", metadata)
         if group_attribute is not None:
-            _setter("group_attribute", group_attribute)
+            pulumi.set(__self__, "group_attribute", group_attribute)
         if session_timeout is not None:
-            _setter("session_timeout", session_timeout)
+            pulumi.set(__self__, "session_timeout", session_timeout)
         if user_attribute is not None:
-            _setter("user_attribute", user_attribute)
+            pulumi.set(__self__, "user_attribute", user_attribute)
 
     @property
     @pulumi.getter
@@ -2194,27 +1579,12 @@ class ServerlessVpcEndpointTimeoutsArgs:
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None,
                  update: Optional[pulumi.Input[str]] = None):
-        ServerlessVpcEndpointTimeoutsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            create=create,
-            delete=delete,
-            update=update,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             create: Optional[pulumi.Input[str]] = None,
-             delete: Optional[pulumi.Input[str]] = None,
-             update: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if create is not None:
-            _setter("create", create)
+            pulumi.set(__self__, "create", create)
         if delete is not None:
-            _setter("delete", delete)
+            pulumi.set(__self__, "delete", delete)
         if update is not None:
-            _setter("update", update)
+            pulumi.set(__self__, "update", update)
 
     @property
     @pulumi.getter
@@ -2255,40 +1625,13 @@ class VpcEndpointVpcOptionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
         """
-        VpcEndpointVpcOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_ids=subnet_ids,
-            availability_zones=availability_zones,
-            security_group_ids=security_group_ids,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-        if subnet_ids is None:
-            raise TypeError("Missing 'subnet_ids' argument")
-        if availability_zones is None and 'availabilityZones' in kwargs:
-            availability_zones = kwargs['availabilityZones']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-
-        _setter("subnet_ids", subnet_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
         if availability_zones is not None:
-            _setter("availability_zones", availability_zones)
+            pulumi.set(__self__, "availability_zones", availability_zones)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -2341,27 +1684,8 @@ class GetDomainOffPeakWindowOptionsArgs:
         """
         :param bool enabled: Enabled disabled toggle for off-peak update window
         """
-        GetDomainOffPeakWindowOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            off_peak_windows=off_peak_windows,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             off_peak_windows: Optional[Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if off_peak_windows is None and 'offPeakWindows' in kwargs:
-            off_peak_windows = kwargs['offPeakWindows']
-        if off_peak_windows is None:
-            raise TypeError("Missing 'off_peak_windows' argument")
-
-        _setter("enabled", enabled)
-        _setter("off_peak_windows", off_peak_windows)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "off_peak_windows", off_peak_windows)
 
     @property
     @pulumi.getter
@@ -2392,22 +1716,7 @@ class GetDomainOffPeakWindowOptionsOffPeakWindowArgs:
         """
         :param Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs'] window_start_times: 10h window for updates
         """
-        GetDomainOffPeakWindowOptionsOffPeakWindowArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            window_start_times=window_start_times,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             window_start_times: Optional[Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if window_start_times is None and 'windowStartTimes' in kwargs:
-            window_start_times = kwargs['windowStartTimes']
-        if window_start_times is None:
-            raise TypeError("Missing 'window_start_times' argument")
-
-        _setter("window_start_times", window_start_times)
+        pulumi.set(__self__, "window_start_times", window_start_times)
 
     @property
     @pulumi.getter(name="windowStartTimes")
@@ -2431,25 +1740,8 @@ class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs:
         :param int hours: Starting hour of the 10-hour window for updates
         :param int minutes: Starting minute of the 10-hour window for updates
         """
-        GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hours=hours,
-            minutes=minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hours: Optional[int] = None,
-             minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hours is None:
-            raise TypeError("Missing 'hours' argument")
-        if minutes is None:
-            raise TypeError("Missing 'minutes' argument")
-
-        _setter("hours", hours)
-        _setter("minutes", minutes)
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
 
     @property
     @pulumi.getter
@@ -2489,41 +1781,10 @@ class GetServerlessSecurityConfigSamlOptionsArgs:
         :param int session_timeout: Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
         :param str user_attribute: User attribute for this SAML integration.
         """
-        GetServerlessSecurityConfigSamlOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_attribute=group_attribute,
-            metadata=metadata,
-            session_timeout=session_timeout,
-            user_attribute=user_attribute,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_attribute: Optional[str] = None,
-             metadata: Optional[str] = None,
-             session_timeout: Optional[int] = None,
-             user_attribute: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if group_attribute is None and 'groupAttribute' in kwargs:
-            group_attribute = kwargs['groupAttribute']
-        if group_attribute is None:
-            raise TypeError("Missing 'group_attribute' argument")
-        if metadata is None:
-            raise TypeError("Missing 'metadata' argument")
-        if session_timeout is None and 'sessionTimeout' in kwargs:
-            session_timeout = kwargs['sessionTimeout']
-        if session_timeout is None:
-            raise TypeError("Missing 'session_timeout' argument")
-        if user_attribute is None and 'userAttribute' in kwargs:
-            user_attribute = kwargs['userAttribute']
-        if user_attribute is None:
-            raise TypeError("Missing 'user_attribute' argument")
-
-        _setter("group_attribute", group_attribute)
-        _setter("metadata", metadata)
-        _setter("session_timeout", session_timeout)
-        _setter("user_attribute", user_attribute)
+        pulumi.set(__self__, "group_attribute", group_attribute)
+        pulumi.set(__self__, "metadata", metadata)
+        pulumi.set(__self__, "session_timeout", session_timeout)
+        pulumi.set(__self__, "user_attribute", user_attribute)
 
     @property
     @pulumi.getter(name="groupAttribute")
