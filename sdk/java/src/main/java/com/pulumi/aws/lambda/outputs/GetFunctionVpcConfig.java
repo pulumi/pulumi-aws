@@ -4,17 +4,22 @@
 package com.pulumi.aws.lambda.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetFunctionVpcConfig {
+    private Boolean ipv6AllowedForDualStack;
     private List<String> securityGroupIds;
     private List<String> subnetIds;
     private String vpcId;
 
     private GetFunctionVpcConfig() {}
+    public Boolean ipv6AllowedForDualStack() {
+        return this.ipv6AllowedForDualStack;
+    }
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
@@ -34,17 +39,24 @@ public final class GetFunctionVpcConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean ipv6AllowedForDualStack;
         private List<String> securityGroupIds;
         private List<String> subnetIds;
         private String vpcId;
         public Builder() {}
         public Builder(GetFunctionVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.ipv6AllowedForDualStack = defaults.ipv6AllowedForDualStack;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnetIds = defaults.subnetIds;
     	      this.vpcId = defaults.vpcId;
         }
 
+        @CustomType.Setter
+        public Builder ipv6AllowedForDualStack(Boolean ipv6AllowedForDualStack) {
+            this.ipv6AllowedForDualStack = Objects.requireNonNull(ipv6AllowedForDualStack);
+            return this;
+        }
         @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             this.securityGroupIds = Objects.requireNonNull(securityGroupIds);
@@ -68,6 +80,7 @@ public final class GetFunctionVpcConfig {
         }
         public GetFunctionVpcConfig build() {
             final var o = new GetFunctionVpcConfig();
+            o.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
             o.securityGroupIds = securityGroupIds;
             o.subnetIds = subnetIds;
             o.vpcId = vpcId;
